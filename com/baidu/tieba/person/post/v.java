@@ -6,13 +6,13 @@ import com.baidu.tieba.person.UserPostPageRequestMessage;
 import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
 class v extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ u ctE;
+    final /* synthetic */ u cRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(u uVar, int i) {
         super(i);
-        this.ctE = uVar;
+        this.cRr = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ class v extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
             UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
             if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
-                this.ctE.b(null, false);
+                this.cRr.b(null, false);
                 return;
             }
             UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();

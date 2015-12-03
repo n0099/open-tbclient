@@ -1,23 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import protobuf.GetOnlineInfo.Game;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements Runnable {
-    final /* synthetic */ MainTabActivity this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean z;
-        z = this.this$0.deR;
-        if (!z) {
-            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
+public class t implements CustomMessageTask.CustomRunnable<Game> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Game> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
+        if (customMessage.getData() != null) {
+            MainTabActivityStatic.dDh = customMessage.getData();
+        }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_SHOW_GAME_ICON);
     }
 }

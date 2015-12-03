@@ -5,14 +5,14 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int arf;
-    private GradientDrawable cZF;
-    protected int cZG;
-    protected int cZH;
+    private int afY;
+    private GradientDrawable dyt;
+    protected int dyu;
+    protected int dyv;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,37 +24,37 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.arf = 3;
-        this.cZG = (int) context.getResources().getDimension(i.d.ds18);
-        this.cZH = (int) context.getResources().getDimension(i.d.ds6);
-        setPadding(this.cZG, this.cZH, this.cZG, this.cZH);
+        this.afY = 3;
+        this.dyu = (int) context.getResources().getDimension(n.d.ds18);
+        this.dyv = (int) context.getResources().getDimension(n.d.ds6);
+        setPadding(this.dyu, this.dyv, this.dyu, this.dyv);
         setGravity(16);
         setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(i.d.ds24));
+        setTextSize(0, context.getResources().getDimension(n.d.ds24));
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(i.d.ds48));
+        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(n.d.ds48));
     }
 
-    public void vB() {
+    public void wh() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.arf) {
-            this.arf = skinType;
-            tc();
+        if (skinType != this.afY) {
+            this.afY = skinType;
+            tH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tc() {
-        if (this.cZF == null) {
-            this.cZF = new GradientDrawable();
-            this.cZF.setCornerRadius(getContext().getResources().getDimension(i.d.ds24));
+    public void tH() {
+        if (this.dyt == null) {
+            this.dyt = new GradientDrawable();
+            this.dyt.setCornerRadius(getContext().getResources().getDimension(n.d.ds24));
         }
-        an.b(this, i.c.cp_cont_c, 1);
-        this.cZF.setColor(an.getColor(i.c.cp_bg_line_e));
-        setBackgroundDrawable(this.cZF);
+        as.b(this, n.c.cp_cont_c, 1);
+        this.dyt.setColor(as.getColor(n.c.cp_bg_line_e));
+        setBackgroundDrawable(this.dyt);
     }
 }

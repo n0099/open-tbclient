@@ -1,140 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Parcelable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class cm {
-    private com.baidu.tieba.pb.a.c chr;
-    private boolean ckA;
-    private boolean ckC;
-    private String clo;
-    private boolean clp;
-    private boolean clq;
-    private Parcelable clr;
+public class cm extends cb<com.baidu.tbadk.core.data.ad, cl> {
+    private View.OnClickListener ccv;
 
-    static {
-        MessageManager.getInstance().registerListener(new cn(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
-        MessageManager.getInstance().registerListener(new co(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-        MessageManager.getInstance().registerListener(new cp(CmdConfigCustom.CMD_LIKE_FORUM));
-        MessageManager.getInstance().registerListener(new cq(CmdConfigCustom.CMD_UNLIKE_FORUM));
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cm(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    /* loaded from: classes.dex */
-    private static class a {
-        private static cm cls = new cm(null);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: af */
+    public cl a(ViewGroup viewGroup) {
+        return new cl(LayoutInflater.from(this.mContext).inflate(n.g.pb_u9_news_layout, viewGroup, false));
     }
 
-    public static cm agF() {
-        return a.cls;
-    }
-
-    private cm() {
-        this.clo = null;
-        this.clp = false;
-        this.chr = null;
-        this.clq = false;
-        this.clr = null;
-        this.ckC = true;
-        this.ckA = false;
-    }
-
-    /* synthetic */ cm(cm cmVar) {
-        this();
-    }
-
-    public void B(String str, boolean z) {
-        this.clp = false;
-        if (z) {
-            str = null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cb, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ad adVar, cl clVar) {
+        super.a(i, view, viewGroup, (ViewGroup) adVar, (com.baidu.tbadk.core.data.ad) clVar);
+        if (adVar != null) {
+            clVar.cDW.setOnClickListener(this.ccv);
+            clVar.cDW.setText(adVar.getSummary());
+            clVar.cDW.setTag(adVar);
+            com.baidu.tbadk.core.util.as.j(clVar.cDX, n.c.cp_bg_line_b);
+            com.baidu.tbadk.core.util.as.b(clVar.cDW, n.c.cp_cont_b, 1);
+            clVar.cDW.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(n.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.clo = null;
-        } else if (!str.equals(this.clo)) {
-            reset();
-            this.clo = str;
-        } else {
-            this.clp = true;
-        }
+        return view;
     }
 
-    public com.baidu.tieba.pb.a.c getPbData() {
-        if (!this.clp) {
-            this.clq = false;
-            return null;
-        } else if (this.chr != null && this.chr.afi() != null && this.chr.afi().size() > 0) {
-            this.clq = true;
-            com.baidu.tieba.pb.a.c cVar = this.chr;
-            this.chr = null;
-            return cVar;
-        } else {
-            this.clq = false;
-            this.chr = null;
-            return null;
-        }
-    }
-
-    public Parcelable agG() {
-        if (this.clq) {
-            this.clq = false;
-            Parcelable parcelable = this.clr;
-            this.clr = null;
-            return parcelable;
-        }
-        this.clr = null;
-        return null;
-    }
-
-    public boolean agm() {
-        return this.ckC;
-    }
-
-    public boolean agH() {
-        return this.ckA;
-    }
-
-    public boolean a(com.baidu.tieba.pb.a.c cVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.clp = false;
-        if (this.clo == null) {
-            reset();
-            return false;
-        } else if (cVar == null) {
-            reset();
-            return false;
-        } else if (cVar.afi() == null) {
-            reset();
-            return false;
-        } else if (cVar.afi().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.chr = cVar;
-            this.clq = false;
-            this.clr = parcelable;
-            this.ckC = z;
-            this.ckA = z2;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.clp = false;
-        this.chr = null;
-        this.clq = false;
-        this.clr = null;
-    }
-
-    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.chr != null && this.chr.afg() != null) {
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.chr.afg().getId(), 0L)) {
-                this.chr.afg().setLike(i);
-            }
-        }
+    public void r(View.OnClickListener onClickListener) {
+        this.ccv = onClickListener;
     }
 }

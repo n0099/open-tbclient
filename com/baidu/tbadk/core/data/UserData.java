@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.util.ImageInfo;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class UserData extends com.baidu.tbadk.data.UserData implements ae, com.baidu.tbadk.core.util.t, TbCheckBox.b {
+public class UserData extends com.baidu.tbadk.data.UserData implements aj, com.baidu.tbadk.core.util.x, TbCheckBox.b {
     public static final int TYPE_NORMAL_USER = 0;
     private static final long serialVersionUID = -2636990595209169859L;
     private boolean mIsChecked;
@@ -27,8 +27,8 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ae, com.b
 
     public ArrayList<String> getImageUrl() {
         ArrayList<IconData> iconInfo = getIconInfo();
-        ArrayList<IconData> tShowInfo = getTShowInfo();
-        if (iconInfo == null || tShowInfo == null) {
+        ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
+        if (iconInfo == null || tShowInfoNew == null) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ae, com.b
             arrayList.add(iconInfo.get(i).getIcon());
         }
         for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-            arrayList.add(tShowInfo.get(i2).getIcon());
+            arrayList.add(tShowInfoNew.get(i2).getIcon());
         }
         return arrayList;
     }
@@ -65,13 +65,13 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ae, com.b
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        ArrayList<ad> arrayList = new ArrayList<>();
-        ad adVar = new ad();
-        adVar.Wd = getPortrait();
-        adVar.aaD = 12;
-        arrayList.add(adVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.WN = getPortrait();
+        aiVar.abp = 12;
+        arrayList.add(aiVar);
         return arrayList;
     }
 }

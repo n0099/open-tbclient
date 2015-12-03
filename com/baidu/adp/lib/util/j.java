@@ -5,18 +5,20 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class j {
-    protected static SimpleDateFormat yp = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat yq = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat yr = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat ys = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat yt = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat yu = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat yv = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat yw = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat yx = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat yy = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat yv = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat yw = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat yx = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat yy = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat yz = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat yA = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat yB = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat yC = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat yD = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat yE = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -27,32 +29,32 @@ public class j {
 
     public static String a(Date date) {
         String format;
-        synchronized (yt) {
-            format = yt.format(date);
+        synchronized (yz) {
+            format = yz.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (yr) {
-            format = yr.format(date);
+        synchronized (yx) {
+            format = yx.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (ys) {
-            format = ys.format(date);
+        synchronized (yy) {
+            format = yy.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (yu) {
-            format = yu.format(date);
+        synchronized (yA) {
+            format = yA.format(date);
         }
         return format;
     }
@@ -62,7 +64,7 @@ public class j {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean aN(String str) {
+    public static boolean aR(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -70,11 +72,11 @@ public class j {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean aO(String str) {
+    public static boolean aS(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String aP(String str) {
+    public static String aT(String str) {
         if (str == null) {
             return null;
         }
@@ -86,7 +88,40 @@ public class j {
         }
     }
 
-    public static String aQ(String str) {
+    public static Map<String, String> B(String str, String str2) {
+        String[] split;
+        HashMap hashMap = new HashMap();
+        if (str != null && str2 != null) {
+            for (String str3 : str.split(str2)) {
+                int indexOf = str3.indexOf("=");
+                if (indexOf != -1) {
+                    String trim = str3.substring(0, indexOf).trim();
+                    String trim2 = str3.substring(indexOf + 1).trim();
+                    if (!trim.isEmpty() && !trim2.isEmpty()) {
+                        hashMap.put(trim.trim(), trim2.trim());
+                    }
+                }
+            }
+        }
+        return hashMap;
+    }
+
+    public static String b(String str, Map<?, ?> map) {
+        StringBuilder sb = new StringBuilder();
+        if (str != null && map != null) {
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                Object key = entry.getKey();
+                Object value = entry.getValue();
+                sb.append(key == null ? "null" : key.toString());
+                sb.append('=');
+                sb.append(value == null ? "null" : value.toString());
+                sb.append(';');
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String aU(String str) {
         try {
             return URLDecoder.decode(str, "utf-8");
         } catch (Exception e) {
@@ -95,7 +130,7 @@ public class j {
         }
     }
 
-    public static int aR(String str) {
+    public static int aV(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {

@@ -18,6 +18,7 @@ public class WriteImageActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String FROMCODE = "request";
     public static final String THREADID = "threadid";
+    public static boolean isActivityInStack = false;
 
     public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5, String str6) {
         super(context);

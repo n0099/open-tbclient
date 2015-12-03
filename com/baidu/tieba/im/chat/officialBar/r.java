@@ -11,7 +11,7 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String btG;
+        public String bIL;
         public String fid;
         public long picId;
         public String src;
@@ -20,7 +20,7 @@ public class r {
         public String url;
     }
 
-    public static List<a> aC(String str, String str2) {
+    public static List<a> aH(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -43,7 +43,7 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.btG = optString5;
+                aVar.bIL = optString5;
                 linkedList.add(aVar);
             }
             return linkedList;

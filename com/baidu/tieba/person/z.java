@@ -1,35 +1,69 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ r cqM;
+    final /* synthetic */ s cKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(r rVar) {
-        this.cqM = rVar;
+    public z(s sVar) {
+        this.cKg = sVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ac acVar;
-        ac acVar2;
-        PersonBarActivity aiU;
-        PersonBarActivity aiU2;
-        int intValue = ((Integer) view.getTag()).intValue();
-        if (intValue >= 0) {
-            acVar = this.cqM.cqw;
-            if (intValue < acVar.getCount()) {
-                acVar2 = this.cqM.cqw;
-                ForumData forumData = (ForumData) acVar2.getItem(intValue);
-                aiU = this.cqM.aiU();
-                if (aiU != null) {
-                    aiU2 = this.cqM.aiU();
-                    this.cqM.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aiU2.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+        int i;
+        int i2;
+        ad adVar;
+        boolean z;
+        ad adVar2;
+        int i3;
+        ForumData forumData;
+        ForumData forumData2;
+        ForumData forumData3;
+        ForumData forumData4;
+        ForumData forumData5;
+        String str;
+        ForumData forumData6;
+        this.cKg.cua = ((Integer) view.getTag()).intValue();
+        i = this.cKg.cua;
+        if (i >= 0) {
+            i2 = this.cKg.cua;
+            adVar = this.cKg.cJR;
+            if (i2 < adVar.getCount()) {
+                z = this.cKg.cJW;
+                if (!z) {
+                    s sVar = this.cKg;
+                    adVar2 = this.cKg.cJR;
+                    i3 = this.cKg.cua;
+                    sVar.cJV = (ForumData) adVar2.getItem(i3);
+                    forumData = this.cKg.cJV;
+                    if (forumData != null) {
+                        forumData2 = this.cKg.cJV;
+                        if (forumData2.getId() != null) {
+                            forumData3 = this.cKg.cJV;
+                            if (forumData3.getName() != null) {
+                                s sVar2 = this.cKg;
+                                forumData4 = this.cKg.cJV;
+                                sVar2.cJS = forumData4.getName();
+                                this.cKg.cJW = true;
+                                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
+                                forumData5 = this.cKg.cJV;
+                                httpMessage.addParam(ImageViewerConfig.FORUM_ID, forumData5.getId());
+                                str = this.cKg.cJS;
+                                httpMessage.addParam("kw", str);
+                                forumData6 = this.cKg.cJV;
+                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
+                                httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
+                                this.cKg.sendMessage(httpMessage);
+                            }
+                        }
+                    }
                 }
             }
         }

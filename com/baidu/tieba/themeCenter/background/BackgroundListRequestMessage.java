@@ -19,7 +19,7 @@ public class BackgroundListRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         GetBgListReqIdl.Builder builder2 = new GetBgListReqIdl.Builder();
         builder2.data = builder.build(false);

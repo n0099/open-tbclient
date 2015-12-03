@@ -8,7 +8,9 @@ import tbclient.GiftInfo;
 public class MyGift extends i implements Serializable {
     private static final long serialVersionUID = 1;
     private String mGiftIcon;
+    private String mGiftName;
     private int mGiftNum;
+    private String mSender;
 
     public String getGiftIcon() {
         return this.mGiftIcon;
@@ -26,6 +28,22 @@ public class MyGift extends i implements Serializable {
         this.mGiftNum = i;
     }
 
+    public String getGiftName() {
+        return this.mGiftName;
+    }
+
+    public void setGiftName(String str) {
+        this.mGiftName = str;
+    }
+
+    public String getSender() {
+        return this.mSender;
+    }
+
+    public void setSender(String str) {
+        this.mSender = str;
+    }
+
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mGiftIcon = jSONObject.optString("icon");
@@ -37,6 +55,8 @@ public class MyGift extends i implements Serializable {
         if (giftInfo != null) {
             this.mGiftIcon = giftInfo.icon;
             this.mGiftNum = giftInfo.num.intValue();
+            this.mGiftName = giftInfo.gift_name;
+            this.mSender = giftInfo.sender_name;
         }
     }
 }

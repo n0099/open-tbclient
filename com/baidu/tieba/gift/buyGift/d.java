@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.b {
-    final /* synthetic */ BuyGiftActivity bng;
+    final /* synthetic */ BuyGiftActivity buJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BuyGiftActivity buyGiftActivity) {
-        this.bng = buyGiftActivity;
+        this.buJ = buyGiftActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -19,14 +19,14 @@ public class d implements a.b {
         InputMethodManager inputMethodManager;
         EditText editText2;
         com.baidu.tbadk.core.dialog.a aVar2;
-        this.bng.mPassword = "";
-        editText = this.bng.bmY;
+        this.buJ.mPassword = "";
+        editText = this.buJ.buB;
         editText.clearFocus();
-        BuyGiftActivity buyGiftActivity = this.bng;
-        inputMethodManager = this.bng.bnb;
-        editText2 = this.bng.bmY;
+        BuyGiftActivity buyGiftActivity = this.buJ;
+        inputMethodManager = this.buJ.buE;
+        editText2 = this.buJ.buB;
         buyGiftActivity.HidenSoftKeyPad(inputMethodManager, editText2);
-        aVar2 = this.bng.bmW;
+        aVar2 = this.buJ.buz;
         aVar2.dismiss();
     }
 }

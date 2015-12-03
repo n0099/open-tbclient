@@ -10,11 +10,11 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.adp.widget.ListView.x.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends x.a> {
-    protected v GJ;
-    protected w GK;
-    protected BdUniqueId GL;
-    private x GM;
-    private V GN;
+    protected v Hb;
+    protected w Hc;
+    protected BdUniqueId Hd;
+    private x He;
+    private V Hf;
     protected Context mContext;
 
     protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
@@ -24,7 +24,7 @@ public abstract class a<T, V extends x.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.GL = bdUniqueId;
+        this.Hd = bdUniqueId;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.x$a> */
@@ -32,10 +32,10 @@ public abstract class a<T, V extends x.a> {
     public View a(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (e(view)) {
-            this.GN = (V) a(viewGroup);
-            view2 = this.GN.getView();
+            this.Hf = (V) a(viewGroup);
+            view2 = this.Hf.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.GN.getClass().getName());
+                BdLog.i("convertView is creating" + this.Hf.getClass().getName());
             }
         } else {
             view2 = view;
@@ -44,43 +44,43 @@ public abstract class a<T, V extends x.a> {
     }
 
     private boolean e(View view) {
-        return view == null || view.getTag() == null || this.GN == null || !this.GN.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.GN.getClass());
+        return view == null || view.getTag() == null || this.Hf == null || !this.Hf.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Hf.getClass());
     }
 
     public void a(v vVar) {
-        this.GJ = vVar;
+        this.Hb = vVar;
     }
 
-    public v ni() {
-        return this.GJ;
+    public v no() {
+        return this.Hb;
     }
 
     public void a(w wVar) {
-        this.GK = wVar;
+        this.Hc = wVar;
     }
 
-    public w nj() {
-        return this.GK;
+    public w np() {
+        return this.Hc;
     }
 
     public BdUniqueId getType() {
-        return this.GL;
+        return this.Hd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(x xVar) {
-        this.GM = xVar;
+        this.He = xVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.GM != null) {
-            this.GM.notifyDataSetChanged();
+        if (this.He != null) {
+            this.He.notifyDataSetChanged();
         }
     }
 
-    public u aA(int i) {
-        if (this.GM != null) {
-            return this.GM.getItem(i);
+    public u aB(int i) {
+        if (this.He != null) {
+            return this.He.getItem(i);
         }
         return null;
     }

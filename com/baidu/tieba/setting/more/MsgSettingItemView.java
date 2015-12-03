@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private View Mo;
-    private TextView cPX;
-    private TextView cPY;
-    private BdSwitchView cPZ;
+    private View MF;
+    private TextView dot;
+    private TextView dou;
+    private BdSwitchView dov;
 
     public MsgSettingItemView(Context context) {
         super(context);
@@ -30,24 +30,24 @@ public class MsgSettingItemView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(i.g.msg_setting_item_view, (ViewGroup) this, true);
-        this.cPX = (TextView) findViewById(i.f.setting_text);
-        this.cPY = (TextView) findViewById(i.f.setting_tip);
-        this.cPZ = (BdSwitchView) findViewById(i.f.setting_switch);
-        com.baidu.adp.lib.util.k.a(context, this.cPZ, 10, 10, 10, 10);
-        this.Mo = findViewById(i.f.bottom_line_ll);
+        LayoutInflater.from(context).inflate(n.g.msg_setting_item_view, (ViewGroup) this, true);
+        this.dot = (TextView) findViewById(n.f.setting_text);
+        this.dou = (TextView) findViewById(n.f.setting_tip);
+        this.dov = (BdSwitchView) findViewById(n.f.setting_switch);
+        com.baidu.adp.lib.util.k.a(context, this.dov, 10, 10, 10, 10);
+        this.MF = findViewById(n.f.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cPX.setText(str);
+        this.dot.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cPX.setText(i);
+            this.dot.setText(i);
         }
     }
 
@@ -55,57 +55,57 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cPY.setVisibility(0);
-        this.cPY.setText(str);
+        this.dou.setVisibility(0);
+        this.dou.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.cPY.setVisibility(0);
-            this.cPY.setText(i);
+            this.dou.setVisibility(0);
+            this.dou.setText(i);
         }
     }
 
-    public void mD() {
-        this.cPZ.mD();
+    public void mH() {
+        this.dov.mH();
     }
 
-    public void mC() {
-        this.cPZ.mC();
+    public void mG() {
+        this.dov.mG();
     }
 
-    public void mB() {
-        this.cPZ.mB();
+    public void mF() {
+        this.dov.mF();
     }
 
-    public void mA() {
-        this.cPZ.mA();
+    public void mE() {
+        this.dov.mE();
     }
 
-    public boolean hy() {
-        return this.cPZ.hy();
+    public boolean hA() {
+        return this.dov.hA();
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.Mo.setVisibility(0);
+            this.MF.setVisibility(0);
         } else {
-            this.Mo.setVisibility(8);
+            this.MF.setVisibility(8);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.cPZ;
+        return this.dov;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.cPZ.setOnSwitchStateChangeListener(aVar);
+        this.dov.setOnSwitchStateChangeListener(aVar);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ad(i == 1);
+        tbPageContext.getLayoutMode().af(i == 1);
         tbPageContext.getLayoutMode().k(this);
-        this.cPZ.a(com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_open), com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_close), com.baidu.tbadk.core.util.an.cw(i.e.btn_handle));
-        com.baidu.tbadk.core.util.an.j(this, i.c.cp_bg_line_d);
+        this.dov.a(com.baidu.tbadk.core.util.as.cE(n.e.bg_switch_open), com.baidu.tbadk.core.util.as.cE(n.e.bg_switch_close), com.baidu.tbadk.core.util.as.cE(n.e.btn_handle));
+        com.baidu.tbadk.core.util.as.j(this, n.c.cp_bg_line_d);
     }
 }

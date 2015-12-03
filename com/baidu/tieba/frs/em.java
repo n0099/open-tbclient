@@ -1,66 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.i;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class em implements com.baidu.adp.lib.e.c<TextView> {
-    final /* synthetic */ TabMenuPopView aZV;
+public class em {
+    private static final em bfb = new em();
+    private LongSparseArray<LinkedList<String>> bfa = new LongSparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public em(TabMenuPopView tabMenuPopView) {
-        this.aZV = tabMenuPopView;
+    private em() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Fm */
-    public TextView ha() {
-        Context context;
-        Context context2;
-        context = this.aZV.mContext;
-        TextView textView = new TextView(context);
-        context2 = this.aZV.mContext;
-        textView.setTextSize(0, com.baidu.adp.lib.util.k.d(context2, i.d.fontsize28));
-        com.baidu.tbadk.core.util.an.i((View) textView, i.e.bg_tab_meun);
-        com.baidu.tbadk.core.util.an.b(textView, i.c.cp_cont_f, 1);
-        textView.setGravity(17);
-        textView.setOnClickListener(this.aZV);
-        return textView;
+    public static em Og() {
+        return bfb;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public void l(TextView textView) {
-        if (textView != null) {
-            textView.setText("");
-            textView.setTag(null);
-            textView.setSelected(false);
+    public void d(long j, String str) {
+        LinkedList<String> linkedList = this.bfa.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.bfa.put(j, linkedList);
         }
+        linkedList.add(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: e */
-    public TextView m(TextView textView) {
-        if (textView != null) {
-            com.baidu.tbadk.core.util.an.i((View) textView, i.e.bg_tab_meun);
-            com.baidu.tbadk.core.util.an.b(textView, i.c.cp_cont_f, 1);
-        }
-        return textView;
+    public boolean e(long j, String str) {
+        LinkedList<String> linkedList = this.bfa.get(j);
+        return linkedList != null && linkedList.contains(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: f */
-    public TextView n(TextView textView) {
-        if (textView != null) {
-            textView.setText("");
-            textView.setTag(null);
-            textView.setSelected(false);
+    public void ay(long j) {
+        LinkedList<String> linkedList = this.bfa.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
         }
-        return textView;
     }
 }

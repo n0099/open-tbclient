@@ -14,7 +14,7 @@ class d extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            com.baidu.tbadk.coreExtra.websocketBase.d.zD().dJ(socketResponsedMessage.getCmd());
+            com.baidu.tbadk.coreExtra.websocketBase.d.Az().dY(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

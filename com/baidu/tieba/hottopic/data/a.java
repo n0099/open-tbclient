@@ -1,62 +1,35 @@
 package com.baidu.tieba.hottopic.data;
 
-import com.baidu.tbadk.core.data.o;
-import com.baidu.tbadk.core.data.w;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTopicRelateThread.DataRes;
-import tbclient.Hottopic.HotThread;
-import tbclient.ThreadInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
+import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes.dex */
-public class a extends w {
-    public List<w> aTI;
-    public String bpu;
-    public o bpv;
+public class a implements u {
+    public static final BdUniqueId bDv = BdUniqueId.gen();
+    public String bDA;
+    public String bDB;
+    public long bDC;
+    public long bDD;
+    public String bDw;
+    public String bDx;
+    public long bDy;
+    public int bDz;
 
-    public void a(HotThread hotThread) {
-        if (hotThread != null) {
-            this.bpu = hotThread.hot_title;
-            if (hotThread.thread_list != null) {
-                this.aTI = new ArrayList();
-                for (ThreadInfo threadInfo : hotThread.thread_list) {
-                    if (threadInfo != null) {
-                        w wVar = new w();
-                        wVar.a(threadInfo);
-                        if (wVar.getType() == w.Vx && !d(wVar)) {
-                            this.aTI.add(wVar);
-                        }
-                    }
-                }
-            }
-            if (hotThread.page != null) {
-                this.bpv = new o();
-                this.bpv.a(hotThread.page);
-            }
-        }
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return bDv;
     }
 
-    public void a(DataRes dataRes) {
-        if (dataRes != null) {
-            if (dataRes.thread_list != null) {
-                this.aTI = new ArrayList();
-                for (ThreadInfo threadInfo : dataRes.thread_list) {
-                    if (threadInfo != null) {
-                        w wVar = new w();
-                        wVar.a(threadInfo);
-                        if (wVar.getType() == w.Vx && !d(wVar)) {
-                            this.aTI.add(wVar);
-                        }
-                    }
-                }
-            }
-            if (dataRes.page != null) {
-                this.bpv = new o();
-                this.bpv.a(dataRes.page);
-            }
+    public void a(CommonInteraction commonInteraction) {
+        if (commonInteraction != null) {
+            this.bDw = commonInteraction.module_name;
+            this.bDx = commonInteraction.ques_desc;
+            this.bDy = commonInteraction.total_num.longValue();
+            this.bDz = commonInteraction.has_clicked.intValue();
+            this.bDA = commonInteraction.before_click_pic;
+            this.bDB = commonInteraction.after_click_pic;
+            this.bDC = commonInteraction.pk_id.longValue();
+            this.bDD = commonInteraction.user_pk_id.longValue();
         }
-    }
-
-    private boolean d(w wVar) {
-        return (wVar.getAnchorInfoData() == null || wVar.getAnchorInfoData().getGroup_id() == 0) ? false : true;
     }
 }

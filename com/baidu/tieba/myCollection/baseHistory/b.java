@@ -82,7 +82,7 @@ public class b implements f {
         }
     }
 
-    public JSONObject toJsonObject() {
+    public JSONObject HQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -98,11 +98,11 @@ public class b implements f {
         return jSONObject;
     }
 
-    public void bC(int i) {
+    public void setThreadType(int i) {
         this.threadType = i;
     }
 
-    public int sq() {
+    public int getThreadType() {
         return this.threadType;
     }
 
@@ -110,7 +110,7 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String adX() {
+    public String aik() {
         return this.threadName;
     }
 
@@ -126,7 +126,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void jw(String str) {
+    public void jT(String str) {
         this.threadName = str;
     }
 
@@ -134,27 +134,27 @@ public class b implements f {
         this.forumName = str;
     }
 
-    public String AV() {
+    public String BU() {
         return this.postID;
     }
 
-    public void jx(String str) {
+    public void jU(String str) {
         this.postID = str;
     }
 
-    public boolean adY() {
+    public boolean ail() {
         return this.isHostOnly;
     }
 
-    public void ed(boolean z) {
+    public void eF(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean adZ() {
+    public boolean aim() {
         return this.isSquence;
     }
 
-    public void ee(boolean z) {
+    public void eG(boolean z) {
         this.isSquence = z;
     }
 
@@ -164,12 +164,12 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Cs() {
-        return toJsonObject().toString();
+    public String Dt() {
+        return HQ().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fz(String str) {
+    public boolean fN(String str) {
         if (str != null) {
             try {
                 return o(new JSONObject(str));

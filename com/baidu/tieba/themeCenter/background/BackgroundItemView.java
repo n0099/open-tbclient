@@ -8,79 +8,90 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 /* loaded from: classes.dex */
 public class BackgroundItemView extends LinearLayout {
-    private View.OnClickListener aUF;
-    private i dgG;
-    private TbImageView dgd;
-    private TbImageView dge;
-    private ImageView dgf;
-    private TextView dgh;
-    private TbImageView dha;
-    private SkinProgressView dhb;
-    private DressItemData dhc;
+    private View.OnClickListener aZT;
+    private int bbu;
+    private int bbv;
+    private TbImageView cnM;
+    private TbImageView cnN;
+    private TextView cnP;
+    private TbImageView dDM;
+    private ImageView dDN;
+    private SkinProgressView dEE;
+    private DressItemData dEF;
+    private i dEn;
     private Context mContext;
     private View mRootView;
 
     public BackgroundItemView(Context context) {
         super(context);
-        this.aUF = new j(this);
+        this.aZT = new j(this);
         this.mContext = context;
         initView();
     }
 
     public BackgroundItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aUF = new j(this);
+        this.aZT = new j(this);
         this.mContext = context;
         initView();
     }
 
     public BackgroundItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.aUF = new j(this);
+        this.aZT = new j(this);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(i.g.background_item, this);
-        this.dha = (TbImageView) this.mRootView.findViewById(i.f.bg_image);
-        this.dgd = (TbImageView) this.mRootView.findViewById(i.f.permission_icon);
-        this.dgd.setDefaultResource(i.e.transparent_bg);
-        this.dgd.setDefaultBgResource(i.e.transparent_bg);
-        this.dge = (TbImageView) this.mRootView.findViewById(i.f.state_icon);
-        this.dge.setDefaultResource(i.e.transparent_bg);
-        this.dge.setDefaultBgResource(i.e.transparent_bg);
-        this.dgf = (ImageView) this.mRootView.findViewById(i.f.choosed_icon);
-        this.dgh = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
-        this.dhb = (SkinProgressView) this.mRootView.findViewById(i.f.view_bg_use);
-        this.dhb.setOnClickListener(this.aUF);
-        this.dha.setOnClickListener(this.aUF);
+        this.bbv = (com.baidu.adp.lib.util.k.K(this.mContext) - com.baidu.adp.lib.util.k.d(this.mContext, n.d.ds88)) / 3;
+        this.bbu = (int) (this.bbv / 0.66d);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(n.g.background_item, this);
+        this.cnM = (TbImageView) this.mRootView.findViewById(n.f.bg_image);
+        this.cnN = (TbImageView) this.mRootView.findViewById(n.f.permission_icon);
+        this.cnN.setDefaultResource(n.e.transparent_bg);
+        this.cnN.setDefaultBgResource(n.e.transparent_bg);
+        this.dDM = (TbImageView) this.mRootView.findViewById(n.f.state_icon);
+        this.dDM.setDefaultResource(n.e.transparent_bg);
+        this.dDM.setDefaultBgResource(n.e.transparent_bg);
+        this.dDN = (ImageView) this.mRootView.findViewById(n.f.choosed_icon);
+        this.cnP = (TextView) this.mRootView.findViewById(n.f.text_bg_name);
+        this.dEE = (SkinProgressView) this.mRootView.findViewById(n.f.view_bg_use);
+        this.dEE.setOnClickListener(this.aZT);
+        this.cnM.setOnClickListener(this.aZT);
+        this.cnM.setMinimumHeight(this.bbu);
+        this.cnM.setMinimumWidth(this.bbv);
     }
 
-    public void b(DressItemData dressItemData) {
+    public void c(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.dhc = dressItemData;
+            this.dEF = dressItemData;
             Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
-            this.dha.d(dressItemData.getExampleImgUrl(), 10, false);
-            this.dgh.setText(dressItemData.getTitle());
-            if (valueOf.booleanValue()) {
-                this.dgf.setVisibility(0);
-                an.c(this.dgf, i.e.icon_choose_photo);
+            if (dressItemData.getPropsId() == 0) {
+                as.c(this.cnM, n.e.pic_bg_moren);
             } else {
-                this.dgf.setVisibility(8);
+                this.cnM.setImageBitmap(null);
+                this.cnM.d(dressItemData.getExampleImgUrl(), 10, false);
             }
-            this.dgd.d(dressItemData.getPermissionImgUrl(), 10, false);
-            this.dge.d(dressItemData.getPropsStateImg(), 10, false);
+            this.cnP.setText(dressItemData.getTitle());
             if (valueOf.booleanValue()) {
-                this.dhb.e(0, 0.0f);
+                this.dDN.setVisibility(0);
+                as.c(this.dDN, n.e.icon_choose_photo);
             } else {
-                this.dhb.e(4, 0.0f);
+                this.dDN.setVisibility(8);
+            }
+            this.cnN.d(dressItemData.getPermissionImgUrl(), 10, false);
+            this.dDM.d(dressItemData.getPropsStateImg(), 10, false);
+            if (valueOf.booleanValue()) {
+                this.dEE.e(0, 0.0f);
+            } else {
+                this.dEE.e(4, 0.0f);
             }
             setVisibility(0);
         }
@@ -91,12 +102,12 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     public void setController(i iVar) {
-        this.dgG = iVar;
+        this.dEn = iVar;
     }
 
     public void setListenerTag(BdUniqueId bdUniqueId) {
-        if (this.dhb != null) {
-            this.dhb.setListenerTag(bdUniqueId);
+        if (this.dEE != null) {
+            this.dEE.setListenerTag(bdUniqueId);
         }
     }
 }

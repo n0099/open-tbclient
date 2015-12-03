@@ -1,37 +1,54 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ v coo;
+public class ag implements View.OnTouchListener {
+    final /* synthetic */ w cHA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(v vVar) {
-        this.coo = vVar;
+    public ag(w wVar) {
+        this.cHA = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        MorePopupWindow morePopupWindow;
+        MorePopupWindow morePopupWindow2;
+        MorePopupWindow morePopupWindow3;
+        MorePopupWindow morePopupWindow4;
+        MorePopupWindow morePopupWindow5;
+        MorePopupWindow morePopupWindow6;
+        MorePopupWindow morePopupWindow7;
         NewSubPbActivity newSubPbActivity;
-        dialog = this.coo.cme;
-        if (dialog != null) {
-            dialog2 = this.coo.cme;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.coo.cme;
-                newSubPbActivity = this.coo.cnX;
-                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
+        MorePopupWindow morePopupWindow8;
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        morePopupWindow = this.cHA.cHp;
+        if (morePopupWindow.getContentView() == null) {
+            return false;
+        }
+        morePopupWindow2 = this.cHA.cHp;
+        int top = morePopupWindow2.getContentView().getTop();
+        morePopupWindow3 = this.cHA.cHp;
+        int right = morePopupWindow3.getContentView().getRight();
+        morePopupWindow4 = this.cHA.cHp;
+        int bottom = morePopupWindow4.getContentView().getBottom();
+        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
+            morePopupWindow6 = this.cHA.cHp;
+            if (morePopupWindow6.isShowing()) {
+                morePopupWindow7 = this.cHA.cHp;
+                newSubPbActivity = this.cHA.cHi;
+                com.baidu.adp.lib.h.j.a(morePopupWindow7, newSubPbActivity.getPageContext().getPageActivity());
+                morePopupWindow8 = this.cHA.cHp;
+                morePopupWindow8.setIsIntercepted(true);
+                return true;
             }
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.coo.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
-        }
+        morePopupWindow5 = this.cHA.cHp;
+        morePopupWindow5.setIsIntercepted(false);
+        return false;
     }
 }

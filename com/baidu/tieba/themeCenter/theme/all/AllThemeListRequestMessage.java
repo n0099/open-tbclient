@@ -19,7 +19,7 @@ public class AllThemeListRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         GetSkinListReqIdl.Builder builder2 = new GetSkinListReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -14,7 +14,7 @@ public class BackgroundGroupRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         GetBgByCategoryReqIdl.Builder builder2 = new GetBgByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

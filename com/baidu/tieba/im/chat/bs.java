@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity bti;
+    final /* synthetic */ TalkableActivity bIo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(TalkableActivity talkableActivity) {
-        this.bti = talkableActivity;
+        this.bIo = talkableActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
@@ -20,74 +20,74 @@ public class bs extends com.baidu.adp.base.g {
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
         long j;
-        if (!com.baidu.adp.lib.util.i.iN()) {
-            if (this.bti.mListView != null) {
-                this.bti.mListView.displayNoNetwork();
+        if (!com.baidu.adp.lib.util.i.iP()) {
+            if (this.bIo.mListView != null) {
+                this.bIo.mListView.displayNoNetwork();
             }
-        } else if (this.bti.mListView != null) {
-            this.bti.mListView.hideNoNetwork();
+        } else if (this.bIo.mListView != null) {
+            this.bIo.mListView.hideNoNetwork();
         }
-        switch (this.bti.mListModel.getLoadDataMode()) {
+        switch (this.bIo.mListModel.getLoadDataMode()) {
             case 1:
-                j = this.bti.preTime;
+                j = this.bIo.preTime;
                 if (j > -1) {
-                    this.bti.preTime = -1L;
+                    this.bIo.preTime = -1L;
                 }
-                this.bti.mListView.closeProgress();
-                this.bti.mListView.refreshGo2New(this.bti.mListModel.getData());
+                this.bIo.mListView.closeProgress();
+                this.bIo.mListView.refreshGo2New(this.bIo.mListModel.getData());
                 return;
             case 2:
-                this.bti.mListView.refreshPrepage(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshPrepage(this.bIo.mListModel.getData());
                 return;
             case 3:
-                this.bti.mListView.refreshCheckNew(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshCheckNew(this.bIo.mListModel.getData());
                 return;
             case 4:
-                this.bti.mListView.refreshGo2New(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshGo2New(this.bIo.mListModel.getData());
                 return;
             case 5:
-                this.bti.mListView.refreshNormal(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshNormal(this.bIo.mListModel.getData());
                 return;
             case 6:
-                this.bti.mListView.refreshNormal(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshNormal(this.bIo.mListModel.getData());
                 return;
             case 7:
-                this.bti.mListView.refreshNormal(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshNormal(this.bIo.mListModel.getData());
                 return;
             case 8:
                 if (obj != null && (obj instanceof String)) {
                     String str = (String) obj;
-                    this.bti.mListView.setDraft(str);
-                    this.bti.mListModel.setDraft(str);
+                    this.bIo.mListView.setDraft(str);
+                    this.bIo.mListModel.setDraft(str);
                     return;
                 }
                 return;
             case 9:
-                this.bti.isNeedSaveDraft = false;
-                this.bti.finish();
+                this.bIo.isNeedSaveDraft = false;
+                this.bIo.finish();
                 return;
             case 10:
                 if (obj != null && (obj instanceof String)) {
-                    this.bti.mListView.refreshHeaderFooter((String) obj, true);
+                    this.bIo.mListView.refreshHeaderFooter((String) obj, true);
                     return;
                 }
                 return;
             case 11:
-                TbadkCoreApplication.m411getInst().login(this.bti.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.bti.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.bti.isNeedSaveDraft = false;
-                this.bti.finish();
+                TbadkCoreApplication.m411getInst().login(this.bIo.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.bIo.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.bIo.isNeedSaveDraft = false;
+                this.bIo.finish();
                 return;
             case 12:
-                this.bti.mListView.refreshGo2New(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshGo2New(this.bIo.mListModel.getData());
                 return;
             case 13:
-                this.bti.mListView.refreshNormal(this.bti.mListModel.getData());
+                this.bIo.mListView.refreshNormal(this.bIo.mListModel.getData());
                 break;
             case 14:
                 break;
             default:
                 return;
         }
-        this.bti.mListView.refreshNormal(this.bti.mListModel.getData());
+        this.bIo.mListView.refreshNormal(this.bIo.mListModel.getData());
     }
 }

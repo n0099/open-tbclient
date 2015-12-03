@@ -1,16 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.q;
 /* loaded from: classes.dex */
-class e implements BdListView.g {
-    final /* synthetic */ FrsActivity aUS;
+class e implements q.a {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.aUS = frsActivity;
+        this.bag = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.g
-    public void V(boolean z) {
+    @Override // com.baidu.tbadk.core.view.q.a
+    public void onListPullRefresh(boolean z) {
+        TiebaStatic.eventStat(this.bag.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.bag.refresh();
     }
 }

@@ -1,10 +1,16 @@
 package com.baidu.tbadk.editortools;
-
-import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends w {
-    public n() {
-        super((String) null, 1, 0);
-        this.launcherIcon = i.e.selector_msgsend_btn_softkey;
+public class n implements Runnable {
+    final /* synthetic */ k ark;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(k kVar) {
+        this.ark = kVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.ark.BE();
     }
 }

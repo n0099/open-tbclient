@@ -1,75 +1,69 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.frs.cv;
+import com.baidu.tieba.n;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class db extends com.baidu.adp.widget.ListView.c {
-    private final int aSZ;
-    private a aXo;
-    private boolean aYo;
-    private View.OnClickListener aed;
-    private Context mContext;
+public class db extends x.a {
+    public TextView aUB;
+    public PlayVoiceBnt aYA;
+    public FrsCommonImageLayout aYB;
+    public TextView aYC;
+    public TextView aYD;
+    public UserIconBox aYE;
+    public HeadImageView aYF;
+    public TextView aYI;
+    public TextView aYK;
+    public TextView aYM;
+    public LinearLayout aYx;
+    public LinearLayout aYy;
+    public TextView aYz;
+    public int afY;
+    public TextView bck;
+    public View bcl;
+    public UserIconBox bdA;
+    public TextView bdB;
+    public RelativeLayout bdC;
+    public LinearLayout bdD;
+    public LinearLayout bdE;
+    public cv.a bdF;
+    public RelativeLayout bdy;
+    public LinearLayout bdz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public static class a {
-        FrameLayout aYp;
-        LinearLayout aYq;
-        TextView aYr;
-        ProgressBar aYs;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public View np() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_item_control, (ViewGroup) null);
-        this.aXo = new a();
-        this.aXo.aYp = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
-        this.aXo.aYq = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
-        this.aXo.aYs = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
-        this.aXo.aYr = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
-        inflate.setTag(this.aXo);
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        return inflate;
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.aXo != null) {
-            com.baidu.tbadk.core.util.an.i(this.aXo.aYq, i.e.frs_item_control_bg);
-            com.baidu.tbadk.core.util.an.c(this.aXo.aYr, i);
-        }
-    }
-
-    public void cd(boolean z) {
-        this.aYo = z;
-        if (this.aXo != null) {
-            this.aXo.aYp.setVisibility(0);
-            this.aXo.aYp.setPadding(0, this.aSZ, 0, 0);
-            if (z) {
-                this.aXo.aYr.setText(i.h.loading);
-                this.aXo.aYs.setVisibility(0);
-                return;
-            }
-            this.aXo.aYr.setText(i.h.frs_pre);
-            this.aXo.aYs.setVisibility(8);
-        }
-    }
-
-    public void j(View.OnClickListener onClickListener) {
-        this.aed = onClickListener;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.aed != null) {
-            this.aed.onClick(getView());
-        }
+    public db(View view, int i) {
+        super(view);
+        this.afY = 3;
+        this.aYx = (LinearLayout) view.findViewById(n.f.frs_list);
+        this.bdC = (RelativeLayout) view.findViewById(n.f.frs_item_user_info_view);
+        this.aYy = (LinearLayout) view.findViewById(n.f.frs_list_item_top_linear_layout);
+        this.bdy = (RelativeLayout) view.findViewById(n.f.frs_list_item_top_card);
+        this.bdz = (LinearLayout) view.findViewById(n.f.new_year_color_egg);
+        this.aYF = (HeadImageView) view.findViewById(n.f.frs_photo);
+        this.aYE = (UserIconBox) view.findViewById(n.f.frs_user_tshow_icon_box);
+        this.bdA = (UserIconBox) view.findViewById(n.f.frs_user_icon_box);
+        this.aYD = (TextView) view.findViewById(n.f.frs_lv_author);
+        this.aYC = (TextView) view.findViewById(n.f.frs_lv_reply_time);
+        this.aUB = (TextView) view.findViewById(n.f.frs_lv_title);
+        this.aYz = (TextView) view.findViewById(n.f.abstract_text);
+        this.aYA = (PlayVoiceBnt) view.findViewById(n.f.abstract_voice);
+        this.aYB = (FrsCommonImageLayout) view.findViewById(n.f.abstract_img_layout);
+        this.aYI = (TextView) view.findViewById(n.f.frs_praise_num);
+        this.bdB = (TextView) view.findViewById(n.f.action_button);
+        this.aYK = (TextView) view.findViewById(n.f.frs_reply_num);
+        this.aYM = (TextView) view.findViewById(n.f.frs_more_abstract);
+        this.bdD = (LinearLayout) view.findViewById(n.f.frs_item_num);
+        this.bdE = (LinearLayout) view.findViewById(n.f.frs_item_loc_view);
+        this.bck = (TextView) view.findViewById(n.f.frs_item_location_address);
+        this.bcl = view.findViewById(n.f.frs_item_location_sep);
+        this.aYx.setBackgroundResource(n.c.transparent);
+        this.aYx.setPadding(0, i, 0, 0);
     }
 }

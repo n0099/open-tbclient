@@ -2,13 +2,13 @@ package com.baidu.tbadk.editortools.imagetool;
 
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.w;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.editortools.y;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class i extends w {
+public class i extends y {
     public i(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_image), 10, i);
-        this.launcherIcon = i.e.btn_pb_add_pic;
+        super(context, TbadkCoreApplication.m411getInst().getString(n.i.editor_image), 10, i);
+        this.launcherIcon = n.e.btn_pb_add_pic;
         this.isLauncherCanSelect = false;
         this.toolLaunchAction = new int[]{14};
     }

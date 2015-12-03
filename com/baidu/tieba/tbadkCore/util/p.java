@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class p {
-    protected volatile int cHC;
-    private volatile HashMap<Long, Integer> ddy = new HashMap<>();
-    private volatile int ddx = 0;
+    protected volatile int dgl;
+    private volatile HashMap<Long, Integer> dBJ = new HashMap<>();
+    private volatile int dBI = 0;
 
     public p(int i) {
-        this.cHC = i;
+        this.dgl = i;
     }
 
-    public void lQ(String str) {
+    public void mE(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.ddy.size() >= this.cHC) {
-                    ayN();
+                if (this.dBJ.size() >= this.dgl) {
+                    arI();
                 }
-                this.ddx++;
-                this.ddy.put(valueOf, Integer.valueOf(this.ddx));
+                this.dBI++;
+                this.dBJ.put(valueOf, Integer.valueOf(this.dBI));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void ayN() {
+    public void arI() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.ddy.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.dBJ.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.ddy.remove(l);
+                this.dBJ.remove(l);
             } else {
-                this.ddy.clear();
+                this.dBJ.clear();
             }
         }
     }
 
-    public boolean lR(String str) {
+    public boolean mF(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.ddy.get(valueOf) != null) {
+                if (this.dBJ.get(valueOf) != null) {
                     z = true;
                 }
             }

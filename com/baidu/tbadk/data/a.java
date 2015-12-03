@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int ann;
+    private int apb;
     private String content;
     private String icon_link;
     private String icon_url;
@@ -13,7 +13,7 @@ public class a {
             this.icon_url = tailInfo.icon_url;
             this.icon_link = tailInfo.icon_link;
             this.content = tailInfo.content;
-            this.ann = tailInfo.tail_type.intValue();
+            this.apb = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -23,7 +23,7 @@ public class a {
         return this.icon_url;
     }
 
-    public String zU() {
+    public String AQ() {
         return this.icon_link;
     }
 
@@ -31,7 +31,7 @@ public class a {
         return this.content;
     }
 
-    public int zV() {
-        return this.ann;
+    public int AR() {
+        return this.apb;
     }
 }

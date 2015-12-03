@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class a implements r {
+class a implements s {
     final /* synthetic */ AboutActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,8 +15,8 @@ class a implements r {
         this.this$0 = aboutActivity;
     }
 
-    @Override // com.baidu.tieba.setting.more.r
-    public void kN(int i) {
+    @Override // com.baidu.tieba.setting.more.s
+    public void lV(int i) {
         String str;
         if (i == 0) {
             this.this$0.finish();
@@ -24,11 +24,11 @@ class a implements r {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.tu().putBoolean(ao.cQg, true);
+                com.baidu.tbadk.core.sharedPref.b.tZ().putBoolean(aq.doC, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
-                String string = this.this$0.getPageContext().getString(i.h.setting_funtion_intro);
-                str = this.this$0.cNG;
-                com.baidu.tbadk.browser.g.a(pageActivity, string, str, true, false, false);
+                String string = this.this$0.getPageContext().getString(n.i.setting_funtion_intro);
+                str = this.this$0.dlX;
+                com.baidu.tbadk.browser.f.a(pageActivity, string, str, true, false, false);
             } else if (i == 4) {
                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_TRAFFICS_STATS, new IntentConfig(this.this$0.getPageContext().getPageActivity())));
             }

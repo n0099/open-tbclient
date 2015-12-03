@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.l;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect bUv;
+    private Rect ckI;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,54 +25,54 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.bUv = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
-        r(0, null);
-        tc();
+        this.ckI = new Rect(0, 0, getResources().getDimensionPixelSize(n.d.ds32), getResources().getDimensionPixelSize(n.d.ds32));
+        s(0, null);
+        tH();
     }
 
-    public void tc() {
-        setTextColor(an.getColor(i.c.cp_cont_c));
-        AL();
+    public void tH() {
+        setTextColor(as.getColor(n.c.cp_cont_c));
+        BJ();
     }
 
-    public void r(int i, String str) {
+    public void s(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(i.h.location_loading);
+                str = getResources().getString(n.i.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(i.h.location_default);
+                str = getResources().getString(n.i.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(i.h.location_default);
+                str = getResources().getString(n.i.location_default);
             }
             setText(str);
         }
-        AL();
+        BJ();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void AL() {
+    public void BJ() {
         if (this.mState == 1) {
-            Drawable drawable = an.getDrawable(i.e.icon_posts_pin_loading_anim);
+            Drawable drawable = as.getDrawable(n.e.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.bUv);
+                drawable.setBounds(this.ckI);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) l.B(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = an.getDrawable(i.e.icon_tips_site);
+        Drawable drawable2 = as.getDrawable(n.e.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.bUv);
+            drawable2.setBounds(this.ckI);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

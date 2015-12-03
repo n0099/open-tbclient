@@ -1,20 +1,20 @@
 package com.baidu.tieba.themeCenter.theme.detail;
 
-import com.baidu.tieba.themeCenter.theme.detail.d;
+import com.baidu.tieba.themeCenter.theme.detail.e;
 /* loaded from: classes.dex */
-class a implements d.a {
-    final /* synthetic */ SkinDetailActivity diy;
+class a implements e.a {
+    final /* synthetic */ SkinDetailActivity dGJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(SkinDetailActivity skinDetailActivity) {
-        this.diy = skinDetailActivity;
+        this.dGJ = skinDetailActivity;
     }
 
-    @Override // com.baidu.tieba.themeCenter.theme.detail.d.a
+    @Override // com.baidu.tieba.themeCenter.theme.detail.e.a
     public void a(int i, String str, com.baidu.tieba.themeCenter.b bVar) {
-        f fVar;
+        g gVar;
         com.baidu.tieba.themeCenter.b bVar2;
-        f fVar2;
+        g gVar2;
         com.baidu.tieba.themeCenter.b bVar3;
         com.baidu.tieba.themeCenter.b bVar4;
         int i2;
@@ -24,34 +24,34 @@ class a implements d.a {
         String str2;
         com.baidu.tieba.themeCenter.b bVar7;
         String str3;
-        f fVar3;
-        SkinDetailActivity skinDetailActivity = this.diy;
-        fVar = this.diy.dit;
-        skinDetailActivity.hideLoadingView(fVar.getRootView());
+        g gVar3;
+        SkinDetailActivity skinDetailActivity = this.dGJ;
+        gVar = this.dGJ.dGD;
+        skinDetailActivity.hideLoadingView(gVar.getRootView());
         if (i == 0) {
-            this.diy.mSkinData = bVar;
-            bVar2 = this.diy.mSkinData;
+            this.dGJ.mSkinData = bVar;
+            bVar2 = this.dGJ.mSkinData;
             if (bVar2 != null) {
-                bVar4 = this.diy.mSkinData;
-                i2 = this.diy.diu;
+                bVar4 = this.dGJ.mSkinData;
+                i2 = this.dGJ.dGE;
                 bVar4.setId(i2);
-                bVar5 = this.diy.mSkinData;
-                i3 = this.diy.mSkinType;
-                bVar5.lF(i3);
-                bVar6 = this.diy.mSkinData;
-                str2 = this.diy.div;
-                bVar6.lW(str2);
-                bVar7 = this.diy.mSkinData;
-                str3 = this.diy.diw;
-                bVar7.lY(str3);
+                bVar5 = this.dGJ.mSkinData;
+                i3 = this.dGJ.mSkinType;
+                bVar5.mP(i3);
+                bVar6 = this.dGJ.mSkinData;
+                str2 = this.dGJ.dGF;
+                bVar6.mN(str2);
+                bVar7 = this.dGJ.mSkinData;
+                str3 = this.dGJ.dGG;
+                bVar7.mP(str3);
             }
-            fVar2 = this.diy.dit;
-            bVar3 = this.diy.mSkinData;
-            fVar2.g(bVar3);
+            gVar2 = this.dGJ.dGD;
+            bVar3 = this.dGJ.mSkinData;
+            gVar2.i(bVar3);
             return;
         }
-        this.diy.showToast(str);
-        fVar3 = this.diy.dit;
-        fVar3.KD();
+        this.dGJ.showToast(str);
+        gVar3 = this.dGJ.dGD;
+        gVar3.LY();
     }
 }

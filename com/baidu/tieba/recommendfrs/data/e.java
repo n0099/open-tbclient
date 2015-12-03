@@ -1,188 +1,118 @@
 package com.baidu.tieba.recommendfrs.data;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import tbclient.FineFrsPage.EverydayThread;
-import tbclient.FineFrsPage.FineThreadInfo;
-import tbclient.FineFrsPage.Hot_Thread;
+import tbclient.ExcFrsPage.ExcellentThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class e {
-    private boolean cJP;
-    private List<a> cKm;
-    private long cKn;
-    private int cKo;
-    private boolean hasMore;
-    private final String tag;
-    private List<Object> auO = new ArrayList();
-    private boolean cKp = false;
-    private boolean cKq = false;
-    private boolean cKr = false;
+    private long cyW;
+    private String desc;
+    private int diO;
+    private long diP;
+    private long diQ;
+    private long excId;
+    private String forumName;
+    private long threadId;
+    private int thread_type;
+    private List<String> thumbnail;
+    private String title;
+    private ZhiBoInfoTW twzhibo_info;
+    private int type;
+    private boolean anE = true;
+    public String diR = "";
+    public String diS = "";
+    public String abtest = "";
 
-    public e(String str) {
-        this.tag = str;
-        if (TextUtils.equals(this.tag, "头条")) {
-            this.cJP = true;
-        } else {
-            this.cJP = false;
-        }
-    }
-
-    public boolean aqK() {
-        return this.cJP;
-    }
-
-    public void kD(int i) {
-        this.cKo = i;
-    }
-
-    public int aqL() {
-        return this.cKo;
-    }
-
-    public boolean aqM() {
-        return this.cKq;
-    }
-
-    public boolean aqN() {
-        return this.cKr;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public boolean hasMore() {
-        return this.hasMore;
-    }
-
-    public void a(boolean z, g gVar, boolean z2) {
-        if (z) {
-            this.cKr = true;
-        } else {
-            this.cKq = true;
-        }
-        if (gVar != null) {
-            if (!z2) {
-                this.cKp = false;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0082: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r3v0 tbclient.ExcFrsPage.ExcellentThreadInfo) tbclient.ExcFrsPage.ExcellentThreadInfo.source java.lang.Integer)] */
+    public e b(ExcellentThreadInfo excellentThreadInfo) {
+        if (excellentThreadInfo != null) {
+            if (excellentThreadInfo.rank != null) {
+                this.diQ = excellentThreadInfo.rank.longValue();
             }
-            this.hasMore = gVar.getHasMore();
-            List<Object> a = a(z2, gVar);
-            if (z2) {
-                this.auO.addAll(a);
-                return;
+            if (excellentThreadInfo.excid != null) {
+                this.excId = excellentThreadInfo.excid.longValue();
             }
-            this.auO = a;
-            if (this.auO != null && this.auO.size() > 0) {
-                this.cKm = gVar.aqR();
-            } else {
-                this.cKm = null;
+            this.threadId = excellentThreadInfo.thread_id.longValue();
+            this.title = excellentThreadInfo.title;
+            this.type = excellentThreadInfo.frs_type.intValue();
+            this.diO = excellentThreadInfo.pb_type.intValue();
+            this.desc = excellentThreadInfo._abstract;
+            this.thumbnail = new ArrayList();
+            if (excellentThreadInfo.thumbnail != null) {
+                this.thumbnail.addAll(excellentThreadInfo.thumbnail);
             }
+            this.forumName = excellentThreadInfo.forum_name;
+            if (excellentThreadInfo.post_num != null) {
+                this.diP = excellentThreadInfo.post_num.longValue();
+            }
+            if (excellentThreadInfo.zansum != null) {
+                this.cyW = excellentThreadInfo.zansum.longValue();
+            }
+            if (excellentThreadInfo.thread_type != null) {
+                this.thread_type = excellentThreadInfo.thread_type.intValue();
+            }
+            this.twzhibo_info = excellentThreadInfo.twzhibo_info;
+            this.diR = excellentThreadInfo.tag_name;
+            this.diS = new StringBuilder().append(excellentThreadInfo.source).toString();
+            this.abtest = excellentThreadInfo.abtest;
         }
+        return this;
     }
 
-    private boolean b(FineThreadInfo fineThreadInfo) {
-        int size;
-        if (fineThreadInfo != null && (size = this.auO.size()) > 0) {
-            for (int i = 0; i < size; i++) {
-                Object obj = this.auO.get(i);
-                if ((obj instanceof FineThreadInfo) && fineThreadInfo.ftid == ((FineThreadInfo) obj).ftid) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
+    public long awo() {
+        return this.diQ;
     }
 
-    private List<Object> a(boolean z, g gVar) {
-        List<Hot_Thread> aqS;
-        ArrayList arrayList = new ArrayList();
-        if (gVar == null || gVar.aqT() == null) {
-            return arrayList;
-        }
-        String str = null;
-        int i = 0;
-        for (EverydayThread everydayThread : gVar.aqT()) {
-            if (everydayThread.show_time != null) {
-                i = everydayThread.show_time.intValue();
-            }
-            if (this.cJP && ((z || !arrayList.isEmpty()) && i != this.cKn)) {
-                str = j.d(new Date(i * 1000));
-                arrayList.add(str);
-            }
-            List<FineThreadInfo> list = everydayThread.fine_thread_list;
-            if (list != null) {
-                if (this.cJP && StringUtils.isNull(str)) {
-                    str = j.d(new Date(i * 1000));
-                }
-                int size = list.size();
-                int i2 = 0;
-                while (i2 < size) {
-                    FineThreadInfo fineThreadInfo = list.get(i2);
-                    if (fineThreadInfo != null && (!z || !b(fineThreadInfo))) {
-                        b bVar = new b();
-                        bVar.a(fineThreadInfo);
-                        bVar.lg(str);
-                        bVar.setShowImage(gVar.aqV());
-                        bVar.fR(i2 != size + (-1));
-                        if (bVar.aqH() != 33) {
-                            arrayList.add(bVar);
-                        } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            arrayList.add(bVar);
-                        }
-                    }
-                    i2++;
-                }
-            }
-        }
-        if (i >= this.cKn && !this.cKp && (aqS = gVar.aqS()) != null && aqS.size() > 0) {
-            this.cKp = true;
-            arrayList.add(new d("text_type_title", str));
-            arrayList.addAll(a(aqS, str, gVar.aqV()));
-            arrayList.add(new d("text_type_check_more", str));
-        }
-        this.cKn = i;
-        if (arrayList.isEmpty()) {
-            return arrayList;
-        }
-        Object obj = arrayList.get(arrayList.size() - 1);
-        if (obj instanceof b) {
-            b bVar2 = (b) obj;
-            if (this.cJP) {
-                bVar2.fR(false);
-            } else {
-                bVar2.fR(true);
-            }
-        }
-        return arrayList;
+    public long awp() {
+        return this.cyW;
     }
 
-    private List<c> a(List<Hot_Thread> list, String str, boolean z) {
-        if (list == null || list.size() <= 0) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (Hot_Thread hot_Thread : list) {
-            if (hot_Thread != null) {
-                c cVar = new c(hot_Thread, str);
-                cVar.setShowImage(z);
-                arrayList.add(cVar);
-            }
-        }
-        return arrayList;
+    public long awq() {
+        return this.diP;
     }
 
-    public List<Object> aqO() {
-        return this.auO;
+    public long awr() {
+        return this.excId;
     }
 
-    public List<a> aqP() {
-        return this.cKm;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public List<String> aws() {
+        return this.thumbnail;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public int awt() {
+        return this.thread_type;
+    }
+
+    public ZhiBoInfoTW awu() {
+        return this.twzhibo_info;
+    }
+
+    public boolean awl() {
+        return this.anE;
+    }
+
+    public void setShowImage(boolean z) {
+        this.anE = z;
+    }
+
+    public int awv() {
+        return this.diO;
+    }
+
+    public long getThreadId() {
+        return this.threadId;
     }
 }

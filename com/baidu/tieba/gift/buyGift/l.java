@@ -3,11 +3,11 @@ package com.baidu.tieba.gift.buyGift;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class l implements Animation.AnimationListener {
-    final /* synthetic */ BuyGiftActivity bng;
+    final /* synthetic */ BuyGiftActivity buJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BuyGiftActivity buyGiftActivity) {
-        this.bng = buyGiftActivity;
+        this.buJ = buyGiftActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,6 +20,6 @@ class l implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.bng.finish();
+        this.buJ.finish();
     }
 }

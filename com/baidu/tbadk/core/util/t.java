@@ -1,4 +1,5 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
-public interface t {
+public interface t<T> {
+    T getResultData();
 }

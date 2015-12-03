@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity bTf;
+    final /* synthetic */ GuideActivity cjt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.bTf = guideActivity;
+        this.cjt = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -18,15 +18,15 @@ class c implements ViewPager.OnPageChangeListener {
         View view;
         IndicatorView indicatorView;
         View view2;
-        iArr = this.bTf.bTa;
+        iArr = this.cjt.cjo;
         if (i == iArr.length - 1) {
-            view2 = this.bTf.bSX;
+            view2 = this.cjt.cjl;
             view2.setVisibility(0);
         } else {
-            view = this.bTf.bSX;
+            view = this.cjt.cjl;
             view.setVisibility(8);
         }
-        indicatorView = this.bTf.bSW;
+        indicatorView = this.cjt.cjk;
         indicatorView.setPosition(i);
     }
 

@@ -8,11 +8,11 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a ccW;
+    final /* synthetic */ a cuY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ccW = aVar;
+        this.cuY = aVar;
     }
 
     @Override // android.os.Handler
@@ -20,10 +20,10 @@ public class b extends Handler {
         Handler handler;
         Handler handler2;
         if (message.what == 1) {
-            this.ccW.cbf = System.currentTimeMillis();
+            this.cuY.ceF = System.currentTimeMillis();
             MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
-            handler = this.ccW.mHandler;
-            handler2 = this.ccW.mHandler;
+            handler = this.cuY.mHandler;
+            handler2 = this.cuY.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(1), a3.jw);
         }
     }

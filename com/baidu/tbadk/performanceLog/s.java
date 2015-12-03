@@ -1,21 +1,21 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class s extends r {
-    public String Gr;
-    public long Gs;
-    public boolean awg;
+    public String GI;
+    public long GJ;
+    public boolean ayl;
     public boolean isSuccess;
 
-    public void DJ() {
+    public void EK() {
         aa aaVar;
-        if (y.DR().DS() && (aaVar = (aa) y.DR().ez(this.mSubType)) != null) {
+        if (y.ES().ET() && (aaVar = (aa) y.ES().eN(this.mSubType)) != null) {
             aaVar.a(this, "head");
         }
     }
 
-    public void DK() {
+    public void EL() {
         aa aaVar;
-        if (y.DR().DS() && (aaVar = (aa) y.DR().ez(this.mSubType)) != null) {
+        if (y.ES().ET() && (aaVar = (aa) y.ES().eN(this.mSubType)) != null) {
             aaVar.a(this, "img");
         }
     }

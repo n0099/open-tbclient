@@ -1,39 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.tbadkCore.aa;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ab extends Handler {
-    final /* synthetic */ aa cZE;
+public class ab implements View.OnTouchListener {
+    private a dyr;
+    private int count = 0;
+    private long czE = 0;
+    private long czF = 0;
+    private long czH = 500;
+    private Handler mHandler = new ac(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.cZE = aaVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void NW();
+
+        void NX();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        aa.a aVar;
-        aa.a aVar2;
-        if (message.what == 2) {
-            this.cZE.count = 0;
-            this.cZE.chh = 0L;
-            this.cZE.chi = 0L;
-        } else if (message.what == 1) {
-            i = this.cZE.count;
-            if (i == 1) {
-                aVar = this.cZE.cZD;
-                if (aVar != null) {
-                    aVar2 = this.cZE.cZD;
-                    aVar2.Mu();
+    public ab(a aVar) {
+        this.dyr = aVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.dyr == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.czE = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.czH);
+                return true;
+            } else if (this.count == 2) {
+                this.czF = System.currentTimeMillis();
+                if (this.czF - this.czE < this.czH) {
+                    this.dyr.NX();
                 }
-                this.cZE.count = 0;
-                this.cZE.chh = 0L;
-                this.cZE.chi = 0L;
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
             }
         }
+        return true;
     }
 }

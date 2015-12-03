@@ -11,21 +11,20 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.plugins.XiaoyingUtil;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class aj implements a.d {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.n nVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
@@ -38,78 +37,79 @@ class aj implements a.d {
         WriteData writeData11;
         WriteData writeData12;
         WriteData writeData13;
-        this.dsa.stopVoice();
-        this.dsa.closeLoadingDialog();
+        WriteData writeData14;
+        this.dRf.stopVoice();
+        this.dRf.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            if (!z) {
-                if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
-                    if (!AntiHelper.g(antiData)) {
-                        writeData.setVcodeMD5(lVar.getVcode_md5());
-                        writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                        if (lVar.wu().equals("4")) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dsa.getPageContext().getPageActivity(), 12006, writeData, false)));
-                            return;
-                        } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dsa.getPageContext().getPageActivity(), writeData, 12006)));
-                            return;
+            writeData2 = this.dRf.dBW;
+            if (writeData2 != null) {
+                if (!z) {
+                    if (nVar != null && writeData != null && nVar.getVcode_pic_url() != null) {
+                        if (!AntiHelper.f(antiData)) {
+                            writeData.setVcodeMD5(nVar.getVcode_md5());
+                            writeData.setVcodeUrl(nVar.getVcode_pic_url());
+                            if (nVar.xp().equals("4")) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dRf.getPageContext().getPageActivity(), 12006, writeData, false)));
+                                return;
+                            } else {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dRf.getPageContext().getPageActivity(), writeData, 12006)));
+                                return;
+                            }
                         }
+                        this.dRf.a(false, postWriteCallBackData);
+                        return;
                     }
-                    this.dsa.a(false, postWriteCallBackData);
+                    this.dRf.a(false, postWriteCallBackData);
                     return;
                 }
-                this.dsa.a(false, postWriteCallBackData);
-                return;
-            }
-            this.dsa.bj(z);
-            this.dsa.a(true, postWriteCallBackData);
-            if (writeData != null && writeData.getVideoInfo() != null && postWriteCallBackData != null) {
-                XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), writeData.getForumId(), writeData.getVideoInfo().getVideoUrl(), writeData.getForumName());
-            }
-            writeData2 = this.dsa.ddI;
-            if (writeData2.getType() == 0) {
-                writeData11 = this.dsa.ddI;
-                if (writeData11.getLiveCardData() == null) {
-                    writeData13 = this.dsa.ddI;
-                    com.baidu.tieba.tbadkCore.ad.b(writeData13.getForumId(), (WriteData) null);
-                } else {
-                    writeData12 = this.dsa.ddI;
-                    com.baidu.tieba.tbadkCore.ad.a(writeData12.getLiveCardData().getGroupId(), (WriteData) null);
-                }
-            } else {
-                writeData3 = this.dsa.ddI;
-                if (writeData3.getType() == 1) {
-                    writeData8 = this.dsa.ddI;
-                    com.baidu.tieba.tbadkCore.ad.c(writeData8.getThreadId(), (WriteData) null);
-                } else {
-                    writeData4 = this.dsa.ddI;
-                    if (writeData4.getType() == 4) {
-                        writeData7 = this.dsa.ddI;
-                        com.baidu.tieba.tbadkCore.ad.b(String.valueOf(writeData7.getForumId()) + "photolive", (WriteData) null);
-                        if (postWriteCallBackData != null) {
-                            this.dsa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dsa.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
-                        }
+                this.dRf.bp(z);
+                this.dRf.a(true, postWriteCallBackData);
+                writeData3 = this.dRf.dBW;
+                if (writeData3.getType() == 0) {
+                    writeData12 = this.dRf.dBW;
+                    if (writeData12.getLiveCardData() == null) {
+                        writeData14 = this.dRf.dBW;
+                        com.baidu.tieba.tbadkCore.ae.b(writeData14.getForumId(), (WriteData) null);
                     } else {
-                        writeData5 = this.dsa.ddI;
-                        if (writeData5.getType() == 5) {
-                            writeData6 = this.dsa.ddI;
-                            com.baidu.tieba.tbadkCore.ad.c(String.valueOf(writeData6.getThreadId()) + "updatephotolive", (WriteData) null);
+                        writeData13 = this.dRf.dBW;
+                        com.baidu.tieba.tbadkCore.ae.a(writeData13.getLiveCardData().getGroupId(), (WriteData) null);
+                    }
+                } else {
+                    writeData4 = this.dRf.dBW;
+                    if (writeData4.getType() == 1) {
+                        writeData9 = this.dRf.dBW;
+                        com.baidu.tieba.tbadkCore.ae.c(writeData9.getThreadId(), (WriteData) null);
+                    } else {
+                        writeData5 = this.dRf.dBW;
+                        if (writeData5.getType() == 4) {
+                            writeData8 = this.dRf.dBW;
+                            com.baidu.tieba.tbadkCore.ae.b(String.valueOf(writeData8.getForumId()) + "photolive", (WriteData) null);
+                            if (postWriteCallBackData != null) {
+                                this.dRf.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dRf.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
+                            }
+                        } else {
+                            writeData6 = this.dRf.dBW;
+                            if (writeData6.getType() == 5) {
+                                writeData7 = this.dRf.dBW;
+                                com.baidu.tieba.tbadkCore.ae.c(String.valueOf(writeData7.getThreadId()) + "updatephotolive", (WriteData) null);
+                            }
                         }
                     }
                 }
+                writeData10 = this.dRf.dBW;
+                if (writeData10.getLiveCardData() != null) {
+                    WriteActivity writeActivity = this.dRf;
+                    FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dRf.getPageContext().getPageActivity());
+                    writeData11 = this.dRf.dBW;
+                    writeActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, frsActivityConfig.createRefreshCfgShowContent(writeData11.getForumName(), "post live's thread")));
+                }
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                intent.putExtras(bundle);
+                this.dRf.setResult(-1, intent);
+                this.dRf.finish();
             }
-            writeData9 = this.dsa.ddI;
-            if (writeData9.getLiveCardData() != null) {
-                WriteActivity writeActivity = this.dsa;
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dsa.getPageContext().getPageActivity());
-                writeData10 = this.dsa.ddI;
-                writeActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, frsActivityConfig.createRefreshCfgShowContent(writeData10.getForumName(), "post live's thread")));
-            }
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-            intent.putExtras(bundle);
-            this.dsa.setResult(-1, intent);
-            this.dsa.finish();
         }
     }
 }

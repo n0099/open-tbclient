@@ -1,21 +1,31 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ d aMe;
+public class f implements FragmentTabWidget.a {
+    final /* synthetic */ e aQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(d dVar, int i) {
-        super(i);
-        this.aMe = dVar;
+    public f(e eVar) {
+        this.aQs = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
+    public void c(int i, boolean z) {
+        FragmentTabWidget fragmentTabWidget;
+        FragmentTabWidget fragmentTabWidget2;
+        if (i != 0) {
+            if (i != 1) {
+                return;
+            }
+            this.aQs.fw(1);
+            fragmentTabWidget = this.aQs.aQn;
+            fragmentTabWidget.d(i, true);
+            return;
+        }
+        this.aQs.fw(0);
+        fragmentTabWidget2 = this.aQs.aQn;
+        fragmentTabWidget2.d(i, true);
     }
 }

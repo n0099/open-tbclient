@@ -17,7 +17,7 @@ public class BackgroundSetRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Integer.valueOf(this.propId);
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         SetBackgroundReqIdl.Builder builder2 = new SetBackgroundReqIdl.Builder();
         builder2.data = builder.build(false);

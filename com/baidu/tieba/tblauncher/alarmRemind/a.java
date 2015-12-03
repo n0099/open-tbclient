@@ -2,60 +2,21 @@ package com.baidu.tieba.tblauncher.alarmRemind;
 
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-import android.util.Pair;
+import android.text.format.Time;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
-import com.baidu.tieba.i;
 import java.util.Calendar;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static final HashMap<Integer, Pair<String, String>> dfJ = new HashMap<>();
-
-    static {
-        dfJ.put(0, new Pair<>("川藏线明信片，一路新奇视界，送给亲爱的你", "twzb:pid=4005265545"));
-        dfJ.put(1, new Pair<>("参加哥们婚礼，结果发现他老婆不是人……", "twzb:pid=4008011749"));
-        dfJ.put(2, new Pair<>("详述我和DotA不得不说的故事", "twzb:pid=4005340036"));
-        dfJ.put(3, new Pair<>("九岁那年，爷爷给我找个漂亮女鬼做媳妇……", "twzb:pid=4011574531"));
-        dfJ.put(4, new Pair<>("古代人豪无节操，无下限的毁你所有三观！", "twzb:pid=4010449631"));
-        dfJ.put(5, new Pair<>("国漫的崛起，国漫不再是只给未成年看的，未来可能看到的巅峰国", "http://tieba.baidu.com/p/3859340532"));
-        dfJ.put(6, new Pair<>("讲述:第一次给奇葩相亲女发好人卡", "http://tieba.baidu.com/p/3871991340"));
-    }
-
-    public static RemindRecommendMessage azP() {
-        int i = 0;
-        String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_index";
-        int loadInt = TbadkSettings.getInst().loadInt(str, 0);
-        if (dfJ == null || dfJ.size() < 1) {
-            return null;
-        }
-        int i2 = (loadInt < 0 || loadInt >= dfJ.size()) ? 0 : loadInt;
-        RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-        Pair<String, String> pair = dfJ.get(Integer.valueOf(i2));
-        if (pair != null) {
-            remindRecommendMessage.title = (String) pair.first;
-            remindRecommendMessage.url = (String) pair.second;
-            remindRecommendMessage.picture = "";
-            remindRecommendMessage.name = TbadkCoreApplication.m411getInst().getString(i.h.remind_recommend_default);
-            remindRecommendMessage.isLocal = true;
-            int i3 = i2 + 1;
-            if (i3 >= 0 && i3 < dfJ.size()) {
-                i = i3;
-            }
-            TbadkSettings.getInst().saveInt(str, i);
-        }
-        return remindRecommendMessage;
-    }
-
-    public static boolean ark() {
+    public static boolean awI() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage lU(String str) {
+    public static RemindRecommendMessage mL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -89,7 +50,7 @@ public class a {
         }
     }
 
-    public static long azQ() {
+    public static long bD(long j) {
         int i;
         int i2;
         int i3;
@@ -104,9 +65,9 @@ public class a {
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.g.b.g(split[0], 12);
-            i2 = com.baidu.adp.lib.g.b.g(split[1], 5);
-            i = com.baidu.adp.lib.g.b.g(split[2], 0);
+            i3 = com.baidu.adp.lib.h.b.g(split[0], 12);
+            i2 = com.baidu.adp.lib.h.b.g(split[1], 5);
+            i = com.baidu.adp.lib.h.b.g(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -116,6 +77,7 @@ public class a {
             i4 = i3;
         }
         Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(j);
         calendar.set(12, i2);
         calendar.set(13, i);
         if (DateFormat.is24HourFormat(TbadkCoreApplication.m411getInst().getApp())) {
@@ -130,5 +92,23 @@ public class a {
             calendar.set(10, i4);
         }
         return calendar.getTimeInMillis();
+    }
+
+    public static long aEV() {
+        return bD(System.currentTimeMillis());
+    }
+
+    public static boolean bE(long j) {
+        Time time = new Time();
+        time.set(j);
+        int i = time.year;
+        int i2 = time.month;
+        int i3 = time.monthDay;
+        time.set(System.currentTimeMillis());
+        return i == time.year && i2 == time.month && i3 == time.monthDay;
+    }
+
+    public static boolean aEW() {
+        return com.baidu.tbadk.core.sharedPref.b.tZ().getInt("sync_local_dialog", 1) == 1;
     }
 }

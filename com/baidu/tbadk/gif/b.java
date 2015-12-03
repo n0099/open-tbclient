@@ -4,72 +4,68 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.tbadk.gif.GifView;
-import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView asx;
+    final /* synthetic */ GifView auz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.asx = gifView;
+        this.auz = gifView;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        WeakReference weakReference;
-        WeakReference weakReference2;
         int i;
         int i2;
         boolean z;
         int i3;
         Bitmap bitmap;
-        GifView.a aVar;
-        GifView.a aVar2;
         int i4;
         boolean z2;
-        weakReference = this.asx.asb;
-        if (weakReference != null) {
-            weakReference2 = this.asx.asb;
-            com.baidu.adp.gif.b bVar = (com.baidu.adp.gif.b) weakReference2.get();
-            if (bVar != null && message.what == 1) {
-                GifView gifView = this.asx;
-                i = gifView.asc;
-                gifView.asc = i + 1;
-                i2 = this.asx.asc;
-                if (i2 >= bVar.ff()) {
-                    z2 = this.asx.ass;
-                    if (z2) {
-                        this.asx.setVisibility(4);
-                        this.asx.ass = false;
-                        z = true;
-                    } else {
-                        z = false;
+        boolean z3;
+        boolean z4;
+        com.baidu.adp.gif.b gif = this.auz.getGif();
+        if (gif != null && message.what == 1) {
+            GifView gifView = this.auz;
+            i = gifView.auc;
+            gifView.auc = i + 1;
+            i2 = this.auz.auc;
+            if (i2 >= gif.ff()) {
+                z2 = this.auz.auu;
+                if (z2) {
+                    z4 = this.auz.aur;
+                    if (!z4) {
+                        this.auz.setVisibility(4);
                     }
-                    this.asx.asc = 0;
+                    this.auz.auu = false;
+                    z = true;
                 } else {
                     z = false;
                 }
-                i3 = this.asx.asc;
-                bVar.F(i3);
-                bitmap = this.asx.mBitmap;
-                bVar.a(bitmap, null);
-                this.asx.invalidate();
-                removeMessages(1);
-                if (!z) {
-                    i4 = this.asx.asc;
-                    sendEmptyMessageDelayed(1, bVar.G(i4));
-                    return;
+                z3 = this.auz.aur;
+                if (!z3) {
+                    this.auz.auc = 0;
+                } else {
+                    this.auz.auc = gif.ff() - 1;
                 }
-                aVar = this.asx.asd;
-                if (aVar != null) {
-                    aVar2 = this.asx.asd;
-                    aVar2.onStop();
-                }
+            } else {
+                z = false;
             }
+            i3 = this.auz.auc;
+            gif.G(i3);
+            bitmap = this.auz.mBitmap;
+            gif.a(bitmap, null);
+            this.auz.invalidate();
+            removeMessages(1);
+            if (!z) {
+                i4 = this.auz.auc;
+                sendEmptyMessageDelayed(1, gif.H(i4));
+                return;
+            }
+            this.auz.onStop();
         }
     }
 }

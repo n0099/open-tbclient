@@ -3,14 +3,14 @@ package com.baidu.tieba.launcherGuide.view;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class a extends Handler {
-    final /* synthetic */ GoOnAnimView bTR;
+    final /* synthetic */ GoOnAnimView ckf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(GoOnAnimView goOnAnimView) {
-        this.bTR = goOnAnimView;
+        this.ckf = goOnAnimView;
     }
 
     @Override // android.os.Handler
@@ -33,50 +33,50 @@ class a extends Handler {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
-        GoOnAnimView goOnAnimView = this.bTR;
+        GoOnAnimView goOnAnimView = this.ckf;
         i = goOnAnimView.tag;
         goOnAnimView.tag = i % 4;
-        i2 = this.bTR.tag;
+        i2 = this.ckf.tag;
         switch (i2) {
             case 0:
-                imageView10 = this.bTR.bSk;
-                imageView10.setImageResource(i.e.pic_startpage1_next_3);
-                imageView11 = this.bTR.bSl;
-                imageView11.setImageResource(i.e.pic_startpage1_next_2);
-                imageView12 = this.bTR.bSm;
-                imageView12.setImageResource(i.e.pic_startpage1_next_1);
+                imageView10 = this.ckf.cix;
+                imageView10.setImageResource(n.e.pic_startpage1_next_3);
+                imageView11 = this.ckf.ciy;
+                imageView11.setImageResource(n.e.pic_startpage1_next_2);
+                imageView12 = this.ckf.ciz;
+                imageView12.setImageResource(n.e.pic_startpage1_next_1);
                 break;
             case 1:
-                imageView7 = this.bTR.bSk;
-                imageView7.setImageResource(i.e.pic_startpage1_next_2);
-                imageView8 = this.bTR.bSl;
-                imageView8.setImageResource(i.e.pic_startpage1_next_1);
-                imageView9 = this.bTR.bSm;
-                imageView9.setImageResource(i.e.pic_startpage1_next_3);
+                imageView7 = this.ckf.cix;
+                imageView7.setImageResource(n.e.pic_startpage1_next_2);
+                imageView8 = this.ckf.ciy;
+                imageView8.setImageResource(n.e.pic_startpage1_next_1);
+                imageView9 = this.ckf.ciz;
+                imageView9.setImageResource(n.e.pic_startpage1_next_3);
                 break;
             case 2:
-                imageView4 = this.bTR.bSk;
-                imageView4.setImageResource(i.e.pic_startpage1_next_1);
-                imageView5 = this.bTR.bSl;
-                imageView5.setImageResource(i.e.pic_startpage1_next_3);
-                imageView6 = this.bTR.bSm;
-                imageView6.setImageResource(i.e.pic_startpage1_next_2);
+                imageView4 = this.ckf.cix;
+                imageView4.setImageResource(n.e.pic_startpage1_next_1);
+                imageView5 = this.ckf.ciy;
+                imageView5.setImageResource(n.e.pic_startpage1_next_3);
+                imageView6 = this.ckf.ciz;
+                imageView6.setImageResource(n.e.pic_startpage1_next_2);
                 break;
             case 3:
-                imageView = this.bTR.bSk;
-                imageView.setImageResource(i.e.pic_startpage1_next_2);
-                imageView2 = this.bTR.bSl;
-                imageView2.setImageResource(i.e.pic_startpage1_next_2);
-                imageView3 = this.bTR.bSm;
-                imageView3.setImageResource(i.e.pic_startpage1_next_2);
+                imageView = this.ckf.cix;
+                imageView.setImageResource(n.e.pic_startpage1_next_2);
+                imageView2 = this.ckf.ciy;
+                imageView2.setImageResource(n.e.pic_startpage1_next_2);
+                imageView3 = this.ckf.ciz;
+                imageView3.setImageResource(n.e.pic_startpage1_next_2);
                 break;
         }
-        GoOnAnimView goOnAnimView2 = this.bTR;
+        GoOnAnimView goOnAnimView2 = this.ckf;
         i3 = goOnAnimView2.tag;
         goOnAnimView2.tag = i3 + 1;
-        handler = this.bTR.mHandler;
+        handler = this.ckf.mHandler;
         handler.removeMessages(0);
-        handler2 = this.bTR.mHandler;
+        handler2 = this.ckf.mHandler;
         handler2.sendEmptyMessageDelayed(0, 300L);
     }
 }

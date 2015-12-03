@@ -1,28 +1,17 @@
 package com.baidu.tbadk.core.view;
 
-import android.database.DataSetObserver;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class c extends DataSetObserver {
-    final /* synthetic */ HorizontalListView ady;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(HorizontalListView horizontalListView) {
-        this.ady = horizontalListView;
-    }
-
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        synchronized (this.ady) {
-            this.ady.adr = true;
+public class c extends ImageView {
+    public void vX() {
+        if (getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+            setBackgroundDrawable(null);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
         }
-        this.ady.invalidate();
-        this.ady.requestLayout();
-    }
-
-    @Override // android.database.DataSetObserver
-    public void onInvalidated() {
-        this.ady.reset();
-        this.ady.invalidate();
-        this.ady.requestLayout();
     }
 }

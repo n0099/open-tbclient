@@ -9,21 +9,21 @@ import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
 class be implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-    public ImageSpan fn(String str) {
+    public ImageSpan fC(String str) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
         com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
         if (aVar == null) {
             return null;
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.nb());
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.ng());
         int width = aVar.getWidth();
         bitmapDrawable.setBounds(0, 0, width, width);
         bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);

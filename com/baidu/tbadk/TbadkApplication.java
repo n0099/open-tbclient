@@ -12,8 +12,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.b.e;
-import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.c.e;
+import com.baidu.adp.lib.h.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
@@ -30,11 +30,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
-import com.baidu.tbadk.f.a;
+import com.baidu.tbadk.g.a;
 import com.baidu.tbadk.performanceLog.z;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.util.g;
+import com.baidu.tieba.n;
 import com.baidu.tieba.service.SignAlertReceiver;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -79,20 +80,20 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (resources == null) {
             string = "";
         } else {
-            string = resources.getString(i.h.register_tip);
+            string = resources.getString(n.i.register_tip);
         }
-        boolean z = b.tu().getBoolean("is_domain_qa", false);
+        boolean z = b.tZ().getBoolean("is_domain_qa", false);
         boolean isVoiceLoginCanUse = TbadkCoreApplication.m411getInst().isVoiceLoginCanUse();
         if (z) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.afU).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.ahz).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e) {
         }
-        z.DX().F(System.currentTimeMillis() - currentTimeMillis);
+        z.EY().M(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures(boolean z) {
@@ -118,14 +119,18 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         init(getContext());
-        long currentTimeMillis = System.currentTimeMillis();
-        String str = String.valueOf(TbConfig.getVersion()) + ".32";
-        PluginPackageManager.lS().a(a.Ed(), new com.baidu.tbadk.f.c(), str, isMainProcess(false));
-        PluginSettings ml = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().ml();
-        if (ml != null) {
-            String containerVersion = ml.getContainerVersion();
-            if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                z.DX().G(System.currentTimeMillis() - currentTimeMillis);
+        if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
+            boolean Fs = g.Fs();
+            boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
+            long currentTimeMillis = System.currentTimeMillis();
+            String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
+            PluginPackageManager.lU().a(a.Fe(), new com.baidu.tbadk.g.c(), str, isMainProcess(false), Fs && isXiaomiPushSdkShouldOpen);
+            PluginSettings mo = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().mo();
+            if (mo != null) {
+                String containerVersion = mo.getContainerVersion();
+                if (!TextUtils.isEmpty(containerVersion) && Util.M(containerVersion, str) == Util.VersionCompare.EQUAL) {
+                    z.EY().N(System.currentTimeMillis() - currentTimeMillis);
+                }
             }
         }
         initSettings();
@@ -140,20 +145,19 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            z.DX().X(System.currentTimeMillis() - this.processCreateTime);
+            z.EY().ae(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            NASLib.onAppStart(this);
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    az.uX().b(null, new String[]{str3});
+                    bf.vD().b(null, new String[]{str3});
                 }
             });
-            z.DX().P(System.currentTimeMillis() - currentTimeMillis2);
+            z.EY().W(System.currentTimeMillis() - currentTimeMillis2);
         }
-        z.DX().D(System.currentTimeMillis());
+        z.EY().K(System.currentTimeMillis());
     }
 
     private void initSettings() {
@@ -259,7 +263,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.tu().remove("account_share");
+        b.tZ().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -286,19 +290,19 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     private static void initMotuFilterImageMap() {
-        motuFilterImageMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, Integer.valueOf(i.e.motu_filter_normal));
-        motuFilterImageMap.put("clvivid", Integer.valueOf(i.e.motu_filter_skin));
-        motuFilterImageMap.put("cllomoscenery", Integer.valueOf(i.e.motu_filter_lomo));
-        motuFilterImageMap.put("clcaisefupian", Integer.valueOf(i.e.motu_filter_classichdr));
-        motuFilterImageMap.put("clm3", Integer.valueOf(i.e.motu_filter_nashiv));
-        motuFilterImageMap.put("cqiuse", Integer.valueOf(i.e.motu_filter_fleeting));
-        motuFilterImageMap.put("clzaoan", Integer.valueOf(i.e.motu_filter_bluetone));
-        motuFilterImageMap.put("clfuguscenery", Integer.valueOf(i.e.motu_filter_elegant));
-        motuFilterImageMap.put("clheibai", Integer.valueOf(i.e.motu_filter_gray));
+        motuFilterImageMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, Integer.valueOf(n.e.motu_filter_normal));
+        motuFilterImageMap.put("clvivid", Integer.valueOf(n.e.motu_filter_skin));
+        motuFilterImageMap.put("cllomoscenery", Integer.valueOf(n.e.motu_filter_lomo));
+        motuFilterImageMap.put("clcaisefupian", Integer.valueOf(n.e.motu_filter_classichdr));
+        motuFilterImageMap.put("clm3", Integer.valueOf(n.e.motu_filter_nashiv));
+        motuFilterImageMap.put("cqiuse", Integer.valueOf(n.e.motu_filter_fleeting));
+        motuFilterImageMap.put("clzaoan", Integer.valueOf(n.e.motu_filter_bluetone));
+        motuFilterImageMap.put("clfuguscenery", Integer.valueOf(n.e.motu_filter_elegant));
+        motuFilterImageMap.put("clheibai", Integer.valueOf(n.e.motu_filter_gray));
     }
 
     public boolean isLiveRecordOpen() {
-        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && e.gv().af("switch_live_record") == 0;
+        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && e.gw().aj("switch_live_record") == 0;
     }
 
     public String gettShopUrl() {

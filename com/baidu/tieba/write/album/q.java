@@ -1,30 +1,15 @@
 package com.baidu.tieba.write.album;
-
-import android.database.ContentObserver;
-import android.os.Handler;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends ContentObserver {
-    final /* synthetic */ n this$0;
+class q implements Runnable {
+    final /* synthetic */ p this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(n nVar, Handler handler) {
-        super(handler);
-        this.this$0 = nVar;
+    public q(p pVar) {
+        this.this$0 = pVar;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.this$0.handler;
-        runnable = this.this$0.dmk;
-        handler.removeCallbacks(runnable);
-        handler2 = this.this$0.handler;
-        runnable2 = this.this$0.dmk;
-        handler2.postDelayed(runnable2, 2000L);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.this$0.hC(false);
     }
 }

@@ -2,29 +2,29 @@ package com.baidu.tieba.pb.c.a;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import java.util.ArrayList;
-import tbclient.FinePbPage.Content;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes.dex */
-public class e implements ae, d {
+public class e implements aj, d {
     private String big_cdn_src;
     private String big_src;
+    private long cIm;
+    private ArrayList<ai> cIn;
     private String cdn_src;
-    private long cpa;
-    private ArrayList<ad> cpb;
     private int height;
     private String src;
     private int width;
 
-    public e(Content content) {
-        if (content != null && content.type.longValue() == 3) {
-            this.cpb = new ArrayList<>(1);
-            this.src = content.src;
-            this.big_src = content.big_src;
-            this.big_cdn_src = content.big_cdn_src;
-            this.cpa = content.type.longValue();
-            String str = content.bsize;
+    public e(ExcContent excContent) {
+        if (excContent != null && excContent.type.longValue() == 3) {
+            this.cIn = new ArrayList<>(1);
+            this.src = excContent.src;
+            this.big_src = excContent.big_src;
+            this.big_cdn_src = excContent.big_cdn_src;
+            this.cIm = excContent.type.longValue();
+            String str = excContent.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(",");
@@ -40,17 +40,17 @@ public class e implements ae, d {
             if (this.height <= 0) {
                 this.height = 1;
             }
-            this.cdn_src = content.cdn_src;
-            ad adVar = new ad();
-            adVar.aaD = 17;
-            adVar.height = this.height;
-            adVar.width = this.width;
+            this.cdn_src = excContent.cdn_src;
+            ai aiVar = new ai();
+            aiVar.abp = 17;
+            aiVar.height = this.height;
+            aiVar.width = this.width;
             if (StringUtils.isNull(this.cdn_src)) {
-                adVar.Wd = this.src;
+                aiVar.WN = this.src;
             } else {
-                adVar.Wd = this.cdn_src;
+                aiVar.WN = this.cdn_src;
             }
-            this.cpb.add(adVar);
+            this.cIn.add(aiVar);
         }
     }
 
@@ -58,7 +58,7 @@ public class e implements ae, d {
         return this.src;
     }
 
-    public int jn(int i) {
+    public int kh(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -70,8 +70,8 @@ public class e implements ae, d {
         return 3;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        return this.cpb;
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        return this.cIn;
     }
 }

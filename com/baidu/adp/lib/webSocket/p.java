@@ -5,5 +5,5 @@ public interface p {
 
     void eh();
 
-    void y(int i);
+    void z(int i);
 }

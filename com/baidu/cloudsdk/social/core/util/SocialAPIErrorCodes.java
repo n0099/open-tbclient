@@ -92,7 +92,7 @@ public final class SocialAPIErrorCodes {
                 return "upload file_size too large";
             case ERROR_INVALID_UPLOAD_FILE /* 125 */:
                 return "invalid uploaded file";
-            case ERROR_AUTHORIZATION_CANCELED /* 150 */:
+            case 150:
                 return "user cancelled authorization";
             case ERROR_BIND_API_ALREADY_BIND_TO_CURRENT_USER /* 151 */:
                 return "api already bind to current user";

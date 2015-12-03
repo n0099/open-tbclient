@@ -1,37 +1,40 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity cfM;
+class e extends CustomMessageListener {
+    final /* synthetic */ PbChosenActivity cyo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(PbChosenActivity pbChosenActivity, int i, int i2) {
-        super(i, i2);
-        this.cfM = pbChosenActivity;
+    public e(PbChosenActivity pbChosenActivity, int i) {
+        super(i);
+        this.cyo = pbChosenActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.pb.chosen.a.i iVar;
         com.baidu.tieba.pb.chosen.a.i iVar2;
-        if (responsedMessage != null) {
-            iVar = this.cfM.cfr;
-            iVar.afa();
-            if (responsedMessage.hasError()) {
-                BdToast.b(this.cfM.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfM.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sZ();
-                return;
-            }
-            Object extra = responsedMessage.getOrginalMessage().getExtra();
-            if (extra instanceof ChosenZanNetMessage) {
-                iVar2 = this.cfM.cfr;
-                iVar2.eo(((ChosenZanNetMessage) extra).isPraise());
-            }
+        com.baidu.tieba.pb.chosen.a.i iVar3;
+        com.baidu.tieba.pb.chosen.a.i iVar4;
+        com.baidu.tieba.pb.chosen.a.i iVar5;
+        com.baidu.tieba.pb.chosen.a.i iVar6;
+        iVar = this.cyo.cxR;
+        iVar.ajs();
+        iVar2 = this.cyo.cxR;
+        iVar3 = this.cyo.cxR;
+        iVar2.cyV = !iVar3.cyV;
+        iVar4 = this.cyo.cxR;
+        iVar5 = this.cyo.cxR;
+        iVar4.eQ(iVar5.cyV);
+        iVar6 = this.cyo.cxR;
+        if (iVar6.cyV) {
+            this.cyo.cyd = 1;
+        } else {
+            this.cyo.cyd = 0;
         }
     }
 }

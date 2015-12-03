@@ -11,85 +11,85 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.a {
-    private av cQi = null;
-    private com.baidu.tieba.setting.model.j cQj = null;
-    private com.baidu.tbadk.core.dialog.a cQk;
+    private ax doE = null;
+    private com.baidu.tieba.setting.model.j doF = null;
+    private com.baidu.tbadk.core.dialog.a doG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cQi = new av(this);
-        this.cQj = new com.baidu.tieba.setting.model.j(this);
+        this.doE = new ax(this);
+        this.doF = new com.baidu.tieba.setting.model.j(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.cQi.atH().mC();
+            this.doE.azj().mG();
         } else {
-            this.cQi.atH().mD();
+            this.doE.azj().mH();
         }
-        this.cQi.atI().setTip(getPageContext().getString(i.h.calc_cache_size));
-        this.cQi.atI().displayTip();
-        this.cQj.a(new ap(this, this));
-        registerListener(new aq(this, CmdConfigCustom.IM_CLEAR_MSG));
+        this.doE.azk().setTip(getPageContext().getString(n.i.calc_cache_size));
+        this.doE.azk().displayTip();
+        this.doF.a(new ar(this, this));
+        registerListener(new as(this, CmdConfigCustom.IM_CLEAR_MSG));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cQj != null) {
-            this.cQj.arV();
+        if (this.doF != null) {
+            this.doF.axt();
         }
-        arX();
+        axv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cQi.onChangeSkinType(i);
+        this.doE.onChangeSkinType(i);
     }
 
-    private void arX() {
-        this.cQi.atL().refresh();
+    private void axv() {
+        this.doE.azn().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cQi != null) {
-            if (view == this.cQi.atI()) {
-                if (this.cQj != null) {
-                    if (TextUtils.isEmpty(this.cQi.atI().getTip())) {
-                        showToast(i.h.no_cache_delete);
+        if (this.doE != null) {
+            if (view == this.doE.azk()) {
+                if (this.doF != null) {
+                    if (TextUtils.isEmpty(this.doE.azk().getTip())) {
+                        showToast(n.i.no_cache_delete);
                     } else {
-                        this.cQk = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_all_cache).a(i.h.alert_yes_button, new ar(this)).b(i.h.alert_no_button, new as(this)).b(getPageContext()).sR();
+                        this.doG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bN(n.i.alert_clear_all_cache).a(n.i.alert_yes_button, new at(this)).b(n.i.alert_no_button, new au(this)).b(getPageContext()).tv();
                     }
                 }
-            } else if (view == this.cQi.atJ()) {
-                if (this.cQj != null) {
-                    this.cQk = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_cache).a(i.h.alert_yes_button, new at(this)).b(i.h.alert_no_button, new au(this)).b(getPageContext()).sR();
+            } else if (view == this.doE.azl()) {
+                if (this.doF != null) {
+                    this.doG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bN(n.i.alert_clear_cache).a(n.i.alert_yes_button, new av(this)).b(n.i.alert_no_button, new aw(this)).b(getPageContext()).tv();
                 }
-            } else if (view == this.cQi.atL()) {
+            } else if (view == this.doE.azn()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.cQi.atK()) {
-                atG();
+            } else if (view == this.doE.azm()) {
+                azi();
             }
         }
     }
 
-    private void atG() {
+    private void azi() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_MY_WALLET, new IntentConfig(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.cQi.atH())) {
+        if (view != null && view.equals(this.doE.azj())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.cQj.setHeadsetModeOn(true);
+                this.doF.setHeadsetModeOn(true);
             } else {
-                this.cQj.setHeadsetModeOn(false);
+                this.doF.setHeadsetModeOn(false);
             }
         }
     }
@@ -97,8 +97,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.cQk != null && this.cQk.isShowing()) {
-            this.cQk.dismiss();
+        if (this.doG != null && this.doG.isShowing()) {
+            this.doG.dismiss();
         }
         super.onDestroy();
     }

@@ -9,20 +9,20 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes.dex */
 public class b {
     public b() {
-        aeW();
-        aeX();
+        ajo();
+        ajp();
     }
 
-    private void aeW() {
-        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(307003);
+    private void ajo() {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309093);
         bVar.setResponsedClass(ChosenPbSocketResponse.class);
         bVar.i(true);
         bVar.j(false);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void aeX() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.ae(TbConfig.FINE_PB_PAGE, 307003));
+    private void ajp() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.aj(TbConfig.FINE_PB_PAGE, 309093));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -31,15 +31,18 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(PbChosenActivity pbChosenActivity, long j) {
+    public void a(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
         int K = k.K(pbChosenActivity.getPageContext().getPageActivity());
         int L = k.L(pbChosenActivity.getPageContext().getPageActivity());
+        float M = k.M(pbChosenActivity.getPageContext().getPageActivity());
         chosenPbNetMessage.setQ_type(45L);
         chosenPbNetMessage.setScrH(L);
         chosenPbNetMessage.setScrW(K);
-        chosenPbNetMessage.setScr_dip(K / 320.0f);
-        chosenPbNetMessage.setTid(j);
+        chosenPbNetMessage.setScr_dip(M);
+        chosenPbNetMessage.setExcId(j);
+        chosenPbNetMessage.setTagCode(j2);
+        chosenPbNetMessage.setThreadId(j3);
         pbChosenActivity.sendMessage(chosenPbNetMessage);
     }
 }

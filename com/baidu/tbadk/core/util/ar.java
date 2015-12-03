@@ -1,110 +1,96 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.n;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar abg;
-
-    public static synchronized ar uE() {
-        ar arVar;
-        synchronized (ar.class) {
-            if (abg == null) {
-                abg = new ar();
+    public static void c(TbPageContext<?> tbPageContext) {
+        try {
+            if (!n.fi()) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                }
+            } else {
+                File cV = n.cV("camera.jpg");
+                if (cV != null) {
+                    Uri fromFile = Uri.fromFile(cV);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                }
             }
-            arVar = abg;
-        }
-        return arVar;
-    }
-
-    public String di(String str) {
-        long j = 0;
-        for (byte b : str.getBytes()) {
-            j += b;
-        }
-        return "image/" + (j % 20);
-    }
-
-    public Bitmap dj(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return n.aa(di(str), str);
-    }
-
-    public boolean dk(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return n.Z(di(str), str);
-    }
-
-    public int dl(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) n.Y(di(str), str);
-    }
-
-    public boolean copyFile(String str, String str2) {
-        String str3 = n.xU + "/" + TbConfig.getTempDirName() + "/";
-        if (!n.cG(str3)) {
-            n.cT(str3);
-        }
-        String str4 = String.valueOf(str3) + di(str2);
-        if (!n.cG(str4)) {
-            n.cT(str4);
-        }
-        String str5 = String.valueOf(str4) + "/" + str2;
-        if (str.equals(str5)) {
-            return false;
-        }
-        return n.c(str, str5, true);
-    }
-
-    public void h(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            n.f(di(str), str, bArr);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    private void u(File file) {
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    u(file2);
-                    file2.delete();
+    public static void b(TbPageContext<?> tbPageContext, String str) {
+        String str2;
+        try {
+            if (!n.fi()) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    return;
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    return;
                 } else {
-                    file2.delete();
+                    return;
                 }
             }
+            boolean z = false;
+            if (n.cO(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+                File file = new File(String.valueOf(str2) + "/" + str);
+                if (!file.exists()) {
+                    z = file.createNewFile();
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    Uri fromFile = Uri.fromFile(file);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                }
+            }
+            if (!z) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void uF() {
-        u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public static void p(Activity activity) {
+        q(activity);
     }
 
-    public void uG() {
-        v(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + n.cj(3)));
-    }
-
-    private void v(File file) {
-        long currentTimeMillis = System.currentTimeMillis();
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    u(file2);
-                    file2.delete();
-                } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
-                    file2.delete();
-                }
-            }
+    public static void q(Activity activity) {
+        try {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction("android.intent.action.GET_CONTENT");
+            activity.startActivityForResult(intent, 12002);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

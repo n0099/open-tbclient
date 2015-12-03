@@ -1,7 +1,17 @@
 package com.baidu.adp.lib.c;
 
-import android.view.View;
+import com.baidu.adp.lib.c.c;
 /* loaded from: classes.dex */
-public interface b {
-    void onItemViewLongClick(View view, int i, int i2, long j);
+class b implements c.a {
+    final /* synthetic */ a tJ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.tJ = aVar;
+    }
+
+    @Override // com.baidu.adp.lib.c.c.a
+    public void b(String str, int i, boolean z) {
+        this.tJ.changeSettingByType(i);
+    }
 }

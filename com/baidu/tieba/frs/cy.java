@@ -1,29 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
-    final /* synthetic */ cw aYg;
+public class cy implements LiveBroadcastCard.a {
+    final /* synthetic */ cv bdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cw cwVar, com.baidu.tbadk.core.data.w wVar) {
-        this.aYg = cwVar;
-        this.aXA = wVar;
+    public cy(cv cvVar) {
+        this.bdx = cvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aYg.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aYg.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // com.baidu.tbadk.coreExtra.view.LiveBroadcastCard.a
+    public boolean zV() {
+        BaseActivity baseActivity;
+        baseActivity = this.bdx.aXA;
+        return baseActivity.checkUpIsLogin();
     }
 }

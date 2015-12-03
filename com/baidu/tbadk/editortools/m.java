@@ -1,20 +1,16 @@
 package com.baidu.tbadk.editortools;
-
-import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements Comparator<w> {
-    final /* synthetic */ j apm;
+public class m implements Runnable {
+    final /* synthetic */ k ark;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.apm = jVar;
+    public m(k kVar) {
+        this.ark = kVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(w wVar, w wVar2) {
-        return wVar.launcherPriority - wVar2.launcherPriority;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.ark.BB();
     }
 }

@@ -45,7 +45,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra(InviteFriendListActivityConfig.GROUP_ID, intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID));
             } else if (stringExtra.equals("pay")) {
                 intent2.putExtra("class", 15);
-                intent2.putExtra(PayTBeanActivityConfig.PAY_TYPE, intent.getStringExtra(PayTBeanActivityConfig.PAY_TYPE));
+                intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));
                 intent2.putExtra(PayTBeanActivityConfig.QUAN_NUM, intent.getStringExtra(PayTBeanActivityConfig.QUAN_NUM));
                 intent2.putExtra("is_left", intent.getStringExtra("is_left"));

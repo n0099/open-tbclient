@@ -10,15 +10,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.n;
 import com.baidu.tieba.postsearch.j;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends BaseAdapter {
-    private static final int cFW = TbadkCoreApplication.m411getInst().getListItemRule().wo();
+    private static final int deF = TbadkCoreApplication.m411getInst().getListItemRule().xj();
     private TbPageContext<?> mContext;
     private List<j.a> mData = new ArrayList();
 
@@ -26,17 +26,17 @@ public class v extends BaseAdapter {
         this.mContext = tbPageContext;
     }
 
-    public int bn(List<j.a> list) {
+    public int bz(List<j.a> list) {
         if (list == null) {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= cFW) {
+        if (size <= deF) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - cFW;
-        ko(i);
+        int i = size - deF;
+        lz(i);
         this.mData.addAll(list);
         return i;
     }
@@ -45,7 +45,7 @@ public class v extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void ko(int i) {
+    private void lz(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -85,13 +85,13 @@ public class v extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.post_search_list_item, (ViewGroup) null);
             a aVar = new a(null);
-            aVar.cFZ = (TextView) view.findViewById(i.f.title_text);
-            aVar.cGa = (TextView) view.findViewById(i.f.content_text);
-            aVar.cGb = (TextView) view.findViewById(i.f.label_text);
-            aVar.cdt = (TextView) view.findViewById(i.f.user_name);
-            aVar.cGc = (TextView) view.findViewById(i.f.time_text);
+            aVar.deI = (TextView) view.findViewById(n.f.title_text);
+            aVar.deJ = (TextView) view.findViewById(n.f.content_text);
+            aVar.deK = (TextView) view.findViewById(n.f.label_text);
+            aVar.cvv = (TextView) view.findViewById(n.f.user_name);
+            aVar.deL = (TextView) view.findViewById(n.f.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -101,36 +101,36 @@ public class v extends BaseAdapter {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            Spanned fromHtml = Html.fromHtml(as.af(aVar3.title, str));
+            Spanned fromHtml = Html.fromHtml(ax.ac(aVar3.title, str));
             if (aVar3.thread_type == 33) {
-                aVar2.cFZ.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+                aVar2.deI.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
             } else {
-                aVar2.cFZ.setText(fromHtml);
+                aVar2.deI.setText(fromHtml);
             }
-            aVar2.cGa.setText(Html.fromHtml(as.af(aVar3.content, str)));
-            aVar2.cdt.setText(aVar3.name_show);
-            aVar2.cGc.setText(as.m(aVar3.time));
-            aVar2.cGb.setVisibility(0);
+            aVar2.deJ.setText(Html.fromHtml(ax.ac(aVar3.content, str)));
+            aVar2.cvv.setText(aVar3.name_show);
+            aVar2.deL.setText(ax.s(aVar3.time));
+            aVar2.deK.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.cGb.setText(i.h.floor_text);
-            } else if (aVar3.cFy == 1) {
-                aVar2.cGb.setText(i.h.reply_post);
+                aVar2.deK.setText(n.i.floor_text);
+            } else if (aVar3.deh == 1) {
+                aVar2.deK.setText(n.i.reply_post);
             } else {
-                aVar2.cGb.setVisibility(8);
+                aVar2.deK.setVisibility(8);
             }
             view.setOnClickListener(new w(this, aVar3));
-            com.baidu.tbadk.h.a.a(this.mContext, view);
+            com.baidu.tbadk.i.a.a(this.mContext, view);
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        TextView cFZ;
-        TextView cGa;
-        TextView cGb;
-        TextView cGc;
-        TextView cdt;
+        TextView cvv;
+        TextView deI;
+        TextView deJ;
+        TextView deK;
+        TextView deL;
 
         private a() {
         }

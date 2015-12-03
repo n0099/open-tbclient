@@ -1,35 +1,19 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.i;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity cue;
+public class m implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(PersonInfoActivity personInfoActivity, int i) {
-        super(i);
-        this.cue = personInfoActivity;
+    public m(d dVar) {
+        this.cSn = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        aj ajVar;
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
-            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
-            int error = responseDeleteFriendMessage.getError();
-            String errorString = responseDeleteFriendMessage.getErrorString();
-            if (error == 0) {
-                ajVar = this.cue.ctS;
-                ajVar.startLoad();
-            } else {
-                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.cue.getResources().getString(i.h.neterror) : responseDeleteFriendMessage.getErrorString();
-            }
-            this.cue.showToast(errorString);
-        }
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        this.cSn.cRR = 1;
     }
 }

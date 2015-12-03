@@ -3,11 +3,11 @@ package com.baidu.tieba.signall;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class m implements a.b {
-    final /* synthetic */ SignAllForumActivity cRT;
+    final /* synthetic */ SignAllForumActivity dqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SignAllForumActivity signAllForumActivity) {
-        this.cRT = signAllForumActivity;
+        this.dqq = signAllForumActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

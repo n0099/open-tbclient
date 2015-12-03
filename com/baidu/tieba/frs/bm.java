@@ -1,38 +1,71 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.adp.widget.ListView.x.a;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class bm extends x.a {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    public LinearLayout aVT;
-    public HeadImageView aVV;
-    public TextView aVW;
-    public TextView aVX;
-    public TextView aVZ;
-    public TbImageView aWm;
-    public TextView aWn;
+public abstract class bm<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected BaseActivity<?> aXA;
+    protected int aYn;
+    protected int aYo;
+    protected ListView aYr;
+    protected int aZm;
+    protected com.baidu.tieba.tbadkCore.p aZs;
+    protected bc bbF;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
 
-    static {
-        $assertionsDisabled = !bm.class.desiredAssertionStatus();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bm(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mIsFromCDN = false;
+        c(baseActivity);
     }
 
-    public bm(View view) {
-        super(view);
-        if (!$assertionsDisabled && view == null) {
-            throw new AssertionError();
+    public void c(BaseActivity<?> baseActivity) {
+        if (baseActivity != null) {
+            this.mContext = baseActivity.getActivity();
+            this.aXA = baseActivity;
+            this.aYn = this.mContext.getResources().getDimensionPixelSize(n.d.ds8);
+            this.aYo = this.mContext.getResources().getDimensionPixelSize(n.d.ds16);
         }
-        this.aVT = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
-        this.aVV = (HeadImageView) view.findViewById(i.f.frs_app_icon);
-        this.aVW = (TextView) view.findViewById(i.f.frs_app_name);
-        this.aVX = (TextView) view.findViewById(i.f.frs_app_time);
-        this.aVZ = (TextView) view.findViewById(i.f.frs_app_desc);
-        this.aWm = (TbImageView) view.findViewById(i.f.frs_app_url);
-        this.aWn = (TextView) view.findViewById(i.f.frs_app_download);
+    }
+
+    public void release() {
+        this.mContext = null;
+        this.aXA = null;
+        this.bbF = null;
+        this.Hb = null;
+        this.Hc = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        this.aYr = (ListView) viewGroup;
+        return null;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
+    }
+
+    public void a(com.baidu.tieba.tbadkCore.p pVar) {
+        this.aZs = pVar;
+    }
+
+    public void a(bc bcVar) {
+        this.bbF = bcVar;
+    }
+
+    public void fY(int i) {
+        this.aZm = i;
     }
 }

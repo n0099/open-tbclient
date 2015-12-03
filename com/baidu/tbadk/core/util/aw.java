@@ -1,45 +1,110 @@
 package com.baidu.tbadk.core.util;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.base.a.d {
-    public aw() {
-        super(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
+public class aw {
+    private static aw abT;
+
+    public static synchronized aw vk() {
+        aw awVar;
+        synchronized (aw.class) {
+            if (abT == null) {
+                abT = new aw();
+            }
+            awVar = abT;
+        }
+        return awVar;
     }
 
-    @Override // com.baidu.adp.base.a.a
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i <= 9) {
-            m(sQLiteDatabase);
+    public String ds(String str) {
+        long j = 0;
+        for (byte b : str.getBytes()) {
+            j += b;
         }
-        if (i < 11) {
-            b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
-            b(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
-            if (i > 9) {
-                b(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
+        return "image/" + (j % 20);
+    }
+
+    public Bitmap dt(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return n.X(ds(str), str);
+    }
+
+    public boolean du(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return n.W(ds(str), str);
+    }
+
+    public int dv(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) n.V(ds(str), str);
+    }
+
+    public boolean copyFile(String str, String str2) {
+        String str3 = n.ya + "/" + TbConfig.getTempDirName() + "/";
+        if (!n.cO(str3)) {
+            n.db(str3);
+        }
+        String str4 = String.valueOf(str3) + ds(str2);
+        if (!n.cO(str4)) {
+            n.db(str4);
+        }
+        String str5 = String.valueOf(str4) + "/" + str2;
+        if (str.equals(str5)) {
+            return false;
+        }
+        return n.c(str, str5, true);
+    }
+
+    public void h(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            n.f(ds(str), str, bArr);
+        }
+    }
+
+    private void u(File file) {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    u(file2);
+                    file2.delete();
+                } else {
+                    file2.delete();
+                }
             }
         }
     }
 
-    @Override // com.baidu.adp.base.a.d
-    public void c(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-        m(sQLiteDatabase);
+    public void vl() {
+        u(new File(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        u(new File(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    @Override // com.baidu.adp.base.a.d
-    public void e(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS pb_photo");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS friend_photo");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
+    public void vm() {
+        v(new File(n.ya + "/" + TbConfig.getTempDirName() + "/" + n.cr(3)));
     }
 
-    private void m(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
+    private void v(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    u(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
+                    file2.delete();
+                }
+            }
+        }
     }
 }

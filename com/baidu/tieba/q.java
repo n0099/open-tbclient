@@ -1,21 +1,34 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.o;
 /* loaded from: classes.dex */
-class q implements Runnable {
-    final /* synthetic */ p aDi;
+class q implements View.OnClickListener {
+    final /* synthetic */ o aFW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar) {
-        this.aDi = pVar;
+    public q(o oVar) {
+        this.aFW = oVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        UpdateDialog updateDialog;
-        UpdateDialog updateDialog2;
-        updateDialog = this.aDi.this$0;
-        if (updateDialog.aDe.forceUpdate()) {
-            updateDialog2 = this.aDi.this$0;
-            com.baidu.tbadk.core.c.b.e(updateDialog2.getPageContext().getPageActivity(), 200);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        TextView textView;
+        o.a aVar;
+        boolean z2;
+        z = this.aFW.aFV;
+        if (z) {
+            TiebaStatic.log("c10001");
+        } else {
+            TiebaStatic.log("c10009");
         }
+        textView = this.aFW.aFI;
+        textView.setEnabled(false);
+        aVar = this.aFW.aFR;
+        z2 = this.aFW.aFw;
+        aVar.bI(z2);
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.stats.a;
 /* loaded from: classes.dex */
 public class a {
-    private static a wX = null;
+    private static a xd = null;
     private long clientLogID = 0;
 
-    public static a id() {
-        if (wX == null) {
+    public static a ig() {
+        if (xd == null) {
             synchronized (a.class) {
-                if (wX == null) {
-                    wX = new a();
+                if (xd == null) {
+                    xd = new a();
                 }
             }
         }
-        return wX;
+        return xd;
     }
 
-    public synchronized long hl() {
+    public synchronized long hn() {
         if (this.clientLogID > 0) {
             this.clientLogID++;
         } else {

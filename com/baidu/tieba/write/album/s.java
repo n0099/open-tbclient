@@ -1,29 +1,30 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.database.ContentObserver;
+import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ r dmA;
-    private final /* synthetic */ ImageFileInfo dmB;
+public class s extends ContentObserver {
+    final /* synthetic */ p this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar, ImageFileInfo imageFileInfo) {
-        this.dmA = rVar;
-        this.dmB = imageFileInfo;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(p pVar, Handler handler) {
+        super(handler);
+        this.this$0 = pVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        AlbumActivity albumActivity3;
-        albumActivity = this.dmA.dlE;
-        albumActivity.d(this.dmB);
-        albumActivity2 = this.dmA.dlE;
-        albumActivity2.d(this.dmB, false);
-        albumActivity3 = this.dmA.dlE;
-        albumActivity3.e(this.dmB, false);
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.this$0.handler;
+        runnable = this.this$0.dLq;
+        handler.removeCallbacks(runnable);
+        handler2 = this.this$0.handler;
+        runnable2 = this.this$0.dLq;
+        handler2.postDelayed(runnable2, 2000L);
     }
 }

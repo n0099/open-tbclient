@@ -10,6 +10,7 @@ public class NotLoginGuideActivityConfig extends IntentConfig {
 
     public NotLoginGuideActivityConfig(Context context, String str) {
         super(context);
+        getIntent().setFlags(67108864);
         getIntent().putExtra(FROM_PAGE, str);
     }
 }

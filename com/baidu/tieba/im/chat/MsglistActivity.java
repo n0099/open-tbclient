@@ -36,7 +36,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            bq.bth = com.baidu.tbadk.util.e.Eo();
+            bq.bIn = com.baidu.tbadk.util.e.Fq();
         }
     }
 

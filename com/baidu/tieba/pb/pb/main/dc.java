@@ -1,41 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
-import java.util.List;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dc implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ ct cmY;
+public class dc implements Animation.AnimationListener {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(ct ctVar) {
-        this.cmY = ctVar;
+    public dc(da daVar) {
+        this.cGh = daVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.b.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.cmY.cmw = (String) compoundButton.getTag();
-            list = this.cmY.clz;
-            if (list != null) {
-                list2 = this.cmY.clz;
-                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.cmY.cmw;
-                        if (str != null) {
-                            str2 = this.cmY.cmw;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        boolean z;
+        relativeLayout = this.cGh.cEM;
+        relativeLayout.setVisibility(0);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.cGh.fq(false);
         }
+        z = this.cGh.cFX;
+        if (!z) {
+            return;
+        }
+        this.cGh.alW();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a aez;
+    private a afw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        vB();
+        wh();
     }
 
     public TbCheckBox(Context context) {
@@ -37,28 +37,28 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new o(this));
-        vB();
+        setOnClickListener(new p(this));
+        wh();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.aez = aVar;
+        this.afw = aVar;
     }
 
-    public void vB() {
-        if (vC()) {
-            an.c(this, i.e.icon_set_list_ok_s);
+    public void wh() {
+        if (wi()) {
+            as.c(this, n.e.icon_set_list_ok_s);
         } else {
-            an.c(this, i.e.icon_set_list_ok_n);
+            as.c(this, n.e.icon_set_list_ok_n);
         }
     }
 
     public boolean isChecked() {
-        return vC();
+        return wi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vC() {
+    public boolean wi() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -71,9 +71,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        vB();
-        if (this.aez != null) {
-            this.aez.handler(this, z, getTag());
+        wh();
+        if (this.afw != null) {
+            this.afw.handler(this, z, getTag());
         }
     }
 }

@@ -12,103 +12,104 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.h;
 import com.baidu.tieba.pb.pb.praise.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
-    private f cnr = null;
-    private d cns = null;
+    private f cGC = null;
+    private d cGD = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cns = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.cns.jj(bundle.getInt("KeyIntentPraiseId"));
+            this.cGD = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+            this.cGD.kd(bundle.getInt("KeyIntentPraiseId"));
         } else if (getIntent() != null) {
-            this.cns = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+            this.cGD = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
         }
-        if (this.cns == null) {
-            this.cns = new d();
+        if (this.cGD == null) {
+            this.cGD = new d();
         }
-        this.cnr = new f(this, this.cns.ahF());
-        this.cnr.eU(false);
-        this.cns.Gq();
+        this.cGC = new f(this, this.cGD.ami());
+        this.cGC.fy(false);
+        this.cGD.Hx();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.cns.a(bundle, IntentConfig.IS_FROM_PB);
-        this.cns.b(bundle, IntentConfig.POST_DESC);
-        this.cns.c(bundle, "post_id");
-        this.cns.d(bundle, "thread_id");
-        this.cns.e(bundle, "KeyIntentPraiseId");
+        this.cGD.a(bundle, IntentConfig.IS_FROM_PB);
+        this.cGD.b(bundle, IntentConfig.POST_DESC);
+        this.cGD.c(bundle, "post_id");
+        this.cGD.d(bundle, "thread_id");
+        this.cGD.e(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cnr.getPageHeadView()) {
-            ahC();
-            if (!this.cns.ahD()) {
-                String threadId = this.cns.getThreadId();
+        if (view == this.cGC.getPageHeadView()) {
+            amf();
+            if (!this.cGD.amg()) {
+                String threadId = this.cGD.getThreadId();
                 if (threadId != null && threadId.startsWith("twzb:")) {
-                    g.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).cf("praise_list").ri());
-                } else {
-                    g.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(threadId, null, "praise_list"));
+                    h.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).cm("praise_list").rw());
+                    return;
                 }
+                h.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(threadId, null, "praise_list"));
+                return;
             }
             finish();
-        } else if (view == this.cnr.getPageFootContinue() && !this.cnr.isLoading()) {
-            this.cnr.eU(true);
-            this.cns.Gq();
+        } else if (view == this.cGC.getPageFootContinue() && !this.cGC.isLoading()) {
+            this.cGC.fy(true);
+            this.cGD.Hx();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a jk = this.cns.jk(i);
-        if (jk != null) {
-            g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), jk.getUserId(), jk.ahA(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a ke = this.cGD.ke(i);
+        if (ke != null) {
+            h.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), ke.getUserId(), ke.agn(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void ahC() {
-        if (this.cns != null) {
-            this.cns.ahE();
+    private void amf() {
+        if (this.cGD != null) {
+            this.cGD.amh();
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.praise.d.a
-    public void bF(String str) {
+    public void bK(String str) {
         if (!j.isEmpty(str)) {
             showToast(str, true);
         }
-        this.cnr.stopLoadData();
+        this.cGC.stopLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cnr.refreshList();
+        this.cGC.refreshList();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.cnr.changeSkinType(getLayoutMode(), i);
+        this.cGC.changeSkinType(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
-        getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        getLayoutMode().af(TbadkCoreApplication.m411getInst().getSkinType() == 1);
         getLayoutMode().k(view);
     }
 
     @Override // com.baidu.tieba.pb.pb.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.cnr.updateData(i, list, i2, i3);
+        this.cGC.updateData(i, list, i2, i3);
     }
 }

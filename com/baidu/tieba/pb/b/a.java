@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0070a chj;
+    private InterfaceC0078a czG;
     private int count = 0;
-    private long chh = 0;
-    private long chi = 0;
-    private long chk = 500;
+    private long czE = 0;
+    private long czF = 0;
+    private long czH = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0070a {
-        void Mu();
+    public interface InterfaceC0078a {
+        void NW();
 
-        void Mv();
+        void NX();
     }
 
-    public a(InterfaceC0070a interfaceC0070a) {
-        this.chj = interfaceC0070a;
+    public a(InterfaceC0078a interfaceC0078a) {
+        this.czG = interfaceC0078a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.chj == null) {
+            if (this.czG == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.chh = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.chk);
+                this.czE = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.czH);
                 return true;
             } else if (this.count == 2) {
-                this.chi = System.currentTimeMillis();
-                if (this.chi - this.chh < this.chk) {
-                    this.chj.Mv();
+                this.czF = System.currentTimeMillis();
+                if (this.czF - this.czE < this.czH) {
+                    this.czG.NX();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

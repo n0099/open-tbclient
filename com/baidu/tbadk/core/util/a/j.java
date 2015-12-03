@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.a;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.f.a;
+import com.baidu.adp.lib.g.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.ByteArrayInputStream;
@@ -12,113 +12,113 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j implements a.InterfaceC0004a {
-    private static int acy = 5;
-    private com.baidu.adp.lib.network.http.e acv;
-    private f acz;
+    private static int adq = 5;
+    private com.baidu.adp.lib.network.http.e adn;
+    private f adr;
     private volatile com.baidu.adp.lib.network.http.c ol = null;
-    private HashMap<String, String> acw = null;
-    private com.baidu.adp.lib.network.http.g acx = new com.baidu.adp.lib.network.http.g();
-    public List<Integer> acA = new ArrayList();
-    public boolean acB = false;
-    public boolean Gf = false;
-    public String uR = "";
-    public com.baidu.adp.lib.network.http.d acC = null;
+    private HashMap<String, String> ado = null;
+    private com.baidu.adp.lib.network.http.g adp = new com.baidu.adp.lib.network.http.g();
+    public List<Integer> ads = new ArrayList();
+    public boolean adt = false;
+    public boolean Gu = false;
+    public String uX = "";
+    public com.baidu.adp.lib.network.http.d adu = null;
     public int dataSize = -1;
     public int responseCode = -1;
-    private boolean acD = false;
-    public boolean acE = false;
+    private boolean adv = false;
+    public boolean adw = false;
 
-    public boolean vj() {
-        return this.acD;
+    public boolean vP() {
+        return this.adv;
     }
 
-    public com.baidu.adp.lib.network.http.g gR() {
-        return this.acx;
+    public com.baidu.adp.lib.network.http.g gT() {
+        return this.adp;
     }
 
-    public void vk() {
-        this.acC = null;
-        this.uR = "";
-        this.acD = false;
+    public void vQ() {
+        this.adu = null;
+        this.uX = "";
+        this.adv = false;
         this.responseCode = -1;
         this.dataSize = -1;
-        this.Gf = false;
-        this.acB = false;
-        this.acA.clear();
+        this.Gu = false;
+        this.adt = false;
+        this.ads.clear();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=6] */
     /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE, IGET, INVOKE, INVOKE, CHECK_CAST, IPUT, ARITH, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, MOVE, IGET, CONST_STR, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, MOVE, IF, IGET, IGET, IF, IGET, INVOKE, INVOKE] complete}, expected: {[IGET, INVOKE, IGET, INVOKE, INVOKE, CHECK_CAST, IPUT, ARITH, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, CONST_STR, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IGET, IGET, INVOKE, CONSTRUCTOR, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF, IGET, IGET, IF, IGET, INVOKE, INVOKE] complete} */
     /* JADX WARN: Finally extract failed */
-    private final byte[] dv(String str) {
+    private final byte[] dF(String str) {
         com.baidu.adp.lib.network.http.d dVar;
         com.baidu.adp.lib.network.http.d dVar2;
         com.baidu.adp.lib.network.http.d dVar3;
         int i = 0;
         try {
             try {
-                vk();
-                if (this.acv != null) {
+                vQ();
+                if (this.adn != null) {
                     cancel();
                     this.ol = null;
                 }
-                this.acv = new com.baidu.adp.lib.network.http.e();
-                this.acv.gQ().setUrl(str);
-                if (this.acw != null) {
-                    for (Map.Entry<String, String> entry : this.acw.entrySet()) {
-                        this.acv.gQ().o(entry.getKey(), entry.getValue());
+                this.adn = new com.baidu.adp.lib.network.http.e();
+                this.adn.gS().setUrl(str);
+                if (this.ado != null) {
+                    for (Map.Entry<String, String> entry : this.ado.entrySet()) {
+                        this.adn.gS().o(entry.getKey(), entry.getValue());
                     }
                 }
-                this.ol = new com.baidu.adp.lib.network.http.c(this.acv);
-                this.ol.e(acy, 0, 0);
-                this.acx = this.acv.gR();
-                byte[] bArr = this.acv.gR().vf;
-                this.responseCode = this.acv.gR().responseCode;
-                this.acD = this.acv.gR().gX();
+                this.ol = new com.baidu.adp.lib.network.http.c(this.adn);
+                this.ol.e(adq, 0, 0);
+                this.adp = this.adn.gT();
+                byte[] bArr = this.adn.gT().vl;
+                this.responseCode = this.adn.gT().responseCode;
+                this.adv = this.adn.gT().gZ();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.acv.gR().contentEncoding != null && this.acv.gR().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.acB = true;
+                if (this.adn.gT().contentEncoding != null && this.adn.gT().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.adt = true;
                     bArr = Q(bArr);
                 }
-                if (!this.acD) {
+                if (!this.adv) {
                     a(str, null);
                 }
-                TiebaStatic.netImg(this.acv);
-                while (i < this.acv.gS().size()) {
-                    this.acC = this.acv.gS().get(i);
+                TiebaStatic.netImg(this.adn);
+                while (i < this.adn.gU().size()) {
+                    this.adu = this.adn.gU().get(i);
                     i++;
                 }
-                if (this.acC.uR == null) {
-                    this.acC.uR = "";
+                if (this.adu.uX == null) {
+                    this.adu.uX = "";
                 }
-                this.acC.uR = String.valueOf(dVar3.uR) + "responseCode:" + this.responseCode;
+                this.adu.uX = String.valueOf(dVar3.uX) + "responseCode:" + this.responseCode;
                 return bArr;
             } catch (Exception e) {
                 a(str, e);
-                TiebaStatic.netImg(this.acv);
-                for (int i2 = 0; i2 < this.acv.gS().size(); i2++) {
-                    this.acC = this.acv.gS().get(i2);
+                TiebaStatic.netImg(this.adn);
+                for (int i2 = 0; i2 < this.adn.gU().size(); i2++) {
+                    this.adu = this.adn.gU().get(i2);
                 }
-                if (this.acC.uR == null) {
-                    this.acC.uR = "";
+                if (this.adu.uX == null) {
+                    this.adu.uX = "";
                 }
-                this.acC.uR = String.valueOf(dVar.uR) + "responseCode:" + this.responseCode;
+                this.adu.uX = String.valueOf(dVar.uX) + "responseCode:" + this.responseCode;
                 return null;
             }
         } catch (Throwable th) {
-            TiebaStatic.netImg(this.acv);
-            while (i < this.acv.gS().size()) {
-                this.acC = this.acv.gS().get(i);
+            TiebaStatic.netImg(this.adn);
+            while (i < this.adn.gU().size()) {
+                this.adu = this.adn.gU().get(i);
                 i++;
             }
-            if (this.acC.uR == null) {
-                this.acC.uR = "";
+            if (this.adu.uX == null) {
+                this.adu.uX = "";
             }
-            this.acC.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
+            this.adu.uX = String.valueOf(dVar2.uX) + "responseCode:" + this.responseCode;
             throw th;
         }
     }
@@ -127,19 +127,19 @@ public class j implements a.InterfaceC0004a {
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-            com.baidu.adp.lib.util.f.b(byteArrayInputStream, byteArrayOutputStream);
+            com.baidu.adp.lib.util.f.c(byteArrayInputStream, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {
             return bArr;
         }
     }
 
-    public byte[] dw(String str) {
-        return dv(str);
+    public byte[] dG(String str) {
+        return dF(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [285=6] */
-    public byte[] l(String str, boolean z) {
+    public byte[] m(String str, boolean z) {
         com.baidu.adp.lib.network.http.d dVar;
         com.baidu.adp.lib.network.http.d dVar2;
         com.baidu.adp.lib.network.http.d dVar3;
@@ -153,31 +153,31 @@ public class j implements a.InterfaceC0004a {
         try {
             if (TbadkCoreApplication.m411getInst().isHttpClientOpen()) {
                 try {
-                    vk();
-                    if (this.acz != null) {
+                    vQ();
+                    if (this.adr != null) {
                         cancel();
                     }
-                    this.acv = new com.baidu.adp.lib.network.http.e();
-                    this.acz = new f(this.acv);
-                    this.acv.gQ().setUrl(str);
-                    if (this.acw != null) {
-                        for (Map.Entry<String, String> entry : this.acw.entrySet()) {
-                            this.acv.gQ().o(entry.getKey(), entry.getValue());
+                    this.adn = new com.baidu.adp.lib.network.http.e();
+                    this.adr = new f(this.adn);
+                    this.adn.gS().setUrl(str);
+                    if (this.ado != null) {
+                        for (Map.Entry<String, String> entry : this.ado.entrySet()) {
+                            this.adn.gS().o(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.acz.vh();
-                    this.acx = this.acv.gR();
-                    bArr = this.acv.gR().vf;
-                    this.responseCode = this.acv.gR().responseCode;
-                    this.acD = this.acv.gR().gX();
+                    this.adr.vN();
+                    this.adp = this.adn.gT();
+                    bArr = this.adn.gT().vl;
+                    this.responseCode = this.adn.gT().responseCode;
+                    this.adv = this.adn.gT().gZ();
                     if (bArr != null) {
                         this.dataSize = bArr.length;
                     } else {
                         this.dataSize = 0;
                     }
-                    this.Gf = this.acz.fF();
-                    this.acE = this.acz.vi();
-                    if (!this.acD) {
+                    this.Gu = this.adr.fF();
+                    this.adw = this.adr.vO();
+                    if (!this.adv) {
                         a(str, null);
                     }
                     while (true) {
@@ -187,86 +187,86 @@ public class j implements a.InterfaceC0004a {
                     }
                 } catch (Exception e) {
                     a(str, e);
-                    TiebaStatic.netImg(this.acv);
+                    TiebaStatic.netImg(this.adn);
                     StringBuilder sb = new StringBuilder(20);
-                    int size2 = this.acv.gS().size();
+                    int size2 = this.adn.gU().size();
                     sb.append(";ipsize:");
                     sb.append(size2);
                     sb.append(";ips:");
-                    for (int i2 = 0; i2 < this.acv.gS().size(); i2++) {
-                        this.acC = this.acv.gS().get(i2);
-                        sb.append(this.acC.uU);
+                    for (int i2 = 0; i2 < this.adn.gU().size(); i2++) {
+                        this.adu = this.adn.gU().get(i2);
+                        sb.append(this.adu.va);
                         sb.append(",");
                     }
-                    if (this.acC.uR == null) {
-                        this.acC.uR = "";
+                    if (this.adu.uX == null) {
+                        this.adu.uX = "";
                     }
-                    this.acC.uR = String.valueOf(dVar4.uR) + sb.toString();
-                    this.acC.uR = String.valueOf(dVar5.uR) + "responseCode:" + this.responseCode;
-                    this.acC.uR = String.valueOf(dVar6.uR) + " size:" + Integer.toString(this.dataSize);
+                    this.adu.uX = String.valueOf(dVar4.uX) + sb.toString();
+                    this.adu.uX = String.valueOf(dVar5.uX) + "responseCode:" + this.responseCode;
+                    this.adu.uX = String.valueOf(dVar6.uX) + " size:" + Integer.toString(this.dataSize);
                     return null;
                 }
             } else {
                 try {
-                    bArr = dv(str);
+                    bArr = dF(str);
                     if (bArr == null) {
                         return null;
                     }
-                    if (this.acv != null && this.acv.gR().ve != null) {
-                        List<String> list = this.acv.gR().ve.get("imgsrc");
+                    if (this.adn != null && this.adn.gT().vk != null) {
+                        List<String> list = this.adn.gT().vk.get("imgsrc");
                         if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                             i = 1;
                         }
-                        List<String> list2 = this.acv.gR().ve.get("Src-Content-Type");
+                        List<String> list2 = this.adn.gT().vk.get("Src-Content-Type");
                         if (list2 != null && list2.size() > 0) {
                             if ("image/gif".equalsIgnoreCase(list2.get(0))) {
-                                this.Gf = true;
+                                this.Gu = true;
                             } else {
-                                this.Gf = false;
+                                this.Gu = false;
                             }
                         }
-                        List<String> list3 = this.acv.gR().ve.get("Error-Message");
+                        List<String> list3 = this.adn.gT().vk.get("Error-Message");
                         if (list3 != null && list3.size() > 0) {
                             String str3 = list3.get(0);
                             if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                                this.acE = false;
+                                this.adw = false;
                             } else {
-                                this.acE = true;
+                                this.adw = true;
                             }
                         }
                     }
-                    if (this.acD && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
-                        return j(bArr, 23, bArr.length);
+                    if (this.adv && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
+                        return copyOfRange(bArr, 23, bArr.length);
                     }
                 } catch (Exception e2) {
-                    this.uR = String.valueOf(this.uR) + "BDIMAGE DECODE ERROR" + e2.getMessage();
+                    this.uX = String.valueOf(this.uX) + "BDIMAGE DECODE ERROR" + e2.getMessage();
                     return null;
                 }
             }
             return bArr;
         } finally {
-            TiebaStatic.netImg(this.acv);
+            TiebaStatic.netImg(this.adn);
             StringBuilder sb2 = new StringBuilder(20);
-            int size3 = this.acv.gS().size();
+            int size3 = this.adn.gU().size();
             sb2.append(";ipsize:");
             sb2.append(size3);
             sb2.append(";ips:");
-            while (i < this.acv.gS().size()) {
-                this.acC = this.acv.gS().get(i);
-                sb2.append(this.acC.uU);
+            while (i < this.adn.gU().size()) {
+                this.adu = this.adn.gU().get(i);
+                sb2.append(this.adu.va);
                 sb2.append(",");
                 i++;
             }
-            if (this.acC.uR == null) {
-                this.acC.uR = "";
+            if (this.adu.uX == null) {
+                this.adu.uX = "";
             }
-            this.acC.uR = String.valueOf(dVar.uR) + sb2.toString();
-            this.acC.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
-            this.acC.uR = String.valueOf(dVar3.uR) + " size:" + Integer.toString(this.dataSize);
+            this.adu.uX = String.valueOf(dVar.uX) + sb2.toString();
+            this.adu.uX = String.valueOf(dVar2.uX) + "responseCode:" + this.responseCode;
+            this.adu.uX = String.valueOf(dVar3.uX) + " size:" + Integer.toString(this.dataSize);
         }
     }
 
-    private static byte[] j(byte[] bArr, int i, int i2) {
+    private static byte[] copyOfRange(byte[] bArr, int i, int i2) {
         int i3 = i2 - i;
         if (i3 < 0) {
             throw new IllegalArgumentException(String.valueOf(i) + " > " + i2);
@@ -283,29 +283,29 @@ public class j implements a.InterfaceC0004a {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.acv.gS().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.acv.gS().get(i);
+            for (int i = 0; i < this.adn.gU().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.adn.gU().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
-                stringBuffer.append(dVar.uR);
+                stringBuffer.append(dVar.uX);
                 stringBuffer.append("retry:");
-                stringBuffer.append(dVar.uO);
+                stringBuffer.append(dVar.uU);
                 stringBuffer.append("connectTime:");
-                stringBuffer.append(dVar.uM);
-                stringBuffer.append("downloadSize:");
-                stringBuffer.append(dVar.uL);
-                stringBuffer.append("rspTime:");
-                stringBuffer.append(dVar.uN);
-                stringBuffer.append("dnsTime:");
-                stringBuffer.append(dVar.uQ);
-                stringBuffer.append("responsedCode:");
                 stringBuffer.append(dVar.uS);
-                stringBuffer.append("allCostTime:");
-                stringBuffer.append(dVar.uP);
-                stringBuffer.append("executeStatus:");
+                stringBuffer.append("downloadSize:");
+                stringBuffer.append(dVar.uR);
+                stringBuffer.append("rspTime:");
                 stringBuffer.append(dVar.uT);
-                this.acA.add(Integer.valueOf(dVar.uT));
+                stringBuffer.append("dnsTime:");
+                stringBuffer.append(dVar.uW);
+                stringBuffer.append("responsedCode:");
+                stringBuffer.append(dVar.uY);
+                stringBuffer.append("allCostTime:");
+                stringBuffer.append(dVar.uV);
+                stringBuffer.append("executeStatus:");
+                stringBuffer.append(dVar.uZ);
+                this.ads.add(Integer.valueOf(dVar.uZ));
             }
             if (exc != null) {
                 stringBuffer.append("webclient exception");
@@ -316,28 +316,28 @@ public class j implements a.InterfaceC0004a {
             } else {
                 stringBuffer.append("networkcore exception");
             }
-            this.uR = stringBuffer.toString();
+            this.uX = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.acD = false;
+            this.adv = false;
         }
     }
 
-    @Override // com.baidu.adp.lib.f.a.InterfaceC0004a
+    @Override // com.baidu.adp.lib.g.a.InterfaceC0004a
     public void cancel() {
         if (this.ol != null) {
             this.ol.cancel();
         }
-        if (this.acz != null) {
-            this.acz.cancel();
-            this.acz = null;
+        if (this.adr != null) {
+            this.adr.cancel();
+            this.adr = null;
         }
     }
 
-    public boolean vl() {
-        if (this.acz == null) {
+    public boolean vR() {
+        if (this.adr == null) {
             return false;
         }
-        return this.acz.acm;
+        return this.adr.adf;
     }
 }

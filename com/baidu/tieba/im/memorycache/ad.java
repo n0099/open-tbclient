@@ -18,7 +18,7 @@ public class ad extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008016) {
-            b.Wn().reset();
+            b.Zt().reset();
         }
     }
 }

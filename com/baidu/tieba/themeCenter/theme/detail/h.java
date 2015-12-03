@@ -1,34 +1,25 @@
 package com.baidu.tieba.themeCenter.theme.detail;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.tbadk.core.view.HorizontalListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ f diJ;
+public class h implements HorizontalListView.a {
+    final /* synthetic */ g dGU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.diJ = fVar;
+    public h(g gVar) {
+        this.dGU = gVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        c cVar;
-        SkinDetailActivity skinDetailActivity;
-        SkinDetailActivity skinDetailActivity2;
-        c cVar2;
-        TiebaStatic.log("c10277");
-        cVar = this.diJ.diH;
-        cVar.getItem(i);
-        skinDetailActivity = this.diJ.diE;
-        skinDetailActivity2 = this.diJ.diE;
-        ImageViewerConfig imageViewerConfig = new ImageViewerConfig(skinDetailActivity2.getPageContext().getPageActivity());
-        cVar2 = this.diJ.diH;
-        skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, imageViewerConfig.createConfig(cVar2.aAp(), i, null, "", "", true, "", true)));
+    @Override // com.baidu.tbadk.core.view.HorizontalListView.a
+    public void cQ(int i) {
+        IndicatorView indicatorView;
+        IndicatorView indicatorView2;
+        indicatorView = this.dGU.agf;
+        if (indicatorView != null) {
+            indicatorView2 = this.dGU.agf;
+            indicatorView2.setPosition(i);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.h.b;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;

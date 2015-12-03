@@ -1,23 +1,24 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.text.SpannableString;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class m {
-    private int aAJ;
+    private String aDt;
+    private int aDu;
+    private String aDv;
     private int height;
-    private String thumbUrl;
     private String videoUrl;
     private int width;
 
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.thumbUrl = pbContent.src;
+            this.aDt = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aAJ = pbContent.e_type.intValue();
+            this.aDu = pbContent.e_type.intValue();
+            this.aDv = pbContent.text;
         }
     }
 
@@ -25,8 +26,8 @@ public class m {
         return this.videoUrl;
     }
 
-    public String getThumbUrl() {
-        return this.thumbUrl;
+    public String Gk() {
+        return this.aDt;
     }
 
     public int getWidth() {
@@ -37,20 +38,15 @@ public class m {
         return this.height;
     }
 
-    public SpannableString fT(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
-        }
-        SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new g(2, this.videoUrl), 0, str.length() - 1, 33);
-        return spannableString;
+    public String Gl() {
+        return this.aDv;
     }
 
-    public boolean Fh() {
-        return this.aAJ == 12;
+    public boolean Gm() {
+        return this.aDu == 15;
     }
 
     public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && !StringUtils.isNull(this.thumbUrl) && this.width > 0 && this.height > 0;
+        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 }

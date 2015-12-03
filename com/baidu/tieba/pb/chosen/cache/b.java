@@ -4,23 +4,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.squareup.wire.Wire;
-import tbclient.FinePbPage.FinePbPageResIdl;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes.dex */
 public class b implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         a aVar;
-        FinePbPageResIdl finePbPageResIdl;
+        ExcPbPageResIdl excPbPageResIdl;
         if (customMessage != null && customMessage.getCmd() == 2001321) {
-            byte[] bArr = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_normal").get("chosen_pb_page_cache");
+            byte[] bArr = com.baidu.tbadk.core.b.a.ts().cy("tb.pb_normal").get("chosen_pb_page_cache");
             if (bArr != null) {
                 try {
-                    finePbPageResIdl = (FinePbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FinePbPageResIdl.class);
+                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
                 } catch (Exception e) {
-                    finePbPageResIdl = null;
+                    excPbPageResIdl = null;
                 }
-                if (finePbPageResIdl != null && finePbPageResIdl.data != null) {
-                    aVar = new a(finePbPageResIdl.data.prevftid.longValue(), finePbPageResIdl.data.nextftid.longValue(), finePbPageResIdl.data.user_info, finePbPageResIdl.data.thread_info, finePbPageResIdl.data.post_list, finePbPageResIdl.data.user_list);
+                if (excPbPageResIdl != null && excPbPageResIdl.data != null) {
+                    aVar = new a(excPbPageResIdl.data.user_info, excPbPageResIdl.data.thread_info, excPbPageResIdl.data.post_list, excPbPageResIdl.data.user_list);
                     return new ReadChosenPbCacheResponse(aVar);
                 }
             }

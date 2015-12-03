@@ -3,33 +3,33 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class a implements BaseViewPager.a {
-    final /* synthetic */ GuideActivity bTf;
+    final /* synthetic */ GuideActivity cjt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(GuideActivity guideActivity) {
-        this.bTf = guideActivity;
+        this.cjt = guideActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-    public void cC(int i) {
+    public void cK(int i) {
         BaseViewPager baseViewPager;
         String str;
         BaseViewPager baseViewPager2;
         if (i == 0) {
-            baseViewPager = this.bTf.bSV;
+            baseViewPager = this.cjt.cjj;
             if (baseViewPager != null) {
-                baseViewPager2 = this.bTf.bSV;
+                baseViewPager2 = this.cjt.cjj;
                 baseViewPager2.setOnScrollOutListener(null);
             }
-            str = this.bTf.bSR;
+            str = this.cjt.cjf;
             if (!str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                this.bTf.FR();
+                this.cjt.GY();
             }
-            CompatibleUtile.setAnim(this.bTf.getPageContext().getPageActivity(), 0, i.a.left);
-            this.bTf.closeActivity();
+            CompatibleUtile.setAnim(this.cjt.getPageContext().getPageActivity(), 0, n.a.left);
+            this.cjt.closeActivity();
         }
     }
 }

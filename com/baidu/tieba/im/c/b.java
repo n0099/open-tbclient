@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements af.b {
-    final /* synthetic */ a bHA;
+    final /* synthetic */ a bWG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bHA = aVar;
+        this.bWG = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.af.b
@@ -24,7 +24,7 @@ public class b implements af.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.Xu().l(chatMessage);
+            a.aaA().l(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData v = com.baidu.tieba.im.util.h.v(chatMessage);
@@ -33,11 +33,11 @@ public class b implements af.b {
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.Xu().n(chatMessage);
-                    aeVar = this.bHA.mSendCallback;
+                    a.aaA().n(chatMessage);
+                    aeVar = this.bWG.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bHA.mSendCallback;
-                        aeVar2.hM(2);
+                        aeVar2 = this.bWG.mSendCallback;
+                        aeVar2.iA(2);
                         return;
                     }
                     return;
@@ -46,13 +46,13 @@ public class b implements af.b {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPLOAD_FAIL, chatMessage));
                 if (chatMessage instanceof CommonGroupChatMessage) {
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                    com.baidu.tbadk.util.m.b(new c(this, commonGroupChatMessage), new d(this, commonGroupChatMessage));
+                    com.baidu.tbadk.util.n.b(new c(this, commonGroupChatMessage), new d(this, commonGroupChatMessage));
                 } else if (chatMessage instanceof PersonalChatMessage) {
                     PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
-                    com.baidu.tbadk.util.m.b(new e(this, personalChatMessage), new f(this, personalChatMessage));
+                    com.baidu.tbadk.util.n.b(new e(this, personalChatMessage), new f(this, personalChatMessage));
                 } else if (chatMessage instanceof OfficialChatMessage) {
                     OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
-                    com.baidu.tbadk.util.m.b(new g(this, officialChatMessage), new h(this, officialChatMessage));
+                    com.baidu.tbadk.util.n.b(new g(this, officialChatMessage), new h(this, officialChatMessage));
                 }
             }
         } catch (Exception e) {

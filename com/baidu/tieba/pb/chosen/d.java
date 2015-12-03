@@ -3,17 +3,16 @@ package com.baidu.tieba.pb.chosen;
 import android.widget.RelativeLayout;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity cfM;
+    final /* synthetic */ PbChosenActivity cyo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.cfM = pbChosenActivity;
+        this.cyo = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -21,27 +20,27 @@ class d extends com.baidu.adp.framework.listener.a {
         RelativeLayout relativeLayout;
         boolean z;
         RelativeLayout relativeLayout2;
-        com.baidu.tieba.pb.chosen.a.m mVar;
+        com.baidu.tieba.pb.chosen.a.l lVar;
         if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
             com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
             int erroCode = aVar.getErroCode();
-            this.cfM.cfC = true;
+            this.cyo.cyc = true;
             if (erroCode != 0) {
-                PbChosenActivity pbChosenActivity = this.cfM;
-                relativeLayout = this.cfM.cfp;
+                PbChosenActivity pbChosenActivity = this.cyo;
+                relativeLayout = this.cyo.cxP;
                 pbChosenActivity.hideLoadingView(relativeLayout);
-                BdToast.b(this.cfM.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.cfM.getResources().getString(i.h.neterror) : aVar.getErrorText()).sZ();
+                this.cyo.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.cyo.getResources().getString(n.i.neterror) : aVar.getErrorText());
             } else {
-                this.cfM.a(aVar);
+                this.cyo.a(aVar);
             }
-            z = this.cfM.aQd;
+            z = this.cyo.aVg;
             if (!z) {
-                String string = this.cfM.getResources().getString(i.h.error_unkown_try_again);
-                PbChosenActivity pbChosenActivity2 = this.cfM;
-                relativeLayout2 = this.cfM.cfp;
+                String string = this.cyo.getResources().getString(n.i.error_unkown_try_again);
+                PbChosenActivity pbChosenActivity2 = this.cyo;
+                relativeLayout2 = this.cyo.cxP;
                 pbChosenActivity2.showNetRefreshView(relativeLayout2, string, true);
-                mVar = this.cfM.cft;
-                mVar.setVisible(false);
+                lVar = this.cyo.cxT;
+                lVar.setVisible(false);
             }
         }
     }

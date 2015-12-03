@@ -3,16 +3,16 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aDq;
+    final /* synthetic */ AccountActivity aGn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AccountActivity accountActivity) {
-        this.aDq = accountActivity;
+        this.aGn = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,25 +22,25 @@ public class d implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        if (!this.aDq.aDk.FO()) {
-            this.aDq.aDk.setEditState(true);
-            textView3 = this.aDq.aDm;
-            textView3.setText(i.h.done);
+        if (!this.aGn.aGh.GV()) {
+            this.aGn.aGh.setEditState(true);
+            textView3 = this.aGn.aGj;
+            textView3.setText(n.i.done);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView5 = this.aDq.aDm;
-                an.b(textView5, i.c.navi_op_text, 1);
+                textView5 = this.aGn.aGj;
+                as.b(textView5, n.c.navi_op_text, 1);
             } else {
-                textView4 = this.aDq.aDm;
-                an.b(textView4, i.c.cp_link_tip_a, 1);
+                textView4 = this.aGn.aGj;
+                as.b(textView4, n.c.cp_link_tip_a, 1);
             }
-            this.aDq.aDk.notifyDataSetChanged();
+            this.aGn.aGh.notifyDataSetChanged();
             return;
         }
-        this.aDq.aDk.setEditState(false);
-        textView = this.aDq.aDm;
-        textView.setText(i.h.edit);
-        textView2 = this.aDq.aDm;
-        an.b(textView2, i.c.navi_op_text, 1);
-        this.aDq.aDk.notifyDataSetChanged();
+        this.aGn.aGh.setEditState(false);
+        textView = this.aGn.aGj;
+        textView.setText(n.i.edit);
+        textView2 = this.aGn.aGj;
+        as.b(textView2, n.c.navi_op_text, 1);
+        this.aGn.aGh.notifyDataSetChanged();
     }
 }

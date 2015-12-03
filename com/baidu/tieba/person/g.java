@@ -1,8 +1,11 @@
 package com.baidu.tieba.person;
 
+import android.os.Build;
 import android.view.View;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
@@ -17,9 +20,31 @@ public class g implements View.OnClickListener {
     public void onClick(View view) {
         LinearLayout linearLayout;
         Button button;
-        linearLayout = this.this$0.cpK;
-        linearLayout.setVisibility(8);
-        button = this.this$0.cpD;
-        button.setVisibility(0);
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        RadioButton radioButton4;
+        RadioButton radioButton5;
+        HorizontalScrollView horizontalScrollView;
+        RadioButton radioButton6;
+        linearLayout = this.this$0.cJf;
+        linearLayout.setVisibility(0);
+        button = this.this$0.cIY;
+        button.setVisibility(8);
+        if (Build.VERSION.SDK_INT < 7 || !this.this$0.cJl) {
+            radioButton = this.this$0.cJd;
+            radioButton2 = this.this$0.cJd;
+            int paddingTop = radioButton2.getPaddingTop();
+            radioButton3 = this.this$0.cJd;
+            int paddingRight = radioButton3.getPaddingRight();
+            radioButton4 = this.this$0.cJd;
+            radioButton.setPadding(0, paddingTop, paddingRight, radioButton4.getPaddingBottom());
+            radioButton5 = this.this$0.cJd;
+            radioButton5.setChecked(true);
+            horizontalScrollView = this.this$0.cIZ;
+            horizontalScrollView.setVisibility(8);
+            radioButton6 = this.this$0.cJc;
+            radioButton6.setVisibility(8);
+        }
     }
 }

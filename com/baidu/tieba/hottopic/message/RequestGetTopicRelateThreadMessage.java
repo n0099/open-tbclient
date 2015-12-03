@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.h;
+import com.baidu.tbadk.util.i;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
@@ -118,7 +118,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
             builder.scr_dip = getScrDip();
             builder.q_type = getQType();
             if (z) {
-                h.a(builder, true);
+                i.a(builder, true);
             }
             GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
             builder2.data = builder.build(false);

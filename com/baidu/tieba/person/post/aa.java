@@ -1,19 +1,23 @@
 package com.baidu.tieba.person.post;
 
-import java.util.TimerTask;
+import com.baidu.tbadk.core.view.q;
 /* loaded from: classes.dex */
-class aa extends TimerTask {
-    final /* synthetic */ u ctE;
+class aa implements q.a {
+    final /* synthetic */ u cRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(u uVar) {
-        this.ctE = uVar;
+        this.cRr = uVar;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        if (this.ctE.getActivity() != null && !this.ctE.getActivity().isFinishing()) {
-            this.ctE.getActivity().finish();
+    @Override // com.baidu.tbadk.core.view.q.a
+    public void onListPullRefresh(boolean z) {
+        p pVar;
+        p pVar2;
+        pVar = this.cRr.cRn;
+        if (pVar != null) {
+            pVar2 = this.cRr.cRn;
+            pVar2.fH(true);
         }
     }
 }

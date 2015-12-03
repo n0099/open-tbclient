@@ -16,18 +16,18 @@ import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
 public class as extends ax {
     private String a;
     private String b;
-    private ServiceConnection dxL;
+    private ServiceConnection dWd;
 
     public as(SocialOAuthActivity socialOAuthActivity, String str, IBaiduListener iBaiduListener) {
         super(socialOAuthActivity, str, MediaType.SINAWEIBO.toString(), iBaiduListener);
-        this.dxL = new at(this);
+        this.dWd = new at(this);
     }
 
     private boolean a() {
         Context applicationContext = this.mActivity.getApplicationContext();
         Intent intent = new Intent("com.sina.weibo.remotessoservice");
         if (applicationContext.getPackageManager().resolveService(intent, 0) != null) {
-            return applicationContext.getApplicationContext().bindService(intent, this.dxL, 1);
+            return applicationContext.getApplicationContext().bindService(intent, this.dWd, 1);
         }
         return false;
     }

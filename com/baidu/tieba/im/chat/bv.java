@@ -2,17 +2,17 @@ package com.baidu.tieba.im.chat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements Runnable {
-    final /* synthetic */ TalkableActivity bti;
-    private final /* synthetic */ String btj;
+    final /* synthetic */ TalkableActivity bIo;
+    private final /* synthetic */ String bIp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(TalkableActivity talkableActivity, String str) {
-        this.bti = talkableActivity;
-        this.btj = str;
+        this.bIo = talkableActivity;
+        this.bIp = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bti.mListModel.sendTextMessage(this.btj);
+        this.bIo.mListModel.sendTextMessage(this.bIp);
     }
 }

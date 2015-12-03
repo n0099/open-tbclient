@@ -7,4 +7,9 @@ public class AllThemeListActivityConfig extends IntentConfig {
     public AllThemeListActivityConfig(Context context) {
         super(context);
     }
+
+    public AllThemeListActivityConfig(Context context, boolean z) {
+        super(context);
+        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+    }
 }

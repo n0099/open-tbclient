@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ d dgm;
+    final /* synthetic */ d dDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.dgm = dVar;
+        this.dDT = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
-        aVar2 = this.dgm.Lv;
+        aVar2 = this.dDT.LN;
         aVar2.dismiss();
     }
 }

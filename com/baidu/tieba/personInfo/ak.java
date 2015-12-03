@@ -1,40 +1,35 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.widget.AbsListView;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements AbsListView.OnScrollListener {
-    final /* synthetic */ aj cws;
+public class ak implements a.b {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.cws = ajVar;
+    public ak(d dVar) {
+        this.cSn = dVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.cws.line;
-            if (view3 != null) {
-                view4 = this.cws.line;
-                view4.setVisibility(0);
-                return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aw awVar;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        BlackListModel blackListModel3;
+        awVar = this.cSn.cMT;
+        long c = com.baidu.adp.lib.h.b.c(awVar.getId(), -1L);
+        if (c > 0) {
+            blackListModel = this.cSn.cRI;
+            if (blackListModel.getMaskType() == 1) {
+                blackListModel3 = this.cSn.cRI;
+                blackListModel3.removeFromBlackList(c);
+            } else {
+                blackListModel2 = this.cSn.cRI;
+                blackListModel2.addToBlackList(c);
             }
-            return;
         }
-        view = this.cws.line;
-        if (view != null) {
-            view2 = this.cws.line;
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        aVar.dismiss();
     }
 }

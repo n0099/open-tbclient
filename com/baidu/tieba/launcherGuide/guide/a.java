@@ -10,9 +10,9 @@ public interface a {
 
     void hide();
 
-    void ii(int i);
+    void jc(int i);
 
-    void ij(int i);
+    void jd(int i);
 
     void setOnClickListener(View.OnClickListener onClickListener);
 

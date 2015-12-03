@@ -4,18 +4,18 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class g implements a.b {
-    private final /* synthetic */ com.baidu.tieba.im.widget.b bGo;
-    final /* synthetic */ SelectFriendActivity bOu;
+    private final /* synthetic */ com.baidu.tieba.im.widget.b bVv;
+    final /* synthetic */ SelectFriendActivity cdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(SelectFriendActivity selectFriendActivity, com.baidu.tieba.im.widget.b bVar) {
-        this.bOu = selectFriendActivity;
-        this.bGo = bVar;
+        this.cdx = selectFriendActivity;
+        this.bVv = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        ((InputMethodManager) this.bOu.getSystemService("input_method")).hideSoftInputFromWindow(this.bGo.getWindowToken(), 2);
+        ((InputMethodManager) this.cdx.getSystemService("input_method")).hideSoftInputFromWindow(this.bVv.getWindowToken(), 2);
     }
 }

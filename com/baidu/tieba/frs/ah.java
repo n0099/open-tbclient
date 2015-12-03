@@ -1,22 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aUS;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f aVa;
+class ah extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(FrsActivity frsActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.aUS = frsActivity;
-        this.aVa = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bag = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.util.a.ay(this.aVa.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.aUS.getPageContext().getPageActivity(), view.getResources().getString(i.h.copy_pb_url_success));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
+            this.bag.b((com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
+        }
     }
 }

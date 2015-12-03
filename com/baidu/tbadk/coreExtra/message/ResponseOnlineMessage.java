@@ -49,31 +49,33 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         setErrorString(updateClientInfoResIdl.error.usermsg);
         if (getError() == 0) {
             this.groupInfos = new ArrayList();
-            int size = updateClientInfoResIdl.data.groupInfo == null ? 0 : updateClientInfoResIdl.data.groupInfo.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
-                GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
-                groupUpdateMessage.setGroupId(groupInfo.groupId.intValue());
-                groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());
-                groupUpdateMessage.setLastMsgId(groupInfo.lastMsgId.longValue());
-                groupUpdateMessage.setName(groupInfo.name);
-                groupUpdateMessage.setPortrait(groupInfo.portrait);
-                groupUpdateMessage.setGrade(groupInfo.grade.intValue());
-                groupUpdateMessage.setAuthorId(String.valueOf(groupInfo.authorId));
-                groupUpdateMessage.setAuthorName(groupInfo.authorName);
-                groupUpdateMessage.setForumId(String.valueOf(groupInfo.forumId));
-                getGroupInfos().add(groupUpdateMessage);
-            }
-            UserInfo userInfo = updateClientInfoResIdl.data.userInfo;
-            if (userInfo != null) {
-                SettingsSyncMessage settingsSyncMessage = new SettingsSyncMessage();
-                if (userInfo != null) {
-                    settingsSyncMessage.setData(userInfo.portrait);
+            if (updateClientInfoResIdl.data != null) {
+                int size = updateClientInfoResIdl.data.groupInfo == null ? 0 : updateClientInfoResIdl.data.groupInfo.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
+                    GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
+                    groupUpdateMessage.setGroupId(groupInfo.groupId.intValue());
+                    groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());
+                    groupUpdateMessage.setLastMsgId(groupInfo.lastMsgId.longValue());
+                    groupUpdateMessage.setName(groupInfo.name);
+                    groupUpdateMessage.setPortrait(groupInfo.portrait);
+                    groupUpdateMessage.setGrade(groupInfo.grade.intValue());
+                    groupUpdateMessage.setAuthorId(String.valueOf(groupInfo.authorId));
+                    groupUpdateMessage.setAuthorName(groupInfo.authorName);
+                    groupUpdateMessage.setForumId(String.valueOf(groupInfo.forumId));
+                    getGroupInfos().add(groupUpdateMessage);
                 }
+                UserInfo userInfo = updateClientInfoResIdl.data.userInfo;
+                if (userInfo != null) {
+                    SettingsSyncMessage settingsSyncMessage = new SettingsSyncMessage();
+                    if (userInfo != null) {
+                        settingsSyncMessage.setData(userInfo.portrait);
+                    }
+                }
+                this.maskInfo = updateClientInfoResIdl.data.maskInfo;
+                this.configVersion = updateClientInfoResIdl.data.configVersion;
+                this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.longValue() != 0;
             }
-            this.maskInfo = updateClientInfoResIdl.data.maskInfo;
-            this.configVersion = updateClientInfoResIdl.data.configVersion;
-            this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.longValue() != 0;
         }
     }
 }

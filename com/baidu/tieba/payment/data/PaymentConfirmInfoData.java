@@ -1,7 +1,7 @@
 package com.baidu.tieba.payment.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PaymentConfirmInfoData extends i implements Serializable {
@@ -57,9 +57,7 @@ public class PaymentConfirmInfoData extends i implements Serializable {
         private long tdou_num;
 
         public String getGoods_name() {
-            if (n.fQ(this.goods_name) > 14) {
-                this.goods_name = String.valueOf(n.e(this.goods_name, 0, 14)) + "...";
-            }
+            this.goods_name = UtilHelper.getFixedText(this.goods_name, 7);
             return this.goods_name;
         }
 

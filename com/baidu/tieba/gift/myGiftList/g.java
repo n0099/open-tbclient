@@ -1,33 +1,36 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements BdListView.e {
-    final /* synthetic */ MyGiftListActivity bnC;
+public class g implements View.OnClickListener {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MyGiftListActivity myGiftListActivity) {
-        this.bnC = myGiftListActivity;
+        this.bwy = myGiftListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        l lVar;
-        m mVar;
-        l lVar2;
-        l lVar3;
-        m mVar2;
-        lVar = this.bnC.bnw;
-        if (lVar.isHasMore()) {
-            lVar2 = this.bnC.bnw;
-            lVar2.cC(true);
-            lVar3 = this.bnC.bnw;
-            lVar3.LoadData();
-            mVar2 = this.bnC.bnx;
-            mVar2.getFooterView().setVisibility(0);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        j jVar;
+        String str;
+        z = this.bwy.mIsHost;
+        if (!z) {
+            jVar = this.bwy.bwr;
+            long uid = jVar.getUid();
+            if (uid != 0) {
+                TiebaStatic.log("gift_list_btn");
+                Activity pageActivity = this.bwy.getPageContext().getPageActivity();
+                str = this.bwy.username;
+                this.bwy.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, uid, str)));
+            }
         }
-        mVar = this.bnC.bnx;
-        mVar.getFooterView().setVisibility(8);
     }
 }

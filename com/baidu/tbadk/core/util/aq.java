@@ -1,33 +1,43 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class aq {
-    private List<Object> abf = new ArrayList();
-    private String key;
+    private static final aq abL = new aq();
+    private final HashMap<Class<?>, Class<?>> abM = new HashMap<>();
 
-    public List<Object> uD() {
-        return this.abf;
+    public static final aq vh() {
+        return abL;
     }
 
-    public String getKey() {
-        return this.key;
+    private aq() {
     }
 
-    public aq(String str) {
-        this.key = str;
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+        this.abM.put(cls, cls2);
     }
 
-    public aq ae(String str, String str2) {
-        this.abf.add(str);
-        this.abf.add(str2);
-        return this;
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+        if (!this.abM.containsKey(cls)) {
+            this.abM.put(cls, cls2);
+        } else {
+            BdLog.e("register Intent failed, " + cls.getName() + " exist");
+        }
     }
 
-    public aq r(String str, int i) {
-        this.abf.add(str);
-        this.abf.add(Integer.valueOf(i));
-        return this;
+    public boolean appResponseToIntentClass(Class<?> cls) {
+        return getIntentClass(cls) != null;
+    }
+
+    public int vi() {
+        return this.abM.size();
+    }
+
+    public Class<?> getIntentClass(Class<?> cls) {
+        if (this.abM != null) {
+            return this.abM.get(cls);
+        }
+        return null;
     }
 }

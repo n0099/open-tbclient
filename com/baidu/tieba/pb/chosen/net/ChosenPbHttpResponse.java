@@ -4,36 +4,26 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.cache.o;
 import com.squareup.wire.Wire;
 import java.util.List;
-import tbclient.FinePbPage.FinePbPageResIdl;
-import tbclient.FinePbPage.ForumInfo;
-import tbclient.FinePbPage.User_Info;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
-    private ForumInfo forumInfo;
-    private long nextTid;
     private List<Post> postList;
-    private long preTid;
-    private User_Info userInfo;
+    private ExcellentPbThreadInfo threadInfo;
+    private UserInfo userInfo;
     private List<User> userList;
 
-    public long getPreTid() {
-        return this.preTid;
-    }
-
-    public long getNextTid() {
-        return this.nextTid;
-    }
-
     @Override // com.baidu.tieba.pb.chosen.net.a
-    public User_Info getUserInfo() {
+    public UserInfo getUserInfo() {
         return this.userInfo;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
-    public ForumInfo getForumInfo() {
-        return this.forumInfo;
+    public ExcellentPbThreadInfo getThreadInfo() {
+        return this.threadInfo;
     }
 
     public ChosenPbHttpResponse(int i) {
@@ -43,19 +33,17 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
-        FinePbPageResIdl finePbPageResIdl = (FinePbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FinePbPageResIdl.class);
-        if (finePbPageResIdl != null) {
-            if (finePbPageResIdl.error != null) {
-                setError(finePbPageResIdl.error.errorno.intValue());
-                setErrorString(finePbPageResIdl.error.usermsg);
+        ExcPbPageResIdl excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+        if (excPbPageResIdl != null) {
+            if (excPbPageResIdl.error != null) {
+                setError(excPbPageResIdl.error.errorno.intValue());
+                setErrorString(excPbPageResIdl.error.usermsg);
             }
-            if (finePbPageResIdl.data != null) {
-                this.preTid = finePbPageResIdl.data.prevftid.longValue();
-                this.nextTid = finePbPageResIdl.data.nextftid.longValue();
-                this.userInfo = finePbPageResIdl.data.user_info;
-                this.forumInfo = finePbPageResIdl.data.thread_info;
-                this.postList = finePbPageResIdl.data.post_list;
-                this.userList = finePbPageResIdl.data.user_list;
+            if (excPbPageResIdl.data != null) {
+                this.userInfo = excPbPageResIdl.data.user_info;
+                this.threadInfo = excPbPageResIdl.data.thread_info;
+                this.postList = excPbPageResIdl.data.post_list;
+                this.userList = excPbPageResIdl.data.user_list;
             }
         }
     }
@@ -65,9 +53,9 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            o<byte[]> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_normal");
-            cq.remove("chosen_pb_page_cache");
-            cq.f("chosen_pb_page_cache", bArr);
+            o<byte[]> cy = com.baidu.tbadk.core.b.a.ts().cy("tb.pb_normal");
+            cy.remove("chosen_pb_page_cache");
+            cy.f("chosen_pb_page_cache", bArr);
         }
     }
 
@@ -83,7 +71,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
 
     @Override // com.baidu.tieba.pb.chosen.net.a
     public boolean isEmpty() {
-        return this.forumInfo == null || this.forumInfo.content == null || this.forumInfo.content.size() <= 0;
+        return this.threadInfo == null || this.threadInfo.content == null || this.threadInfo.content.size() <= 0;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

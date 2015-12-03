@@ -4,28 +4,28 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b dlf;
+    final /* synthetic */ b dJS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i, int i2) {
         super(i, i2);
-        this.dlf = bVar;
+        this.dJS = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         boolean checkMessageIsBelongToCurPage;
-        this.dlf.dlc = false;
-        checkMessageIsBelongToCurPage = this.dlf.checkMessageIsBelongToCurPage(responsedMessage);
+        this.dJS.dJP = false;
+        checkMessageIsBelongToCurPage = this.dJS.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.m411getInst().getString(i.h.neterror);
+                String string = TbadkCoreApplication.m411getInst().getString(n.i.neterror);
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
@@ -34,9 +34,9 @@ public class d extends com.baidu.adp.framework.listener.a {
                 if (!(responsedMessage instanceof AddVoteSocketResponse)) {
                     return;
                 }
-                this.dlf.aBz();
+                this.dJS.aGV();
             } else {
-                this.dlf.aBz();
+                this.dJS.aGV();
             }
         }
     }

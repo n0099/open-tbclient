@@ -11,11 +11,11 @@ import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ k bSE;
+    final /* synthetic */ k ciR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bSE = kVar;
+        this.ciR = kVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,33 +29,33 @@ public class l implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity4;
         View view2;
         if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-            button = this.bSE.mNext;
+            button = this.ciR.mNext;
             if (view == button) {
-                newUserGuideActivity = this.bSE.bSj;
-                if (newUserGuideActivity.aaN()) {
+                newUserGuideActivity = this.ciR.ciw;
+                if (newUserGuideActivity.aet()) {
                     TbadkApplication.getInst().setLikeBarChanged(true);
                 }
-                k kVar = this.bSE;
-                newUserGuideActivity2 = this.bSE.bSj;
+                k kVar = this.ciR;
+                newUserGuideActivity2 = this.ciR.ciw;
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(newUserGuideActivity2.getPageContext().getPageActivity());
-                z = this.bSE.bRL;
+                z = this.ciR.chX;
                 kVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNewUserCfg(1, z)));
-                newUserGuideActivity3 = this.bSE.bSj;
+                newUserGuideActivity3 = this.ciR.ciw;
                 newUserGuideActivity3.finish();
                 return;
             }
             return;
         }
-        z2 = this.bSE.bSD;
+        z2 = this.ciR.ciQ;
         if (z2) {
-            this.bSE.bSD = false;
+            this.ciR.ciQ = false;
             TiebaStatic.log("newUserInterestSelect");
-            newUserGuideActivity4 = this.bSE.bSj;
+            newUserGuideActivity4 = this.ciR.ciw;
             p pVar = new p(newUserGuideActivity4, (InterestFrsData.Tag) view.getTag(), new m(this));
-            view2 = this.bSE.bSq;
+            view2 = this.ciR.ciD;
             view2.setVisibility(0);
             pVar.show();
-            this.bSE.bSD = true;
+            this.ciR.ciQ = true;
         }
     }
 }

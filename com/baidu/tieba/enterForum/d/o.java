@@ -4,36 +4,36 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aLU;
-    private View aNn;
-    private TextView aNo;
-    private TextView aNp;
-    private TextView aNq;
-    private ImageView aNr;
-    private View aNs;
-    private TextView aNt;
-    private TextView aNu;
-    private TextView aNv;
-    private ImageView aNw;
+    private ViewEventCenter aQB;
+    private TextView aSA;
+    private ImageView aSB;
+    private View aSs;
+    private TextView aSt;
+    private TextView aSu;
+    private TextView aSv;
+    private ImageView aSw;
+    private View aSx;
+    private TextView aSy;
+    private TextView aSz;
 
     public o(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aLU = viewEventCenter;
-        this.aNn = view.findViewById(i.f.left_container);
-        this.aNo = (TextView) this.aNn.findViewById(i.f.sign);
-        this.aNp = (TextView) this.aNn.findViewById(i.f.name);
-        this.aNq = (TextView) this.aNn.findViewById(i.f.grade);
-        this.aNr = (ImageView) this.aNn.findViewById(i.f.add);
-        this.aNs = view.findViewById(i.f.right_container);
-        this.aNt = (TextView) this.aNs.findViewById(i.f.sign);
-        this.aNu = (TextView) this.aNs.findViewById(i.f.name);
-        this.aNv = (TextView) this.aNs.findViewById(i.f.grade);
-        this.aNw = (ImageView) this.aNs.findViewById(i.f.add);
+        this.aQB = viewEventCenter;
+        this.aSs = view.findViewById(n.f.left_container);
+        this.aSt = (TextView) this.aSs.findViewById(n.f.sign);
+        this.aSu = (TextView) this.aSs.findViewById(n.f.name);
+        this.aSv = (TextView) this.aSs.findViewById(n.f.grade);
+        this.aSw = (ImageView) this.aSs.findViewById(n.f.add);
+        this.aSx = view.findViewById(n.f.right_container);
+        this.aSy = (TextView) this.aSx.findViewById(n.f.sign);
+        this.aSz = (TextView) this.aSx.findViewById(n.f.name);
+        this.aSA = (TextView) this.aSx.findViewById(n.f.grade);
+        this.aSB = (ImageView) this.aSx.findViewById(n.f.add);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,21 +42,21 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     public void B(com.baidu.tieba.enterForum.b.a aVar) {
         super.B(aVar);
         if (aVar != null) {
-            a(aVar.Ig(), true);
-            a(aVar.Ih(), false);
-            b(aVar.Ig(), true);
-            b(aVar.Ih(), false);
+            a(aVar.Jz(), true);
+            a(aVar.JA(), false);
+            b(aVar.Jz(), true);
+            b(aVar.JA(), false);
         }
     }
 
-    private void a(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
-        if (vVar != null) {
-            View view = z ? this.aNn : this.aNs;
-            TextView textView = z ? this.aNo : this.aNt;
-            TextView textView2 = z ? this.aNp : this.aNu;
-            TextView textView3 = z ? this.aNq : this.aNv;
-            ImageView imageView = z ? this.aNr : this.aNw;
-            switch (vVar.getType()) {
+    private void a(com.baidu.tieba.tbadkCore.w wVar, boolean z) {
+        if (wVar != null) {
+            View view = z ? this.aSs : this.aSx;
+            TextView textView = z ? this.aSt : this.aSy;
+            TextView textView2 = z ? this.aSu : this.aSz;
+            TextView textView3 = z ? this.aSv : this.aSA;
+            ImageView imageView = z ? this.aSw : this.aSB;
+            switch (wVar.getType()) {
                 case 1:
                     view.setVisibility(0);
                     imageView.setVisibility(0);
@@ -71,44 +71,44 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     view.setVisibility(0);
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
-                    textView2.setText(vVar.getName());
-                    if (vVar.awE() == 0) {
+                    textView2.setText(wVar.getName());
+                    if (wVar.aCp() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
                     }
-                    if (vVar.getLevel() == 0) {
+                    if (wVar.getLevel() == 0) {
                         textView3.setVisibility(4);
                         return;
                     }
                     textView3.setVisibility(0);
-                    an.i((View) textView3, com.baidu.tbadk.core.util.c.ch(vVar.getLevel()));
+                    as.i((View) textView3, com.baidu.tbadk.core.util.c.cp(wVar.getLevel()));
                     return;
             }
         }
     }
 
-    private void b(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
+    private void b(com.baidu.tieba.tbadkCore.w wVar, boolean z) {
         View view;
         if (z) {
-            view = this.aNn;
+            view = this.aSs;
         } else {
-            view = this.aNs;
+            view = this.aSx;
         }
-        view.setOnClickListener(new p(this, vVar));
-        view.setOnLongClickListener(new q(this));
+        view.setOnClickListener(new p(this, wVar));
+        view.setOnLongClickListener(new q(this, wVar));
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        this.aNn.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
-        this.aNs.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
-        if (this.aNq.getVisibility() == 0 && getData() != null && getData().Ig() != null) {
-            an.i((View) this.aNq, com.baidu.tbadk.core.util.c.ch(getData().Ig().getLevel()));
+        com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
+        this.aSs.setBackgroundDrawable(as.getDrawable(n.e.home_like_item_bg));
+        this.aSx.setBackgroundDrawable(as.getDrawable(n.e.home_like_item_bg));
+        if (getData() != null && getData().Jz() != null) {
+            as.i((View) this.aSv, com.baidu.tbadk.core.util.c.cp(getData().Jz().getLevel()));
         }
-        if (this.aNv.getVisibility() == 0 && getData() != null && getData().Ih() != null) {
-            an.i((View) this.aNv, com.baidu.tbadk.core.util.c.ch(getData().Ih().getLevel()));
+        if (getData() != null && getData().JA() != null) {
+            as.i((View) this.aSA, com.baidu.tbadk.core.util.c.cp(getData().JA().getLevel()));
             return true;
         }
         return true;

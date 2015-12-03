@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private a cRq = new a();
-    private int cSr;
-    private int cSs;
-    private int cSt;
-    private int cSu;
+    private a dpN = new a();
+    private int dqO;
+    private int dqP;
+    private int dqQ;
+    private int dqR;
     private int forumId;
     private String forumName;
     private int signed;
@@ -21,29 +21,29 @@ public class q {
         return this.signed;
     }
 
-    public int auu() {
-        return this.cSt;
+    public int azW() {
+        return this.dqQ;
     }
 
     public int getCurScore() {
-        return this.cSu;
+        return this.dqR;
     }
 
-    public a atT() {
-        return this.cRq;
+    public a azv() {
+        return this.dpN;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.cRq.parserJson(jSONObject.optJSONObject("error"));
+                this.dpN.parserJson(jSONObject.optJSONObject("error"));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.cSr = jSONObject.optInt("is_on");
-                this.cSs = jSONObject.optInt("is_filter");
-                this.cSt = jSONObject.optInt("sign_day_count");
-                this.cSu = jSONObject.optInt("cur_score");
+                this.dqO = jSONObject.optInt("is_on");
+                this.dqP = jSONObject.optInt("is_filter");
+                this.dqQ = jSONObject.optInt("sign_day_count");
+                this.dqR = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

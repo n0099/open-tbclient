@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.data.UserVipInfoData;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -11,6 +12,7 @@ public class AccountData implements Serializable {
     private int mMemberType;
     private int mSex;
     private List<IconData> mUserIcons;
+    private UserVipInfoData mVipInfo;
     private String portrait;
     private String mID = null;
     private String mAccount = null;
@@ -51,6 +53,14 @@ public class AccountData implements Serializable {
 
     public void setMemberType(int i) {
         this.mMemberType = i;
+    }
+
+    public void setVipInfo(UserVipInfoData userVipInfoData) {
+        this.mVipInfo = userVipInfoData;
+    }
+
+    public UserVipInfoData getVipInfo() {
+        return this.mVipInfo;
     }
 
     public String getBDUSS() {

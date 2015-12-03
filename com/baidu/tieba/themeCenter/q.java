@@ -1,20 +1,20 @@
 package com.baidu.tieba.themeCenter;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class q implements CustomMessageTask.CustomRunnable<b> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<List<b>> run(CustomMessage<b> customMessage) {
-        if (customMessage == null || !(customMessage.getData() instanceof b)) {
-            return null;
+class q extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            n.aFl().mR("theme_" + TbadkCoreApplication.getCurrentAccount());
         }
-        if (l.aAe().f(customMessage.getData())) {
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, l.aAe().aAg());
-        }
-        return null;
     }
 }

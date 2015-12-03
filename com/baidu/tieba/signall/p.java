@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private int cQU;
-    private String cQV;
-    private int cSo;
-    private String cSp;
-    private a cRq = new a();
-    private ArrayList<q> cSq = new ArrayList<>();
+    private int dpr;
+    private String dps;
+    private int dqL;
+    private String dqM;
+    private a dpN = new a();
+    private ArrayList<q> dqN = new ArrayList<>();
 
-    public int auq() {
-        return this.cQU;
+    public int azS() {
+        return this.dpr;
     }
 
-    public String atR() {
-        return this.cQV;
+    public String azt() {
+        return this.dps;
     }
 
-    public a atT() {
-        return this.cRq;
+    public a azv() {
+        return this.dpN;
     }
 
-    public ArrayList<q> aur() {
-        return this.cSq;
+    public ArrayList<q> azT() {
+        return this.dqN;
     }
 
-    public int aus() {
-        return this.cSo;
+    public int azU() {
+        return this.dqL;
     }
 
-    public String aut() {
-        return this.cSp;
+    public String azV() {
+        return this.dqM;
     }
 
     public void parserJson(String str) {
@@ -51,11 +51,11 @@ public class p {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.cRq.parserJson(jSONObject.optJSONObject("error"));
-                this.cQU = jSONObject.optInt("show_dialog");
-                this.cQV = jSONObject.optString("sign_notice");
-                this.cSo = jSONObject.optInt("is_timeout");
-                this.cSp = jSONObject.optString("timeout_notice");
+                this.dpN.parserJson(jSONObject.optJSONObject("error"));
+                this.dpr = jSONObject.optInt("show_dialog");
+                this.dps = jSONObject.optString("sign_notice");
+                this.dqL = jSONObject.optInt("is_timeout");
+                this.dqM = jSONObject.optString("timeout_notice");
                 JSONArray optJSONArray = jSONObject.optJSONArray(LoginActivityConfig.INFO);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -63,7 +63,7 @@ public class p {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         q qVar = new q();
                         qVar.parserJson(jSONObject2);
-                        this.cSq.add(qVar);
+                        this.dqN.add(qVar);
                     }
                 }
             } catch (Exception e) {

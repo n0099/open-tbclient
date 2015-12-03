@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.tbadk.util.f {
-    final /* synthetic */ h daI;
+    final /* synthetic */ h dzu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(h hVar, Context context) {
         super(context);
-        this.daI = hVar;
+        this.dzu = hVar;
     }
 
     @Override // com.baidu.tbadk.util.f, android.text.style.ClickableSpan
@@ -24,14 +24,14 @@ public class k extends com.baidu.tbadk.util.f {
         String str2;
         String str3;
         String str4 = null;
-        str = this.daI.text;
+        str = this.dzu.text;
         if (str != null) {
-            str3 = this.daI.text;
+            str3 = this.dzu.text;
             str4 = str3.replace("@", "").replace(" ", "");
         }
         MessageManager messageManager = MessageManager.getInstance();
         Context context = getContext();
-        str2 = this.daI.link;
+        str2 = this.dzu.link;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, str2, str4)));
     }
 }

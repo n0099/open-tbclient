@@ -8,13 +8,13 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ CommonGroupChatActiviy bry;
+    final /* synthetic */ CommonGroupChatActiviy bGE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.bry = commonGroupChatActiviy;
+        this.bGE = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class n extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE /* 2001109 */:
-                    this.bry.mListView.refresh();
+                    this.bGE.mListView.refresh();
                     return;
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS /* 2001130 */:
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT /* 2001132 */:
@@ -36,20 +36,20 @@ class n extends CustomMessageListener {
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.bry.mListView.refresh();
+                            this.bGE.mListView.refresh();
                             if (!cmd.equals("apply_join_success")) {
                                 if (!cmd.equals("kick_out")) {
                                     if (!cmd.equals("group_name_change")) {
                                         if (!cmd.equals("dismiss_group")) {
                                             return;
                                         }
-                                        this.bry.processDismissGroup(p);
+                                        this.bGE.processDismissGroup(p);
                                         return;
                                     }
-                                    this.bry.processTitleChange(p);
+                                    this.bGE.processTitleChange(p);
                                     return;
                                 }
-                                this.bry.processKick(p);
+                                this.bGE.processKick(p);
                                 return;
                             }
                             return;

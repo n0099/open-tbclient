@@ -14,6 +14,6 @@ class h implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        com.baidu.tbadk.browser.g.B(this.val$context, "http://tieba.baidu.com/mo/q/userappeal");
+        com.baidu.tbadk.browser.f.B(this.val$context, "http://tieba.baidu.com/mo/q/userappeal");
     }
 }

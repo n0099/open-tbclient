@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnKeyListener {
-    final /* synthetic */ WriteShareActivity dog;
+    final /* synthetic */ WriteShareActivity dNm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.dog = writeShareActivity;
+        this.dNm = writeShareActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -19,27 +19,27 @@ class k implements DialogInterface.OnKeyListener {
         o oVar3;
         o oVar4;
         if (i == 4) {
-            oVar = this.dog.dnQ;
+            oVar = this.dNm.dMW;
             if (oVar != null) {
-                oVar2 = this.dog.dnQ;
-                if (oVar2.aCY() != null) {
-                    oVar3 = this.dog.dnQ;
-                    if (oVar3.aCY().isShowing()) {
-                        oVar4 = this.dog.dnQ;
-                        com.baidu.adp.lib.g.j.a(oVar4.aCY(), this.dog.getPageContext().getPageActivity());
+                oVar2 = this.dNm.dMW;
+                if (oVar2.aIv() != null) {
+                    oVar3 = this.dNm.dMW;
+                    if (oVar3.aIv().isShowing()) {
+                        oVar4 = this.dNm.dMW;
+                        com.baidu.adp.lib.h.j.a(oVar4.aIv(), this.dNm.getPageContext().getPageActivity());
                         return true;
                     }
                 }
             }
-            this.dog.aCN();
-            z = this.dog.dnT;
+            this.dNm.aIk();
+            z = this.dNm.dMZ;
             if (z) {
-                this.dog.setResult(-1);
+                this.dNm.setResult(-1);
             } else {
-                this.dog.setResult(0);
+                this.dNm.setResult(0);
             }
-            com.baidu.tbadk.core.c.b.b(this.dog.getPageContext().getPageActivity(), 200, false);
-            this.dog.finish();
+            com.baidu.tbadk.core.c.b.b(this.dNm.getPageContext().getPageActivity(), 200, false);
+            this.dNm.finish();
             return true;
         }
         return false;

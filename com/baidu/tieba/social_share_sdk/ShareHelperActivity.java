@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
 import com.baidu.tbadk.core.log.b;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class ShareHelperActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(i.g.share_helper_activity_layout);
+        setContentView(n.g.share_helper_activity_layout);
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.social_share_sdk.ShareHelperActivity.1
             @Override // java.lang.Runnable
             public void run() {
@@ -51,19 +51,19 @@ public class ShareHelperActivity extends Activity {
 
                 @Override // com.baidu.cloudsdk.IBaiduListener
                 public void onComplete() {
-                    k.showToast(ShareHelperActivity.this, i.h.share_alert_success);
+                    k.showToast(ShareHelperActivity.this, n.i.share_alert_success);
                     ShareHelperActivity.this.finish();
                 }
 
                 @Override // com.baidu.cloudsdk.IBaiduListener
                 public void onComplete(JSONObject jSONObject) {
-                    k.showToast(ShareHelperActivity.this, i.h.share_alert_success);
+                    k.showToast(ShareHelperActivity.this, n.i.share_alert_success);
                     ShareHelperActivity.this.finish();
                 }
 
                 @Override // com.baidu.cloudsdk.IBaiduListener
                 public void onComplete(JSONArray jSONArray) {
-                    k.showToast(ShareHelperActivity.this, i.h.share_alert_success);
+                    k.showToast(ShareHelperActivity.this, n.i.share_alert_success);
                     ShareHelperActivity.this.finish();
                 }
 
@@ -72,7 +72,7 @@ public class ShareHelperActivity extends Activity {
                     if (baiduException != null) {
                         b.a("socail_share", -1L, 0, "socail_share_fail", 123456, "", "share_fail_exception", baiduException.toString());
                     }
-                    k.showToast(ShareHelperActivity.this, i.h.share_alert_fail);
+                    k.showToast(ShareHelperActivity.this, n.i.share_alert_fail);
                     ShareHelperActivity.this.finish();
                 }
             }, true);

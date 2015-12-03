@@ -1,53 +1,31 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.vote.VoteView;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.n;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dv extends x.a {
-    public TextView aTl;
-    public TextView aXF;
-    public View aXG;
-    public LinearLayout aYO;
-    public TextView aYP;
-    public TextView aYQ;
-    public UserIconBox aYR;
-    public UserIconBox aYS;
-    public HeadImageView aYT;
-    public TextView aYU;
-    public TextView aYV;
-    public TextView aYW;
-    public LinearLayout aYX;
-    public VoteView aYY;
-    public TextView aYZ;
-    public TextView aZa;
-    public TextView alz;
-    public int arf;
+public class dv implements View.OnClickListener {
+    final /* synthetic */ ds ber;
+    private final /* synthetic */ com.baidu.tbadk.core.data.u beu;
 
-    public dv(View view) {
-        super(view);
-        this.arf = 3;
-        this.aYX = (LinearLayout) view.findViewById(i.f.frs_item_user_info_view);
-        this.aYO = (LinearLayout) view.findViewById(i.f.frs_list_item_top_linear_layout);
-        this.aYT = (HeadImageView) view.findViewById(i.f.frs_photo);
-        this.aYR = (UserIconBox) view.findViewById(i.f.frs_user_tshow_icon_box);
-        this.aYS = (UserIconBox) view.findViewById(i.f.frs_user_icon_box);
-        this.aYQ = (TextView) view.findViewById(i.f.frs_lv_author);
-        this.aYP = (TextView) view.findViewById(i.f.frs_lv_reply_time);
-        this.alz = (TextView) view.findViewById(i.f.frs_lv_title);
-        this.aTl = (TextView) view.findViewById(i.f.abstract_text);
-        this.aYU = (TextView) view.findViewById(i.f.frs_praise_num);
-        this.aYV = (TextView) view.findViewById(i.f.frs_reply_num);
-        this.aYW = (TextView) view.findViewById(i.f.frs_vote_num);
-        this.aXF = (TextView) view.findViewById(i.f.frs_item_location_address);
-        this.aXG = view.findViewById(i.f.frs_item_location_sep);
-        this.aYY = (VoteView) view.findViewById(i.f.vote_view);
-        this.aYZ = (TextView) view.findViewById(i.f.frs_pic_vote_total_option_num);
-        this.aZa = (TextView) view.findViewById(i.f.frs_pic_vote_now_state);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dv(ds dsVar, com.baidu.tbadk.core.data.u uVar) {
+        this.ber = dsVar;
+        this.beu = uVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        com.baidu.tbadk.core.data.u uVar = (com.baidu.tbadk.core.data.u) view.getTag(n.f.tag_first);
+        int intValue = ((Integer) view.getTag(n.f.tag_second)).intValue();
+        BaseActivity<?> baseActivity = this.ber.aXA;
+        context = this.ber.mContext;
+        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.beu.sq(), intValue, this.beu.sm(), "", "", true, uVar.sq().get(this.beu.sq().size() - 1), true)));
     }
 }

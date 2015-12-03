@@ -9,20 +9,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.view.MemberBuyEntryButton;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private NoNetworkView aRi;
-    private CoverFlowView<b> bdf;
-    private MemberRecommendView dgU;
-    private TextView dgV;
-    private DressupCenterActivity dhS;
-    private c dhT;
+    private NoNetworkView aWm;
+    private CoverFlowView<b> bjK;
+    private TextView con;
+    private MemberRecommendView dEy;
+    private DressupCenterActivity dGa;
+    private MemberBuyEntryButton dGb;
+    private c dGc;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private View mRoot;
@@ -30,52 +32,54 @@ public class f {
 
     public f(DressupCenterActivity dressupCenterActivity) {
         this.topMargin = 0;
-        this.dhS = dressupCenterActivity;
-        this.topMargin = com.baidu.adp.lib.util.k.d(dressupCenterActivity.getPageContext().getPageActivity(), i.d.ds120);
-        this.mRoot = LayoutInflater.from(this.dhS.getPageContext().getPageActivity()).inflate(i.g.dressup_center_activity_layout, (ViewGroup) null);
-        this.dhS.setContentView(this.mRoot);
-        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(i.f.view_navigation_bar);
+        this.dGa = dressupCenterActivity;
+        this.topMargin = com.baidu.adp.lib.util.k.d(dressupCenterActivity.getPageContext().getPageActivity(), n.d.ds120);
+        this.mRoot = LayoutInflater.from(this.dGa.getPageContext().getPageActivity()).inflate(n.g.dressup_center_activity_layout, (ViewGroup) null);
+        this.dGa.setContentView(this.mRoot);
+        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(i.h.theme_center);
-        this.aRi = (NoNetworkView) this.mRoot.findViewById(i.f.view_no_network);
-        this.mListView = (BdListView) this.mRoot.findViewById(i.f.dress_listview);
-        this.bdf = (CoverFlowView) this.mRoot.findViewById(i.f.dressup_center_coverflowview);
-        Os();
-        this.dgU = (MemberRecommendView) this.mRoot.findViewById(i.f.dressup_center_recommend);
-        this.dgU.setFromType(1);
-        this.dhT = new c(this.dhS.getPageContext());
-        this.dgV = new TextView(this.dhS.getActivity());
-        this.dgV.setHeight(com.baidu.adp.lib.util.k.d(this.dhS.getActivity(), i.d.ds30));
-        this.mListView.setAdapter((ListAdapter) this.dhT);
+        this.mNavigationBar.setTitleText(n.i.theme_center);
+        this.dGb = (MemberBuyEntryButton) this.mRoot.findViewById(n.f.dress_buy_member);
+        this.aWm = (NoNetworkView) this.mRoot.findViewById(n.f.view_no_network);
+        this.mListView = (BdListView) this.mRoot.findViewById(n.f.dress_listview);
+        this.bjK = (CoverFlowView) this.mRoot.findViewById(n.f.dressup_center_coverflowview);
+        PY();
+        this.dEy = (MemberRecommendView) this.mRoot.findViewById(n.f.dressup_center_recommend);
+        this.dEy.setFromType(1);
+        this.dGc = new c(this.dGa.getPageContext());
+        this.con = new TextView(this.dGa.getActivity());
+        this.con.setHeight(com.baidu.adp.lib.util.k.d(this.dGa.getActivity(), n.d.ds30));
+        this.mListView.setAdapter((ListAdapter) this.dGc);
         this.mListView.setOnItemClickListener(new g(this));
     }
 
-    public void a(List<b> list, k kVar, List<j> list2) {
-        if ((list == null || list.size() <= 0) && ((kVar == null || StringUtils.isNull(kVar.aAm())) && (list2 == null || list2.size() <= 0))) {
-            KD();
+    public void a(List<b> list, k kVar, List<j> list2, boolean z) {
+        if ((list == null || list.size() <= 0) && ((kVar == null || StringUtils.isNull(kVar.aFw())) && (list2 == null || list2.size() <= 0))) {
+            LY();
             return;
         }
-        KE();
-        e(list2, bF(list) || b(kVar));
+        LZ();
+        this.dGb.show(z);
+        e(list2, bT(list) || b(kVar));
     }
 
-    private boolean bF(List<b> list) {
+    private boolean bT(List<b> list) {
         if (list == null || list.size() <= 0) {
-            this.bdf.setVisibility(8);
+            this.bjK.setVisibility(8);
             return false;
         }
-        this.bdf.setVisibility(0);
-        this.bdf.setData(list);
+        this.bjK.setVisibility(0);
+        this.bjK.setData(list);
         return true;
     }
 
     private boolean b(k kVar) {
-        if (kVar == null || StringUtils.isNull(kVar.aAm())) {
-            this.dgU.setVisibility(8);
+        if (kVar == null || StringUtils.isNull(kVar.aFw())) {
+            this.dEy.setVisibility(8);
             return false;
         }
-        this.dgU.setVisibility(0);
-        this.dgU.a(kVar);
+        this.dEy.setVisibility(0);
+        this.dEy.a(kVar);
         return true;
     }
 
@@ -85,57 +89,58 @@ public class f {
             return;
         }
         if (z) {
-            this.mListView.removeHeaderView(this.dgV);
-            this.mListView.addHeaderView(this.dgV);
+            this.mListView.removeHeaderView(this.con);
+            this.mListView.addHeaderView(this.con);
         } else {
-            this.mListView.removeHeaderView(this.dgV);
+            this.mListView.removeHeaderView(this.con);
         }
         this.mListView.setVisibility(0);
-        this.dhT.setData(list);
-        this.dhT.notifyDataSetChanged();
+        this.dGc.setData(list);
+        this.dGc.notifyDataSetChanged();
     }
 
-    public void oP() {
-        this.dhS.getLayoutMode().ad(TbadkApplication.getInst().getSkinType() == 1);
-        this.dhS.getLayoutMode().k(this.mRoot);
+    public void oV() {
+        this.dGa.getLayoutMode().af(TbadkApplication.getInst().getSkinType() == 1);
+        this.dGa.getLayoutMode().k(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.dhS.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.dGa.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.aRi != null && this.aRi.getVisibility() == 0) {
-            this.aRi.onChangeSkinType(this.dhS.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.aWm != null && this.aWm.getVisibility() == 0) {
+            this.aWm.onChangeSkinType(this.dGa.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.bdf != null && this.bdf.getVisibility() == 0) {
-            this.bdf.tc();
+        if (this.bjK != null && this.bjK.getVisibility() == 0) {
+            this.bjK.tH();
         }
-        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dhT != null) {
-            this.dhT.notifyDataSetChanged();
+        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dGc != null) {
+            this.dGc.notifyDataSetChanged();
         }
-        if (this.dgU != null && this.dgU.getVisibility() == 0) {
-            this.dgU.vB();
+        if (this.dEy != null && this.dEy.getVisibility() == 0) {
+            this.dEy.wh();
         }
-        an.j((View) this.dgV, i.c.cp_bg_line_c);
+        this.dGb.onChangeSkinType(this.dGa.getPageContext(), TbadkApplication.getInst().getSkinType());
+        as.j((View) this.con, n.c.cp_bg_line_c);
     }
 
-    public void KD() {
+    public void LY() {
         this.mListView.setVisibility(8);
-        this.bdf.setVisibility(8);
-        this.dgU.setVisibility(8);
-        String string = this.dhS.getPageContext().getResources().getString(i.h.no_data_text);
-        this.dhS.setNetRefreshViewTopMargin(this.topMargin);
-        this.dhS.showNetRefreshView(this.mRoot, string, false);
+        this.bjK.setVisibility(8);
+        this.dEy.setVisibility(8);
+        String string = this.dGa.getPageContext().getResources().getString(n.i.no_data_text);
+        this.dGa.setNetRefreshViewTopMargin(this.topMargin);
+        this.dGa.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void KE() {
-        this.dhS.hideNetRefreshView(this.mRoot);
+    public void LZ() {
+        this.dGa.hideNetRefreshView(this.mRoot);
         this.mListView.setVisibility(0);
-        this.dgU.setVisibility(0);
-        this.bdf.setVisibility(0);
+        this.dEy.setVisibility(0);
+        this.bjK.setVisibility(0);
     }
 
-    private void Os() {
-        if (this.bdf != null) {
-            this.bdf.setCoverFlowFactory(new h(this));
-            this.bdf.setCallback(new i(this));
+    private void PY() {
+        if (this.bjK != null) {
+            this.bjK.setCoverFlowFactory(new h(this));
+            this.bjK.setCallback(new i(this));
         }
     }
 

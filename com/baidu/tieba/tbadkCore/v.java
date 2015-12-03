@@ -1,77 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.LikeForum;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.mvc.b.a {
-    private String aLG;
-    private int bdD;
-    private int cZq;
-    private String mId;
-    private String mName;
-    private int mType;
-
-    public v() {
-    }
-
-    public v(int i) {
-        this.mType = i;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public void lg(int i) {
-        this.cZq = i;
-    }
-
-    public int awE() {
-        return this.cZq;
-    }
-
-    public void setLevel(int i) {
-        this.bdD = i;
-    }
-
-    public int getLevel() {
-        return this.bdD;
-    }
-
-    public String getAvatar() {
-        return this.aLG;
-    }
-
-    public void a(LikeForum likeForum) {
-        if (likeForum != null) {
-            a(likeForum, null);
-        }
-    }
-
-    public void a(LikeForum likeForum, Context context) {
-        if (likeForum != null) {
-            try {
-                this.mId = String.valueOf(likeForum.forum_id);
-                this.mName = likeForum.forum_name;
-                this.cZq = likeForum.is_sign.intValue();
-                this.bdD = likeForum.level_id.intValue();
-                this.aLG = likeForum.avatar;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+public class v {
+    private static boolean mp(String str) {
+        String[] stringArray = TbadkCoreApplication.m411getInst().getApp().getResources().getStringArray(n.b.voice_black_frs_list);
+        String string = TbadkCoreApplication.m411getInst().getApp().getResources().getString(n.i.forum);
+        int length = stringArray.length;
+        for (int i = 0; i < length; i++) {
+            if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
+                return true;
             }
         }
+        return false;
     }
 
-    public int getType() {
-        return this.mType;
-    }
-
-    public void setType(int i) {
-        this.mType = i;
+    public static boolean a(String str, Boolean bool) {
+        if (com.baidu.adp.lib.c.e.gw().aj("voice") == 0) {
+            if ((str == null || !mp(str)) && bool != null) {
+                return bool.booleanValue();
+            }
+            return false;
+        }
+        return false;
     }
 }

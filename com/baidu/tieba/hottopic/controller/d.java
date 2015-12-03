@@ -5,46 +5,46 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ HotTopicActivity bpp;
+    final /* synthetic */ HotTopicActivity bDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(HotTopicActivity hotTopicActivity, int i) {
         super(i);
-        this.bpp = hotTopicActivity;
+        this.bDn = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.hottopic.data.b bVar;
-        com.baidu.tieba.hottopic.data.b bVar2;
-        com.baidu.tieba.hottopic.data.b bVar3;
-        RelateForumItemData aw;
-        com.baidu.tieba.hottopic.data.b bVar4;
+        com.baidu.tieba.hottopic.data.c cVar;
+        com.baidu.tieba.hottopic.data.c cVar2;
+        com.baidu.tieba.hottopic.data.c cVar3;
+        RelateForumItemData aK;
+        com.baidu.tieba.hottopic.data.c cVar4;
         com.baidu.tieba.hottopic.view.a aVar;
-        com.baidu.tieba.hottopic.data.b bVar5;
+        com.baidu.tieba.hottopic.data.c cVar5;
         com.baidu.tieba.hottopic.view.a aVar2;
         if (customResponsedMessage != null) {
-            bVar = this.bpp.bph;
-            if (bVar != null) {
-                bVar2 = this.bpp.bph;
-                if (bVar2.Rl() != null) {
-                    bVar3 = this.bpp.bph;
-                    if (bVar3.Rl().bpU != null) {
+            cVar = this.bDn.bDi;
+            if (cVar != null) {
+                cVar2 = this.bDn.bDi;
+                if (cVar2.Uw() != null) {
+                    cVar3 = this.bDn.bDi;
+                    if (cVar3.Uw().bEw != null) {
                         Object data = customResponsedMessage.getData();
                         if (data instanceof Long) {
-                            aw = this.bpp.aw(((Long) data).longValue());
-                            if (aw != null) {
-                                aw.followNum--;
-                                aw.setIsLiked(false);
-                                bVar4 = this.bpp.bph;
-                                bVar4.Rl().bpW = true;
-                                aVar = this.bpp.bpd;
-                                bVar5 = this.bpp.bph;
-                                aVar.b(bVar5);
-                                aVar2 = this.bpp.bpd;
-                                aVar2.Ru();
+                            aK = this.bDn.aK(((Long) data).longValue());
+                            if (aK != null) {
+                                aK.followNum++;
+                                aK.setIsLiked(true);
+                                cVar4 = this.bDn.bDi;
+                                cVar4.Uw().bEy = true;
+                                aVar = this.bDn.bDc;
+                                cVar5 = this.bDn.bDi;
+                                aVar.c(cVar5);
+                                aVar2 = this.bDn.bDc;
+                                aVar2.UD();
                             }
                         }
                     }

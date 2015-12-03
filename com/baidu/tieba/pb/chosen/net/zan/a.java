@@ -9,29 +9,31 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes.dex */
 public class a {
     public a() {
-        aeX();
-        aeW();
+        ajp();
+        ajo();
     }
 
-    private void aeX() {
+    private void ajp() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, com.baidu.tieba.tbadkCore.a.a.ae(TbConfig.FINE_PB_PRAISE, 307005));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, com.baidu.tieba.tbadkCore.a.a.aj(TbConfig.FINE_PB_PRAISE, 309095));
         tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void aeW() {
-        b bVar = new b(307005);
+    private void ajo() {
+        b bVar = new b(309095);
         bVar.setResponsedClass(ChosenPbZanSocketResponse.class);
         bVar.i(true);
         bVar.j(false);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    public void a(PbChosenActivity pbChosenActivity, long j, String str) {
+    public void a(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
         ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
-        chosenZanNetMessage.setFtid(j);
-        chosenZanNetMessage.setAction(str);
+        chosenZanNetMessage.setExcId(j);
+        chosenZanNetMessage.setAction(i);
+        chosenZanNetMessage.setThreadId(j2);
+        chosenZanNetMessage.setPostId(j3);
         pbChosenActivity.sendMessage(chosenZanNetMessage);
     }
 }

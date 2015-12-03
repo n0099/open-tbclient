@@ -1,32 +1,48 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.bj;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ w dDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    public ah(w wVar) {
+        this.dDs = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ao aoVar;
-        ao aoVar2;
-        if (customResponsedMessage != null) {
-            this.this$0.azq();
-            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.e) {
-                this.this$0.a((com.baidu.tbadk.data.e) customResponsedMessage.getData());
-            }
-            aoVar = this.this$0.deK;
-            aoVar.azN().aya();
-            aoVar2 = this.this$0.deK;
-            aoVar2.azI();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        int i;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.dDs.dDj;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        String str = "";
+        i = this.dDs.ctQ;
+        switch (i) {
+            case 1:
+                str = "forum";
+                break;
+            case 2:
+                str = "kantie";
+                break;
+            case 3:
+                str = "message";
+                break;
+            case 7:
+                str = ImageViewerConfig.INDEX;
+                break;
+            case 8:
+                str = "profile";
+                break;
         }
+        TiebaStatic.log(new av("c10517").ab("obj_source", str));
+        mainTabActivity2 = this.dDs.dDj;
+        bj.af(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

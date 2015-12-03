@@ -11,108 +11,108 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class c {
-    private ImageView aBB;
-    private ProgressBar aBC;
-    private TextView aBD;
-    private View aBE;
-    private a aBF;
-    private TextView alz;
+    private ImageView aEn;
+    private ProgressBar aEo;
+    private TextView aEp;
+    private View aEq;
+    private a aEr;
+    private TextView agd;
     private View parent;
 
     public c(Context context) {
-        this.parent = LayoutInflater.from(context).inflate(i.g.ballot_item_view, (ViewGroup) null);
-        this.aBB = (ImageView) this.parent.findViewById(i.f.ballot_item_image);
-        this.alz = (TextView) this.parent.findViewById(i.f.ballot_item_title);
-        this.aBC = (ProgressBar) this.parent.findViewById(i.f.ballot_item_progress);
-        this.aBD = (TextView) this.parent.findViewById(i.f.ballot_item_percents);
-        this.aBE = this.parent.findViewById(i.f.ballot_item_preffix_progress);
+        this.parent = LayoutInflater.from(context).inflate(n.g.ballot_item_view, (ViewGroup) null);
+        this.aEn = (ImageView) this.parent.findViewById(n.f.ballot_item_image);
+        this.agd = (TextView) this.parent.findViewById(n.f.ballot_item_title);
+        this.aEo = (ProgressBar) this.parent.findViewById(n.f.ballot_item_progress);
+        this.aEp = (TextView) this.parent.findViewById(n.f.ballot_item_percents);
+        this.aEq = this.parent.findViewById(n.f.ballot_item_preffix_progress);
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void eL(int i) {
+    public void eY(int i) {
         if (i >= 0) {
-            if (this.aBF != null) {
-                int Ft = this.aBF.Ft();
-                i = ((Ft <= 100 ? Ft : 100) * i) / 100;
+            if (this.aEr != null) {
+                int Gy = this.aEr.Gy();
+                i = ((Gy <= 100 ? Gy : 100) * i) / 100;
             }
-            ViewGroup.LayoutParams layoutParams = this.aBC.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aEo.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(i, TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds28));
+                layoutParams = new ViewGroup.LayoutParams(i, TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds28));
             } else {
                 layoutParams.width = i;
             }
-            this.aBC.setLayoutParams(layoutParams);
+            this.aEo.setLayoutParams(layoutParams);
         }
     }
 
     public int a(a aVar) {
         int intrinsicWidth;
         String string;
-        this.aBF = aVar;
+        this.aEr = aVar;
         if (aVar == null) {
             return 0;
         }
-        if (aVar.Fs() <= 0) {
-            this.aBB.setImageDrawable(null);
-            this.aBB.setVisibility(8);
+        if (aVar.Gx() <= 0) {
+            this.aEn.setImageDrawable(null);
+            this.aEn.setVisibility(8);
             intrinsicWidth = 0;
         } else {
-            Drawable drawable = an.getDrawable(aVar.Fs());
-            this.aBB.setImageDrawable(drawable);
-            intrinsicWidth = drawable.getIntrinsicWidth() + this.parent.getResources().getDimensionPixelSize(i.d.ds24);
-            this.aBB.setVisibility(0);
+            Drawable drawable = as.getDrawable(aVar.Gx());
+            this.aEn.setImageDrawable(drawable);
+            intrinsicWidth = drawable.getIntrinsicWidth() + this.parent.getResources().getDimensionPixelSize(n.d.ds24);
+            this.aEn.setVisibility(0);
         }
-        if (StringUtils.isNull(aVar.Fp())) {
-            this.alz.setText((CharSequence) null);
-            this.alz.setVisibility(8);
+        if (StringUtils.isNull(aVar.Gu())) {
+            this.agd.setText((CharSequence) null);
+            this.agd.setVisibility(8);
         } else {
-            this.alz.setText(UtilHelper.getFixedText(aVar.Fp(), 15, false));
-            this.alz.setVisibility(0);
+            this.agd.setText(UtilHelper.getFixedText(aVar.Gu(), 15, false));
+            this.agd.setVisibility(0);
         }
         if (aVar.isSelected()) {
-            an.j(this.aBE, i.c.vote_progress_selected_color);
+            as.j(this.aEq, n.c.vote_progress_selected_color);
         } else {
-            an.j(this.aBE, i.c.vote_progress_unselected_color);
+            as.j(this.aEq, n.c.vote_progress_unselected_color);
         }
-        boolean isNull = StringUtils.isNull(aVar.Fq());
-        boolean isNull2 = StringUtils.isNull(aVar.Fr());
+        boolean isNull = StringUtils.isNull(aVar.Gv());
+        boolean isNull2 = StringUtils.isNull(aVar.Gw());
         if (isNull && isNull2) {
-            this.aBD.setText((CharSequence) null);
-            this.aBD.setVisibility(8);
+            this.aEp.setText((CharSequence) null);
+            this.aEp.setVisibility(8);
             string = null;
         } else {
-            this.aBD.setVisibility(0);
+            this.aEp.setVisibility(0);
             if (isNull) {
-                string = aVar.Fr();
-                this.aBD.setText(string);
+                string = aVar.Gw();
+                this.aEp.setText(string);
             } else if (isNull2) {
-                string = aVar.Fq();
-                this.aBD.setText(string);
+                string = aVar.Gv();
+                this.aEp.setText(string);
             } else {
-                string = TbadkCoreApplication.m411getInst().getString(i.h.vote_number_text, new Object[]{aVar.Fq(), aVar.Fr()});
-                this.aBD.setText(string);
+                string = TbadkCoreApplication.m411getInst().getString(n.i.vote_number_text, new Object[]{aVar.Gv(), aVar.Gw()});
+                this.aEp.setText(string);
             }
         }
         if (!StringUtils.isNull(string)) {
-            intrinsicWidth = (int) (intrinsicWidth + this.aBD.getPaint().measureText(string));
+            intrinsicWidth = (int) (intrinsicWidth + this.aEp.getPaint().measureText(string));
         }
-        return this.parent.getResources().getDimensionPixelSize(i.d.ds24) + this.parent.getResources().getDimensionPixelSize(i.d.ds10) + 8 + intrinsicWidth;
+        return this.parent.getResources().getDimensionPixelSize(n.d.ds24) + this.parent.getResources().getDimensionPixelSize(n.d.ds10) + 8 + intrinsicWidth;
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aBF != null) {
+        if (f >= 0.0f && this.aEr != null) {
             int i = (int) (100.0f * f);
-            if (this.aBF.isSelected()) {
-                this.aBC.setProgress(i);
-                this.aBC.setSecondaryProgress(0);
+            if (this.aEr.isSelected()) {
+                this.aEo.setProgress(i);
+                this.aEo.setSecondaryProgress(0);
                 return;
             }
-            this.aBC.setProgress(0);
-            this.aBC.setSecondaryProgress(i);
+            this.aEo.setProgress(0);
+            this.aEo.setSecondaryProgress(i);
         }
     }
 
@@ -121,17 +121,17 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aBF != null && this.aBF.Fs() > 0) {
-            an.b(this.aBB, this.aBF.Fs(), i);
+        if (this.aEr != null && this.aEr.Gx() > 0) {
+            as.b(this.aEn, this.aEr.Gx(), i);
         }
-        an.b(this.alz, i.c.cp_cont_b, 1);
-        an.b(this.aBD, i.c.cp_cont_c, 1);
-        this.aBC.setProgressDrawable(an.x(i, i.e.vote_progress_drawable));
-        if (this.aBF != null) {
-            if (this.aBF.isSelected()) {
-                an.j(this.aBE, i.c.vote_progress_selected_color);
+        as.b(this.agd, n.c.cp_cont_b, 1);
+        as.b(this.aEp, n.c.cp_cont_c, 1);
+        this.aEo.setProgressDrawable(as.getDrawable(n.e.vote_progress_drawable));
+        if (this.aEr != null) {
+            if (this.aEr.isSelected()) {
+                as.j(this.aEq, n.c.vote_progress_selected_color);
             } else {
-                an.j(this.aBE, i.c.vote_progress_unselected_color);
+                as.j(this.aEq, n.c.vote_progress_unselected_color);
             }
         }
     }

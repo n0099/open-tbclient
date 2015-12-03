@@ -1,30 +1,30 @@
 package com.baidu.tieba.launcherGuide.guide;
 
-import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.ai;
+import com.baidu.tieba.n;
+import com.baidu.tieba.tbadkCore.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements ai.a {
-    final /* synthetic */ p bSK;
+public class r implements aj.a {
+    final /* synthetic */ p ciY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.bSK = pVar;
+        this.ciY = pVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
+    @Override // com.baidu.tieba.tbadkCore.aj.a
     public void g(String str, long j) {
         a aVar;
-        int g = com.baidu.adp.lib.g.b.g(String.valueOf(j), 0);
-        aVar = this.bSK.bSI;
-        aVar.ij(g);
-        this.bSK.m(g, false);
+        int g = com.baidu.adp.lib.h.b.g(String.valueOf(j), 0);
+        aVar = this.ciY.ciW;
+        aVar.jd(g);
+        this.ciY.o(g, false);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
+    @Override // com.baidu.tieba.tbadkCore.aj.a
     public void h(String str, long j) {
         NewUserGuideActivity newUserGuideActivity;
-        newUserGuideActivity = this.bSK.bSH;
-        newUserGuideActivity.showToast(i.h.error);
+        newUserGuideActivity = this.ciY.ciV;
+        newUserGuideActivity.showToast(n.i.error);
     }
 }

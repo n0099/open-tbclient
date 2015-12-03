@@ -6,9 +6,9 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int TL;
-    private int TM;
-    private int TO;
+    private int Uc;
+    private int Ud;
+    private int Ue;
     private int mActivityId;
     private int mAwardActId;
     private int mComponentId;
@@ -16,27 +16,27 @@ public class a {
     private int total_num;
     private String url;
 
-    public int rj() {
-        return this.TL;
+    public int rx() {
+        return this.Uc;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int rk() {
-        return this.TM;
+    public int ry() {
+        return this.Ud;
     }
 
-    public int rl() {
-        return this.TO;
+    public int rz() {
+        return this.Ue;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int rm() {
+    public int rA() {
         return this.total_num;
     }
 
@@ -54,10 +54,10 @@ public class a {
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.TL = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.Uc = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.TM = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.TO = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.Ud = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.Ue = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
             this.mActivityId = actInfo.activity_id.intValue();
@@ -69,10 +69,10 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.TL = jSONObject.optInt("activity_type");
+                this.Uc = jSONObject.optInt("activity_type");
                 this.status = jSONObject.optInt("status");
-                this.TM = jSONObject.optInt("begin_time");
-                this.TO = jSONObject.optInt("end_time");
+                this.Ud = jSONObject.optInt("begin_time");
+                this.Ue = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
                 this.mActivityId = jSONObject.optInt("activity_id");

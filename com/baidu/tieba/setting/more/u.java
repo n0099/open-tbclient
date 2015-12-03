@@ -1,24 +1,31 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tieba.i;
-import com.baidu.tieba.setting.model.MoreModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.base.g {
-    final /* synthetic */ MoreActivity this$0;
+class u implements Runnable {
+    final /* synthetic */ t dnq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(MoreActivity moreActivity) {
-        this.this$0 = moreActivity;
+    public u(t tVar) {
+        this.dnq = tVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        if (obj != null && (obj instanceof MoreModel.TaskType)) {
-            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.this$0.showToast(this.this$0.getPageContext().getString(i.h.image_cash_del_suc));
-            }
-            this.this$0.closeLoadingDialog();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MoreActivity moreActivity;
+        MoreActivity moreActivity2;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
+        TbadkCoreApplication.m411getInst().deleteAccountAllInfo(currentAccount);
+        moreActivity = this.dnq.this$0;
+        TbadkCoreApplication.setCurrentAccount(null, moreActivity.getPageContext().getPageActivity());
+        com.baidu.tbadk.coreExtra.a.a.wP().wR();
+        TbadkCoreApplication.m411getInst().onUserChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_MATINTAB, null));
+        moreActivity2 = this.dnq.this$0;
+        moreActivity2.finish();
     }
 }

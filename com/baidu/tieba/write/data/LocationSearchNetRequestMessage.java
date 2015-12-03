@@ -2,7 +2,7 @@ package com.baidu.tieba.write.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.h;
+import com.baidu.tbadk.util.i;
 import tbclient.GetSuggestionByAddrName.DataReq;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameReqIdl;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class LocationSearchNetRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.addr_name = this.addrName;
         if (z) {
-            h.a(builder, true);
+            i.a(builder, true);
         }
         GetSuggestionByAddrNameReqIdl.Builder builder2 = new GetSuggestionByAddrNameReqIdl.Builder();
         builder2.data = builder.build(false);

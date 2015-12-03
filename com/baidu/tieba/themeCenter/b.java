@@ -7,51 +7,57 @@ import tbclient.ThemeSkinPropMain;
 /* loaded from: classes.dex */
 public class b {
     private String activityUrl;
-    private int bzj;
+    private int bOp;
+    private String dDB;
+    private String dDC;
+    private String dDD;
+    private String dDE;
+    private int dDF;
+    private ArrayList<String> dDG;
+    private String dDI;
+    private String dDJ;
     private String description;
-    private String dfT;
-    private String dfU;
-    private String dfV;
-    private String dfW;
-    private int dfX;
-    private ArrayList<String> dfY;
-    private String dga;
     private int id;
     private String picUrl;
     private String title;
     private int versionCode;
     private int newVersionCode = 0;
-    private boolean dfZ = false;
-    private int aao = 1;
+    private boolean dDH = false;
+    private int activityFinish = 0;
+    private int aba = 1;
 
     public void a(ThemeSkinPropMain themeSkinPropMain) {
         if (themeSkinPropMain != null) {
             this.id = themeSkinPropMain.props_id.intValue();
             this.title = themeSkinPropMain.title;
             this.picUrl = themeSkinPropMain.example_url;
-            this.dfT = themeSkinPropMain.package_size;
-            this.dfU = themeSkinPropMain.package_url;
+            this.dDB = themeSkinPropMain.package_size;
+            this.dDC = themeSkinPropMain.package_url;
             this.versionCode = themeSkinPropMain.props_version.intValue();
-            this.dfV = themeSkinPropMain.permission;
-            this.dfW = themeSkinPropMain.props_state_img;
-            this.dfX = themeSkinPropMain.free_user_level.intValue();
+            this.dDD = themeSkinPropMain.permission;
+            this.dDE = themeSkinPropMain.props_state_img;
+            this.dDF = themeSkinPropMain.free_user_level.intValue();
             this.activityUrl = themeSkinPropMain.activity_url;
+            this.activityFinish = themeSkinPropMain.is_finished.intValue();
+            this.dDJ = themeSkinPropMain.package_key;
         }
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.title = dataRes.title;
-            this.dfT = dataRes.package_size;
-            this.dfU = dataRes.package_url;
+            this.dDB = dataRes.package_size;
+            this.dDC = dataRes.package_url;
             this.description = dataRes.description;
             this.versionCode = dataRes.props_version.intValue();
-            this.dfV = dataRes.permission;
-            this.dga = dataRes.permission;
-            this.dfW = dataRes.props_state_img;
-            this.dfX = dataRes.free_user_level.intValue();
+            this.dDD = dataRes.permission;
+            this.dDI = dataRes.permission;
+            this.dDE = dataRes.props_state_img;
+            this.dDF = dataRes.free_user_level.intValue();
             this.activityUrl = dataRes.activity_url;
-            this.dfY = new ArrayList<>();
+            this.dDG = new ArrayList<>();
+            this.activityFinish = dataRes.is_finished.intValue();
+            this.dDJ = dataRes.package_key;
             ArrayList arrayList = new ArrayList();
             if (dataRes.pic_url != null && dataRes.pic_url.size() > 0) {
                 for (String str : dataRes.pic_url) {
@@ -60,9 +66,9 @@ public class b {
                     }
                 }
                 if (arrayList.size() > 5) {
-                    this.dfY.addAll(arrayList.subList(0, 5));
+                    this.dDG.addAll(arrayList.subList(0, 5));
                 } else {
-                    this.dfY.addAll(arrayList);
+                    this.dDG.addAll(arrayList);
                 }
             }
         }
@@ -88,24 +94,24 @@ public class b {
         return this.picUrl;
     }
 
-    public void lW(String str) {
+    public void mN(String str) {
         this.picUrl = str;
     }
 
     public String getPackageSize() {
-        return this.dfT;
+        return this.dDB;
     }
 
     public void setPackageSize(String str) {
-        this.dfT = str;
+        this.dDB = str;
     }
 
-    public String azU() {
-        return this.dfU;
+    public String aFb() {
+        return this.dDC;
     }
 
-    public void lX(String str) {
-        this.dfU = str;
+    public void mO(String str) {
+        this.dDC = str;
     }
 
     public int getVersionCode() {
@@ -116,32 +122,32 @@ public class b {
         this.versionCode = i;
     }
 
-    public String azV() {
-        return this.dfV;
+    public String aFc() {
+        return this.dDD;
     }
 
-    public void lY(String str) {
-        this.dfV = str;
+    public void mP(String str) {
+        this.dDD = str;
     }
 
-    public String azW() {
-        return this.dfW;
+    public String aFd() {
+        return this.dDE;
     }
 
-    public void lZ(String str) {
-        this.dfW = str;
+    public void mQ(String str) {
+        this.dDE = str;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public int azX() {
-        return this.dfX;
+    public int aFe() {
+        return this.dDF;
     }
 
-    public void lE(int i) {
-        this.dfX = i;
+    public void mO(int i) {
+        this.dDF = i;
     }
 
     public String getActivityUrl() {
@@ -152,43 +158,47 @@ public class b {
         this.activityUrl = str;
     }
 
-    public int azY() {
-        return this.aao;
+    public int aFf() {
+        return this.aba;
     }
 
-    public void lF(int i) {
-        this.aao = i;
+    public void mP(int i) {
+        this.aba = i;
     }
 
-    public ArrayList<String> azZ() {
-        return this.dfY;
+    public ArrayList<String> aFg() {
+        return this.dDG;
     }
 
-    public int UA() {
-        return this.bzj;
+    public int XG() {
+        return this.bOp;
     }
 
-    public void hm(int i) {
-        this.bzj = i;
+    public void hZ(int i) {
+        this.bOp = i;
     }
 
-    public boolean aAa() {
-        return this.dfZ;
+    public boolean aFh() {
+        return this.dDH;
     }
 
-    public void gM(boolean z) {
-        this.dfZ = z;
+    public void hu(boolean z) {
+        this.dDH = z;
     }
 
     public int getNewVersionCode() {
         return this.newVersionCode;
     }
 
-    public void lG(int i) {
+    public void mQ(int i) {
         this.newVersionCode = i;
     }
 
-    public String aAb() {
-        return this.dga;
+    public String aFi() {
+        return this.dDI;
+    }
+
+    public int getActivityFinish() {
+        return this.activityFinish;
     }
 }

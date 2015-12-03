@@ -17,12 +17,12 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private com.baidu.tbadk.core.util.g customToast;
     private boolean isPrimary;
-    private com.baidu.tbadk.e.f loadingView;
+    private com.baidu.tbadk.f.f loadingView;
     private String mTag;
     private BdUniqueId mId = null;
     protected int mSkinType = 3;
@@ -41,7 +41,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.g.tA();
+        this.customToast = com.baidu.tbadk.core.util.g.uf();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -128,7 +128,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            ax.dp(getClass().getName());
+            bd.dz(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -179,7 +179,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.tc();
+            this.loadingView.tH();
         }
     }
 
@@ -238,11 +238,11 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public void showLoadingView(View view, boolean z, int i) {
         if (this.loadingView == null) {
             if (i < 0) {
-                this.loadingView = new com.baidu.tbadk.e.f(getActivity());
+                this.loadingView = new com.baidu.tbadk.f.f(getActivity());
             } else {
-                this.loadingView = new com.baidu.tbadk.e.f(getActivity(), i);
+                this.loadingView = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.loadingView.tc();
+            this.loadingView.tH();
         }
         this.loadingView.b(view, z);
     }
@@ -251,13 +251,13 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cg();
+        return this.loadingView.Dh();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.u(view);
+            this.loadingView.v(view);
         }
     }
 

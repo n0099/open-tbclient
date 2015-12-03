@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.PvCacheModel;
+import com.baidu.tieba.n;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,14 +87,14 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         return (group == null || group.getGroupId() == 0) ? false : true;
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.b
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.d.b
     public void onItemViewLongClick(View view, int i, int i2, long j) {
         super.onItemViewLongClick(view, i, i2, j);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x009f  */
     /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.d.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -120,10 +120,10 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 return;
             case 4:
                 if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg2)) {
-                    String x = com.baidu.tieba.im.util.h.x(msg2.getContent(), true);
-                    String x2 = com.baidu.tieba.im.util.h.x(msg2.getContent(), false);
-                    if (x != null && (this.mListModel instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.mListModel).getGroup() != null) {
-                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), x, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), x2)));
+                    String z = com.baidu.tieba.im.util.h.z(msg2.getContent(), true);
+                    String z2 = com.baidu.tieba.im.util.h.z(msg2.getContent(), false);
+                    if (z != null && (this.mListModel instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.mListModel).getGroup() != null) {
+                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), z, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), z2)));
                         return;
                     }
                     return;
@@ -192,7 +192,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(group.getGroupId()))) {
-                    showToast(TbadkApplication.getInst().getString(i.h.group_is_kicked), false);
+                    showToast(TbadkApplication.getInst().getString(n.i.group_is_kicked), false);
                     finish();
                 }
             } catch (JSONException e) {
@@ -230,7 +230,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(group.getGroupId()))) {
-                    showToast(TbadkApplication.getInst().getString(i.h.group_is_dismiss), false);
+                    showToast(TbadkApplication.getInst().getString(n.i.group_is_dismiss), false);
                     finish();
                 }
             } catch (JSONException e) {

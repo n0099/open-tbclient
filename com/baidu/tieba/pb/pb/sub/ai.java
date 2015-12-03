@@ -3,39 +3,42 @@ package com.baidu.tieba.pb.pb.sub;
 import android.app.Dialog;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    private final /* synthetic */ boolean cjP;
-    final /* synthetic */ v coo;
+    final /* synthetic */ w cHA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(v vVar, boolean z) {
-        this.coo = vVar;
-        this.cjP = z;
+    public ai(w wVar) {
+        this.cHA = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        NewSubPbActivity newSubPbActivity;
+        NewSubPbActivity.a aVar;
+        NewSubPbActivity.a aVar2;
         Dialog dialog2;
         Dialog dialog3;
-        NewSubPbActivity newSubPbActivity2;
-        dialog = this.coo.cme;
+        NewSubPbActivity newSubPbActivity;
+        dialog = this.cHA.cEV;
         if (dialog != null) {
-            dialog2 = this.coo.cme;
+            dialog2 = this.cHA.cEV;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.coo.cme;
-                newSubPbActivity2 = this.coo.cnX;
-                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity2.getPageContext());
+                dialog3 = this.cHA.cEV;
+                newSubPbActivity = this.cHA.cHi;
+                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            newSubPbActivity = this.coo.cnX;
-            newSubPbActivity.a(this.cjP, (String) sparseArray.get(i.f.tag_disable_reply_mute_userid), sparseArray);
+            aVar = this.cHA.cHs;
+            if (aVar != null) {
+                aVar2 = this.cHA.cHs;
+                aVar2.d(new Object[]{sparseArray.get(n.f.tag_manage_user_identity), sparseArray.get(n.f.tag_forbid_user_name), sparseArray.get(n.f.tag_forbid_user_post_id)});
+            }
         }
     }
 }

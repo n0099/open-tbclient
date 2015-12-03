@@ -1,77 +1,34 @@
 package com.baidu.tieba.hottopic.b;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
-import com.baidu.tieba.hottopic.a.m;
-import com.baidu.tieba.hottopic.b.e;
-import com.baidu.tieba.hottopic.view.RelateForumViewPager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e bqF;
+public class g extends x.a {
+    public int afY;
+    public TextView ano;
+    public TextView bAL;
+    public BarImageView bFh;
+    public TextView bFn;
+    public TextView bFo;
+    public TextView bFp;
+    public TextView bkT;
+    public TextView bkU;
+    public View line;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar) {
-        this.bqF = eVar;
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        m mVar;
-        RelateForumViewPager relateForumViewPager;
-        RelateForumViewPager relateForumViewPager2;
-        RelateForumViewPager relateForumViewPager3;
-        if (i != 1) {
-            if (i == 0) {
-                mVar = this.bqF.bqA;
-                int count = mVar.getCount();
-                if (count >= 2) {
-                    relateForumViewPager = this.bqF.bqx;
-                    int currentItem = relateForumViewPager.getCurrentItem();
-                    int i2 = count - 2;
-                    if (currentItem < 1) {
-                        relateForumViewPager3 = this.bqF.bqx;
-                        relateForumViewPager3.setCurrentItem(i2, false);
-                    } else if (currentItem > i2) {
-                        relateForumViewPager2 = this.bqF.bqx;
-                        relateForumViewPager2.setCurrentItem(1, false);
-                    }
-                    this.bqF.MA();
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        this.bqF.MB();
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        e.a aVar;
-        e.a aVar2;
-        int gR;
-        IndicatorView indicatorView;
-        IndicatorView indicatorView2;
-        e.a aVar3;
-        int fM;
-        aVar = this.bqF.bqB;
-        if (aVar != null) {
-            aVar2 = this.bqF.bqB;
-            gR = aVar2.gR(i);
-            if (gR == i) {
-                indicatorView = this.bqF.ari;
-                if (indicatorView != null) {
-                    indicatorView2 = this.bqF.ari;
-                    aVar3 = this.bqF.bqB;
-                    fM = aVar3.fM(i);
-                    indicatorView2.setPosition(fM);
-                }
-            }
-        }
+    public g(View view) {
+        super(view);
+        this.afY = 3;
+        this.bAL = (TextView) view.findViewById(n.f.forum_name);
+        this.bFh = (BarImageView) view.findViewById(n.f.forum_avatar);
+        this.bFp = (TextView) view.findViewById(n.f.member_num_label);
+        this.bFo = (TextView) view.findViewById(n.f.post_num_label);
+        this.bkU = (TextView) view.findViewById(n.f.member_num);
+        this.bkT = (TextView) view.findViewById(n.f.post_num);
+        this.ano = (TextView) view.findViewById(n.f.forum_content);
+        this.bFn = (TextView) view.findViewById(n.f.forum_add_love);
+        this.line = view.findViewById(n.f.forum_item_divider);
     }
 }

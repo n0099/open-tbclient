@@ -7,20 +7,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q implements h {
-    private SparseArray<?> rY;
+    private SparseArray<?> rZ;
 
     public q(SparseArray<?> sparseArray) {
-        this.rY = sparseArray;
+        this.rZ = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
         Type[] fK = cVar.fK();
         JSONObject jSONObject = new JSONObject();
-        int size = this.rY.size();
+        int size = this.rZ.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.rY.keyAt(i);
-            Object obj = this.rY.get(keyAt);
+            int keyAt = this.rZ.keyAt(i);
+            Object obj = this.rZ.get(keyAt);
             if (obj != null) {
                 if (fK != null && fK.length >= 1) {
                     Object a = com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fK[0]));
@@ -60,7 +60,7 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rY;
+        return this.rZ;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -80,6 +80,6 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rY;
+        return this.rZ;
     }
 }

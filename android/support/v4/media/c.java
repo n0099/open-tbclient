@@ -4,4 +4,6 @@ import android.view.KeyEvent;
 /* loaded from: classes.dex */
 interface c {
     void a(KeyEvent keyEvent);
+
+    void j(int i);
 }

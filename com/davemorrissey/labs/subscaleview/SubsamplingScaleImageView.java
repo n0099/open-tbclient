@@ -1009,7 +1009,7 @@ public class SubsamplingScaleImageView extends View {
             android.graphics.BitmapFactory.decodeStream(r1, r3, r5)     // Catch: java.lang.Throwable -> Leb
             android.graphics.Bitmap$Config r3 = android.graphics.Bitmap.Config.RGB_565     // Catch: java.lang.Throwable -> Leb
             r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Leb
-            com.baidu.adp.lib.util.o.d(r1)     // Catch: java.lang.Throwable -> Leb
+            com.baidu.adp.lib.util.o.e(r1)     // Catch: java.lang.Throwable -> Leb
             android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Leb
             int r3 = com.baidu.adp.lib.util.k.K(r3)     // Catch: java.lang.Throwable -> Leb
             android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Leb
@@ -1023,7 +1023,7 @@ public class SubsamplingScaleImageView extends View {
             int r3 = java.lang.Math.max(r3, r4)     // Catch: java.lang.Throwable -> Leb
             int r0 = java.lang.Math.max(r0, r3)     // Catch: java.lang.Throwable -> Leb
         Lcc:
-            com.baidu.adp.lib.util.o.d(r1)
+            com.baidu.adp.lib.util.o.e(r1)
         Lcf:
             r1 = r2
         Ld0:
@@ -1038,13 +1038,13 @@ public class SubsamplingScaleImageView extends View {
             r1 = move-exception
             r1 = r3
         Ldc:
-            com.baidu.adp.lib.util.o.d(r1)
+            com.baidu.adp.lib.util.o.e(r1)
             goto Lcf
         Le0:
             r0 = move-exception
             r1 = r3
         Le2:
-            com.baidu.adp.lib.util.o.d(r1)
+            com.baidu.adp.lib.util.o.e(r1)
             throw r0
         Le6:
             int r1 = r1 * 2

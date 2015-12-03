@@ -1,24 +1,25 @@
 package com.baidu.tieba.personInfo;
 
+import android.os.Bundle;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity cue;
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(PersonInfoActivity personInfoActivity, int i) {
+    public b(int i) {
         super(i);
-        this.cue = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
+        com.baidu.tbadk.mainTab.c fragmentTabStructure;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
+            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = personInfoDelegateStatic.getFragmentTabStructure()) != null) {
+                fragmentTabStructure.avR.setArguments(new Bundle());
+            }
         }
-        this.cue.d(customResponsedMessage);
     }
 }

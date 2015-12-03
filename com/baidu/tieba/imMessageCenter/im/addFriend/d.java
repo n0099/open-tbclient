@@ -3,14 +3,17 @@ package com.baidu.tieba.imMessageCenter.im.addFriend;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity bJP;
+    final /* synthetic */ AddFriendActivity bYU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AddFriendActivity addFriendActivity) {
-        this.bJP = addFriendActivity;
+        this.bYU = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,11 +21,15 @@ public class d implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         EditText editText2;
-        AddFriendActivity addFriendActivity = this.bJP;
-        inputMethodManager = this.bJP.bnb;
-        editText = this.bJP.bJK;
+        AddFriendActivity addFriendActivity = this.bYU;
+        inputMethodManager = this.bYU.buE;
+        editText = this.bYU.bYP;
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        editText2 = this.bJP.bJK;
-        this.bJP.gj(editText2.getText().toString());
+        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
+            editText2 = this.bYU.bYP;
+            this.bYU.gw(editText2.getText().toString());
+            return;
+        }
+        this.bYU.showToast(n.i.plugin_not_install);
     }
 }

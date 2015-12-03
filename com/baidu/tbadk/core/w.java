@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements Runnable {
-    private final /* synthetic */ boolean TB;
-    final /* synthetic */ TbadkCoreApplication Ty;
+    final /* synthetic */ TbadkCoreApplication TP;
+    private final /* synthetic */ boolean TS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(TbadkCoreApplication tbadkCoreApplication, boolean z) {
-        this.Ty = tbadkCoreApplication;
-        this.TB = z;
+        this.TP = tbadkCoreApplication;
+        this.TS = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_EMOTION, new com.baidu.tbadk.mainTab.a(this.TB)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_EMOTION, new com.baidu.tbadk.mainTab.a(this.TS)));
     }
 }

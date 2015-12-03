@@ -6,69 +6,69 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.frs.bn;
-import com.baidu.tieba.i;
+import com.baidu.tieba.frs.bm;
+import com.baidu.tieba.n;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class a extends bn<g, k> {
-    private final LinkedList<BaseWebView> baG;
-    private final LinkedList<c> baH;
+public class a extends bm<g, k> {
+    private final LinkedList<BaseWebView> bgY;
+    private final LinkedList<c> bgZ;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.baG = new LinkedList<>();
-        this.baH = new LinkedList<>();
+        this.bgY = new LinkedList<>();
+        this.bgZ = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: u */
+    /* renamed from: A */
     public k a(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         linearLayout.setOrientation(1);
         View view = new View(this.mContext);
-        view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelOffset(i.d.ds18)));
-        an.j(view, i.c.cp_bg_line_c);
+        view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelOffset(n.d.ds18)));
+        as.j(view, n.c.cp_bg_line_c);
         c cVar = new c(this.mContext);
         linearLayout.addView(view);
         linearLayout.addView(cVar);
-        this.baG.add(cVar.getWebView());
-        this.baH.add(cVar);
+        this.bgY.add(cVar.getWebView());
+        this.bgZ.add(cVar);
         return new k(linearLayout, cVar, view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, k kVar) {
-        c cVar = kVar.baO;
+        c cVar = kVar.bhg;
         if (cVar == null) {
             return null;
         }
         BaseWebView webView = cVar.getWebView();
         webView.setOnLoadUrlListener(new b(this, gVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!cVar.Nl() && gVar != null) {
+        if (!cVar.ON() && gVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, gVar.url);
             cVar.setWebViewLoading(true);
         }
-        if (kVar.Xo != null) {
-            an.j(kVar.Xo, i.c.cp_bg_line_c);
+        if (kVar.Yb != null) {
+            as.j(kVar.Yb, n.c.cp_bg_line_c);
             return view;
         }
         return view;
     }
 
-    @Override // com.baidu.tieba.frs.bn
+    @Override // com.baidu.tieba.frs.bm
     public void release() {
         super.release();
-        Iterator<BaseWebView> it = this.baG.iterator();
+        Iterator<BaseWebView> it = this.bgY.iterator();
         while (it.hasNext()) {
             BaseWebView next = it.next();
             if (next != null) {
@@ -76,11 +76,11 @@ public class a extends bn<g, k> {
                 next.destroy();
             }
         }
-        this.baG.clear();
-        Iterator<c> it2 = this.baH.iterator();
+        this.bgY.clear();
+        Iterator<c> it2 = this.bgZ.iterator();
         while (it2.hasNext()) {
             it2.next().removeAllViews();
         }
-        this.baH.clear();
+        this.bgZ.clear();
     }
 }

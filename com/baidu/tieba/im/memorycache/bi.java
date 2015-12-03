@@ -21,20 +21,20 @@ public class bi implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.Wn().g(imMessageCenterPojo);
+        b.Zt().g(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void e(String str, List<CommonMsgPojo> list) {
+    public void f(String str, List<CommonMsgPojo> list) {
         for (CommonMsgPojo commonMsgPojo : list) {
             if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                 com.baidu.tieba.im.data.e a = com.baidu.tieba.im.util.h.a(commonMsgPojo);
                 if (a != null) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bxg, "task_id", a.bxh);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bMm, "task_id", a.bMn);
                 }
             }
         }

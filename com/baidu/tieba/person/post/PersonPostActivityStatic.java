@@ -6,6 +6,6 @@ import com.baidu.tieba.person.data.PersonPostActivityConfig;
 public class PersonPostActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
-        ad.init();
+        af.init();
     }
 }

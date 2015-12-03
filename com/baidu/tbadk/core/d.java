@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ BaseFragmentActivity Ti;
+    final /* synthetic */ BaseFragmentActivity Tx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BaseFragmentActivity baseFragmentActivity, int i) {
         super(i);
-        this.Ti = baseFragmentActivity;
+        this.Tx = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ public class d extends CustomMessageListener {
         c cVar;
         c cVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017) {
-            cVar = this.Ti.mLayoutMode;
+            cVar = this.Tx.mLayoutMode;
             if (cVar != null) {
-                cVar2 = this.Ti.mLayoutMode;
+                cVar2 = this.Tx.mLayoutMode;
                 cVar2.b((Resources) null);
-                this.Ti.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+                this.Tx.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
             }
         }
     }

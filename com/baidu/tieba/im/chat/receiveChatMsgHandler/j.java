@@ -25,10 +25,10 @@ public class j {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.bHs) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.bWy) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.g.aJ(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.g.aX(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

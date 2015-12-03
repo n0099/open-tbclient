@@ -1,67 +1,52 @@
 package com.baidu.tbadk.core.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class x {
-    private String Wd;
-    private String We;
-    private String Wf;
-    private int Wg;
-    private String Wh;
-    private long Wi;
-    private String summary;
+    protected String img_url = null;
+    protected String link = null;
+    protected String VZ = null;
 
-    public String se() {
-        return this.Wd;
+    public String sB() {
+        return this.img_url;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public void cs(String str) {
+        this.img_url = str;
     }
 
-    public String sH() {
-        return this.Wf;
+    public String getLink() {
+        return this.link;
     }
 
-    public int sI() {
-        return this.Wg;
+    public void setLink(String str) {
+        this.link = str;
     }
 
-    public String sJ() {
-        return this.Wh;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.Wd = topCode.img_url;
-            this.We = topCode.game_link;
-            this.summary = topCode.summary;
-            this.Wf = topCode.code_link;
-            this.Wg = topCode.get_type.intValue();
-            this.Wh = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.Wi = 0L;
-            } else {
-                this.Wi = topCode.giftworth.longValue();
-            }
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
             try {
-                this.Wd = jSONObject.optString("img_url");
-                this.We = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.Wf = jSONObject.optString("code_link");
-                this.Wg = jSONObject.optInt("get_type", 1);
-                this.Wh = jSONObject.optString("surplusgift");
-                this.Wi = jSONObject.optLong("giftworth", 0L);
+                cs(banner.pic_url);
+                setLink(banner.link);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public String sC() {
+        return this.VZ;
+    }
+
+    public void ct(String str) {
+        this.VZ = str;
     }
 }

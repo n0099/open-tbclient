@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.c.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class cu implements a.InterfaceC0075a {
-    final /* synthetic */ ct cmY;
-
+class cu extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(ct ctVar) {
-        this.cmY = ctVar;
+    public cu(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0075a
-    public void no() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ct.ale().reset();
     }
 }

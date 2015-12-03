@@ -7,31 +7,31 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView aIS;
-    private TextView aIT;
-    private TextView aIX;
-    private TextView aIY;
-    private LinearLayout aIZ;
-    private TextView atx;
+    private LinearLayout aNA;
+    private TextView aNt;
+    private TextView aNu;
+    private TextView aNy;
+    private TextView aNz;
+    private TextView avB;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aIX = (TextView) view.findViewById(i.f.chosen_no_picture_title);
-        this.aIS = (TextView) view.findViewById(i.f.chosen_no_picture_praise);
-        this.aIT = (TextView) view.findViewById(i.f.chosen_no_picture_comment);
-        this.aIY = (TextView) view.findViewById(i.f.chosen_no_picture_head);
-        this.atx = (TextView) view.findViewById(i.f.chosen_no_picture_sub);
-        this.aIZ = (LinearLayout) view.findViewById(i.f.chosen_no_picture_comment_line);
+        this.aNy = (TextView) view.findViewById(n.f.chosen_no_picture_title);
+        this.aNt = (TextView) view.findViewById(n.f.chosen_no_picture_praise);
+        this.aNu = (TextView) view.findViewById(n.f.chosen_no_picture_comment);
+        this.aNz = (TextView) view.findViewById(n.f.chosen_no_picture_head);
+        this.avB = (TextView) view.findViewById(n.f.chosen_no_picture_sub);
+        this.aNA = (LinearLayout) view.findViewById(n.f.chosen_no_picture_comment_line);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.core.c layoutMode = getPageContext().getLayoutMode();
-        layoutMode.ad(i == 1);
+        layoutMode.af(i == 1);
         layoutMode.k(getRootView());
         return true;
     }
@@ -44,36 +44,36 @@ public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void B(tinfo tinfoVar) {
         super.B(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.aIY.setVisibility(8);
+            this.aNz.setVisibility(8);
         } else {
-            this.aIY.setVisibility(0);
-            this.aIY.setText(tinfoVar.title);
+            this.aNz.setVisibility(0);
+            this.aNz.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.aIZ.setVisibility(8);
+            this.aNA.setVisibility(8);
         } else {
-            this.aIZ.setVisibility(0);
-            this.aIX.setVisibility(0);
-            this.aIX.setText(UtilHelper.getFixedText(getContext().getString(i.h.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.aIX.setOnClickListener(new d(this, tinfoVar));
+            this.aNA.setVisibility(0);
+            this.aNy.setVisibility(0);
+            this.aNy.setText(UtilHelper.getFixedText(getContext().getString(n.i.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.aNy.setOnClickListener(new d(this, tinfoVar));
             if (tinfoVar.zan_num == null) {
-                this.aIS.setVisibility(8);
+                this.aNt.setVisibility(8);
             } else {
-                this.aIS.setVisibility(0);
-                this.aIS.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
+                this.aNt.setVisibility(0);
+                this.aNt.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
             }
             if (tinfoVar.reply_num == null) {
-                this.aIT.setVisibility(8);
+                this.aNu.setVisibility(8);
             } else {
-                this.aIT.setVisibility(0);
-                this.aIT.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
+                this.aNu.setVisibility(0);
+                this.aNu.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.atx.setVisibility(8);
+            this.avB.setVisibility(8);
             return;
         }
-        this.atx.setVisibility(0);
-        this.atx.setText(tinfoVar._abstract);
+        this.avB.setVisibility(0);
+        this.avB.setText(tinfoVar._abstract);
     }
 }

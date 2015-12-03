@@ -1,28 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import java.util.ArrayList;
+import android.text.TextUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private String agw;
-    private ArrayList<Object> agx;
+    private int aih;
+    private String link;
+    private String title;
 
-    public j() {
-        m(new ArrayList<>());
-    }
-
-    public String wr() {
-        return this.agw;
-    }
-
-    public void dR(String str) {
-        this.agw = str;
-    }
-
-    public ArrayList<Object> ws() {
-        return this.agx;
-    }
-
-    public void m(ArrayList<Object> arrayList) {
-        this.agx = arrayList;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.aih = jSONObject.optInt("offline");
+            this.title = jSONObject.optString("title");
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
+            }
+        }
     }
 }

@@ -1,16 +1,9 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements Runnable {
-    final /* synthetic */ af aaO;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(af afVar) {
-        this.aaO = afVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.aaO.uv();
-    }
+public class ai extends com.baidu.adp.lib.a.b.a.a.i {
+    public String WN;
+    public int abp;
+    public com.baidu.tbadk.widget.richText.d abq;
+    public int height;
+    public int width;
 }

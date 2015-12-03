@@ -1,43 +1,25 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements NoNetworkView.a {
-    final /* synthetic */ HotTopicActivity bpp;
+public class g implements q.a {
+    final /* synthetic */ HotTopicActivity bDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(HotTopicActivity hotTopicActivity) {
-        this.bpp = hotTopicActivity;
+        this.bDn = hotTopicActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        h hVar;
-        h hVar2;
+    @Override // com.baidu.tbadk.core.view.q.a
+    public void onListPullRefresh(boolean z) {
         com.baidu.tieba.hottopic.view.a aVar;
-        com.baidu.tieba.hottopic.view.a aVar2;
-        h hVar3;
-        h hVar4;
-        if (z) {
-            hVar = this.bpp.bpe;
-            if (hVar != null) {
-                hVar2 = this.bpp.bpe;
-                if (hVar2.getHotTopicData() != null) {
-                    hVar3 = this.bpp.bpe;
-                    if (hVar3.getHotTopicData().Rm() != null) {
-                        hVar4 = this.bpp.bpe;
-                        if (hVar4.getHotTopicData().Rm().size() != 0) {
-                            return;
-                        }
-                    }
-                }
-                HotTopicActivity hotTopicActivity = this.bpp;
-                aVar = this.bpp.bpd;
-                hotTopicActivity.hideNetRefreshView(aVar.Rs());
-                aVar2 = this.bpp.bpd;
-                aVar2.Rx();
-            }
+        if (com.baidu.adp.lib.util.i.iP()) {
+            this.bDn.Uh();
+            return;
         }
+        HotTopicActivity hotTopicActivity = this.bDn;
+        aVar = this.bDn.bDc;
+        hotTopicActivity.showNetRefreshView(aVar.UC(), null);
     }
 }

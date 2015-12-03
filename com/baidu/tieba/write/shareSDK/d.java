@@ -2,18 +2,18 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class d implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity dog;
+    final /* synthetic */ WriteShareActivity dNm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WriteShareActivity writeShareActivity) {
-        this.dog = writeShareActivity;
+        this.dNm = writeShareActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.aDa()) goto L19;
+        if (r4 == r0.aIx()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -34,43 +34,43 @@ class d implements View.OnFocusChangeListener {
         o oVar10;
         o oVar11;
         o oVar12;
-        oVar = this.dog.dnQ;
+        oVar = this.dNm.dMW;
         if (oVar != null) {
-            oVar2 = this.dog.dnQ;
-            if (view != oVar2.aCX()) {
-                oVar11 = this.dog.dnQ;
-                if (view != oVar11.aCZ()) {
-                    oVar12 = this.dog.dnQ;
+            oVar2 = this.dNm.dMW;
+            if (view != oVar2.aIu()) {
+                oVar11 = this.dNm.dMW;
+                if (view != oVar11.aIw()) {
+                    oVar12 = this.dNm.dMW;
                 }
             }
             if (!z) {
-                oVar3 = this.dog.dnQ;
-                if (view == oVar3.aCX()) {
-                    oVar4 = this.dog.dnQ;
-                    if (oVar4.aDb() != null) {
-                        oVar5 = this.dog.dnQ;
-                        oVar5.aDb().setVisibility(0);
+                oVar3 = this.dNm.dMW;
+                if (view == oVar3.aIu()) {
+                    oVar4 = this.dNm.dMW;
+                    if (oVar4.aIy() != null) {
+                        oVar5 = this.dNm.dMW;
+                        oVar5.aIy().setVisibility(0);
                     }
                 }
             } else {
-                WriteShareActivity writeShareActivity = this.dog;
-                inputMethodManager = this.dog.mInputManager;
-                oVar6 = this.dog.dnQ;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aCX());
+                WriteShareActivity writeShareActivity = this.dNm;
+                inputMethodManager = this.dNm.mInputManager;
+                oVar6 = this.dNm.dMW;
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aIu());
             }
-            oVar7 = this.dog.dnQ;
-            if (view == oVar7.anu()) {
+            oVar7 = this.dNm.dMW;
+            if (view == oVar7.asU()) {
                 if (z) {
-                    oVar10 = this.dog.dnQ;
-                    oVar10.anu().setHint((CharSequence) null);
+                    oVar10 = this.dNm.dMW;
+                    oVar10.asU().setHint((CharSequence) null);
                 } else {
-                    oVar8 = this.dog.dnQ;
-                    oVar8.anu().setHint(i.h.content);
+                    oVar8 = this.dNm.dMW;
+                    oVar8.asU().setHint(n.i.content);
                 }
-                WriteShareActivity writeShareActivity2 = this.dog;
-                inputMethodManager2 = this.dog.mInputManager;
-                oVar9 = this.dog.dnQ;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aCX());
+                WriteShareActivity writeShareActivity2 = this.dNm;
+                inputMethodManager2 = this.dNm.mInputManager;
+                oVar9 = this.dNm.dMW;
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aIu());
             }
         }
     }

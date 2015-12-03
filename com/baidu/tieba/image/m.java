@@ -12,26 +12,26 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class m {
-    private AntiData bPL;
-    private LinkedList<l> bPM;
-    private String bPJ = null;
+    private AntiData cfY;
+    private LinkedList<l> cfZ;
+    private String cfW = null;
     private String fid = null;
-    private int bPK = 0;
+    private int cfX = 0;
     private Context mContext = null;
-    private String bPN = null;
-    private String bPO = null;
+    private String cga = null;
+    private String cgb = null;
     private String tid = null;
-    private com.baidu.tbadk.core.data.b bPP = null;
-    private int bPQ = 0;
+    private com.baidu.tbadk.core.data.b cgc = null;
+    private int cgd = 0;
 
     public m() {
-        this.bPL = null;
-        this.bPM = null;
-        this.bPM = new LinkedList<>();
-        this.bPL = new AntiData();
+        this.cfY = null;
+        this.cfZ = null;
+        this.cfZ = new LinkedList<>();
+        this.cfY = new AntiData();
     }
 
-    public void y(String str, boolean z) {
+    public void A(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -39,24 +39,24 @@ public class m {
         }
     }
 
-    public LinkedList<l> aax() {
-        return this.bPM;
+    public LinkedList<l> aed() {
+        return this.cfZ;
     }
 
     public int getImageNum() {
-        return this.bPK;
+        return this.cfX;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                ih(jSONObject.optInt("is_new_url", 0));
+                jb(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.bPJ = optJSONObject.optString("name");
+                    this.cfW = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.bPK = jSONObject.optInt("pic_amount", 0);
+                this.cfX = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -64,8 +64,8 @@ public class m {
                             l lVar = new l(this.mContext);
                             lVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = lVar.getIndex();
-                            if (index >= 1 && index <= this.bPK) {
-                                this.bPM.addLast(lVar);
+                            if (index >= 1 && index <= this.cfX) {
+                                this.cfZ.addLast(lVar);
                             }
                         }
                     } else {
@@ -73,8 +73,8 @@ public class m {
                             l lVar2 = new l(this.mContext);
                             lVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = lVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.bPK) {
-                                this.bPM.addFirst(lVar2);
+                            if (index2 >= 1 && index2 <= this.cfX) {
+                                this.cfZ.addFirst(lVar2);
                             }
                         }
                     }
@@ -82,8 +82,8 @@ public class m {
                 l(jSONObject);
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
                 if (optJSONObject2 != null) {
-                    this.bPN = optJSONObject2.optString("tid");
-                    this.bPO = optJSONObject2.optString("title");
+                    this.cga = optJSONObject2.optString("tid");
+                    this.cgb = optJSONObject2.optString("title");
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -134,9 +134,9 @@ public class m {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.bPP = new com.baidu.tbadk.core.data.b();
-            this.bPP.a(build);
-            this.bPP.Uc = "c0111";
+            this.cgc = new com.baidu.tbadk.core.data.b();
+            this.cgc.a(build);
+            this.cgc.Us = "c0111";
         }
     }
 
@@ -164,11 +164,11 @@ public class m {
         return builder.build(true);
     }
 
-    public void ih(int i) {
-        this.bPQ = i;
+    public void jb(int i) {
+        this.cgd = i;
     }
 
-    public com.baidu.tbadk.core.data.b aay() {
-        return this.bPP;
+    public com.baidu.tbadk.core.data.b aee() {
+        return this.cgc;
     }
 }

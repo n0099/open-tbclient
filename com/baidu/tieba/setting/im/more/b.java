@@ -2,52 +2,56 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.n;
 import com.baidu.tieba.setting.im.more.i;
 import com.baidu.tieba.tbadkCore.data.VoiceCheckResult;
 /* loaded from: classes.dex */
 class b implements i.a {
-    final /* synthetic */ SecretSettingActivity cMS;
+    final /* synthetic */ SecretSettingActivity dlj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SecretSettingActivity secretSettingActivity) {
-        this.cMS = secretSettingActivity;
+        this.dlj = secretSettingActivity;
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arG() {
-        this.cMS.arE();
+    public void axe() {
+        this.dlj.axc();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
     public void onBackPressed() {
-        this.cMS.finish();
+        this.dlj.finish();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arH() {
-        this.cMS.bb("group", this.cMS.getPageContext().getString(i.h.privacy_setting_attention_group));
+    public void axf() {
+        this.dlj.be("group", this.dlj.getPageContext().getString(n.i.privacy_setting_attention_group));
+        TiebaStatic.log("c10652");
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arI() {
-        this.cMS.bb("post", this.cMS.getPageContext().getString(i.h.privacy_setting_attention_forum));
+    public void axg() {
+        this.dlj.be("post", this.dlj.getPageContext().getString(n.i.privacy_setting_attention_forum));
+        TiebaStatic.log("c10651");
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arJ() {
-        this.cMS.bb("like", this.cMS.getPageContext().getString(i.h.privacy_setting_attention_bar));
+    public void axh() {
+        this.dlj.be("like", this.dlj.getPageContext().getString(n.i.privacy_setting_attention_bar));
+        TiebaStatic.log("c10648");
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arK() {
-        this.cMS.arF();
+    public void axi() {
+        this.dlj.axd();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
     public void a(BdSwitchView.SwitchState switchState) {
-        this.cMS.ab("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
-        this.cMS.showProgressBar();
+        this.dlj.ag("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
+        this.dlj.showProgressBar();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
@@ -56,12 +60,12 @@ class b implements i.a {
         VoiceCheckResult voiceCheckResult2;
         boolean z = switchState == BdSwitchView.SwitchState.ON;
         if (z) {
-            voiceCheckResult = this.cMS.cMI;
+            voiceCheckResult = this.dlj.dkZ;
             if (voiceCheckResult != null) {
-                voiceCheckResult2 = this.cMS.cMI;
-                if (!voiceCheckResult2.axE()) {
-                    this.cMS.arC();
-                    this.cMS.arB();
+                voiceCheckResult2 = this.dlj.dkZ;
+                if (!voiceCheckResult2.aDp()) {
+                    this.dlj.axa();
+                    this.dlj.awZ();
                     return;
                 }
             }
@@ -70,16 +74,16 @@ class b implements i.a {
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arL() {
+    public void axj() {
         VoiceCheckResult voiceCheckResult;
         VoiceCheckResult voiceCheckResult2;
-        voiceCheckResult = this.cMS.cMI;
+        voiceCheckResult = this.dlj.dkZ;
         if (voiceCheckResult != null) {
-            voiceCheckResult2 = this.cMS.cMI;
-            if (!voiceCheckResult2.axE()) {
+            voiceCheckResult2 = this.dlj.dkZ;
+            if (!voiceCheckResult2.aDp()) {
                 return;
             }
-            this.cMS.arC();
+            this.dlj.axa();
         }
     }
 }

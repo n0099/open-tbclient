@@ -6,20 +6,21 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class GetOnLineInfoStatic {
+    private static boolean axj = true;
     private static Runnable mRunnable = new a();
 
     static {
-        Di();
-        Dj();
-        Dk();
-        Dl();
+        Ej();
+        Ek();
+        El();
+        Em();
     }
 
-    private static void Di() {
+    private static void Ej() {
         MessageManager.getInstance().registerListener(new b(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES));
     }
 
-    private static void Dj() {
+    private static void Ek() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205005);
         bVar.setResponsedClass(GetOnLineInfoSocketResMessage.class);
         bVar.j(false);
@@ -27,13 +28,13 @@ public class GetOnLineInfoStatic {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private static void Dk() {
+    private static void El() {
         c cVar = new c(205005);
         cVar.setSelfListener(true);
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    private static void Dl() {
+    private static void Em() {
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

@@ -20,7 +20,9 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.support.v4.view.MotionEventCompat;
 import android.telephony.TelephonyManager;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.CharacterStyle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -28,6 +30,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
@@ -45,16 +48,17 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tbadk.core.atomData.LiveNotifyActivityConfig;
 import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
+import com.baidu.tbadk.core.atomData.PaymentConfirmActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
@@ -62,7 +66,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
+import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -91,7 +96,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (abG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (acy) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -104,7 +109,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType abF = NativePageType.NONE;
+        public NativePageType acx = NativePageType.NONE;
         public String id;
     }
 
@@ -185,7 +190,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(Activity activity) {
-        new com.baidu.tbadk.core.dialog.a(activity).bE(i.h.alert_title).aj(false).bF(i.h.alert_quit_confirm).a(i.h.alert_yes_button, new bb(activity)).b(i.h.alert_no_button, new bc()).b(com.baidu.adp.base.l.C(activity)).sR();
+        new com.baidu.tbadk.core.dialog.a(activity).bM(n.i.alert_title).al(false).bN(n.i.alert_quit_confirm).a(n.i.alert_yes_button, new bh(activity)).b(n.i.alert_no_button, new bi()).b(com.baidu.adp.base.l.C(activity)).tv();
     }
 
     public static String getIpFromDomain(String str) {
@@ -270,7 +275,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [453=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [445=4] */
     public static final boolean webViewIsProbablyCorrupt(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
@@ -293,13 +298,13 @@ public class UtilHelper {
     }
 
     public static void install_apk(Context context, String str) {
-        File cJ;
-        if (str != null && str.length() > 0 && (cJ = n.cJ(str)) != null) {
+        File cR;
+        if (str != null && str.length() > 0 && (cR = n.cR(str)) != null) {
             try {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(cJ), "application/vnd.android.package-archive");
+                intent.setDataAndType(Uri.fromFile(cR), "application/vnd.android.package-archive");
                 context.startActivity(intent);
             } catch (SecurityException e) {
             }
@@ -319,7 +324,7 @@ public class UtilHelper {
             return true;
         } catch (Throwable th) {
             th.printStackTrace();
-            com.baidu.adp.lib.util.k.showToast(context, i.h.game_start_fail);
+            com.baidu.adp.lib.util.k.showToast(context, n.i.game_start_fail);
             return false;
         }
     }
@@ -376,7 +381,7 @@ public class UtilHelper {
                 String substring = str.substring(4);
                 String str2 = strArr[0];
                 if (!TextUtils.isEmpty(substring)) {
-                    com.baidu.tbadk.browser.g.c(context, str2, substring, false);
+                    com.baidu.tbadk.browser.f.c(context, str2, substring, false);
                 }
             } else if (str.length() > 4 && str.startsWith("frs:")) {
                 String substring2 = str.substring(4);
@@ -402,7 +407,7 @@ public class UtilHelper {
         int i = intent.getExtras().getInt("class", -1);
         switch (i) {
             case 0:
-                com.baidu.tbadk.browser.g.B(context, intent.getExtras().getString("url"));
+                com.baidu.tbadk.browser.f.B(context, intent.getExtras().getString("url"));
                 z = true;
                 break;
             case 1:
@@ -426,8 +431,8 @@ public class UtilHelper {
                 break;
             case 3:
                 z2 = true;
-                if (com.baidu.tbadk.core.c.b.tn() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.c.b.tn());
+                if (com.baidu.tbadk.core.c.b.tS() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.c.b.tS());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -455,31 +460,26 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("live_notify_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                com.baidu.tbadk.coreExtra.messageCenter.a.wM().a(com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.wM().xf(), com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgGiftNum());
+                com.baidu.tbadk.coreExtra.messageCenter.a.xJ().a(com.baidu.tbadk.coreExtra.messageCenter.a.xJ().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.xJ().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.xJ().yc(), com.baidu.tbadk.coreExtra.messageCenter.a.xJ().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.xJ().getMsgGiftNum());
                 boolean z3 = intExtra3 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra4 > 0 || intExtra8 > 0 || intExtra7 > 0;
-                if (intExtra9 == 24 && intExtra2 > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SingleMentionActivityConfig(context, intExtra9, false)));
-                    z = true;
-                    break;
-                } else if (intExtra9 == 25 && intExtra > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SingleMentionActivityConfig(context, intExtra9, false)));
-                    z = true;
-                    break;
-                } else {
-                    if (z3 && intExtra9 != 24 && intExtra9 != 25) {
-                        if (i == 5 && com.baidu.tbadk.core.c.b.getCurrentTabType() == 3) {
-                            com.baidu.tbadk.core.c.b.e(context, 3);
-                            z = true;
-                            break;
-                        } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChatMessageActivityConfig(context)));
-                            z = true;
-                            break;
-                        }
+                boolean z4 = intExtra9 == 24 && intExtra2 > 0;
+                boolean z5 = intExtra9 == 25 && intExtra > 0;
+                if (z3 || z4 || z5) {
+                    if (i == 5 && com.baidu.tbadk.core.c.b.getCurrentTabType() == 3) {
+                        goToMessageCenterFromNotifyCenter(context, intExtra9);
+                        z = true;
+                        break;
+                    } else {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChatMessageActivityConfig(context, intExtra9)));
+                        Intent intent2 = new Intent();
+                        intent2.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra9);
+                        intent2.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY, intent2));
+                        z = true;
+                        break;
                     }
-                    z = z2;
-                    break;
                 }
+                z = z2;
                 break;
             case 8:
                 com.baidu.tbadk.core.c.b.e(context, 2);
@@ -487,8 +487,8 @@ public class UtilHelper {
                 break;
             case 9:
                 z2 = true;
-                if (com.baidu.tbadk.core.c.b.tn() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.c.b.tn());
+                if (com.baidu.tbadk.core.c.b.tS() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.c.b.tS());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -499,14 +499,14 @@ public class UtilHelper {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
                 if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, currentAccount, currentAccountName)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(8)));
                     z = true;
                     break;
                 }
                 z = z2;
                 break;
             case 13:
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(context, com.baidu.adp.lib.g.b.c(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), 0L), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(context, com.baidu.adp.lib.h.b.c(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), 0L), 0)));
                 z = true;
                 break;
             case 14:
@@ -514,19 +514,18 @@ public class UtilHelper {
                 z = true;
                 break;
             case 15:
-                com.baidu.tbadk.pay.e.Dq().a(new PayConfig(com.baidu.adp.lib.g.b.g(intent.getStringExtra(PayTBeanActivityConfig.PAY_TYPE), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra(PayTBeanActivityConfig.QUAN_NUM), intent.getStringExtra("props_mon"), true), context);
+                com.baidu.tbadk.pay.e.Er().a(new PayConfig(com.baidu.adp.lib.h.b.g(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra(PayTBeanActivityConfig.QUAN_NUM), intent.getStringExtra("props_mon"), true), context);
                 z = false;
                 break;
             case 16:
-                TiebaStatic.eventStat(context, "message_broadcast_open", "");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LiveNotifyActivityConfig(context)));
                 z = true;
                 break;
             case 17:
                 if (context instanceof Activity) {
-                    liveRoomChatActivityConfig = new LiveRoomChatActivityConfig(context, com.baidu.adp.lib.g.b.g(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), -1));
+                    liveRoomChatActivityConfig = new LiveRoomChatActivityConfig(context, com.baidu.adp.lib.h.b.g(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), -1));
                 } else {
-                    liveRoomChatActivityConfig = new LiveRoomChatActivityConfig(context, com.baidu.adp.lib.g.b.g(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), -1), "");
+                    liveRoomChatActivityConfig = new LiveRoomChatActivityConfig(context, com.baidu.adp.lib.h.b.g(intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID), -1), "");
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, liveRoomChatActivityConfig));
                 z = true;
@@ -547,7 +546,7 @@ public class UtilHelper {
                 String stringExtra4 = intent.getStringExtra("barid");
                 String stringExtra5 = intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING);
                 String stringExtra6 = intent.getStringExtra(IntentConfig.PORTRAIT);
-                long c = com.baidu.adp.lib.g.b.c(stringExtra4, -1L);
+                long c = com.baidu.adp.lib.h.b.c(stringExtra4, -1L);
                 if (c > 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(context, c, stringExtra5, stringExtra6, 0)));
                     z = true;
@@ -573,8 +572,9 @@ public class UtilHelper {
             case 24:
                 z2 = true;
                 String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+                String currentAccountName2 = TbadkCoreApplication.getCurrentAccountName();
                 if (currentAccount2 != null && currentAccount2.length() > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(context, currentAccount2, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(context, currentAccount2, currentAccountName2, 0)));
                     z = true;
                     break;
                 }
@@ -589,11 +589,11 @@ public class UtilHelper {
                 z = true;
                 break;
             case 28:
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(context, com.baidu.adp.lib.g.b.c(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(context, com.baidu.adp.lib.h.b.c(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null)));
                 z = true;
                 break;
             case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(context, com.baidu.adp.lib.g.b.c(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null, 2)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(context, com.baidu.adp.lib.h.b.c(intent.getStringExtra(PbChosenActivityConfig.KEY_TID), 0L), null, 2)));
                 z = true;
                 break;
             case 30:
@@ -603,25 +603,47 @@ public class UtilHelper {
                 if (!(A instanceof BaseActivity)) {
                     if (!(A instanceof BaseFragmentActivity)) {
                         if (A instanceof ProxyAdkBaseActivity) {
-                            az.uX().b(((ProxyAdkBaseActivity) A).getPageContext(), new String[]{string2});
+                            bf.vD().b(((ProxyAdkBaseActivity) A).getPageContext(), new String[]{string2});
                             z = true;
                             break;
                         }
                         z = z2;
                         break;
                     } else {
-                        az.uX().b(((BaseFragmentActivity) A).getPageContext(), new String[]{string2});
+                        bf.vD().b(((BaseFragmentActivity) A).getPageContext(), new String[]{string2});
                         z = true;
                         break;
                     }
                 } else {
-                    az.uX().b(((BaseActivity) A).getPageContext(), new String[]{string2});
+                    bf.vD().b(((BaseActivity) A).getPageContext(), new String[]{string2});
                     z = true;
                     break;
                 }
             case 31:
                 TiebaStatic.log("c10303");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PHOTOLIVE_ACTIVITY, new PhotoLiveActivityConfig.a(context, intent.getStringExtra("tid")).ri()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PHOTOLIVE_ACTIVITY, new PhotoLiveActivityConfig.a(context, intent.getStringExtra("tid")).rw()));
+                z = true;
+                break;
+            case 32:
+                z2 = true;
+                try {
+                    PaymentConfirmRequestData paymentConfirmRequestData = (PaymentConfirmRequestData) intent.getSerializableExtra(PaymentConfirmActivityConfig.REQUEST_PARAMS);
+                    if (paymentConfirmRequestData != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PaymentConfirmActivityConfig(context, paymentConfirmRequestData)));
+                        z = true;
+                        break;
+                    }
+                    z = z2;
+                    break;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    z = true;
+                    break;
+                }
+            case 33:
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(context)));
+                TiebaStatic.log("c10430");
                 z = true;
                 break;
         }
@@ -630,6 +652,16 @@ public class UtilHelper {
             return commenDealIntent(context, intent);
         }
         return z;
+    }
+
+    public static void goToMessageCenterFromNotifyCenter(Context context, int i) {
+        if (context != null) {
+            Intent intent = new Intent();
+            intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
+            intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY, intent));
+            com.baidu.tbadk.core.c.b.e(context, 3);
+        }
     }
 
     public static String getSystemProperty(String str) {
@@ -677,22 +709,22 @@ public class UtilHelper {
         }
     }
 
-    public static void showYYNotification(Context context, com.baidu.tbadk.core.data.n nVar, int i) {
+    public static void showYYNotification(Context context, com.baidu.tbadk.core.data.p pVar, int i) {
         Intent yYNotificationIntent;
         if (TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
             int hours = new Date(System.currentTimeMillis()).getHours();
             if ((hours < 0 || hours > 7) && hours < 23) {
-                String content = nVar.getContent();
-                String link = nVar.getLink();
-                if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, nVar, link)) != null) {
+                String content = pVar.getContent();
+                String link = pVar.getLink();
+                if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, pVar, link)) != null) {
                     NotificationHelper.showNotification(context, i, null, content, content, PendingIntent.getService(context, 0, yYNotificationIntent, 134217728), false);
                 }
             }
         }
     }
 
-    public static final Intent getYYNotificationIntent(Context context, com.baidu.tbadk.core.data.n nVar, String str) {
-        if (context == null || nVar == null || TextUtils.isEmpty(str)) {
+    public static final Intent getYYNotificationIntent(Context context, com.baidu.tbadk.core.data.p pVar, String str) {
+        if (context == null || pVar == null || TextUtils.isEmpty(str)) {
             return null;
         }
         Intent intent = new Intent(context, DealIntentService.class);
@@ -752,10 +784,10 @@ public class UtilHelper {
         }
         intent.putExtra("is_notify", true);
         intent.putExtra("link", str);
-        intent.putExtra("message_id", nVar.rF());
-        intent.putExtra("task_id", nVar.getTaskId());
-        if (!TextUtils.isEmpty(nVar.getStat())) {
-            intent.putExtra("stat", nVar.getStat());
+        intent.putExtra("message_id", pVar.sa());
+        intent.putExtra("task_id", pVar.getTaskId());
+        if (!TextUtils.isEmpty(pVar.getStat())) {
+            intent.putExtra("stat", pVar.getStat());
         }
         return intent;
     }
@@ -774,7 +806,7 @@ public class UtilHelper {
         String str3 = null;
         int i = 0;
         a aVar = new a();
-        if (str == null || as.isEmpty(str)) {
+        if (str == null || ax.isEmpty(str)) {
             return aVar;
         }
         Matcher matcher = pbPattern0.matcher(str);
@@ -783,7 +815,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.abF = NativePageType.PB;
+                    aVar.acx = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -817,7 +849,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str2)) {
                     aVar.id = str2;
-                    aVar.abF = NativePageType.PB;
+                    aVar.acx = NativePageType.PB;
                 }
             }
         }
@@ -845,7 +877,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     aVar.id = str3;
-                    aVar.abF = NativePageType.FRS;
+                    aVar.acx = NativePageType.FRS;
                 }
             }
         }
@@ -914,7 +946,7 @@ public class UtilHelper {
     }
 
     public static String appendCuidParam(String str) {
-        if (as.isEmpty(str) || str.indexOf("cuid=") <= -1) {
+        if (ax.isEmpty(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -932,7 +964,7 @@ public class UtilHelper {
     }
 
     public static String appendVersionCode(String str) {
-        return (as.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ax.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static String urlAddParam(String str, String str2) {
@@ -962,10 +994,10 @@ public class UtilHelper {
                     TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), str, null, 1, "st_param", str2);
                 }
                 Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
-                intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(i.h.share_format), str3, str4, str5));
+                intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(n.i.share_format), str3, str4, str5));
                 intent.setFlags(268435456);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, context.getResources().getString(i.h.share_to)));
+                context.startActivity(Intent.createChooser(intent, context.getResources().getString(n.i.share_to)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -982,13 +1014,13 @@ public class UtilHelper {
             intent.putExtra("android.intent.extra.TEXT", str2);
             intent.setFlags(268435456);
             intent.setType("text/plain");
-            context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.m411getInst().getApp().getResources().getString(i.h.share_to)));
+            context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.m411getInst().getApp().getResources().getString(n.i.share_to)));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1500=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1433=5] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -1042,7 +1074,20 @@ public class UtilHelper {
     }
 
     public static void callPhone(Context context, String str) {
-        Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + str));
+        Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str));
+        intent.addFlags(268435456);
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (SecurityException e2) {
+            BdLog.detailException(e2);
+        }
+    }
+
+    public static void smsTo(Context context, String str, String str2) {
+        Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
+        intent.putExtra("sms_body", new StringBuilder(String.valueOf(str2)).toString());
         intent.addFlags(268435456);
         try {
             context.startActivity(intent);
@@ -1093,9 +1138,9 @@ public class UtilHelper {
 
     private static void startBaiduWebView(Context context, String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.browser.g.C(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
+            com.baidu.tbadk.browser.f.C(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
         } else {
-            com.baidu.tbadk.browser.g.C(context, "http://m.baidu.com/?from=1001157a");
+            com.baidu.tbadk.browser.f.C(context, "http://m.baidu.com/?from=1001157a");
         }
     }
 
@@ -1145,14 +1190,14 @@ public class UtilHelper {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m411getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.tu().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.tZ().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.tu().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.tZ().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.tu().putString("version_name", versionName);
-                    String d = au.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.tu().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.tZ().putString("version_name", versionName);
+                    String d = az.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.tZ().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -1280,10 +1325,21 @@ public class UtilHelper {
 
     public static int getStatusBarHeight() {
         try {
-            return TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(com.baidu.adp.lib.g.b.g(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+            return TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(com.baidu.adp.lib.h.b.g(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
+        }
+    }
+
+    public static void setSpan(SpannableString spannableString, String str, String str2, CharacterStyle characterStyle) {
+        if (spannableString != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && characterStyle != null) {
+            int indexOf = str.indexOf(str2);
+            int length = str2.length();
+            while (indexOf >= 0) {
+                spannableString.setSpan(characterStyle, indexOf, indexOf + length, 33);
+                indexOf = str.indexOf(str2, indexOf + length);
+            }
         }
     }
 }

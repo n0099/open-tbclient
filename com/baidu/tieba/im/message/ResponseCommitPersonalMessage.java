@@ -39,11 +39,11 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (getError() == 0) {
             if (commitPersonalMsgResIdl.data == null) {
-                a.hj().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+                a.hl().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
             }
             long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(com.baidu.tieba.im.util.g.aJ(longValue));
+            setMsgId(com.baidu.tieba.im.util.g.aX(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

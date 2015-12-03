@@ -2,15 +2,15 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ BdListView HW;
+    final /* synthetic */ BdListView In;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BdListView bdListView) {
-        this.HW = bdListView;
+        this.In = bdListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.HW.setSelection(this.HW.getCount() - 1);
+        this.In.setSelection(this.In.getCount() - 1);
     }
 }

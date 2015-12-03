@@ -21,7 +21,10 @@ public class ScreenLockNotifyService extends Service {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");
-        registerReceiver(this.mLockReceiver, intentFilter);
+        try {
+            registerReceiver(this.mLockReceiver, intentFilter);
+        } catch (Exception e) {
+        }
     }
 
     @Override // android.app.Service

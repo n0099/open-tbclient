@@ -1,20 +1,16 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class q implements Runnable {
-    final /* synthetic */ p aUT;
-    private final /* synthetic */ String aUU;
+class q implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar, String str) {
-        this.aUT = pVar;
-        this.aUU = str;
+    public q(FrsActivity frsActivity) {
+        this.bag = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w(this.aUU);
-        wVar.uh().uZ().mIsNeedAddCommenParam = false;
-        wVar.uh().uZ().mIsUseCurrentBDUSS = false;
-        wVar.tH();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 }

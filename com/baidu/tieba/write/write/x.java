@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity drb;
+    final /* synthetic */ VcodeActivity dQg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(VcodeActivity vcodeActivity) {
-        this.drb = vcodeActivity;
+        this.dQg = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.drb.mA(null);
+        this.dQg.nw(null);
     }
 }

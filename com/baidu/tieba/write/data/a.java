@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private final ArrayList<MetaData> dmY = new ArrayList<>();
-    private HashMap<String, String> dmZ = null;
+    private final ArrayList<MetaData> dMe = new ArrayList<>();
+    private HashMap<String, String> dMf = null;
 
     public void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.dmZ == null) {
-                        this.dmZ = new HashMap<>();
+                    if (this.dMf == null) {
+                        this.dMf = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class a {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.dmY.add(metaData);
+                        this.dMe.add(metaData);
                         if (z) {
-                            this.dmZ.put(metaData.getName_show(), metaData.getPortrait());
+                            this.dMf.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class a {
         }
     }
 
-    public void mt(String str) {
+    public void no(String str) {
         try {
             c(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public ArrayList<MetaData> aCu() {
-        return this.dmY;
+    public ArrayList<MetaData> aHR() {
+        return this.dMe;
     }
 
-    public HashMap<String, String> aCv() {
-        return this.dmZ;
+    public HashMap<String, String> aHS() {
+        return this.dMf;
     }
 }

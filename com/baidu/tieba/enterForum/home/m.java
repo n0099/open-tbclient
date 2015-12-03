@@ -1,24 +1,18 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements NoNetworkView.a {
-    final /* synthetic */ d aMe;
+public class m implements a.b {
+    final /* synthetic */ h aQN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(d dVar) {
-        this.aMe = dVar;
+    public m(h hVar) {
+        this.aQN = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        if (!z) {
-            this.aMe.aLN.Jg();
-        } else if (!this.aMe.isPrimary() || !this.aMe.isResumed()) {
-            this.aMe.aLN.Jg();
-        } else {
-            this.aMe.aLN.nx();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

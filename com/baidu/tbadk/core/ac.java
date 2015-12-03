@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements CustomMessageTask.CustomRunnable<Intent> {
-    final /* synthetic */ TbadkCoreApplication Ty;
+    final /* synthetic */ TbadkCoreApplication TP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(TbadkCoreApplication tbadkCoreApplication) {
-        this.Ty = tbadkCoreApplication;
+        this.TP = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(this.Ty.getApp(), customMessage.getData());
+        UtilHelper.commenDealIntent(this.TP.getApp(), customMessage.getData());
         return null;
     }
 }

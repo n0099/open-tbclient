@@ -10,91 +10,91 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView cKG;
-    private TextView cKH;
-    private SlidingTabLayout cKI;
-    private Animation cKJ;
-    private Animation cKK;
+    private ImageView djc;
+    private TextView djd;
+    private SlidingTabLayout dje;
+    private Animation djf;
+    private Animation djg;
     private Context mContext;
     private View rootView;
-    private boolean cKL = true;
-    private com.baidu.adp.lib.g.d bMD = new f(this);
+    private boolean djh = true;
+    private com.baidu.adp.lib.h.d cbH = new f(this);
 
     public e(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.cKH = (TextView) view.findViewById(i.f.tab_widget_switch);
-        this.cKG = (ImageView) view.findViewById(i.f.tab_widget_more);
-        this.cKI = (SlidingTabLayout) view.findViewById(i.f.tab_widget_sliding_tab);
+        this.djd = (TextView) view.findViewById(n.f.tab_widget_switch);
+        this.djc = (ImageView) view.findViewById(n.f.tab_widget_more);
+        this.dje = (SlidingTabLayout) view.findViewById(n.f.tab_widget_sliding_tab);
     }
 
-    public void H(View.OnClickListener onClickListener) {
-        if (this.cKG != null) {
-            this.cKG.setOnClickListener(onClickListener);
+    public void L(View.OnClickListener onClickListener) {
+        if (this.djc != null) {
+            this.djc.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.cKI != null) {
-            this.cKI.setViewPager(viewPager);
+        if (this.dje != null) {
+            this.dje.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        an.j(this.rootView, i.c.cp_bg_line_e);
-        an.j((View) this.cKH, i.c.cp_bg_line_e);
-        an.b(this.cKH, i.c.cp_cont_f, 1);
-        if (this.cKL) {
-            an.c(this.cKG, i.e.icon_triangle_down_normal);
+        as.j(this.rootView, n.c.cp_bg_line_e);
+        as.j((View) this.djd, n.c.cp_bg_line_e);
+        as.b(this.djd, n.c.cp_cont_f, 1);
+        if (this.djh) {
+            as.c(this.djc, n.e.icon_triangle_down_normal);
         } else {
-            an.c(this.cKG, i.e.icon_triangle_up_normal);
+            as.c(this.djc, n.e.icon_triangle_up_normal);
         }
-        an.i(this.cKG, i.e.rec_frs_btn_more_selector);
-        if (this.cKI != null) {
-            this.cKI.onChangeSkinType(i);
+        as.i(this.djc, n.e.rec_frs_btn_more_selector);
+        if (this.dje != null) {
+            this.dje.onChangeSkinType(i);
         }
     }
 
-    public void ard() {
-        this.cKL = false;
+    public void awB() {
+        this.djh = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.cKH != null) {
-            this.cKH.clearAnimation();
-            this.cKH.setVisibility(0);
-            this.cKH.startAnimation(getInAnimation());
+        if (this.djd != null) {
+            this.djd.clearAnimation();
+            this.djd.setVisibility(0);
+            this.djd.startAnimation(getInAnimation());
         }
-        an.c(this.cKG, i.e.icon_triangle_up_normal);
-        this.cKI.setDrawBottomLine(false);
+        as.c(this.djc, n.e.icon_triangle_up_normal);
+        this.dje.setDrawBottomLine(false);
     }
 
-    public void are() {
-        this.cKL = true;
+    public void awC() {
+        this.djh = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.cKH != null) {
-            this.cKH.clearAnimation();
-            this.cKH.startAnimation(getOutAnimation());
+        if (this.djd != null) {
+            this.djd.clearAnimation();
+            this.djd.startAnimation(getOutAnimation());
         }
-        an.c(this.cKG, i.e.icon_triangle_down_normal);
-        this.cKI.setDrawBottomLine(true);
+        as.c(this.djc, n.e.icon_triangle_down_normal);
+        this.dje.setDrawBottomLine(true);
     }
 
     private Animation getInAnimation() {
-        if (this.cKJ == null) {
-            this.cKJ = AnimationUtils.loadAnimation(this.mContext, i.a.fade_in);
-            this.cKJ.setAnimationListener(this.bMD);
+        if (this.djf == null) {
+            this.djf = AnimationUtils.loadAnimation(this.mContext, n.a.fade_in);
+            this.djf.setAnimationListener(this.cbH);
         }
-        return this.cKJ;
+        return this.djf;
     }
 
     private Animation getOutAnimation() {
-        if (this.cKK == null) {
-            this.cKK = AnimationUtils.loadAnimation(this.mContext, i.a.fade_out);
-            this.cKK.setAnimationListener(this.bMD);
+        if (this.djg == null) {
+            this.djg = AnimationUtils.loadAnimation(this.mContext, n.a.fade_out);
+            this.djg.setAnimationListener(this.cbH);
         }
-        return this.cKK;
+        return this.djg;
     }
 }

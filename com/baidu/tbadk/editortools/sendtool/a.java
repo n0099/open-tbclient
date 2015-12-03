@@ -3,21 +3,21 @@ package com.baidu.tbadk.editortools.sendtool;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.editortools.u;
 import com.baidu.tbadk.editortools.w;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.editortools.y;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class a extends w {
+public class a extends y {
     public a(Context context) {
         super(context, (String) null, 4);
         this.toolNeedAction = false;
         this.toolPosition = 2;
-        this.toolLaunchAction = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 9};
+        this.toolLaunchAction = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 39, 9};
         this.toolView = new SendView(context);
-        u.a aVar = new u.a(context.getResources().getDimensionPixelSize(i.d.ds100), context.getResources().getDimensionPixelSize(i.d.ds78));
+        w.a aVar = new w.a(context.getResources().getDimensionPixelSize(n.d.ds100), context.getResources().getDimensionPixelSize(n.d.ds78));
         aVar.gravity = 16;
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(i.d.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(i.d.ds10);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
         ((View) this.toolView).setLayoutParams(aVar);
     }
 
@@ -33,9 +33,9 @@ public class a extends w {
         }
     }
 
-    public void ef(int i) {
+    public void et(int i) {
         if (this.toolView != null) {
-            ((SendView) this.toolView).ef(i);
+            ((SendView) this.toolView).et(i);
         }
     }
 }

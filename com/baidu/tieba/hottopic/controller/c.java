@@ -1,54 +1,39 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.hottopic.controller.b;
+import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
+import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    final /* synthetic */ HotTopicActivity bpp;
+public class c extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ b bDb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(HotTopicActivity hotTopicActivity, int i) {
-        super(i);
-        this.bpp = hotTopicActivity;
+    public c(b bVar, int i, int i2) {
+        super(i, i2);
+        this.bDb = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.hottopic.data.b bVar;
-        com.baidu.tieba.hottopic.data.b bVar2;
-        com.baidu.tieba.hottopic.data.b bVar3;
-        RelateForumItemData aw;
-        com.baidu.tieba.hottopic.data.b bVar4;
-        com.baidu.tieba.hottopic.view.a aVar;
-        com.baidu.tieba.hottopic.data.b bVar5;
-        com.baidu.tieba.hottopic.view.a aVar2;
-        if (customResponsedMessage != null) {
-            bVar = this.bpp.bph;
-            if (bVar != null) {
-                bVar2 = this.bpp.bph;
-                if (bVar2.Rl() != null) {
-                    bVar3 = this.bpp.bph;
-                    if (bVar3.Rl().bpU != null) {
-                        Object data = customResponsedMessage.getData();
-                        if (data instanceof Long) {
-                            aw = this.bpp.aw(((Long) data).longValue());
-                            if (aw != null) {
-                                aw.followNum++;
-                                aw.setIsLiked(true);
-                                bVar4 = this.bpp.bph;
-                                bVar4.Rl().bpW = true;
-                                aVar = this.bpp.bpd;
-                                bVar5 = this.bpp.bph;
-                                aVar.b(bVar5);
-                                aVar2 = this.bpp.bpd;
-                                aVar2.Ru();
-                            }
-                        }
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        b.a aVar;
+        BaseActivity baseActivity;
+        if (responsedMessage != null) {
+            if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bDb.getUniqueId()) {
+                if (responsedMessage.hasError()) {
+                    if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                        baseActivity = this.bDb.aXA;
+                        baseActivity.showToast(responsedMessage.getErrorString());
                     }
+                    aVar = this.bDb.bCZ;
+                    aVar.a(false, null);
+                    return;
                 }
+                this.bDb.h(responsedMessage);
             }
         }
     }

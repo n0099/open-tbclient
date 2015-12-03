@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d din;
+    final /* synthetic */ d dGx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.din = dVar;
+        this.dGx = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -44,70 +44,70 @@ public class e extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof AllThemeListSocketResponsedMessage) || (responsedMessage instanceof AllThemeListHttpResponsedMessage)) {
                 if (responsedMessage.getError() == 0) {
-                    list = this.din.dih;
+                    list = this.dGx.dGq;
                     if (list == null) {
-                        this.din.dih = new ArrayList();
-                        list8 = this.din.dih;
-                        bVar3 = this.din.dii;
+                        this.dGx.dGq = new ArrayList();
+                        list8 = this.dGx.dGq;
+                        bVar3 = this.dGx.dGr;
                         list8.add(bVar3);
-                        list9 = this.din.dih;
-                        bVar4 = this.din.dij;
+                        list9 = this.dGx.dGq;
+                        bVar4 = this.dGx.dGs;
                         list9.add(bVar4);
                     }
-                    i = this.din.MI;
+                    i = this.dGx.MZ;
                     if (i == 1) {
-                        list5 = this.din.dih;
+                        list5 = this.dGx.dGq;
                         list5.clear();
-                        list6 = this.din.dih;
-                        bVar = this.din.dii;
+                        list6 = this.dGx.dGq;
+                        bVar = this.dGx.dGr;
                         list6.add(bVar);
-                        list7 = this.din.dih;
-                        bVar2 = this.din.dij;
+                        list7 = this.dGx.dGq;
+                        bVar2 = this.dGx.dGs;
                         list7.add(bVar2);
                     }
                     if (responsedMessage instanceof AllThemeListSocketResponsedMessage) {
                         AllThemeListSocketResponsedMessage allThemeListSocketResponsedMessage = (AllThemeListSocketResponsedMessage) responsedMessage;
                         if (allThemeListSocketResponsedMessage.getThemeList() != null) {
-                            list4 = this.din.dih;
+                            list4 = this.dGx.dGq;
                             list4.addAll(allThemeListSocketResponsedMessage.getThemeList());
                         }
-                        this.din.mRecommand = allThemeListSocketResponsedMessage.getRecommand();
-                        this.din.hasMore = allThemeListSocketResponsedMessage.hasMore();
+                        this.dGx.mRecommand = allThemeListSocketResponsedMessage.getRecommand();
+                        this.dGx.hasMore = allThemeListSocketResponsedMessage.hasMore();
                     } else if (responsedMessage instanceof AllThemeListHttpResponsedMessage) {
                         AllThemeListHttpResponsedMessage allThemeListHttpResponsedMessage = (AllThemeListHttpResponsedMessage) responsedMessage;
                         if (allThemeListHttpResponsedMessage.getThemeList() != null) {
-                            list2 = this.din.dih;
+                            list2 = this.dGx.dGq;
                             list2.addAll(allThemeListHttpResponsedMessage.getThemeList());
                         }
-                        this.din.mRecommand = allThemeListHttpResponsedMessage.getRecommand();
-                        this.din.hasMore = allThemeListHttpResponsedMessage.hasMore();
+                        this.dGx.mRecommand = allThemeListHttpResponsedMessage.getRecommand();
+                        this.dGx.hasMore = allThemeListHttpResponsedMessage.hasMore();
                     }
-                    aVar = this.din.dik;
+                    aVar = this.dGx.dGt;
                     if (aVar == null) {
                         return;
                     }
-                    this.din.aAo();
-                    aVar2 = this.din.dik;
+                    this.dGx.aFy();
+                    aVar2 = this.dGx.dGt;
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
-                    kVar = this.din.mRecommand;
-                    list3 = this.din.mThemeList;
+                    kVar = this.dGx.mRecommand;
+                    list3 = this.dGx.mThemeList;
                     aVar2.a(error, errorString, kVar, list3);
                     return;
                 }
-                d dVar = this.din;
-                i2 = dVar.MI;
-                dVar.MI = i2 - 1;
-                aVar3 = this.din.dik;
+                d dVar = this.dGx;
+                i2 = dVar.MZ;
+                dVar.MZ = i2 - 1;
+                aVar3 = this.dGx.dGt;
                 if (aVar3 == null) {
                     return;
                 }
-                this.din.aAo();
-                aVar4 = this.din.dik;
+                this.dGx.aFy();
+                aVar4 = this.dGx.dGt;
                 int error2 = responsedMessage.getError();
                 String errorString2 = responsedMessage.getErrorString();
-                kVar2 = this.din.mRecommand;
-                list10 = this.din.mThemeList;
+                kVar2 = this.dGx.mRecommand;
+                list10 = this.dGx.mThemeList;
                 aVar4.a(error2, errorString2, kVar2, list10);
             }
         }

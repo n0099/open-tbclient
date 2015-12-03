@@ -1,43 +1,43 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.util.SparseArray;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.usermute.i;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class a implements i.a {
-    final /* synthetic */ NewSubPbActivity cnS;
+    final /* synthetic */ NewSubPbActivity cHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NewSubPbActivity newSubPbActivity) {
-        this.cnS = newSubPbActivity;
+        this.cHd = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.usermute.i.a
     public void a(DataRes dataRes, int i, String str, Object obj) {
-        v vVar;
+        w wVar;
         boolean z;
-        v vVar2;
-        vVar = this.cnS.cnJ;
-        vVar.ahu();
+        w wVar2;
+        wVar = this.cHd.cGU;
+        wVar.alU();
         SparseArray<Object> sparseArray = (SparseArray) obj;
         if (i == 0 && dataRes != null) {
-            boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
-            sparseArray.put(i.f.tag_display_reply_visible, true);
+            boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
+            sparseArray.put(n.f.tag_user_mute_visible, true);
             z = z2;
         } else {
-            sparseArray.put(i.f.tag_display_reply_visible, false);
+            sparseArray.put(n.f.tag_user_mute_visible, false);
             z = false;
         }
-        int intValue = sparseArray.get(i.f.tag_from) instanceof Integer ? ((Integer) sparseArray.get(i.f.tag_from)).intValue() : 0;
+        int intValue = sparseArray.get(n.f.tag_from) instanceof Integer ? ((Integer) sparseArray.get(n.f.tag_from)).intValue() : 0;
         if (intValue != 0) {
             if (intValue == 1) {
-                vVar2 = this.cnS.cnJ;
-                vVar2.a(sparseArray, z);
+                wVar2 = this.cHd.cGU;
+                wVar2.a(sparseArray, z);
                 return;
             }
             return;
         }
-        this.cnS.a(z, sparseArray);
+        this.cHd.a(z, sparseArray);
     }
 }

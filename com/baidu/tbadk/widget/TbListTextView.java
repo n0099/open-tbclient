@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean azR;
+    private boolean aCb;
 
     public TbListTextView(Context context) {
         super(context);
-        this.azR = true;
+        this.aCb = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.azR = z;
+        this.aCb = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.azR) {
+        if (!this.aCb) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -36,25 +36,25 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            L(i, i2);
+            M(i, i2);
         }
     }
 
-    private void L(int i, int i2) {
+    private void M(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            M(i, i2);
+            N(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.azS) {
+        if (b.aCc) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            M(i, i2);
+            N(i, i2);
         }
     }
 
@@ -80,7 +80,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.EH();
+        return a.FK();
     }
 
     private boolean c(CharSequence charSequence, int i) {
@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.azU) {
+        for (Object obj : aVar.aCe) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -103,7 +103,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.azT) {
+        for (Object obj2 : aVar.aCd) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -120,29 +120,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void M(int i, int i2) {
+    private void N(int i, int i2) {
         d(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean azS;
-        public final List<Object> azT;
-        public final List<Object> azU;
+        public final boolean aCc;
+        public final List<Object> aCd;
+        public final List<Object> aCe;
 
         public static a a(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a EH() {
+        public static a FK() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.azS = z;
-            this.azT = list;
-            this.azU = list2;
+            this.aCc = z;
+            this.aCd = list;
+            this.aCe = list2;
         }
     }
 }

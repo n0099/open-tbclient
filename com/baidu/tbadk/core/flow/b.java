@@ -9,9 +9,9 @@ import com.baidu.tbadk.widget.TbImageView;
 public interface b {
     TbImageView X(Context context);
 
-    c td();
+    c tI();
 
-    e te();
+    e tJ();
 
-    View tf();
+    View tK();
 }

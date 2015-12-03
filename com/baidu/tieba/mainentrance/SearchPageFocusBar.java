@@ -12,13 +12,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout bUO;
-    private TextView bUP;
-    private TextView bUQ;
+    private RelativeLayout clb;
+    private TextView clc;
+    private TextView cld;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -39,49 +39,49 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(i.g.home_search_focusbar, this);
-        this.bUO = (RelativeLayout) findViewById(i.f.focusbar_container);
-        this.bUQ = (TextView) findViewById(i.f.focusbar_hint);
-        com.baidu.tbadk.core.util.an.b(this.bUQ, i.c.cp_cont_c, 1);
-        this.bUQ.setVisibility(8);
-        this.bUP = (TextView) findViewById(i.f.focusbar_show);
-        com.baidu.tbadk.core.util.an.b(this.bUP, i.c.cp_link_tip_a, 1);
-        this.bUP.setVisibility(8);
+        LayoutInflater.from(context).inflate(n.g.home_search_focusbar, this);
+        this.clb = (RelativeLayout) findViewById(n.f.focusbar_container);
+        this.cld = (TextView) findViewById(n.f.focusbar_hint);
+        com.baidu.tbadk.core.util.as.b(this.cld, n.c.cp_cont_c, 1);
+        this.cld.setVisibility(8);
+        this.clc = (TextView) findViewById(n.f.focusbar_show);
+        com.baidu.tbadk.core.util.as.b(this.clc, n.c.cp_link_tip_a, 1);
+        this.clc.setVisibility(8);
     }
 
-    public void b(List<String> list, TbPageContext<?> tbPageContext) {
+    public void c(List<String> list, TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bUO.removeAllViews();
+        this.clb.removeAllViews();
         if (list != null && list.size() > 0) {
-            this.bUQ.setVisibility(0);
+            this.cld.setVisibility(0);
             for (int i = 0; i < list.size() && i <= 5; i++) {
-                U(list.get(i), i);
+                Z(list.get(i), i);
             }
         }
         if (list != null && list.size() >= 7) {
-            this.bUP.setVisibility(0);
-            this.bUP.setOnClickListener(new j(this, tbPageContext));
+            this.clc.setVisibility(0);
+            this.clc.setOnClickListener(new j(this, tbPageContext));
         }
     }
 
-    private void U(String str, int i) {
+    private void Z(String str, int i) {
         int i2;
         if (i % 2 > 0) {
-            i2 = (int) getResources().getDimension(i.d.ds330);
+            i2 = (int) getResources().getDimension(n.d.ds330);
         } else {
             i2 = 0;
         }
-        TextView textView = (TextView) LayoutInflater.from(this.mContext).inflate(i.g.home_search_focusbar_item, (ViewGroup) null);
-        int dimension = (i / 2) * ((int) getResources().getDimension(i.d.ds110));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(i.d.ds321), (int) getResources().getDimension(i.d.ds96));
+        TextView textView = (TextView) LayoutInflater.from(this.mContext).inflate(n.g.home_search_focusbar_item, (ViewGroup) null);
+        int dimension = (i / 2) * ((int) getResources().getDimension(n.d.ds110));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(n.d.ds321), (int) getResources().getDimension(n.d.ds96));
         layoutParams.leftMargin = i2;
         layoutParams.topMargin = dimension;
         textView.setLayoutParams(layoutParams);
         textView.setText(str);
         textView.setOnClickListener(this);
-        com.baidu.tbadk.core.util.an.i((View) textView, i.e.home_like_item_bg);
-        com.baidu.tbadk.core.util.an.b(textView, i.c.cp_cont_b, 1);
-        this.bUO.addView(textView);
+        com.baidu.tbadk.core.util.as.i((View) textView, n.e.home_like_item_bg);
+        com.baidu.tbadk.core.util.as.b(textView, n.c.cp_cont_b, 1);
+        this.clb.addView(textView);
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,52 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.n;
+import com.baidu.tieba.pb.pb.main.cc;
 /* loaded from: classes.dex */
-public class aa implements View.OnTouchListener {
-    final /* synthetic */ PbActivity cjN;
+class aa implements cc.a {
+    final /* synthetic */ PbActivity cCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbActivity pbActivity) {
-        this.cjN = pbActivity;
+        this.cCm = pbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        MorePopupWindow morePopupWindow3;
-        MorePopupWindow morePopupWindow4;
-        MorePopupWindow morePopupWindow5;
-        MorePopupWindow morePopupWindow6;
-        MorePopupWindow morePopupWindow7;
-        MorePopupWindow morePopupWindow8;
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        morePopupWindow = this.cjN.cjs;
-        if (morePopupWindow.getContentView() == null) {
-            return false;
-        }
-        morePopupWindow2 = this.cjN.cjs;
-        int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.cjN.cjs;
-        int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.cjN.cjs;
-        int bottom = morePopupWindow4.getContentView().getBottom();
-        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.cjN.cjs;
-            if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.cjN.cjs;
-                com.baidu.adp.lib.g.j.a(morePopupWindow7, this.cjN.getPageContext().getPageActivity());
-                morePopupWindow8 = this.cjN.cjs;
-                morePopupWindow8.setIsIntercepted(true);
-                return true;
+    @Override // com.baidu.tieba.pb.pb.main.cc.a
+    public void f(int i, String str, String str2) {
+        da daVar;
+        if (StringUtils.isNull(str)) {
+            if (i == 0) {
+                this.cCm.showToast(n.i.upgrage_toast_dialog);
+            } else {
+                this.cCm.showToast(n.i.neterror);
             }
+        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
+            this.cCm.cCk = str2;
+            daVar = this.cCm.cBL;
+            daVar.kL(str);
+        } else {
+            this.cCm.showToast(str);
         }
-        morePopupWindow5 = this.cjN.cjs;
-        morePopupWindow5.setIsIntercepted(false);
-        return false;
     }
 }

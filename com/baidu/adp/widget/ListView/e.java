@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private ArrayList<b> Hq;
-    private ArrayList<b> Hr;
-    private boolean Hs;
-    private DataSetObserver Hu;
+    private ArrayList<b> HH;
+    private ArrayList<b> HI;
+    private boolean HJ;
+    private DataSetObserver HL;
     private Context mContext;
     private ListAdapter mAdapter = null;
-    private boolean Ht = false;
+    private boolean HK = false;
     private DataSetObserver mDataSetObserver = null;
-    private a Hv = null;
+    private a HM = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        void nv();
+        void nB();
     }
 
     public e(Context context) {
         boolean z = false;
         this.mContext = null;
-        this.Hq = null;
-        this.Hr = null;
-        this.Hs = false;
-        this.Hu = null;
+        this.HH = null;
+        this.HI = null;
+        this.HJ = false;
+        this.HL = null;
         this.mContext = context;
-        this.Hq = new ArrayList<>();
-        this.Hr = new ArrayList<>();
-        if (g(this.Hq) && g(this.Hr)) {
+        this.HH = new ArrayList<>();
+        this.HI = new ArrayList<>();
+        if (g(this.HH) && g(this.HI)) {
             z = true;
         }
-        this.Hs = z;
-        this.Hu = new f(this);
+        this.HJ = z;
+        this.HL = new f(this);
     }
 
     public void a(a aVar) {
-        this.Hv = aVar;
+        this.HM = aVar;
     }
 
-    public int nt() {
+    public int nz() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
         }
@@ -64,11 +64,11 @@ public class e extends BaseAdapter {
 
     public void a(ListAdapter listAdapter) {
         if (this.mAdapter != null) {
-            this.Ht = false;
+            this.HK = false;
         }
         this.mAdapter = listAdapter;
         if (this.mAdapter != null) {
-            this.Ht = this.mAdapter instanceof Filterable;
+            this.HK = this.mAdapter instanceof Filterable;
         }
         notifyDataSetChanged();
     }
@@ -78,7 +78,7 @@ public class e extends BaseAdapter {
         super.registerDataSetObserver(dataSetObserver);
         this.mDataSetObserver = dataSetObserver;
         if (this.mAdapter != null) {
-            this.mAdapter.registerDataSetObserver(this.Hu);
+            this.mAdapter.registerDataSetObserver(this.HL);
         }
     }
 
@@ -87,16 +87,16 @@ public class e extends BaseAdapter {
         super.unregisterDataSetObserver(dataSetObserver);
         this.mDataSetObserver = dataSetObserver;
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.Hu);
+            this.mAdapter.unregisterDataSetObserver(this.HL);
         }
     }
 
     public int getHeadersCount() {
-        return this.Hq.size();
+        return this.HH.size();
     }
 
     public int getFootersCount() {
-        return this.Hr.size();
+        return this.HI.size();
     }
 
     private boolean g(ArrayList<b> arrayList) {
@@ -116,13 +116,13 @@ public class e extends BaseAdapter {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.Hq.size(); i++) {
-            if (this.Hq.get(i).view == view) {
-                this.Hq.remove(i);
-                if (g(this.Hq) && g(this.Hr)) {
+        for (int i = 0; i < this.HH.size(); i++) {
+            if (this.HH.get(i).view == view) {
+                this.HH.remove(i);
+                if (g(this.HH) && g(this.HI)) {
                     z = true;
                 }
-                this.Hs = z;
+                this.HJ = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -135,13 +135,13 @@ public class e extends BaseAdapter {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.Hr.size(); i++) {
-            if (this.Hr.get(i).view == view) {
-                this.Hr.remove(i);
-                if (g(this.Hq) && g(this.Hr)) {
+        for (int i = 0; i < this.HI.size(); i++) {
+            if (this.HI.get(i).view == view) {
+                this.HI.remove(i);
+                if (g(this.HH) && g(this.HI)) {
                     z = true;
                 }
-                this.Hs = z;
+                this.HJ = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -159,21 +159,21 @@ public class e extends BaseAdapter {
             bVar.view = view;
             bVar.data = obj;
             bVar.isSelectable = z;
-            if (i < 0 || i > this.Hq.size()) {
-                this.Hq.add(bVar);
+            if (i < 0 || i > this.HH.size()) {
+                this.HH.add(bVar);
             } else {
-                this.Hq.add(i, bVar);
+                this.HH.add(i, bVar);
             }
             notifyDataSetChanged();
         }
     }
 
     public int getHeaderViewsCount() {
-        return this.Hq.size();
+        return this.HH.size();
     }
 
     public int getFooterViewsCount() {
-        return this.Hr.size();
+        return this.HI.size();
     }
 
     public void addFooterView(View view) {
@@ -186,10 +186,10 @@ public class e extends BaseAdapter {
             bVar.view = view;
             bVar.data = obj;
             bVar.isSelectable = z;
-            if (i < 0 || i > this.Hr.size()) {
-                this.Hr.add(bVar);
+            if (i < 0 || i > this.HI.size()) {
+                this.HI.add(bVar);
             } else {
-                this.Hr.add(i, bVar);
+                this.HI.add(i, bVar);
             }
             notifyDataSetChanged();
         }
@@ -204,7 +204,7 @@ public class e extends BaseAdapter {
     public Object getItem(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Hq.get(i).data;
+            return this.HH.get(i).data;
         }
         int i2 = i - headersCount;
         int i3 = 0;
@@ -212,8 +212,8 @@ public class e extends BaseAdapter {
             return this.mAdapter.getItem(i2);
         }
         int i4 = i2 - i3;
-        if (i4 >= 0 && i4 < this.Hr.size()) {
-            return this.Hr.get(i4).data;
+        if (i4 >= 0 && i4 < this.HI.size()) {
+            return this.HI.get(i4).data;
         }
         return null;
     }
@@ -236,7 +236,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Hs && this.mAdapter.areAllItemsEnabled();
+            return this.HJ && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -246,7 +246,7 @@ public class e extends BaseAdapter {
         int i2;
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Hq.get(i).isSelectable;
+            return this.HH.get(i).isSelectable;
         }
         int i3 = i - headersCount;
         if (this.mAdapter != null) {
@@ -258,10 +258,10 @@ public class e extends BaseAdapter {
             i2 = 0;
         }
         int i4 = i3 - i2;
-        if (i4 < 0 || i4 >= this.Hr.size()) {
+        if (i4 < 0 || i4 >= this.HI.size()) {
             return false;
         }
-        return this.Hr.get(i4).isSelectable;
+        return this.HI.get(i4).isSelectable;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -293,9 +293,9 @@ public class e extends BaseAdapter {
         View view3;
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            View view4 = this.Hq.get(i).view;
+            View view4 = this.HH.get(i).view;
             if (view4 == null) {
-                return nu();
+                return nA();
             }
             return view4;
         }
@@ -312,23 +312,23 @@ public class e extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return nu();
+                return nA();
             }
             return view3;
         }
         try {
-            view2 = this.Hr.get(i2 - i3).view;
+            view2 = this.HI.get(i2 - i3).view;
         } catch (Exception e3) {
             BdLog.detailException(e3);
             view2 = null;
         }
         if (view2 == null) {
-            return nu();
+            return nA();
         }
         return view2;
     }
 
-    private View nu() {
+    private View nA() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.k.dip2px(this.mContext, 15.0f);

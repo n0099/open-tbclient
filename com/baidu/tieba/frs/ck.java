@@ -1,29 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.graphics.drawable.Drawable;
+import android.text.Html;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
-    final /* synthetic */ cf aXz;
+public class ck implements Html.ImageGetter {
+    final /* synthetic */ cd bdg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(cf cfVar, com.baidu.tbadk.core.data.w wVar) {
-        this.aXz = cfVar;
-        this.aXA = wVar;
+    public ck(cd cdVar) {
+        this.bdg = cdVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aXz.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aXz.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // android.text.Html.ImageGetter
+    public Drawable getDrawable(String str) {
+        Drawable drawable = this.bdg.baC.getResources().getDrawable(Integer.parseInt(str));
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        return drawable;
     }
 }

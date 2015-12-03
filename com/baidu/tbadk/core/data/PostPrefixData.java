@@ -8,6 +8,7 @@ import tbclient.FrsPage.PostPrefix;
 /* loaded from: classes.dex */
 public class PostPrefixData implements Serializable {
     private static final long serialVersionUID = 6807267689393049879L;
+    private String implicitTitle;
     private ArrayList<String> prefixs = new ArrayList<>();
 
     public void parserJson(JSONObject jSONObject) {
@@ -66,5 +67,17 @@ public class PostPrefixData implements Serializable {
                 }
             }
         }
+    }
+
+    public String getImplicitTitle() {
+        return this.implicitTitle;
+    }
+
+    public void setImplicitTitle(String str) {
+        this.implicitTitle = str;
+    }
+
+    public void addPreFix(String str) {
+        this.prefixs.add(str);
     }
 }

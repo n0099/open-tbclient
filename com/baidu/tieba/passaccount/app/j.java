@@ -4,24 +4,24 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ LoginActivity cdO;
+    final /* synthetic */ LoginActivity cwm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(LoginActivity loginActivity, int i) {
         super(i);
-        this.cdO = loginActivity;
+        this.cwm = loginActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.v)) {
-            com.baidu.tbadk.core.data.v vVar = (com.baidu.tbadk.core.data.v) customResponsedMessage.getData();
-            if (vVar.Vv == 0) {
-                this.cdO.aer();
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.y)) {
+            com.baidu.tbadk.core.data.y yVar = (com.baidu.tbadk.core.data.y) customResponsedMessage.getData();
+            if (yVar.Wa == 0) {
+                this.cwm.aiK();
             } else {
-                this.cdO.jy(vVar.errorMsg);
+                this.cwm.kn(yVar.errorMsg);
             }
         }
     }

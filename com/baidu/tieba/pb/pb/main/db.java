@@ -1,18 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db implements a.b {
-    final /* synthetic */ ct cmY;
+public class db implements a.InterfaceC0084a {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(ct ctVar) {
-        this.cmY = ctVar;
+    public db(da daVar) {
+        this.cGh = daVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0084a
+    public void nu() {
     }
 }

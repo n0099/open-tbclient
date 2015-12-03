@@ -1,30 +1,20 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.base.e {
-    PersonChangeData crB;
+public class au implements View.OnFocusChangeListener {
+    final /* synthetic */ PersonChangeActivity cKS;
 
-    public au(PersonChangeData personChangeData) {
-        super(null);
-        this.crB = null;
-        this.crB = personChangeData;
-        if (this.crB == null) {
-            this.crB = new PersonChangeData();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public au(PersonChangeActivity personChangeActivity) {
+        this.cKS = personChangeActivity;
+    }
+
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        if (!z) {
+            this.cKS.anB();
         }
-    }
-
-    public PersonChangeData ajg() {
-        return this.crB;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
     }
 }

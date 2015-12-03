@@ -1,32 +1,38 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity csj;
+    final /* synthetic */ PersonListActivity cLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(PersonListActivity personListActivity) {
-        this.csj = personListActivity;
+        this.cLD = personListActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.person.PersonListActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.csj.crF = ((Integer) view.getTag()).intValue();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(this.csj.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.csj.getPageContext().getPageActivity(), this.csj.getPageContext().getString(i.h.login_to_chat), true, 11028)));
-        } else {
-            this.csj.ajk();
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        btVar = this.cLD.cLy;
+        if (btVar != null) {
+            btVar2 = this.cLD.cLy;
+            if (btVar2.getItemViewType(intValue) == 0) {
+                btVar3 = this.cLD.cLy;
+                UserData userData = (UserData) btVar3.getItem(intValue);
+                if (userData != null && userData.getUserId() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cLD.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                }
+            }
         }
     }
 }

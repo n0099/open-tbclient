@@ -10,16 +10,19 @@ import dalvik.system.PathClassLoader;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0012a {
-        public boolean EH;
+        public boolean EV;
         public String mErrMsg;
     }
 
@@ -64,22 +67,22 @@ public class a {
                     a(pathClassLoader, PathClassLoader.class, "mLibPaths", c(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     c0012a = null;
                 }
-            } catch (NoSuchFieldError e2) {
+            } catch (IllegalAccessException e2) {
                 C0012a a = a(false, e2);
                 BdLog.e(e2);
                 c0012a = a;
+            } catch (NoSuchFieldException e3) {
+                C0012a a2 = a(false, e3);
+                BdLog.e(e3);
+                c0012a = a2;
             }
-        } catch (IllegalAccessException e3) {
-            C0012a a2 = a(false, e3);
-            BdLog.e(e3);
-            c0012a = a2;
-        } catch (NoSuchFieldException e4) {
+        } catch (NoSuchFieldError e4) {
             C0012a a3 = a(false, e4);
             BdLog.e(e4);
             c0012a = a3;
-        } catch (Exception e5) {
-            C0012a a4 = a(false, e5);
-            BdLog.e(e5);
+        } catch (Throwable th) {
+            C0012a a4 = a(false, th);
+            BdLog.e(th);
             c0012a = a4;
         }
         if (c0012a == null) {
@@ -90,6 +93,7 @@ public class a {
 
     private static C0012a c(ClassLoader classLoader, ClassLoader classLoader2, String str) {
         C0012a c0012a;
+        List list;
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -101,10 +105,28 @@ public class a {
             a(t, t.getClass(), "dexElements", c(u(t), u(t2)));
             Object c = c(v(t), v(t2));
             if (c instanceof File[]) {
-                Arrays.sort((File[]) c, new c());
+                Arrays.sort((File[]) c, mA());
+                list = c;
+            } else {
+                boolean z = c instanceof List;
+                list = c;
+                if (z) {
+                    List list2 = (List) c;
+                    Collections.sort(list2, mA());
+                    list = list2;
+                }
             }
-            a(t, t.getClass(), "nativeLibraryDirectories", c);
-            c0012a = null;
+            a(t, t.getClass(), "nativeLibraryDirectories", list);
+            if (Build.VERSION.SDK_INT >= 23) {
+                ArrayList arrayList = new ArrayList((List) list);
+                arrayList.addAll((List) a(t, t.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod = t.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                declaredMethod.setAccessible(true);
+                a(t, t.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(t.getClass(), arrayList, null, new ArrayList()));
+                c0012a = null;
+            } else {
+                c0012a = null;
+            }
         } catch (ClassNotFoundException e) {
             C0012a a = a(false, e);
             BdLog.e(e);
@@ -125,6 +147,18 @@ public class a {
             C0012a a5 = a(false, e5);
             BdLog.e(e5);
             c0012a = a5;
+        } catch (NoSuchMethodException e6) {
+            C0012a a6 = a(false, e6);
+            BdLog.e(e6);
+            c0012a = a6;
+        } catch (SecurityException e7) {
+            C0012a a7 = a(false, e7);
+            BdLog.e(e7);
+            c0012a = a7;
+        } catch (Throwable th) {
+            C0012a a8 = a(false, th);
+            BdLog.e(th);
+            c0012a = a8;
         }
         if (c0012a == null) {
             return a(true, null);
@@ -145,18 +179,35 @@ public class a {
     }
 
     private static Object c(Object obj, Object obj2) {
-        Class<?> componentType = obj.getClass().getComponentType();
-        int length = Array.getLength(obj);
-        int length2 = Array.getLength(obj2) + length;
-        Object newInstance = Array.newInstance(componentType, length2);
-        for (int i = 0; i < length2; i++) {
-            if (i < length) {
-                Array.set(newInstance, i, Array.get(obj, i));
+        if (obj == null) {
+            return obj2;
+        }
+        if (obj2 != null) {
+            if (obj.getClass().isArray() && obj2.getClass().isArray()) {
+                Class<?> componentType = obj.getClass().getComponentType();
+                int length = Array.getLength(obj);
+                int length2 = length + Array.getLength(obj2);
+                Object newInstance = Array.newInstance(componentType, length2);
+                for (int i = 0; i < length2; i++) {
+                    if (i < length) {
+                        Array.set(newInstance, i, Array.get(obj, i));
+                    } else {
+                        Array.set(newInstance, i, Array.get(obj2, i - length));
+                    }
+                }
+                return newInstance;
+            } else if ((obj instanceof List) && (obj2 instanceof List)) {
+                List list = (List) obj;
+                List list2 = (List) obj2;
+                ArrayList arrayList = new ArrayList(list.size() + list2.size());
+                arrayList.addAll(list);
+                arrayList.addAll(list2);
+                return arrayList;
             } else {
-                Array.set(newInstance, i, Array.get(obj2, i - length));
+                return obj;
             }
         }
-        return newInstance;
+        return obj;
     }
 
     private static Object d(Object obj, Object obj2) {
@@ -176,7 +227,7 @@ public class a {
 
     private static C0012a a(boolean z, Throwable th) {
         C0012a c0012a = new C0012a();
-        c0012a.EH = z;
+        c0012a.EV = z;
         c0012a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0012a;
     }
@@ -213,8 +264,12 @@ public class a {
         }
     }
 
+    private static final Comparator<File> mA() {
+        return new c();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int N(String str, String str2) {
+    public static final int K(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

@@ -1,42 +1,53 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.view.View;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class h implements com.baidu.adp.lib.e.c<GridView> {
-    final /* synthetic */ EmotionTabContentView aKv;
+public class h extends LinearLayout {
+    private View atK;
+    private boolean visible;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(EmotionTabContentView emotionTabContentView) {
-        this.aKv = emotionTabContentView;
+    public h(Context context) {
+        super(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: HN */
-    public GridView ha() {
-        return new GridView(this.aKv.getContext());
+    @Override // android.widget.LinearLayout, android.view.View
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        if (this.atK != null) {
+            this.atK.measure(getChildMeasureSpec(i, 0, this.atK.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.atK.getLayoutParams().height));
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void l(GridView gridView) {
-        gridView.setAdapter((ListAdapter) null);
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        View childAt = getChildAt(0);
+        if (this.atK != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.atK.getMeasuredWidth();
+            this.atK.layout(measuredWidth, 0, this.atK.getMeasuredWidth() + measuredWidth, this.atK.getMeasuredHeight());
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public GridView m(GridView gridView) {
-        return gridView;
+    public void setNewView(View view) {
+        this.atK = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public GridView n(GridView gridView) {
-        gridView.setAdapter((ListAdapter) null);
-        return gridView;
+    @Override // android.view.ViewGroup, android.view.View
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        if (this.visible) {
+            canvas.save();
+            canvas.translate(this.atK.getLeft(), this.atK.getTop());
+            this.atK.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    public void setNewViewVisible(boolean z) {
+        this.visible = z;
+        invalidate();
     }
 }

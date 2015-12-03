@@ -10,18 +10,18 @@ public interface o<T> {
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public T sl;
-        public long te;
-        public long tv;
+        public T sm;
+        public long tf;
+        public long tw;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends o<T> {
-        String gn();
+        String gm();
 
-        n<T> go();
+        n<T> gn();
 
-        void gp();
+        void go();
     }
 
     void a(String str, a<T> aVar);

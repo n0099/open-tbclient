@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<com.baidu.tbadk.core.data.w> dqw;
+    private ArrayList<com.baidu.tbadk.core.data.z> dPz;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -26,14 +26,14 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.dqw = null;
+        this.dPz = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ArrayList<com.baidu.tbadk.core.data.w> arrayList, TbPageContext<?> tbPageContext) {
+    public void a(ArrayList<com.baidu.tbadk.core.data.z> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
         this.mPageContext = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
@@ -42,14 +42,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.dqw = new ArrayList<>(arrayList.subList(0, 3));
+            this.dPz = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.dqw = arrayList;
+            this.dPz = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.dqw.size()) {
-                addView(c(this.dqw.get(i2), i2));
+            if (i2 < this.dPz.size()) {
+                addView(c(this.dPz.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -57,25 +57,25 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    private View c(com.baidu.tbadk.core.data.w wVar, int i) {
-        if (wVar == null) {
+    private View c(com.baidu.tbadk.core.data.z zVar, int i) {
+        if (zVar == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_top_item, (ViewGroup) null);
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(i.f.frs_top_item);
-        TextView textView = (TextView) inflate.findViewById(i.f.frs_top_title);
-        inflate.findViewById(i.f.frs_top_divider);
-        String tid = wVar.getTid();
-        textView.setText(wVar.getTitle());
-        this.mPageContext.getLayoutMode().ad(this.mSkinType == 1);
+        View inflate = LayoutInflater.from(this.mContext).inflate(n.g.frs_top_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(n.f.frs_top_item);
+        TextView textView = (TextView) inflate.findViewById(n.f.frs_top_title);
+        inflate.findViewById(n.f.frs_top_divider);
+        String tid = zVar.getTid();
+        textView.setText(zVar.getTitle());
+        this.mPageContext.getLayoutMode().af(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().k(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_notice);
-        com.baidu.tbadk.core.util.an.i(linearLayout, i.e.bg_frs_top_middle_selector);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.as.getDrawable(n.e.icon_notice);
+        com.baidu.tbadk.core.util.as.i(linearLayout, n.e.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
         textView.setCompoundDrawables(bitmapDrawable, null, null, null);
-        linearLayout.setOnClickListener(new p(this, wVar, tid));
+        linearLayout.setOnClickListener(new p(this, zVar, tid));
         return inflate;
     }
 }

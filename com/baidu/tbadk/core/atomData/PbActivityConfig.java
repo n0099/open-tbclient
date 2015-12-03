@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.w;
+import com.baidu.tbadk.core.data.z;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -11,6 +11,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String KEY_FORUM_NAME = "forum_name";
+    public static final int KEY_FOR_PRAISE_DATA_NO_ACTION = -1;
     public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FRS = "from_frs";
     public static final String KEY_FROM_MARK = "from_mark";
@@ -36,6 +37,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
+    public static final String PRAISE_DATA = "praise_data";
     public static final String QUERY_WORD = "query_word";
     public static final String START_FOR_RESULT = "1";
     public static final boolean isBottomHaveShared = true;
@@ -73,6 +75,15 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+        }
+        return this;
+    }
+
+    public PbActivityConfig createCfgForPbChosen(String str, int i) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra(PRAISE_DATA, i);
         }
         return this;
     }
@@ -173,15 +184,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(w wVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (wVar != null) {
+    public PbActivityConfig createFromThreadCfg(z zVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (zVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", wVar.getId());
-            intent.putExtra(KEY_IS_GOOD, wVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, wVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, wVar.getLast_time_int());
+            intent.putExtra("thread_id", zVar.getId());
+            intent.putExtra(KEY_IS_GOOD, zVar.getIs_good());
+            intent.putExtra(KEY_IS_TOP, zVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, zVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", wVar.getIs_top() != 2);
+            intent.putExtra("from_frs", zVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -189,7 +200,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (wVar.getPraise() == null ? 0L : wVar.getPraise().getNum()));
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (zVar.getPraise() == null ? 0L : zVar.getPraise().getNum()));
         }
         return this;
     }

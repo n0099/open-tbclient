@@ -1,53 +1,52 @@
 package com.baidu.tieba.pb.view;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.base.l;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bj;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
-            a(smallTailInfo, textView);
-            a(textView, z, z2, z3);
-        }
+public class d implements View.OnClickListener {
+    final /* synthetic */ PbGiftListView cIB;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(PbGiftListView pbGiftListView) {
+        this.cIB = pbGiftListView;
     }
 
-    private static void a(TextView textView, boolean z, boolean z2, boolean z3) {
-        Drawable drawable;
-        Resources resources = TbadkCoreApplication.m411getInst().getResources();
-        float dimension = resources.getDimension(i.d.ds640) + resources.getDimension(i.d.ds16);
-        float dimension2 = resources.getDimension(i.d.ds594) - resources.getDimension(i.d.ds14);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        if (z2) {
-            drawable = an.getDrawable(i.e.icon_pb_tail_long);
-        } else {
-            drawable = an.getDrawable(i.e.icon_pb_tail_short);
-            dimension = dimension2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String str;
+        long j;
+        String str2;
+        long j2;
+        long j3;
+        context = this.cIB.mContext;
+        TbPageContext tbPageContext = (TbPageContext) l.C(context);
+        if (tbPageContext != null) {
+            if (TbadkCoreApplication.isLogin()) {
+                str = this.cIB.toUserName;
+                if (!StringUtils.isNull(str)) {
+                    Activity pageActivity = tbPageContext.getPageActivity();
+                    j = this.cIB.toUserId;
+                    str2 = this.cIB.toUserName;
+                    j2 = this.cIB.threadId;
+                    j3 = this.cIB.postId;
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
+                    return;
+                }
+                return;
+            }
+            bj.ah(tbPageContext.getPageActivity());
         }
-        if (z2 && z3) {
-            layoutParams.setMargins((int) resources.getDimension(i.d.ds32), (int) resources.getDimension(i.d.ds8), (int) resources.getDimension(i.d.ds32), (int) resources.getDimension(i.d.ds20));
-        } else if (z) {
-            layoutParams.setMargins((int) resources.getDimension(i.d.ds80), -((int) resources.getDimension(i.d.ds8)), (int) resources.getDimension(i.d.ds2), (int) resources.getDimension(i.d.ds20));
-        } else if (!z2) {
-            layoutParams.setMargins((int) resources.getDimension(i.d.ds100), -((int) resources.getDimension(i.d.ds8)), (int) resources.getDimension(i.d.ds32), (int) resources.getDimension(i.d.ds20));
-        } else {
-            layoutParams.setMargins((int) resources.getDimension(i.d.ds32), -((int) resources.getDimension(i.d.ds18)), (int) resources.getDimension(i.d.ds32), (int) resources.getDimension(i.d.ds20));
-        }
-        layoutParams.width = (int) dimension;
-        drawable.setBounds(0, 0, (int) dimension, (int) resources.getDimension(i.d.ds36));
-        textView.setLayoutParams(layoutParams);
-        textView.setCompoundDrawables(null, drawable, null, null);
-        textView.setCompoundDrawablePadding((int) resources.getDimension(i.d.ds20));
-    }
-
-    private static void a(SmallTailInfo smallTailInfo, TextView textView) {
-        textView.setText(smallTailInfo.tailSpannable);
-        textView.setTextColor(smallTailInfo.showColorId);
-        textView.setVisibility(0);
     }
 }

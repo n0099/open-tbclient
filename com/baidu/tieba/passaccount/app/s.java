@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ LoginActivity cdO;
+    final /* synthetic */ LoginActivity cwm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(LoginActivity loginActivity) {
-        this.cdO = loginActivity;
+        this.cwm = loginActivity;
     }
 
     @Override // java.lang.Runnable

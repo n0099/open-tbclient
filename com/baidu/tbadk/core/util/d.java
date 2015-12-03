@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class d {
     public static boolean ab(Context context) {
         byte[] ac = ac(context);
-        return ac == null || ac.length == 0 || Arrays.equals(ac, cD("30819f300d06092a864886f70d010101050003818d0030818902818100b17c8a1a350a202f33e461293638cbf1b6bd481877a87379cd6b99d2ec33aa123d9e16028e94c89a3ea268bd5b055869cd99bf10780e7fafa6254a4471d4d57d36589331e28f66b0044bd8e6cc0cd82dc4fa21f28887776b2094118f859739e8271811894260d9a8f36482fc4e2e9df40dc953e2c2da429ea1101524bce33fd10203010001"));
+        return ac == null || ac.length == 0 || Arrays.equals(ac, cL("30819f300d06092a864886f70d010101050003818d0030818902818100b17c8a1a350a202f33e461293638cbf1b6bd481877a87379cd6b99d2ec33aa123d9e16028e94c89a3ea268bd5b055869cd99bf10780e7fafa6254a4471d4d57d36589331e28f66b0044bd8e6cc0cd82dc4fa21f28887776b2094118f859739e8271811894260d9a8f36482fc4e2e9df40dc953e2c2da429ea1101524bce33fd10203010001"));
     }
 
     private static byte[] ac(Context context) {
@@ -38,7 +38,7 @@ public class d {
         }
     }
 
-    private static byte[] cD(String str) {
+    private static byte[] cL(String str) {
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {

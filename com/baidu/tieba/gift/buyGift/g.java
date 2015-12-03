@@ -5,17 +5,17 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ BuyGiftActivity bng;
+    final /* synthetic */ BuyGiftActivity buJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(BuyGiftActivity buyGiftActivity) {
-        this.bng = buyGiftActivity;
+        this.buJ = buyGiftActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         EditText editText;
-        editText = this.bng.bmY;
-        this.bng.ShowSoftKeyPad((InputMethodManager) this.bng.getSystemService("input_method"), editText);
+        editText = this.buJ.buB;
+        this.buJ.ShowSoftKeyPad((InputMethodManager) this.buJ.getSystemService("input_method"), editText);
     }
 }

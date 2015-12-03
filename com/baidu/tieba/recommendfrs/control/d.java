@@ -8,21 +8,28 @@ import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ a cJX;
+    final /* synthetic */ a diB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cJX = aVar;
+        this.diB = aVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        scrollFragmentTabHost = this.cJX.cJR;
-        if (scrollFragmentTabHost.aqY()) {
-            scrollFragmentTabHost2 = this.cJX.cJR;
-            scrollFragmentTabHost2.ara();
+        ScrollFragmentTabHost scrollFragmentTabHost3;
+        ScrollFragmentTabHost scrollFragmentTabHost4;
+        scrollFragmentTabHost = this.diB.div;
+        if (scrollFragmentTabHost.aww()) {
+            scrollFragmentTabHost2 = this.diB.div;
+            if (scrollFragmentTabHost2.diY) {
+                scrollFragmentTabHost3 = this.diB.div;
+                scrollFragmentTabHost3.awy();
+                scrollFragmentTabHost4 = this.diB.div;
+                scrollFragmentTabHost4.diY = false;
+            }
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, false);

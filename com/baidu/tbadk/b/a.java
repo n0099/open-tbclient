@@ -1,35 +1,37 @@
 package com.baidu.tbadk.b;
 
-import android.content.Context;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class a {
-    private ArrayList<com.baidu.tbadk.mainTab.b> SD = new ArrayList<>();
-    private Context mContext;
+public abstract class a {
 
-    public a(Context context) {
-        this.mContext = context;
+    /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0039a {
+        void aU(int i);
+
+        void ac(boolean z);
     }
 
-    public void a(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.SD.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
-                    return;
-                }
-            }
-            this.SD.add(bVar);
+    public abstract void a(InterfaceC0039a interfaceC0039a);
+
+    public abstract void qt();
+
+    public abstract void qu();
+
+    public abstract void qv();
+
+    public abstract void qw();
+
+    public abstract void qx();
+
+    public static a a(BaseFragmentActivity baseFragmentActivity) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOTOLIVE_MANAGER, a.class, baseFragmentActivity);
+        if (runTask == null || runTask.getData() == null) {
+            return null;
         }
-    }
-
-    public ArrayList<com.baidu.tbadk.mainTab.b> qx() {
-        return this.SD;
-    }
-
-    public Context getContext() {
-        return this.mContext;
+        return (a) runTask.getData();
     }
 }

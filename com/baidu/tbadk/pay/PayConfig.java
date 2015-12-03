@@ -1,13 +1,18 @@
 package com.baidu.tbadk.pay;
 
+import com.baidu.tbadk.util.PageDialogHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PayConfig implements Serializable {
+    public static final int PAYTYPE_MEMBER = 1;
+    public static final int PAYTYPE_TDOU = 2;
     private static final long serialVersionUID = 1473520404420820966L;
     private String mIsLeft;
     private boolean mIsPay;
+    private boolean mIsPayDialog;
     private String mMoney;
     private String mOrderName;
+    private PageDialogHelper.PayForm mPayForm;
     private int mPayType;
     private String mPropsId;
     private String mPropsMon;
@@ -17,6 +22,7 @@ public class PayConfig implements Serializable {
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z) {
         this.mOrderName = "";
         this.mTitle = "";
+        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -25,9 +31,38 @@ public class PayConfig implements Serializable {
         this.mIsPay = z;
     }
 
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm) {
+        this.mOrderName = "";
+        this.mTitle = "";
+        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.mPayType = i;
+        this.mIsLeft = str;
+        this.mPropsId = str2;
+        this.mMoney = str3;
+        this.mPropsMon = str4;
+        this.mIsPay = z;
+        payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
+        if (payForm == PageDialogHelper.PayForm.NOT_SET) {
+            this.mIsPayDialog = z2;
+        } else if (payForm == PageDialogHelper.PayForm.NORMAL) {
+            this.mIsPayDialog = false;
+        } else if (payForm == PageDialogHelper.PayForm.DIALOG) {
+            this.mIsPayDialog = true;
+        }
+    }
+
+    public boolean getIsPayDialog() {
+        return this.mIsPayDialog;
+    }
+
+    public void setIsPayDialog(boolean z) {
+        this.mIsPayDialog = z;
+    }
+
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5) {
         this.mOrderName = "";
         this.mTitle = "";
+        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
@@ -35,6 +70,29 @@ public class PayConfig implements Serializable {
         this.mPropsMon = str4;
         this.mIsPay = z;
         this.mOrderName = str5;
+        this.tBeanNum = Integer.parseInt(str5);
+    }
+
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm) {
+        this.mOrderName = "";
+        this.mTitle = "";
+        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.mPayType = i;
+        this.mIsLeft = str;
+        this.mPropsId = str2;
+        this.mMoney = str3;
+        this.mPropsMon = str4;
+        this.mIsPay = z;
+        this.mOrderName = str5;
+        this.tBeanNum = Integer.parseInt(str5);
+        payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
+        if (payForm == PageDialogHelper.PayForm.NOT_SET) {
+            this.mIsPayDialog = z2;
+        } else if (payForm == PageDialogHelper.PayForm.NORMAL) {
+            this.mIsPayDialog = false;
+        } else if (payForm == PageDialogHelper.PayForm.DIALOG) {
+            this.mIsPayDialog = true;
+        }
     }
 
     public int getPayType() {

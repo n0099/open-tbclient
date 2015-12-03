@@ -1,56 +1,64 @@
 package com.baidu.tieba.person;
 
 import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.a;
-import com.baidu.tieba.i;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.n;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements a.c {
-    final /* synthetic */ h cpX;
+public class i implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.cpX = hVar;
+    public i(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
     }
 
-    @Override // com.baidu.tbadk.img.a.c
-    public void a(String str, ImageUploadResult imageUploadResult) {
-        EditHeadActivity editHeadActivity;
-        EditHeadActivity editHeadActivity2;
-        EditHeadActivity editHeadActivity3;
-        EditHeadActivity editHeadActivity4;
-        EditHeadActivity editHeadActivity5;
-        editHeadActivity = this.cpX.this$0;
-        editHeadActivity.closeLoadingDialog();
-        editHeadActivity2 = this.cpX.this$0;
-        Intent intent = editHeadActivity2.getIntent();
-        if (imageUploadResult != null) {
-            if (imageUploadResult.error_code != 0) {
-                editHeadActivity5 = this.cpX.this$0;
-                editHeadActivity5.showToast(i.h.upload_pic_error, false);
-            } else {
-                PhotoUrlData photoUrlData = new PhotoUrlData();
-                photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
-                if (imageUploadResult.picInfo != null) {
-                    if (imageUploadResult.picInfo.bigPic != null) {
-                        photoUrlData.setBigurl(imageUploadResult.picInfo.bigPic.picUrl);
-                    }
-                    if (imageUploadResult.picInfo.smallPic != null) {
-                        photoUrlData.setSmallurl(imageUploadResult.picInfo.smallPic.picUrl);
-                    }
-                    if (imageUploadResult.getUploadedPicInfo() != null && !StringUtils.isNull(imageUploadResult.getUploadedPicInfo().toPostString())) {
-                        photoUrlData.setToServerPhotoInfo(imageUploadResult.getUploadedPicInfo().toPostString());
-                    }
-                }
-                intent.putExtra(EditHeadActivity.PHOTO_RESOURCE, String.valueOf(imageUploadResult.picId));
-                intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        boolean z;
+        int i2;
+        boolean b;
+        int i3;
+        boolean z2;
+        String str = TbConfig.PERSON_HEAD_FILE;
+        i = this.this$0.bXu;
+        if (i == 0) {
+            z = this.this$0.aAh;
+            if (!z) {
+                str = TbConfig.PERSON_USER_PIC_TEMP_FILE;
             }
+        } else {
+            str = TbConfig.GROUP_HEAD_FILE;
         }
-        editHeadActivity3 = this.cpX.this$0;
-        editHeadActivity3.setResult(-1, intent);
-        editHeadActivity4 = this.cpX.this$0;
-        editHeadActivity4.finish();
+        EditHeadsImageView editHeadsImageView = this.this$0.cIU;
+        i2 = this.this$0.bXu;
+        Bitmap fC = editHeadsImageView.fC(i2 == 0);
+        if (fC == null) {
+            return;
+        }
+        b = this.this$0.b(str, fC);
+        if (b) {
+            i3 = this.this$0.bXu;
+            if (i3 == 0) {
+                z2 = this.this$0.aAh;
+                if (z2) {
+                    this.this$0.anm();
+                    return;
+                }
+                Intent intent = this.this$0.getIntent();
+                intent.putExtra("upload_image_type", 2);
+                this.this$0.setResult(-1, intent);
+                this.this$0.closeActivity();
+                return;
+            }
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cQ(str), "head");
+            aVar.Da();
+            aVar.a(new j(this));
+            aVar.br(false);
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(n.i.uploading));
+        }
     }
 }

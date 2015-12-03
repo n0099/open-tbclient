@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.l;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class k extends MediaPlayer implements h {
-    private static Object afL = new Object();
-    private static k afM = null;
-    private boolean afN = false;
-    private boolean afO = true;
-    private int afP = -1;
+    private static Object ahr = new Object();
+    private static k ahs = null;
+    private boolean aht = false;
+    private boolean ahu = true;
+    private int errorNo = -1;
 
     private k() {
     }
 
-    public static k vX() {
-        if (afM == null) {
-            synchronized (afL) {
-                if (afM == null) {
-                    afM = new k();
+    public static k wO() {
+        if (ahs == null) {
+            synchronized (ahr) {
+                if (ahs == null) {
+                    ahs = new k();
                 }
             }
         }
-        return afM;
+        return ahs;
     }
 
     public void setStreamType(int i) {
@@ -30,83 +30,83 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean dK(String str) {
-        this.afP = -1;
-        if (!this.afN) {
-            this.afO = true;
+    public boolean dS(String str) {
+        this.errorNo = -1;
+        if (!this.aht) {
+            this.ahu = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(l.zi);
+                setStreamType(l.zo);
                 try {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.afP = 2;
+                    this.errorNo = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.afP = 1;
+                    this.errorNo = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.afP = 2;
+                this.errorNo = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.afP = 0;
+                this.errorNo = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.afP = 1;
+                this.errorNo = 1;
                 return false;
             }
         }
-        this.afN = true;
+        this.aht = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vT() {
+    public void wK() {
         start();
-        this.afO = false;
+        this.ahu = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vN() {
-        if (!this.afO) {
+    public void wE() {
+        if (!this.ahu) {
             stop();
-            this.afO = true;
-            this.afN = false;
+            this.ahu = true;
+            this.aht = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vU() {
+    public void wL() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vV() {
+    public void wM() {
         reset();
-        this.afN = false;
-        this.afO = true;
-        this.afP = -1;
+        this.aht = false;
+        this.ahu = true;
+        this.errorNo = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public int jq() {
+    public int jr() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean vW() {
-        return this.afN;
+    public boolean wN() {
+        return this.aht;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void cR(int i) {
-        cT(i);
+    public void dg(int i) {
+        di(i);
     }
 
-    public void cT(int i) {
+    public void di(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {
@@ -115,6 +115,6 @@ public class k extends MediaPlayer implements h {
 
     @Override // com.baidu.tbadk.core.voice.service.h
     public int getErrorNo() {
-        return this.afP;
+        return this.errorNo;
     }
 }

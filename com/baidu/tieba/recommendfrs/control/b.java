@@ -3,16 +3,17 @@ package com.baidu.tieba.recommendfrs.control;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
+import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a cJX;
+    final /* synthetic */ a diB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.cJX = aVar;
+        this.diB = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,15 +24,15 @@ public class b extends CustomMessageListener {
         ScrollFragmentTabHost scrollFragmentTabHost3;
         if (customResponsedMessage != null) {
             Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str = (String) data;
-                scrollFragmentTabHost = this.cJX.cJR;
+            if (data instanceof ExcellentTagInfo) {
+                ExcellentTagInfo excellentTagInfo = (ExcellentTagInfo) data;
+                scrollFragmentTabHost = this.diB.div;
                 if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.cJX.cJR;
-                    int li = scrollFragmentTabHost2.li(str);
-                    if (li >= 0) {
-                        scrollFragmentTabHost3 = this.cJX.cJR;
-                        scrollFragmentTabHost3.setCurrentTab(li);
+                    scrollFragmentTabHost2 = this.diB.div;
+                    int bA = scrollFragmentTabHost2.bA(excellentTagInfo.tag_code.longValue());
+                    if (bA >= 0) {
+                        scrollFragmentTabHost3 = this.diB.div;
+                        scrollFragmentTabHost3.setCurrentTab(bA);
                     }
                 }
             }

@@ -16,10 +16,14 @@ import tbclient.NewParrScores;
 import tbclient.PayMemberInfo;
 import tbclient.PrivSets;
 import tbclient.User;
+import tbclient.UserPics;
+import tbclient.UserVipInfo;
+import tbclient.VipShowInfo;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
+    private int anchorLevel;
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
@@ -45,9 +49,11 @@ public class UserData extends MetaData {
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
+    private List<g> mPhotoAlbum;
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
+    private MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
     private e payMemberInfo;
@@ -58,6 +64,7 @@ public class UserData extends MetaData {
     private int sex;
     private String tb_age;
     private int userType;
+    private UserVipInfoData vipInfo;
 
     public int getMarkCount() {
         return this.markCount;
@@ -91,6 +98,14 @@ public class UserData extends MetaData {
         this.mLikeForum = list;
     }
 
+    public MembershipUserInfo getMembershipUserInfo() {
+        return this.membershipInfo;
+    }
+
+    public void setMembershipUserInfo(MembershipUserInfo membershipUserInfo) {
+        this.membershipInfo = membershipUserInfo;
+    }
+
     public List<MyGroup> getGroup() {
         return this.mGroup;
     }
@@ -107,10 +122,12 @@ public class UserData extends MetaData {
         this.mGift = list;
     }
 
+    @Override // com.baidu.tbadk.data.MetaData
     public void setGiftNum(int i) {
         this.mGiftNum = i;
     }
 
+    @Override // com.baidu.tbadk.data.MetaData
     public int getGiftNum() {
         return this.mGiftNum;
     }
@@ -123,12 +140,17 @@ public class UserData extends MetaData {
         this.tb_age = str;
     }
 
+    @Override // com.baidu.tbadk.data.MetaData
     public int getIsMem() {
         return this.is_mem;
     }
 
     public void setIsMem(int i) {
         this.is_mem = i;
+    }
+
+    public UserVipInfoData getUserVipInfo() {
+        return this.vipInfo;
     }
 
     public int getIsFriend() {
@@ -162,6 +184,7 @@ public class UserData extends MetaData {
         this.mLikeForum = new ArrayList();
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
+        this.mPhotoAlbum = new ArrayList();
         this.ip = null;
         this.BDUSS = null;
         this.concern_num = 0;
@@ -173,6 +196,7 @@ public class UserData extends MetaData {
         this.tb_age = "";
         this.markCount = 0;
         this.newMarkCount = 0;
+        this.anchorLevel = 0;
     }
 
     public UserData(long j, String str, String str2, int i) {
@@ -182,10 +206,19 @@ public class UserData extends MetaData {
         this.mLikeForum = new ArrayList();
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
+        this.mPhotoAlbum = new ArrayList();
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
         this.sex = i;
+    }
+
+    public int getAnchorLevel() {
+        return this.anchorLevel;
+    }
+
+    public void setAnchorLevel(int i) {
+        this.anchorLevel = i;
     }
 
     public void setIp(String str) {
@@ -223,6 +256,29 @@ public class UserData extends MetaData {
             this.markCount = user.bookmark_count.intValue();
             this.newMarkCount = user.bookmark_new_count.intValue();
             this.isOfficialAccount = user.is_guanfang.intValue();
+            if (this.mPhotoAlbum == null) {
+                this.mPhotoAlbum = new ArrayList();
+            }
+            this.mPhotoAlbum.clear();
+            g gVar = new g();
+            gVar.eQ(getPortraitH());
+            gVar.eR(getPortrait());
+            gVar.bc(true);
+            this.mPhotoAlbum.add(gVar);
+            if (user.user_pics != null && user.user_pics.size() > 0) {
+                for (UserPics userPics : user.user_pics) {
+                    if (userPics != null) {
+                        g gVar2 = new g();
+                        gVar2.eQ(userPics.big);
+                        gVar2.eR(userPics.small);
+                        gVar2.bc(false);
+                        this.mPhotoAlbum.add(gVar2);
+                    }
+                }
+            }
+            if (this.mPhotoAlbum.size() > 9) {
+                this.mPhotoAlbum = this.mPhotoAlbum.subList(0, 8);
+            }
             if (user.is_manager.intValue() == 1) {
                 this.isManager = true;
             } else {
@@ -230,6 +286,16 @@ public class UserData extends MetaData {
             }
             if (user.is_mem != null) {
                 this.is_mem = user.is_mem.intValue();
+            }
+            UserVipInfo userVipInfo = user.vipInfo;
+            if (userVipInfo != null) {
+                this.vipInfo = new UserVipInfoData();
+                this.vipInfo.parserProtobuf(userVipInfo);
+            }
+            VipShowInfo vipShowInfo = user.vip_show_info;
+            if (vipShowInfo != null) {
+                this.membershipInfo = new MembershipUserInfo();
+                this.membershipInfo.parserProtobuf(vipShowInfo);
             }
             this.bg_pic = user.bg_pic;
             this.bimg_url = user.bimg_url;
@@ -283,6 +349,9 @@ public class UserData extends MetaData {
             if (newParrScores != null) {
                 this.mTDouNum = newParrScores.scores_total.longValue();
             }
+            if (user.tw_anchor_info != null) {
+                this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
+            }
         }
     }
 
@@ -333,51 +402,87 @@ public class UserData extends MetaData {
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
                 this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
-                this.mGiftNum = jSONObject.optInt("gift_num");
-                JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
+                JSONObject optJSONObject = jSONObject.optJSONObject("vipInfo");
                 if (optJSONObject != null) {
-                    this.personPrivate = new f();
-                    this.personPrivate.parserJson(optJSONObject);
+                    this.vipInfo = new UserVipInfoData();
+                    this.vipInfo.parseJson(optJSONObject);
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("pay_member_info");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("vip_show_info");
                 if (optJSONObject2 != null) {
+                    this.membershipInfo = new MembershipUserInfo();
+                    this.membershipInfo.parseJson(optJSONObject2);
+                }
+                this.mGiftNum = jSONObject.optInt("gift_num");
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("priv_sets");
+                if (optJSONObject3 != null) {
+                    this.personPrivate = new f();
+                    this.personPrivate.parserJson(optJSONObject3);
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("pay_member_info");
+                if (optJSONObject4 != null) {
                     this.payMemberInfo = new e();
-                    this.payMemberInfo.parseJson(optJSONObject2);
+                    this.payMemberInfo.parseJson(optJSONObject4);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
                     this.isMask = true;
                 } else {
                     this.isMask = false;
                 }
-                JSONArray optJSONArray = jSONObject.optJSONArray("likeForum");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject3 != null) {
+                if (this.mPhotoAlbum == null) {
+                    this.mPhotoAlbum = new ArrayList();
+                }
+                this.mPhotoAlbum.clear();
+                g gVar = new g();
+                gVar.eQ(getPortraitH());
+                gVar.eR(getPortrait());
+                gVar.bc(true);
+                this.mPhotoAlbum.add(gVar);
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            g gVar2 = new g();
+                            gVar2.eQ(jSONObject2.optString("big"));
+                            gVar2.eR(jSONObject2.optString("small"));
+                            gVar2.bc(false);
+                            this.mPhotoAlbum.add(gVar2);
+                        }
+                    }
+                }
+                if (this.mPhotoAlbum.size() > 9) {
+                    this.mPhotoAlbum = this.mPhotoAlbum.subList(0, 8);
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("likeForum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject5 != null) {
                             MyLikeForum myLikeForum = new MyLikeForum();
-                            myLikeForum.parseJson(optJSONObject3);
+                            myLikeForum.parseJson(optJSONObject5);
                             this.mLikeForum.add(myLikeForum);
                         }
                     }
                 }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("groupList");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject4 != null) {
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("groupList");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject optJSONObject6 = optJSONArray3.optJSONObject(i3);
+                        if (optJSONObject6 != null) {
                             MyGroup myGroup = new MyGroup();
-                            myGroup.parseJson(optJSONObject4);
+                            myGroup.parseJson(optJSONObject6);
                             this.mGroup.add(myGroup);
                         }
                     }
                 }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("gift_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i3);
-                        if (optJSONObject5 != null) {
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("gift_list");
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        JSONObject optJSONObject7 = optJSONArray4.optJSONObject(i4);
+                        if (optJSONObject7 != null) {
                             MyGift myGift = new MyGift();
-                            myGift.parseJson(optJSONObject5);
+                            myGift.parseJson(optJSONObject7);
                             this.mGift.add(myGift);
                         }
                     }
@@ -563,6 +668,14 @@ public class UserData extends MetaData {
 
     public void setTDouNum(long j) {
         this.mTDouNum = j;
+    }
+
+    public List<g> getPhotoAlbum() {
+        return this.mPhotoAlbum;
+    }
+
+    public void setPhotoAlbum(List<g> list) {
+        this.mPhotoAlbum = list;
     }
 
     /* loaded from: classes.dex */

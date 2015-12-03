@@ -1,31 +1,52 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aUS;
+public class x implements c.b {
+    final /* synthetic */ FrsActivity bag;
+    private final /* synthetic */ com.baidu.tbadk.core.data.z bak;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aUS = frsActivity;
+    public x(FrsActivity frsActivity, com.baidu.tbadk.core.data.z zVar) {
+        this.bag = frsActivity;
+        this.bak = zVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         String str;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.w)) {
-            com.baidu.tbadk.core.data.w wVar = (com.baidu.tbadk.core.data.w) customResponsedMessage.getData();
-            this.aUS.aSI = wVar.getId();
-            str = this.aUS.aSI;
-            if (TextUtils.isEmpty(str) || wVar.getPraise() == null) {
-                return;
-            }
-            this.aUS.fx(wVar.getPraise().getIsLike());
+        boolean z;
+        cVar.dismiss();
+        switch (i) {
+            case 0:
+                str = this.bag.mThreadId;
+                if (str != null) {
+                    FrsActivity frsActivity = this.bag;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bag.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.z zVar = this.bak;
+                    String str2 = this.bag.aZi;
+                    z = this.bag.aZo;
+                    frsActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(zVar, str2, null, 18003, true, false, z)));
+                    break;
+                }
+                break;
+            case 1:
+                this.bag.b(this.bak);
+                break;
+            case 2:
+                this.bag.c(this.bak);
+                break;
         }
+        com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+        if (readThreadHistory != null && this.bak != null && !readThreadHistory.mF(this.bak.getId())) {
+            readThreadHistory.mE(this.bak.getId());
+        }
+        this.bag.aZq.ND();
     }
 }

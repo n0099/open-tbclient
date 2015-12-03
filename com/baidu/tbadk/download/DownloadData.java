@@ -2,18 +2,22 @@ package com.baidu.tbadk.download;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class DownloadData implements Serializable {
+public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
     public static final int FILE_DOWNLOAD_STATUS_EXIST = 3;
     public static final int FILE_DOWNLOAD_STATUS_FAILED = 2;
     public static final int FILE_DOWNLOAD_STATUS_INIT = 5;
+    public static final int FILE_DOWNLOAD_STATUS_PAUSE = 7;
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
+    public static final int FILE_DOWNLOAD_STATUS_UNDOWNLOAD = 6;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
-    private transient c aou;
+    private static final long serialVersionUID = 1402749061179345930L;
+    private String action;
+    private transient c aqk;
     private String check;
     private String description;
     private int errorCode;
@@ -35,12 +39,36 @@ public class DownloadData implements Serializable {
     private String url;
     private int width;
 
+    public String getAction() {
+        return this.action;
+    }
+
+    public void setAction(String str) {
+        this.action = str;
+    }
+
     public String[] getTag() {
         return this.tag;
     }
 
     public void setTag(String[] strArr) {
         this.tag = strArr;
+    }
+
+    public DownloadData() {
+        this.status = 5;
+        this.type = 10;
+        this.length = 0L;
+        this.size = 1L;
+        this.width = 0;
+        this.height = 0;
+        this.statusMsg = null;
+        this.aqk = null;
+        this.position = 0;
+        this.notifyId = 0;
+        this.isNeedInvokeApk = true;
+        this.isForceDownload = false;
+        this.isNeedNotify = true;
     }
 
     public DownloadData(String str) {
@@ -51,7 +79,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aou = null;
+        this.aqk = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -68,7 +96,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aou = null;
+        this.aqk = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -86,7 +114,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aou = null;
+        this.aqk = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -95,7 +123,7 @@ public class DownloadData implements Serializable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aou = cVar;
+        this.aqk = cVar;
         this.status = 5;
     }
 
@@ -196,11 +224,11 @@ public class DownloadData implements Serializable {
     }
 
     public c getCallback() {
-        return this.aou;
+        return this.aqk;
     }
 
     public void setCallback(c cVar) {
-        this.aou = cVar;
+        this.aqk = cVar;
     }
 
     public String getStatusMsg() {
@@ -264,5 +292,14 @@ public class DownloadData implements Serializable {
 
     public void setNeedNotify(boolean z) {
         this.isNeedNotify = z;
+    }
+
+    public Object clone() {
+        try {
+            return (DownloadData) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

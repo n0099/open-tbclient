@@ -1,25 +1,20 @@
 package com.baidu.tieba.myCollection;
 
-import com.baidu.tbadk.core.dialog.a;
+import java.util.Calendar;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-class f implements a.b {
-    final /* synthetic */ EditMarkActivity ccd;
+class f implements Comparator<Calendar> {
+    final /* synthetic */ e ctX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(EditMarkActivity editMarkActivity) {
-        this.ccd = editMarkActivity;
+    public f(e eVar) {
+        this.ctX = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        j jVar;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar2;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar3;
-        aVar.dismiss();
-        jVar = this.ccd.cca;
-        aVar2 = this.ccd.cbZ;
-        jVar.iL(aVar2.getOffset());
-        aVar3 = this.ccd.cbZ;
-        aVar3.f(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(Calendar calendar, Calendar calendar2) {
+        return calendar.before(calendar2) ? -1 : 1;
     }
 }

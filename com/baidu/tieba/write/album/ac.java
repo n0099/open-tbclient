@@ -1,28 +1,28 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.write.album.ab;
 /* loaded from: classes.dex */
-class ac implements View.OnClickListener {
-    final /* synthetic */ z dmJ;
-    private final /* synthetic */ ImageFileInfo dmL;
-    private final /* synthetic */ int val$position;
+class ac implements com.baidu.tbadk.imageManager.b {
+    private final /* synthetic */ ViewGroup arZ;
+    final /* synthetic */ ab dLP;
+    private final /* synthetic */ ab.a dLQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(z zVar, int i, ImageFileInfo imageFileInfo) {
-        this.dmJ = zVar;
-        this.val$position = i;
-        this.dmL = imageFileInfo;
+    public ac(ab abVar, ViewGroup viewGroup, ab.a aVar) {
+        this.dLP = abVar;
+        this.arZ = viewGroup;
+        this.dLQ = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        v vVar;
-        v vVar2;
-        vVar = this.dmJ.dmH;
-        if (vVar != null) {
-            vVar2 = this.dmJ.dmH;
-            vVar2.a(this.val$position, this.dmL);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        HeadImageView headImageView = (HeadImageView) this.arZ.findViewWithTag(str);
+        if (headImageView != null && aVar != null) {
+            headImageView.invalidate();
+        } else {
+            this.dLQ.dLU = false;
         }
     }
 }

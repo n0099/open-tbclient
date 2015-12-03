@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a bHM;
-    private b bHN;
+    private a bWS;
+    private b bWT;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,24 +28,24 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.bHM = new a(str, chatMessage);
-        this.bHM.execute(new Object[0]);
+        this.bWS = new a(str, chatMessage);
+        this.bWS.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.bHN = bVar;
+        this.bWT = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String bHO;
-        private ChatMessage bHP;
-        private ac bHQ = new ac();
+        private String bWU;
+        private ChatMessage bWV;
+        private ac bWW = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.bHO = str;
-            this.bHP = chatMessage;
+            this.bWU = str;
+            this.bWV = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class af extends com.baidu.adp.base.e {
         /* renamed from: t */
         public String doInBackground(Object... objArr) {
             try {
-                return this.bHQ.in(this.bHO);
+                return this.bWW.iH(this.bWU);
             } catch (Exception e) {
                 return null;
             }
@@ -65,8 +65,8 @@ public class af extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (af.this.bHN != null) {
-                af.this.bHN.a(str, this.bHP);
+            if (af.this.bWT != null) {
+                af.this.bWT.a(str, this.bWV);
             }
         }
     }

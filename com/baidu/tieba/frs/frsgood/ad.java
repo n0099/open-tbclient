@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.frsgood;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements c.b {
-    final /* synthetic */ x bap;
+    final /* synthetic */ x bgI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(x xVar) {
-        this.bap = xVar;
+        this.bgI = xVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -19,11 +19,11 @@ public class ad implements c.b {
         FrsGoodActivity frsGoodActivity2;
         cVar.dismiss();
         if (i == 0) {
-            frsGoodActivity2 = this.bap.aWx;
-            am.c(frsGoodActivity2.getPageContext());
+            frsGoodActivity2 = this.bgI.bcs;
+            ar.c(frsGoodActivity2.getPageContext());
         } else if (i == 1) {
-            frsGoodActivity = this.bap.aWx;
-            am.p(frsGoodActivity.getPageContext().getPageActivity());
+            frsGoodActivity = this.bgI.bcs;
+            ar.p(frsGoodActivity.getPageContext().getPageActivity());
         }
     }
 }

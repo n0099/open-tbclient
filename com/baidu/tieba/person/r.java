@@ -1,315 +1,238 @@
 package com.baidu.tieba.person;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.i;
-import com.baidu.tieba.person.post.u;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class r extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private String cqC;
-    private TextView cqE;
-    private ad cql;
-    public BdListView mListView = null;
-    public u.a cqv = null;
-    private ac cqw = null;
-    private int ccb = -1;
-    private String cqx = null;
-    private View cqy = null;
-    private com.baidu.tbadk.core.view.m mNoDataView = null;
-    private com.baidu.tbadk.core.view.r mPullView = null;
-    private TextView aDm = null;
-    public int cqz = 0;
-    public int pageSize = 50;
-    public boolean hasMore = false;
-    private ForumData cqA = null;
-    private boolean cqB = false;
-    private View cqD = null;
-    private int cqF = 0;
-    private boolean mIsHost = true;
-    private boolean cqG = false;
-    private boolean cpp = false;
-    private boolean cqH = false;
-    private ArrayList<ForumData> rK = new ArrayList<>();
-    private final com.baidu.adp.framework.listener.e cqI = new s(this, 107129);
-    private final CustomMessageListener cqJ = new u(this, CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY);
-    private HttpMessageListener cqK = new v(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-    private HttpMessageListener cqL = new w(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
+public class r {
+    private int hasMore;
+    private int cJO = 0;
+    private int cJP = 0;
+    private ArrayList<ForumData> cJH = new ArrayList<>();
+    private ArrayList<ForumData> cJI = new ArrayList<>();
+    private ArrayList<ForumData> cJJ = new ArrayList<>();
+    private ArrayList<ForumData> cJK = new ArrayList<>();
+    private ArrayList<ForumData> cJM = new ArrayList<>();
+    private ArrayList<ForumData> cJL = new ArrayList<>();
+    private com.baidu.tbadk.core.data.q ceI = new com.baidu.tbadk.core.data.q();
+    private Date cJN = null;
+    private boolean Cq = true;
 
-    static {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY, bx.class);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public r() {
+        setHasMore(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity aiU() {
-        BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-        if (baseFragmentActivity instanceof PersonBarActivity) {
-            return (PersonBarActivity) baseFragmentActivity;
+    public int anp() {
+        return this.cJO;
+    }
+
+    public void ki(int i) {
+        this.cJO = i;
+    }
+
+    public void kj(int i) {
+        this.cJO += i;
+    }
+
+    public int anq() {
+        return this.cJP;
+    }
+
+    public void kk(int i) {
+        this.cJP = i;
+    }
+
+    public void kl(int i) {
+        this.cJP += i;
+    }
+
+    public ArrayList<ForumData> anr() {
+        return this.cJI;
+    }
+
+    public ArrayList<ForumData> ans() {
+        return this.cJJ;
+    }
+
+    public ArrayList<ForumData> ant() {
+        return this.cJL;
+    }
+
+    public ArrayList<ForumData> anu() {
+        return this.cJM;
+    }
+
+    public ArrayList<ForumData> anv() {
+        return this.cJH;
+    }
+
+    public void b(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+        if (this.cJH == null) {
+            this.cJH = new ArrayList<>();
         }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
-        registerListener(this.cqL);
-        registerListener(this.cqK);
-        registerListener(this.cqJ);
-        registerListener(this.cqI);
-        this.cqI.setSelfListener(true);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onStart() {
-        super.onStart();
-        if (this.mNoDataView != null) {
-            this.mNoDataView.e(getPageContext());
+        if (this.cJI != null && arrayList != null) {
+            this.cJI.clear();
+            this.cJI.addAll(arrayList);
+        }
+        if (this.cJJ != null && arrayList2 != null) {
+            this.cJJ.clear();
+            this.cJJ.addAll(arrayList2);
+        }
+        if (this.cJI != null || this.cJJ != null) {
+            this.cJH.clear();
+            if (this.cJI != null) {
+                this.cJH.addAll(this.cJI);
+            }
+            if (this.cJJ != null) {
+                this.cJH.addAll(this.cJJ);
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onStop() {
-        super.onStop();
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onActivityStop();
+    public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+        if (this.cJH == null) {
+            this.cJH = new ArrayList<>();
+        }
+        if (this.cJI != null && arrayList != null) {
+            this.cJI.addAll(arrayList);
+        }
+        if (this.cJJ != null && arrayList2 != null) {
+            this.cJJ.addAll(arrayList2);
+        }
+        if (this.cJI != null || this.cJJ != null) {
+            this.cJH.clear();
+            if (this.cJI != null) {
+                this.cJH.addAll(this.cJI);
+            }
+            if (this.cJJ != null) {
+                this.cJH.addAll(this.cJJ);
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onDestroyView() {
-        if (this.cqw != null) {
-            this.cqw = null;
-        }
-        MessageManager.getInstance().unRegisterListener(this.cqK);
-        MessageManager.getInstance().unRegisterListener(this.cqL);
-        MessageManager.getInstance().unRegisterListener(this.cqJ);
-        MessageManager.getInstance().unRegisterListener(this.cqI);
-        super.onDestroyView();
+    public ArrayList<ForumData> anw() {
+        return this.cJK;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        int dimension;
-        String string;
-        this.cqF = getArguments().getInt("page_type", 0);
-        View inflate = layoutInflater.inflate(i.g.friend_fragment, viewGroup, false);
-        this.cqD = LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.friend_fragment_header, (ViewGroup) null);
-        this.cqE = (TextView) this.cqD.findViewById(i.f.header_text_describe);
-        if (aiU() == null) {
-            return inflate;
+    public void d(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+        if (this.cJK == null) {
+            this.cJK = new ArrayList<>();
         }
-        this.cqC = getString(i.h.person_bar_no_more);
-        this.cql = aiU().aiL();
-        this.mIsHost = aiU().Xb();
-        this.cpp = aiU().aiB();
-        this.cqy = inflate.findViewById(i.f.friend_fragment_parent);
-        if (this.mIsHost && !this.cpp) {
-            this.aDm = (TextView) aiU().getNavigationBar().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, aiU()).findViewById(i.f.right_textview);
-            this.aDm.setText(i.h.edit);
-            this.aDm.setOnClickListener(new x(this));
-            this.aDm.setVisibility(0);
+        if (this.cJL != null && arrayList != null) {
+            this.cJL.addAll(arrayList);
         }
-        this.cqw = new ac(aiU(), this.cql.aiX(), this.mIsHost, this.cpp);
-        this.cqw.kc(aiU().aiD());
-        this.cqw.x(new y(this));
-        this.cqw.E(new z(this));
-        this.mListView = (BdListView) inflate.findViewById(i.f.my_friend_list);
-        this.mListView.setAdapter((ListAdapter) this.cqw);
-        this.mListView.setOnItemClickListener(new aa(this));
-        this.mPullView = new com.baidu.tbadk.core.view.r(aiU().getPageContext());
-        this.mPullView.a(new ab(this));
-        this.cqv = new u.a(getBaseFragmentActivity());
-        this.mListView.setNextPage(this.cqv);
-        this.mListView.setOnSrollToBottomListener(new t(this));
-        this.mListView.setPullRefresh(this.mPullView);
-        if (this.mIsHost) {
-            dimension = (int) getResources().getDimension(i.d.ds160);
-            string = String.format(getString(i.h.person_bar_no_personal_info), getString(i.h.you));
-        } else {
-            dimension = (int) getResources().getDimension(i.d.ds80);
-            if (this.cqF == 0) {
-                string = String.format(getString(i.h.person_bar_no_personal_info), aiU().Xa());
+        if (this.cJM != null && arrayList2 != null) {
+            this.cJM.addAll(arrayList2);
+        }
+        if (this.cJL != null || this.cJM != null) {
+            this.cJK.clear();
+            if (this.cJL != null) {
+                this.cJK.addAll(this.cJL);
+            }
+            if (this.cJM != null) {
+                this.cJK.addAll(this.cJM);
+            }
+        }
+    }
+
+    public void e(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+        if (this.cJK == null) {
+            this.cJK = new ArrayList<>();
+        }
+        if (this.cJL != null && arrayList != null) {
+            this.cJL.clear();
+            this.cJL.addAll(arrayList);
+        }
+        if (this.cJM != null && arrayList2 != null) {
+            this.cJM.clear();
+            this.cJM.addAll(arrayList2);
+        }
+        if (this.cJL != null || this.cJM != null) {
+            this.cJK.clear();
+            if (this.cJL != null) {
+                this.cJK.addAll(this.cJL);
+            }
+            if (this.cJM != null) {
+                this.cJK.addAll(this.cJM);
+            }
+        }
+    }
+
+    public void parserJson(String str) {
+        if (str != null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                this.Cq = false;
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.ceI.parserJson(jSONObject.optJSONObject("page"));
+            this.hasMore = jSONObject.optInt("has_more", 1);
+            long optLong = jSONObject.optLong("ctime", 0L);
+            if (optLong > 0) {
+                this.cJN = new Date(optLong);
             } else {
-                string = getString(i.h.person_bar_no_common_info);
+                this.cJN = new Date();
             }
-        }
-        if (this.cpp) {
-            this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.d.ag(string, getString(i.h.share_choose_bar_nothing_tip)), null);
-        } else {
-            this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.d.dC(string), null);
-        }
-        if (this.mIsHost && aiU() != null && aiU().getRequestCode() != 23011) {
-            Hy();
-        }
-        if (this.cqF == aiU().WZ()) {
-            this.mListView.nx();
-        }
-        return inflate;
-    }
-
-    public void eY(boolean z) {
-        if (this.cqw != null) {
-            this.cqw.adO();
-            if (this.cqw.aiW()) {
-                if (z) {
-                    this.cqw.setEditState(false);
-                    this.mNoDataView.setVisibility(0);
-                    this.mListView.setVisibility(0);
-                    if (this.aDm != null) {
-                        this.aDm.setVisibility(8);
-                    }
-                    if (this.cqv != null && this.cqv.getView() != null) {
-                        this.cqv.getView().setVisibility(8);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            this.mNoDataView.setVisibility(8);
-            this.mListView.setVisibility(0);
-            if (this.aDm != null) {
-                this.aDm.setVisibility(0);
-            }
-            if (aiU() != null && aiU().getRequestCode() == 23011 && this.aDm != null) {
-                this.aDm.setVisibility(8);
-            }
-        }
-    }
-
-    public ac aiV() {
-        return this.cqw;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void KA() {
-        if (this.cql != null) {
-            this.cql.a(this.mIsHost, this.cql.getId(), this.cqz, this.pageSize);
-        }
-    }
-
-    public void hj(int i) {
-        if (this.cql != null) {
-            this.cql.a(this.mIsHost, this.cql.getId(), i, this.pageSize);
-        }
-    }
-
-    public void Hy() {
-        if (this.cql != null) {
-            this.cql.Hy();
-        }
-    }
-
-    public void a(q qVar, boolean z) {
-        if (qVar != null) {
-            this.hasMore = qVar.isHasMore();
-            if (!z) {
-                this.mListView.completePullRefresh();
-            }
-            int aiC = aiU().aiC();
-            int i = 0;
-            if (this.cql != null && this.cqw != null) {
-                if (this.cqF == aiU().WZ()) {
-                    if (z) {
-                        this.cqz = 1;
-                        this.cql.aiX().b(qVar.aiO(), qVar.aiP());
-                        this.cql.aiX().e(qVar.aiQ(), qVar.aiR());
-                        this.cql.aiX().jo(qVar.aiM());
-                        this.cql.aiX().jq(qVar.aiN());
-                    } else if (this.cqz == 1) {
-                        this.cql.aiX().b(qVar.aiO(), qVar.aiP());
-                        this.cql.aiX().e(qVar.aiQ(), qVar.aiR());
-                        this.cql.aiX().jo(qVar.aiM());
-                        this.cql.aiX().jq(qVar.aiN());
-                        this.cqz++;
-                    } else {
-                        this.cql.aiX().c(qVar.aiO(), qVar.aiP());
-                        this.cql.aiX().d(qVar.aiQ(), qVar.aiR());
-                        this.cql.aiX().jp(qVar.aiM());
-                        this.cql.aiX().jr(qVar.aiN());
-                        this.cqz++;
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
+                if (optJSONArray != null) {
+                    this.cJO = optJSONArray.length();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ForumData forumData = new ForumData();
+                        forumData.parserJson(optJSONArray.getJSONObject(i));
+                        this.cJI.add(forumData);
                     }
                 }
-                if (this.cqF == 0) {
-                    this.cqw.S(this.cql.aiX().aiS());
-                } else {
-                    this.cqw.S(this.cql.aiX().aiT());
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ForumData forumData2 = new ForumData();
+                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.cJJ.add(forumData2);
+                    }
                 }
-                if (qVar.aiT() != null) {
-                    i = this.cql.aiX().aiT().size();
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
+                if (optJSONObject2 != null) {
+                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
+                    if (optJSONArray3 != null) {
+                        this.cJP = optJSONArray3.length();
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            ForumData forumData3 = new ForumData();
+                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
+                            this.cJL.add(forumData3);
+                        }
+                    }
+                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
+                    if (optJSONArray4 != null) {
+                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                            ForumData forumData4 = new ForumData();
+                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
+                            this.cJM.add(forumData4);
+                        }
+                    }
                 }
-                if (aiU() != null) {
-                    aiU().aj(aiC, i);
-                }
-                eY(true);
-                this.cqw.notifyDataSetChanged();
             }
+        } catch (Exception e) {
+            this.Cq = false;
+            BdLog.e(e.getMessage());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (isAdded()) {
-            if (this.cqy != null && getBaseFragmentActivity() != null) {
-                getBaseFragmentActivity().getPageContext().getLayoutMode().ad(i == 1);
-                getBaseFragmentActivity().getPageContext().getLayoutMode().k(this.cqy);
-            }
-            if (this.mNoDataView != null) {
-                com.baidu.tbadk.core.util.an.i(this.mNoDataView, i.c.cp_bg_line_d);
-            }
-            if (aiU() != null) {
-                aiU().getNavigationBar().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
-            }
-            if (this.mPullView != null) {
-                this.mPullView.cN(i);
-            }
-            if (this.cqw != null) {
-                this.cqw.notifyDataSetChanged();
-            }
-        }
+    public boolean isHasMore() {
+        return this.hasMore == 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void removalDuplicate() {
-        HashSet hashSet = new HashSet();
-        Iterator<ForumData> it = this.rK.iterator();
-        while (it.hasNext()) {
-            if (!hashSet.add(it.next().getId())) {
-                it.remove();
-            }
-        }
+    public void setHasMore(boolean z) {
+        this.hasMore = z ? 1 : 0;
     }
 }

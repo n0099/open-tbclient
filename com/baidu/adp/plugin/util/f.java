@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> EI = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> EW = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -14,22 +14,22 @@ public class f {
     }
 
     static {
-        EI.put(Boolean.class, Boolean.TYPE);
-        EI.put(Byte.class, Byte.TYPE);
-        EI.put(Character.class, Character.TYPE);
-        EI.put(Short.class, Short.TYPE);
-        EI.put(Integer.class, Integer.TYPE);
-        EI.put(Float.class, Float.TYPE);
-        EI.put(Long.class, Long.TYPE);
-        EI.put(Double.class, Double.TYPE);
-        EI.put(Boolean.TYPE, Boolean.TYPE);
-        EI.put(Byte.TYPE, Byte.TYPE);
-        EI.put(Character.TYPE, Character.TYPE);
-        EI.put(Short.TYPE, Short.TYPE);
-        EI.put(Integer.TYPE, Integer.TYPE);
-        EI.put(Float.TYPE, Float.TYPE);
-        EI.put(Long.TYPE, Long.TYPE);
-        EI.put(Double.TYPE, Double.TYPE);
+        EW.put(Boolean.class, Boolean.TYPE);
+        EW.put(Byte.class, Byte.TYPE);
+        EW.put(Character.class, Character.TYPE);
+        EW.put(Short.class, Short.TYPE);
+        EW.put(Integer.class, Integer.TYPE);
+        EW.put(Float.class, Float.TYPE);
+        EW.put(Long.class, Long.TYPE);
+        EW.put(Double.class, Double.TYPE);
+        EW.put(Boolean.TYPE, Boolean.TYPE);
+        EW.put(Byte.TYPE, Byte.TYPE);
+        EW.put(Character.TYPE, Character.TYPE);
+        EW.put(Short.TYPE, Short.TYPE);
+        EW.put(Integer.TYPE, Integer.TYPE);
+        EW.put(Float.TYPE, Float.TYPE);
+        EW.put(Long.TYPE, Long.TYPE);
+        EW.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) {
@@ -67,7 +67,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (EI.containsKey(clsArr[i]) && EI.get(clsArr[i]).equals(EI.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (EW.containsKey(clsArr[i]) && EW.get(clsArr[i]).equals(EW.get(clsArr2[i])))) {
                     return true;
                 }
             }

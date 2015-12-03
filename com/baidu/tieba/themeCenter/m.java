@@ -1,52 +1,28 @@
 package com.baidu.tieba.themeCenter;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends SQLiteOpenHelper {
-    public m(Context context) {
-        super(context, "theme_center.db", (SQLiteDatabase.CursorFactory) null, 1);
+public class m implements a.b {
+    private final /* synthetic */ TbPageContext Sn;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a bvu;
+    private final /* synthetic */ String dEe;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(com.baidu.tbadk.core.dialog.a aVar, String str, TbPageContext tbPageContext) {
+        this.bvu = aVar;
+        this.dEe = str;
+        this.Sn = tbPageContext;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        n(sQLiteDatabase);
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        q(sQLiteDatabase);
-        n(sQLiteDatabase);
-    }
-
-    public void n(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!StringUtils.isNull(currentAccount)) {
-                    sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS theme_" + currentAccount + "(id INT UNIQUE, title TEXT, picUrl TEXT, packageSize TEXT, packageUrl TEXT, versionCode INT, permissionIconUrl TEXT, activityUrl TEXT, permissionType INT, stateIconUrl TEXT);");
-                }
-            } catch (Throwable th) {
-                BdLog.e("create table wrong " + th.toString());
-            }
-        }
-    }
-
-    public void q(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!TextUtils.isEmpty(currentAccount)) {
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS theme_" + currentAccount);
-                }
-            } catch (Throwable th) {
-                BdLog.e("drop table wrong " + th.toString());
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.bvu.dismiss();
+        if (this.dEe != null) {
+            TbadkCoreApplication.m411getInst().setThemeWebviewOpen(true);
+            com.baidu.tbadk.browser.f.C(this.Sn.getPageActivity(), this.dEe);
         }
     }
 }

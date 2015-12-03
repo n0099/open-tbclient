@@ -1,16 +1,16 @@
 package com.baidu.tieba.discover;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements y {
-    final /* synthetic */ a aJA;
+public class i implements x {
+    final /* synthetic */ a aOb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.aJA = aVar;
+        this.aOb = aVar;
     }
 
-    @Override // com.baidu.tieba.discover.y
+    @Override // com.baidu.tieba.discover.x
     public void g(com.baidu.tieba.discover.data.c cVar) {
-        this.aJA.b(cVar);
+        this.aOb.b(cVar);
     }
 }

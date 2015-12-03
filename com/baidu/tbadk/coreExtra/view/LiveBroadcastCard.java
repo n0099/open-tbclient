@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.GroupImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -84,7 +84,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean yZ();
+        boolean zV();
     }
 
     /* loaded from: classes.dex */
@@ -137,7 +137,7 @@ public class LiveBroadcastCard extends FrameLayout {
         super(context, attributeSet, i);
         this.mCardStatus = 0;
         this.hasBarName = false;
-        this.left = com.baidu.adp.lib.util.k.d(getContext(), i.d.ds16);
+        this.left = com.baidu.adp.lib.util.k.d(getContext(), n.d.ds16);
         this.isListCard = false;
         this.hasLabel = false;
         this.mTimeUpdateListener = new p(this, CmdConfigCustom.LIVE_CARD_TIME_UPDATE);
@@ -148,7 +148,7 @@ public class LiveBroadcastCard extends FrameLayout {
         super(context, attributeSet);
         this.mCardStatus = 0;
         this.hasBarName = false;
-        this.left = com.baidu.adp.lib.util.k.d(getContext(), i.d.ds16);
+        this.left = com.baidu.adp.lib.util.k.d(getContext(), n.d.ds16);
         this.isListCard = false;
         this.hasLabel = false;
         this.mTimeUpdateListener = new p(this, CmdConfigCustom.LIVE_CARD_TIME_UPDATE);
@@ -159,7 +159,7 @@ public class LiveBroadcastCard extends FrameLayout {
         super(context);
         this.mCardStatus = 0;
         this.hasBarName = false;
-        this.left = com.baidu.adp.lib.util.k.d(getContext(), i.d.ds16);
+        this.left = com.baidu.adp.lib.util.k.d(getContext(), n.d.ds16);
         this.isListCard = false;
         this.hasLabel = false;
         this.mTimeUpdateListener = new p(this, CmdConfigCustom.LIVE_CARD_TIME_UPDATE);
@@ -168,35 +168,35 @@ public class LiveBroadcastCard extends FrameLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(i.g.livebroadcastcardview, this);
-        this.mRootView = (ViewGroup) inflate.findViewById(i.f.card_root);
-        this.mHeadImageView = (GroupImageView) inflate.findViewById(i.f.card_head);
+        View inflate = LayoutInflater.from(context).inflate(n.g.livebroadcastcardview, this);
+        this.mRootView = (ViewGroup) inflate.findViewById(n.f.card_root);
+        this.mHeadImageView = (GroupImageView) inflate.findViewById(n.f.card_head);
         this.mHeadImageView.setDrawBorder(true);
         this.mHeadImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.mCardMiddle = (ViewGroup) inflate.findViewById(i.f.card_middle);
-        this.mCardName = (TextView) inflate.findViewById(i.f.card_name);
-        this.mCardTextsCenter = (ViewGroup) inflate.findViewById(i.f.card_texts_center);
-        this.mBarFrom = (TextView) inflate.findViewById(i.f.card_bar_from);
-        this.mListenerCount = (TextView) inflate.findViewById(i.f.card_listener_count);
-        this.mLikerCount = (TextView) inflate.findViewById(i.f.card_liker_count);
-        this.mCardAuthor = (TextView) inflate.findViewById(i.f.card_author);
-        this.mCardIntro = (TextView) inflate.findViewById(i.f.card_intro);
-        this.mCardRight = (ViewGroup) inflate.findViewById(i.f.card_right);
-        this.mCardStateLayout = (ViewGroup) inflate.findViewById(i.f.card_state);
-        this.mStateLiving = (TextView) inflate.findViewById(i.f.card_state_living);
-        this.mCardTime = (TextView) inflate.findViewById(i.f.card_time);
-        this.mStateWillStartLayout = (ViewGroup) inflate.findViewById(i.f.card_state_willstart_layout);
-        this.mStateWillStart = (TextView) inflate.findViewById(i.f.card_state_willstart_text);
-        this.mStateClose = (TextView) inflate.findViewById(i.f.card_state_close);
-        this.mCardDelete = (Button) inflate.findViewById(i.f.card_delete);
-        this.mCardTopTipImage = (ImageView) inflate.findViewById(i.f.card_top_image);
-        this.mCardListenerImage = (ImageView) inflate.findViewById(i.f.card_listener_iamge);
-        this.mCardLikeImage = (ImageView) inflate.findViewById(i.f.card_liker_image);
-        this.mCardVipImage = (ImageView) inflate.findViewById(i.f.live_card_vip_icon);
-        this.mCardLivingImage = (ImageView) inflate.findViewById(i.f.live_card_living_icon);
-        this.card_label = (TextView) inflate.findViewById(i.f.card_label);
+        this.mCardMiddle = (ViewGroup) inflate.findViewById(n.f.card_middle);
+        this.mCardName = (TextView) inflate.findViewById(n.f.card_name);
+        this.mCardTextsCenter = (ViewGroup) inflate.findViewById(n.f.card_texts_center);
+        this.mBarFrom = (TextView) inflate.findViewById(n.f.card_bar_from);
+        this.mListenerCount = (TextView) inflate.findViewById(n.f.card_listener_count);
+        this.mLikerCount = (TextView) inflate.findViewById(n.f.card_liker_count);
+        this.mCardAuthor = (TextView) inflate.findViewById(n.f.card_author);
+        this.mCardIntro = (TextView) inflate.findViewById(n.f.card_intro);
+        this.mCardRight = (ViewGroup) inflate.findViewById(n.f.card_right);
+        this.mCardStateLayout = (ViewGroup) inflate.findViewById(n.f.card_state);
+        this.mStateLiving = (TextView) inflate.findViewById(n.f.card_state_living);
+        this.mCardTime = (TextView) inflate.findViewById(n.f.card_time);
+        this.mStateWillStartLayout = (ViewGroup) inflate.findViewById(n.f.card_state_willstart_layout);
+        this.mStateWillStart = (TextView) inflate.findViewById(n.f.card_state_willstart_text);
+        this.mStateClose = (TextView) inflate.findViewById(n.f.card_state_close);
+        this.mCardDelete = (Button) inflate.findViewById(n.f.card_delete);
+        this.mCardTopTipImage = (ImageView) inflate.findViewById(n.f.card_top_image);
+        this.mCardListenerImage = (ImageView) inflate.findViewById(n.f.card_listener_iamge);
+        this.mCardLikeImage = (ImageView) inflate.findViewById(n.f.card_liker_image);
+        this.mCardVipImage = (ImageView) inflate.findViewById(n.f.live_card_vip_icon);
+        this.mCardLivingImage = (ImageView) inflate.findViewById(n.f.live_card_living_icon);
+        this.card_label = (TextView) inflate.findViewById(n.f.card_label);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.j.LiveBroadcastCard);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.k.LiveBroadcastCard);
             this.mHasStatus = obtainStyledAttributes.getBoolean(0, false);
             this.mIntroSingLine = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
@@ -214,7 +214,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     public void setData(LiveCardData liveCardData) {
         if (liveCardData != null) {
-            c.za().b(this);
+            c.zW().b(this);
             unRegisterTimeUpdateListener();
             this.hasLivingTip = false;
             this.mGroupId = liveCardData.getGroupId();
@@ -233,9 +233,9 @@ public class LiveBroadcastCard extends FrameLayout {
             }
             if (!StringUtils.isNull(liveCardData.getName())) {
                 String name = liveCardData.getName();
-                int fQ = com.baidu.tbadk.util.n.fQ(name);
-                if (this.hasLabel && fQ > MAX_NAME_LENGTH) {
-                    name = com.baidu.tbadk.util.n.f(name, 0, MAX_NAME_LENGTH) ? String.valueOf(com.baidu.tbadk.util.n.e(name, 0, MAX_NAME_LENGTH)) + "..." : String.valueOf(com.baidu.tbadk.util.n.e(name, 0, MAX_NAME_LENGTH - 2)) + "...";
+                int ge = com.baidu.tbadk.util.o.ge(name);
+                if (this.hasLabel && ge > MAX_NAME_LENGTH) {
+                    name = com.baidu.tbadk.util.o.f(name, 0, MAX_NAME_LENGTH) ? String.valueOf(com.baidu.tbadk.util.o.e(name, 0, MAX_NAME_LENGTH)) + "..." : String.valueOf(com.baidu.tbadk.util.o.e(name, 0, MAX_NAME_LENGTH - 2)) + "...";
                 }
                 this.mCardName.setText(name);
             }
@@ -245,7 +245,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.hasBarName = !StringUtils.isNull(liveCardData.getForumName());
             String str = "";
             if (this.hasBarName) {
-                str = UtilHelper.getFixedText(String.valueOf(liveCardData.getForumName()) + this.mContext.getString(i.h.bar), 7);
+                str = UtilHelper.getFixedText(String.valueOf(liveCardData.getForumName()) + this.mContext.getString(n.i.bar), 7);
             }
             this.mBarFrom.setText(str);
             this.mCardDelete.setTag(liveCardData);
@@ -253,7 +253,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.isVip = liveCardData.getIsVip() == 1;
             if (this.isVip) {
                 this.mCardVipImage.setVisibility(0);
-                an.c(this.mCardVipImage, i.e.lable_live_v);
+                as.c(this.mCardVipImage, n.e.lable_live_v);
             } else {
                 this.mCardVipImage.setVisibility(8);
             }
@@ -328,28 +328,28 @@ public class LiveBroadcastCard extends FrameLayout {
             }
             imageView.setVisibility(8);
             if (this.mIsHideSHow) {
-                an.b(this.mCardName, i.c.cp_cont_e, 1);
-                an.b(this.mBarFrom, i.c.cp_cont_e, 1);
-                an.b(this.mListenerCount, i.c.cp_cont_e, 1);
-                an.b(this.mLikerCount, i.c.cp_cont_e, 1);
-                an.b(this.mCardAuthor, i.c.cp_cont_e, 1);
-                an.b(this.mCardIntro, i.c.cp_cont_e, 1);
-                an.c(this.mCardListenerImage, i.e.icon_live_list_pop_d);
-                an.c(this.mCardLikeImage, i.e.icon_live_list_like_d);
-                this.mHeadImageView.setForegroundColor(an.getColor(i.c.live_broadcast_card_head_mask));
+                as.b(this.mCardName, n.c.cp_cont_e, 1);
+                as.b(this.mBarFrom, n.c.cp_cont_e, 1);
+                as.b(this.mListenerCount, n.c.cp_cont_e, 1);
+                as.b(this.mLikerCount, n.c.cp_cont_e, 1);
+                as.b(this.mCardAuthor, n.c.cp_cont_e, 1);
+                as.b(this.mCardIntro, n.c.cp_cont_e, 1);
+                as.c(this.mCardListenerImage, n.e.icon_live_list_pop_d);
+                as.c(this.mCardLikeImage, n.e.icon_live_list_like_d);
+                this.mHeadImageView.setForegroundColor(as.getColor(n.c.live_broadcast_card_head_mask));
             } else {
-                an.b(this.mCardName, i.c.cp_cont_b, 1);
-                an.b(this.mBarFrom, i.c.cp_cont_c, 1);
-                an.b(this.mListenerCount, i.c.cp_cont_c, 1);
-                an.b(this.mLikerCount, i.c.cp_cont_c, 1);
-                an.b(this.mCardAuthor, i.c.cp_cont_c, 1);
-                an.b(this.mCardIntro, i.c.cp_cont_d, 1);
-                an.c(this.mCardListenerImage, i.e.icon_live_list_pop);
-                an.c(this.mCardLikeImage, i.e.icon_live_list_like);
+                as.b(this.mCardName, n.c.cp_cont_b, 1);
+                as.b(this.mBarFrom, n.c.cp_cont_c, 1);
+                as.b(this.mListenerCount, n.c.cp_cont_c, 1);
+                as.b(this.mLikerCount, n.c.cp_cont_c, 1);
+                as.b(this.mCardAuthor, n.c.cp_cont_c, 1);
+                as.b(this.mCardIntro, n.c.cp_cont_d, 1);
+                as.c(this.mCardListenerImage, n.e.icon_live_list_pop);
+                as.c(this.mCardLikeImage, n.e.icon_live_list_like);
                 this.mHeadImageView.setForegroundColor(0);
             }
-            an.b(this.card_label, i.c.cp_other_c, 1);
-            an.i((View) this.card_label, i.e.bg_essence_list_ba);
+            as.b(this.card_label, n.c.cp_other_c, 1);
+            as.i((View) this.card_label, n.e.bg_essence_list_ba);
         }
     }
 
@@ -430,7 +430,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.mCardLivingImage.setVisibility(8);
         }
         this.mCardStatus = 3;
-        c.za().b(this);
+        c.zW().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -459,7 +459,7 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mCardStatus = 0;
         dealStatusWillStart();
         registerTimeUpdateListener();
-        c.za().a(this);
+        c.zW().a(this);
     }
 
     private void updateStatusClose() {
@@ -479,9 +479,9 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mStateLiving.setVisibility(8);
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
-        this.mStateClose.setText(i.h.live_card_close);
-        an.b(this.mStateClose, i.c.cp_cont_d, 1);
-        this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(i.d.ds28));
+        this.mStateClose.setText(n.i.live_card_close);
+        as.b(this.mStateClose, n.c.cp_cont_d, 1);
+        this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(n.d.ds28));
         this.mCardStatus = 4;
     }
 
@@ -502,22 +502,22 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mStateLiving.setVisibility(8);
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
-        this.mStateClose.setText(i.h.live_card_hide);
-        an.b(this.mStateClose, i.c.cp_cont_d, 1);
-        this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(i.d.ds32));
+        this.mStateClose.setText(n.i.live_card_hide);
+        as.b(this.mStateClose, n.c.cp_cont_d, 1);
+        this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(n.d.ds32));
         this.mCardStatus = 5;
     }
 
     private void updateStatusWillStartCountDown() {
-        this.mStateWillStart.setText(i.h.live_card_count_down);
-        an.i((View) this.mStateWillStart, i.e.bg_live_orange);
+        this.mStateWillStart.setText(n.i.live_card_count_down);
+        as.i((View) this.mStateWillStart, n.e.bg_live_orange);
         this.mCardStatus = 2;
     }
 
     private void updateStatusWillStartForeShow() {
         this.mCardTime.setText(getFormatHour(this.mStartTime));
-        this.mStateWillStart.setText(i.h.live_card_foreshowt);
-        an.i((View) this.mStateWillStart, i.e.bg_live_yellow);
+        this.mStateWillStart.setText(n.i.live_card_foreshowt);
+        as.i((View) this.mStateWillStart, n.e.bg_live_yellow);
         this.mCardStatus = 1;
     }
 
@@ -531,7 +531,7 @@ public class LiveBroadcastCard extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        c.za().b(this);
+        c.zW().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -565,7 +565,7 @@ public class LiveBroadcastCard extends FrameLayout {
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ad(i == 1);
+        tbPageContext.getLayoutMode().af(i == 1);
         tbPageContext.getLayoutMode().k(this.mRootView);
     }
 
@@ -575,15 +575,15 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public static class c {
-        private static c akP;
+        private static c amA;
         private static Handler mHandler = new s();
         private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
-        public static c za() {
-            if (akP == null) {
-                akP = new c();
+        public static c zW() {
+            if (amA == null) {
+                amA = new c();
             }
-            return akP;
+            return amA;
         }
 
         private c() {

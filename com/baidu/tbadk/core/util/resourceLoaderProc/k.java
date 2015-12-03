@@ -4,21 +4,21 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class k extends a {
-    private boolean acG;
-    private boolean acH;
-    private boolean acI;
+    private boolean adA;
+    private boolean ady;
+    private boolean adz;
     private int height;
     private int width;
 
     public k(boolean z, boolean z2, boolean z3) {
-        this.acG = true;
-        this.acH = false;
-        this.acI = false;
+        this.ady = true;
+        this.adz = false;
+        this.adA = false;
         this.width = 0;
         this.height = 0;
-        this.acG = z;
-        this.acH = z2;
-        this.acI = z3;
+        this.ady = z;
+        this.adz = z2;
+        this.adA = z3;
         this.width = Math.min(com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
         this.height = (int) (this.width * 1.6f);
     }
@@ -35,16 +35,16 @@ public class k extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.acG;
+        return this.ady;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vm() {
-        return this.acI;
+    public boolean vS() {
+        return this.adA;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vn() {
-        return this.acH;
+    public boolean vT() {
+        return this.adz;
     }
 }

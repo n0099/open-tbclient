@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.message.SaveDraftMessage;
 /* loaded from: classes.dex */
 public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
-    private com.baidu.tieba.im.settingcache.a bIj;
+    private com.baidu.tieba.im.settingcache.a bXp;
     private int mCmd;
 
     public b(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.bIj = aVar;
+        this.bXp = aVar;
         this.mCmd = i;
     }
 
@@ -26,12 +26,12 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        com.baidu.tieba.im.pushNotify.a aJ = this.bIj.aJ(str, data.mId);
-        if (aJ == null) {
+        com.baidu.tieba.im.pushNotify.a aO = this.bXp.aO(str, data.mId);
+        if (aO == null) {
             return null;
         }
-        aJ.setDraft(data.mDraft);
-        this.bIj.a(aJ);
+        aO.setDraft(data.mDraft);
+        this.bXp.a(aO);
         return customResponsedMessage;
     }
 }

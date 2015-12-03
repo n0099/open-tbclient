@@ -10,64 +10,64 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bj;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.setting.SapiWebViewActivityConfig;
 /* loaded from: classes.dex */
 public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
-    private LinearLayout Mh;
-    private NoNetworkView aMY;
-    private SapiWebView cdG;
+    private LinearLayout My;
+    private NoNetworkView aQl;
+    private SapiWebView cwe;
     private NavigationBar mNavigationBar;
     private int mType = -1;
-    private String ws = "";
-    private boolean cQb = true;
+    private String wy = "";
+    private boolean dox = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(i.g.activity_sapi_webview);
-        atA();
-        FZ();
-        atB();
+        setContentView(n.g.activity_sapi_webview);
+        azc();
+        initViews();
+        azd();
         if (!checkUpIsLogin()) {
             finish();
         }
     }
 
-    private void atA() {
+    private void azc() {
         if (getIntent() != null) {
             this.mType = getIntent().getIntExtra(SapiWebViewActivityConfig.EXTRA_TYPE, -1);
-            this.ws = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
-            this.cQb = getIntent().getBooleanExtra(SapiWebViewActivityConfig.EXTRA_NAV, true);
+            this.wy = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
+            this.dox = getIntent().getBooleanExtra(SapiWebViewActivityConfig.EXTRA_NAV, true);
         }
     }
 
-    private void FZ() {
-        this.Mh = (LinearLayout) findViewById(i.f.layout_root);
-        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new af(this));
-        this.aMY = (NoNetworkView) findViewById(i.f.no_network_view);
-        this.cdG = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdG);
-        this.cdG.setOnBackCallback(new ag(this));
-        this.cdG.setOnFinishCallback(new ah(this));
-        this.cdG.setChangePwdCallback(new ai(this));
+    private void initViews() {
+        this.My = (LinearLayout) findViewById(n.f.layout_root);
+        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ah(this));
+        this.aQl = (NoNetworkView) findViewById(n.f.no_network_view);
+        this.cwe = (SapiWebView) findViewById(n.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cwe);
+        this.cwe.setOnBackCallback(new ai(this));
+        this.cwe.setOnFinishCallback(new aj(this));
+        this.cwe.setChangePwdCallback(new ak(this));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            bd.a((View) this.cdG, i.c.cp_link_tip_b, false);
+            bj.a((View) this.cwe, n.c.cp_link_tip_b, false);
         }
-        this.aMY.a(new a());
+        this.aQl.a(new a());
     }
 
-    private void atB() {
-        if (!TextUtils.isEmpty(this.ws) && this.cdG != null && this.mNavigationBar != null) {
+    private void azd() {
+        if (!TextUtils.isEmpty(this.wy) && this.cwe != null && this.mNavigationBar != null) {
             if (this.mType == 0) {
-                this.cdG.loadModifyPwd(this.ws);
-                this.mNavigationBar.setTitleText(getPageContext().getString(i.h.modify_pwd));
+                this.cwe.loadModifyPwd(this.wy);
+                this.mNavigationBar.setTitleText(getPageContext().getString(n.i.modify_pwd));
                 return;
             }
             BindWidgetAction bindWidgetAction = null;
@@ -82,11 +82,11 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
             }
             if (bindWidgetAction != null && !TextUtils.isEmpty(bindWidgetAction.getName())) {
                 this.mNavigationBar.setTitleText(bindWidgetAction.getName());
-                this.cdG.loadBindWidget(bindWidgetAction, this.ws);
+                this.cwe.loadBindWidget(bindWidgetAction, this.wy);
             } else {
-                this.mNavigationBar.setTitleText(getPageContext().getString(i.h.account_safe));
+                this.mNavigationBar.setTitleText(getPageContext().getString(n.i.account_safe));
             }
-            if (!this.cQb) {
+            if (!this.dox) {
                 this.mNavigationBar.setVisibility(8);
             } else {
                 this.mNavigationBar.setVisibility(0);
@@ -126,8 +126,8 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.cdG != null && this.cdG.canGoBack()) {
-            this.cdG.goBack();
+        if (this.cwe != null && this.cwe.canGoBack()) {
+            this.cwe.goBack();
         } else {
             finishActivity();
         }
@@ -145,12 +145,12 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void ax(boolean z) {
-            if (SapiWebViewActivity.this.aMY != null) {
+        public void aA(boolean z) {
+            if (SapiWebViewActivity.this.aQl != null) {
                 if (z) {
-                    SapiWebViewActivity.this.aMY.setVisibility(8);
+                    SapiWebViewActivity.this.aQl.setVisibility(8);
                 } else {
-                    SapiWebViewActivity.this.aMY.setVisibility(0);
+                    SapiWebViewActivity.this.aQl.setVisibility(0);
                 }
             }
         }
@@ -163,8 +163,8 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        if (this.Mh != null) {
-            this.Mh.removeAllViews();
+        if (this.My != null) {
+            this.My.removeAllViews();
         }
     }
 }

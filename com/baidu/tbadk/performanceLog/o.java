@@ -10,125 +10,125 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends r {
-    private ArrayList<String> avZ;
-    private ArrayList<String> avx;
-    private ArrayList<String> avy;
-    private boolean awa;
+    private ArrayList<String> axC;
+    private ArrayList<String> axD;
+    private ArrayList<String> aye;
+    private boolean ayf;
     private CustomMessageListener customNormalListener = new q(this, CmdConfigCustom.CMD_PERF_LIVE_SAMPLE);
-    public static int awb = 0;
-    public static int awc = 1;
-    public static int awd = 2;
-    private static CustomMessageTask avH = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
+    public static int ayg = 0;
+    public static int ayh = 1;
+    public static int ayi = 2;
+    private static CustomMessageTask axM = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
 
     static {
-        avH.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(avH);
+        axM.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(axM);
     }
 
     public o() {
-        Dv();
+        Ew();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean DF() {
-        return this.awa;
+    public boolean EG() {
+        return this.ayf;
     }
 
-    public void bs(boolean z) {
-        this.awa = z;
+    public void bB(boolean z) {
+        this.ayf = z;
     }
 
-    public void Du() {
-        Dw();
+    public void Ev() {
+        Ex();
     }
 
-    public void K(int i, int i2) {
+    public void L(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(awb, 6);
-            sparseArray.put(awc, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(awd, Integer.valueOf(i));
+            sparseArray.put(ayg, 6);
+            sparseArray.put(ayh, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(ayi, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(awb, 6);
-            sparseArray2.put(awc, Integer.valueOf((int) a0.t));
-            sparseArray2.put(awd, Integer.valueOf(i2));
+            sparseArray2.put(ayg, 6);
+            sparseArray2.put(ayh, Integer.valueOf((int) a0.t));
+            sparseArray2.put(ayi, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray2));
         }
     }
 
-    public void DG() {
-        DI();
-        if (this.avy != null) {
-            this.avy.clear();
+    public void EH() {
+        EJ();
+        if (this.axD != null) {
+            this.axD.clear();
         }
-        if (this.avx != null) {
-            this.avx.clear();
+        if (this.axC != null) {
+            this.axC.clear();
         }
-        if (this.avZ != null) {
-            this.avZ.clear();
+        if (this.aye != null) {
+            this.aye.clear();
         }
     }
 
-    private void Dv() {
+    private void Ew() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Dw() {
+    private void Ex() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fD(String str) {
-        if (this.avx == null) {
-            this.avx = new ArrayList<>();
+    public void fR(String str) {
+        if (this.axC == null) {
+            this.axC = new ArrayList<>();
         }
         if (str != null) {
-            this.avx.add(str);
+            this.axC.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fE(String str) {
-        if (this.avZ == null) {
-            this.avZ = new ArrayList<>();
+    public void fS(String str) {
+        if (this.aye == null) {
+            this.aye = new ArrayList<>();
         }
         if (str != null) {
-            this.avZ.add(str);
+            this.aye.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ew(int i) {
+    public void eK(int i) {
         String valueOf = String.valueOf(i);
-        if (this.avy == null) {
-            this.avy = new ArrayList<>();
+        if (this.axD == null) {
+            this.axD = new ArrayList<>();
         }
-        this.avy.add(valueOf);
+        this.axD.add(valueOf);
     }
 
-    public String DH() {
-        return r(this.avZ);
+    public String EI() {
+        return s(this.aye);
     }
 
-    public String Dz() {
-        return r(this.avx);
+    public String EA() {
+        return s(this.axC);
     }
 
     public String getCpuString() {
-        return r(this.avy);
+        return s(this.axD);
     }
 
-    private String r(ArrayList<String> arrayList) {
+    private String s(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -147,18 +147,18 @@ public class o extends r {
         return stringBuffer.toString();
     }
 
-    private void DI() {
+    private void EJ() {
         w wVar;
-        if (this.avx != null && this.avx.size() > 0 && this.avy != null && this.avy.size() > 0 && this.avZ != null && this.avZ.size() > 0 && (wVar = (w) y.DR().ez(this.mSubType)) != null) {
+        if (this.axC != null && this.axC.size() > 0 && this.axD != null && this.axD.size() > 0 && this.aye != null && this.aye.size() > 0 && (wVar = (w) y.ES().eN(this.mSubType)) != null) {
             wVar.b(this);
         }
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String avJ;
-        public int avK;
-        public String awf;
+        public String axO;
+        public int axP;
+        public String ayk;
 
         public a() {
         }

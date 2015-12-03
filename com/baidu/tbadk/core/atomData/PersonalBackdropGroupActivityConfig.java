@@ -7,4 +7,9 @@ public class PersonalBackdropGroupActivityConfig extends IntentConfig {
     public PersonalBackdropGroupActivityConfig(Context context) {
         super(context);
     }
+
+    public PersonalBackdropGroupActivityConfig(Context context, boolean z) {
+        super(context);
+        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+    }
 }

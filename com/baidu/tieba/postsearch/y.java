@@ -1,77 +1,77 @@
 package com.baidu.tieba.postsearch;
 
 import android.view.View;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class y {
-    private PostSearchActivity cFs;
-    private a cGg;
-    private k cGh;
-    private x cGi;
+    private a deP;
+    private k deQ;
+    private x deR;
+    private PostSearchActivity deb;
     private View mRootView;
 
     public y(PostSearchActivity postSearchActivity) {
-        this.cFs = postSearchActivity;
+        this.deb = postSearchActivity;
     }
 
     public void initView() {
-        this.cFs.setContentView(i.g.post_search_activity);
-        this.mRootView = this.cFs.findViewById(i.f.search_rootview);
-        this.cGg = new a(this.cFs, this.mRootView);
-        this.cGh = new k(this.cFs, this.mRootView);
-        this.cGi = new x(this.cFs, this.mRootView);
+        this.deb.setContentView(n.g.post_search_activity);
+        this.mRootView = this.deb.findViewById(n.f.search_rootview);
+        this.deP = new a(this.deb, this.mRootView);
+        this.deQ = new k(this.deb, this.mRootView);
+        this.deR = new x(this.deb, this.mRootView);
     }
 
-    public void ac(ArrayList<String> arrayList) {
-        this.cGi.fO(false);
-        this.cGh.ac(arrayList);
+    public void aj(ArrayList<String> arrayList) {
+        this.deR.gG(false);
+        this.deQ.aj(arrayList);
     }
 
-    public void kp(int i) {
-        this.cGg.Ov();
-        aoG();
-        this.cGg.aoH();
-        this.cGi.fO(true);
-        this.cGi.kp(i);
+    public void lA(int i) {
+        this.deP.Qb();
+        aus();
+        this.deP.aut();
+        this.deR.gG(true);
+        this.deR.lA(i);
     }
 
-    public void kM(String str) {
-        this.cGg.kM(str);
+    public void lJ(String str) {
+        this.deP.lJ(str);
     }
 
     public void a(int i, j jVar, boolean z) {
-        this.cGi.a(i, jVar, z);
+        this.deR.a(i, jVar, z);
     }
 
-    public boolean aoL() {
-        return this.cGh.aoS();
+    public boolean aux() {
+        return this.deQ.auE();
     }
 
-    public void KN() {
-        this.cGh.KN();
+    public void Mm() {
+        this.deQ.Mm();
     }
 
-    public void anv() {
-        this.cGh.anv();
+    public void asV() {
+        this.deQ.asV();
     }
 
-    public void aoR() {
-        this.cGh.aoR();
+    public void auD() {
+        this.deQ.auD();
     }
 
-    public void aoG() {
-        this.cGg.aoG();
+    public void aus() {
+        this.deP.aus();
     }
 
-    public void apc() {
-        this.cGh.aoQ();
+    public void auO() {
+        this.deQ.auC();
     }
 
     public void onChangeSkinType(int i) {
-        this.cGg.onChangeSkinType(i);
-        this.cGh.onChangeSkinType(i);
-        this.cGi.onChangeSkinType(i);
-        com.baidu.tbadk.h.a.a(this.cFs.getPageContext(), this.mRootView);
+        this.deP.onChangeSkinType(i);
+        this.deQ.onChangeSkinType(i);
+        this.deR.onChangeSkinType(i);
+        com.baidu.tbadk.i.a.a(this.deb.getPageContext(), this.mRootView);
     }
 }

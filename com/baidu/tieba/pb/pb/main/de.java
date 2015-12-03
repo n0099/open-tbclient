@@ -1,27 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
 import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de implements View.OnClickListener {
-    final /* synthetic */ ct cmY;
+public class de implements Animation.AnimationListener {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(ct ctVar) {
-        this.cmY = ctVar;
+    public de(da daVar) {
+        this.cGh = daVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.cmY.cmq;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.cmY.cmq;
-            pbActivity = this.cmY.cjZ;
-            com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.k kVar;
+        com.baidu.tbadk.editortools.k kVar2;
+        View view;
+        boolean z2;
+        z = this.cGh.cFx;
+        if (!z) {
+            kVar = this.cGh.KS;
+            if (kVar != null) {
+                kVar2 = this.cGh.KS;
+                kVar2.oD();
+                return;
+            }
+            return;
         }
+        view = this.cGh.cFt;
+        if (view != null) {
+            z2 = this.cGh.cFr;
+            if (z2) {
+                this.cGh.fl(false);
+            } else {
+                this.cGh.fm(false);
+            }
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

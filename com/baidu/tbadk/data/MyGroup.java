@@ -9,8 +9,17 @@ import tbclient.MyGroupInfo;
 public class MyGroup extends i implements Serializable {
     private static final long serialVersionUID = 3454151897639902332L;
     private long mGroupId;
+    private Integer mGroupMemberNum;
     private String mGroupName;
     private String mGroupPortrait;
+
+    public Integer getmGroupMemberNum() {
+        return this.mGroupMemberNum;
+    }
+
+    public void setmGroupMemberNum(Integer num) {
+        this.mGroupMemberNum = num;
+    }
 
     public String getmGroupName() {
         return this.mGroupName;
@@ -41,6 +50,7 @@ public class MyGroup extends i implements Serializable {
             this.mGroupName = jSONObject.optString("group_name");
             this.mGroupId = jSONObject.optLong("group_id");
             this.mGroupPortrait = jSONObject.optString(IntentConfig.PORTRAIT);
+            this.mGroupMemberNum = Integer.valueOf(jSONObject.optInt("member_num"));
         }
     }
 
@@ -49,6 +59,7 @@ public class MyGroup extends i implements Serializable {
             this.mGroupName = myGroupInfo.group_name;
             this.mGroupId = myGroupInfo.group_id.longValue();
             this.mGroupPortrait = myGroupInfo.portrait;
+            this.mGroupMemberNum = myGroupInfo.member_num;
         }
     }
 }

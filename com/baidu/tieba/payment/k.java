@@ -1,32 +1,29 @@
 package com.baidu.tieba.payment;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ PaymentConfirmActivity ceE;
+class k extends CustomMessageListener {
+    final /* synthetic */ PaymentConfirmActivity cxe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PaymentConfirmActivity paymentConfirmActivity) {
-        this.ceE = paymentConfirmActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(PaymentConfirmActivity paymentConfirmActivity, int i) {
+        super(i);
+        this.cxe = paymentConfirmActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        boolean z2;
-        z = this.ceE.ceA;
-        if (!z) {
-            z2 = this.ceE.cez;
-            if (z2) {
-                r.jB("c10292");
-                this.ceE.aeI();
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (!StringUtils.isNull(str)) {
+                this.cxe.a(null, null, null, null, str, false);
+            } else {
+                this.cxe.a(null, null, null, null, null, true);
             }
-            r.jB("c10293");
-            this.ceE.aeH();
-            return;
         }
-        this.ceE.J(0, null);
     }
 }

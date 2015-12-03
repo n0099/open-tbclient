@@ -5,63 +5,63 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int zk;
-    private final int zl;
-    private ByteBuffer zm;
+    private final int zq;
+    private final int zr;
+    private ByteBuffer zs;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.zk = i;
-        this.zl = i2;
-        this.zm = ByteBuffer.allocateDirect(this.zk);
-        this.zm.clear();
+        this.zq = i;
+        this.zr = i2;
+        this.zs = ByteBuffer.allocateDirect(this.zq);
+        this.zs.clear();
     }
 
-    public ByteBuffer jt() {
-        return this.zm;
+    public ByteBuffer ju() {
+        return this.zs;
     }
 
     public Buffer flip() {
-        return this.zm.flip();
+        return this.zs.flip();
     }
 
     public Buffer clear() {
-        return this.zm.clear();
+        return this.zs.clear();
     }
 
     public int remaining() {
-        return this.zm.remaining();
+        return this.zs.remaining();
     }
 
-    public synchronized void al(int i) {
-        if (i > this.zm.capacity()) {
-            ByteBuffer byteBuffer = this.zm;
-            int position = this.zm.position();
-            this.zm = ByteBuffer.allocateDirect(((i / this.zl) + 1) * this.zl);
+    public synchronized void am(int i) {
+        if (i > this.zs.capacity()) {
+            ByteBuffer byteBuffer = this.zs;
+            int position = this.zs.position();
+            this.zs = ByteBuffer.allocateDirect(((i / this.zr) + 1) * this.zr);
             byteBuffer.clear();
-            this.zm.clear();
-            this.zm.put(byteBuffer);
-            this.zm.position(position);
+            this.zs.clear();
+            this.zs.put(byteBuffer);
+            this.zs.position(position);
         }
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(int i) {
-        if (this.zm.position() + 1 > this.zm.capacity()) {
-            al(this.zm.capacity() + 1);
+        if (this.zs.position() + 1 > this.zs.capacity()) {
+            am(this.zs.capacity() + 1);
         }
-        this.zm.put((byte) i);
+        this.zs.put((byte) i);
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) {
-        if (this.zm.position() + i2 > this.zm.capacity()) {
-            al(this.zm.capacity() + i2);
+        if (this.zs.position() + i2 > this.zs.capacity()) {
+            am(this.zs.capacity() + i2);
         }
-        this.zm.put(bArr, i, i2);
+        this.zs.put(bArr, i, i2);
     }
 
     @Override // java.io.OutputStream
@@ -73,7 +73,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void ju() {
+    public synchronized void jv() {
         write(13);
         write(10);
     }

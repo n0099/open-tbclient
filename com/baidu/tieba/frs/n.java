@@ -3,45 +3,33 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class n implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity aUS;
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.aUS = frsActivity;
+        this.bag = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        bs bsVar;
-        com.baidu.tieba.tbadkCore.o oVar;
-        bs bsVar2;
+    public void aA(boolean z) {
+        com.baidu.tieba.tbadkCore.p pVar;
         boolean z2;
-        bs bsVar3;
-        bs bsVar4;
-        com.baidu.tieba.tbadkCore.o oVar2;
-        if (z) {
-            bsVar = this.aUS.aUc;
-            if (!bsVar.Lu()) {
-                oVar = this.aUS.aUe;
-                if (oVar != null) {
-                    oVar2 = this.aUS.aUe;
-                    if (oVar2.getThreadList().size() != 0) {
-                        return;
-                    }
+        com.baidu.tieba.tbadkCore.p pVar2;
+        if (z && !this.bag.aZq.MU()) {
+            pVar = this.bag.aZs;
+            if (pVar != null) {
+                pVar2 = this.bag.aZs;
+                if (pVar2.getThreadList().size() != 0) {
+                    return;
                 }
-                FrsActivity frsActivity = this.aUS;
-                bsVar2 = this.aUS.aUc;
-                frsActivity.hideNetRefreshView(bsVar2.getRootView());
-                z2 = this.aUS.aTP;
-                if (!z2) {
-                    FrsActivity frsActivity2 = this.aUS;
-                    bsVar3 = this.aUS.aUc;
-                    frsActivity2.showLoadingView(bsVar3.getRootView(), true);
-                    bsVar4 = this.aUS.aUc;
-                    bsVar4.Mk();
-                }
-                this.aUS.refresh();
             }
+            this.bag.hideNetRefreshView(this.bag.aZq.getRootView());
+            z2 = this.bag.aZd;
+            if (!z2) {
+                this.bag.showLoadingView(this.bag.aZq.getRootView(), true);
+                this.bag.aZq.NL();
+            }
+            this.bag.refresh();
         }
     }
 }

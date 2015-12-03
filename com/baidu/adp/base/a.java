@@ -42,11 +42,11 @@ public final class a {
     public void g(Activity activity) {
         if (activity != null) {
             np.add(new SoftReference<>(activity));
-            q(this.ns);
+            r(this.ns);
         }
     }
 
-    public Activity p(int i) {
+    public Activity q(int i) {
         int size = np.size();
         if (size == 0) {
             return null;
@@ -82,7 +82,7 @@ public final class a {
                         return;
                     }
                     return;
-                } else if (size == 0 && this.nr != null) {
+                } else if (np.size() == 0 && this.nr != null) {
                     this.nr.onActivityClosed();
                 }
             }
@@ -105,7 +105,7 @@ public final class a {
     }
 
     public void dH() {
-        q(3);
+        r(3);
     }
 
     public void dI() {
@@ -127,14 +127,14 @@ public final class a {
         return this.ns;
     }
 
-    private void q(int i) {
+    private void r(int i) {
         if (i != 0) {
             int size = dF().getSize();
             while (size > i) {
                 size--;
-                Activity p = dF().p(1);
-                if (p != null) {
-                    p.finish();
+                Activity q = dF().q(1);
+                if (q != null) {
+                    q.finish();
                 }
             }
         }

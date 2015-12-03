@@ -1,21 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.tbadkCore.c.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bl implements a.InterfaceC0075a {
-    final /* synthetic */ WriteActivity dsa;
+class bl extends CustomMessageListener {
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(WriteActivity writeActivity, int i) {
+        super(i);
+        this.dRf = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0075a
-    public void no() {
-        com.baidu.tbadk.editortools.j jVar;
-        this.dsa.bWX = null;
-        this.dsa.he(false);
-        jVar = this.dsa.drr;
-        jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.dRf.aEI();
+        }
     }
 }

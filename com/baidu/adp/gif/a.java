@@ -6,37 +6,37 @@ public interface a {
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0002a implements a {
-        private static a qP;
-        private int qQ;
-        private final f qR = new f();
+        private static a qR;
+        private int qS;
+        private final f qT = new f();
 
         public C0002a() {
-            this.qQ = 0;
-            if (NSGif.qS) {
-                this.qQ = 0;
+            this.qS = 0;
+            if (NSGif.qU) {
+                this.qS = 0;
             } else {
-                this.qQ = 1;
+                this.qS = 1;
             }
         }
 
         public static synchronized a fe() {
             a aVar;
             synchronized (C0002a.class) {
-                if (qP == null) {
-                    qP = new C0002a();
+                if (qR == null) {
+                    qR = new C0002a();
                 }
-                aVar = qP;
+                aVar = qR;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.a.a e(byte[] bArr, int i, int i2) {
-            if (this.qQ != 0) {
+            if (this.qS != 0) {
                 return null;
             }
             try {
-                return this.qR.e(bArr, i, i2);
+                return this.qT.e(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

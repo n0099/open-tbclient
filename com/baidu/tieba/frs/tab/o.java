@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.tab;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.frs.ek;
+import com.baidu.tieba.frs.fc;
 import com.baidu.tieba.frs.tab.i;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ m bcf;
+    final /* synthetic */ m biK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.bcf = mVar;
+        this.biK = mVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,31 +21,31 @@ public class o implements AdapterView.OnItemClickListener {
         i iVar;
         BaseAdapter baseAdapter;
         i.a aVar;
-        List<ek> list;
+        List<fc> list;
         BaseAdapter baseAdapter2;
         i.a aVar2;
         i iVar2;
-        iVar = this.bcf.bcd;
+        iVar = this.biK.biI;
         if (iVar != null) {
-            iVar2 = this.bcf.bcd;
-            iVar2.ND();
+            iVar2 = this.biK.biI;
+            iVar2.Pj();
         }
-        baseAdapter = this.bcf.bce;
+        baseAdapter = this.biK.biJ;
         if (baseAdapter != null) {
-            aVar = this.bcf.bbI;
+            aVar = this.biK.bin;
             if (aVar != null) {
-                list = this.bcf.mData;
-                for (ek ekVar : list) {
-                    if (ekVar != null) {
-                        ekVar.isSelected = false;
+                list = this.biK.mData;
+                for (fc fcVar : list) {
+                    if (fcVar != null) {
+                        fcVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.bcf.bce;
-                ek ekVar2 = (ek) baseAdapter2.getItem(i);
-                if (ekVar2 != null) {
-                    ekVar2.isSelected = true;
-                    aVar2 = this.bcf.bbI;
-                    aVar2.ga(ekVar2.aYG);
+                baseAdapter2 = this.biK.biJ;
+                fc fcVar2 = (fc) baseAdapter2.getItem(i);
+                if (fcVar2 != null) {
+                    fcVar2.isSelected = true;
+                    aVar2 = this.biK.bin;
+                    aVar2.gw(fcVar2.beF);
                 }
             }
         }

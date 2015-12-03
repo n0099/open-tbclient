@@ -65,7 +65,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        o<byte[]> T;
+        o<byte[]> Q;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -85,10 +85,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String Cq = eVar.Cq();
+                String Dr = eVar.Dr();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(Cq) && bArr != null && (T = a.sO().T(Cq, currentAccount)) != null) {
-                    T.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(Dr) && bArr != null && (Q = a.ts().Q(Dr, currentAccount)) != null) {
+                    Q.f(cacheKey, bArr);
                 }
             }
         }

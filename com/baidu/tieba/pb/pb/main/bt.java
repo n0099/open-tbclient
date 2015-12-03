@@ -1,17 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class bt extends bu {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bt(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class bt implements Comparator<Integer> {
+    final /* synthetic */ br cCJ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(br brVar) {
+        this.cCJ = brVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bu
-    protected PbRecBaseViewHolder J(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aqc().l(this.mContext, 3);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(Integer num, Integer num2) {
+        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
     }
 }

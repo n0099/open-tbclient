@@ -1,30 +1,61 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+import com.baidu.tieba.frs.cv;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements View.OnClickListener {
-    final /* synthetic */ cw aYg;
+public class cx implements com.baidu.adp.lib.f.c<cv.a> {
+    final /* synthetic */ cv bdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cw cwVar) {
-        this.aYg = cwVar;
+    public cx(cv cvVar) {
+        this.bdx = cvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: NY */
+    public cv.a hc() {
+        Context context;
         BaseActivity baseActivity;
-        if (this.aYg.aA(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.w) {
-            String str = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.w) aA).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m411getInst().getString(i.h.user_icon_web_view_title);
-            baseActivity = this.aYg.aSm;
-            com.baidu.tbadk.browser.g.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10134").r("obj_type", 3));
-        }
+        BaseActivity baseActivity2;
+        context = this.bdx.mContext;
+        View inflate = LayoutInflater.from(context).inflate(n.g.frs_item_livecard, (ViewGroup) null);
+        cv.a aVar = new cv.a();
+        aVar.aYP = (LinearLayout) inflate.findViewById(n.f.live_card_layout);
+        aVar.aYQ = (LiveBroadcastCard) inflate.findViewById(n.f.item_card);
+        baseActivity = this.bdx.aXA;
+        baseActivity.getLayoutMode().af(this.bdx.mSkinType == 1);
+        baseActivity2 = this.bdx.aXA;
+        baseActivity2.getLayoutMode().k(inflate);
+        aVar.afY = this.bdx.mSkinType;
+        return aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(cv.a aVar) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public cv.a m(cv.a aVar) {
+        return aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public cv.a n(cv.a aVar) {
+        return aVar;
     }
 }

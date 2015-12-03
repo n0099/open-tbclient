@@ -1,24 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd extends CustomMessageListener {
-    final /* synthetic */ ct cmY;
+public class dd implements Animation.AnimationListener {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dd(ct ctVar, int i) {
-        super(i);
-        this.cmY = ctVar;
+    public dd(da daVar) {
+        this.cGh = daVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.cmY.cmG = false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        com.baidu.tbadk.editortools.k kVar;
+        View view2;
+        com.baidu.tbadk.editortools.k kVar2;
+        da daVar = this.cGh;
+        view = this.cGh.cFt;
+        daVar.cFx = view.getVisibility() == 0;
+        kVar = this.cGh.KS;
+        if (kVar != null) {
+            kVar2 = this.cGh.KS;
+            kVar2.hide();
         }
+        view2 = this.cGh.cFt;
+        view2.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

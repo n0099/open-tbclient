@@ -1,36 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class al implements a.b {
-    final /* synthetic */ FrsActivity aUS;
-    private final /* synthetic */ com.baidu.tieba.frs.view.p aVb;
-    private final /* synthetic */ ShareFromFrsMsgData aVe;
-    private final /* synthetic */ int aVf;
-    private final /* synthetic */ String aVg;
-    private final /* synthetic */ long aVh;
+class al extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsActivity frsActivity, com.baidu.tieba.frs.view.p pVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.aUS = frsActivity;
-        this.aVb = pVar;
-        this.aVf = i;
-        this.aVg = str;
-        this.aVh = j;
-        this.aVe = shareFromFrsMsgData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bag = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aUS.HidenSoftKeyPad((InputMethodManager) this.aUS.getSystemService("input_method"), this.aVb.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.aUS.getPageContext().getPageActivity(), this.aVf, this.aVg, this.aVh, "from_share", this.aVb.getLeaveMsg(), this.aVe.toChatMessageContent())));
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.k)) {
+            com.baidu.tbadk.coreExtra.data.k kVar = (com.baidu.tbadk.coreExtra.data.k) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(kVar.userId) && !TextUtils.isEmpty(kVar.userName) && this.bag.aZq != null && this.bag.aZq.NM() != null) {
+                this.bag.aZq.NM().aq(kVar.userId, kVar.userName);
+            }
+        }
     }
 }

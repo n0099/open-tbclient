@@ -3,28 +3,25 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class by implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PersonFriendByUidLocalMessage)) {
+        if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
             return null;
         }
-        String str = "";
-        if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-            str = TbadkCoreApplication.getCurrentAccountObj().getID();
-        }
-        String str2 = com.baidu.tbadk.core.b.a.sO().cr("tb.my_pages").get("personal_myfollow_" + str);
-        ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
-        if (str2 != null) {
+        String str = com.baidu.tbadk.core.b.a.ts().cz("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+        ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
+        if (str != null) {
             try {
-                responsePersonFriendByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY, str2);
+                responsePersonBarByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY, str);
             } catch (Exception e) {
-                e.printStackTrace();
+                BdLog.e(e.getMessage());
             }
         }
-        return responsePersonFriendByUidLocalMessage;
+        return responsePersonBarByUidLocalMessage;
     }
 }

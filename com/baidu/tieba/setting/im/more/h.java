@@ -5,38 +5,38 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SecretSettingActivity cMS;
-    private final /* synthetic */ String cMV;
+    final /* synthetic */ SecretSettingActivity dlj;
+    private final /* synthetic */ String dlm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(SecretSettingActivity secretSettingActivity, String str) {
-        this.cMS = secretSettingActivity;
-        this.cMV = str;
+        this.dlj = secretSettingActivity;
+        this.dlm = str;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
-        this.cMS.showProgressBar();
+        this.dlj.showProgressBar();
         switch (i) {
             case 0:
-                this.cMS.ab(this.cMV, 1);
+                this.dlj.ag(this.dlm, 1);
                 break;
             case 1:
-                this.cMS.ab(this.cMV, 2);
+                this.dlj.ag(this.dlm, 2);
                 break;
             case 2:
-                this.cMS.ab(this.cMV, 3);
+                this.dlj.ag(this.dlm, 3);
                 break;
         }
-        eVar = this.cMS.cMN;
-        eVar.bO(i);
-        if ("group".equals(this.cMV)) {
-            this.cMS.cMM = i + 1;
-        } else if ("post".equals(this.cMV)) {
-            this.cMS.cML = i + 1;
-        } else if ("like".equals(this.cMV)) {
-            this.cMS.cMK = i + 1;
+        eVar = this.dlj.dle;
+        eVar.bW(i);
+        if ("group".equals(this.dlm)) {
+            this.dlj.dld = i + 1;
+        } else if ("post".equals(this.dlm)) {
+            this.dlj.dlc = i + 1;
+        } else if ("like".equals(this.dlm)) {
+            this.dlj.dlb = i + 1;
         }
     }
 }

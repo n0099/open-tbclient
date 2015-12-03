@@ -2,17 +2,17 @@ package com.baidu.tieba.frs.tab;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.frs.ek;
+import com.baidu.tieba.frs.fc;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface f {
-    int NC();
+    int Pi();
 
     void a(Context context, i iVar);
 
     View getView();
 
-    void setData(List<ek> list);
+    void setData(List<fc> list);
 
-    void vB();
+    void wh();
 }

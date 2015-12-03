@@ -8,106 +8,106 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.view.j;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.ag;
+import com.baidu.tieba.n;
+import com.baidu.tieba.tbadkCore.ah;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements j.a {
-    private static int bPb = 7;
-    private boolean aki;
-    private com.baidu.tbadk.core.data.b bPd;
-    private boolean bPe;
-    private h bPf;
-    private i bPg;
+    private static int cfo = 7;
+    private boolean alT;
+    private com.baidu.tbadk.core.data.b cfq;
+    private boolean cfr;
+    private h cfs;
+    private i cft;
     private TbPageContext<?> mContext;
-    private int bPc = 0;
-    private boolean bPh = false;
-    private final View.OnClickListener aUI = new b(this);
-    private final View.OnClickListener aUH = new c(this);
-    private final CustomMessageListener bPi = new d(this, 0);
+    private int cfp = 0;
+    private boolean cfu = false;
+    private final View.OnClickListener aZW = new b(this);
+    private final View.OnClickListener aZV = new c(this);
+    private final CustomMessageListener cfv = new d(this, 0);
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.aki = false;
-        this.bPe = false;
-        this.aki = z;
-        this.bPe = z2;
+        this.alT = false;
+        this.cfr = false;
+        this.alT = z;
+        this.cfr = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.bPi);
-        this.bPg = new i(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.cfv);
+        this.cft = new i(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void d(com.baidu.tbadk.core.data.b bVar, int i) {
-        this.bPd = bVar;
-        this.bPc = i;
-        this.bPg.c(this.bPd);
+        this.cfq = bVar;
+        this.cfp = i;
+        this.cft.c(this.cfq);
     }
 
-    public boolean aad() {
-        return this.bPe && this.bPd != null && this.bPd.rn() && !ag.isInstalledPackage(this.mContext.getPageActivity(), this.bPd.Ub);
+    public boolean adJ() {
+        return this.cfr && this.cfq != null && this.cfq.rB() && !ah.isInstalledPackage(this.mContext.getPageActivity(), this.cfq.Ur);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public View f(ViewGroup viewGroup, int i) {
-        if (ie(i)) {
-            this.bPf = new h(viewGroup);
-            aae();
-            viewGroup.addView(this.bPf.getView());
-            return this.bPf.getView();
+        if (iZ(i)) {
+            this.cfs = new h(viewGroup);
+            adK();
+            viewGroup.addView(this.cfs.getView());
+            return this.cfs.getView();
         }
         return null;
     }
 
-    private boolean ie(int i) {
-        return aad() && this.bPc != 0 && i == this.bPc;
+    private boolean iZ(int i) {
+        return adJ() && this.cfp != 0 && i == this.cfp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aae() {
-        if (this.bPd != null && this.bPd.Uk != null) {
-            aaf();
-            if (this.bPd.rp()) {
-                this.bPf.aak().setVisibility(8);
-                this.bPf.q(this.aUH);
-            } else if (this.bPd.ro()) {
-                aag();
+    public void adK() {
+        if (this.cfq != null && this.cfq.UA != null) {
+            adL();
+            if (this.cfq.rD()) {
+                this.cfs.adQ().setVisibility(8);
+                this.cfs.q(this.aZV);
+            } else if (this.cfq.rC()) {
+                adM();
             }
         }
     }
 
-    private void aaf() {
-        this.bPf.aaj().setEvent(new e(this));
-        this.bPf.aaj().d(this.bPd.Uk.Up, this.aki ? 30 : 31, false);
+    private void adL() {
+        this.cfs.adP().setEvent(new e(this));
+        this.cfs.adP().d(this.cfq.UA.UF, this.alT ? 30 : 31, false);
     }
 
-    private void aag() {
-        if (this.bPd != null) {
-            this.bPf.aak().setVisibility(0);
-            if (com.baidu.tbadk.download.b.Ap().eI(this.bPd.Ub)) {
-                this.bPd.TV = 2;
+    private void adM() {
+        if (this.cfq != null) {
+            this.cfs.adQ().setVisibility(0);
+            if (com.baidu.tbadk.download.b.Bm().eW(this.cfq.Ur)) {
+                this.cfq.Ul = 2;
             }
-            switch (this.bPd.TV) {
+            switch (this.cfq.Ul) {
                 case 0:
-                    String string = this.mContext.getString(i.h.pb_app_download);
-                    if (this.bPd.Uk != null && !StringUtils.isNull(this.bPd.Uk.Uu)) {
-                        string = this.bPd.Uk.Uu;
+                    String string = this.mContext.getString(n.i.pb_app_download);
+                    if (this.cfq.UA != null && !StringUtils.isNull(this.cfq.UA.UK)) {
+                        string = this.cfq.UA.UK;
                     }
-                    if (string.length() > bPb) {
-                        string = string.substring(0, bPb);
+                    if (string.length() > cfo) {
+                        string = string.substring(0, cfo);
                     }
-                    this.bPf.iP(string);
-                    this.bPf.q(this.aUI);
+                    this.cfs.jj(string);
+                    this.cfs.q(this.aZW);
                     return;
                 case 1:
-                    this.bPf.aal();
-                    this.bPf.q(null);
+                    this.cfs.adR();
+                    this.cfs.q(null);
                     return;
                 case 2:
-                    this.bPf.aan();
-                    this.bPf.q(this.aUI);
+                    this.cfs.adT();
+                    this.cfs.q(this.aZW);
                     return;
                 default:
                     return;
@@ -120,45 +120,45 @@ public class a implements j.a {
         String string;
         if (bVar != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            if (com.baidu.adp.lib.util.i.iP()) {
-                string = this.mContext.getString(i.h.frs_network_tips);
+            if (com.baidu.adp.lib.util.i.iR()) {
+                string = this.mContext.getString(n.i.frs_network_tips);
             } else {
-                string = this.mContext.getString(i.h.confirm_download_app);
+                string = this.mContext.getString(n.i.confirm_download_app);
             }
-            aVar.cu(string);
-            aVar.a(i.h.alert_yes_button, new f(this));
-            aVar.b(i.h.alert_no_button, new g(this));
-            aVar.b(this.mContext).sR();
+            aVar.cC(string);
+            aVar.a(n.i.alert_yes_button, new f(this));
+            aVar.b(n.i.alert_no_button, new g(this));
+            aVar.b(this.mContext).tv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(ResponsedMessage<?> responsedMessage) {
+    public void f(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.bPd != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.cfq != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.bPd.Ub, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.cfq.Ur, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.bPd.TV = 2;
+                        this.cfq.Ul = 2;
                     } else if (status == 2 || status == 4) {
-                        if (!as.isEmpty(downloadData.getStatusMsg())) {
+                        if (!ax.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.bPd.TV = 0;
+                        this.cfq.Ul = 0;
                     } else if (status == 1) {
-                        this.bPd.TV = 1;
+                        this.cfq.Ul = 1;
                     }
-                    aae();
+                    adK();
                 }
             }
         }
     }
 
-    public void aah() {
-        if (!this.bPh) {
-            this.bPh = true;
-            this.bPg.aar();
+    public void adN() {
+        if (!this.cfu) {
+            this.cfu = true;
+            this.cft.adX();
         }
     }
 }

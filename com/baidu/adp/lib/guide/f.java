@@ -6,13 +6,13 @@ import com.baidu.adp.lib.guide.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ d ua;
-    private final /* synthetic */ ViewGroup ub;
+    final /* synthetic */ d ug;
+    private final /* synthetic */ ViewGroup uh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar, ViewGroup viewGroup) {
-        this.ua = dVar;
-        this.ub = viewGroup;
+        this.ug = dVar;
+        this.uh = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,15 +24,15 @@ public class f implements Animation.AnimationListener {
         h hVar;
         g.a aVar;
         g.a aVar2;
-        ViewGroup viewGroup = this.ub;
-        hVar = this.ua.tW;
+        ViewGroup viewGroup = this.uh;
+        hVar = this.ug.uc;
         viewGroup.removeView(hVar);
-        aVar = this.ua.tZ;
+        aVar = this.ug.uf;
         if (aVar != null) {
-            aVar2 = this.ua.tZ;
+            aVar2 = this.ug.uf;
             aVar2.onDismiss();
         }
-        this.ua.onDestroy();
+        this.ug.onDestroy();
     }
 
     @Override // android.view.animation.Animation.AnimationListener

@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.o;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog this$0;
+class r implements View.OnClickListener {
+    final /* synthetic */ o aFW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+    public r(o oVar) {
+        this.aFW = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        z = this.this$0.aCA;
-        if (z) {
-            this.this$0.FI();
-        }
-        this.this$0.aDg.dismiss();
-        this.this$0.finish();
+        o.a aVar;
+        aVar = this.aFW.aFR;
+        aVar.GM();
     }
 }

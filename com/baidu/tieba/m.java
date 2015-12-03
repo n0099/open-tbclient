@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.j;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class m implements View.OnClickListener {
-    final /* synthetic */ j aCZ;
+class m implements Runnable {
+    private final /* synthetic */ TextView aFr;
+    final /* synthetic */ l aFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.aCZ = jVar;
+    public m(l lVar, TextView textView) {
+        this.aFs = lVar;
+        this.aFr = textView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        j.a aVar;
-        aVar = this.aCZ.aCU;
-        aVar.FF();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.aFr.setVisibility(0);
     }
 }

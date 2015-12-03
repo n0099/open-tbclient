@@ -1,23 +1,27 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class af implements View.OnClickListener {
+    final /* synthetic */ w dDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    public af(w wVar) {
+        this.dDs = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
-            this.this$0.axZ();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.dDs.dDj;
+        mainTabActivity2 = this.dDs.dDj;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        TiebaStatic.log("c10085");
     }
 }

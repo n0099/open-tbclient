@@ -5,13 +5,13 @@ import com.baidu.tieba.themeCenter.background.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ y dhG;
+    final /* synthetic */ y dFm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(y yVar, int i, int i2) {
         super(i, i2);
-        this.dhG = yVar;
+        this.dFm = yVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -28,26 +28,26 @@ public class z extends com.baidu.adp.framework.listener.a {
             if ((responsedMessage instanceof BackgroundGetHttpResponseMessage) || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof BackgroundGetHttpResponseMessage) {
-                        this.dhG.mBgItem = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        this.dFm.mBgItem = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        this.dhG.mBgItem = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        this.dFm.mBgItem = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                aVar = this.dhG.dhF;
+                aVar = this.dFm.dFl;
                 if (aVar != null) {
-                    dressItemData = this.dhG.mBgItem;
+                    dressItemData = this.dFm.mBgItem;
                     if (dressItemData != null) {
-                        dressItemData3 = this.dhG.mBgItem;
-                        i = this.dhG.dgZ;
+                        dressItemData3 = this.dFm.mBgItem;
+                        i = this.dFm.dED;
                         dressItemData3.setPropsId(i);
-                        dressItemData4 = this.dhG.mBgItem;
-                        i2 = this.dhG.dhs;
+                        dressItemData4 = this.dFm.mBgItem;
+                        i2 = this.dFm.dEY;
                         dressItemData4.setInUse(i2 == 1);
                     }
-                    aVar2 = this.dhG.dhF;
+                    aVar2 = this.dFm.dFl;
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
-                    dressItemData2 = this.dhG.mBgItem;
+                    dressItemData2 = this.dFm.mBgItem;
                     aVar2.a(error, errorString, dressItemData2);
                 }
             }

@@ -2,20 +2,21 @@ package com.baidu.tieba.pb.pb.a;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a chy;
-    private final /* synthetic */ int chz;
+    private final /* synthetic */ int bnf;
+    final /* synthetic */ a czV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, int i) {
-        this.chy = aVar;
-        this.chz = i;
+        this.czV = aVar;
+        this.bnf = i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0042  */
@@ -38,41 +39,42 @@ public class b implements View.OnClickListener {
         com.baidu.tieba.pb.a.c cVar8;
         com.baidu.tieba.pb.a.c cVar9;
         if (!com.baidu.tieba.pb.pb.main.b.isFastDoubleClick()) {
-            pbActivity = this.chy.cjZ;
+            pbActivity = this.czV.cCy;
             if (pbActivity.checkUpIsLogin()) {
-                if (this.chz == 1) {
-                    cVar5 = this.chy.chr;
-                    if (cVar5.afg() != null) {
-                        cVar9 = this.chy.chr;
-                        if (cVar9.afg().isLike() == 1) {
-                            this.chy.iW(0);
-                            cVar6 = this.chy.chr;
+                if (this.bnf == 1) {
+                    cVar5 = this.czV.czO;
+                    if (cVar5.ajy() != null) {
+                        cVar9 = this.czV.czO;
+                        if (cVar9.ajy().isLike() == 1) {
+                            this.czV.jO(0);
+                            cVar6 = this.czV.czO;
                             if (cVar6 == null) {
-                                aq aqVar = new aq("c10396");
-                                cVar7 = this.chy.chr;
-                                aq ae = aqVar.ae(ImageViewerConfig.FORUM_ID, cVar7.getForumId());
-                                cVar8 = this.chy.chr;
-                                TiebaStatic.log(ae.ae("tid", cVar8.getThreadId()).ae("is_like", "1"));
+                                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                                av avVar = new av("c10396");
+                                cVar7 = this.czV.czO;
+                                av ab = avVar.ab(ImageViewerConfig.FORUM_ID, cVar7.getForumId());
+                                cVar8 = this.czV.czO;
+                                TiebaStatic.log(ab.ab("tid", cVar8.getThreadId()).ab("uid", currentAccount));
                                 return;
                             }
                             return;
                         }
                     }
-                    this.chy.afC();
-                    cVar6 = this.chy.chr;
+                    this.czV.ajU();
+                    cVar6 = this.czV.czO;
                     if (cVar6 == null) {
                     }
                 } else {
-                    cVar = this.chy.chr;
+                    cVar = this.czV.czO;
                     if (cVar != null) {
-                        cVar2 = this.chy.chr;
-                        if (cVar2.afh() != null) {
-                            cVar3 = this.chy.chr;
-                            if (cVar3.afh().sz() != null) {
-                                context = this.chy.mContext;
-                                cVar4 = this.chy.chr;
-                                com.baidu.tbadk.browser.g.B(context, cVar4.afh().sz());
-                                context2 = this.chy.mContext;
+                        cVar2 = this.czV.czO;
+                        if (cVar2.ajz() != null) {
+                            cVar3 = this.czV.czO;
+                            if (cVar3.ajz().ta() != null) {
+                                context = this.czV.mContext;
+                                cVar4 = this.czV.czO;
+                                com.baidu.tbadk.browser.f.B(context, cVar4.ajz().ta());
+                                context2 = this.czV.mContext;
                                 TiebaStatic.eventStat(context2, "lottery", "click", 1, "page", "pb");
                             }
                         }

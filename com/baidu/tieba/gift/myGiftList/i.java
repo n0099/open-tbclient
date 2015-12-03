@@ -2,31 +2,30 @@ package com.baidu.tieba.gift.myGiftList;
 
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.BuyGiftActivityConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ MyGiftListActivity bnC;
+    final /* synthetic */ h bwE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(MyGiftListActivity myGiftListActivity) {
-        this.bnC = myGiftListActivity;
+    public i(h hVar) {
+        this.bwE = hVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        l lVar;
-        z = this.bnC.mIsHost;
-        if (!z) {
-            lVar = this.bnC.bnw;
-            long uid = lVar.getUid();
-            if (uid != 0) {
-                TiebaStatic.log("gift_list_btn");
-                this.bnC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyGiftActivityConfig(this.bnC.getPageContext().getPageActivity(), uid)));
-            }
+        MyGiftListActivity myGiftListActivity;
+        MyGiftListActivity myGiftListActivity2;
+        if (com.baidu.adp.lib.util.i.iP()) {
+            myGiftListActivity2 = this.bwE.bwC;
+            myGiftListActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view.getTag(n.f.tag_first)), (String) view.getTag(n.f.tag_second))));
+            return;
         }
+        myGiftListActivity = this.bwE.bwC;
+        myGiftListActivity.showToast(n.i.neterror);
     }
 }

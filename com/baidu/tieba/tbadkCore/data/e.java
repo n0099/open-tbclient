@@ -1,63 +1,66 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.text.TextUtils;
+import android.util.SparseIntArray;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import java.util.HashSet;
+import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public class e {
-    private static final int[] dau = {3, 8, 13};
-    private static final int[] dav = {2, 7, 12, 17};
-    private String daA;
-    private HashSet<Integer> daw = new HashSet<>();
-    private final boolean dax;
-    private final boolean daz;
+    public static final int[] dzh = {3, 8, 13};
+    public static final int[] dzi = {2, 7, 12, 17};
+    public static final int[] dzj = {3, 13, 23};
+    private SparseIntArray dzk = new SparseIntArray();
+    private String dzl;
+    private final int[] dzm;
 
-    public e(String str) {
-        this.daA = str;
-        this.dax = TextUtils.equals(this.daA, "frs");
-        this.daz = TextUtils.equals(this.daA, "pb");
+    public e(String str, int[] iArr) {
+        this.dzm = iArr;
+        this.dzl = str;
     }
 
-    public void awV() {
-        if (this.daw != null) {
-            this.daw.clear();
+    public void mt(int i) {
+        int[] iArr;
+        if (i < 0) {
+            i = 0;
         }
-    }
-
-    public boolean li(int i) {
-        if ((this.dax || this.daz) && !this.daw.contains(Integer.valueOf(i))) {
-            if (this.dax) {
-                for (int i2 : dau) {
-                    if (i2 == i) {
-                        return true;
+        if (this.dzk != null) {
+            this.dzk.clear();
+            if (this.dzm != null) {
+                for (int i2 : this.dzm) {
+                    if (i2 >= 0) {
+                        this.dzk.append(i2 + i, i2);
                     }
                 }
-                return false;
-            } else if (this.daz) {
-                for (int i3 : dav) {
-                    if (i3 == i) {
-                        return true;
-                    }
-                }
-                return false;
-            } else {
-                return false;
             }
         }
-        return false;
     }
 
-    public void d(int i, int i2, String str) {
-        if (this.dax || this.daz) {
-            this.daw.add(Integer.valueOf(i));
-            aq aqVar = new aq("c10376");
-            aqVar.ae("da_page", this.daA);
-            aqVar.r("position", i);
-            aqVar.r("view_true", i2);
-            aqVar.ae(ImageViewerConfig.FORUM_ID, str);
-            TiebaStatic.log(aqVar);
+    public void aCH() {
+        mt(0);
+    }
+
+    public void aI(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.dzk != null) {
+            this.dzk.append(i2, i);
+        }
+    }
+
+    public int mu(int i) {
+        if (i >= 0 && this.dzk != null) {
+            return this.dzk.get(i, -1);
+        }
+        return -1;
+    }
+
+    public void c(int i, int i2, String str, int i3) {
+        if (this.dzk != null && i3 >= 0) {
+            this.dzk.delete(i);
+            av avVar = new av("c10376");
+            avVar.ab("da_page", this.dzl);
+            avVar.r("position", i3);
+            avVar.r("view_true", i2);
+            avVar.ab(ImageViewerConfig.FORUM_ID, str);
+            TiebaStatic.log(avVar);
         }
     }
 }

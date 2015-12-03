@@ -1,41 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.usermute.i;
+import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements c.b {
-    final /* synthetic */ PersonInfoActivity cue;
+public class k implements i.a {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PersonInfoActivity personInfoActivity) {
-        this.cue = personInfoActivity;
+    public k(d dVar) {
+        this.cSn = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        WriteImagesInfo writeImagesInfo;
-        if (i != 0) {
-            if (i == 1) {
-                Activity pageActivity = this.cue.getPageContext().getPageActivity();
-                writeImagesInfo = this.cue.writeImagesInfo;
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) pageActivity, writeImagesInfo.toJsonString(), true);
-                albumActivityConfig.setRequestCode(12002);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
-            } else if (i == 2) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.cue.getPageContext().getPageActivity(), 12014)));
+    @Override // com.baidu.tieba.usermute.i.a
+    public void a(DataRes dataRes, int i, String str, Object obj) {
+        if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
+            if (dataRes.is_mute.equals("0")) {
+                this.cSn.cRR = 0;
+            } else if (dataRes.is_mute.equals("1")) {
+                this.cSn.cRR = 1;
             }
-        } else {
-            this.cue.ajO();
         }
-        cVar.dismiss();
     }
 }

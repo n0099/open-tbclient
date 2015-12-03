@@ -6,27 +6,27 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class f extends x.a {
-    TextView aCf;
-    HeadImageView aGQ;
-    TextView alz;
-    LinearLayout bbf;
-    TextView bbg;
-    TbImageView bbh;
-    TextView bbi;
-    TextView bbj;
+    TextView aER;
+    HeadImageView aJP;
+    TextView agd;
+    LinearLayout bhH;
+    TbImageView bhJ;
+    TextView bhK;
+    TextView bhL;
+    TextView bhM;
 
     public f(View view) {
         super(view);
-        this.bbf = (LinearLayout) view.findViewById(i.f.single_replenish_parent);
-        this.aGQ = (HeadImageView) view.findViewById(i.f.single_replenish_locality_head);
-        this.aCf = (TextView) view.findViewById(i.f.single_replenish_locality_name);
-        this.bbg = (TextView) view.findViewById(i.f.single_replenish_locality_sub);
-        this.alz = (TextView) view.findViewById(i.f.single_replenish_locality_title);
-        this.bbh = (TbImageView) view.findViewById(i.f.single_replenish_locality_pic);
-        this.bbi = (TextView) view.findViewById(i.f.single_replenish_locality_brief);
-        this.bbj = (TextView) view.findViewById(i.f.single_replenish_desc);
+        this.bhH = (LinearLayout) view.findViewById(n.f.single_replenish_parent);
+        this.aJP = (HeadImageView) view.findViewById(n.f.single_replenish_locality_head);
+        this.aER = (TextView) view.findViewById(n.f.single_replenish_locality_name);
+        this.bhK = (TextView) view.findViewById(n.f.single_replenish_locality_sub);
+        this.agd = (TextView) view.findViewById(n.f.single_replenish_locality_title);
+        this.bhJ = (TbImageView) view.findViewById(n.f.single_replenish_locality_pic);
+        this.bhL = (TextView) view.findViewById(n.f.single_replenish_locality_brief);
+        this.bhM = (TextView) view.findViewById(n.f.single_replenish_desc);
     }
 }

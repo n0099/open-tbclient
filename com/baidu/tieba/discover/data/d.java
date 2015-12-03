@@ -14,7 +14,7 @@ public class d {
         this.type = i;
     }
 
-    public List<c> HL() {
+    public List<c> Je() {
         return this.menu_list;
     }
 

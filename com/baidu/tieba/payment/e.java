@@ -1,23 +1,19 @@
 package com.baidu.tieba.payment;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.b {
-    private final /* synthetic */ String RZ;
-    final /* synthetic */ PaymentConfirmActivity ceE;
-    private final /* synthetic */ int ceF;
+public class e implements View.OnClickListener {
+    final /* synthetic */ PaymentConfirmActivity cxe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(PaymentConfirmActivity paymentConfirmActivity, int i, String str) {
-        this.ceE = paymentConfirmActivity;
-        this.ceF = i;
-        this.RZ = str;
+    public e(PaymentConfirmActivity paymentConfirmActivity) {
+        this.cxe = paymentConfirmActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        this.ceE.K(this.ceF, this.RZ);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cxe.L(2270066, this.cxe.getResources().getString(n.i.payment_input_password_find));
     }
 }

@@ -1,45 +1,48 @@
 package com.baidu.tieba.pb.chosen.a;
 
-import android.content.Context;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tieba.pb.chosen.a.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ i cgB;
+public class l {
+    private TextView bAN;
+    private RelativeLayout czb;
+    private TextView czc;
+    private ImageView czd;
+    private View rootView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(i iVar) {
-        this.cgB = iVar;
+    public l(View view) {
+        this.rootView = view;
+        this.czb = (RelativeLayout) view.findViewById(n.f.chosen_pb_reply_text);
+        this.bAN = (TextView) view.findViewById(n.f.chosen_pb_reply_comment);
+        this.czc = (TextView) view.findViewById(n.f.chosen_pb_reply_number);
+        this.czd = (ImageView) view.findViewById(n.f.chosen_pb_reply_share);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        Context context;
-        ImageView imageView;
-        Animation afb;
-        i.a aVar;
-        i.a aVar2;
-        boolean z2;
-        z = this.cgB.cgx;
-        if (!z) {
-            context = this.cgB.context;
-            if (bd.ah(context)) {
-                this.cgB.cgx = true;
-                imageView = this.cgB.cgq;
-                afb = this.cgB.afb();
-                imageView.startAnimation(afb);
-                aVar = this.cgB.cgt;
-                if (aVar != null) {
-                    aVar2 = this.cgB.cgt;
-                    z2 = this.cgB.cgu;
-                    aVar2.el(z2);
-                }
-            }
-        }
+    public void z(View.OnClickListener onClickListener) {
+        this.czb.setOnClickListener(onClickListener);
+    }
+
+    public void setVisible(boolean z) {
+        this.rootView.setVisibility(z ? 0 : 8);
+    }
+
+    public void A(View.OnClickListener onClickListener) {
+        this.czd.setOnClickListener(onClickListener);
+    }
+
+    public void kw(String str) {
+        this.czc.setText(str);
+    }
+
+    public void tH() {
+        as.i(this.rootView, n.e.bg_rec_lick);
+        as.i(this.czb, n.e.bg_rec_comment);
+        as.b(this.bAN, n.c.cp_cont_c, 1);
+        as.b(this.czc, n.c.cp_cont_e, 1);
+        as.c(this.czd, n.e.recommend_pb_share_selector);
     }
 }

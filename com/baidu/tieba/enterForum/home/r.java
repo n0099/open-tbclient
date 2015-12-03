@@ -1,43 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.app.Activity;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.g {
-    final /* synthetic */ d aMe;
+public class r extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ h aQN;
+    private final /* synthetic */ String aQP;
+    private final /* synthetic */ boolean aQQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(d dVar) {
-        this.aMe = dVar;
+    public r(h hVar, String str, boolean z) {
+        this.aQN = hVar;
+        this.aQP = str;
+        this.aQQ = z;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.w wVar;
-        com.baidu.tieba.tbadkCore.w wVar2;
-        com.baidu.tieba.tbadkCore.w wVar3;
-        com.baidu.tieba.enterForum.c.c cVar;
-        String str;
-        com.baidu.tieba.tbadkCore.w wVar4;
-        wVar = this.aMe.LU;
-        if (AntiHelper.lr(wVar.getErrorCode())) {
-            Activity pageActivity = this.aMe.getPageContext().getPageActivity();
-            wVar4 = this.aMe.LU;
-            AntiHelper.Q(pageActivity, wVar4.getErrorString());
-        } else if (obj != null) {
-            cVar = this.aMe.aLO;
-            str = this.aMe.aLQ;
-            cVar.bP(!StringUtils.isNull(str));
-        } else {
-            wVar2 = this.aMe.LU;
-            if (!StringUtils.isNull(wVar2.getErrorString())) {
-                TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                wVar3 = this.aMe.LU;
-                com.baidu.adp.lib.util.k.showToast(m411getInst, wVar3.getErrorString());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.aQP)) {
+            com.baidu.tieba.im.settingcache.h.aaF().e(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aQP), this.aQQ);
         }
+        return null;
     }
 }

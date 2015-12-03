@@ -11,59 +11,59 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
 import com.baidu.tieba.launcherGuide.data.InterestFrsData;
+import com.baidu.tieba.n;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class k extends BaseFragment {
-    private com.baidu.tieba.launcherGuide.a.a bRJ;
-    private TbImageView bSA;
-    private NewUserGuideActivity bSj;
-    private ViewGroup bSp;
-    private View bSq;
-    private TbImageView bSr;
-    private TbImageView bSs;
-    private TbImageView bSt;
-    private TbImageView bSu;
-    private TbImageView bSv;
-    private TbImageView bSw;
-    private TbImageView bSx;
-    private TbImageView bSy;
-    private TbImageView bSz;
+    private com.baidu.tieba.launcherGuide.a.a chV;
+    private ViewGroup ciC;
+    private View ciD;
+    private TbImageView ciE;
+    private TbImageView ciF;
+    private TbImageView ciG;
+    private TbImageView ciH;
+    private TbImageView ciI;
+    private TbImageView ciJ;
+    private TbImageView ciK;
+    private TbImageView ciL;
+    private TbImageView ciM;
+    private TbImageView ciN;
+    private NewUserGuideActivity ciw;
     private Button mNext;
-    private final Hashtable<Integer, TbImageView> bSB = new Hashtable<>();
-    private boolean bRL = false;
-    private boolean bSC = false;
-    private boolean bSD = true;
-    private final View.OnClickListener ajG = new l(this);
+    private final Hashtable<Integer, TbImageView> ciO = new Hashtable<>();
+    private boolean chX = false;
+    private boolean ciP = false;
+    private boolean ciQ = true;
+    private final View.OnClickListener alr = new l(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void aaV();
+        void aeB();
     }
 
     public void c(InterestFrsData interestFrsData) {
         d(interestFrsData);
-        this.bSC = true;
+        this.ciP = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bSj = (NewUserGuideActivity) getBaseFragmentActivity();
-        this.bRJ = this.bSj.aaP();
+        this.ciw = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.chV = this.ciw.aev();
         initData(bundle);
     }
 
     private void initData(Bundle bundle) {
-        if (this.bRJ != null && !this.bSC) {
+        if (this.chV != null && !this.ciP) {
             if (bundle != null) {
-                this.bRL = bundle.getBoolean("is_new_user");
+                this.chX = bundle.getBoolean("is_new_user");
             } else {
-                this.bRL = this.bSj.getIntent().getBooleanExtra("is_new_user", false);
+                this.chX = this.ciw.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.bRJ.aaX());
+            d(this.chV.aeD());
         }
     }
 
@@ -73,7 +73,7 @@ public class k extends BaseFragment {
         if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
             for (int i = 0; i < tag_list.size(); i++) {
                 InterestFrsData.Tag tag = tag_list.get(i);
-                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.bSB.get(Integer.valueOf(tag.getBid()))) != null) {
+                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.ciO.get(Integer.valueOf(tag.getBid()))) != null) {
                     tbImageView.setTag(tag);
                     tbImageView.d(tag.getBicon(), 21, false);
                 }
@@ -84,48 +84,48 @@ public class k extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
-            this.bSp = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(i.g.guide_main, (ViewGroup) null);
-            this.bSq = this.bSp.findViewById(i.f.root_main_view_cover);
-            this.bSr = (TbImageView) this.bSp.findViewById(i.f.icon_1);
-            this.bSs = (TbImageView) this.bSp.findViewById(i.f.icon_2);
-            this.bSt = (TbImageView) this.bSp.findViewById(i.f.icon_3);
-            this.bSu = (TbImageView) this.bSp.findViewById(i.f.icon_4);
-            this.bSv = (TbImageView) this.bSp.findViewById(i.f.icon_5);
-            this.bSw = (TbImageView) this.bSp.findViewById(i.f.icon_6);
-            this.bSx = (TbImageView) this.bSp.findViewById(i.f.icon_7);
-            this.bSy = (TbImageView) this.bSp.findViewById(i.f.icon_8);
-            this.bSz = (TbImageView) this.bSp.findViewById(i.f.icon_9);
-            this.bSA = (TbImageView) this.bSp.findViewById(i.f.icon_10);
-            this.mNext = (Button) this.bSp.findViewById(i.f.btn_next);
-            this.bSB.put(1, this.bSr);
-            this.bSB.put(2, this.bSs);
-            this.bSB.put(3, this.bSt);
-            this.bSB.put(4, this.bSu);
-            this.bSB.put(5, this.bSv);
-            this.bSB.put(6, this.bSw);
-            this.bSB.put(7, this.bSx);
-            this.bSB.put(8, this.bSy);
-            this.bSB.put(9, this.bSz);
-            this.bSB.put(10, this.bSA);
-            this.mNext.setOnClickListener(this.ajG);
-            this.bSr.setOnClickListener(this.ajG);
-            this.bSs.setOnClickListener(this.ajG);
-            this.bSt.setOnClickListener(this.ajG);
-            this.bSu.setOnClickListener(this.ajG);
-            this.bSv.setOnClickListener(this.ajG);
-            this.bSw.setOnClickListener(this.ajG);
-            this.bSx.setOnClickListener(this.ajG);
-            this.bSy.setOnClickListener(this.ajG);
-            this.bSz.setOnClickListener(this.ajG);
-            this.bSz.setOnClickListener(this.ajG);
-            this.bSA.setOnClickListener(this.ajG);
-            return this.bSp;
+            this.ciC = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(n.g.guide_main, (ViewGroup) null);
+            this.ciD = this.ciC.findViewById(n.f.root_main_view_cover);
+            this.ciE = (TbImageView) this.ciC.findViewById(n.f.icon_1);
+            this.ciF = (TbImageView) this.ciC.findViewById(n.f.icon_2);
+            this.ciG = (TbImageView) this.ciC.findViewById(n.f.icon_3);
+            this.ciH = (TbImageView) this.ciC.findViewById(n.f.icon_4);
+            this.ciI = (TbImageView) this.ciC.findViewById(n.f.icon_5);
+            this.ciJ = (TbImageView) this.ciC.findViewById(n.f.icon_6);
+            this.ciK = (TbImageView) this.ciC.findViewById(n.f.icon_7);
+            this.ciL = (TbImageView) this.ciC.findViewById(n.f.icon_8);
+            this.ciM = (TbImageView) this.ciC.findViewById(n.f.icon_9);
+            this.ciN = (TbImageView) this.ciC.findViewById(n.f.icon_10);
+            this.mNext = (Button) this.ciC.findViewById(n.f.btn_next);
+            this.ciO.put(1, this.ciE);
+            this.ciO.put(2, this.ciF);
+            this.ciO.put(3, this.ciG);
+            this.ciO.put(4, this.ciH);
+            this.ciO.put(5, this.ciI);
+            this.ciO.put(6, this.ciJ);
+            this.ciO.put(7, this.ciK);
+            this.ciO.put(8, this.ciL);
+            this.ciO.put(9, this.ciM);
+            this.ciO.put(10, this.ciN);
+            this.mNext.setOnClickListener(this.alr);
+            this.ciE.setOnClickListener(this.alr);
+            this.ciF.setOnClickListener(this.alr);
+            this.ciG.setOnClickListener(this.alr);
+            this.ciH.setOnClickListener(this.alr);
+            this.ciI.setOnClickListener(this.alr);
+            this.ciJ.setOnClickListener(this.alr);
+            this.ciK.setOnClickListener(this.alr);
+            this.ciL.setOnClickListener(this.alr);
+            this.ciM.setOnClickListener(this.alr);
+            this.ciM.setOnClickListener(this.alr);
+            this.ciN.setOnClickListener(this.alr);
+            return this.ciC;
         } catch (InflateException e) {
             if (TbadkApplication.getInst().isDebugMode()) {
                 throw e;
             }
             BdLog.e(e);
-            this.bSj.aaR();
+            this.ciw.aex();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

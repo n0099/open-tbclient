@@ -4,30 +4,29 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.v, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aLU;
-    private TextView aND;
-    private View aNi;
+public class w extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.w, com.baidu.tbadk.mvc.d.b> {
+    private ViewEventCenter aQB;
+    private View aSJ;
+    private TextView aSK;
 
     public w(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aND = (TextView) view.findViewById(i.f.textview);
-        this.aNi = view.findViewById(i.f.container);
-        this.aLU = viewEventCenter;
-        this.aNi.setOnClickListener(new x(this));
-        this.aNi.setOnLongClickListener(new y(this));
+        this.aSK = (TextView) view.findViewById(n.f.textview);
+        this.aSJ = view.findViewById(n.f.container);
+        this.aQB = viewEventCenter;
+        this.aSJ.setOnClickListener(new x(this));
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        an.i(this.aNi, i.e.addresslist_item_bg);
-        this.aND.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_jinba_list_add), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.aND.setTextColor(an.getColor(i.c.cp_cont_d));
+        com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
+        as.i(this.aSJ, n.e.addresslist_item_bg);
+        this.aSK.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_jinba_list_add), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.aSK.setTextColor(as.getColor(n.c.cp_cont_d));
         return true;
     }
 }

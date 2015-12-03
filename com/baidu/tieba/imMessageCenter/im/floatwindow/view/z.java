@@ -17,7 +17,7 @@ public class z implements CustomMessageTask.CustomRunnable<FloatingPersonalChatA
             if (userData != null) {
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                com.baidu.tbadk.util.m.b(new aa(this, linkedList), new ab(this, customMessage));
+                com.baidu.tbadk.util.n.b(new aa(this, linkedList), new ab(this, customMessage));
             }
         }
         return null;

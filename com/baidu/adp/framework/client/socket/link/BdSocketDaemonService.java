@@ -29,7 +29,7 @@ public class BdSocketDaemonService extends BdBaseService {
     }
 
     public void bindServiceInternal() {
-        com.baidu.adp.lib.g.i.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+        com.baidu.adp.lib.h.i.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -39,9 +39,9 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
-                com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.hj().an("dbg");
-                an.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
-                com.baidu.adp.lib.stats.a.hj().b("PARCEL_NULLPOINT", an);
+                com.baidu.adp.lib.stats.d ar = com.baidu.adp.lib.stats.a.hl().ar("dbg");
+                ar.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
+                com.baidu.adp.lib.stats.a.hl().b("PARCEL_NULLPOINT", ar);
             }
         }
         bindServiceInternal();
@@ -62,13 +62,13 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             startService(intent);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.hj().an("dbg");
-            an.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
-            com.baidu.adp.lib.stats.a.hj().b("PARCEL_NULLPOINT", an);
+            com.baidu.adp.lib.stats.d ar = com.baidu.adp.lib.stats.a.hl().ar("dbg");
+            ar.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
+            com.baidu.adp.lib.stats.a.hl().b("PARCEL_NULLPOINT", ar);
         }
     }
 
     public static void startService() {
-        com.baidu.adp.lib.g.i.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        com.baidu.adp.lib.h.i.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

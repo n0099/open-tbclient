@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.core.flow.a.a {
-    private String UK;
-    private String UL;
-    private String UM;
-    private boolean UN;
+    private String Vb;
+    private String Vc;
+    private String Vd;
+    private boolean Ve;
     private String mImageUrl;
     private String mTitle;
 
     public i(String str, String str2, String str3) {
         this.mImageUrl = str;
-        this.UK = str2;
+        this.Vb = str2;
         this.mTitle = str3;
     }
 
@@ -25,8 +25,8 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rw() {
-        return this.UK;
+    public String rK() {
+        return this.Vb;
     }
 
     public String getTitle() {
@@ -34,38 +34,38 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rx */
+    /* renamed from: rL */
     public i clone() {
         i iVar = new i();
         iVar.mImageUrl = this.mImageUrl;
-        iVar.UK = this.UK;
+        iVar.Vb = this.Vb;
         iVar.mTitle = this.mTitle;
-        iVar.UL = this.UL;
-        iVar.UM = this.UM;
+        iVar.Vc = this.Vc;
+        iVar.Vd = this.Vd;
         return iVar;
     }
 
     public void a(HeadImgs headImgs) {
         if (headImgs != null) {
             this.mImageUrl = headImgs.img_url;
-            this.UK = headImgs.pc_url;
+            this.Vb = headImgs.pc_url;
             if (headImgs.title != null) {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.UL = headImgs.subtitle.trim();
+                this.Vc = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.UM = headImgs.btn_text.trim();
+                this.Vd = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean ry() {
-        return this.UN;
+    public boolean rM() {
+        return this.Ve;
     }
 
-    public void ah(boolean z) {
-        this.UN = z;
+    public void aj(boolean z) {
+        this.Ve = z;
     }
 }

@@ -1,37 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class x implements View.OnClickListener {
+    final /* synthetic */ w dDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    public x(w wVar) {
+        this.dDs = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ao aoVar;
-        ao aoVar2;
-        ao aoVar3;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if ((intValue == 3 || intValue == 1 || intValue == 0) && TbadkCoreApplication.m411getInst().getOldSkinType() == 2) {
-                aoVar3 = this.this$0.deK;
-                aoVar3.azL().cb(1);
-            } else if (TbadkCoreApplication.m411getInst().isThemeIconCover()) {
-                aoVar2 = this.this$0.deK;
-                aoVar2.azL().cb(2);
-            } else {
-                aoVar = this.this$0.deK;
-                aoVar.azL().cb(1);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
     }
 }

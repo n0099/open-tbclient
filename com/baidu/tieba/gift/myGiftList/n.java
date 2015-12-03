@@ -1,47 +1,67 @@
 package com.baidu.tieba.gift.myGiftList;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
-import tbclient.GetGiftMyList.GiftList;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ m bof;
+public class n implements View.OnClickListener {
+    final /* synthetic */ l bxd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.bof = mVar;
+    public n(l lVar) {
+        this.bxd = lVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        boolean z;
-        j jVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        TextView textView2;
+        String str;
         MyGiftListActivity myGiftListActivity;
+        String str2;
+        String str3;
         MyGiftListActivity myGiftListActivity2;
-        a aVar;
-        z = this.bof.mIsHost;
-        if (!z) {
-            jVar = this.bof.boa;
-            GiftList item = jVar.getItem(i);
-            if (item != null && item.sender != null && item.sender.id.longValue() > 0) {
-                if (com.baidu.adp.lib.util.i.iN()) {
-                    myGiftListActivity2 = this.bof.bnF;
-                    myGiftListActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.sender.id), item.sender.name_show)));
-                    return;
+        MyGiftListActivity myGiftListActivity3;
+        MyGiftListActivity myGiftListActivity4;
+        MyGiftListActivity myGiftListActivity5;
+        MyGiftListActivity myGiftListActivity6;
+        if (view != null) {
+            textView = this.bxd.bwW;
+            if (view != textView) {
+                textView2 = this.bxd.bwV;
+                if (view == textView2) {
+                    str = this.bxd.bwX;
+                    if (ax.isEmpty(str)) {
+                        myGiftListActivity2 = this.bxd.bwC;
+                        Activity pageActivity = myGiftListActivity2.getPageContext().getPageActivity();
+                        myGiftListActivity3 = this.bxd.bwC;
+                        UtilHelper.showToast(pageActivity, myGiftListActivity3.getResources().getString(n.i.error_unkown_try_again));
+                        return;
+                    }
+                    myGiftListActivity = this.bxd.bwC;
+                    Activity pageActivity2 = myGiftListActivity.getPageContext().getPageActivity();
+                    str2 = this.bxd.bwY;
+                    str3 = this.bxd.bwX;
+                    com.baidu.tbadk.browser.f.a(pageActivity2, str2, str3, true, true, true);
                 }
-                myGiftListActivity = this.bof.bnF;
-                myGiftListActivity.showToast(i.h.neterror);
-                return;
+            } else if (!com.baidu.adp.lib.util.k.jg()) {
+                myGiftListActivity5 = this.bxd.bwC;
+                Activity pageActivity3 = myGiftListActivity5.getPageContext().getPageActivity();
+                myGiftListActivity6 = this.bxd.bwC;
+                UtilHelper.showToast(pageActivity3, myGiftListActivity6.getResources().getString(n.i.neterror));
+            } else {
+                MessageManager messageManager = MessageManager.getInstance();
+                myGiftListActivity4 = this.bxd.bwC;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(myGiftListActivity4.getPageContext().getPageActivity(), 0L)));
             }
-            return;
         }
-        aVar = this.bof.boe;
-        aVar.hq((String) view.getTag(i.f.tag_second));
     }
 }

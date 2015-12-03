@@ -6,34 +6,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private TextView aDy;
-    private TbImageView aOj;
-    private View.OnClickListener aed;
-    private com.baidu.tbadk.data.a cpe;
+    private TextView aGw;
+    private TbImageView aTm;
+    private View.OnClickListener afa;
+    private com.baidu.tbadk.data.a cIq;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.aed = new a(this);
+        this.afa = new a(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aed = new a(this);
+        this.afa = new a(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
-        LayoutInflater.from(getContext()).inflate(i.g.baobao_tail_layout, this);
-        this.aOj = (TbImageView) findViewById(i.f.baobao_icon);
-        this.aDy = (TextView) findViewById(i.f.baobao_tail_text);
-        setOnClickListener(this.aed);
+        LayoutInflater.from(getContext()).inflate(n.g.baobao_tail_layout, this);
+        this.aTm = (TbImageView) findViewById(n.f.baobao_icon);
+        this.aGw = (TextView) findViewById(n.f.baobao_tail_text);
+        setOnClickListener(this.afa);
     }
 
     public void setData(com.baidu.tbadk.data.a aVar) {
@@ -41,12 +41,12 @@ public class BaobaoTailView extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.cpe = aVar;
-        this.aDy.setText(aVar.getContent());
-        this.aOj.d(aVar.getIconUrl(), 10, false);
+        this.cIq = aVar;
+        this.aGw.setText(aVar.getContent());
+        this.aTm.d(aVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        an.b(this.aDy, i.c.cp_link_tip_c, 1);
+        as.b(this.aGw, n.c.cp_link_tip_c, 1);
     }
 }

@@ -14,7 +14,7 @@ public abstract class d implements a {
 
     public abstract void c(SQLiteDatabase sQLiteDatabase);
 
-    public abstract void e(SQLiteDatabase sQLiteDatabase);
+    public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0001a interfaceC0001a) {
@@ -51,7 +51,7 @@ public abstract class d implements a {
 
     private void f(SQLiteDatabase sQLiteDatabase) {
         onCreate(sQLiteDatabase);
-        d(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
@@ -60,10 +60,10 @@ public abstract class d implements a {
         } else {
             onDowngrade(sQLiteDatabase, i, i2);
         }
-        d(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
-    private void d(SQLiteDatabase sQLiteDatabase) {
+    private void e(SQLiteDatabase sQLiteDatabase) {
         if (this.nC != null) {
             this.nC.b(sQLiteDatabase);
         }
@@ -93,7 +93,7 @@ public abstract class d implements a {
     }
 
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        e(sQLiteDatabase);
+        d(sQLiteDatabase);
         c(sQLiteDatabase);
     }
 }

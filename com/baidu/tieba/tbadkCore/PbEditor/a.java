@@ -2,35 +2,35 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.be;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static String awJ() {
+    private static String aCv() {
         return "key_baobao_count" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String awK() {
+    private static String aCw() {
         return "key_baobao_last_time" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public static boolean awL() {
-        return !ay.c(new Date(System.currentTimeMillis()), new Date(b.tu().getLong(awK(), 0L))) || b.tu().getInt(awJ(), 0) < 3;
+    public static boolean aCx() {
+        return !be.c(new Date(System.currentTimeMillis()), new Date(b.tZ().getLong(aCw(), 0L))) || b.tZ().getInt(aCv(), 0) < 3;
     }
 
-    public static void awM() {
-        b.tu().putBoolean("key_baobao_tip_pb", true);
+    public static void aCy() {
+        b.tZ().putBoolean("key_baobao_tip_pb", true);
     }
 
-    public static void awN() {
+    public static void aCz() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = b.tu().getLong(awK(), 0L);
-        b.tu().putLong(awK(), currentTimeMillis);
-        int i = b.tu().getInt(awJ(), 0);
-        if (ay.c(new Date(currentTimeMillis), new Date(j))) {
-            b.tu().putInt(awJ(), i + 1);
+        long j = b.tZ().getLong(aCw(), 0L);
+        b.tZ().putLong(aCw(), currentTimeMillis);
+        int i = b.tZ().getInt(aCv(), 0);
+        if (be.c(new Date(currentTimeMillis), new Date(j))) {
+            b.tZ().putInt(aCv(), i + 1);
         } else {
-            b.tu().putInt(awJ(), 1);
+            b.tZ().putInt(aCv(), 1);
         }
     }
 }

@@ -7,83 +7,67 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.recommendfrs.control.a.b;
-import com.baidu.tieba.recommendfrs.data.g;
-import com.baidu.tieba.recommendfrs.data.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements NetModel.b<h, g> {
-    final /* synthetic */ b cKc;
+public class d implements NetModel.b<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> {
+    final /* synthetic */ b diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.cKc = bVar;
+        this.diG = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<g> mvcHttpResponsedMessage, MvcHttpMessage<h, g> mvcHttpMessage, MvcNetMessage<h, g> mvcNetMessage) {
-        String str;
+    public void a(MvcHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.c> mvcHttpResponsedMessage, MvcHttpMessage<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> mvcHttpMessage, MvcNetMessage<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> mvcNetMessage) {
+        long a;
         b.a aVar;
         b.a aVar2;
         b.a aVar3;
         b.a aVar4;
-        h hVar;
-        if (mvcNetMessage != null) {
-            h requestData = mvcNetMessage.getRequestData();
-            if (requestData == null) {
-                str = null;
-            } else {
-                str = requestData.aqQ();
-            }
-            if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
-                aVar = this.cKc.cKb;
-                if (aVar != null) {
-                    aVar2 = this.cKc.cKb;
-                    aVar2.i(str, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
-                    return;
-                }
+        com.baidu.tieba.recommendfrs.data.d dVar;
+        a = this.diG.a(mvcNetMessage);
+        if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null || a == -1) {
+            aVar = this.diG.diF;
+            if (aVar != null) {
+                aVar2 = this.diG.diF;
+                aVar2.a(a, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
                 return;
             }
-            g data = mvcHttpResponsedMessage.getData();
-            aVar3 = this.cKc.cKb;
-            if (aVar3 != null) {
-                aVar4 = this.cKc.cKb;
-                hVar = this.cKc.cKa;
-                aVar4.a(true, data, hVar.aqW() != 0, str);
-            }
+            return;
+        }
+        com.baidu.tieba.recommendfrs.data.c data = mvcHttpResponsedMessage.getData();
+        aVar3 = this.diG.diF;
+        if (aVar3 != null) {
+            aVar4 = this.diG.diF;
+            dVar = this.diG.diE;
+            aVar4.a(true, data, dVar.awn() != 0, a);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<g, ?> mvcSocketResponsedMessage, MvcSocketMessage<h, g> mvcSocketMessage, MvcNetMessage<h, g> mvcNetMessage) {
-        String str;
+    public void a(MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.c, ?> mvcSocketResponsedMessage, MvcSocketMessage<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> mvcSocketMessage, MvcNetMessage<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> mvcNetMessage) {
+        long a;
         b.a aVar;
         b.a aVar2;
         b.a aVar3;
         b.a aVar4;
-        h hVar;
-        if (mvcNetMessage != null) {
-            h requestData = mvcNetMessage.getRequestData();
-            if (requestData == null) {
-                str = null;
-            } else {
-                str = requestData.aqQ();
-            }
-            if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
-                aVar = this.cKc.cKb;
-                if (aVar != null) {
-                    aVar2 = this.cKc.cKb;
-                    aVar2.i(str, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
-                    return;
-                }
+        com.baidu.tieba.recommendfrs.data.d dVar;
+        a = this.diG.a(mvcNetMessage);
+        if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null || a == -1) {
+            aVar = this.diG.diF;
+            if (aVar != null) {
+                aVar2 = this.diG.diF;
+                aVar2.a(a, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
                 return;
             }
-            g data = mvcSocketResponsedMessage.getData();
-            aVar3 = this.cKc.cKb;
-            if (aVar3 != null) {
-                aVar4 = this.cKc.cKb;
-                hVar = this.cKc.cKa;
-                aVar4.a(true, data, hVar.aqW() != 0, str);
-            }
+            return;
+        }
+        com.baidu.tieba.recommendfrs.data.c data = mvcSocketResponsedMessage.getData();
+        aVar3 = this.diG.diF;
+        if (aVar3 != null) {
+            aVar4 = this.diG.diF;
+            dVar = this.diG.diE;
+            aVar4.a(true, data, dVar.awn() != 0, a);
         }
     }
 }

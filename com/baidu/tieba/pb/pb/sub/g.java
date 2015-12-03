@@ -1,19 +1,36 @@
 package com.baidu.tieba.pb.pb.sub;
 
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements TbRichTextView.e {
-    final /* synthetic */ NewSubPbActivity cnS;
+public class g implements View.OnLongClickListener {
+    final /* synthetic */ NewSubPbActivity cHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NewSubPbActivity newSubPbActivity) {
-        this.cnS = newSubPbActivity;
+        this.cHd = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
-    public void b(View view, String str) {
-        this.cnS.g(null, str, "LINK_IMAGE");
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        w wVar;
+        c.b bVar;
+        an anVar;
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
+        }
+        if (sparseArray != null) {
+            wVar = this.cHd.cGU;
+            bVar = this.cHd.cCj;
+            anVar = this.cHd.cGS;
+            wVar.a(bVar, anVar.isMarked());
+        }
+        return true;
     }
 }

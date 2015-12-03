@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,34 +20,34 @@ public class as implements View.OnClickListener {
         WriteData writeData;
         WriteData writeData2;
         InputMethodManager inputMethodManager;
-        EditText aEn;
+        EditText aJK;
         InputMethodManager inputMethodManager2;
-        EditText aEm;
-        com.baidu.tbadk.editortools.j jVar;
+        EditText aJJ;
+        com.baidu.tbadk.editortools.k kVar;
         boolean z;
-        writeData = this.dsa.ddI;
+        writeData = this.dRf.dBW;
         if (writeData.getVideoInfo() != null) {
             TiebaStatic.log("c10063");
         }
         if (!com.baidu.tieba.write.c.a.isFastDoubleClick()) {
-            writeData2 = this.dsa.ddI;
+            writeData2 = this.dRf.dBW;
             if (writeData2.getVideoInfo() != null) {
                 TiebaStatic.log("c10063");
             }
-            WriteActivity writeActivity = this.dsa;
-            inputMethodManager = this.dsa.mInputManager;
-            aEn = this.dsa.aEn();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, aEn);
-            WriteActivity writeActivity2 = this.dsa;
-            inputMethodManager2 = this.dsa.mInputManager;
-            aEm = this.dsa.aEm();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, aEm);
-            jVar = this.dsa.drr;
-            jVar.zc();
-            this.dsa.aDu();
-            z = this.dsa.dre;
+            WriteActivity writeActivity = this.dRf;
+            inputMethodManager = this.dRf.mInputManager;
+            aJK = this.dRf.aJK();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, aJK);
+            WriteActivity writeActivity2 = this.dRf;
+            inputMethodManager2 = this.dRf.mInputManager;
+            aJJ = this.dRf.aJJ();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, aJJ);
+            kVar = this.dRf.aqK;
+            kVar.zY();
+            this.dRf.aIR();
+            z = this.dRf.dQj;
             if (z) {
-                com.baidu.adp.lib.stats.a.hj().hs();
+                com.baidu.adp.lib.stats.a.hl().hu();
             }
         }
     }

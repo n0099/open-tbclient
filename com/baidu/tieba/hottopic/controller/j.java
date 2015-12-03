@@ -1,46 +1,39 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hottopic.a.n;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import java.util.ArrayList;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.hottopic.controller.i;
+import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
+import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
-    final /* synthetic */ RelateTopicForumActivity bpt;
+public class j extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ i bDp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(RelateTopicForumActivity relateTopicForumActivity, int i) {
-        super(i);
-        this.bpt = relateTopicForumActivity;
+    public j(i iVar, int i, int i2) {
+        super(i, i2);
+        this.bDp = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList arrayList;
-        RelateForumItemData ax;
-        com.baidu.tieba.hottopic.view.e eVar;
-        ArrayList arrayList2;
-        if (customResponsedMessage != null) {
-            arrayList = this.bpt.Xt;
-            if (!arrayList.isEmpty()) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Long) {
-                    ax = this.bpt.ax(((Long) data).longValue());
-                    if (ax != null) {
-                        ax.followNum++;
-                        ax.setIsLiked(true);
-                        eVar = this.bpt.bps;
-                        n RB = eVar.RB();
-                        if (RB != null) {
-                            arrayList2 = this.bpt.Xt;
-                            RB.setData(arrayList2);
-                            RB.notifyDataSetChanged();
-                        }
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        i.a aVar;
+        BaseActivity baseActivity;
+        if (responsedMessage != null) {
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bDp.getUniqueId()) {
+                if (responsedMessage.hasError()) {
+                    if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                        baseActivity = this.bDp.aXA;
+                        baseActivity.showToast(responsedMessage.getErrorString());
                     }
+                    aVar = this.bDp.bDo;
+                    aVar.a(false, null);
+                    return;
                 }
+                this.bDp.h(responsedMessage);
             }
         }
     }

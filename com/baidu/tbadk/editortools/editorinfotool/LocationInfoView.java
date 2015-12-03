@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import com.baidu.adp.base.l;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.tbadkCore.a;
 /* loaded from: classes.dex */
@@ -24,28 +24,28 @@ public class LocationInfoView extends EditorInfoView {
         super(context, attributeSet);
         setMaxEms(8);
         setEllipsize(TextUtils.TruncateAt.END);
-        r(0, null);
+        s(0, null);
     }
 
-    public void r(int i, String str) {
+    public void s(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(i.h.location_loading);
+                str = getResources().getString(n.i.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(i.h.location_default);
+                str = getResources().getString(n.i.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(i.h.location_default);
+                str = getResources().getString(n.i.location_default);
             }
             setText(str);
         }
-        AL();
+        BJ();
     }
 
     public int getState() {
@@ -53,25 +53,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tc() {
-        super.tc();
-        AL();
+    protected void tH() {
+        super.tH();
+        BJ();
     }
 
-    private void AL() {
+    private void BJ() {
         if (this.mState == 1) {
-            Animatable animatable = (Animatable) an.getDrawable(i.e.icon_posts_pin_loading_anim);
+            Animatable animatable = (Animatable) as.getDrawable(n.e.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             a.a((TbPageContextSupport) l.B(getContext()), animatable);
-            setPadding(this.cZG + k.dip2px(getContext(), 3.0f), this.cZH, this.cZG, this.cZH);
+            setPadding(this.dyu + k.dip2px(getContext(), 3.0f), this.dyv, this.dyu, this.dyv);
             setCompoundDrawablePadding(k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
-            setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cZG, this.cZH, this.cZG, this.cZH);
+            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.dyu, this.dyv, this.dyu, this.dyv);
             setCompoundDrawablePadding(0);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cZG, this.cZH, this.cZG, this.cZH);
+            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.dyu, this.dyv, this.dyu, this.dyv);
             setCompoundDrawablePadding(0);
         }
     }

@@ -1,21 +1,24 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import android.content.DialogInterface;
-import com.baidu.tbadk.gif.GiftGifView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class c implements DialogInterface.OnDismissListener {
-    final /* synthetic */ a bnv;
+class c implements NoNetworkView.a {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.bnv = aVar;
+    public c(MyGiftListActivity myGiftListActivity) {
+        this.bwy = myGiftListActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        GiftGifView giftGifView;
-        giftGifView = this.bnv.bnu;
-        giftGifView.stop();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aA(boolean z) {
+        j jVar;
+        j jVar2;
+        if (z) {
+            jVar = this.bwy.bwr;
+            jVar.cV(false);
+            jVar2 = this.bwy.bwr;
+            jVar2.LoadData();
+        }
     }
 }

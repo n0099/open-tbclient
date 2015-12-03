@@ -5,6 +5,7 @@ import java.io.Serializable;
 import tbclient.ThemeBgProp;
 /* loaded from: classes.dex */
 public class DressItemData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    private int activityFinish;
     private String activityUrl;
     private String description;
     private String exampleImgUrl;
@@ -16,6 +17,7 @@ public class DressItemData extends com.baidu.adp.lib.a.b.a.a.i implements Serial
     private String title;
 
     public DressItemData() {
+        this.inUse = 0;
     }
 
     public DressItemData(ThemeBgProp themeBgProp) {
@@ -29,6 +31,7 @@ public class DressItemData extends com.baidu.adp.lib.a.b.a.a.i implements Serial
             this.permissionImgUrl = themeBgProp.permission;
             this.propsStateImg = themeBgProp.props_state_img;
             this.activityUrl = themeBgProp.activity_url;
+            this.activityFinish = themeBgProp.is_finished.intValue();
         }
     }
 
@@ -104,7 +107,19 @@ public class DressItemData extends com.baidu.adp.lib.a.b.a.a.i implements Serial
         this.activityUrl = str;
     }
 
+    public int getActivityFinish() {
+        return this.activityFinish;
+    }
+
+    public void setActivityFinish(int i) {
+        this.activityFinish = i;
+    }
+
     public boolean getIsActivity() {
         return !StringUtils.isNull(this.activityUrl);
+    }
+
+    public boolean isDefault() {
+        return this.propsId == 0;
     }
 }

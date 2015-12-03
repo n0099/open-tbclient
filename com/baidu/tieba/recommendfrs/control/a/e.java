@@ -1,5 +1,6 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -7,42 +8,40 @@ import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tieba.recommendfrs.data.RecommendFrsHttpResponsedMessage;
 import com.baidu.tieba.recommendfrs.data.RecommendFrsSocketResponsedMessage;
-import com.baidu.tieba.recommendfrs.data.g;
-import com.baidu.tieba.recommendfrs.data.h;
-import tbclient.FineFrsPage.FineFrsPageResIdl;
+import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 /* loaded from: classes.dex */
-public class e extends com.baidu.tbadk.mvc.model.d<h, g, BaseFragmentActivity> {
-    public e(TbPageContext<BaseFragmentActivity> tbPageContext, h hVar) {
-        super(tbPageContext, hVar);
+public class e extends com.baidu.tbadk.mvc.model.d<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c, BaseFragmentActivity> {
+    public e(TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.recommendfrs.data.d dVar) {
+        super(tbPageContext, dVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<g, FineFrsPageResIdl>> oX() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.c, ExcFrsPageResIdl>> pd() {
         return RecommendFrsHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<g, FineFrsPageResIdl>> oW() {
+    protected Class<? extends MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.c, ExcFrsPageResIdl>> pc() {
         return RecommendFrsSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oT() {
+    protected int oZ() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oU() {
-        return "c/f/choiceness/finefrspage";
+    protected String pa() {
+        return TbConfig.RECOMMEND_FRS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<g> getResponseDataClass() {
-        return g.class;
+    protected Class<com.baidu.tieba.recommendfrs.data.c> getResponseDataClass() {
+        return com.baidu.tieba.recommendfrs.data.c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oV() {
-        return 307001;
+    protected int pb() {
+        return 309092;
     }
 }

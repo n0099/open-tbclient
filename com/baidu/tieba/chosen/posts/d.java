@@ -7,13 +7,13 @@ import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b aIG;
+    final /* synthetic */ b aNh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i, int i2) {
         super(i, i2);
-        this.aIG = bVar;
+        this.aNh = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -21,15 +21,15 @@ public class d extends com.baidu.adp.framework.listener.a {
         ChosenPostActivity chosenPostActivity;
         if (responsedMessage != null) {
             if (responsedMessage.getError() != 0) {
-                chosenPostActivity = this.aIG.aIz;
-                BdToast.a(chosenPostActivity.getActivity(), responsedMessage.getErrorString(), 0).sX().sZ();
+                chosenPostActivity = this.aNh.aNa;
+                BdToast.a(chosenPostActivity.getActivity(), responsedMessage.getErrorString(), 0).tC().tE();
             } else if (!(responsedMessage instanceof UnlikeHttpResponse)) {
                 if (!(responsedMessage instanceof UnlikeSocketReponse)) {
                     return;
                 }
-                this.aIG.ag(((UnlikeSocketReponse) responsedMessage).getThreadId());
+                this.aNh.ao(((UnlikeSocketReponse) responsedMessage).getThreadId());
             } else {
-                this.aIG.ag(((UnlikeHttpResponse) responsedMessage).getThreadId());
+                this.aNh.ao(((UnlikeHttpResponse) responsedMessage).getThreadId());
             }
         }
     }

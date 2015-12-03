@@ -2,13 +2,13 @@ package com.baidu.tieba.location.editortool;
 
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.w;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.editortools.y;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class b extends w {
+public class b extends y {
     public b(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_location), 7, i);
-        this.launcherIcon = i.e.btn_pb_add_pin;
+        super(context, TbadkCoreApplication.m411getInst().getString(n.i.editor_location), 7, i);
+        this.launcherIcon = n.e.btn_pb_add_pin;
         this.toolLaunchAction = new int[]{18};
     }
 }

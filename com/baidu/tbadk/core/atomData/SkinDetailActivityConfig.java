@@ -14,6 +14,13 @@ public class SkinDetailActivityConfig extends IntentConfig {
         getIntent().putExtra(THEME_ID, i);
     }
 
+    public SkinDetailActivityConfig(Context context, int i, String str, String str2) {
+        super(context);
+        getIntent().putExtra(THEME_ID, i);
+        getIntent().putExtra(THEME_ALBUM_PICTURE, str);
+        getIntent().putExtra(THEME_PERMISSION_ICON_URL, str2);
+    }
+
     public SkinDetailActivityConfig(Context context, int i, int i2, String str, String str2) {
         super(context);
         getIntent().putExtra(THEME_ID, i);

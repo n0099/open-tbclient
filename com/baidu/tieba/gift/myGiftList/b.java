@@ -1,72 +1,35 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.gift.myGiftList.j;
 /* loaded from: classes.dex */
-public class b implements GiftGifView.a {
-    final /* synthetic */ a bnv;
+class b implements j.a {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.bnv = aVar;
+    public b(MyGiftListActivity myGiftListActivity) {
+        this.bwy = myGiftListActivity;
     }
 
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void onStop() {
-        GiftGifView giftGifView;
-        LinearLayout linearLayout;
-        Dialog dialog;
-        Activity activity;
-        giftGifView = this.bnv.bnu;
-        giftGifView.setIsHide(true);
-        linearLayout = this.bnv.bnt;
-        linearLayout.setVisibility(8);
-        dialog = this.bnv.bns;
-        activity = this.bnv.mActivity;
-        com.baidu.adp.lib.g.j.b(dialog, activity);
-    }
-
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void onStart() {
-        ProgressDialog progressDialog;
-        Dialog dialog;
-        Activity activity;
-        GiftGifView giftGifView;
-        LinearLayout linearLayout;
-        progressDialog = this.bnv.mWaitingDialog;
-        com.baidu.adp.lib.util.k.a(progressDialog);
-        dialog = this.bnv.bns;
-        activity = this.bnv.mActivity;
-        com.baidu.adp.lib.g.j.a(dialog, activity);
-        giftGifView = this.bnv.bnu;
-        giftGifView.setVisibility(0);
-        linearLayout = this.bnv.bnt;
-        linearLayout.setVisibility(0);
-    }
-
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void BT() {
-        ProgressDialog progressDialog;
-        Dialog dialog;
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        progressDialog = this.bnv.mWaitingDialog;
-        com.baidu.adp.lib.util.k.a(progressDialog);
-        dialog = this.bnv.bns;
-        activity = this.bnv.mActivity;
-        com.baidu.adp.lib.g.j.b(dialog, activity);
-        if (com.baidu.adp.lib.util.k.je()) {
-            activity3 = this.bnv.mActivity;
-            com.baidu.adp.lib.util.k.showToast(activity3, i.h.gif_play_failed_tip);
+    @Override // com.baidu.tieba.gift.myGiftList.j.a
+    public void a(int i, String str, boolean z, a aVar) {
+        l lVar;
+        l lVar2;
+        l lVar3;
+        l lVar4;
+        this.bwy.closeLoadingDialog();
+        lVar = this.bwy.bws;
+        lVar.getFooterView().setVisibility(8);
+        lVar2 = this.bwy.bws;
+        lVar2.Tx();
+        if (i == 0) {
+            lVar3 = this.bwy.bws;
+            lVar3.b(aVar);
             return;
         }
-        activity2 = this.bnv.mActivity;
-        com.baidu.adp.lib.util.k.showToast(activity2, i.h.neterror);
+        this.bwy.showToast(str);
+        if (z) {
+            lVar4 = this.bwy.bws;
+            lVar4.b(aVar);
+        }
     }
 }

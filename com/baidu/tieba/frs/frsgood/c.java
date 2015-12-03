@@ -3,22 +3,22 @@ package com.baidu.tieba.frs.frsgood;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ FrsGoodActivity baf;
+    final /* synthetic */ FrsGoodActivity bgy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsGoodActivity frsGoodActivity) {
-        this.baf = frsGoodActivity;
+        this.bgy = frsGoodActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA = this.baf.aZZ.Nb().aA(((Integer) view.getTag()).intValue());
-        if (aA instanceof com.baidu.tbadk.core.data.b) {
-            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aA;
-            if (!bVar.rp()) {
+        com.baidu.adp.widget.ListView.u aB = this.bgy.bgr.OD().aB(((Integer) view.getTag()).intValue());
+        if (aB instanceof com.baidu.tbadk.core.data.b) {
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aB;
+            if (!bVar.rD()) {
                 return;
             }
-            this.baf.a(bVar);
+            this.bgy.a(bVar);
         }
     }
 }

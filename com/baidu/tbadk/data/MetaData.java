@@ -2,12 +2,14 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.GodInfo;
 import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
@@ -27,11 +29,15 @@ public class MetaData extends i implements Serializable {
     private String portraith = null;
     private ArrayList<IconData> mIconInfo = new ArrayList<>();
     private ArrayList<IconData> mTShowIconInfo = new ArrayList<>();
+    private ArrayList<IconData> mTShowIconInfoNew = new ArrayList<>();
     private int is_bawu = 0;
     private String bawu_type = null;
     private int concernNum = 0;
     private int fansNum = 0;
     private boolean mHadConcerned = false;
+    private GodInfo godInfo = null;
+    private int giftNum = 0;
+    private int isMem = 0;
 
     public void setUserId(String str) {
         this.userId = str;
@@ -54,7 +60,7 @@ public class MetaData extends i implements Serializable {
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
+        return com.baidu.adp.lib.h.b.c(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -67,6 +73,10 @@ public class MetaData extends i implements Serializable {
 
     public void setUserName(String str) {
         this.userName = str;
+    }
+
+    public int getIsMem() {
+        return this.isMem;
     }
 
     public String getUserName() {
@@ -123,6 +133,14 @@ public class MetaData extends i implements Serializable {
 
     public void setTShowInfo(ArrayList<IconData> arrayList) {
         this.mTShowIconInfo = arrayList;
+    }
+
+    public ArrayList<IconData> getTShowInfoNew() {
+        return this.mTShowIconInfoNew;
+    }
+
+    public void setTShowInfoNew(ArrayList<IconData> arrayList) {
+        this.mTShowIconInfoNew = arrayList;
     }
 
     public int getLevel_id() {
@@ -189,7 +207,23 @@ public class MetaData extends i implements Serializable {
         this.mHadConcerned = z;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Long)] */
+    public GodInfo getGodInfo() {
+        return this.godInfo;
+    }
+
+    public void setGodInfo(GodInfo godInfo) {
+        this.godInfo = godInfo;
+    }
+
+    public int getGiftNum() {
+        return this.giftNum;
+    }
+
+    public void setGiftNum(int i) {
+        this.giftNum = i;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r8v0 tbclient.User) tbclient.User.id java.lang.Long)] */
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = new StringBuilder().append(user.id).toString();
@@ -213,6 +247,8 @@ public class MetaData extends i implements Serializable {
             this.portraith = user.portraith;
             List<Icon> list = user.iconinfo;
             List<TshowInfo> list2 = user.tshow_icon;
+            List<TshowInfo> list3 = user.new_tshow_icon;
+            this.isMem = user.is_mem.intValue();
             this.mIconInfo.clear();
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
@@ -229,6 +265,16 @@ public class MetaData extends i implements Serializable {
                     this.mTShowIconInfo.add(iconData2);
                 }
             }
+            this.mTShowIconInfoNew.clear();
+            if (list3 != null) {
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    IconData iconData3 = new IconData();
+                    iconData3.parserProtobuf(list3.get(i3));
+                    this.mTShowIconInfoNew.add(iconData3);
+                }
+            }
+            this.godInfo = user.god_data;
+            this.giftNum = user.gift_num.intValue();
         }
     }
 
@@ -250,6 +296,7 @@ public class MetaData extends i implements Serializable {
                 this.level_id = jSONObject.optInt("level_id", 0);
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
+                this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
                 this.is_myfriend = jSONObject.optInt("is_friend");
                 if (this.userName != null && this.userName.length() <= 0) {
@@ -260,6 +307,7 @@ public class MetaData extends i implements Serializable {
                 this.portraith = jSONObject.optString("portraith");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
@@ -272,6 +320,13 @@ public class MetaData extends i implements Serializable {
                         IconData iconData2 = new IconData();
                         iconData2.parserJson(optJSONArray2.getJSONObject(i2));
                         this.mTShowIconInfo.add(iconData2);
+                    }
+                }
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        IconData iconData3 = new IconData();
+                        iconData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.mTShowIconInfoNew.add(iconData3);
                     }
                 }
             } catch (Exception e) {

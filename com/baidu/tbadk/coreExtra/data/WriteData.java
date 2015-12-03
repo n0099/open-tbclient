@@ -60,9 +60,9 @@ public class WriteData implements Serializable {
     private String mVcode;
     private String mVcodeMD5;
     private String mVcodeUrl;
+    private VideoInfo mVideoInfo;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
-    private VideoInfo videoInfo;
     private WriteImagesInfo writeImagesInfo;
 
     public boolean isBabaoPosted() {
@@ -121,7 +121,7 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     if (this.liveCardData == null || !this.liveCardData.isModifyTime()) {
-                        return (this.videoInfo != null && this.videoInfo.isAvaliable()) || this.mCategoryTo >= 0;
+                        return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
                     }
                     return true;
                 }
@@ -147,11 +147,11 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo != null) {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
-            if (this.videoInfo != null) {
-                jSONObject.put(VideoInfo.DRAFT_JSON_NAME, this.videoInfo.toJsonObject());
-            }
             if (this.baobaoImagesInfo != null) {
                 jSONObject.put("baobaoImagesInfo", this.baobaoImagesInfo.toJson());
+            }
+            if (this.mVideoInfo != null) {
+                jSONObject.put(VideoInfo.DRAFT_JSON_NAME, VideoInfo.jsonWithObject(this.mVideoInfo));
             }
         } catch (Exception e) {
         }
@@ -178,8 +178,7 @@ public class WriteData implements Serializable {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(VideoInfo.DRAFT_JSON_NAME);
             if (optJSONObject2 != null) {
-                writeData.videoInfo = new VideoInfo();
-                writeData.videoInfo.parseJsonObject(optJSONObject2);
+                writeData.mVideoInfo = (VideoInfo) VideoInfo.objectWithJson(optJSONObject2, VideoInfo.class);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("writeImagesInfo");
             if (optJSONObject3 != null) {
@@ -365,11 +364,11 @@ public class WriteData implements Serializable {
     }
 
     public void setVideoInfo(VideoInfo videoInfo) {
-        this.videoInfo = videoInfo;
+        this.mVideoInfo = videoInfo;
     }
 
     public VideoInfo getVideoInfo() {
-        return this.videoInfo;
+        return this.mVideoInfo;
     }
 
     public WriteImagesInfo getBaobaoImagesInfo() {

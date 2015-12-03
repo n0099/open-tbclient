@@ -1,17 +1,31 @@
 package com.baidu.tieba.myCollection;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
-class k implements a.b {
-    final /* synthetic */ j ccj;
-
+class k extends com.baidu.adp.framework.listener.a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.ccj = jVar;
+    public k(int i, int i2) {
+        super(i, i2);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        List<String> list = Collections.EMPTY_LIST;
+        if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
+            list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
+        } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
+            list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+        }
+        if (!list.isEmpty()) {
+            com.baidu.tbadk.core.sharedPref.b.tZ().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
+            e.ahT().ahU();
+            EditMarkStatic.cud = true;
+        }
     }
 }

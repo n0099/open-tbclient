@@ -1,53 +1,16 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class g extends LinearLayout {
-    private View arJ;
-    private boolean visible;
-
-    public g(Context context) {
-        super(context);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.arJ != null) {
-            this.arJ.measure(getChildMeasureSpec(i, 0, this.arJ.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.arJ.getLayoutParams().height));
+class g implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        View childAt = getChildAt(0);
-        if (this.arJ != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.arJ.getMeasuredWidth();
-            this.arJ.layout(measuredWidth, 0, this.arJ.getMeasuredWidth() + measuredWidth, this.arJ.getMeasuredHeight());
-        }
-    }
-
-    public void setNewView(View view) {
-        this.arJ = view;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        if (this.visible) {
-            canvas.save();
-            canvas.translate(this.arJ.getLeft(), this.arJ.getTop());
-            this.arJ.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    public void setNewViewVisible(boolean z) {
-        this.visible = z;
-        invalidate();
+        return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.valueOf(x.Ju().gK(customMessage.getData())));
     }
 }

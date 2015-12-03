@@ -2,17 +2,17 @@ package com.baidu.tbadk.core.tabHost;
 
 import android.view.View;
 import android.view.animation.Animation;
-import com.baidu.adp.lib.g.d;
+import com.baidu.adp.lib.h.d;
 /* loaded from: classes.dex */
 class a extends d {
-    final /* synthetic */ FragmentTabHost YH;
+    final /* synthetic */ FragmentTabHost Zt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FragmentTabHost fragmentTabHost) {
-        this.YH = fragmentTabHost;
+        this.Zt = fragmentTabHost;
     }
 
-    @Override // com.baidu.adp.lib.g.d
+    @Override // com.baidu.adp.lib.h.d
     public void b(Animation animation) {
         Animation layerInAnimation;
         Animation layerOutAnimation;
@@ -20,19 +20,19 @@ class a extends d {
         View view2;
         View view3;
         View view4;
-        layerInAnimation = this.YH.getLayerInAnimation();
+        layerInAnimation = this.Zt.getLayerInAnimation();
         if (animation == layerInAnimation) {
-            view3 = this.YH.Yy;
+            view3 = this.Zt.Zk;
             view3.setVisibility(0);
-            view4 = this.YH.Yy;
+            view4 = this.Zt.Zk;
             view4.setClickable(true);
             return;
         }
-        layerOutAnimation = this.YH.getLayerOutAnimation();
+        layerOutAnimation = this.Zt.getLayerOutAnimation();
         if (animation == layerOutAnimation) {
-            view = this.YH.Yy;
+            view = this.Zt.Zk;
             view.setVisibility(8);
-            view2 = this.YH.Yy;
+            view2 = this.Zt.Zk;
             view2.setClickable(false);
         }
     }

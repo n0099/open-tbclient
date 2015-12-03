@@ -1,39 +1,71 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tieba.tbadkCore.h.a;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.n;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.base.g {
-    final /* synthetic */ NewSubPbActivity cnS;
+public class b implements NewSubPbActivity.a {
+    final /* synthetic */ NewSubPbActivity cHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NewSubPbActivity newSubPbActivity) {
-        this.cnS = newSubPbActivity;
+        this.cHd = newSubPbActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
     public void d(Object obj) {
-        v vVar;
-        com.baidu.tieba.tbadkCore.h.a aVar;
-        com.baidu.tieba.tbadkCore.h.a aVar2;
-        v vVar2;
-        if (obj != null) {
-            aVar2 = this.cnS.cnI;
-            switch (aVar2.getLoadDataMode()) {
-                case 0:
-                    this.cnS.a((a.b) obj);
+        com.baidu.tieba.tbadkCore.f.a aVar;
+        an anVar;
+        an anVar2;
+        an anVar3;
+        an anVar4;
+        com.baidu.tieba.tbadkCore.f.a aVar2;
+        an anVar5;
+        an anVar6;
+        an anVar7;
+        Object[] objArr = (Object[]) obj;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            aVar = this.cHd.cGT;
+            if (!aVar.aDT() && objArr != null && objArr.length >= 4) {
+                String valueOf = String.valueOf(objArr[0]);
+                int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
+                boolean e = com.baidu.adp.lib.h.b.e(String.valueOf(objArr[2]), false);
+                int g2 = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[3]), 0);
+                anVar = this.cHd.cGS;
+                if (anVar != null) {
+                    anVar2 = this.cHd.cGS;
+                    if (anVar2.amF() != null) {
+                        anVar3 = this.cHd.cGS;
+                        if (anVar3.amF().ajR() != null) {
+                            anVar4 = this.cHd.cGS;
+                            if (anVar4.amF().ajT() != null) {
+                                aVar2 = this.cHd.cGT;
+                                anVar5 = this.cHd.cGS;
+                                String id = anVar5.amF().ajR().getId();
+                                anVar6 = this.cHd.cGS;
+                                String name = anVar6.amF().ajR().getName();
+                                anVar7 = this.cHd.cGS;
+                                aVar2.a(id, name, anVar7.amF().ajT().getId(), valueOf, g2, g, e);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
                     return;
-                case 1:
-                    a.d dVar = (a.d) obj;
-                    vVar2 = this.cnS.cnJ;
-                    vVar2.a(1, dVar.An, dVar.ddm, true);
-                    return;
-                default:
-                    return;
+                }
+                return;
             }
+            return;
         }
-        vVar = this.cnS.cnJ;
-        aVar = this.cnS.cnI;
-        vVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        TbadkCoreApplication.m411getInst().login(this.cHd.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cHd.getPageContext().getPageActivity(), this.cHd.getPageContext().getString(n.i.login_to_use), true, 11017)));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.image;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.coreExtra.view.z;
 /* loaded from: classes.dex */
 class n implements z.b {
@@ -13,13 +13,13 @@ class n implements z.b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.z.b
-    public void zr() {
+    public void An() {
         String str;
         String str2;
-        aq aqVar = new aq("c10351");
-        str = this.this$0.bPn;
-        aq ae = aqVar.ae("tid", str);
+        av avVar = new av("c10351");
+        str = this.this$0.cfA;
+        av ab = avVar.ab("tid", str);
         str2 = this.this$0.mFrom;
-        TiebaStatic.log(ae.ae("obj_type", str2));
+        TiebaStatic.log(ab.ab("obj_type", str2));
     }
 }

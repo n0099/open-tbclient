@@ -1,63 +1,52 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-public class br extends x.a {
-    public TextView aGH;
-    public TextView aGI;
-    public TextView aGJ;
-    public TextView aGK;
-    public TbImageView aGL;
-    public TbImageView aGM;
-    public TbImageView aGN;
-    public LinearLayout aGO;
-    public LinearLayout aGP;
-    public LinearLayout aWA;
-    public a aWB;
-    public View aWC;
-    public LinearLayout aWz;
+class br implements Runnable {
+    final /* synthetic */ bq bbS;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.y bbT;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public TextView aFj;
-        public HeadImageView aGQ;
-        public UserIconBox aGR;
-        public TextView aGS;
-        public TextView aGT;
-        public TextView aGW;
-        public ImageView aGX;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public br(bq bqVar, com.baidu.tieba.tbadkCore.y yVar) {
+        this.bbS = bqVar;
+        this.bbT = yVar;
     }
 
-    public br(View view) {
-        super(view);
-        this.aWz = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_root);
-        this.aWA = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_top);
-        this.aWC = view.findViewById(i.f.line_3);
-        this.aWB = new a();
-        View findViewById = view.findViewById(i.f.recommend_similar_top);
-        this.aWB.aGQ = (HeadImageView) findViewById.findViewById(i.f.recommend_new_head);
-        this.aWB.aGR = (UserIconBox) findViewById.findViewById(i.f.recommend_new_crown);
-        this.aWB.aGS = (TextView) findViewById.findViewById(i.f.recommend_new_user_name);
-        this.aWB.aGT = (TextView) findViewById.findViewById(i.f.recommend_new_introduce);
-        this.aWB.aFj = (TextView) findViewById.findViewById(i.f.recommond_detail_info_distance);
-        this.aWB.aGW = (TextView) findViewById.findViewById(i.f.recommend_new_add_friend);
-        this.aWB.aGX = (ImageView) view.findViewById(i.f.recommend_new_user_sex);
-        this.aGH = (TextView) view.findViewById(i.f.recommend_similar_bar_names);
-        this.aGI = (TextView) view.findViewById(i.f.recommend_similar_bar_desc);
-        this.aGL = (TbImageView) view.findViewById(i.f.recommend_similar_pic_one);
-        this.aGM = (TbImageView) view.findViewById(i.f.recommend_similar_pic_two);
-        this.aGN = (TbImageView) view.findViewById(i.f.recommend_similar_pic_thr);
-        this.aGJ = (TextView) view.findViewById(i.f.recommend_similar_forum);
-        this.aGK = (TextView) view.findViewById(i.f.recommend_similar_common_conern);
-        this.aGO = (LinearLayout) view.findViewById(i.f.recommend_similar_forum_container);
-        this.aGP = (LinearLayout) view.findViewById(i.f.recommend_similar_commom_conern_container);
+    @Override // java.lang.Runnable
+    public void run() {
+        bo boVar;
+        List list;
+        bo boVar2;
+        List list2;
+        bo boVar3;
+        bo boVar4;
+        bo boVar5;
+        List list3;
+        boVar = this.bbS.bbR;
+        list = boVar.bbP;
+        Iterator it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            FeedForumData feedForumData = (FeedForumData) it.next();
+            if (feedForumData.getForumId().equals(this.bbT.getFid())) {
+                boVar5 = this.bbS.bbR;
+                list3 = boVar5.bbP;
+                list3.remove(feedForumData);
+                break;
+            }
+        }
+        boVar2 = this.bbS.bbR;
+        list2 = boVar2.bbP;
+        if (list2.size() > 0) {
+            boVar4 = this.bbS.bbR;
+            boVar4.Np();
+            return;
+        }
+        boVar3 = this.bbS.bbR;
+        boVar3.hide();
     }
 }

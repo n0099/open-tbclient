@@ -6,31 +6,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.g.d;
 import com.baidu.tieba.enterForum.d.m;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.tbadkCore.w;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
-    private int aLq;
+public class a extends d<w, com.baidu.tbadk.mvc.d.b, m> implements c {
+    private int aPQ;
 
     public a(TbPageContext<?> tbPageContext, Class<m> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.aLq = -1;
+        this.aPQ = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void R(int i, int i2) {
-        List<v> Dc = Dc();
-        com.baidu.tieba.enterForum.c.b.II().a(Dc, i, i2);
-        s(Dc);
+    public void S(int i, int i2) {
+        List<w> Ed = Ed();
+        com.baidu.tieba.enterForum.c.b.Ka().a(Ed, i, i2);
+        r(Ed);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void fc(int i) {
-        this.aLq = i;
+    public void fr(int i) {
+        this.aPQ = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void If() {
+    public void Jy() {
         notifyDataSetChanged();
     }
 
@@ -38,7 +38,7 @@ public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.aLq) {
+            if (i == this.aPQ) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

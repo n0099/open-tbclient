@@ -8,92 +8,90 @@ import android.graphics.Paint;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.frs.ec;
-import com.baidu.tieba.frs.ee;
-import com.baidu.tieba.frs.ek;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.ew;
+import com.baidu.tieba.frs.fc;
 import com.baidu.tieba.frs.tab.i;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class HorizontalTabView extends HorizontalScrollView implements g {
-    private View.OnTouchListener aXk;
-    private final LinearLayout bbB;
-    private final i bbC;
-    private TabItemView bbD;
-    private g bbE;
-    private final int bbF;
-    private final int bbG;
-    private int bbH;
-    private i.a bbI;
-    private ec bbJ;
-    private a bbK;
+public class HorizontalTabView extends com.baidu.tbadk.widget.horizonalScrollListView.g implements g {
+    private View.OnTouchListener bde;
+    private final LinearLayout bif;
+    private final i bih;
+    private TabItemView bii;
+    private g bij;
+    private final int bik;
+    private final int bil;
+    private int bim;
+    private i.a bin;
+    private et bio;
+    private a bip;
     private List<h> mData;
     private View.OnClickListener mOnClickListener;
     private final Paint mPaint;
 
     /* loaded from: classes.dex */
     public interface a {
-        void gb(int i);
+        void gx(int i);
 
-        boolean gc(int i);
+        boolean gy(int i);
     }
 
     public void a(TabItemView tabItemView, boolean z) {
-        ee eeVar;
+        ew ewVar;
         int i = 0;
-        this.bbD = tabItemView;
+        this.bii = tabItemView;
         int[] iArr = new int[2];
-        this.bbD.getLocationOnScreen(iArr);
+        this.bii.getLocationOnScreen(iArr);
         int K = com.baidu.adp.lib.util.k.K(getContext()) - iArr[0];
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(i.d.ds160);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(n.d.ds160);
         if (iArr[0] < 0) {
             post(new d(this, dimensionPixelSize));
         } else if (K < dimensionPixelSize) {
             post(new e(this));
         }
-        for (int i2 = 0; i2 < this.bbB.getChildCount(); i2++) {
-            View childAt = this.bbB.getChildAt(i2);
+        for (int i2 = 0; i2 < this.bif.getChildCount(); i2++) {
+            View childAt = this.bif.getChildAt(i2);
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView2 = (TabItemView) childAt;
-                if (tabItemView2.getTabId() != this.bbD.getTabId()) {
-                    tabItemView2.setState(TabItemView.bbP);
+                if (tabItemView2.getTabId() != this.bii.getTabId()) {
+                    tabItemView2.setState(TabItemView.biu);
                 }
             }
         }
-        if (this.bbD.getState() == TabItemView.bbP || this.bbD.getState() == TabItemView.bbR) {
-            boolean z2 = this.bbD.getState() == TabItemView.bbP;
-            this.bbD.setState(TabItemView.bbQ);
-            h fW = fW(this.bbD.getTabId());
-            if (TextUtils.isEmpty(fW.url)) {
-                eeVar = null;
+        if (this.bii.getState() == TabItemView.biu || this.bii.getState() == TabItemView.biw) {
+            boolean z2 = this.bii.getState() == TabItemView.biu;
+            this.bii.setState(TabItemView.biv);
+            h gs = gs(this.bii.getTabId());
+            if (TextUtils.isEmpty(gs.url)) {
+                ewVar = null;
             } else {
-                ee eeVar2 = new ee();
-                eeVar2.aZk = fW.url;
-                eeVar2.stType = fW.name;
-                eeVar = eeVar2;
+                ew ewVar2 = new ew();
+                ewVar2.bfp = gs.url;
+                ewVar2.stType = gs.name;
+                ewVar = ewVar2;
             }
-            if (fW.bbO != null && fW.bbO.aYK != null && fW.bbO.aYK.size() > 0) {
-                for (ek ekVar : fW.bbO.aYK) {
-                    if (ekVar != null && ekVar.isSelected) {
-                        i = ekVar.aYG;
+            if (gs.bit != null && gs.bit.beJ != null && gs.bit.beJ.size() > 0) {
+                for (fc fcVar : gs.bit.beJ) {
+                    if (fcVar != null && fcVar.isSelected) {
+                        i = fcVar.beF;
                     }
                 }
             }
-            if (z2 && this.bbJ != null) {
-                this.bbJ.a(this.bbD.getTabId(), i, eeVar);
+            if (z2 && this.bio != null) {
+                this.bio.a(this.bii.getTabId(), i, ewVar);
             }
-        } else if (fX(this.bbD.getTabId()) && !z) {
-            if (this.bbK == null || this.bbK.gc(this.bbD.getTabId())) {
-                this.bbD.setState(TabItemView.bbR);
-                this.bbC.a((Activity) getContext(), this, this.bbD, fW(this.bbD.getTabId()).bbO);
+        } else if (gt(this.bii.getTabId()) && !z) {
+            if (this.bip == null || this.bip.gy(this.bii.getTabId())) {
+                this.bii.setState(TabItemView.biw);
+                this.bih.a((Activity) getContext(), this, this.bii, gs(this.bii.getTabId()).bit);
             } else {
                 return;
             }
@@ -103,66 +101,66 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
 
     public HorizontalTabView(Activity activity) {
         super(activity);
-        this.bbD = null;
-        this.bbE = null;
+        this.bii = null;
+        this.bij = null;
         this.mPaint = new Paint();
-        this.bbF = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds6);
-        this.bbG = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds1);
-        this.bbH = 0;
-        this.bbI = new com.baidu.tieba.frs.tab.a(this);
+        this.bik = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds6);
+        this.bil = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds1);
+        this.bim = 0;
+        this.bin = new com.baidu.tieba.frs.tab.a(this);
         this.mOnClickListener = new b(this);
-        this.aXk = new c(this);
-        this.bbB = new LinearLayout(activity);
-        this.bbB.setOrientation(0);
-        this.bbB.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, activity.getResources().getDimensionPixelSize(i.d.ds80));
-        this.bbC = new i(activity, this.bbI);
+        this.bde = new c(this);
+        this.bif = new LinearLayout(activity);
+        this.bif.setOrientation(0);
+        this.bif.setGravity(16);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, activity.getResources().getDimensionPixelSize(n.d.ds80));
+        this.bih = new i(activity, this.bin);
         a(layoutParams);
     }
 
     public HorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bbD = null;
-        this.bbE = null;
+        this.bii = null;
+        this.bij = null;
         this.mPaint = new Paint();
-        this.bbF = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds6);
-        this.bbG = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds1);
-        this.bbH = 0;
-        this.bbI = new com.baidu.tieba.frs.tab.a(this);
+        this.bik = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds6);
+        this.bil = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds1);
+        this.bim = 0;
+        this.bin = new com.baidu.tieba.frs.tab.a(this);
         this.mOnClickListener = new b(this);
-        this.aXk = new c(this);
-        this.bbB = new LinearLayout(context);
-        this.bbB.setOrientation(0);
-        this.bbB.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(i.d.ds80));
-        this.bbC = new i(context, this.bbI);
+        this.bde = new c(this);
+        this.bif = new LinearLayout(context);
+        this.bif.setOrientation(0);
+        this.bif.setGravity(16);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(n.d.ds80));
+        this.bih = new i(context, this.bin);
         a(layoutParams);
     }
 
     public HorizontalTabView(Activity activity, int i) {
         super(activity);
-        this.bbD = null;
-        this.bbE = null;
+        this.bii = null;
+        this.bij = null;
         this.mPaint = new Paint();
-        this.bbF = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds6);
-        this.bbG = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds1);
-        this.bbH = 0;
-        this.bbI = new com.baidu.tieba.frs.tab.a(this);
+        this.bik = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds6);
+        this.bil = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds1);
+        this.bim = 0;
+        this.bin = new com.baidu.tieba.frs.tab.a(this);
         this.mOnClickListener = new b(this);
-        this.aXk = new c(this);
-        this.bbB = new LinearLayout(activity);
-        this.bbB.setOrientation(0);
-        this.bbB.setGravity(16);
+        this.bde = new c(this);
+        this.bif = new LinearLayout(activity);
+        this.bif.setOrientation(0);
+        this.bif.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, i);
-        this.bbC = new i(activity, this.bbI);
+        this.bih = new i(activity, this.bin);
         a(layoutParams);
     }
 
     private void a(AbsListView.LayoutParams layoutParams) {
-        addView(this.bbB, layoutParams);
+        addView(this.bif, layoutParams);
         setLayoutParams(layoutParams);
         setHorizontalScrollBarEnabled(false);
-        an.j(this, i.c.frs_tab_bg);
+        as.j(this, n.c.frs_tab_bg);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
     }
 
@@ -174,27 +172,27 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
         boolean z2 = true;
         if (list == null || list.size() == 0) {
             setVisibility(8);
-        } else if (this.mData == null || ad(list)) {
+        } else if (this.mData == null || aj(list)) {
             this.mData = list;
-            this.bbB.removeAllViews();
-            boolean z3 = this.bbH > 0 && list.size() == this.bbH;
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(i.d.ds160);
+            this.bif.removeAllViews();
+            boolean z3 = this.bim > 0 && list.size() == this.bim;
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(n.d.ds160);
             if (z3) {
-                dimensionPixelSize = com.baidu.adp.lib.util.k.K(getContext()) / this.bbH;
+                dimensionPixelSize = com.baidu.adp.lib.util.k.K(getContext()) / this.bim;
             }
             for (h hVar : list) {
                 if (hVar != null) {
                     TabItemView tabItemView = new TabItemView(getContext(), hVar, i);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, -1);
                     if (z) {
-                        tabItemView.setOnTouchListener(this.aXk);
+                        tabItemView.setOnTouchListener(this.bde);
                     } else {
                         tabItemView.setOnClickListener(this.mOnClickListener);
                     }
-                    this.bbB.addView(tabItemView, layoutParams);
+                    this.bif.addView(tabItemView, layoutParams);
                     if (z2) {
-                        this.bbD = tabItemView;
-                        tabItemView.setState(TabItemView.bbQ);
+                        this.bii = tabItemView;
+                        tabItemView.setState(TabItemView.biv);
                         z2 = false;
                     }
                 }
@@ -202,9 +200,9 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
         }
     }
 
-    private boolean ad(List<h> list) {
+    private boolean aj(List<h> list) {
         h hVar;
-        h fW = fW(1);
+        h gs = gs(1);
         Iterator<h> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -212,30 +210,30 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
                 break;
             }
             h next = it.next();
-            if (next.bbN == 1) {
+            if (next.bis == 1) {
                 hVar = next;
                 break;
             }
         }
-        if (fW == null || hVar == null) {
+        if (gs == null || hVar == null) {
             return false;
         }
-        if (fW.bbO == null && hVar.bbO == null) {
+        if (gs.bit == null && hVar.bit == null) {
             return false;
         }
-        if ((fW.bbO != null || hVar.bbO == null) && (hVar.bbO != null || fW.bbO == null)) {
-            if (fW.bbO.aYK == null && hVar.bbO.aYK == null) {
+        if ((gs.bit != null || hVar.bit == null) && (hVar.bit != null || gs.bit == null)) {
+            if (gs.bit.beJ == null && hVar.bit.beJ == null) {
                 return false;
             }
-            if ((fW.bbO.aYK != null || hVar.bbO.aYK == null) && (hVar.bbO.aYK != null || fW.bbO.aYK == null)) {
-                int size = fW.bbO.aYK.size();
-                if (size != hVar.bbO.aYK.size()) {
+            if ((gs.bit.beJ != null || hVar.bit.beJ == null) && (hVar.bit.beJ != null || gs.bit.beJ == null)) {
+                int size = gs.bit.beJ.size();
+                if (size != hVar.bit.beJ.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
-                    ek ekVar = hVar.bbO.aYK.get(i);
-                    ek ekVar2 = fW.bbO.aYK.get(i);
-                    if (ekVar.aYG != ekVar2.aYG || !ekVar.name.equals(ekVar2.name)) {
+                    fc fcVar = hVar.bit.beJ.get(i);
+                    fc fcVar2 = gs.bit.beJ.get(i);
+                    if (fcVar.beF != fcVar2.beF || !fcVar.name.equals(fcVar2.name)) {
                         return true;
                     }
                 }
@@ -250,53 +248,49 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
         a(list, 4, false);
     }
 
-    public void setData(List<h> list, boolean z) {
-        a(list, 4, z);
-    }
-
-    private h fW(int i) {
+    private h gs(int i) {
         if (i < 0 || this.mData == null || this.mData.size() == 0) {
             return null;
         }
         for (h hVar : this.mData) {
-            if (hVar != null && hVar.bbN == i) {
+            if (hVar != null && hVar.bis == i) {
                 return hVar;
             }
         }
         return null;
     }
 
-    private boolean fX(int i) {
-        h fW = fW(i);
-        return (fW == null || fW.bbO == null || fW.bbO.aYK == null || fW.bbO.aYK.size() <= 0) ? false : true;
+    private boolean gt(int i) {
+        h gs = gs(i);
+        return (gs == null || gs.bit == null || gs.bit.beJ == null || gs.bit.beJ.size() <= 0) ? false : true;
     }
 
-    public boolean NB() {
+    public boolean Ph() {
         return (this.mData == null || this.mData.size() == 0) ? false : true;
     }
 
     public void setFakeTab(g gVar) {
-        this.bbE = gVar;
+        this.bij = gVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.bbD != null) {
-            this.mPaint.setColor(an.getColor(i.c.cp_bg_line_b));
-            canvas.drawRect(this.bbB.getLeft(), getMeasuredHeight() - this.bbG, this.bbB.getRight() > getRight() ? this.bbB.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
-            this.mPaint.setColor(an.d((Resources) null, i.c.s_actionbar_text_line_color_s));
-            canvas.drawRect(this.bbD.getLeft(), getMeasuredHeight() - this.bbF, this.bbD.getRight(), getMeasuredHeight(), this.mPaint);
+        if (this.bii != null) {
+            this.mPaint.setColor(as.getColor(n.c.cp_bg_line_b));
+            canvas.drawRect(this.bif.getLeft(), getMeasuredHeight() - this.bil, this.bif.getRight() > getRight() ? this.bif.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
+            this.mPaint.setColor(as.d((Resources) null, n.c.s_actionbar_text_line_color_s));
+            canvas.drawRect(this.bii.getLeft(), getMeasuredHeight() - this.bik, this.bii.getRight(), getMeasuredHeight(), this.mPaint);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.g
-    public void fY(int i) {
+    public void gu(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.bbB.getChildCount()) {
-                View childAt = this.bbB.getChildAt(i3);
+            if (i3 < this.bif.getChildCount()) {
+                View childAt = this.bif.getChildAt(i3);
                 if (childAt instanceof TabItemView) {
                     TabItemView tabItemView = (TabItemView) childAt;
                     if (tabItemView.getTabId() == i) {
@@ -310,52 +304,44 @@ public class HorizontalTabView extends HorizontalScrollView implements g {
         }
     }
 
-    public void setDataLoadInterface(ec ecVar) {
-        this.bbJ = ecVar;
+    public void setDataLoadInterface(et etVar) {
+        this.bio = etVar;
     }
 
     public void setmShowMenuCallBack(a aVar) {
-        this.bbK = aVar;
+        this.bip = aVar;
     }
 
     public a getmShowMenuCallBack() {
-        return this.bbK;
+        return this.bip;
     }
 
-    public void vB() {
-        an.j(this, i.c.frs_tab_bg);
+    public void wh() {
+        as.j(this, n.c.frs_tab_bg);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bbB.getChildCount()) {
-                View childAt = this.bbB.getChildAt(i2);
+            if (i2 < this.bif.getChildCount()) {
+                View childAt = this.bif.getChildAt(i2);
                 if (childAt instanceof TabItemView) {
-                    ((TabItemView) childAt).vB();
+                    ((TabItemView) childAt).wh();
                 }
                 i = i2 + 1;
             } else {
-                this.bbC.vB();
+                this.bih.wh();
                 return;
             }
         }
     }
 
     public void setAutoFillTabCount(int i) {
-        this.bbH = i;
+        this.bim = i;
     }
 
     @Override // com.baidu.tieba.frs.tab.g
-    public void fZ(int i) {
-        if (this.bbD != null && this.bbJ != null) {
-            this.bbJ.a(this.bbD.getTabId(), i, null);
+    public void gv(int i) {
+        if (this.bii != null && this.bio != null) {
+            this.bio.a(this.bii.getTabId(), i, null);
         }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(true);
-        }
-        return super.onInterceptTouchEvent(motionEvent);
     }
 }

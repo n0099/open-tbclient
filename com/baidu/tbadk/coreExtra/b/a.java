@@ -5,13 +5,13 @@ import com.baidu.adp.lib.Disk.ops.d;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a afW = null;
-    private boolean afV;
-    private int afX;
+    private static volatile a ahB = null;
+    private boolean ahA;
+    private int ahC;
 
     private a() {
-        this.afV = false;
-        this.afX = 0;
+        this.ahA = false;
+        this.ahC = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.q(true);
@@ -19,10 +19,10 @@ public class a {
             if (dVar.fk()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.afX = Integer.parseInt(content);
+                    this.ahC = Integer.parseInt(content);
                 }
-                if (this.afX == 1 || this.afX == 2) {
-                    this.afV = true;
+                if (this.ahC == 1 || this.ahC == 2) {
+                    this.ahA = true;
                 }
             }
         } catch (Throwable th) {
@@ -30,26 +30,26 @@ public class a {
         }
     }
 
-    public static a wc() {
-        if (afW == null) {
+    public static a wT() {
+        if (ahB == null) {
             synchronized (a.class) {
-                if (afW == null) {
-                    afW = new a();
+                if (ahB == null) {
+                    ahB = new a();
                 }
             }
         }
-        return afW;
+        return ahB;
     }
 
-    public boolean wd() {
-        return this.afV;
+    public boolean wU() {
+        return this.ahA;
     }
 
-    public int we() {
-        return this.afX;
+    public int wV() {
+        return this.ahC;
     }
 
-    public String wf() {
-        return this.afV ? "pub_env=" + this.afX + ";" : "";
+    public String wW() {
+        return this.ahA ? "pub_env=" + this.ahC + ";" : "";
     }
 }

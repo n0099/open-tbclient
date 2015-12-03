@@ -10,28 +10,96 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView bJH;
-    private FragmentTransaction bJI;
+public class ChatMessageActivity extends BaseFragmentActivity implements VoiceManager.c {
+    private CustomMessageListener TI = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
+    private ImageView bYM;
+    private FragmentTransaction bYN;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Tt = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
+    private VoiceManager mVoiceManager;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onDestory(getPageContext());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onResume(getPageContext());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onPause(getPageContext());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        super.onStop();
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onStop(getPageContext());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onSaveInstanceState(getPageContext().getPageActivity());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        super.onStart();
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onStart(getPageContext());
+        }
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Tt);
+        registerListener(this.TI);
+        InvokeNewImMessageCenterFragmentConfig.currentPageType = 2;
         sendMessage(new CustomMessage(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 1));
+        this.mVoiceManager = getVoiceManager();
+        if (this.mVoiceManager != null) {
+            this.mVoiceManager.onCreate(getPageContext());
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,17 +107,28 @@ public class ChatMessageActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        an.i(this.mRootView, i.c.cp_bg_line_d);
-        an.a(this.bJH, i.e.icon_write_news_bg_s, i.e.icon_write_news_bg);
+        as.i(this.mRootView, n.c.cp_bg_line_d);
+        as.a(this.bYM, n.e.icon_write_news_bg_s, n.e.icon_write_news_bg);
     }
 
     private void initUI() {
-        setContentView(i.g.chat_message_activity);
-        this.mOnClickListener = new b(this);
-        this.mRootView = findViewById(i.f.container);
-        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
-        this.mNavigationBar.setTitleText(i.h.my_chat);
+        setContentView(n.g.chat_message_activity);
+        this.mRootView = findViewById(n.f.container);
+        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
+        this.mNavigationBar.setTitleText(n.i.my_message);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bJH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_addchat, this.mOnClickListener);
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager.b getRealView(VoiceData.VoiceModel voiceModel) {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager getVoiceManager() {
+        if (this.mVoiceManager == null) {
+            this.mVoiceManager = VoiceManager.instance();
+        }
+        return this.mVoiceManager;
     }
 }

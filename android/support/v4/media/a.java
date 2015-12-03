@@ -14,4 +14,9 @@ class a implements c {
     public void a(KeyEvent keyEvent) {
         keyEvent.dispatch(this.lI.lH);
     }
+
+    @Override // android.support.v4.media.c
+    public void j(int i) {
+        this.lI.lC.onAudioFocusChange(i);
+    }
 }

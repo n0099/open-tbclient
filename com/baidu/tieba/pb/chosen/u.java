@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.chosen;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ s cfP;
+    final /* synthetic */ t cyr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(s sVar) {
-        this.cfP = sVar;
+    public u(t tVar) {
+        this.cyr = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,11 +21,11 @@ public class u implements View.OnClickListener {
         PbChosenActivity pbChosenActivity;
         PbChosenActivity pbChosenActivity2;
         PbChosenActivity pbChosenActivity3;
-        pbChosenActivity = this.cfP.cfO;
+        pbChosenActivity = this.cyr.cyq;
         pbChosenActivity.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        pbChosenActivity2 = this.cfP.cfO;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23007)));
-        pbChosenActivity3 = this.cfP.cfO;
-        TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+        pbChosenActivity2 = this.cyr.cyq;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23003)));
+        pbChosenActivity3 = this.cyr.cyq;
+        TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 1, new Object[0]);
     }
 }

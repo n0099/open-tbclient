@@ -6,15 +6,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
 public class a extends SQLiteOpenHelper {
     public a(Context context) {
-        super(context, "game.db", (SQLiteDatabase.CursorFactory) null, 1);
+        super(context, "game.db", (SQLiteDatabase.CursorFactory) null, 2);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        c.wK().n(sQLiteDatabase);
+        c.xF().n(sQLiteDatabase);
+        d.xH().n(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        switch (i) {
+            case 1:
+                d.xH().n(sQLiteDatabase);
+                return;
+            default:
+                return;
+        }
     }
 }

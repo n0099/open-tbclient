@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
@@ -17,10 +17,10 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public static class a {
-        public TextView WR;
-        public View aCS;
-        public View cDc;
-        public HeadImageView dhP;
+        public TextView XE;
+        public View aFP;
+        public HeadImageView dFX;
+        public View dca;
     }
 
     public c(TbPageContext<?> tbPageContext) {
@@ -37,7 +37,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lM */
+    /* renamed from: mX */
     public j getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= this.mThemeList.size()) {
             return null;
@@ -57,29 +57,29 @@ public class c extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.dressup_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.dressup_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.dhP = (HeadImageView) view.findViewById(i.f.dress_icon);
-            aVar2.dhP.setDefaultResource(i.e.img_default_100);
-            aVar2.dhP.setDefaultBgResource(i.c.cp_bg_line_c);
-            aVar2.WR = (TextView) view.findViewById(i.f.dress_desc_view);
-            aVar2.cDc = view.findViewById(i.f.tip_view);
-            aVar2.aCS = view.findViewById(i.f.divider_line);
+            aVar2.dFX = (HeadImageView) view.findViewById(n.f.dress_icon);
+            aVar2.dFX.setDefaultResource(n.e.img_default_100);
+            aVar2.dFX.setDefaultBgResource(n.c.cp_bg_line_c);
+            aVar2.XE = (TextView) view.findViewById(n.f.dress_desc_view);
+            aVar2.dca = view.findViewById(n.f.tip_view);
+            aVar2.aFP = view.findViewById(n.f.divider_line);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         if (item != null) {
-            aVar.dhP.d(item.getIconUrl(), 10, false);
-            aVar.WR.setText(item.getName());
-            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tu().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                aVar.cDc.setVisibility(0);
+            aVar.dFX.d(item.getIconUrl(), 10, false);
+            aVar.XE.setText(item.getName());
+            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tZ().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
+                aVar.dca.setVisibility(0);
             } else {
-                aVar.cDc.setVisibility(4);
+                aVar.dca.setVisibility(4);
             }
             if (i == getCount() - 1) {
-                aVar.aCS.setVisibility(8);
+                aVar.aFP.setVisibility(8);
             } else {
-                aVar.aCS.setVisibility(0);
+                aVar.aFP.setVisibility(0);
             }
         }
         this.mContext.getLayoutMode().k(view);

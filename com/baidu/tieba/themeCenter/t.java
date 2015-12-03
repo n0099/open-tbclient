@@ -3,14 +3,15 @@ package com.baidu.tieba.themeCenter;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.util.List;
 /* loaded from: classes.dex */
-class t implements CustomMessageTask.CustomRunnable<b> {
+class t implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<Object> run(CustomMessage<b> customMessage) {
-        if (customMessage != null && (customMessage.getData() instanceof b)) {
-            b data = customMessage.getData();
-            com.baidu.tbadk.core.util.n.cR(String.valueOf(data.getId()) + "_" + data.getTitle() + ".tmp");
+    public CustomResponsedMessage<List<b>> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return null;
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, ThemeStatic.bR(n.aFl().aFn()));
     }
 }

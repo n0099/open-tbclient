@@ -4,23 +4,23 @@ import android.os.Handler;
 import android.widget.EditText;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements a.b {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
-        EditText aEn;
+        EditText aJK;
         WriteData writeData2;
-        EditText aEm;
+        EditText aJJ;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
@@ -28,27 +28,27 @@ public class at implements a.b {
         WriteData writeData6;
         WriteData writeData7;
         aVar.dismiss();
-        writeData = this.dsa.ddI;
-        aEn = this.dsa.aEn();
-        writeData.setTitle(aEn.getText().toString());
-        writeData2 = this.dsa.ddI;
-        aEm = this.dsa.aEm();
-        writeData2.setContent(aEm.getText().toString());
-        writeData3 = this.dsa.ddI;
+        writeData = this.dRf.dBW;
+        aJK = this.dRf.aJK();
+        writeData.setTitle(aJK.getText().toString());
+        writeData2 = this.dRf.dBW;
+        aJJ = this.dRf.aJJ();
+        writeData2.setContent(aJJ.getText().toString());
+        writeData3 = this.dRf.dBW;
         int type = writeData3.getType();
         if (type == 0) {
-            writeData6 = this.dsa.ddI;
+            writeData6 = this.dRf.dBW;
             String forumId = writeData6.getForumId();
-            writeData7 = this.dsa.ddI;
-            com.baidu.tieba.tbadkCore.ad.b(forumId, writeData7);
+            writeData7 = this.dRf.dBW;
+            com.baidu.tieba.tbadkCore.ae.b(forumId, writeData7);
         } else if (type == 1) {
-            writeData4 = this.dsa.ddI;
+            writeData4 = this.dRf.dBW;
             String threadId = writeData4.getThreadId();
-            writeData5 = this.dsa.ddI;
-            com.baidu.tieba.tbadkCore.ad.c(threadId, writeData5);
+            writeData5 = this.dRf.dBW;
+            com.baidu.tieba.tbadkCore.ae.c(threadId, writeData5);
         }
-        this.dsa.showToast(i.h.draft_save_success);
-        handler = this.dsa.mHandler;
+        this.dRf.showToast(n.i.draft_save_success);
+        handler = this.dRf.mHandler;
         handler.postDelayed(new au(this), 1000L);
     }
 }

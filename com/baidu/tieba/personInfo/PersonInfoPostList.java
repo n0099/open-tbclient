@@ -13,6 +13,7 @@ import tbclient.Media;
 import tbclient.PostInfoContent;
 import tbclient.PostInfoList;
 import tbclient.Quote;
+import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes.dex */
 public class PersonInfoPostList implements Serializable {
@@ -34,10 +35,12 @@ public class PersonInfoPostList implements Serializable {
     private PersonInfoPostQuote quote;
     private int replyNum;
     private long threadId;
+    private long threadType;
     private String title;
     private long userId;
     private String userName;
     private String userPortrait;
+    private PersonInfoVideo videoInfo;
     private List<PersonInfoPostContent> contentList = new ArrayList();
     private List<PersonInfoAbstract> abstractThread = new ArrayList();
     private List<PersonInfoMedia> media = new ArrayList();
@@ -47,6 +50,7 @@ public class PersonInfoPostList implements Serializable {
         if (jSONObject != null) {
             this.forumId = jSONObject.optLong("forum_id");
             this.threadId = jSONObject.optLong("thread_id");
+            this.threadType = jSONObject.optLong("thread_type");
             this.postId = jSONObject.optLong("post_id");
             this.isThread = jSONObject.optInt("is_thread");
             this.createTime = jSONObject.optInt("create_time");
@@ -83,13 +87,20 @@ public class PersonInfoPostList implements Serializable {
                 }
                 this.anchorInfo.parseJson(optJSONObject2);
             }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("video_info");
+            if (optJSONObject3 != null) {
+                if (this.videoInfo == null) {
+                    this.videoInfo = new PersonInfoVideo();
+                }
+                this.videoInfo.parseJson(optJSONObject3);
+            }
             JSONArray optJSONArray = jSONObject.optJSONArray("voice_info");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject3 != null) {
+                    JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject4 != null) {
                         PersonInfoPostVoice personInfoPostVoice = new PersonInfoPostVoice();
-                        personInfoPostVoice.parseJson(optJSONObject3);
+                        personInfoPostVoice.parseJson(optJSONObject4);
                         this.voiceInfo.add(personInfoPostVoice);
                     }
                 }
@@ -97,10 +108,10 @@ public class PersonInfoPostList implements Serializable {
             JSONArray optJSONArray2 = jSONObject.optJSONArray("media");
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
-                    if (optJSONObject4 != null) {
+                    JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i2);
+                    if (optJSONObject5 != null) {
                         PersonInfoMedia personInfoMedia = new PersonInfoMedia();
-                        personInfoMedia.parseJson(optJSONObject4);
+                        personInfoMedia.parseJson(optJSONObject5);
                         this.media.add(personInfoMedia);
                     }
                 }
@@ -108,10 +119,10 @@ public class PersonInfoPostList implements Serializable {
             JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract_thread");
             if (optJSONArray3 != null) {
                 for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                    JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i3);
-                    if (optJSONObject5 != null) {
+                    JSONObject optJSONObject6 = optJSONArray3.optJSONObject(i3);
+                    if (optJSONObject6 != null) {
                         PersonInfoAbstract personInfoAbstract = new PersonInfoAbstract();
-                        personInfoAbstract.parseJson(optJSONObject5);
+                        personInfoAbstract.parseJson(optJSONObject6);
                         this.abstractThread.add(personInfoAbstract);
                     }
                 }
@@ -119,10 +130,10 @@ public class PersonInfoPostList implements Serializable {
             JSONArray optJSONArray4 = jSONObject.optJSONArray(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
             if (optJSONArray4 != null) {
                 for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                    JSONObject optJSONObject6 = optJSONArray4.optJSONObject(i4);
-                    if (optJSONObject6 != null) {
+                    JSONObject optJSONObject7 = optJSONArray4.optJSONObject(i4);
+                    if (optJSONObject7 != null) {
                         PersonInfoPostContent personInfoPostContent = new PersonInfoPostContent();
-                        personInfoPostContent.parseJson(optJSONObject6);
+                        personInfoPostContent.parseJson(optJSONObject7);
                         this.contentList.add(personInfoPostContent);
                     }
                 }
@@ -134,6 +145,7 @@ public class PersonInfoPostList implements Serializable {
         if (postInfoList != null) {
             this.forumId = postInfoList.forum_id.longValue();
             this.threadId = postInfoList.thread_id.longValue();
+            this.threadType = postInfoList.thread_type.longValue();
             this.postId = postInfoList.post_id.longValue();
             this.isThread = postInfoList.is_thread.intValue();
             this.createTime = postInfoList.create_time.intValue();
@@ -165,6 +177,11 @@ public class PersonInfoPostList implements Serializable {
                 this.anchorInfo = new PersonInfoPostAnchor();
             }
             this.anchorInfo.parseProto(anchorInfo);
+            VideoInfo videoInfo = postInfoList.video_info;
+            if (this.videoInfo == null) {
+                this.videoInfo = new PersonInfoVideo();
+            }
+            this.videoInfo.parserProtobuf(videoInfo);
             List<PostInfoContent> list = postInfoList.content;
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
@@ -202,6 +219,10 @@ public class PersonInfoPostList implements Serializable {
 
     public long getForumId() {
         return this.forumId;
+    }
+
+    public long getThreadType() {
+        return this.threadType;
     }
 
     public long getThreadId() {
@@ -294,6 +315,10 @@ public class PersonInfoPostList implements Serializable {
 
     public PersonInfoPostAnchor getAnchorInfo() {
         return this.anchorInfo;
+    }
+
+    public PersonInfoVideo getVideoInfo() {
+        return this.videoInfo;
     }
 
     public int getHidePost() {

@@ -3,15 +3,17 @@ package com.baidu.tieba.pb.pb.a;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ a chy;
+    private final /* synthetic */ String bWR;
+    final /* synthetic */ a czV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.chy = aVar;
+    public e(a aVar, String str) {
+        this.czV = aVar;
+        this.bWR = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -20,14 +22,14 @@ public class e implements a.b {
         com.baidu.tieba.pb.a.c cVar2;
         com.baidu.tieba.pb.a.c cVar3;
         aVar.dismiss();
-        this.chy.iW(1);
-        cVar = this.chy.chr;
+        this.czV.jO(1);
+        cVar = this.czV.czO;
         if (cVar != null) {
-            aq aqVar = new aq("c10398");
-            cVar2 = this.chy.chr;
-            aq ae = aqVar.ae(ImageViewerConfig.FORUM_ID, cVar2.getForumId());
-            cVar3 = this.chy.chr;
-            TiebaStatic.log(ae.ae("tid", cVar3.getThreadId()).ae("is_like", "1"));
+            av avVar = new av("c10398");
+            cVar2 = this.czV.czO;
+            av ab = avVar.ab(ImageViewerConfig.FORUM_ID, cVar2.getForumId());
+            cVar3 = this.czV.czO;
+            TiebaStatic.log(ab.ab("tid", cVar3.getThreadId()).ab("uid", this.bWR).ab("is_like", "1"));
         }
     }
 }

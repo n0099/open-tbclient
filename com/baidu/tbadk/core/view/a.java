@@ -1,74 +1,58 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public class a {
-    private AlertDialog adb;
-    private Activity mActivity;
-    private TbPageContext<?> mContext;
-    private String adc = null;
-    private TextView Xl = null;
+class a extends CustomMessageListener {
+    final /* synthetic */ AppDownloadView adT;
 
-    public a(TbPageContext<?> tbPageContext) {
-        this.mContext = null;
-        this.mActivity = null;
-        this.mContext = tbPageContext;
-        if (this.mContext != null && this.mContext.getPageActivity() != null) {
-            this.mActivity = this.mContext.getPageActivity();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(AppDownloadView appDownloadView, int i) {
+        super(i);
+        this.adT = appDownloadView;
     }
 
-    public a b(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.adb = new AlertDialog.Builder(this.mActivity).create();
-            View inflate = LayoutInflater.from(this.mActivity).inflate(i.g.custom_loading_toast, (ViewGroup) null);
-            this.Xl = (TextView) inflate.findViewById(i.f.custom_loading_text);
-            com.baidu.adp.lib.g.j.a(this.adb, this.mActivity);
-            if (this.adb != null && this.adb.getWindow() != null) {
-                this.adb.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.adb.setCancelable(true);
-                    this.adb.setCanceledOnTouchOutside(true);
-                    this.adb.setOnCancelListener(onCancelListener);
-                } else {
-                    this.adb.setCanceledOnTouchOutside(false);
-                    this.adb.setCancelable(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
+        if (r0.getId().equals(r1.getId()) != false) goto L17;
+     */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DownloadData downloadData;
+        DownloadData downloadData2;
+        DownloadData downloadData3;
+        DownloadData downloadData4;
+        if (customResponsedMessage instanceof DownloadMessage) {
+            downloadData = this.adT.adP;
+            if (downloadData != null) {
+                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= data.size()) {
+                        break;
+                    }
+                    downloadData2 = data.get(i2);
+                    downloadData3 = this.adT.adP;
+                    if (!TextUtils.isEmpty(downloadData3.getId())) {
+                        downloadData4 = this.adT.adP;
+                    } else {
+                        i = i2 + 1;
+                    }
+                }
+                downloadData2 = null;
+                if (downloadData2 != null) {
+                    this.adT.cJ((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
                 }
             }
-        }
-        return this;
-    }
-
-    public a vq() {
-        return b(null);
-    }
-
-    public void av(boolean z) {
-        if (z) {
-            if (this.adb == null) {
-                vq();
-            }
-            if (!StringUtils.isNull(this.adc) && this.Xl != null) {
-                this.Xl.setText(this.adc);
-            }
-            com.baidu.adp.lib.g.j.a(this.adb, this.mActivity);
-            return;
-        }
-        com.baidu.adp.lib.g.j.b(this.adb, this.mActivity);
-    }
-
-    public void cD(int i) {
-        if (this.mActivity != null) {
-            this.adc = this.mActivity.getString(i);
         }
     }
 }

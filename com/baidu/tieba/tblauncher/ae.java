@@ -1,36 +1,47 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ w dDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    public ae(w wVar) {
+        this.dDs = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ao aoVar;
-        boolean z;
-        ao aoVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            aoVar = this.this$0.deK;
-            if (booleanValue) {
-                aoVar2 = this.this$0.deK;
-                if (aoVar2.azD()) {
-                    z = true;
-                    aoVar.gJ(z);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        FragmentTabHost fragmentTabHost3;
+        int i = 2;
+        mainTabActivity = this.dDs.dDj;
+        mainTabActivity2 = this.dDs.dDj;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        fragmentTabHost = this.dDs.blo;
+        if (fragmentTabHost.getCurrentTabType() != 6) {
+            fragmentTabHost2 = this.dDs.blo;
+            if (fragmentTabHost2.getCurrentTabType() == 3) {
+                i = 3;
+            } else {
+                fragmentTabHost3 = this.dDs.blo;
+                if (fragmentTabHost3.getCurrentTabType() != 2) {
+                    i = 0;
+                } else {
+                    i = 1;
                 }
             }
-            z = false;
-            aoVar.gJ(z);
         }
+        TiebaStatic.log(new av("c10378").r("obj_type", i));
     }
 }

@@ -1,37 +1,33 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ MyGiftListActivity bnC;
+class e implements BdListView.e {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(MyGiftListActivity myGiftListActivity, int i) {
-        super(i);
-        this.bnC = myGiftListActivity;
+    public e(MyGiftListActivity myGiftListActivity) {
+        this.bwy = myGiftListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Long l;
-        boolean z;
-        long j;
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void onScrollToBottom() {
+        j jVar;
         l lVar;
+        j jVar2;
+        j jVar3;
         l lVar2;
-        if (customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null) {
-            z = this.bnC.mIsHost;
-            if (!z) {
-                j = this.bnC.mUserId;
-                if (j == l.longValue()) {
-                    lVar = this.bnC.bnw;
-                    lVar.cC(false);
-                    lVar2 = this.bnC.bnw;
-                    lVar2.LoadData();
-                }
-            }
+        jVar = this.bwy.bwr;
+        if (jVar.isHasMore()) {
+            jVar2 = this.bwy.bwr;
+            jVar2.cV(true);
+            jVar3 = this.bwy.bwr;
+            jVar3.LoadData();
+            lVar2 = this.bwy.bws;
+            lVar2.getFooterView().setVisibility(0);
+            return;
         }
+        lVar = this.bwy.bws;
+        lVar.getFooterView().setVisibility(8);
     }
 }

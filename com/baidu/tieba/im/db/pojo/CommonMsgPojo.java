@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.h.b;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -79,9 +79,9 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.bHs);
+                this.gid = String.valueOf(a.bWy);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.bHt);
+                this.gid = String.valueOf(a.bWz);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

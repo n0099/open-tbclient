@@ -50,7 +50,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.st_type = this.stType;
         builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);
