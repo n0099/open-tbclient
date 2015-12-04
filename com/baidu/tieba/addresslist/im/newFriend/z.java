@@ -2,9 +2,8 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.util.d<Void> {
+class z implements com.baidu.tbadk.util.d<Void> {
     final /* synthetic */ x aIA;
     private final /* synthetic */ String aIB;
     private final /* synthetic */ String aIC;

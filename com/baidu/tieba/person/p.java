@@ -2,8 +2,9 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.person.EditHeadActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements a.b {
+public class p implements a.b {
     final /* synthetic */ EditHeadActivity.a cJx;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs.tab;
 
 import android.widget.PopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements PopupWindow.OnDismissListener {
+public class l implements PopupWindow.OnDismissListener {
     final /* synthetic */ i biC;
     private final /* synthetic */ TabItemView biD;
 

@@ -262,9 +262,9 @@ public class an extends com.baidu.tbadk.editortools.d.a {
         long j = 0;
         long j2 = 0;
         if (1 != this.aVJ) {
-            j = Long.parseLong(this.postID);
+            j = com.baidu.adp.lib.h.b.c(this.postID, 0L);
         } else {
-            j2 = Long.parseLong(this.postID);
+            j2 = com.baidu.adp.lib.h.b.c(this.postID, 0L);
         }
         if (num == null) {
             intValue = amI();

@@ -5,8 +5,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
 import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w extends HttpMessageListener {
+public class w extends HttpMessageListener {
     final /* synthetic */ u cRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
