@@ -6,8 +6,9 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements CustomMessageTask.CustomRunnable<String> {
+public class aq implements CustomMessageTask.CustomRunnable<String> {
     final /* synthetic */ an bUk;
     private final /* synthetic */ ImMessageCenterPojo bUm;
 

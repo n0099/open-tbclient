@@ -4,8 +4,9 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
 import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends com.baidu.adp.framework.listener.e {
+public class v extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ u cRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */

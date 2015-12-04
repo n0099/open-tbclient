@@ -21,8 +21,9 @@ public class ct {
         MessageManager.getInstance().registerListener(new cx(CmdConfigCustom.CMD_UNLIKE_FORUM));
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class a {
+    public static class a {
         private static ct cEe = new ct(null);
     }
 

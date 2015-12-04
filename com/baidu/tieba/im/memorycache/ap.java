@@ -4,8 +4,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap implements CustomMessageTask.CustomRunnable<String> {
+public class ap implements CustomMessageTask.CustomRunnable<String> {
     final /* synthetic */ an bUk;
     private final /* synthetic */ ImMessageCenterPojo bUl;
 

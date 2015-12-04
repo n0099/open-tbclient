@@ -1,7 +1,6 @@
 package com.baidu.tieba.addresslist.im.newFriend;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.tbadk.util.m<Void> {
+class y extends com.baidu.tbadk.util.m<Void> {
     final /* synthetic */ x aIA;
     private final /* synthetic */ com.baidu.tieba.im.data.b aIs;
     private final /* synthetic */ long aIu;

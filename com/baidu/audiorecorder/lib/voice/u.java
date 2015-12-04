@@ -1,8 +1,9 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements a.b {
+public class u implements a.b {
     final /* synthetic */ s LU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
