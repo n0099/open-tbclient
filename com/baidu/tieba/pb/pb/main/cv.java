@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class cv extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(int i) {
-        super(i);
-    }
+public class cv extends x.a {
+    public TextView cHV;
+    public View cHW;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ct.ale().reset();
+    public cv(View view) {
+        super(view);
+        this.cHV = (TextView) view.findViewById(n.g.pb_u9_text_view);
+        this.cHW = view.findViewById(n.g.divide_line_up_pb_u9);
     }
 }

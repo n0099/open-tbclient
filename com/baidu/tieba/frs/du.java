@@ -11,25 +11,25 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class du implements View.OnClickListener {
-    final /* synthetic */ ds ber;
-    private final /* synthetic */ com.baidu.tbadk.core.data.u bes;
+    final /* synthetic */ ds bim;
+    private final /* synthetic */ com.baidu.tbadk.core.data.u bin;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public du(ds dsVar, com.baidu.tbadk.core.data.u uVar) {
-        this.ber = dsVar;
-        this.bes = uVar;
+        this.bim = dsVar;
+        this.bin = uVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        com.baidu.tbadk.core.data.v so = this.bes.so();
-        if (com.baidu.adp.lib.util.i.iP()) {
+        com.baidu.tbadk.core.data.v rX = this.bin.rX();
+        if (com.baidu.adp.lib.util.i.iQ()) {
             MessageManager messageManager = MessageManager.getInstance();
-            context = this.ber.mContext;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(so.getUserId()), so.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            context = this.bim.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(rX.getUserId()), rX.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
             return;
         }
-        this.ber.aXA.showToast(n.i.im_error_default);
+        this.bim.bbA.showToast(n.j.im_error_default);
     }
 }

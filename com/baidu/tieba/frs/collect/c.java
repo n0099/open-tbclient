@@ -3,20 +3,20 @@ package com.baidu.tieba.frs.collect;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.ev;
+import com.baidu.tieba.frs.ew;
 import com.baidu.tieba.n;
 import com.baidu.tieba.tbadkCore.p;
 import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ MyCollectFrsActivity bgk;
+    final /* synthetic */ MyCollectFrsActivity bkc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(MyCollectFrsActivity myCollectFrsActivity, int i, int i2) {
         super(i, i2);
-        this.bgk = myCollectFrsActivity;
+        this.bkc = myCollectFrsActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -43,18 +43,18 @@ class c extends com.baidu.adp.framework.listener.a {
         a aVar6;
         a aVar7;
         l lVar9;
-        lVar = this.bgk.bgf;
+        lVar = this.bkc.bjX;
         lVar.completePullRefresh();
-        MyCollectFrsActivity myCollectFrsActivity = this.bgk;
-        lVar2 = this.bgk.bgf;
+        MyCollectFrsActivity myCollectFrsActivity = this.bkc;
+        lVar2 = this.bkc.bjX;
         myCollectFrsActivity.hideLoadingView(lVar2.getRootView());
         if (responsedMessage.getError() != 0) {
-            String string = TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.bgk.getResources().getString(n.i.neterror) : responsedMessage.getErrorString();
-            this.bgk.mHasMore = false;
-            lVar9 = this.bgk.bgf;
-            lVar9.NT();
-            this.bgk.showToast(string);
-            this.bgk.hj(string);
+            String string = TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.bkc.getResources().getString(n.j.neterror) : responsedMessage.getErrorString();
+            this.bkc.mHasMore = false;
+            lVar9 = this.bkc.bjX;
+            lVar9.Om();
+            this.bkc.showToast(string);
+            this.bkc.hu(string);
             return;
         }
         com.baidu.tieba.tbadkCore.n nVar = null;
@@ -62,77 +62,77 @@ class c extends com.baidu.adp.framework.listener.a {
         if (responsedMessage instanceof GetUserForumStoreSocketResponseMessage) {
             GetUserForumStoreSocketResponseMessage getUserForumStoreSocketResponseMessage = (GetUserForumStoreSocketResponseMessage) responsedMessage;
             nVar = getUserForumStoreSocketResponseMessage.getResponseData();
-            this.bgk.mHasMore = getUserForumStoreSocketResponseMessage.isHasMore();
+            this.bkc.mHasMore = getUserForumStoreSocketResponseMessage.isHasMore();
             i = getUserForumStoreSocketResponseMessage.getType();
         } else if (responsedMessage instanceof GetUserForumStoreHttpResponseMessage) {
             GetUserForumStoreHttpResponseMessage getUserForumStoreHttpResponseMessage = (GetUserForumStoreHttpResponseMessage) responsedMessage;
             nVar = getUserForumStoreHttpResponseMessage.getResponseData();
-            this.bgk.mHasMore = getUserForumStoreHttpResponseMessage.isHasMore();
+            this.bkc.mHasMore = getUserForumStoreHttpResponseMessage.isHasMore();
             i = getUserForumStoreHttpResponseMessage.getType();
         }
-        pVar = this.bgk.aZs;
+        pVar = this.bkc.bdo;
         pVar.d(nVar);
         if (nVar != null) {
             ArrayList<u> threadList = nVar.getThreadList();
             if (threadList != null && !threadList.isEmpty()) {
                 if (i == 0) {
-                    aVar6 = this.bgk.bge;
-                    aVar6.gn(0);
-                    aVar7 = this.bgk.bge;
+                    aVar6 = this.bkc.bjW;
+                    aVar6.gg(0);
+                    aVar7 = this.bkc.bjW;
                     aVar7.clearData();
                 }
-                aVar = this.bgk.bge;
-                int Or = aVar.Or();
-                aVar2 = this.bgk.bge;
-                aVar2.gn(Or + threadList.size());
-                lVar3 = this.bgk.bgf;
+                aVar = this.bkc.bjW;
+                int OJ = aVar.OJ();
+                aVar2 = this.bkc.bjW;
+                aVar2.gg(OJ + threadList.size());
+                lVar3 = this.bkc.bjX;
                 if (lVar3 != null) {
-                    lVar4 = this.bgk.bgf;
-                    Set Oh = lVar4.Ot().Oh();
-                    if (Oh != null && !Oh.isEmpty()) {
+                    lVar4 = this.bkc.bjX;
+                    Set OA = lVar4.OL().OA();
+                    if (OA != null && !OA.isEmpty()) {
                         for (int size = threadList.size() - 1; size >= 0; size--) {
                             u uVar = threadList.get(size);
-                            if (!Oh.contains(uVar.getType())) {
+                            if (!OA.contains(uVar.getType())) {
                                 threadList.remove(uVar);
                             }
                         }
                     }
                 }
                 if (threadList.isEmpty()) {
-                    z2 = this.bgk.mHasMore;
+                    z2 = this.bkc.mHasMore;
                     if (z2) {
-                        aVar5 = this.bgk.bge;
-                        aVar5.Os();
+                        aVar5 = this.bkc.bjW;
+                        aVar5.OK();
                         return;
                     }
-                    this.bgk.hj(this.bgk.getResources().getString(n.i.no_data_text));
+                    this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
                     return;
                 }
-                aVar3 = this.bgk.bge;
+                aVar3 = this.bkc.bjW;
                 aVar3.setData(threadList);
-                aVar4 = this.bgk.bge;
-                ArrayList<u> qJ = aVar4.qJ();
-                pVar2 = this.bgk.aZs;
-                pVar2.am(qJ);
-                lVar5 = this.bgk.bgf;
+                aVar4 = this.bkc.bjW;
+                ArrayList<u> qs = aVar4.qs();
+                pVar2 = this.bkc.bdo;
+                pVar2.am(qs);
+                lVar5 = this.bkc.bjX;
                 if (lVar5 != null) {
-                    lVar6 = this.bgk.bgf;
+                    lVar6 = this.bkc.bjX;
                     lVar6.hideNoDataView();
-                    lVar7 = this.bgk.bgf;
-                    ev Ot = lVar7.Ot();
-                    pVar3 = this.bgk.aZs;
-                    Ot.setFromCDN(pVar3.ajE() == 1);
-                    lVar8 = this.bgk.bgf;
-                    pVar4 = this.bgk.aZs;
-                    z = this.bgk.mHasMore;
-                    lVar8.a(qJ, pVar4, z);
+                    lVar7 = this.bkc.bjX;
+                    ew OL = lVar7.OL();
+                    pVar3 = this.bkc.bdo;
+                    OL.setFromCDN(pVar3.akM() == 1);
+                    lVar8 = this.bkc.bjX;
+                    pVar4 = this.bkc.bdo;
+                    z = this.bkc.mHasMore;
+                    lVar8.a(qs, pVar4, z);
                 }
-                this.bgk.MY();
+                this.bkc.Ns();
                 return;
             }
-            this.bgk.hj(this.bgk.getResources().getString(n.i.no_data_text));
+            this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
             return;
         }
-        this.bgk.hj(this.bgk.getResources().getString(n.i.no_data_text));
+        this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
     }
 }

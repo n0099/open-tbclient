@@ -10,8 +10,8 @@ import com.baidu.tbadk.editortools.y;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class a extends y {
-    private static final int[] asb = {4, 17, 24, 3, 9, 6};
-    private InputView asc;
+    private static final int[] atF = {4, 17, 24, 3, 9, 6};
+    private InputView atG;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -21,22 +21,22 @@ public class a extends y {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.asc != null) {
-            this.asc.setNeedFaceMaxCount(z2);
+        if (this.atG != null) {
+            this.atG.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
         this.toolNeedAction = false;
         this.toolPosition = 2;
-        this.toolLaunchAction = asb;
-        this.asc = new InputView(context, z);
-        this.toolView = this.asc;
+        this.toolLaunchAction = atF;
+        this.atG = new InputView(context, z);
+        this.toolView = this.atG;
         w.a aVar = new w.a(0, -2);
-        aVar.topMargin = context.getResources().getDimensionPixelSize(n.d.ds22);
-        aVar.bottomMargin = context.getResources().getDimensionPixelSize(n.d.ds20);
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
+        aVar.topMargin = context.getResources().getDimensionPixelSize(n.e.ds22);
+        aVar.bottomMargin = context.getResources().getDimensionPixelSize(n.e.ds20);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(n.e.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(n.e.ds10);
         aVar.weight = 1.0f;
         ((View) this.toolView).setLayoutParams(aVar);
     }
@@ -49,7 +49,7 @@ public class a extends y {
         ((InputView) this.toolView).setOutTextWather(textWatcher);
     }
 
-    public void fi(String str) {
+    public void fm(String str) {
         if (this.toolView != null && !StringUtils.isNull(str)) {
             ((EditText) this.toolView).setHint(str);
         }

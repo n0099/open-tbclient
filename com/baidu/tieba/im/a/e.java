@@ -6,49 +6,49 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ c bTa;
+    final /* synthetic */ c bWI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.bTa = cVar;
+        this.bWI = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean Zl;
+        boolean aaq;
         String str;
         String str2;
         String str3;
         String str4;
         List list;
-        Zl = this.bTa.Zl();
-        if (Zl && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+        aaq = this.bWI.aaq();
+        if (aaq && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.bSL = this.bTa.Zg();
-                bVar.bSM = this.bTa.Zi();
-                str = this.bTa.bSS;
+                bVar.bWt = this.bWI.aal();
+                bVar.bWu = this.bWI.aan();
+                str = this.bWI.bWA;
                 if (str == null) {
-                    this.bTa.bSS = bVar.emitTime;
+                    this.bWI.bWA = bVar.emitTime;
                 }
-                str2 = this.bTa.bST;
+                str2 = this.bWI.bWB;
                 if (str2 == null) {
-                    this.bTa.bST = bVar.emitTime;
+                    this.bWI.bWB = bVar.emitTime;
                 }
-                str3 = this.bTa.bST;
+                str3 = this.bWI.bWB;
                 if (com.baidu.adp.lib.h.b.c(str3, 0L) < com.baidu.adp.lib.h.b.c(bVar.emitTime, 0L)) {
-                    this.bTa.bST = bVar.emitTime;
+                    this.bWI.bWB = bVar.emitTime;
                 }
-                str4 = this.bTa.bSS;
+                str4 = this.bWI.bWA;
                 if (com.baidu.adp.lib.h.b.c(str4, 0L) > com.baidu.adp.lib.h.b.c(bVar.emitTime, 0L)) {
-                    this.bTa.bSS = bVar.emitTime;
+                    this.bWI.bWA = bVar.emitTime;
                 }
-                list = this.bTa.bSQ;
+                list = this.bWI.bWy;
                 list.add(bVar);
             }
         }

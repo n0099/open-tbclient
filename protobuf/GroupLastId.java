@@ -2,14 +2,19 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes.dex */
 public final class GroupLastId extends Message {
-    public static final Integer DEFAULT_GROUPID = 0;
-    public static final Long DEFAULT_LASTMSGID = 0L;
+    @ProtoField(label = Message.Label.REPEATED, tag = 3, type = Message.Datatype.INT64)
+    public final List<Long> excludeMid;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer groupId;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long lastMsgId;
+    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_LASTMSGID = 0L;
+    public static final List<Long> DEFAULT_EXCLUDEMID = Collections.emptyList();
 
     /* synthetic */ GroupLastId(Builder builder, boolean z, GroupLastId groupLastId) {
         this(builder, z);
@@ -25,18 +30,25 @@ public final class GroupLastId extends Message {
             }
             if (builder.lastMsgId == null) {
                 this.lastMsgId = DEFAULT_LASTMSGID;
-                return;
             } else {
                 this.lastMsgId = builder.lastMsgId;
+            }
+            if (builder.excludeMid == null) {
+                this.excludeMid = DEFAULT_EXCLUDEMID;
+                return;
+            } else {
+                this.excludeMid = immutableCopyOf(builder.excludeMid);
                 return;
             }
         }
         this.groupId = builder.groupId;
         this.lastMsgId = builder.lastMsgId;
+        this.excludeMid = immutableCopyOf(builder.excludeMid);
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<GroupLastId> {
+        public List<Long> excludeMid;
         public Integer groupId;
         public Long lastMsgId;
 
@@ -48,6 +60,7 @@ public final class GroupLastId extends Message {
             if (groupLastId != null) {
                 this.groupId = groupLastId.groupId;
                 this.lastMsgId = groupLastId.lastMsgId;
+                this.excludeMid = GroupLastId.copyOf(groupLastId.excludeMid);
             }
         }
 

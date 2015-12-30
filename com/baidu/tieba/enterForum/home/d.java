@@ -18,7 +18,7 @@ class d extends CustomMessageListener {
             EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
             ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
             if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.avR.setArguments(new Bundle());
+                fragmentTabStructure.axv.setArguments(new Bundle());
             }
         }
     }

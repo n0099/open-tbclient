@@ -3,21 +3,25 @@ package com.baidu.tbadk.core.view;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    final /* synthetic */ s afJ;
+public class u extends CustomMessageListener {
+    final /* synthetic */ t agw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(s sVar, int i) {
+    public u(t tVar, int i) {
         super(i);
-        this.afJ = sVar;
+        this.agw = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.afJ.afz.setBackgroundColor(ak.uZ().cz(TbadkCoreApplication.m411getInst().getSkinType()));
+        boolean z;
+        z = this.agw.agt;
+        if (z) {
+            this.agw.cP(TbadkCoreApplication.m411getInst().getSkinType());
+        }
     }
 }

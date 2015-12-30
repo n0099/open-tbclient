@@ -11,6 +11,6 @@ public class l extends Thread {
         abVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         abVar.o("os_version", Build.VERSION.RELEASE);
         abVar.o("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        abVar.ul();
+        abVar.tV();
     }
 }

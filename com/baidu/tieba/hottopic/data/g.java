@@ -6,53 +6,53 @@ import tbclient.Hottopic.MagicPost;
 import tbclient.Hottopic.MagicPostList;
 /* loaded from: classes.dex */
 public class g implements u {
-    public static final BdUniqueId bEe = BdUniqueId.gen();
-    private boolean bEf = false;
-    public String bEg = null;
+    public static final BdUniqueId bHH = BdUniqueId.gen();
+    private boolean bHI = false;
+    public String bHJ = null;
     public long threadId = 0;
     public long postId = 0;
-    public String UD = null;
-    public String bEh = null;
-    public String bEi = null;
-    public long bEj = 0;
-    public long bEk = 0;
-    public String bEl = null;
-    public Integer bEm = 0;
-    public boolean bEn = false;
-    public long bEo = 0;
+    public String Ve = null;
+    public String bHK = null;
+    public String bHL = null;
+    public long bHM = 0;
+    public long bHN = 0;
+    public String bHO = null;
+    public Integer bHP = 0;
+    public boolean bHQ = false;
+    public long bHR = 0;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return bEe;
+        return bHH;
     }
 
-    public boolean UA() {
-        return this.bEf;
+    public boolean VD() {
+        return this.bHI;
     }
 
     public void a(MagicPostList magicPostList) {
         if (magicPostList != null) {
-            this.bEf = false;
+            this.bHI = false;
             this.threadId = magicPostList.thread_id.longValue();
             this.postId = magicPostList.post_id.longValue();
-            this.bEk = magicPostList.create_time.intValue();
-            this.bEn = magicPostList.is_comment.intValue() != 0;
-            this.bEl = magicPostList.content_text;
+            this.bHN = magicPostList.create_time.intValue();
+            this.bHQ = magicPostList.is_comment.intValue() != 0;
+            this.bHO = magicPostList.content_text;
             if (magicPostList.user_info != null) {
-                this.bEi = magicPostList.user_info.user_name;
-                this.bEh = magicPostList.user_info.portrait;
-                this.bEj = magicPostList.user_info.user_id.longValue();
+                this.bHL = magicPostList.user_info.user_name;
+                this.bHK = magicPostList.user_info.portrait;
+                this.bHM = magicPostList.user_info.user_id.longValue();
             }
-            if (this.bEn && magicPostList.quote != null) {
-                this.bEo = magicPostList.quote.post_id.longValue();
+            if (this.bHQ && magicPostList.quote != null) {
+                this.bHR = magicPostList.quote.post_id.longValue();
             }
         }
     }
 
     public void a(MagicPost magicPost) {
         if (magicPost != null) {
-            this.bEg = magicPost.magic_title;
-            this.bEf = true;
+            this.bHJ = magicPost.magic_title;
+            this.bHI = true;
         }
     }
 }

@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnTouchListener {
-    final /* synthetic */ HorizontalTabView biq;
+    final /* synthetic */ HorizontalTabView bmg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HorizontalTabView horizontalTabView) {
-        this.biq = horizontalTabView;
+        this.bmg = horizontalTabView;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -22,25 +22,25 @@ public class c implements View.OnTouchListener {
         TabItemView tabItemView2;
         if (motionEvent != null && motionEvent.getAction() == 0) {
             if (view instanceof TabItemView) {
-                this.biq.a((TabItemView) view, false);
+                this.bmg.a((TabItemView) view, false);
             }
-            tabItemView = this.biq.bii;
+            tabItemView = this.bmg.blY;
             if (tabItemView != null) {
-                gVar = this.biq.bij;
+                gVar = this.bmg.blZ;
                 if (gVar != null) {
-                    gVar2 = this.biq.bij;
-                    tabItemView2 = this.biq.bii;
-                    gVar2.gu(tabItemView2.getTabId());
+                    gVar2 = this.bmg.blZ;
+                    tabItemView2 = this.bmg.blY;
+                    gVar2.gn(tabItemView2.getTabId());
                 }
             }
             return true;
         } else if (motionEvent == null || motionEvent.getAction() != 3) {
             return false;
         } else {
-            iVar = this.biq.bih;
+            iVar = this.bmg.blX;
             if (iVar != null) {
-                iVar2 = this.biq.bih;
-                iVar2.Pj();
+                iVar2 = this.bmg.blX;
+                iVar2.PB();
                 return false;
             }
             return false;

@@ -1,40 +1,140 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Parcelable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class dd implements Animation.AnimationListener {
-    final /* synthetic */ da cGh;
+public class dd {
+    private com.baidu.tieba.pb.a.c cDt;
+    private boolean cGP;
+    private boolean cGR;
+    private String cHZ;
+    private boolean cIa;
+    private boolean cIb;
+    private Parcelable cIc;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(da daVar) {
-        this.cGh = daVar;
+    static {
+        MessageManager.getInstance().registerListener(new de(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
+        MessageManager.getInstance().registerListener(new df(CmdConfigCustom.PB_RECORDER_RESET_CMD));
+        MessageManager.getInstance().registerListener(new dg(CmdConfigCustom.CMD_LIKE_FORUM));
+        MessageManager.getInstance().registerListener(new dh(CmdConfigCustom.CMD_UNLIKE_FORUM));
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    /* loaded from: classes.dex */
+    private static class a {
+        private static dd cId = new dd(null);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.k kVar;
-        View view2;
-        com.baidu.tbadk.editortools.k kVar2;
-        da daVar = this.cGh;
-        view = this.cGh.cFt;
-        daVar.cFx = view.getVisibility() == 0;
-        kVar = this.cGh.KS;
-        if (kVar != null) {
-            kVar2 = this.cGh.KS;
-            kVar2.hide();
+    public static dd amq() {
+        return a.cId;
+    }
+
+    private dd() {
+        this.cHZ = null;
+        this.cIa = false;
+        this.cDt = null;
+        this.cIb = false;
+        this.cIc = null;
+        this.cGR = true;
+        this.cGP = false;
+    }
+
+    /* synthetic */ dd(dd ddVar) {
+        this();
+    }
+
+    public void C(String str, boolean z) {
+        this.cIa = false;
+        if (z) {
+            str = null;
         }
-        view2 = this.cGh.cFt;
-        view2.setVisibility(8);
+        if (str == null || str.length() < 1) {
+            reset();
+            this.cHZ = null;
+        } else if (!str.equals(this.cHZ)) {
+            reset();
+            this.cHZ = str;
+        } else {
+            this.cIa = true;
+        }
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public com.baidu.tieba.pb.a.c getPbData() {
+        if (!this.cIa) {
+            this.cIb = false;
+            return null;
+        } else if (this.cDt != null && this.cDt.akI() != null && this.cDt.akI().size() > 0) {
+            this.cIb = true;
+            com.baidu.tieba.pb.a.c cVar = this.cDt;
+            this.cDt = null;
+            return cVar;
+        } else {
+            this.cIb = false;
+            this.cDt = null;
+            return null;
+        }
+    }
+
+    public Parcelable amr() {
+        if (this.cIb) {
+            this.cIb = false;
+            Parcelable parcelable = this.cIc;
+            this.cIc = null;
+            return parcelable;
+        }
+        this.cIc = null;
+        return null;
+    }
+
+    public boolean alM() {
+        return this.cGR;
+    }
+
+    public boolean ams() {
+        return this.cGP;
+    }
+
+    public boolean a(com.baidu.tieba.pb.a.c cVar, Parcelable parcelable, boolean z, boolean z2) {
+        this.cIa = false;
+        if (this.cHZ == null) {
+            reset();
+            return false;
+        } else if (cVar == null) {
+            reset();
+            return false;
+        } else if (cVar.akI() == null) {
+            reset();
+            return false;
+        } else if (cVar.akI().size() < 1) {
+            reset();
+            return false;
+        } else if (parcelable == null) {
+            reset();
+            return false;
+        } else {
+            this.cDt = cVar;
+            this.cIb = false;
+            this.cIc = parcelable;
+            this.cGR = z;
+            this.cGP = z2;
+            return true;
+        }
+    }
+
+    public void reset() {
+        this.cIa = false;
+        this.cDt = null;
+        this.cIb = false;
+        this.cIc = null;
+    }
+
+    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && this.cDt != null && this.cDt.akG() != null) {
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.cDt.akG().getId(), 0L)) {
+                this.cDt.akG().setLike(i);
+            }
+        }
     }
 }

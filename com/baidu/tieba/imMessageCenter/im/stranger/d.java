@@ -4,22 +4,22 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ StrangerListActivity cdU;
+    final /* synthetic */ StrangerListActivity chU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(StrangerListActivity strangerListActivity) {
-        this.cdU = strangerListActivity;
+        this.chU = strangerListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
         StrangerListModel strangerListModel;
-        aVar2 = this.cdU.cdR;
+        aVar2 = this.chU.chR;
         aVar2.dismiss();
-        strangerListModel = this.cdU.cdP;
-        strangerListModel.adg();
-        this.cdU.showToast(n.i.cash_del_suc, false);
-        this.cdU.finish();
+        strangerListModel = this.chU.chP;
+        strangerListModel.aep();
+        this.chU.showToast(n.j.cash_del_suc, false);
+        this.chU.finish();
     }
 }

@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements View.OnFocusChangeListener {
-    final /* synthetic */ PersonChangeActivity cKS;
+    final /* synthetic */ PersonChangeActivity cPi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PersonChangeActivity personChangeActivity) {
-        this.cKS = personChangeActivity;
+        this.cPi = personChangeActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            this.cKS.anB();
+            this.cPi.aoM();
         }
     }
 }

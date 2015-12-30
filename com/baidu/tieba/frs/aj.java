@@ -1,36 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import android.view.View;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements a.b {
-    final /* synthetic */ FrsActivity bag;
-    private final /* synthetic */ com.baidu.tieba.frs.view.p ban;
-    private final /* synthetic */ ShareFromFrsMsgData baq;
-    private final /* synthetic */ int bas;
-    private final /* synthetic */ String bat;
-    private final /* synthetic */ long bau;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bed;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bel;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(FrsActivity frsActivity, com.baidu.tieba.frs.view.p pVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bag = frsActivity;
-        this.ban = pVar;
-        this.bas = i;
-        this.bat = str;
-        this.bau = j;
-        this.baq = shareFromFrsMsgData;
+    public aj(FrsActivity frsActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.bed = frsActivity;
+        this.bel = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bag.HidenSoftKeyPad((InputMethodManager) this.bag.getSystemService("input_method"), this.ban.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.bag.getPageContext().getPageActivity(), this.bas, this.bat, this.bau, "from_share", this.ban.getLeaveMsg(), this.baq.toChatMessageContent())));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.aC(this.bel.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.bed.getPageContext().getPageActivity(), view.getResources().getString(n.j.copy_pb_url_success));
     }
 }

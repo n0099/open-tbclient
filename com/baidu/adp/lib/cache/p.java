@@ -6,35 +6,35 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class p<T> implements o.c<T> {
-    protected final String tc;
-    private boolean tx = false;
-    protected final n<T> ty;
+    protected final n<T> tA;
+    protected final String te;
+    private boolean tz = false;
 
     public p(String str, n<T> nVar) {
-        this.tc = str;
-        this.ty = nVar;
+        this.te = str;
+        this.tA = nVar;
     }
 
     @Override // com.baidu.adp.lib.cache.o
     public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jf()) {
-            if (this.tx) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jg()) {
+            if (this.tz) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.ty.l(this.tc, str);
+        return this.tA.l(this.te, str);
     }
 
     @Override // com.baidu.adp.lib.cache.o
     public o.b<T> aa(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jf()) {
-            if (this.tx) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jg()) {
+            if (this.tz) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.ty.m(this.tc, str);
+        return this.tA.m(this.te, str);
     }
 
     @Override // com.baidu.adp.lib.cache.o
@@ -43,8 +43,8 @@ public class p<T> implements o.c<T> {
             throw new NullPointerException("BdKVCache key cannot be null!");
         }
         long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jf()) {
-            if (this.tx) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jg()) {
+            if (this.tz) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
@@ -52,7 +52,7 @@ public class p<T> implements o.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.ty.a(this.tc, str, t, currentTimeMillis);
+            this.tA.a(this.te, str, t, currentTimeMillis);
         }
     }
 
@@ -63,13 +63,13 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jf()) {
-            if (this.tx) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jg()) {
+            if (this.tz) {
                 throw new RuntimeException("access db in main thread!");
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.ty.n(this.tc, str);
+        this.tA.n(this.te, str);
     }
 
     @Override // com.baidu.adp.lib.cache.o
@@ -94,16 +94,16 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o.c
     public String gm() {
-        return this.tc;
+        return this.te;
     }
 
     @Override // com.baidu.adp.lib.cache.o.c
     public n<T> gn() {
-        return this.ty;
+        return this.tA;
     }
 
     public void gp() {
-        this.ty.Z(this.tc);
+        this.tA.Z(this.te);
     }
 
     protected void gq() {
@@ -115,7 +115,7 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o.c
     public void go() {
-        this.ty.Y(this.tc);
+        this.tA.Y(this.te);
         gq();
     }
 }

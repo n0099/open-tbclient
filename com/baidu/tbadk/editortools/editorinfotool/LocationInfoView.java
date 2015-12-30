@@ -31,21 +31,21 @@ public class LocationInfoView extends EditorInfoView {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(n.i.location_loading);
+                str = getResources().getString(n.j.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(n.i.location_default);
+                str = getResources().getString(n.j.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(n.i.location_default);
+                str = getResources().getString(n.j.location_default);
             }
             setText(str);
         }
-        BJ();
+        By();
     }
 
     public int getState() {
@@ -53,25 +53,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tH() {
-        super.tH();
-        BJ();
+    protected void tr() {
+        super.tr();
+        By();
     }
 
-    private void BJ() {
+    private void By() {
         if (this.mState == 1) {
-            Animatable animatable = (Animatable) as.getDrawable(n.e.icon_posts_pin_loading_anim);
+            Animatable animatable = (Animatable) as.getDrawable(n.f.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             a.a((TbPageContextSupport) l.B(getContext()), animatable);
-            setPadding(this.dyu + k.dip2px(getContext(), 3.0f), this.dyv, this.dyu, this.dyv);
+            setPadding(this.dFO + k.dip2px(getContext(), 3.0f), this.dFP, this.dFO, this.dFP);
             setCompoundDrawablePadding(k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
-            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.dyu, this.dyv, this.dyu, this.dyv);
+            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.dFO, this.dFP, this.dFO, this.dFP);
             setCompoundDrawablePadding(0);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.dyu, this.dyv, this.dyu, this.dyv);
+            setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.dFO, this.dFP, this.dFO, this.dFP);
             setCompoundDrawablePadding(0);
         }
     }

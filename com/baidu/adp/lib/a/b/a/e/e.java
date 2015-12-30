@@ -13,9 +13,9 @@ public class e {
         if (gVar == null || cVar == null) {
             return false;
         }
-        List<Field> e = com.baidu.adp.lib.a.a.a.e(gVar.getClass());
+        List<Field> d = com.baidu.adp.lib.a.a.a.d(gVar.getClass());
         Set<String> fJ = cVar.fJ();
-        for (Field field : e) {
+        for (Field field : d) {
             if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                 String name = field.getName();
                 if (!TextUtils.isEmpty(name)) {

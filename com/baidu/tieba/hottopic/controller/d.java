@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ HotTopicActivity bDn;
+    final /* synthetic */ HotTopicActivity bGR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(HotTopicActivity hotTopicActivity, int i) {
         super(i);
-        this.bDn = hotTopicActivity;
+        this.bGR = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,31 +20,31 @@ class d extends CustomMessageListener {
         com.baidu.tieba.hottopic.data.c cVar;
         com.baidu.tieba.hottopic.data.c cVar2;
         com.baidu.tieba.hottopic.data.c cVar3;
-        RelateForumItemData aK;
+        RelateForumItemData aL;
         com.baidu.tieba.hottopic.data.c cVar4;
         com.baidu.tieba.hottopic.view.a aVar;
         com.baidu.tieba.hottopic.data.c cVar5;
         com.baidu.tieba.hottopic.view.a aVar2;
         if (customResponsedMessage != null) {
-            cVar = this.bDn.bDi;
+            cVar = this.bGR.bGM;
             if (cVar != null) {
-                cVar2 = this.bDn.bDi;
-                if (cVar2.Uw() != null) {
-                    cVar3 = this.bDn.bDi;
-                    if (cVar3.Uw().bEw != null) {
+                cVar2 = this.bGR.bGM;
+                if (cVar2.Vz() != null) {
+                    cVar3 = this.bGR.bGM;
+                    if (cVar3.Vz().bIa != null) {
                         Object data = customResponsedMessage.getData();
                         if (data instanceof Long) {
-                            aK = this.bDn.aK(((Long) data).longValue());
-                            if (aK != null) {
-                                aK.followNum++;
-                                aK.setIsLiked(true);
-                                cVar4 = this.bDn.bDi;
-                                cVar4.Uw().bEy = true;
-                                aVar = this.bDn.bDc;
-                                cVar5 = this.bDn.bDi;
+                            aL = this.bGR.aL(((Long) data).longValue());
+                            if (aL != null) {
+                                aL.followNum++;
+                                aL.setIsLiked(true);
+                                cVar4 = this.bGR.bGM;
+                                cVar4.Vz().bIc = true;
+                                aVar = this.bGR.bGG;
+                                cVar5 = this.bGR.bGM;
                                 aVar.c(cVar5);
-                                aVar2 = this.bDn.bDc;
-                                aVar2.UD();
+                                aVar2 = this.bGR.bGG;
+                                aVar2.VH();
                             }
                         }
                     }

@@ -69,6 +69,7 @@ public class CmdConfigCustom {
     public static final int CMD_CLEAR_ADDRESSLIST_TIP = 2001189;
     public static final int CMD_CLEAR_GROUP_INFO = 2001117;
     public static final int CMD_CLEAR_LIVE_STATUS = 2001261;
+    public static final int CMD_CLEAR_TASK_ID = 2001389;
     public static final int CMD_CLOSE_MATINTAB = 2001384;
     public static final int CMD_COLLECTION_PLUGIN_INSTALL_SUCCESS = 2902080;
     public static final int CMD_CREATE_HANDLE_SSOSERVICE_IMPL = 2902060;
@@ -109,8 +110,11 @@ public class CmdConfigCustom {
     public static final int CMD_FILE_DOWNLOAD = 2001122;
     public static final int CMD_FLOAT_RECORD_VIEW_CTRL = 2001307;
     public static final int CMD_FLOAT_WINDOW_SWITCH_CHANGED = 2001257;
+    public static final int CMD_FORUMFEED_PLUGIN_INSTALL_SUCCESS = 2902110;
+    public static final int CMD_FORUM_FEED_SWITCH_CHANGE = 2902111;
     public static final int CMD_FOUND_NEW_READ_CACHE = 2016201;
     public static final int CMD_FOUND_NEW_WRITE_CACHE = 2016202;
+    public static final int CMD_FRIENDFEED_PLUGIN_INSTALL_SUCCESS = 2902100;
     public static final int CMD_FRS_ADD_ADAPTER = 2003008;
     public static final int CMD_FRS_ADD_MODEL = 2003011;
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001359;
@@ -143,7 +147,10 @@ public class CmdConfigCustom {
     public static final int CMD_GET_XIAOYING_PANNEL_TOOL = 2001357;
     public static final int CMD_GET_XIAOYING_TOOL = 2001356;
     public static final int CMD_GOTOLIVE_HOST_LEVEL_LISTENER = 2004504;
-    public static final int CMD_GOTOLIVE_MANAGER = 2004505;
+    public static final int CMD_GOTOLIVE_HOST_UPGRADE = 2004507;
+    public static final int CMD_GOTOLIVE_MANAGER_ACTIVITY = 2004506;
+    public static final int CMD_GOTOLIVE_MANAGER_FRAGMENTACTIVITY = 2004505;
+    public static final int CMD_GOTOLIVE_REMOVE_DATA = 2004508;
     public static final int CMD_GOTOLIVE_RIGESTE_LISTENER = 2004503;
     public static final int CMD_GO_TO_ONEKEYSIGN = 2016306;
     public static final int CMD_GO_TO_POSTBUBBLE = 2016307;
@@ -154,6 +161,7 @@ public class CmdConfigCustom {
     public static final int CMD_HOME_PAGE_SEND_USER_MODULE = 2016316;
     public static final int CMD_HOME_PAGE_WRITE_CACHE = 2016315;
     public static final int CMD_HOT_GROUPS_LOCAL = 2001116;
+    public static final int CMD_IMMERSIVE_STICKY_SWITCH_STATUS_CHANGE = 2016323;
     public static final int CMD_IM_GROUP_CONFIRM_PASSED = 2001220;
     public static final int CMD_IM_PUSH_NOTIFY_APPLY_JOIN_FAIL = 2001131;
     public static final int CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP = 2001129;
@@ -170,6 +178,7 @@ public class CmdConfigCustom {
     public static final int CMD_IM_PUSH_NOTIFY_HIDE_GROUP = 2001143;
     public static final int CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN = 2001142;
     public static final int CMD_IM_PUSH_NOTIFY_KICK_OUT = 2001132;
+    public static final int CMD_IM_REPLY_ME_BACK_EVENT = 2016322;
     public static final int CMD_IM_SYSTEM_SHOW_NOTIFY = 2001128;
     public static final int CMD_INSERT_CONTACT = 2001183;
     public static final int CMD_INSERT_SKINT_DATA_TO_DB = 2001367;
@@ -206,6 +215,8 @@ public class CmdConfigCustom {
     public static final int CMD_LOGIN_STATUS_KUANG = 2001332;
     public static final int CMD_LOGIN_WEINXIN = 2001345;
     public static final int CMD_MAINTAB_LAYER_VISIBLE = 2001348;
+    public static final int CMD_MAIN_TAB_ON_RESUME = 2001392;
+    public static final int CMD_MAIN_TAB_WIDGET_CLICK = 2001391;
     public static final int CMD_MARK_MANAGER = 2001286;
     public static final int CMD_MEMBER_CENTER_RES_TOOL = 2001301;
     public static final int CMD_MENTION_ATME_CACHE = 2001265;
@@ -242,7 +253,7 @@ public class CmdConfigCustom {
     public static final int CMD_PERSONAL_CHAT_INITED = 2001316;
     public static final int CMD_PERSON_DATA_CHANGED = 2001387;
     public static final int CMD_PERSON_INFO_CHANGED = 2001253;
-    public static final int CMD_PHOTO_LIVE_PLUGIN_INSTALL_SUCCESS = 2004506;
+    public static final int CMD_PHOTO_LIVE_PLUGIN_INSTALL_SUCCESS = 2004509;
     public static final int CMD_PLAY_PROGRESS_CHANGED = 2001160;
     public static final int CMD_PLAY_STATUS_CHANGED = 2001159;
     public static final int CMD_PLAY_XIAOYING_VIDEO = 2001354;
@@ -270,6 +281,7 @@ public class CmdConfigCustom {
     public static final int CMD_READ_SEARCHPERSON_HISTORY = 2001195;
     public static final int CMD_READ_SKIN_DATA_FROM_DB = 2001368;
     public static final int CMD_RECOMMEMD_FRS_SWITCH_TAB = 2001328;
+    public static final int CMD_RECOMMEMD_FRS_SWITCH_TAB_FROM_POP_WINDOW = 2001390;
     public static final int CMD_RECOMMEND_FRS_BACK_PRESSED = 2001341;
     public static final int CMD_RECOMMEND_FRS_READ_CACHE = 2001322;
     public static final int CMD_RECOMMEND_FRS_WRITE_CACHE = 2001323;

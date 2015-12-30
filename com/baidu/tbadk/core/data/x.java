@@ -7,13 +7,13 @@ import tbclient.ForumRecommend.Banner;
 public class x {
     protected String img_url = null;
     protected String link = null;
-    protected String VZ = null;
+    protected String Wz = null;
 
-    public String sB() {
+    public String sk() {
         return this.img_url;
     }
 
-    public void cs(String str) {
+    public void cv(String str) {
         this.img_url = str;
     }
 
@@ -34,7 +34,7 @@ public class x {
     public void a(Banner banner, Context context) {
         if (banner != null) {
             try {
-                cs(banner.pic_url);
+                cv(banner.pic_url);
                 setLink(banner.link);
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -42,11 +42,11 @@ public class x {
         }
     }
 
-    public String sC() {
-        return this.VZ;
+    public String sl() {
+        return this.Wz;
     }
 
-    public void ct(String str) {
-        this.VZ = str;
+    public void cw(String str) {
+        this.Wz = str;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.view.View;
 /* loaded from: classes.dex */
 class q implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bag;
+    final /* synthetic */ FrsActivity bed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FrsActivity frsActivity) {
-        this.bag = frsActivity;
+        this.bed = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener

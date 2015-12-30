@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 /* loaded from: classes.dex */
 public class c {
-    private int dBL;
+    private int dJo;
     private String errorMessage;
     private int errorNo;
     private boolean isSuccess = true;
@@ -30,11 +30,11 @@ public class c {
         this.errorMessage = str;
     }
 
-    public int aEf() {
-        return this.dBL;
+    public int aGt() {
+        return this.dJo;
     }
 
-    public void mG(int i) {
-        this.dBL = i;
+    public void ni(int i) {
+        this.dJo = i;
     }
 }

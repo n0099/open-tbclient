@@ -1,23 +1,25 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.content.Context;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.DetailInfo;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tbadk.util.f {
-    final /* synthetic */ h dzu;
+public class i {
+    private String text;
+    private String url;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(h hVar, Context context) {
-        super(context);
-        this.dzu = hVar;
+    public i(DetailInfo detailInfo) {
+        this.text = null;
+        this.url = null;
+        if (detailInfo != null) {
+            this.text = detailInfo.text;
+            this.url = detailInfo.url;
+        }
     }
 
-    @Override // com.baidu.tbadk.util.f, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        String str;
-        str = this.dzu.text;
-        gc(str);
+    public String getText() {
+        return this.text;
+    }
+
+    public String getUrl() {
+        return this.url;
     }
 }

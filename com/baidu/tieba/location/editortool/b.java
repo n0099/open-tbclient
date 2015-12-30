@@ -7,8 +7,8 @@ import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class b extends y {
     public b(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(n.i.editor_location), 7, i);
-        this.launcherIcon = n.e.btn_pb_add_pin;
+        super(context, TbadkCoreApplication.m411getInst().getString(n.j.editor_location), 7, i);
+        this.launcherIcon = n.f.btn_pb_add_pin;
         this.toolLaunchAction = new int[]{18};
     }
 }

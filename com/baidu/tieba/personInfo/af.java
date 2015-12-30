@@ -1,87 +1,32 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import android.widget.FrameLayout;
 import com.baidu.tieba.n;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.base.g {
-    final /* synthetic */ d cSn;
+public class af implements View.OnClickListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(d dVar) {
-        this.cSn = dVar;
+        this.cWV = dVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        az azVar;
-        az azVar2;
-        az azVar3;
-        aw awVar;
-        az azVar4;
-        aw awVar2;
-        az azVar5;
-        az azVar6;
-        FrameLayout frameLayout;
-        com.baidu.tieba.person.a.ad adVar;
-        FrameLayout frameLayout2;
-        com.baidu.tieba.person.a.ad adVar2;
-        aw awVar3;
-        FrameLayout frameLayout3;
-        aw awVar4;
-        azVar = this.cSn.cRH;
-        if (azVar != null) {
-            azVar2 = this.cSn.cRH;
-            azVar2.hideProgress();
-            if (obj == null || !(obj instanceof Integer) || ((Integer) obj).intValue() != 3) {
-                azVar3 = this.cSn.cRH;
-                azVar3.b(new ag(this));
-                awVar = this.cSn.cMT;
-                if (awVar.apq() != null) {
-                    d dVar = this.cSn;
-                    awVar3 = this.cSn.cMT;
-                    dVar.cRP = awVar3.apq().getPhotoAlbum();
-                }
-                azVar4 = this.cSn.cRH;
-                com.baidu.tieba.person.a.b bVar = azVar4.cTA;
-                awVar2 = this.cSn.cMT;
-                bVar.J(awVar2.getDataList());
-                azVar5 = this.cSn.cRH;
-                azVar5.cTA.notifyDataSetChanged();
-                azVar6 = this.cSn.cRH;
-                azVar6.apB();
-                if (obj != null && (obj instanceof Integer)) {
-                    d dVar2 = this.cSn;
-                    frameLayout = this.cSn.cRM;
-                    dVar2.ao(frameLayout);
-                    adVar = this.cSn.cRN;
-                    if (adVar != null) {
-                        adVar2 = this.cSn.cRN;
-                        adVar2.fG(false);
-                    }
-                    this.cSn.aoS();
-                    if (((Integer) obj).intValue() == 1) {
-                        this.cSn.cyc = true;
-                        this.cSn.cRK = false;
-                        this.cSn.TI();
-                        return;
-                    } else if (((Integer) obj).intValue() == 0 && this.cSn.getPageContext() != null && this.cSn.getPageContext().getResources() != null) {
-                        d dVar3 = this.cSn;
-                        frameLayout2 = this.cSn.cRM;
-                        dVar3.showNetRefreshView(frameLayout2, this.cSn.getPageContext().getResources().getString(n.i.neterror), false);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        List list;
+        List list2;
+        List list3;
+        if (view != null) {
+            list = this.cWV.cWs;
+            if (list != null && (view.getTag(n.g.tag_person_photo_item_position) instanceof Integer)) {
+                int intValue = ((Integer) view.getTag(n.g.tag_person_photo_item_position)).intValue();
+                list2 = this.cWV.cWs;
+                d dVar = this.cWV;
+                list3 = this.cWV.cWs;
+                dVar.a((com.baidu.tbadk.data.g) list2.get(intValue), list3, intValue);
             }
-            d dVar4 = this.cSn;
-            frameLayout3 = this.cSn.cRM;
-            dVar4.a((View) frameLayout3, false, -1);
-            awVar4 = this.cSn.cMT;
-            awVar4.aph();
         }
     }
 }

@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class g {
-    private static g bMv;
+    private static g bQb;
 
-    public static g Xg() {
-        if (bMv == null) {
+    public static g Ym() {
+        if (bQb == null) {
             synchronized (g.class) {
-                if (bMv == null) {
-                    bMv = new g();
+                if (bQb == null) {
+                    bQb = new g();
                 }
             }
         }
-        return bMv;
+        return bQb;
     }
 
-    public void Xh() {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe != null) {
-            if (Xe.inTransaction()) {
+    public void Yn() {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk != null) {
+            if (Yk.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                Xe.beginTransaction();
+                Yk.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -40,13 +40,13 @@ public class g {
     }
 
     public void endTransaction() {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe != null) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk != null) {
             BdLog.i("begin commit transaction");
-            if (Xe.inTransaction()) {
+            if (Yk.inTransaction()) {
                 try {
-                    Xe.setTransactionSuccessful();
-                    Xe.endTransaction();
+                    Yk.setTransactionSuccessful();
+                    Yk.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -58,13 +58,13 @@ public class g {
         }
     }
 
-    public boolean im(String str) {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe == null) {
+    public boolean iy(String str) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk == null) {
             return false;
         }
         try {
-            Xe.execSQL(str);
+            Yk.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class g {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe == null) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk == null) {
             return null;
         }
         try {
-            return Xe.rawQuery(str, strArr);
+            return Yk.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(String.valueOf(e.getMessage()) + str);
             return null;
@@ -86,12 +86,12 @@ public class g {
     }
 
     public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return Xe.delete(str, str2, strArr) > 0;
+            return Yk.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class g {
     }
 
     public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return Xe.update(str, contentValues, str2, strArr);
+            return Yk.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,12 +124,12 @@ public class g {
     }
 
     public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase Xe = f.Xe();
-        if (Xe == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase Yk = f.Yk();
+        if (Yk == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return Xe.insert(str, str2, contentValues);
+            return Yk.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
@@ -137,12 +137,12 @@ public class g {
     }
 
     public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase Xe;
-        if (TextUtils.isEmpty(str) || (Xe = f.Xe()) == null) {
+        SQLiteDatabase Yk;
+        if (TextUtils.isEmpty(str) || (Yk = f.Yk()) == null) {
             return null;
         }
         try {
-            return Xe.compileStatement(str);
+            return Yk.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

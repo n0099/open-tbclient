@@ -41,25 +41,25 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
-    private EditText bXx;
-    private Window djK;
-    private TextView djL;
-    private RelativeLayout djM;
-    private RelativeLayout djN;
-    private TextView djO;
-    private TextView djP;
-    private TextView djQ;
-    private TextView djR;
-    private ImageView djS;
-    private int djT;
-    private int djU;
-    public n djX;
-    public p djY;
+    private EditText cbx;
+    private Window dqS;
+    private TextView dqT;
+    private RelativeLayout dqU;
+    private RelativeLayout dqV;
+    private TextView dqW;
+    private TextView dqX;
+    private TextView dqY;
+    private TextView dqZ;
+    private ImageView dra;
+    private int drb;
+    private int drc;
+    public n drf;
+    public p drg;
     private InputMethodManager mInputManager;
-    private Drawable djV = null;
-    public DynamicHeightListView djW = null;
-    private BroadcastReceiver djZ = new a(this);
-    private AdapterView.OnItemClickListener HP = new b(this);
+    private Drawable drd = null;
+    public DynamicHeightListView dre = null;
+    private BroadcastReceiver drh = new a(this);
+    private AdapterView.OnItemClickListener If = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -67,22 +67,22 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
-        this.djK = getWindow();
-        this.djK.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
-        this.djK.addFlags(AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END);
+        this.dqS = getWindow();
+        this.dqS.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
+        this.dqS.addFlags(AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END);
         getWindow().getDecorView().setDrawingCacheEnabled(false);
-        setContentView(n.g.activity_screen_lock);
+        setContentView(n.h.activity_screen_lock);
         addGlobalLayoutListener();
-        adjustResizeForSoftInput();
-        if (com.baidu.adp.lib.util.k.jj()) {
-            this.djV = awF();
-            if (this.djV != null) {
-                this.djK.setBackgroundDrawable(this.djV);
+        adjustResizeForSoftInput(n.d.transparent, true);
+        if (com.baidu.adp.lib.util.k.jk()) {
+            this.drd = ayM();
+            if (this.drd != null) {
+                this.dqS.setBackgroundDrawable(this.drd);
             }
         }
         initUI();
-        this.djT = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), n.d.ds360);
-        this.djU = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), n.d.ds484);
+        this.drb = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), n.e.ds360);
+        this.drc = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), n.e.ds484);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -96,30 +96,30 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     }
 
     public void initUI() {
-        this.djM = (RelativeLayout) findViewById(n.f.screenlock_input_layout);
-        this.djL = (TextView) findViewById(n.f.screenlock_send_button);
-        this.bXx = (EditText) findViewById(n.f.screenlock_edit_view);
+        this.dqU = (RelativeLayout) findViewById(n.g.screenlock_input_layout);
+        this.dqT = (TextView) findViewById(n.g.screenlock_send_button);
+        this.cbx = (EditText) findViewById(n.g.screenlock_edit_view);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        this.djN = (RelativeLayout) findViewById(n.f.one_chat_head_layout);
-        this.djO = (TextView) findViewById(n.f.friend_name_head);
-        this.djP = (TextView) findViewById(n.f.last_msg_time_head);
-        this.djR = (TextView) findViewById(n.f.unread_msg_count);
-        this.djQ = (TextView) findViewById(n.f.look_more_textview);
-        this.djQ.setOnClickListener(new c(this));
-        this.djL.setOnClickListener(new d(this));
-        this.djS = (ImageView) findViewById(n.f.head_close);
-        this.djS.setOnClickListener(new e(this));
-        this.djW = (DynamicHeightListView) findViewById(n.f.screenlock_chat_list_content);
-        this.djX = new n(getPageContext().getPageActivity());
-        this.djW.setAdapter((ListAdapter) this.djX);
-        this.djW.setOnItemClickListener(this.HP);
-        registerReceiver(this.djZ, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
-        f.awH().dkk = false;
+        this.dqV = (RelativeLayout) findViewById(n.g.one_chat_head_layout);
+        this.dqW = (TextView) findViewById(n.g.friend_name_head);
+        this.dqX = (TextView) findViewById(n.g.last_msg_time_head);
+        this.dqZ = (TextView) findViewById(n.g.unread_msg_count);
+        this.dqY = (TextView) findViewById(n.g.look_more_textview);
+        this.dqY.setOnClickListener(new c(this));
+        this.dqT.setOnClickListener(new d(this));
+        this.dra = (ImageView) findViewById(n.g.head_close);
+        this.dra.setOnClickListener(new e(this));
+        this.dre = (DynamicHeightListView) findViewById(n.g.screenlock_chat_list_content);
+        this.drf = new n(getPageContext().getPageActivity());
+        this.dre.setAdapter((ListAdapter) this.drf);
+        this.dre.setOnItemClickListener(this.If);
+        registerReceiver(this.drh, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
+        f.ayO().drs = false;
     }
 
-    public String awE() {
-        if (this.bXx != null) {
-            return com.baidu.adp.lib.util.j.a(this.bXx.getText(), null);
+    public String ayL() {
+        if (this.cbx != null) {
+            return com.baidu.adp.lib.util.j.a(this.cbx.getText(), null);
         }
         return null;
     }
@@ -128,7 +128,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(awG())) {
+        if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(ayN())) {
             finish();
         }
     }
@@ -138,121 +138,121 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     public void onResume() {
         LinkedList linkedList;
         super.onResume();
-        List<p> awJ = f.awH().awJ();
-        if (awJ == null || awJ.isEmpty()) {
-            f.awH().dke.awP();
+        List<p> ayQ = f.ayO().ayQ();
+        if (ayQ == null || ayQ.isEmpty()) {
+            f.ayO().drm.ayW();
             finish();
             return;
         }
-        if (f.awH().awK().size() == 1) {
-            p pVar = f.awH().awK().get(0);
-            if (f.awH().awO()) {
-                this.djM.setVisibility(8);
-                this.djR.setVisibility(8);
-                this.djN.setVisibility(8);
-                this.djW.setMaxHeight(0);
+        if (f.ayO().ayR().size() == 1) {
+            p pVar = f.ayO().ayR().get(0);
+            if (f.ayO().ayV()) {
+                this.dqU.setVisibility(8);
+                this.dqZ.setVisibility(8);
+                this.dqV.setVisibility(8);
+                this.dre.setMaxHeight(0);
             } else {
-                this.djM.setVisibility(0);
-                this.djR.setText(lP(pVar.dkC));
-                this.djR.setVisibility(0);
-                this.djN.setVisibility(0);
-                this.djO.setText(pVar.groupName);
-                this.djP.setText(bB(pVar.dkE));
-                this.djW.setMaxHeight(this.djT);
+                this.dqU.setVisibility(0);
+                this.dqZ.setText(mq(pVar.drK));
+                this.dqZ.setVisibility(0);
+                this.dqV.setVisibility(0);
+                this.dqW.setText(pVar.groupName);
+                this.dqX.setText(bK(pVar.drM));
+                this.dre.setMaxHeight(this.drb);
             }
-            this.djQ.setVisibility(8);
-            this.djX.gI(false);
+            this.dqY.setVisibility(8);
+            this.drf.gQ(false);
         } else {
-            this.djM.setVisibility(8);
-            this.djN.setVisibility(8);
-            this.djR.setVisibility(8);
-            if (f.awH().awO()) {
-                if (f.awH().awK().size() < 3) {
-                    this.djQ.setVisibility(8);
-                    linkedList = awJ;
+            this.dqU.setVisibility(8);
+            this.dqV.setVisibility(8);
+            this.dqZ.setVisibility(8);
+            if (f.ayO().ayV()) {
+                if (f.ayO().ayR().size() < 3) {
+                    this.dqY.setVisibility(8);
+                    linkedList = ayQ;
                 } else {
-                    List<p> awJ2 = f.awH().awJ();
-                    LinkedList linkedList2 = new LinkedList(awJ2.subList(0, 2));
-                    linkedList2.add(awJ2.get(awJ2.size() - 1));
-                    this.djQ.setVisibility(0);
+                    List<p> ayQ2 = f.ayO().ayQ();
+                    LinkedList linkedList2 = new LinkedList(ayQ2.subList(0, 2));
+                    linkedList2.add(ayQ2.get(ayQ2.size() - 1));
+                    this.dqY.setVisibility(0);
                     linkedList = linkedList2;
                 }
-            } else if (f.awH().awK().size() <= 3) {
-                this.djQ.setVisibility(8);
-                linkedList = awJ;
+            } else if (f.ayO().ayR().size() <= 3) {
+                this.dqY.setVisibility(8);
+                linkedList = ayQ;
             } else {
-                this.djQ.setVisibility(0);
-                linkedList = awJ;
+                this.dqY.setVisibility(0);
+                linkedList = ayQ;
             }
-            this.djX.gI(true);
-            this.djW.setMaxHeight(this.djU);
-            awJ = linkedList;
+            this.drf.gQ(true);
+            this.dre.setMaxHeight(this.drc);
+            ayQ = linkedList;
         }
-        this.djX.gJ(f.awH().awO());
-        this.djX.setData(awJ);
-        this.djX.notifyDataSetChanged();
-        f.awH().dkh = 1;
-        f.awH().dkf = 0;
+        this.drf.gR(f.ayO().ayV());
+        this.drf.setData(ayQ);
+        this.drf.notifyDataSetChanged();
+        f.ayO().drp = 1;
+        f.ayO().drn = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        f.awH().dkh = 0;
-        f.awH().dkf = 0;
-        HidenSoftKeyPad(this.mInputManager, this.bXx);
+        f.ayO().drp = 0;
+        f.ayO().drn = 0;
+        HidenSoftKeyPad(this.mInputManager, this.cbx);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(this.djZ);
-        f.awH().dkh = 0;
-        this.djV = null;
+        unregisterReceiver(this.drh);
+        f.ayO().drp = 0;
+        this.drd = null;
     }
 
     public void a(p pVar) {
         if (pVar != null) {
             if (!TextUtils.isEmpty(pVar.url)) {
-                bf.vD().b(getPageContext(), new String[]{pVar.url});
-                TiebaStatic.log(new av("c10316").ab("obj_type", pVar.stat).r("obj_locate", 2));
-                f.awH().c(pVar);
+                bf.vn().b(getPageContext(), new String[]{pVar.url});
+                TiebaStatic.log(new av("c10316").aa("obj_type", pVar.stat).r("obj_locate", 2));
+                f.ayO().c(pVar);
                 finish();
             } else if (pVar.customGroupType == 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), Integer.parseInt(pVar.groupId), pVar.groupName, 0L, "from_lock")));
-                f.awH().c(pVar);
-                f.awH().dke.awP();
-                if (!f.awH().dke.awR()) {
-                    f.awH().dke.awQ();
+                f.ayO().c(pVar);
+                f.ayO().drm.ayW();
+                if (!f.ayO().drm.ayY()) {
+                    f.ayO().drm.ayX();
                 }
-                f.awH().dkf = 0;
+                f.ayO().drn = 0;
                 finish();
             } else if (pVar.customGroupType == 2) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.djY.groupId, 0L), pVar.groupName, pVar.dkD, 0, pVar.dkG ? 1 : 0)));
-                f.awH().c(pVar);
-                f.awH().dkf = 0;
-                f.awH().dke.awP();
-                if (!f.awH().dke.awR()) {
-                    f.awH().dke.awQ();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.drg.groupId, 0L), pVar.groupName, pVar.drL, 0, pVar.drO ? 1 : 0)));
+                f.ayO().c(pVar);
+                f.ayO().drn = 0;
+                f.ayO().drm.ayW();
+                if (!f.ayO().drm.ayY()) {
+                    f.ayO().drm.ayX();
                 }
                 finish();
             } else if (pVar.customGroupType == 4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.djY.groupId, 0L), pVar.groupName, pVar.dkD, 0, 4)));
-                f.awH().c(pVar);
-                f.awH().dkf = 0;
-                f.awH().dke.awP();
-                if (!f.awH().dke.awR()) {
-                    f.awH().dke.awQ();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.drg.groupId, 0L), pVar.groupName, pVar.drL, 0, 4)));
+                f.ayO().c(pVar);
+                f.ayO().drn = 0;
+                f.ayO().drm.ayW();
+                if (!f.ayO().drm.ayY()) {
+                    f.ayO().drm.ayX();
                 }
                 finish();
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChatMessageActivityConfig(getPageContext().getPageActivity())));
-                f.awH().c(pVar);
-                f.awH().dke.awP();
-                if (!f.awH().dke.awR()) {
-                    f.awH().dke.awQ();
+                f.ayO().c(pVar);
+                f.ayO().drm.ayW();
+                if (!f.ayO().drm.ayY()) {
+                    f.ayO().drm.ayX();
                 }
                 finish();
             }
@@ -262,11 +262,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            f.awH().dke.awP();
+            f.ayO().drm.ayW();
             finish();
             return true;
         } else if (i == 82) {
-            f.awH().dke.awP();
+            f.ayO().drm.ayW();
             finish();
             return true;
         } else {
@@ -274,16 +274,16 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         }
     }
 
-    public String bB(long j) {
+    public String bK(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String lP(int i) {
+    public String mq(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
-    public Drawable awF() {
+    public Drawable ayM() {
         Bitmap bitmap;
         try {
             Drawable drawable = WallpaperManager.getInstance(getPageContext().getPageActivity()).getDrawable();
@@ -307,7 +307,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         }
     }
 
-    public String awG() {
+    public String ayN() {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkApplication.getInst().getSystemService("activity")).getRunningTasks(5);
         if (runningTasks == null || runningTasks.size() <= 0) {
             return null;

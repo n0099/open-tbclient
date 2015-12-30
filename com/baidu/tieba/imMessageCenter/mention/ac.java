@@ -1,56 +1,43 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.CustomViewPager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends PagerAdapter {
-    private bc ceg;
+public class ac implements FragmentTabWidget.a {
+    final /* synthetic */ z ciC;
 
-    public ac(bc bcVar) {
-        this.ceg = bcVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(z zVar) {
+        this.ciC = zVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return 3;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i == 0) {
-            k adH = this.ceg.adH();
-            if (adH.getView() == null) {
-                View pg = adH.pg();
-                viewGroup.addView(pg);
-                return pg;
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
+    public void c(int i, boolean z) {
+        bd bdVar;
+        CustomViewPager customViewPager;
+        FragmentTabWidget fragmentTabWidget;
+        int i2;
+        int i3;
+        bdVar = this.ciC.cih;
+        bdVar.aeK();
+        customViewPager = this.ciC.ciz;
+        customViewPager.setCurrentItem(i);
+        fragmentTabWidget = this.ciC.ciy;
+        fragmentTabWidget.d(i, true);
+        this.ciC.ciB = i;
+        i2 = this.ciC.ciB;
+        if (i2 != 0) {
+            i3 = this.ciC.ciB;
+            if (i3 == 1) {
+                TiebaStatic.log("c10526");
+                return;
+            } else {
+                TiebaStatic.log("c10527");
+                return;
             }
-            return adH.getView();
-        } else if (i == 1) {
-            aw adD = this.ceg.adD();
-            if (adD.getView() == null) {
-                View pg2 = adD.pg();
-                viewGroup.addView(pg2);
-                return pg2;
-            }
-            return adD.getView();
-        } else {
-            j adE = this.ceg.adE();
-            if (adE.getView() == null) {
-                View pg3 = adE.pg();
-                viewGroup.addView(pg3);
-                return pg3;
-            }
-            return adE.getView();
         }
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
+        TiebaStatic.log("c10525");
     }
 }

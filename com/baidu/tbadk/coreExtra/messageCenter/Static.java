@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        a.xJ();
+        a.xv();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_INVOKE_ACCOUNT_CHANGE, new d());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

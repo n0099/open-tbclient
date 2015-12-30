@@ -8,11 +8,11 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnTouchListener {
-    final /* synthetic */ h cbR;
+    final /* synthetic */ h cfR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.cbR = hVar;
+        this.cfR = hVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,28 +26,28 @@ public class k implements View.OnTouchListener {
         Point point4;
         switch (motionEvent.getAction()) {
             case 0:
-                point3 = this.cbR.caL;
+                point3 = this.cfR.ceM;
                 point3.x = (int) motionEvent.getX();
-                point4 = this.cbR.caL;
+                point4 = this.cfR.ceM;
                 point4.y = (int) motionEvent.getY();
                 break;
             case 1:
-                this.cbR.cbO = false;
-                headImageView = this.cbR.aJP;
+                this.cfR.cfO = false;
+                headImageView = this.cfR.aLn;
                 headImageView.setVisibility(0);
-                h hVar = this.cbR;
-                i = this.cbR.cbN;
-                hVar.iJ(i);
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b abE = com.baidu.tieba.imMessageCenter.im.floatwindow.b.abE();
-                aVar = this.cbR.cbP;
-                abE.a(aVar);
+                h hVar = this.cfR;
+                i = this.cfR.cfN;
+                hVar.ji(i);
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b acN = com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN();
+                aVar = this.cfR.cfP;
+                acN.a(aVar);
                 break;
             case 2:
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b abE2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.abE();
-                point = this.cbR.caL;
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b acN2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN();
+                point = this.cfR.ceM;
                 int rawX = ((int) motionEvent.getRawX()) + point.x;
-                point2 = this.cbR.caL;
-                abE2.an(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
+                point2 = this.cfR.ceM;
+                acN2.az(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
                 break;
         }
         return false;

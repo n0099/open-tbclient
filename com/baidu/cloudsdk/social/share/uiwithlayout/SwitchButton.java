@@ -62,15 +62,15 @@ public class SwitchButton extends CheckBox {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final Handler a = new HandlerC0015a(null);
+        private static final Handler a = new HandlerC0016a(null);
 
         /* renamed from: com.baidu.cloudsdk.social.share.uiwithlayout.SwitchButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        static class HandlerC0015a extends Handler {
-            private HandlerC0015a() {
+        static class HandlerC0016a extends Handler {
+            private HandlerC0016a() {
             }
 
-            /* synthetic */ HandlerC0015a(ai aiVar) {
+            /* synthetic */ HandlerC0016a(ai aiVar) {
                 this();
             }
 

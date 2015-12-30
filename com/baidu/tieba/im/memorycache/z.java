@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends CustomMessageListener {
+public class z extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,9 +16,13 @@ public class z extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
-            this.this$0.ZF();
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            this.this$0.bXb = (ResponseOnlineMessage) socketResponsedMessage;
+            if (!b.aay().bWM.get()) {
+                return;
+            }
+            this.this$0.aaL();
         }
     }
 }

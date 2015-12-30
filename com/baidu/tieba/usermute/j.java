@@ -8,13 +8,13 @@ import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ i dIV;
+    final /* synthetic */ i dQw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(i iVar, int i, int i2) {
         super(i, i2);
-        this.dIV = iVar;
+        this.dQw = iVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,20 +25,20 @@ public class j extends com.baidu.adp.framework.listener.a {
         Object obj2;
         if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
             UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-            aVar2 = this.dIV.dIU;
+            aVar2 = this.dQw.dQv;
             DataRes result = userMuteCheckSocketResponsedMessage.getResult();
             int error = userMuteCheckSocketResponsedMessage.getError();
             String errorString = userMuteCheckSocketResponsedMessage.getErrorString();
-            obj2 = this.dIV.mExtra;
+            obj2 = this.dQw.mExtra;
             aVar2.a(result, error, errorString, obj2);
         }
         if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
             UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-            aVar = this.dIV.dIU;
+            aVar = this.dQw.dQv;
             DataRes result2 = userMuteCheckHttpResponsedMessage.getResult();
             int error2 = userMuteCheckHttpResponsedMessage.getError();
             String errorString2 = userMuteCheckHttpResponsedMessage.getErrorString();
-            obj = this.dIV.mExtra;
+            obj = this.dQw.mExtra;
             aVar.a(result2, error2, errorString2, obj);
         }
     }

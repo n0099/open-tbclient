@@ -8,11 +8,11 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity bGz;
+    final /* synthetic */ AbsMsgImageActivity bKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.bGz = absMsgImageActivity;
+        this.bKg = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.bGz.getListMenu();
+        listMenu = this.bKg.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.bGz.bGn;
+                        multiImageView = this.bKg.bJU;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.bGz.bGn;
+                            multiImageView2 = this.bKg.bJU;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.bGz.bGk = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.bGz.bGk;
+                            this.bKg.bJR = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.bKg.bJR;
                             aVar.execute(new String[0]);
-                            this.bGz.bGl.setClickable(false);
+                            this.bKg.bJS.setClickable(false);
                         } else {
-                            this.bGz.showToast(this.bGz.getPageContext().getString(n.i.no_data));
+                            this.bKg.showToast(this.bKg.getPageContext().getString(n.j.no_data));
                         }
                         break;
                     } catch (Exception e) {

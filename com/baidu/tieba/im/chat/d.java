@@ -3,14 +3,14 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tbadk.core.view.BaseViewPager;
 /* loaded from: classes.dex */
 class d implements BaseViewPager.a {
-    final /* synthetic */ AbsMsgImageActivity bGz;
+    final /* synthetic */ AbsMsgImageActivity bKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AbsMsgImageActivity absMsgImageActivity) {
-        this.bGz = absMsgImageActivity;
+        this.bKg = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-    public void cK(int i) {
+    public void cD(int i) {
     }
 }

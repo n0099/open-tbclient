@@ -8,26 +8,26 @@ import android.widget.BaseAdapter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class x extends BaseAdapter {
-    private SparseArray<com.baidu.adp.widget.ListView.a<u, a>> IH;
-    private SparseArray<Integer> II = new SparseArray<>();
-    private List<u> IJ;
+    private SparseArray<com.baidu.adp.widget.ListView.a<u, a>> IY;
+    private SparseArray<Integer> IZ = new SparseArray<>();
+    private List<u> Ja;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.IJ != null) {
-            return this.IJ.size();
+        if (this.Ja != null) {
+            return this.Ja.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: aB */
+    /* renamed from: au */
     public u getItem(int i) {
-        if (this.IJ != null) {
-            int size = this.IJ.size();
+        if (this.Ja != null) {
+            int size = this.Ja.size();
             if (i >= 0 && i < size) {
-                return this.IJ.get(i);
+                return this.Ja.get(i);
             }
         }
         return null;
@@ -42,9 +42,9 @@ public class x extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.adp.widget.ListView.a<u, a> aVar;
         u item;
-        if (this.IH != null && this.IJ != null) {
+        if (this.IY != null && this.Ja != null) {
             int count = getCount();
-            if (i >= 0 && i < count && (aVar = this.IH.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof u)) {
+            if (i >= 0 && i < count && (aVar = this.IY.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof u)) {
                 return aVar.a(i, view, viewGroup, item);
             }
         }
@@ -54,66 +54,66 @@ public class x extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         u item;
-        if (this.IH == null || this.IH.size() == 0 || (item = getItem(i)) == null || item.getType() == null) {
+        if (this.IY == null || this.IY.size() == 0 || (item = getItem(i)) == null || item.getType() == null) {
             return -1;
         }
-        return this.II.get(item.getType().getId()).intValue();
+        return this.IZ.get(item.getType().getId()).intValue();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        if (this.IH != null) {
-            return this.IH.size();
+        if (this.IY != null) {
+            return this.IY.size();
         }
         return 0;
     }
 
     public void a(com.baidu.adp.widget.ListView.a<u, a> aVar) {
         if (aVar != null && aVar.getType() != null) {
-            if (this.IH == null) {
-                this.IH = new SparseArray<>();
+            if (this.IY == null) {
+                this.IY = new SparseArray<>();
             }
             if (aVar.getType() != null) {
                 aVar.a(this);
                 int id = aVar.getType().getId();
-                int size = this.IH.size();
-                this.IH.put(size, aVar);
-                this.II.put(id, Integer.valueOf(size));
+                int size = this.IY.size();
+                this.IY.put(size, aVar);
+                this.IZ.put(id, Integer.valueOf(size));
             }
         }
     }
 
     public void setData(List<u> list) {
-        this.IJ = list;
+        this.Ja = list;
         notifyDataSetChanged();
     }
 
     public List<u> getData() {
-        return this.IJ;
+        return this.Ja;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.IH != null) {
+        if (this.IY != null) {
             u item = getItem(i);
-            com.baidu.adp.widget.ListView.a<u, a> valueAt = this.IH.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.no() != null) {
-                valueAt.no().a(view, item, valueAt.getType(), adapterView, i, j);
+            com.baidu.adp.widget.ListView.a<u, a> valueAt = this.IY.valueAt(getItemViewType(i));
+            if (valueAt != null && valueAt.mM() != null) {
+                valueAt.mM().a(view, item, valueAt.getType(), adapterView, i, j);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.IH == null) {
+        if (this.IY == null) {
             return false;
         }
         u item = getItem(i);
-        com.baidu.adp.widget.ListView.a<u, a> valueAt = this.IH.valueAt(getItemViewType(i));
-        if (valueAt == null || valueAt.np() == null) {
+        com.baidu.adp.widget.ListView.a<u, a> valueAt = this.IY.valueAt(getItemViewType(i));
+        if (valueAt == null || valueAt.mN() == null) {
             return false;
         }
-        return valueAt.np().b(view, item, valueAt.getType(), adapterView, i, j);
+        return valueAt.mN().b(view, item, valueAt.getType(), adapterView, i, j);
     }
 
     /* loaded from: classes.dex */

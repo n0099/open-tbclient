@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String SU;
-    private int SV;
-    private int SW;
-    private int SX;
-    private int SY;
-    private int SZ;
-    private int Ta;
-    private int Tb;
-    private int Tc;
-    private int Td;
-    private int Te;
-    private int Tf;
-    private int Tg;
-    private int Th;
-    private int Ti;
-    private int Tj;
-    private int Tk;
-    private int Tl;
-    private int Tm;
-    private int Tn;
-    private int To;
-    private StringBuffer Tp = new StringBuffer();
+    private int TA;
+    private int TB;
+    private int TC;
+    private int TD;
+    private int TE;
+    private int TF;
+    private int TG;
+    private int TH;
+    private int TI;
+    private int TJ;
+    private int TK;
+    private int TL;
+    private int TM;
+    private int TO;
+    private int TP;
+    private int TQ;
+    private StringBuffer TR = new StringBuffer();
+    private String Tv;
+    private int Tw;
+    private int Tx;
+    private int Ty;
+    private int Tz;
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.Tp.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.TR.toString() + "]";
     }
 
-    public void cd(String str) {
-        this.Tp.append(str).append(" || ");
+    public void cf(String str) {
+        this.TR.append(str).append(" || ");
     }
 
-    public int qK() {
-        return this.Tj;
+    public int qt() {
+        return this.TK;
     }
 
-    public void aV(int i) {
-        this.Tj = i;
+    public void aO(int i) {
+        this.TK = i;
     }
 
-    public int qL() {
-        return this.Tk;
+    public int qu() {
+        return this.TL;
     }
 
-    public void aW(int i) {
-        this.Tk = i;
+    public void aP(int i) {
+        this.TL = i;
     }
 
-    public int qM() {
-        return this.Th;
+    public int qv() {
+        return this.TI;
     }
 
-    public void aX(int i) {
-        this.Th = i;
+    public void aQ(int i) {
+        this.TI = i;
     }
 
-    public int qN() {
-        return this.Ti;
+    public int qw() {
+        return this.TJ;
     }
 
-    public void aY(int i) {
-        this.Ti = i;
+    public void aR(int i) {
+        this.TJ = i;
     }
 
-    public int qO() {
-        return this.Tf;
+    public int qx() {
+        return this.TG;
     }
 
-    public void aZ(int i) {
-        this.Tf = i;
+    public void aS(int i) {
+        this.TG = i;
     }
 
-    public int qP() {
-        return this.Tg;
+    public int qy() {
+        return this.TH;
     }
 
-    public void ba(int i) {
-        this.Tg = i;
+    public void aT(int i) {
+        this.TH = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int qQ() {
-        return this.Tl;
+    public int qz() {
+        return this.TM;
     }
 
-    public void bb(int i) {
-        this.Tl = i;
+    public void aU(int i) {
+        this.TM = i;
     }
 
-    public int qR() {
-        return this.Tm;
+    public int qA() {
+        return this.TO;
     }
 
-    public void bc(int i) {
-        this.Tm = i;
+    public void aV(int i) {
+        this.TO = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void ce(String str) {
-        this.SU = str;
+    public void cg(String str) {
+        this.Tv = str;
     }
 
-    public int qS() {
-        return this.SV;
+    public int qB() {
+        return this.Tw;
+    }
+
+    public void aW(int i) {
+        this.Tw = i;
+    }
+
+    public int qC() {
+        return this.Tx;
+    }
+
+    public void aX(int i) {
+        this.Tx = i;
+    }
+
+    public int qD() {
+        return this.TA;
+    }
+
+    public void aY(int i) {
+        this.TA = i;
+    }
+
+    public int qE() {
+        return this.TB;
+    }
+
+    public void aZ(int i) {
+        this.TB = i;
+    }
+
+    public int qF() {
+        return this.Ty;
+    }
+
+    public void ba(int i) {
+        this.Ty = i;
+    }
+
+    public int qG() {
+        return this.Tz;
+    }
+
+    public void bb(int i) {
+        this.Tz = i;
+    }
+
+    public int qH() {
+        return this.TD;
+    }
+
+    public int qI() {
+        return this.TC;
+    }
+
+    public void bc(int i) {
+        this.TC = i;
     }
 
     public void bd(int i) {
-        this.SV = i;
+        this.TD = i;
     }
 
-    public int qT() {
-        return this.SW;
+    public int qJ() {
+        return this.TF;
     }
 
     public void be(int i) {
-        this.SW = i;
+        this.TF = i;
     }
 
-    public int qU() {
-        return this.SZ;
+    public int qK() {
+        return this.TE;
     }
 
     public void bf(int i) {
-        this.SZ = i;
+        this.TE = i;
     }
 
-    public int qV() {
-        return this.Ta;
+    public int qL() {
+        return this.TP;
     }
 
     public void bg(int i) {
-        this.Ta = i;
+        this.TP = i;
     }
 
-    public int qW() {
-        return this.SX;
+    public int qM() {
+        return this.TQ;
     }
 
     public void bh(int i) {
-        this.SX = i;
-    }
-
-    public int qX() {
-        return this.SY;
-    }
-
-    public void bi(int i) {
-        this.SY = i;
-    }
-
-    public int qY() {
-        return this.Tc;
-    }
-
-    public int qZ() {
-        return this.Tb;
-    }
-
-    public void bj(int i) {
-        this.Tb = i;
-    }
-
-    public void bk(int i) {
-        this.Tc = i;
-    }
-
-    public int ra() {
-        return this.Te;
-    }
-
-    public void bl(int i) {
-        this.Te = i;
-    }
-
-    public int rb() {
-        return this.Td;
-    }
-
-    public void bm(int i) {
-        this.Td = i;
-    }
-
-    public int rc() {
-        return this.Tn;
-    }
-
-    public void bn(int i) {
-        this.Tn = i;
-    }
-
-    public int rd() {
-        return this.To;
-    }
-
-    public void bo(int i) {
-        this.To = i;
+        this.TQ = i;
     }
 }

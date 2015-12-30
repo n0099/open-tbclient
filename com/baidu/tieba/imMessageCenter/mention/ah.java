@@ -1,34 +1,38 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends Handler {
-    final /* synthetic */ af ceG;
+public class ah extends HttpMessageListener {
+    final /* synthetic */ ag ciI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(af afVar) {
-        this.ceG = afVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah(ag agVar, int i) {
+        super(i);
+        this.ciI = agVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        Handler handler2;
-        boolean iP;
-        if (message.what == 1) {
-            this.ceG.ceF = System.currentTimeMillis();
-            if (!MessageManager.getInstance().getSocketClient().isValid()) {
-                iP = this.ceG.iP();
-                if (iP) {
-                    this.ceG.adx();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
+            af msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
+            if (!com.baidu.tbadk.coreExtra.messageCenter.a.xx() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.xS().xU()) {
+                if (msgData.aeD() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgBookmark(msgData.aeD());
+                }
+                if (msgData.aeB() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xS().xX()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgAtme(msgData.aeB());
+                }
+                if (msgData.aeA() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xS().xZ()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgReplyme(msgData.aeA());
+                }
+                if (msgData.aeC() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xS().xY()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgFans(msgData.aeC());
                 }
             }
-            handler = this.ceG.mHandler;
-            handler2 = this.ceG.mHandler;
-            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }
 }

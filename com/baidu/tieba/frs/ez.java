@@ -19,117 +19,117 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class ez extends com.baidu.adp.base.f<FrsActivity> {
-    private View Mk;
-    private TextView bfA;
-    private TextView bfB;
-    private TextView bfC;
-    private LinearLayout bfD;
-    public TextView bfE;
-    private TextView bfF;
-    private View bfG;
-    private View bfH;
-    private TextView bfI;
-    private TextView bfJ;
-    private TextView bfK;
-    private View.OnClickListener bfL;
-    private boolean bfM;
-    private final BdSwitchView.a bfN;
-    private RelativeLayout bft;
-    private BdSwitchView bfu;
-    private BdSwitchView bfv;
-    private TextView bfw;
-    private LinearLayout bfx;
-    private LinearLayout bfy;
-    private LinearLayout bfz;
+    private View MA;
+    private TextView bjA;
+    private TextView bjB;
+    private TextView bjC;
+    private View.OnClickListener bjD;
+    private boolean bjE;
+    private final BdSwitchView.a bjF;
+    private RelativeLayout bjl;
+    private BdSwitchView bjm;
+    private BdSwitchView bjn;
+    private TextView bjo;
+    private LinearLayout bjp;
+    private LinearLayout bjq;
+    private LinearLayout bjr;
+    private TextView bjs;
+    private TextView bjt;
+    private TextView bju;
+    private LinearLayout bjv;
+    public TextView bjw;
+    private TextView bjx;
+    private View bjy;
+    private View bjz;
 
     /* loaded from: classes.dex */
     public class a {
-        public String bfP;
+        public String bjH;
         public String name;
     }
 
     public ez(TbPageContext<FrsActivity> tbPageContext) {
         super(tbPageContext);
-        this.bft = null;
-        this.bfu = null;
-        this.bfv = null;
-        this.Mk = null;
-        this.bfw = null;
-        this.bfx = null;
-        this.bfy = null;
-        this.bfz = null;
-        this.bfA = null;
-        this.bfB = null;
-        this.bfC = null;
-        this.bfD = null;
-        this.bfE = null;
-        this.bfF = null;
-        this.bfG = null;
-        this.bfL = null;
-        this.bfN = new fa(this);
+        this.bjl = null;
+        this.bjm = null;
+        this.bjn = null;
+        this.MA = null;
+        this.bjo = null;
+        this.bjp = null;
+        this.bjq = null;
+        this.bjr = null;
+        this.bjs = null;
+        this.bjt = null;
+        this.bju = null;
+        this.bjv = null;
+        this.bjw = null;
+        this.bjx = null;
+        this.bjy = null;
+        this.bjD = null;
+        this.bjF = new fa(this);
         initUI();
     }
 
     public View getView() {
-        return this.Mk;
+        return this.MA;
     }
 
     public void init() {
-        On();
-        Oo();
+        OF();
+        OG();
     }
 
-    private void Oj() {
+    private void OB() {
     }
 
     private void initUI() {
-        this.Mk = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.frs_sidebar, (ViewGroup) null);
-        Oj();
-        this.bfx = (LinearLayout) this.Mk.findViewById(n.f.post_search_ll);
-        this.bfy = (LinearLayout) this.Mk.findViewById(n.f.show_content);
-        this.bfF = (TextView) this.Mk.findViewById(n.f.add_recommend);
-        this.bfG = this.Mk.findViewById(n.f.recommend_forum_layout_line);
-        this.bfE = (TextView) this.Mk.findViewById(n.f.forum_manager_center);
-        this.bfE.setVisibility(8);
-        this.bfv = (BdSwitchView) this.Mk.findViewById(n.f.thrift_mode_switch);
-        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.bfv, 10, 10, 10, 10);
-        this.bft = (RelativeLayout) this.Mk.findViewById(n.f.eyeshield_mode);
-        this.bfu = (BdSwitchView) this.Mk.findViewById(n.f.eyeshield_mode_switch);
-        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.bfu, 10, 10, 10, 10);
-        this.bfu.a(com.baidu.tbadk.core.util.as.cE(n.e.s_switch_open_bg), com.baidu.tbadk.core.util.as.cE(n.e.s_switch_close_bg), com.baidu.tbadk.core.util.as.cE(n.e.btn_game_handle_2));
-        this.bfv.a(com.baidu.tbadk.core.util.as.cE(n.e.s_switch_open_bg), com.baidu.tbadk.core.util.as.cE(n.e.s_switch_close_bg), com.baidu.tbadk.core.util.as.cE(n.e.btn_game_handle_2));
-        this.bfw = (TextView) this.Mk.findViewById(n.f.message_btn);
-        this.bfz = (LinearLayout) this.Mk.findViewById(n.f.message_layout);
-        this.bfA = (TextView) this.Mk.findViewById(n.f.history_tv);
-        this.bfB = (TextView) this.Mk.findViewById(n.f.bar_info_tv);
-        this.bfC = (TextView) this.Mk.findViewById(n.f.bar_live_tv);
-        this.bfD = (LinearLayout) this.Mk.findViewById(n.f.recommend_forum_layout);
-        this.bfI = (TextView) this.Mk.findViewById(n.f.frs_sidebar_good_tv);
-        this.bfK = (TextView) this.Mk.findViewById(n.f.bar_share_tv);
-        this.bfJ = (TextView) this.Mk.findViewById(n.f.frs_sidebar_add_to_desktop);
-        this.bfH = this.Mk.findViewById(n.f.unfollow_layout);
+        this.MA = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.frs_sidebar, (ViewGroup) null);
+        OB();
+        this.bjp = (LinearLayout) this.MA.findViewById(n.g.post_search_ll);
+        this.bjq = (LinearLayout) this.MA.findViewById(n.g.show_content);
+        this.bjx = (TextView) this.MA.findViewById(n.g.add_recommend);
+        this.bjy = this.MA.findViewById(n.g.recommend_forum_layout_line);
+        this.bjw = (TextView) this.MA.findViewById(n.g.forum_manager_center);
+        this.bjw.setVisibility(8);
+        this.bjn = (BdSwitchView) this.MA.findViewById(n.g.thrift_mode_switch);
+        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.bjn, 10, 10, 10, 10);
+        this.bjl = (RelativeLayout) this.MA.findViewById(n.g.eyeshield_mode);
+        this.bjm = (BdSwitchView) this.MA.findViewById(n.g.eyeshield_mode_switch);
+        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.bjm, 10, 10, 10, 10);
+        this.bjm.a(com.baidu.tbadk.core.util.as.cx(n.f.s_switch_open_bg), com.baidu.tbadk.core.util.as.cx(n.f.s_switch_close_bg), com.baidu.tbadk.core.util.as.cx(n.f.btn_game_handle_2));
+        this.bjn.a(com.baidu.tbadk.core.util.as.cx(n.f.s_switch_open_bg), com.baidu.tbadk.core.util.as.cx(n.f.s_switch_close_bg), com.baidu.tbadk.core.util.as.cx(n.f.btn_game_handle_2));
+        this.bjo = (TextView) this.MA.findViewById(n.g.message_btn);
+        this.bjr = (LinearLayout) this.MA.findViewById(n.g.message_layout);
+        this.bjs = (TextView) this.MA.findViewById(n.g.history_tv);
+        this.bjt = (TextView) this.MA.findViewById(n.g.bar_info_tv);
+        this.bju = (TextView) this.MA.findViewById(n.g.bar_live_tv);
+        this.bjv = (LinearLayout) this.MA.findViewById(n.g.recommend_forum_layout);
+        this.bjA = (TextView) this.MA.findViewById(n.g.frs_sidebar_good_tv);
+        this.bjC = (TextView) this.MA.findViewById(n.g.bar_share_tv);
+        this.bjB = (TextView) this.MA.findViewById(n.g.frs_sidebar_add_to_desktop);
+        this.bjz = this.MA.findViewById(n.g.unfollow_layout);
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
-            this.bfA.setVisibility(8);
+            this.bjs.setVisibility(8);
         }
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(ForumDetailActivityConfig.class)) {
-            this.bfB.setVisibility(8);
+            this.bjt.setVisibility(8);
         }
-        if (!Ok()) {
-            this.bft.setVisibility(8);
-            this.bfu.setVisibility(8);
+        if (!OC()) {
+            this.bjl.setVisibility(8);
+            this.bjm.setVisibility(8);
         }
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bfy.addView(createStateBarFillView(), 0);
+            ((ViewGroup) this.MA).addView(createStateBarFillView(), 0);
         }
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(LiveRoomEntranceActivityConfig.class)) {
-            this.bfC.setVisibility(8);
+            this.bju.setVisibility(8);
         }
     }
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
-        if (this.Mk != null) {
-            this.Mk.setBackgroundDrawable(null);
+        if (this.MA != null) {
+            this.MA.setBackgroundDrawable(null);
         }
     }
 
@@ -139,66 +139,66 @@ public class ez extends com.baidu.adp.base.f<FrsActivity> {
         return view;
     }
 
-    public boolean Ok() {
+    public boolean OC() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
-    public void cv(boolean z) {
-        this.bfH.setVisibility(z ? 0 : 8);
+    public void cw(boolean z) {
+        this.bjz.setVisibility(z ? 0 : 8);
     }
 
     public void setIsManager(boolean z) {
         if (z) {
-            this.bfE.setVisibility(0);
+            this.bjw.setVisibility(0);
         } else {
-            this.bfE.setVisibility(8);
+            this.bjw.setVisibility(8);
         }
     }
 
-    public BdSwitchView Ol() {
-        return this.bfu;
+    public BdSwitchView OD() {
+        return this.bjm;
     }
 
-    public boolean Om() {
-        return this.bfM;
+    public boolean OE() {
+        return this.bjE;
     }
 
-    public void cw(boolean z) {
-        this.bfM = z;
+    public void cx(boolean z) {
+        this.bjE = z;
     }
 
-    public void On() {
+    public void OF() {
         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-            this.bfu.mG();
+            this.bjm.me();
         } else {
-            this.bfu.mH();
+            this.bjm.mf();
         }
     }
 
-    public void Oo() {
-        this.bfv.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.m.rh().rn()) {
-            this.bfv.mG();
+    public void OG() {
+        this.bjn.setOnSwitchStateChangeListener(null);
+        if (com.baidu.tbadk.core.m.qQ().qW()) {
+            this.bjn.me();
         } else {
-            this.bfv.mH();
+            this.bjn.mf();
         }
-        this.bfv.setOnSwitchStateChangeListener(this.bfN);
+        this.bjn.setOnSwitchStateChangeListener(this.bjF);
     }
 
     public void a(dw dwVar, boolean z) {
         if (!z) {
-            this.bfw.setVisibility(4);
+            this.bjo.setVisibility(4);
             return;
         }
         long j = 0;
         if (z) {
             if (dwVar != null) {
-                j = dwVar.Oc() - dwVar.Od();
+                j = dwVar.Ov() - dwVar.Ow();
             }
-            c(this.bfw, j);
+            c(this.bjo, j);
             return;
         }
-        this.bfw.setVisibility(4);
+        this.bjo.setVisibility(4);
     }
 
     private void c(TextView textView, long j) {
@@ -207,15 +207,15 @@ public class ez extends com.baidu.adp.base.f<FrsActivity> {
                 textView.setVisibility(0);
                 if (j < 10) {
                     textView.setText(String.valueOf(j));
-                    com.baidu.tbadk.core.util.as.i((View) textView, n.e.icon_news_head_prompt_one);
+                    com.baidu.tbadk.core.util.as.i((View) textView, n.f.icon_news_head_prompt_one);
                     return;
                 } else if (j < 100) {
                     textView.setText(String.valueOf(j));
-                    com.baidu.tbadk.core.util.as.i((View) textView, n.e.icon_news_head_prompt_two);
+                    com.baidu.tbadk.core.util.as.i((View) textView, n.f.icon_news_head_prompt_two);
                     return;
                 } else {
                     textView.setText("   ");
-                    com.baidu.tbadk.core.util.as.i((View) textView, n.e.icon_news_head_prompt_more);
+                    com.baidu.tbadk.core.util.as.i((View) textView, n.f.icon_news_head_prompt_more);
                     return;
                 }
             }
@@ -224,30 +224,30 @@ public class ez extends com.baidu.adp.base.f<FrsActivity> {
     }
 
     public void setCommonClickListener(View.OnClickListener onClickListener) {
-        this.bfL = onClickListener;
-        this.bfz.setOnClickListener(this.bfL);
-        this.bfA.setOnClickListener(this.bfL);
-        this.bfB.setOnClickListener(this.bfL);
-        this.bfE.setOnClickListener(this.bfL);
-        this.bfH.setOnClickListener(this.bfL);
-        this.bfx.setOnClickListener(this.bfL);
-        this.bfI.setOnClickListener(this.bfL);
-        this.bfJ.setOnClickListener(this.bfL);
-        this.bfK.setOnClickListener(this.bfL);
-        this.bfC.setOnClickListener(this.bfL);
+        this.bjD = onClickListener;
+        this.bjr.setOnClickListener(this.bjD);
+        this.bjs.setOnClickListener(this.bjD);
+        this.bjt.setOnClickListener(this.bjD);
+        this.bjw.setOnClickListener(this.bjD);
+        this.bjz.setOnClickListener(this.bjD);
+        this.bjp.setOnClickListener(this.bjD);
+        this.bjA.setOnClickListener(this.bjD);
+        this.bjB.setOnClickListener(this.bjD);
+        this.bjC.setOnClickListener(this.bjD);
+        this.bju.setOnClickListener(this.bjD);
     }
 
     public void changeSkinType(int i) {
         com.baidu.tbadk.core.c layoutMode = ((TbPageContext) this.mContext).getLayoutMode();
-        layoutMode.af(i == 1);
-        layoutMode.k(this.Mk);
+        layoutMode.ac(i == 1);
+        layoutMode.k(this.MA);
         if (i == 1) {
-            this.bfu.mG();
+            this.bjm.me();
         } else {
-            this.bfu.mH();
+            this.bjm.mf();
         }
-        this.Mk.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.as.cF(n.e.s_rightbar_bg)));
-        this.bfu.a(com.baidu.tbadk.core.util.as.cE(n.e.s_switch_open_bg), com.baidu.tbadk.core.util.as.cE(n.e.s_switch_close_bg), com.baidu.tbadk.core.util.as.cE(n.e.btn_game_handle_2));
-        this.bfv.a(com.baidu.tbadk.core.util.as.cE(n.e.s_switch_open_bg), com.baidu.tbadk.core.util.as.cE(n.e.s_switch_close_bg), com.baidu.tbadk.core.util.as.cE(n.e.btn_game_handle_2));
+        this.MA.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.as.cy(n.f.s_rightbar_bg)));
+        this.bjm.a(com.baidu.tbadk.core.util.as.cx(n.f.s_switch_open_bg), com.baidu.tbadk.core.util.as.cx(n.f.s_switch_close_bg), com.baidu.tbadk.core.util.as.cx(n.f.btn_game_handle_2));
+        this.bjn.a(com.baidu.tbadk.core.util.as.cx(n.f.s_switch_open_bg), com.baidu.tbadk.core.util.as.cx(n.f.s_switch_close_bg), com.baidu.tbadk.core.util.as.cx(n.f.btn_game_handle_2));
     }
 }

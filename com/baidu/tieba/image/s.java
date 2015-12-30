@@ -15,18 +15,18 @@ class s implements BaseViewPager.a {
     }
 
     @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-    public void cK(int i) {
+    public void cD(int i) {
         boolean z;
         j jVar;
-        z = this.this$0.cgu;
+        z = this.this$0.cky;
         if (z) {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra(ImageViewerConfig.INDEX, -1);
             intent.putExtra(SocialConstants.PARAM_STATE, i);
             this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
         } else if (i == 0) {
-            jVar = this.this$0.cgo;
-            jVar.aeb();
+            jVar = this.this$0.cks;
+            jVar.afi();
         }
     }
 }

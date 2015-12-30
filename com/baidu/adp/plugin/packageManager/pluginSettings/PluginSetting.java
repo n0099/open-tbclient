@@ -26,6 +26,7 @@ public class PluginSetting implements Serializable, Cloneable {
     public String version;
     public int versionCode;
     public int priority = 1000;
+    public int load_priority = 1000;
     public boolean hasRes = false;
     public boolean isThird = false;
 
@@ -50,11 +51,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bB(str);
+        this.cmdRangeInt = bE(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bB(String str) {
+    private int[] bE(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -120,6 +121,7 @@ public class PluginSetting implements Serializable, Cloneable {
         pluginSetting.priority = this.priority;
         pluginSetting.hasRes = this.hasRes;
         pluginSetting.isThird = this.isThird;
+        pluginSetting.load_priority = this.load_priority;
         return pluginSetting;
     }
 

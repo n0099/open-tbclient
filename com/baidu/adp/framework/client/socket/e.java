@@ -91,7 +91,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.oH == 0) {
             this.oH = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oB.getCmd(), this.oB.getClientLogID(), this.ov, "StartSend", 0, "SenderData: start send size = " + (jw() != null ? jw().length : 0));
+        k.a("SenderData", this.oB.getCmd(), this.oB.getClientLogID(), this.ov, "StartSend", 0, "SenderData: start send size = " + (jx() != null ? jx().length : 0));
         oz.removeCallbacks(ed());
         if (this.ow.getTimeOut() != null) {
             oz.postDelayed(ed(), this.ow.getTimeOut().eX());
@@ -109,8 +109,8 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     public void eh() {
         int i;
         int cmd = this.oB.getCmd();
-        if (jw() != null) {
-            int length = jw().length;
+        if (jx() != null) {
+            int length = jx().length;
             this.oB.setEncodedBinarySize(length);
             i = length;
         } else {

@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,25 +12,34 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bIL;
+        public String bMt;
         public String fid;
         public long picId;
         public String src;
         public String text;
         public String title;
         public String url;
+        public int userType;
     }
 
-    public static List<a> aH(String str, String str2) {
+    public static List<a> aC(String str, String str2) {
+        return a(str, str2, null);
+    }
+
+    public static List<a> a(String str, String str2, UserData userData) {
         if (TextUtils.isEmpty(str)) {
             return null;
+        }
+        int i = -1;
+        if (userData != null) {
+            i = userData.getUserType();
         }
         LinkedList linkedList = new LinkedList();
         try {
             JSONArray jSONArray = new JSONArray(str);
             int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 String optString = optJSONObject.optString("title");
                 String optString2 = optJSONObject.optString("url");
                 String optString3 = optJSONObject.optString("src");
@@ -43,7 +53,10 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.bIL = optString5;
+                aVar.bMt = optString5;
+                if (i > -1) {
+                    aVar.userType = i;
+                }
                 linkedList.add(aVar);
             }
             return linkedList;

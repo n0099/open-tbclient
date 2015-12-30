@@ -9,30 +9,30 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class f {
-    private static f dRS = null;
-    private IWXAPIEventHandler dRV;
-    private IWXAPIEventHandler dRW = new g(this);
-    private IWXAPI dRT = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-    private ConcurrentHashMap<String, IWXAPIEventHandler> dRU = new ConcurrentHashMap<>();
+    private static f dZq = null;
+    private IWXAPIEventHandler dZt;
+    private IWXAPIEventHandler dZu = new g(this);
+    private IWXAPI dZr = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+    private ConcurrentHashMap<String, IWXAPIEventHandler> dZs = new ConcurrentHashMap<>();
 
-    public static f aKa() {
-        if (dRS == null) {
-            dRS = new f();
+    public static f aMv() {
+        if (dZq == null) {
+            dZq = new f();
         }
-        return dRS;
+        return dZq;
     }
 
     private f() {
         if (isAvailable()) {
-            this.dRT.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
+            this.dZr.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
         }
     }
 
     public boolean isAvailable() {
-        return this.dRT.isWXAppInstalled() && this.dRT.isWXAppSupportAPI();
+        return this.dZr.isWXAppInstalled() && this.dZr.isWXAppSupportAPI();
     }
 
-    public void ad(Intent intent) {
-        this.dRT.handleIntent(intent, this.dRW);
+    public void ac(Intent intent) {
+        this.dZr.handleIntent(intent, this.dZu);
     }
 }

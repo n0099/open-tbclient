@@ -1,21 +1,22 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements Runnable {
-    private final /* synthetic */ AccountData TQ;
-    private final /* synthetic */ Context val$context;
+public class p implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.p> {
+    final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(AccountData accountData, Context context) {
-        this.TQ = accountData;
-        this.val$context = context;
+    public p(TbadkCoreApplication tbadkCoreApplication) {
+        this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbadkCoreApplication.setCurrentAccountInUI(this.TQ, this.val$context);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.p> customMessage) {
+        UtilHelper.showYYNotification(this.this$0.getContext(), customMessage.getData(), 13);
+        return null;
     }
 }

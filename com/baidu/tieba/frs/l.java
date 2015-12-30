@@ -1,48 +1,48 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class l implements et {
-    final /* synthetic */ FrsActivity bag;
+class l implements eu {
+    final /* synthetic */ FrsActivity bed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.bag = frsActivity;
+        this.bed = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.et
-    public void a(eu euVar) {
+    @Override // com.baidu.tieba.frs.eu
+    public void a(ev evVar) {
     }
 
-    @Override // com.baidu.tieba.frs.et
-    public void a(int i, int i2, ew ewVar) {
+    @Override // com.baidu.tieba.frs.eu
+    public void a(int i, int i2, ex exVar) {
         com.baidu.tieba.frs.b.o oVar;
         com.baidu.tieba.frs.b.o oVar2;
         com.baidu.tieba.frs.b.a aVar;
         com.baidu.tieba.frs.b.o oVar3;
-        oVar = this.bag.aZE;
-        if (oVar.PN() != null) {
-            oVar2 = this.bag.aZE;
-            oVar2.PN().a(this.bag.aZD.Pb(), this.bag.aZD.Pc(), this.bag.aZD.Pd());
-            aVar = this.bag.aZF;
-            if (!aVar.PH()) {
-                oVar3 = this.bag.aZE;
-                oVar3.PN().a(i, i2, this.bag.aZD.Pd());
+        oVar = this.bed.bdA;
+        if (oVar.Qf() != null) {
+            oVar2 = this.bed.bdA;
+            oVar2.Qf().a(this.bed.bdz.Pt(), this.bed.bdz.Pu(), this.bed.bdz.Pv());
+            aVar = this.bed.bdB;
+            if (!aVar.PZ()) {
+                oVar3 = this.bed.bdA;
+                oVar3.Qf().a(i, i2, this.bed.bdz.Pv());
             }
         }
-        this.bag.aZq.NU();
+        this.bed.bdm.On();
         if (i == 1) {
-            this.bag.aZq.NK();
+            this.bed.bdm.Od();
         } else {
-            this.bag.aZq.NL();
+            this.bed.bdm.Oe();
         }
-        this.bag.stopVoice();
-        this.bag.aZD.a(i, i2, ewVar);
+        this.bed.stopVoice();
+        this.bed.bdz.a(i, i2, exVar);
     }
 
-    @Override // com.baidu.tieba.frs.et
+    @Override // com.baidu.tieba.frs.eu
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.et
-    public void Mf() {
+    @Override // com.baidu.tieba.frs.eu
+    public void My() {
     }
 }

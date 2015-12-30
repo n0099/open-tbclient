@@ -3,7 +3,7 @@ package com.baidu.tieba.write.c;
 public class a {
     private static long lastClickTime = 0;
 
-    public static long h(CharSequence charSequence) {
+    public static long g(CharSequence charSequence) {
         double d = 0.0d;
         for (int i = 0; i < charSequence.length(); i++) {
             char charAt = charSequence.charAt(i);

@@ -14,78 +14,78 @@ import com.baidu.tieba.recapp.a.a;
 import com.baidu.tieba.recapp.a.d;
 import com.baidu.tieba.recapp.a.g;
 import com.baidu.tieba.recapp.a.h;
-import com.baidu.tieba.tbadkCore.data.n;
+import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
-    protected int afY;
-    private DownloadData bbi;
-    protected TextView did;
-    protected TextView die;
-    protected TextView dif;
-    protected TextView dig;
-    protected HeadImageView dih;
-    protected AppDownloadView dii;
-    protected View dij;
+    protected int ahf;
+    private DownloadData bfh;
+    protected TextView dnK;
+    protected TextView dnL;
+    protected TextView dnM;
+    protected TextView dnN;
+    protected HeadImageView dnO;
+    protected AppDownloadView dnP;
+    protected View dnQ;
 
-    protected abstract void avZ();
+    protected abstract void axS();
 
-    protected abstract int awa();
+    protected abstract int axT();
 
     public BaseAppViewHolder(View view) {
         super(view);
-        this.bbi = new DownloadData();
+        this.bfh = new DownloadData();
         this.rootView = view;
-        this.afY = TbadkCoreApplication.m411getInst().getSkinType();
+        this.ahf = TbadkCoreApplication.m411getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(n nVar, int i) {
-        if (this.dhH != null && this.dhH.rB() && nVar != null) {
-            if (this.dhH.isApp()) {
-                this.bbi.setId(nVar.getPkgName());
-                this.bbi.setUrl(nVar.getDownloadUrl());
-                this.bbi.setName(nVar.getAppName());
-                this.bbi.setPosition(i);
-                this.bbi.setNotifyId(0);
-                int b = AppDownloadView.b(this.bbi);
-                this.bbi.setStatus(b);
-                this.dii.a(BdUniqueId.gen(), this.bbi);
-                avZ();
+    public void a(q qVar, int i) {
+        if (this.dnn != null && this.dnn.rk() && qVar != null) {
+            if (this.dnn.isApp()) {
+                this.bfh.setId(qVar.getPkgName());
+                this.bfh.setUrl(qVar.getDownloadUrl());
+                this.bfh.setName(qVar.getAppName());
+                this.bfh.setPosition(i);
+                this.bfh.setNotifyId(0);
+                int b = AppDownloadView.b(this.bfh);
+                this.bfh.setStatus(b);
+                this.dnP.a(BdUniqueId.gen(), this.bfh);
+                axS();
                 switch (b) {
                     case 1:
-                        this.did.setText(n.i.downloading2);
+                        this.dnK.setText(n.j.downloading2);
                         break;
                     case 3:
-                        this.did.setText(n.i.downloaded_install);
+                        this.dnK.setText(n.j.downloaded_install);
                         break;
                     case 6:
-                        this.did.setText(awa());
+                        this.dnK.setText(axT());
                         break;
                     case 7:
-                        this.did.setText(n.i.continue_download);
+                        this.dnK.setText(n.j.continue_download);
                         break;
                 }
-                this.did.setOnClickListener(d.avQ());
-                this.rootView.setOnClickListener(a.avP());
-            } else if (this.dhH.aCU()) {
-                avZ();
-                this.did.setText(n.i.view);
-                this.did.setOnClickListener(g.avR());
-                this.rootView.setOnClickListener(h.avS());
+                this.dnK.setOnClickListener(d.axJ());
+                this.rootView.setOnClickListener(a.axI());
+            } else if (this.dnn.aFh()) {
+                axS();
+                this.dnK.setText(n.j.view);
+                this.dnK.setOnClickListener(g.axK());
+                this.rootView.setOnClickListener(h.axL());
             }
         }
     }
 
-    public com.baidu.tieba.tbadkCore.data.n getAppData() {
-        return this.dhH;
+    public q getAppData() {
+        return this.dnn;
     }
 
     public DownloadData getDownloadData() {
-        return this.bbi;
+        return this.bfh;
     }
 
     public AppDownloadView getAppDownloadView() {
-        return this.dii;
+        return this.dnP;
     }
 
     public String getFixedChineseString(String str) {
@@ -100,6 +100,6 @@ public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     }
 
     public static void registerHolder(int i, Class<? extends BaseAppViewHolder> cls) {
-        com.baidu.tieba.recapp.a.avO().registerHolder(i, cls);
+        com.baidu.tieba.recapp.a.axH().registerHolder(i, cls);
     }
 }

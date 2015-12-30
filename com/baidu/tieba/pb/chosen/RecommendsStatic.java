@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.util.bf;
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        IC();
+        akv();
     }
 
-    private static void IC() {
-        bf.vD().a(new ab());
+    private static void akv() {
+        bf.vn().a(new ab());
     }
 }

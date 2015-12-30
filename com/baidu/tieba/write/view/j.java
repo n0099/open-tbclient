@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class j extends LinearLayout {
-    private TextView dOj;
-    private ImageView dOk;
-    private View dOl;
+    private TextView dVI;
+    private ImageView dVJ;
+    private View dVK;
     private Context mContext;
 
     public j(Context context) {
@@ -29,37 +29,37 @@ public class j extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater.from(this.mContext).inflate(n.g.prefix_item, this);
+        LayoutInflater.from(this.mContext).inflate(n.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.dOj = (TextView) findViewById(n.f.prefix_text);
-        this.dOk = (ImageView) findViewById(n.f.prefix_checked);
-        this.dOl = findViewById(n.f.prefix_item_divider);
-        this.dOj.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        as.i((View) this.dOj, n.c.cp_bg_line_d);
-        this.dOk.setBackgroundDrawable(as.getDrawable(n.e.icon_set_list_ok_s));
-        as.i(this.dOl, n.c.cp_bg_line_c);
+        this.dVI = (TextView) findViewById(n.g.prefix_text);
+        this.dVJ = (ImageView) findViewById(n.g.prefix_checked);
+        this.dVK = findViewById(n.g.prefix_item_divider);
+        this.dVI.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        as.i((View) this.dVI, n.d.cp_bg_line_d);
+        this.dVJ.setBackgroundDrawable(as.getDrawable(n.f.icon_set_list_ok_s));
+        as.i(this.dVK, n.d.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.dOj.setText(str);
+        this.dVI.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.dOj.setTextColor(i);
+        this.dVI.setTextColor(i);
     }
 
-    public void hI(boolean z) {
+    public void hR(boolean z) {
         if (z) {
-            this.dOk.setVisibility(0);
+            this.dVJ.setVisibility(0);
         } else {
-            this.dOk.setVisibility(8);
+            this.dVJ.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.dOl.getLayoutParams()).setMargins(k.d(this.mContext, n.d.ds30), 0, k.d(this.mContext, n.d.ds30), 0);
+            ((LinearLayout.LayoutParams) this.dVK.getLayoutParams()).setMargins(k.d(this.mContext, n.e.ds30), 0, k.d(this.mContext, n.e.ds30), 0);
         }
     }
 }

@@ -22,7 +22,7 @@ public class ForumClassRequestNetMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(K);
         builder.scr_h = Integer.valueOf(L);
         builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp()));
-        builder.q_type = Long.valueOf(m.rh().getViewImageQuality());
+        builder.q_type = Long.valueOf(m.qQ().getViewImageQuality());
         if (z) {
             i.a(builder, true);
         }

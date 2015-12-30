@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private static i aoN = null;
-    private int aoO;
+    private static i aqr = null;
+    private int aqs;
     private int currentIndex = 0;
-    private boolean aoP = false;
-    private boolean aoQ = false;
-    private List<String> aog = null;
-    private boolean aoR = false;
-    private final g.a aoS = new j(this);
+    private boolean aqt = false;
+    private boolean aqu = false;
+    private List<String> apK = null;
+    private boolean aqv = false;
+    private final g.a aqw = new j(this);
 
-    public static synchronized i AH() {
+    public static synchronized i Ax() {
         i iVar;
         synchronized (i.class) {
-            if (aoN == null) {
+            if (aqr == null) {
                 synchronized (i.class) {
-                    if (aoN == null) {
-                        aoN = new i();
+                    if (aqr == null) {
+                        aqr = new i();
                     }
                 }
             }
-            iVar = aoN;
+            iVar = aqr;
         }
         return iVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.jB().a(this.aoS);
+        com.baidu.adp.lib.webSocket.h.jC().a(this.aqw);
     }
 
-    public static String eN(String str) {
+    public static String eQ(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -47,60 +47,60 @@ public class i {
         return null;
     }
 
-    private String AI() {
-        if (this.aog == null || this.currentIndex <= -1 || this.currentIndex >= this.aog.size()) {
+    private String Ay() {
+        if (this.apK == null || this.currentIndex <= -1 || this.currentIndex >= this.apK.size()) {
             return null;
         }
-        return a.Ao().Ar().get(this.currentIndex);
+        return a.Ae().Ah().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eO(String str) {
-        String AI = AI();
-        if (AI == null) {
-            if (!a.Ao().At()) {
-                a.Ao().a(new k(this, str));
+    public void eR(String str) {
+        String Ay = Ay();
+        if (Ay == null) {
+            if (!a.Ae().Aj()) {
+                a.Ae().a(new k(this, str));
             }
             com.baidu.adp.framework.client.socket.j.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            AJ();
-        } else if (eN(AI) == null) {
-            AJ();
+            Az();
+        } else if (eQ(Ay) == null) {
+            Az();
         } else {
-            this.aoR = false;
+            this.aqv = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.j.setUrl(AI);
+            com.baidu.adp.framework.client.socket.j.setUrl(Ay);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.aoP = true;
+            this.aqt = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AJ() {
-        NoNetworkView.wd();
-        this.aoQ = false;
+    public void Az() {
+        NoNetworkView.vN();
+        this.aqu = false;
         this.currentIndex = 0;
-        this.aoR = false;
-        this.aoP = false;
+        this.aqv = false;
+        this.aqt = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AK() {
-        if (!this.aoR) {
-            this.aoR = true;
-            if (this.aoP) {
-                this.aoP = false;
-                c.Aw().eK(TiebaIMConfig.url);
+    public void AA() {
+        if (!this.aqv) {
+            this.aqv = true;
+            if (this.aqt) {
+                this.aqt = false;
+                c.Am().eN(TiebaIMConfig.url);
             }
-            c.Aw().Ax();
-            if (!this.aoQ) {
+            c.Am().An();
+            if (!this.aqu) {
                 new e("www.baidu.com", new l(this));
-                this.aoQ = true;
+                this.aqu = true;
                 return;
             }
-            eO("change ip to reconnect with DNS' failed.");
+            eR("change ip to reconnect with DNS' failed.");
         }
     }
 }

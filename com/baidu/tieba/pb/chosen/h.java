@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class h implements View.OnTouchListener {
-    final /* synthetic */ PbChosenActivity cyo;
+    final /* synthetic */ PbChosenActivity cBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbChosenActivity pbChosenActivity) {
-        this.cyo = pbChosenActivity;
+        this.cBV = pbChosenActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -17,16 +17,16 @@ class h implements View.OnTouchListener {
         com.baidu.tieba.pb.chosen.a.l lVar;
         com.baidu.tbadk.editortools.d.e eVar2;
         com.baidu.tbadk.editortools.d.e eVar3;
-        com.baidu.adp.lib.util.k.c(this.cyo.getActivity(), this.cyo.getCurrentFocus());
-        eVar = this.cyo.aXY;
+        com.baidu.adp.lib.util.k.c(this.cBV.getActivity(), this.cBV.getCurrentFocus());
+        eVar = this.cBV.bbY;
         if (eVar != null) {
-            eVar2 = this.cyo.aXY;
-            if (eVar2.Bu() != null) {
-                eVar3 = this.cyo.aXY;
-                eVar3.Bu().hide();
+            eVar2 = this.cBV.bbY;
+            if (eVar2.Bj() != null) {
+                eVar3 = this.cBV.bbY;
+                eVar3.Bj().hide();
             }
         }
-        lVar = this.cyo.cxT;
+        lVar = this.cBV.cBA;
         lVar.setVisible(true);
         return false;
     }

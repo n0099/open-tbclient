@@ -6,11 +6,11 @@ import tbclient.Profile.ProfileResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements o.a<byte[]> {
-    final /* synthetic */ c dlH;
+    final /* synthetic */ c dsO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.dlH = cVar;
+        this.dsO = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,15 +20,15 @@ public class e implements o.a<byte[]> {
         boolean z;
         if (bArr != null) {
             try {
-                this.dlH.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                this.dsO.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
                 z = true;
             } catch (Exception e) {
                 z = false;
             }
             if (z) {
-                this.dlH.mUIHandler.post(new f(this));
+                this.dsO.mUIHandler.post(new f(this));
             }
         }
-        this.dlH.mIsLoading = false;
+        this.dsO.mIsLoading = false;
     }
 }

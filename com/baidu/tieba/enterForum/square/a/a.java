@@ -6,15 +6,25 @@ import com.baidu.adp.widget.ListView.x.a;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    public boolean aRB;
+    public boolean aVr;
     public final TbPageContext<?> mPageContext;
+    private BdUniqueId mTag;
 
-    public abstract void cZ(int i);
+    public abstract void cK(int i);
+
+    public BdUniqueId getTag() {
+        return this.mTag;
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.mTag = bdUniqueId;
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aRB = true;
+        this.aVr = true;
+        this.mTag = null;
         this.mPageContext = tbPageContext;
     }
 

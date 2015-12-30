@@ -1,40 +1,68 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.support.v4.view.ViewPager;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aoe;
-    private final /* synthetic */ int bIP;
-    final /* synthetic */ w dDs;
+public class ac implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ w dKW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(w wVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.dDs = wVar;
-        this.aoe = aVar;
-        this.bIP = i;
+    public ac(w wVar) {
+        this.dKW = wVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        MainTabActivity mainTabActivity3;
-        this.aoe.dismiss();
-        MessageManager messageManager = MessageManager.getInstance();
-        mainTabActivity = this.dDs.dDj;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(mainTabActivity.getPageContext().getPageActivity(), 2)));
-        if (this.bIP == 0) {
-            mainTabActivity3 = this.dDs.dDj;
-            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.bIP == 1) {
-            mainTabActivity2 = this.dDs.dDj;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        FragmentTabHost fragmentTabHost3;
+        FragmentTabHost fragmentTabHost4;
+        FragmentTabHost fragmentTabHost5;
+        FragmentTabHost fragmentTabHost6;
+        FragmentTabHost fragmentTabHost7;
+        FragmentTabHost fragmentTabHost8;
+        fragmentTabHost = this.dKW.bpf;
+        if (fragmentTabHost.getCurrentTabType() == 2) {
+            TiebaStatic.log("kantie_entry");
         }
+        this.dKW.aHj();
+        fragmentTabHost2 = this.dKW.bpf;
+        int currentTabType = fragmentTabHost2.getCurrentTabType();
+        fragmentTabHost3 = this.dKW.bpf;
+        if (currentTabType != fragmentTabHost3.ce(i).mType) {
+            fragmentTabHost8 = this.dKW.bpf;
+            fragmentTabHost8.setCurrentTab(i);
+        }
+        w wVar = this.dKW;
+        fragmentTabHost4 = this.dKW.bpf;
+        wVar.cxS = fragmentTabHost4.getCurrentTabType();
+        this.dKW.aHg();
+        if (com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean("enter_forum_edit_mode", false)) {
+            fragmentTabHost5 = this.dKW.bpf;
+            if (fragmentTabHost5.getCurrentTabType() != 6) {
+                fragmentTabHost6 = this.dKW.bpf;
+                if (fragmentTabHost6.getCurrentTabType() != 3) {
+                    fragmentTabHost7 = this.dKW.bpf;
+                    if (fragmentTabHost7.getCurrentTabType() == 2) {
+                        TiebaStatic.log("c10098");
+                        return;
+                    }
+                    return;
+                }
+                TiebaStatic.log("c10149");
+                return;
+            }
+            TiebaStatic.log("c10150");
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

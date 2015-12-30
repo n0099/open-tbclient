@@ -6,7 +6,7 @@ import com.baidu.tieba.n;
 public class v extends y {
     public v(Context context) {
         super(context, null, 2, 0);
-        this.launcherIcon = n.e.selector_editor_btn_more;
+        this.launcherIcon = n.f.selector_editor_btn_more;
         this.toolView = new s(context);
         this.toolNeedAction = true;
         this.toolPosition = 6;

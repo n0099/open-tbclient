@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.Build;
 import com.baidu.cloudsdk.IBaiduListener;
@@ -37,7 +38,7 @@ public class QQFriendShareReceiverActivity extends Activity {
             return;
         }
         String uri2 = uri.toString();
-        Bundle a2 = a(uri2.substring(uri2.indexOf("#") + 1));
+        Bundle a2 = a(uri2.substring(uri2.indexOf(ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR) + 1));
         String string = a2.getString("action");
         if (!TextUtils.isEmpty(string)) {
             if (string.equals("shareToQQ")) {

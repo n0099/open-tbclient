@@ -2,14 +2,13 @@ package com.baidu.tieba.enterForum.c;
 
 import com.baidu.tieba.tbadkCore.w;
 import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements Comparator<w> {
-    final /* synthetic */ c aRh;
+class f implements Comparator<w> {
+    final /* synthetic */ c aUY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.aRh = cVar;
+        this.aUY = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -69,8 +69,8 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     if (zVar.getThreadType() == 33) {
                         w wVar = new w();
                         wVar.a(zVar, i5);
-                        if (wVar.sy() != null) {
-                            i5 = wVar.sy().getShowStyle();
+                        if (wVar.sh() != null) {
+                            i5 = wVar.sh().getShowStyle();
                         }
                         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                             this.threadList.add(wVar);
@@ -91,9 +91,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private void addRecAppList(ArrayList<u> arrayList, BannerList bannerList) {
         int g;
         if (bannerList != null) {
-            int k = y.k(arrayList);
-            int k2 = y.k(bannerList.app);
-            if (k > 0 && k2 > 0) {
+            int l = y.l(arrayList);
+            int l2 = y.l(bannerList.app);
+            if (l > 0 && l2 > 0) {
                 BannerListData bannerListData = new BannerListData();
                 bannerListData.parserProtobuf(bannerList);
                 int size = bannerListData.getAllAdvertList().size();
@@ -101,22 +101,22 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
                 for (int i = 0; i < size; i++) {
                     com.baidu.tbadk.core.data.b bVar = bannerListData.getAllAdvertList().get(i);
-                    if (bVar != null && bVar.rB() && com.baidu.adp.lib.h.b.g(bVar.Us, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < k) {
-                        if (bVar.rC()) {
-                            if (!ah.isInstalledPackage(m411getInst, bVar.Ur) && !TextUtils.isEmpty(bVar.Ur) && !TextUtils.isEmpty(bVar.Un)) {
-                                boolean eT = com.baidu.tbadk.download.b.Bm().eT(bVar.Ur);
-                                boolean eW = com.baidu.tbadk.download.b.Bm().eW(bVar.Ur);
-                                if (eT) {
-                                    bVar.Ul = 1;
-                                } else if (eW) {
-                                    bVar.Ul = 2;
+                    if (bVar != null && bVar.rk() && com.baidu.adp.lib.h.b.g(bVar.UT, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < l) {
+                        if (bVar.rl()) {
+                            if (!ah.isInstalledPackage(m411getInst, bVar.US) && !TextUtils.isEmpty(bVar.US) && !TextUtils.isEmpty(bVar.UN)) {
+                                boolean eX = com.baidu.tbadk.download.b.Bb().eX(bVar.US);
+                                boolean fa = com.baidu.tbadk.download.b.Bb().fa(bVar.US);
+                                if (eX) {
+                                    bVar.UL = 1;
+                                } else if (fa) {
+                                    bVar.UL = 2;
                                 } else {
-                                    bVar.Ul = 0;
+                                    bVar.UL = 0;
                                 }
                                 hashSet.add(Integer.valueOf(g));
                                 arrayList.add(g, bVar);
                             }
-                        } else if (bVar.rD()) {
+                        } else if (bVar.rm()) {
                             hashSet.add(Integer.valueOf(g));
                             arrayList.add(g, bVar);
                         }

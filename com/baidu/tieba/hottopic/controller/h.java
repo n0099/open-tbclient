@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements NoNetworkView.a {
-    final /* synthetic */ HotTopicActivity bDn;
+    final /* synthetic */ HotTopicActivity bGR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(HotTopicActivity hotTopicActivity) {
-        this.bDn = hotTopicActivity;
+        this.bGR = hotTopicActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aA(boolean z) {
+    public void ax(boolean z) {
         i iVar;
         i iVar2;
         com.baidu.tieba.hottopic.view.a aVar;
@@ -20,23 +20,23 @@ public class h implements NoNetworkView.a {
         i iVar3;
         i iVar4;
         if (z) {
-            iVar = this.bDn.bDd;
+            iVar = this.bGR.bGH;
             if (iVar != null) {
-                iVar2 = this.bDn.bDd;
+                iVar2 = this.bGR.bGH;
                 if (iVar2.getHotTopicData() != null) {
-                    iVar3 = this.bDn.bDd;
-                    if (iVar3.getHotTopicData().Ux() != null) {
-                        iVar4 = this.bDn.bDd;
-                        if (iVar4.getHotTopicData().Ux().size() != 0) {
+                    iVar3 = this.bGR.bGH;
+                    if (iVar3.getHotTopicData().VA() != null) {
+                        iVar4 = this.bGR.bGH;
+                        if (iVar4.getHotTopicData().VA().size() != 0) {
                             return;
                         }
                     }
                 }
-                HotTopicActivity hotTopicActivity = this.bDn;
-                aVar = this.bDn.bDc;
-                hotTopicActivity.hideNetRefreshView(aVar.UC());
-                aVar2 = this.bDn.bDc;
-                aVar2.TU();
+                HotTopicActivity hotTopicActivity = this.bGR;
+                aVar = this.bGR.bGG;
+                hotTopicActivity.hideNetRefreshView(aVar.VF());
+                aVar2 = this.bGR.bGG;
+                aVar2.VK();
             }
         }
     }

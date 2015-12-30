@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatView ccl;
+    final /* synthetic */ FloatingPersonalChatView cgl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FloatingPersonalChatView floatingPersonalChatView) {
-        this.ccl = floatingPersonalChatView;
+        this.cgl = floatingPersonalChatView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ccl.acx();
+        this.cgl.adG();
     }
 }

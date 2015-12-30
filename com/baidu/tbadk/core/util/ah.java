@@ -14,12 +14,12 @@ public class ah {
         ListAdapter adapter;
         ArrayList<ai> images;
         int pbImageSize;
-        if (listView != null && com.baidu.adp.lib.util.i.iQ() && (adapter = listView.getAdapter()) != null) {
+        if (listView != null && com.baidu.adp.lib.util.i.iR() && (adapter = listView.getAdapter()) != null) {
             int i = 0;
             int i2 = 0;
             int i3 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean vA = ay.vA();
+            boolean vk = ay.vk();
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             int lastVisiblePosition = listView.getLastVisiblePosition();
             com.baidu.adp.lib.g.c.hd().a(bdUniqueId, (com.baidu.adp.lib.g.b) null);
@@ -34,15 +34,15 @@ public class ah {
                         int i7 = i2;
                         while (it.hasNext()) {
                             ai next = it.next();
-                            if (com.baidu.adp.lib.g.c.hd().X(next.abp)) {
-                                if (12 == next.abp || 28 == next.abp) {
+                            if (com.baidu.adp.lib.g.c.hd().X(next.abU)) {
+                                if (12 == next.abU || 28 == next.abU) {
                                     int i8 = i5 + 1;
-                                    if (i8 <= 30 && i4 > lastVisiblePosition && !TextUtils.isEmpty(next.WN)) {
-                                        if (12 == next.abp) {
-                                            com.baidu.adp.lib.g.c.hd().a(next.WN, 12, null, bdUniqueId);
+                                    if (i8 <= 30 && i4 > lastVisiblePosition && !TextUtils.isEmpty(next.Xp)) {
+                                        if (12 == next.abU) {
+                                            com.baidu.adp.lib.g.c.hd().a(next.Xp, 12, null, bdUniqueId);
                                             i5 = i8;
-                                        } else if (28 == next.abp) {
-                                            com.baidu.adp.lib.g.c.hd().a(next.WN, 28, null, bdUniqueId);
+                                        } else if (28 == next.abU) {
+                                            com.baidu.adp.lib.g.c.hd().a(next.Xp, 28, null, bdUniqueId);
                                             i5 = i8;
                                         }
                                     }
@@ -50,12 +50,12 @@ public class ah {
                                 } else {
                                     int i9 = next.width * next.height;
                                     if (i9 > 0) {
-                                        if (next.abq != null) {
+                                        if (next.abV != null) {
                                             pbImageSize = i7 + (i9 * 4);
                                         } else {
                                             pbImageSize = i7 + (i9 * 2);
                                         }
-                                    } else if (next.abq != null) {
+                                    } else if (next.abV != null) {
                                         BdLog.e("missing big emotion image width and height!");
                                         pbImageSize = i7 + TbConfig.getBigEmotionsSize();
                                     } else {
@@ -63,18 +63,18 @@ public class ah {
                                     }
                                     int i10 = i6 + 1;
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
-                                        if (next.abq != null) {
-                                            com.baidu.tbadk.widget.richText.d dVar = next.abq;
-                                            String str = vA ? dVar.auv.atX : dVar.auv.atW;
+                                        if (next.abV != null) {
+                                            com.baidu.tbadk.widget.richText.d dVar = next.abV;
+                                            String str = vk ? dVar.avZ.avB : dVar.avZ.avA;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.g.c.hd().a(dVar.auv.atV, next.abp, null, 0, 0, bdUniqueId, dVar.auv.mGid, dVar.auv.atV, Boolean.valueOf(vA), str);
+                                                com.baidu.adp.lib.g.c.hd().a(dVar.avZ.avz, next.abU, null, 0, 0, bdUniqueId, dVar.avZ.mGid, dVar.avZ.avz, Boolean.valueOf(vk), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }
                                         } else {
-                                            String str2 = next.WN;
+                                            String str2 = next.Xp;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.g.c.hd().a(str2, next.abp, null, bdUniqueId);
+                                                com.baidu.adp.lib.g.c.hd().a(str2, next.abU, null, bdUniqueId);
                                             }
                                         }
                                     }

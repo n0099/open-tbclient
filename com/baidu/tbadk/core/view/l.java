@@ -1,16 +1,18 @@
 package com.baidu.tbadk.core.view;
+
+import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ j aeJ;
+public class l implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ k afv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar) {
-        this.aeJ = jVar;
+    public l(k kVar) {
+        this.afv = kVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.aeJ.wb();
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        this.afv.vJ();
     }
 }

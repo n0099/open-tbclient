@@ -2,29 +2,30 @@ package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
-import java.util.Iterator;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
-class f extends com.baidu.adp.framework.a.j {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(int i) {
-        super(i);
+public class f {
+    public static com.baidu.tbadk.task.b b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
+        bVar.setResponsedClass(cls);
+        bVar.j(z);
+        bVar.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(bVar);
+        return bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
-            PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
-            if (pushNotifyMessageDecoder.getMsgList() != null) {
-                Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
-                while (it.hasNext()) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
-                }
-            }
+    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        try {
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
+            MessageManager.getInstance().registerTask(aVar);
+            return aVar;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InstantiationException e2) {
+            e2.printStackTrace();
+            return null;
         }
-        return socketResponsedMessage;
     }
 }

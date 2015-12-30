@@ -25,28 +25,28 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ax extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
     public BdListView mListView = null;
-    private bf cKY = null;
-    private View cJT = null;
-    private com.baidu.tbadk.core.view.n mNoDataView = null;
-    private com.baidu.tbadk.core.view.s mPullView = null;
-    private bg cKX = null;
+    private bf cPo = null;
+    private View cOj = null;
+    private com.baidu.tbadk.core.view.o mNoDataView = null;
+    private com.baidu.tbadk.core.view.t mPullView = null;
+    private bg cPn = null;
     private int mPageType = 0;
-    int cKZ = 0;
+    int cPp = 0;
     private boolean mIsHost = true;
-    private com.baidu.tieba.person.data.n cLa = null;
-    private boolean cLb = true;
-    private boolean cLc = false;
+    private com.baidu.tieba.person.data.p cPq = null;
+    private boolean cPr = true;
+    private boolean cPs = false;
     private int pageNum = 0;
-    private int cLd = 20;
-    private final CustomMessageListener cLe = new ay(this, CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
-    private HttpMessageListener cLf = new az(this, CmdConfigHttp.PIC_FRIEND_CMD);
+    private int cPt = 20;
+    private final CustomMessageListener cPu = new ay(this, CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
+    private HttpMessageListener cPv = new az(this, CmdConfigHttp.PIC_FRIEND_CMD);
 
     static {
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY, bz.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonFriendActivity anL() {
+    public PersonFriendActivity aoW() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonFriendActivity) {
             return (PersonFriendActivity) baseFragmentActivity;
@@ -58,27 +58,27 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
     public void onResume() {
         super.onResume();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        if (anL() != null) {
-            this.cKX = anL().anK();
+        if (aoW() != null) {
+            this.cPn = aoW().aoV();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.cKY != null) {
-            this.cKY.aib();
-            this.cKY = null;
+        if (this.cPo != null) {
+            this.cPo.ajo();
+            this.cPo = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.cLf);
-        MessageManager.getInstance().unRegisterListener(this.cLe);
+        MessageManager.getInstance().unRegisterListener(this.cPv);
+        MessageManager.getInstance().unRegisterListener(this.cPu);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.cLf);
-        registerListener(this.cLe);
+        registerListener(this.cPv);
+        registerListener(this.cPu);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -99,9 +99,9 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.cKY != null) {
-            this.cKY.aib();
-            this.cKY = null;
+        if (this.cPo != null) {
+            this.cPo.ajo();
+            this.cPo = null;
         }
         super.onDestroy();
     }
@@ -110,62 +110,62 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         String str;
         this.mPageType = getArguments().getInt("page_type", 0);
-        View inflate = layoutInflater.inflate(n.g.friend_fragment, viewGroup, false);
-        this.cKY = new bf(anL(), anL().aah(), this.mPageType, new ba(this), new bb(this));
-        this.mListView = (BdListView) inflate.findViewById(n.f.my_friend_list);
+        View inflate = layoutInflater.inflate(n.h.friend_fragment, viewGroup, false);
+        this.cPo = new bf(aoW(), aoW().abn(), this.mPageType, new ba(this), new bb(this));
+        this.mListView = (BdListView) inflate.findViewById(n.g.my_friend_list);
         this.mListView.setOnItemClickListener(new bc(this));
-        this.mListView.setAdapter((ListAdapter) this.cKY);
-        this.mPullView = new com.baidu.tbadk.core.view.s(anL().getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.cPo);
+        this.mPullView = new com.baidu.tbadk.core.view.t(aoW().getPageContext());
         this.mPullView.a(new bd(this));
         this.mListView.setPullRefresh(this.mPullView);
-        this.mIsHost = anL().aah();
-        if (anL() == null) {
+        this.mIsHost = aoW().abn();
+        if (aoW() == null) {
             str = null;
         } else if (this.mIsHost) {
-            str = String.format(getString(n.i.person_friend_no_personal_info), getString(n.i.you));
+            str = String.format(getString(n.j.person_friend_no_personal_info), getString(n.j.you));
         } else if (this.mPageType == 0) {
-            str = String.format(getString(n.i.person_friend_no_personal_info), anL().aag());
+            str = String.format(getString(n.j.person_friend_no_personal_info), aoW().abm());
         } else {
-            str = getString(n.i.person_friend_no_common_info);
+            str = getString(n.j.person_friend_no_common_info);
         }
-        this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dK(str), null);
-        this.cJT = inflate.findViewById(n.f.friend_fragment_parent);
+        this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dN(str), null);
+        this.cOj = inflate.findViewById(n.g.friend_fragment_parent);
         this.mListView.setOnSrollToBottomListener(new be(this));
-        if (anL() != null) {
-            this.cKX = anL().anK();
+        if (aoW() != null) {
+            this.cPn = aoW().aoV();
             if (this.mIsHost) {
-                IR();
+                Ji();
             }
         }
-        if (this.mPageType == anL().aaf()) {
+        if (this.mPageType == aoW().abl()) {
             this.pageNum = 0;
-            this.mListView.nD();
+            this.mListView.nb();
         }
         return inflate;
     }
 
-    public void IR() {
-        if (this.cKX != null) {
-            this.cKX.IR();
+    public void Ji() {
+        if (this.cPn != null) {
+            this.cPn.Ji();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anM() {
-        if (this.cKY != null) {
-            this.cKY.fE(true);
-            this.cKY.notifyDataSetChanged();
+    public void aoX() {
+        if (this.cPo != null) {
+            this.cPo.fD(true);
+            this.cPo.notifyDataSetChanged();
         }
-        this.pageNum = this.cKX.getData().getPage().sd() + 1;
-        this.cKX.a(this.mIsHost, this.cKX.getId(), this.pageNum, this.cLd);
+        this.pageNum = this.cPn.getData().getPage().rM() + 1;
+        this.cPn.a(this.mIsHost, this.cPn.getId(), this.pageNum, this.cPt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anN() {
+    public void aoY() {
         UserData userData;
-        if (this.cKY != null && this.cKY.getItemViewType(this.cKZ) == 0 && (userData = (UserData) this.cKY.getItem(this.cKZ)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            TiebaStatic.eventStat(anL().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(anL().getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+        if (this.cPo != null && this.cPo.getItemViewType(this.cPp) == 0 && (userData = (UserData) this.cPo.getItem(this.cPp)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            TiebaStatic.eventStat(aoW().getPageContext().getContext(), "enter_chat", "personlistclick", 1, new Object[0]);
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(aoW().getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(userData.getUserId(), 0L), userData.getUserName(), userData.getPortrait(), userData.getSex())));
         }
     }
 
@@ -173,94 +173,94 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.cJT != null && getBaseFragmentActivity() != null) {
-                getBaseFragmentActivity().getPageContext().getLayoutMode().k(this.cJT);
+            if (this.cOj != null && getBaseFragmentActivity() != null) {
+                getBaseFragmentActivity().getPageContext().getLayoutMode().k(this.cOj);
             }
             if (this.mNoDataView != null) {
-                com.baidu.tbadk.core.util.as.i(this.mNoDataView, n.c.cp_bg_line_d);
+                com.baidu.tbadk.core.util.as.i(this.mNoDataView, n.d.cp_bg_line_d);
             }
             if (this.mPullView != null) {
-                this.mPullView.cV(i);
+                this.mPullView.cP(i);
             }
         }
     }
 
-    public void a(com.baidu.tieba.person.data.n nVar, boolean z) {
-        com.baidu.tieba.person.data.n nVar2;
-        if (nVar != null) {
+    public void a(com.baidu.tieba.person.data.p pVar, boolean z) {
+        com.baidu.tieba.person.data.p pVar2;
+        if (pVar != null) {
             this.mListView.completePullRefresh();
-            if (this.cKX != null && anL() != null) {
+            if (this.cPn != null && aoW() != null) {
                 if (!z) {
-                    if (this.cLb) {
-                        this.cLb = false;
-                        if (this.mPageType == anL().aaf()) {
-                            this.cKX.setData(nVar);
-                            nVar2 = nVar;
+                    if (this.cPr) {
+                        this.cPr = false;
+                        if (this.mPageType == aoW().abl()) {
+                            this.cPn.setData(pVar);
+                            pVar2 = pVar;
                         }
                     } else {
-                        if (this.mPageType == anL().aaf()) {
-                            a(nVar);
+                        if (this.mPageType == aoW().abl()) {
+                            a(pVar);
                         }
-                        nVar2 = this.cKX.getData();
+                        pVar2 = this.cPn.getData();
                     }
-                    this.cLa = nVar2;
-                    b(nVar2);
-                    c(nVar);
+                    this.cPq = pVar2;
+                    b(pVar2);
+                    c(pVar);
                 }
-                nVar2 = nVar;
-                this.cLa = nVar2;
-                b(nVar2);
-                c(nVar);
+                pVar2 = pVar;
+                this.cPq = pVar2;
+                b(pVar2);
+                c(pVar);
             }
         }
     }
 
-    public void a(com.baidu.tieba.person.data.n nVar) {
-        if (nVar != null && this.cKX != null) {
-            this.cKX.getData().aop().addAll(nVar.aop());
-            this.cKX.getData().aoq().addAll(nVar.aoq());
-            this.cKX.getData().b(nVar.getPage());
+    public void a(com.baidu.tieba.person.data.p pVar) {
+        if (pVar != null && this.cPn != null) {
+            this.cPn.getData().apz().addAll(pVar.apz());
+            this.cPn.getData().apA().addAll(pVar.apA());
+            this.cPn.getData().b(pVar.getPage());
         }
     }
 
-    private void b(com.baidu.tieba.person.data.n nVar) {
+    private void b(com.baidu.tieba.person.data.p pVar) {
         boolean z = true;
-        if (this.cKY != null) {
-            if (nVar != null) {
-                com.baidu.tbadk.core.data.q page = nVar.getPage();
+        if (this.cPo != null) {
+            if (pVar != null) {
+                com.baidu.tbadk.core.data.q page = pVar.getPage();
                 if (this.mPageType == 0) {
-                    bf bfVar = this.cKY;
-                    if (page == null || page.sf() != 1) {
+                    bf bfVar = this.cPo;
+                    if (page == null || page.rO() != 1) {
                         z = false;
                     }
                     bfVar.setHasMore(z);
-                    this.cKY.setData(nVar.aop());
+                    this.cPo.setData(pVar.apz());
                 } else {
-                    if (nVar.aoq().size() < this.cLd) {
-                        this.cKY.setHasMore(false);
+                    if (pVar.apA().size() < this.cPt) {
+                        this.cPo.setHasMore(false);
                     } else {
-                        this.cKY.setHasMore(true);
+                        this.cPo.setHasMore(true);
                     }
-                    this.cKY.setData(nVar.aoq());
+                    this.cPo.setData(pVar.apA());
                 }
-                this.cKY.fE(false);
-                this.cKY.aic();
-                this.cKY.notifyDataSetChanged();
+                this.cPo.fD(false);
+                this.cPo.ajp();
+                this.cPo.notifyDataSetChanged();
                 return;
             }
-            this.cKY.setHasMore(false);
-            this.cKY.setData(new ArrayList<>());
-            this.cKY.fE(false);
-            this.cKY.aic();
-            this.cKY.notifyDataSetChanged();
+            this.cPo.setHasMore(false);
+            this.cPo.setData(new ArrayList<>());
+            this.cPo.fD(false);
+            this.cPo.ajp();
+            this.cPo.notifyDataSetChanged();
         }
     }
 
-    private void c(com.baidu.tieba.person.data.n nVar) {
-        if (anL() != null && this.cKX != null) {
+    private void c(com.baidu.tieba.person.data.p pVar) {
+        if (aoW() != null && this.cPn != null) {
             if (this.mPageType == 0) {
-                if (this.cKX.getData().aop().size() == 0) {
-                    if (this.cLa != null && this.cLa.aop().size() > 0) {
+                if (this.cPn.getData().apz().size() == 0) {
+                    if (this.cPq != null && this.cPq.apz().size() > 0) {
                         this.mNoDataView.setVisibility(8);
                         this.mListView.setVisibility(0);
                     } else {
@@ -271,8 +271,8 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
                     this.mNoDataView.setVisibility(8);
                     this.mListView.setVisibility(0);
                 }
-            } else if (this.cKX.getData().aoq().size() == 0) {
-                if (this.cLa != null && this.cLa.aoq().size() > 0) {
+            } else if (this.cPn.getData().apA().size() == 0) {
+                if (this.cPq != null && this.cPq.apA().size() > 0) {
                     this.mNoDataView.setVisibility(8);
                     this.mListView.setVisibility(0);
                 } else {
@@ -283,7 +283,7 @@ public class ax extends BaseFragment implements View.OnClickListener, AdapterVie
                 this.mNoDataView.setVisibility(8);
                 this.mListView.setVisibility(0);
             }
-            anL().al(this.cKX.getData().getFriendNum(), this.cKX.getData().aor());
+            aoW().ax(this.cPn.getData().getFriendNum(), this.cPn.getData().apB());
         }
     }
 }

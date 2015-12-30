@@ -15,37 +15,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private List<com.baidu.tieba.themeCenter.b> dGp;
-    private List<com.baidu.tieba.themeCenter.b> dGq;
-    private com.baidu.tieba.themeCenter.b dGr;
-    private com.baidu.tieba.themeCenter.b dGs;
-    private d.a dGt;
-    private boolean dGu;
+    private List<com.baidu.tieba.themeCenter.b> dNQ;
+    private List<com.baidu.tieba.themeCenter.b> dNR;
+    private com.baidu.tieba.themeCenter.b dNS;
+    private com.baidu.tieba.themeCenter.b dNT;
+    private d.a dNU;
+    private boolean dNV;
     private k mRecommand;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
-    private final int dEQ = 30;
-    private int MZ = 0;
+    private final int dMt = 30;
+    private int Np = 0;
     private boolean hasMore = true;
-    private com.baidu.adp.framework.listener.a aWh = new e(this, CmdConfigHttp.CMD_ALL_THEME_LIST, 309011);
-    private CustomMessageListener dGv = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
-    private CustomMessageListener dGw = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
+    private com.baidu.adp.framework.listener.a bah = new e(this, CmdConfigHttp.CMD_ALL_THEME_LIST, 309011);
+    private CustomMessageListener dNW = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
+    private CustomMessageListener dNX = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
 
     public d(AllThemeListActivity allThemeListActivity) {
-        this.dGu = allThemeListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.dNV = allThemeListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         com.baidu.tieba.tbadkCore.a.a.a(309011, AllThemeListSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309011, CmdConfigHttp.CMD_ALL_THEME_LIST, TbConfig.ALL_THEME_LIST_PAGE, AllThemeListHttpResponsedMessage.class, false, false, false, false);
-        this.dGr = new com.baidu.tieba.themeCenter.b();
-        this.dGr.setId(-1);
-        this.dGr.setTitle(TbadkCoreApplication.m411getInst().getString(n.i.default_theme));
-        this.dGs = new com.baidu.tieba.themeCenter.b();
-        this.dGs.setId(-2);
-        this.dGs.setTitle(TbadkCoreApplication.m411getInst().getString(n.i.night_theme));
-        this.dGq = new ArrayList();
-        this.dGq.add(this.dGr);
-        this.dGq.add(this.dGs);
-        registerListener(this.aWh);
-        registerListener(this.dGv);
-        registerListener(this.dGw);
+        this.dNS = new com.baidu.tieba.themeCenter.b();
+        this.dNS.setId(-1);
+        this.dNS.setTitle(TbadkCoreApplication.m411getInst().getString(n.j.default_theme));
+        this.dNT = new com.baidu.tieba.themeCenter.b();
+        this.dNT.setId(-2);
+        this.dNT.setTitle(TbadkCoreApplication.m411getInst().getString(n.j.night_theme));
+        this.dNR = new ArrayList();
+        this.dNR.add(this.dNS);
+        this.dNR.add(this.dNT);
+        registerListener(this.bah);
+        registerListener(this.dNW);
+        registerListener(this.dNX);
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB));
     }
 
@@ -53,18 +53,18 @@ public class d extends com.baidu.adp.base.e<d> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         AllThemeListRequestMessage allThemeListRequestMessage = new AllThemeListRequestMessage();
-        this.MZ = 1;
+        this.Np = 1;
         allThemeListRequestMessage.setPn(1);
         allThemeListRequestMessage.setRn(30);
         sendMessage(allThemeListRequestMessage);
         return false;
     }
 
-    public void aFx() {
+    public void aHM() {
         if (this.hasMore) {
-            this.MZ++;
+            this.Np++;
             AllThemeListRequestMessage allThemeListRequestMessage = new AllThemeListRequestMessage();
-            allThemeListRequestMessage.setPn(this.MZ);
+            allThemeListRequestMessage.setPn(this.Np);
             allThemeListRequestMessage.setRn(30);
             sendMessage(allThemeListRequestMessage);
         }
@@ -75,41 +75,41 @@ public class d extends com.baidu.adp.base.e<d> {
         return false;
     }
 
-    public boolean azO() {
-        return this.dGu;
+    public boolean aBV() {
+        return this.dNV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFy() {
-        if (this.dGq != null && this.dGq.size() > 0) {
-            if (this.dGp == null || this.dGp.size() <= 0) {
-                if (this.dGq.size() >= 2) {
-                    if (this.dGq.get(0) != null) {
-                        this.dGq.get(0).mP(com.baidu.tieba.themeCenter.i.a(this.dGq.get(0), this.dGp));
+    public void aHN() {
+        if (this.dNR != null && this.dNR.size() > 0) {
+            if (this.dNQ == null || this.dNQ.size() <= 0) {
+                if (this.dNR.size() >= 2) {
+                    if (this.dNR.get(0) != null) {
+                        this.dNR.get(0).nr(com.baidu.tieba.themeCenter.i.a(this.dNR.get(0), this.dNQ));
                     }
-                    if (this.dGq.get(1) != null) {
-                        this.dGq.get(1).mP(com.baidu.tieba.themeCenter.i.a(this.dGq.get(1), this.dGp));
+                    if (this.dNR.get(1) != null) {
+                        this.dNR.get(1).nr(com.baidu.tieba.themeCenter.i.a(this.dNR.get(1), this.dNQ));
                     }
                 }
-                this.mThemeList = com.baidu.tieba.themeCenter.i.bQ(this.dGq);
+                this.mThemeList = com.baidu.tieba.themeCenter.i.bT(this.dNR);
                 return;
             }
-            for (com.baidu.tieba.themeCenter.b bVar : this.dGq) {
+            for (com.baidu.tieba.themeCenter.b bVar : this.dNR) {
                 if (bVar != null) {
-                    bVar.mP(com.baidu.tieba.themeCenter.i.a(bVar, this.dGp));
+                    bVar.nr(com.baidu.tieba.themeCenter.i.a(bVar, this.dNQ));
                 }
             }
-            this.mThemeList = com.baidu.tieba.themeCenter.i.bQ(this.dGq);
+            this.mThemeList = com.baidu.tieba.themeCenter.i.bT(this.dNR);
         }
     }
 
     public void a(d.a aVar) {
-        this.dGt = aVar;
+        this.dNU = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aWh);
-        MessageManager.getInstance().unRegisterListener(this.dGv);
-        MessageManager.getInstance().unRegisterListener(this.dGw);
+        MessageManager.getInstance().unRegisterListener(this.bah);
+        MessageManager.getInstance().unRegisterListener(this.dNW);
+        MessageManager.getInstance().unRegisterListener(this.dNX);
     }
 }

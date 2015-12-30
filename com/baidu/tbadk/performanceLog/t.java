@@ -1,46 +1,47 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class t extends r {
-    public long aym;
-    public long ayn;
-    public long ayo;
-    public long ayp;
-    public long ayq;
-    public long ayr;
-    public long ays;
-    public long ayt;
-    public long ayu;
-    public long ayv;
-    public long ayw;
-    public long ayx;
-    public boolean ayy;
+    public long aAa;
+    public boolean aAb;
+    public long azP;
+    public long azQ;
+    public long azR;
+    public long azS;
+    public long azT;
+    public long azU;
+    public long azV;
+    public long azW;
+    public long azX;
+    public long azY;
+    public long azZ;
     public int errCode;
     public boolean isSuccess;
+    public long socketCostTime;
     public int socketErrNo;
 
-    public void EM() {
-        aa aaVar = (aa) y.ES().eN(this.mSubType);
+    public void EB() {
+        aa aaVar = (aa) y.EH().eH(this.mSubType);
         if (aaVar != null) {
             aaVar.b(this);
         }
     }
 
-    public void EN() {
-        aa aaVar = (aa) y.ES().eN(this.mSubType);
+    public void EC() {
+        aa aaVar = (aa) y.EH().eH(this.mSubType);
         if (aaVar != null) {
             aaVar.a(this);
         }
     }
 
-    public void EO() {
-        aa aaVar = (aa) y.ES().eN(this.mSubType);
+    public void ED() {
+        aa aaVar = (aa) y.EH().eH(this.mSubType);
         if (aaVar != null) {
             aaVar.c(this);
         }
     }
 
-    public void EP() {
-        aa aaVar = (aa) y.ES().eN(this.mSubType);
+    public void EE() {
+        aa aaVar = (aa) y.EH().eH(this.mSubType);
         if (aaVar != null) {
             aaVar.d(this);
         }

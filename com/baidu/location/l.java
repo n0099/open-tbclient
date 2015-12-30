@@ -11,6 +11,7 @@ import android.net.wifi.ScanResult;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.appsearchlib.Info;
 import com.baidu.location.au;
 import com.baidu.location.u;
@@ -491,12 +492,12 @@ public class l implements a0, n {
                             }
                             z6 = true;
                         }
-                        stringBuffer.append(";" + i6);
+                        stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + i6);
                         z = z6;
                         i = i3 + 1;
                     } else {
                         if (str3 == null) {
-                            str2 = "," + replace + ";" + i6;
+                            str2 = "," + replace + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + i6;
                             z2 = z6;
                             i = i3;
                         } else {

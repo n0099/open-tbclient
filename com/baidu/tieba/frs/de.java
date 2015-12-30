@@ -1,88 +1,69 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.frs.cy;
 import com.baidu.tieba.n;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class de extends bm<com.baidu.tbadk.core.data.t, df> implements View.OnClickListener, PhotoLiveCardView.b {
-    private TbPageContext<?> mPageContext;
+public class de extends x.a {
+    public TextView aOn;
+    public UserIconBox agT;
+    public UserIconBox agU;
+    public TextView agy;
+    public TextView agz;
+    public int ahf;
+    public FrsCommonImageLayout bcA;
+    public TextView bcB;
+    public HeadImageView bcC;
+    public TextView bcG;
+    public TextView bcI;
+    public LinearLayout bcw;
+    public LinearLayout bcx;
+    public TextView bcy;
+    public PlayVoiceBnt bcz;
+    public TextView bgj;
+    public View bgk;
+    public TextView bhA;
+    public RelativeLayout bhB;
+    public LinearLayout bhC;
+    public LinearLayout bhD;
+    public cy.a bhE;
+    public RelativeLayout bhy;
+    public LinearLayout bhz;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public de(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.mPageContext = baseActivity.getPageContext();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: r */
-    public df a(ViewGroup viewGroup) {
-        return new df(LayoutInflater.from(this.mContext).inflate(n.g.frs_photo_live_headlines_item, (ViewGroup) null));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.t tVar, df dfVar) {
-        super.a(i, view, viewGroup, (ViewGroup) tVar, (com.baidu.tbadk.core.data.t) dfVar);
-        if (dfVar.afY != this.mSkinType) {
-            com.baidu.tbadk.i.a.a(this.aXA.getPageContext(), view);
-            dfVar.afY = this.mSkinType;
-        }
-        dfVar.bdL.setOnClickListener(this);
-        dfVar.bdL.setTag(tVar);
-        dfVar.bdM.setShowBottom(false);
-        dfVar.bdM.setShowContent(false);
-        dfVar.bdM.setShowRefreshTimeInHead(true);
-        dfVar.bdM.setShowLiveIcon(true);
-        dfVar.bdM.setHeadPaddingTop(0);
-        dfVar.bdM.setChooseStyle(tVar.sk().getShowStyle());
-        dfVar.bdM.setShowImage(com.baidu.tbadk.core.m.rh().rn());
-        dfVar.bdM.setData(tVar.sk());
-        dfVar.bdM.setPortraitClicklistener(this);
-        dfVar.bdN.setOnClickListener(this);
-        dfVar.bdN.setTag(tVar);
-        return view;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getTag() instanceof com.baidu.tbadk.core.data.t) {
-            this.bbF.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.t) view.getTag());
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.b
-    public void onPortraitClick(View view) {
-        Object tag = view.getTag();
-        if (tag instanceof PhotoLiveCardData) {
-            PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
-            if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
-            }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10178").ab(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
-        }
-    }
-
-    public int NZ() {
-        return n.f.more_live_list;
-    }
-
-    public int Nm() {
-        return n.f.make_headlines;
+    public de(View view, int i) {
+        super(view);
+        this.ahf = 3;
+        this.bcw = (LinearLayout) view.findViewById(n.g.frs_list);
+        this.bhB = (RelativeLayout) view.findViewById(n.g.frs_item_user_info_view);
+        this.bcx = (LinearLayout) view.findViewById(n.g.frs_list_item_top_linear_layout);
+        this.bhy = (RelativeLayout) view.findViewById(n.g.frs_list_item_top_card);
+        this.bhz = (LinearLayout) view.findViewById(n.g.new_year_color_egg);
+        this.bcC = (HeadImageView) view.findViewById(n.g.frs_photo);
+        this.agT = (UserIconBox) view.findViewById(n.g.frs_user_tshow_icon_box);
+        this.agU = (UserIconBox) view.findViewById(n.g.frs_user_icon_box);
+        this.bcB = (TextView) view.findViewById(n.g.frs_lv_author);
+        this.agy = (TextView) view.findViewById(n.g.frs_lv_reply_time);
+        this.aOn = (TextView) view.findViewById(n.g.frs_lv_title);
+        this.bcy = (TextView) view.findViewById(n.g.abstract_text);
+        this.bcz = (PlayVoiceBnt) view.findViewById(n.g.abstract_voice);
+        this.bcA = (FrsCommonImageLayout) view.findViewById(n.g.abstract_img_layout);
+        this.agz = (TextView) view.findViewById(n.g.frs_praise_num);
+        this.bhA = (TextView) view.findViewById(n.g.action_button);
+        this.bcG = (TextView) view.findViewById(n.g.frs_reply_num);
+        this.bcI = (TextView) view.findViewById(n.g.frs_more_abstract);
+        this.bhC = (LinearLayout) view.findViewById(n.g.frs_item_num);
+        this.bhD = (LinearLayout) view.findViewById(n.g.frs_item_loc_view);
+        this.bgj = (TextView) view.findViewById(n.g.frs_item_location_address);
+        this.bgk = view.findViewById(n.g.frs_item_location_sep);
+        this.bcw.setBackgroundResource(n.d.transparent);
+        this.bcw.setPadding(0, i, 0, 0);
     }
 }

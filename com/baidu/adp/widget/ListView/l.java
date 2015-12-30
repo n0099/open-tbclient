@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdListView In;
+    final /* synthetic */ BdListView IE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdListView bdListView) {
-        this.In = bdListView;
+        this.IE = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -30,50 +30,50 @@ public class l implements AdapterView.OnItemClickListener {
         BdListView.b bVar2;
         c cVar5;
         c cVar6;
-        eVar = this.In.HO;
+        eVar = this.IE.Ie;
         int headersCount = eVar.getHeadersCount();
         if (i < headersCount) {
-            cVar4 = this.In.Ic;
+            cVar4 = this.IE.Is;
             if (cVar4 != null) {
-                cVar5 = this.In.Ic;
+                cVar5 = this.IE.Is;
                 if (view == cVar5.getView()) {
-                    cVar6 = this.In.Ic;
+                    cVar6 = this.IE.Is;
                     cVar6.onClick();
                     return;
                 }
             }
-            bVar = this.In.HS;
+            bVar = this.IE.Ii;
             if (bVar != null) {
-                bVar2 = this.In.HS;
+                bVar2 = this.IE.Ii;
                 bVar2.onClick(view);
                 return;
             }
             return;
         }
         int i2 = i - headersCount;
-        eVar2 = this.In.HO;
+        eVar2 = this.IE.Ie;
         ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
         if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-            onItemClickListener = this.In.HP;
+            onItemClickListener = this.IE.If;
             if (onItemClickListener != null) {
-                onItemClickListener2 = this.In.HP;
+                onItemClickListener2 = this.IE.If;
                 onItemClickListener2.onItemClick(adapterView, view, i2, j);
                 return;
             }
             return;
         }
-        cVar = this.In.Id;
+        cVar = this.IE.It;
         if (cVar != null) {
-            cVar2 = this.In.Id;
+            cVar2 = this.IE.It;
             if (view == cVar2.getView()) {
-                cVar3 = this.In.Id;
+                cVar3 = this.IE.It;
                 cVar3.onClick();
                 return;
             }
         }
-        aVar = this.In.HT;
+        aVar = this.IE.Ij;
         if (aVar != null) {
-            aVar2 = this.In.HT;
+            aVar2 = this.IE.Ij;
             aVar2.onClick(view);
         }
     }

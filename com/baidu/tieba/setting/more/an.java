@@ -12,7 +12,8 @@ class an extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        SettingStatic.doz = true;
-        SettingStatic.aze();
+        SettingStatic.dvN = false;
+        SettingStatic.maskInfo = null;
+        SettingStatic.dvM = false;
     }
 }

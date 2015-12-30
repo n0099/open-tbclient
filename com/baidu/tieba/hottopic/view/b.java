@@ -12,11 +12,11 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bFE;
+    final /* synthetic */ a bJl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bFE = aVar;
+        this.bJl = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,18 +25,18 @@ public class b implements View.OnClickListener {
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
         TbPageContext tbPageContext4;
-        if (!com.baidu.adp.lib.util.i.iP()) {
-            tbPageContext4 = this.bFE.bFq;
-            ((HotTopicActivity) tbPageContext4.getOrignalPage()).showToast(n.i.topic_share_no_network);
+        if (!com.baidu.adp.lib.util.i.iQ()) {
+            tbPageContext4 = this.bJl.bIX;
+            ((HotTopicActivity) tbPageContext4.getOrignalPage()).showToast(n.j.topic_share_no_network);
         } else if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            tbPageContext3 = this.bFE.bFq;
+            tbPageContext3 = this.bJl.bIX;
             bj.af(tbPageContext3.getPageActivity());
         } else {
             av avVar = new av("c10521");
-            tbPageContext = this.bFE.bFq;
-            TiebaStatic.log(avVar.ab("obj_id", ((HotTopicActivity) tbPageContext.getOrignalPage()).Ul()));
-            tbPageContext2 = this.bFE.bFq;
-            ((HotTopicActivity) tbPageContext2.getOrignalPage()).Um();
+            tbPageContext = this.bJl.bIX;
+            TiebaStatic.log(avVar.aa("obj_id", ((HotTopicActivity) tbPageContext.getOrignalPage()).Vo()));
+            tbPageContext2 = this.bJl.bIX;
+            ((HotTopicActivity) tbPageContext2.getOrignalPage()).Vp();
         }
     }
 }

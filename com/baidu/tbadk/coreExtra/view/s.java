@@ -9,7 +9,7 @@ class s extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                LiveBroadcastCard.c.zW().sendTimeUpdateMessage();
+                LiveBroadcastCard.c.zI().sendTimeUpdateMessage();
                 removeMessages(1);
                 sendEmptyMessageDelayed(1, 1000L);
                 return;

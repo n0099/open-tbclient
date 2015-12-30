@@ -6,34 +6,34 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private o<byte[]> aWe;
+    private o<byte[]> bae;
 
     public a() {
-        LW();
+        Mp();
     }
 
-    public void LW() {
-        if (this.aWe == null) {
-            this.aWe = com.baidu.tbadk.core.b.a.ts().cy("tb.forum_hot_thread");
+    public void Mp() {
+        if (this.bae == null) {
+            this.bae = com.baidu.tbadk.core.b.a.tc().cB("tb.forum_hot_thread");
         }
     }
 
-    public byte[] hb(String str) {
+    public byte[] hl(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        o.b<byte[]> aa = this.aWe != null ? this.aWe.aa(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
-        if (aa == null || aa.sm == null) {
+        o.b<byte[]> aa = this.bae != null ? this.bae.aa(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        if (aa == null || aa.sq == null) {
             return null;
         }
-        return aa.sm;
+        return aa.sq;
     }
 
     public void k(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            LW();
-            this.aWe.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            Mp();
+            this.bae.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 }

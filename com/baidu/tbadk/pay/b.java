@@ -9,14 +9,14 @@ import com.baidu.tieba.n;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a axk;
-    private final com.baidu.adp.framework.listener.a axl;
+    private a ayO;
+    private final com.baidu.adp.framework.listener.a ayP;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.axl = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.axk = aVar;
-        registerListener(this.axl);
+        this.ayP = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.ayO = aVar;
+        registerListener(this.ayP);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Eq() {
-        if (!e.Er().Es()) {
-            if (this.axk != null) {
-                this.axk.Eo();
+    public void Ef() {
+        if (!e.Eg().Eh()) {
+            if (this.ayO != null) {
+                this.ayO.Ed();
                 return;
             }
             return;
@@ -50,19 +50,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.axk != null) {
-                this.axk.onError(TbadkCoreApplication.m411getInst().getString(n.i.data_load_error));
+            if (this.ayO != null) {
+                this.ayO.onError(TbadkCoreApplication.m411getInst().getString(n.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.axk != null) {
-                this.axk.Ep();
+            if (this.ayO != null) {
+                this.ayO.Ee();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.axk != null) {
-                this.axk.Eo();
+            if (this.ayO != null) {
+                this.ayO.Ed();
             }
-        } else if (this.axk != null) {
-            this.axk.onError("");
+        } else if (this.ayO != null) {
+            this.ayO.onError("");
         }
     }
 }

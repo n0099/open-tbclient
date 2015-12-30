@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.util.bj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cmr;
+    final /* synthetic */ SquareSearchActivity cqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(SquareSearchActivity squareSearchActivity) {
-        this.cmr = squareSearchActivity;
+        this.cqu = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bj.ah(this.cmr.getPageContext().getPageActivity())) {
-            this.cmr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarGuideActivityConfig(this.cmr.getPageContext().getPageActivity(), this.cmr.clJ)));
+        if (bj.ah(this.cqu.getPageContext().getPageActivity())) {
+            this.cqu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarGuideActivityConfig(this.cqu.getPageContext().getPageActivity(), this.cqu.cpN)));
         }
     }
 }

@@ -17,9 +17,9 @@ public class h implements View.OnClickListener {
     public void onClick(View view) {
         LinearLayout linearLayout;
         Button button;
-        linearLayout = this.this$0.cJf;
+        linearLayout = this.this$0.cNv;
         linearLayout.setVisibility(8);
-        button = this.this$0.cIY;
+        button = this.this$0.cNo;
         button.setVisibility(0);
     }
 }

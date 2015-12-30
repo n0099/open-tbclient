@@ -1,14 +1,8 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
-import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
-import java.util.ArrayList;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends CustomMessageListener {
@@ -24,21 +18,8 @@ public class bu extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage;
-        MemoryClearStrangerItemsMessage.a data;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
-            ArrayList arrayList = new ArrayList();
-            for (MemoryModifyVisibilityMessage.a aVar : data.datas) {
-                b.Zt().e(aVar.id, aVar.customGroupType, aVar.visible);
-            }
-            if (memoryClearStrangerItemsMessage.isAllClear()) {
-                b.Zt().f("-1001", -7, false);
-            }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bv(this, arrayList, data, memoryClearStrangerItemsMessage));
-            customMessageTask.setParallel(TiebaIMConfig.getParallel());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-            customMessageTask.setPriority(4);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ImMessageCenterPojo)) {
+            b.aay().i((ImMessageCenterPojo) customResponsedMessage.getData());
         }
     }
 }

@@ -23,9 +23,8 @@ class k extends com.baidu.adp.framework.listener.a {
             list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
         }
         if (!list.isEmpty()) {
-            com.baidu.tbadk.core.sharedPref.b.tZ().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
-            e.ahT().ahU();
-            EditMarkStatic.cud = true;
+            com.baidu.tbadk.core.sharedPref.b.tJ().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
+            e.ajd().ajh();
         }
     }
 }

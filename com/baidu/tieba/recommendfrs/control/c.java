@@ -1,25 +1,30 @@
 package com.baidu.tieba.recommendfrs.control;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.recommendfrs.a {
-    final /* synthetic */ a diB;
+public class c extends CustomMessageListener {
+    final /* synthetic */ a doN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.diB = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(a aVar, int i) {
+        super(i);
+        this.doN = aVar;
     }
 
-    @Override // com.baidu.tieba.recommendfrs.a
-    public void b(int i, long j, long j2) {
-        com.baidu.tieba.recommendfrs.control.a.b bVar;
-        bVar = this.diB.diw;
-        bVar.c(i, j, j2);
-    }
-
-    @Override // com.baidu.tieba.recommendfrs.a
-    public void bv(long j) {
-        com.baidu.tieba.recommendfrs.control.a.b bVar;
-        bVar = this.diB.diw;
-        bVar.bx(j);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ScrollFragmentTabHost scrollFragmentTabHost;
+        if (customResponsedMessage != null) {
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof Integer) && ((Integer) data).intValue() == 0 && this.doN.isPrimary()) {
+                scrollFragmentTabHost = this.doN.doG;
+                scrollFragmentTabHost.ayA();
+            }
+        }
     }
 }

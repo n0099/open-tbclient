@@ -11,13 +11,13 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ s bCT;
-    private final /* synthetic */ com.baidu.tieba.hottopic.data.j bCU;
+    final /* synthetic */ s bGx;
+    private final /* synthetic */ com.baidu.tieba.hottopic.data.j bGy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, com.baidu.tieba.hottopic.data.j jVar) {
-        this.bCT = sVar;
-        this.bCU = jVar;
+        this.bGx = sVar;
+        this.bGy = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,14 +25,14 @@ public class t implements View.OnClickListener {
         HotTopicActivity hotTopicActivity;
         HotTopicActivity hotTopicActivity2;
         HotTopicActivity hotTopicActivity3;
-        if (this.bCU != null && this.bCU.bEw != null) {
-            hotTopicActivity = this.bCT.bCu;
-            RelateTopicForumActivityConfig relateTopicForumActivityConfig = new RelateTopicForumActivityConfig(hotTopicActivity.getPageContext().getPageActivity(), this.bCU.bEw);
-            hotTopicActivity2 = this.bCT.bCu;
+        if (this.bGy != null && this.bGy.bIa != null) {
+            hotTopicActivity = this.bGx.bFY;
+            RelateTopicForumActivityConfig relateTopicForumActivityConfig = new RelateTopicForumActivityConfig(hotTopicActivity.getPageContext().getPageActivity(), this.bGy.bIa);
+            hotTopicActivity2 = this.bGx.bFY;
             hotTopicActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, relateTopicForumActivityConfig));
-            av ab = new av("c10365").ab("obj_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-            hotTopicActivity3 = this.bCT.bCu;
-            TiebaStatic.log(ab.ab("obj_id", hotTopicActivity3.Ul()));
+            av aa = new av("c10365").aa("obj_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            hotTopicActivity3 = this.bGx.bFY;
+            TiebaStatic.log(aa.aa("obj_id", hotTopicActivity3.Vo()));
         }
     }
 }

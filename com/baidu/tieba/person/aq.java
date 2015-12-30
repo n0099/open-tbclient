@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cKS;
+    final /* synthetic */ PersonChangeActivity cPi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PersonChangeActivity personChangeActivity) {
-        this.cKS = personChangeActivity;
+        this.cPi = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cKS.cKx.booleanValue()) {
+        if (this.cPi.cON.booleanValue()) {
             TiebaStatic.log("c10100");
         } else {
             TiebaStatic.log("c10101");
         }
-        this.cKS.anG();
+        this.cPi.aoR();
     }
 }

@@ -51,7 +51,7 @@ public class k {
 
     public static void eE() {
         try {
-            com.baidu.adp.lib.stats.a.hl().b("socket", "url", com.baidu.adp.lib.webSocket.h.jB().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jB().jy()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jB().jI()), "remote_ip", com.baidu.adp.lib.webSocket.h.jB().jx(), "local_dns", com.baidu.adp.lib.webSocket.h.jB().jh(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jB().ji(), "net", com.baidu.adp.lib.stats.a.hl().hx());
+            com.baidu.adp.lib.stats.a.hl().b("socket", "url", com.baidu.adp.lib.webSocket.h.jC().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jC().jz()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jC().jJ()), "remote_ip", com.baidu.adp.lib.webSocket.h.jC().jy(), "local_dns", com.baidu.adp.lib.webSocket.h.jC().ji(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jC().jj(), "net", com.baidu.adp.lib.stats.a.hl().hx());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

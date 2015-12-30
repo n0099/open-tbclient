@@ -1,22 +1,23 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class at implements a.b {
-    final /* synthetic */ SystemHelpSettingActivity doH;
+class at extends CustomMessageListener {
+    final /* synthetic */ SystemHelpSettingActivity dvU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.doH = systemHelpSettingActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
+        super(i);
+        this.dvU = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.setting.model.j jVar;
-        this.doH.showLoadingDialog(this.doH.getPageContext().getString(n.i.deleting));
-        jVar = this.doH.doF;
-        jVar.axr();
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.dvU.closeLoadingDialog();
+        this.dvU.showToast(n.j.systemhelpsetting_clear_im_success);
     }
 }

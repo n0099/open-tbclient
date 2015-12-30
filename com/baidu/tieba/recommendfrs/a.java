@@ -3,5 +3,5 @@ package com.baidu.tieba.recommendfrs;
 public interface a {
     void b(int i, long j, long j2);
 
-    void bv(long j);
+    void bC(long j);
 }

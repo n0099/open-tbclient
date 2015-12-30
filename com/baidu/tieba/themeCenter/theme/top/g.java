@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ d dHo;
+    final /* synthetic */ d dOP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.dHo = dVar;
+        this.dOP = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,16 +25,16 @@ public class g extends CustomMessageListener {
         k kVar;
         List<a> list;
         if (customResponsedMessage != null) {
-            aVar = this.dHo.dGt;
+            aVar = this.dOP.dNU;
             if (aVar == null) {
                 return;
             }
-            this.dHo.aFy();
-            aVar2 = this.dHo.dGt;
+            this.dOP.aHN();
+            aVar2 = this.dOP.dNU;
             int error = customResponsedMessage.getError();
             String errorString = customResponsedMessage.getErrorString();
-            kVar = this.dHo.mRecommand;
-            list = this.dHo.mThemeList;
+            kVar = this.dOP.mRecommand;
+            list = this.dOP.mThemeList;
             aVar2.a(error, errorString, kVar, list);
         }
     }

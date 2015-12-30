@@ -5,20 +5,20 @@ import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ PhotoLiveCardView anH;
+    final /* synthetic */ PhotoLiveCardView aph;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PhotoLiveCardView photoLiveCardView) {
-        this.anH = photoLiveCardView;
+        this.aph = photoLiveCardView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PhotoLiveCardView.a aVar;
         PhotoLiveCardView.a aVar2;
-        aVar = this.anH.amL;
+        aVar = this.aph.anV;
         if (aVar != null) {
-            aVar2 = this.anH.amL;
+            aVar2 = this.aph.anV;
             aVar2.onDeleteClick(view);
         }
     }

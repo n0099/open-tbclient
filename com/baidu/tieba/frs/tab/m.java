@@ -11,31 +11,31 @@ import com.baidu.tieba.frs.tab.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m implements f {
-    private BdListView biH;
-    private i biI;
-    private i.a bin;
+    private i.a bmd;
+    private BdListView bmy;
+    private i bmz;
     private Context mContext;
     private List<fc> mData;
-    private final BaseAdapter biJ = new n(this);
-    private AdapterView.OnItemClickListener HP = new o(this);
+    private final BaseAdapter bmA = new n(this);
+    private AdapterView.OnItemClickListener If = new o(this);
 
     private void initView() {
-        this.biH = new BdListView(this.mContext);
-        this.biH.setAlwaysDrawnWithCacheEnabled(false);
-        this.biH.setDivider(null);
-        this.biH.setDividerHeight(0);
-        this.biH.setSelector(17170445);
-        this.biH.setCacheColorHint(this.mContext.getResources().getColor(17170445));
-        this.biH.setOnItemClickListener(this.HP);
-        this.biH.setAdapter((ListAdapter) this.biJ);
+        this.bmy = new BdListView(this.mContext);
+        this.bmy.setAlwaysDrawnWithCacheEnabled(false);
+        this.bmy.setDivider(null);
+        this.bmy.setDividerHeight(0);
+        this.bmy.setSelector(17170445);
+        this.bmy.setCacheColorHint(this.mContext.getResources().getColor(17170445));
+        this.bmy.setOnItemClickListener(this.If);
+        this.bmy.setAdapter((ListAdapter) this.bmA);
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public void a(Context context, i iVar) {
         if (context != null && iVar != null) {
             this.mContext = context;
-            this.biI = iVar;
-            this.bin = iVar.Pk();
+            this.bmz = iVar;
+            this.bmd = iVar.PC();
             initView();
         }
     }
@@ -43,21 +43,21 @@ public class m implements f {
     @Override // com.baidu.tieba.frs.tab.f
     public void setData(List<fc> list) {
         this.mData = list;
-        this.biJ.notifyDataSetChanged();
+        this.bmA.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public View getView() {
-        return this.biH;
+        return this.bmy;
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void wh() {
-        this.biJ.notifyDataSetChanged();
+    public void vR() {
+        this.bmA.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int Pi() {
+    public int PA() {
         return 0;
     }
 }

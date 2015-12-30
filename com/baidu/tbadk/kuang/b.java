@@ -12,11 +12,11 @@ import com.baidu.tbadk.coreExtra.view.k;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class b {
-    public static int avm = 0;
-    private static String wy = "";
+    public static int awQ = 0;
+    private static String wA = "";
     private static String mUserId = "";
-    private static String TV = "";
-    private static k avn = null;
+    private static String Uv = "";
+    private static k awR = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -44,12 +44,12 @@ public class b {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        avn = new k(tbPageContext);
-        avn.a(new c());
-        avn.b(new d());
-        avn.zP();
-        avn.h(accountData);
-        avn.zL();
+        awR = new k(tbPageContext);
+        awR.a(new c());
+        awR.b(new d());
+        awR.zB();
+        awR.h(accountData);
+        awR.zx();
     }
 
     public static void bt(boolean z) {
@@ -57,10 +57,10 @@ public class b {
     }
 
     public static void c(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.lib.h.h.hj().postDelayed(new i(customResponsedMessage), avm);
+        com.baidu.adp.lib.h.h.hj().postDelayed(new i(customResponsedMessage), awQ);
     }
 
-    public static void Df() {
+    public static void CU() {
         a("login", new Class[0], new Object[0], new j());
     }
 }

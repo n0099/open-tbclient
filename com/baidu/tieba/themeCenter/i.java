@@ -22,14 +22,14 @@ public class i {
     }
 
     public static boolean f(b bVar) {
-        int aFe = bVar.aFe();
-        if (aFe == 0) {
+        int aHt = bVar.aHt();
+        if (aHt == 0) {
             return true;
         }
-        if (aFe == 100) {
+        if (aHt == 100) {
             return bVar.getActivityFinish() != 0;
         }
-        return aFe == 101 ? TbadkCoreApplication.getCurrentMemberType() == 3 : TbadkCoreApplication.getCurrentAccountInfo().getMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= aFe;
+        return aHt == 101 ? TbadkCoreApplication.getCurrentMemberType() == 3 : TbadkCoreApplication.getCurrentAccountInfo().getMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= aHt;
     }
 
     public static int a(b bVar, List<b> list) {
@@ -40,26 +40,29 @@ public class i {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (bVar.getId() == -1) {
             if (skinType == 3 || skinType == 0) {
-                bVar.hu(true);
+                bVar.hD(true);
                 return 0;
             }
-            bVar.hu(false);
+            bVar.hD(false);
             return 4;
         } else if (bVar.getId() == -2) {
             if (skinType == 1) {
-                bVar.hu(true);
+                bVar.hD(true);
                 return 0;
             }
-            bVar.hu(false);
+            bVar.hD(false);
             return 4;
-        } else if (list == null || list.size() <= 0) {
-            bVar.hu(false);
-            return 1;
+        } else if (TbadkCoreApplication.m411getInst().getThemeFromWaitDownloadQuene(bVar.getId()) == 1) {
+            return 2;
         } else {
+            if (list == null || list.size() <= 0) {
+                bVar.hD(false);
+                return 1;
+            }
             if (bVar.getId() == TbadkCoreApplication.m411getInst().getUsedThemeId() && skinType == 2) {
-                bVar.hu(true);
+                bVar.hD(true);
             } else {
-                bVar.hu(false);
+                bVar.hD(false);
             }
             Iterator<b> it = list.iterator();
             while (true) {
@@ -90,21 +93,21 @@ public class i {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (bVar.getId() == -1) {
             if (skinType == 3 || skinType == 0) {
-                bVar.hu(true);
+                bVar.hD(true);
                 return 0;
             }
-            bVar.hu(false);
+            bVar.hD(false);
             return 4;
         } else if (bVar.getId() == -2) {
             if (skinType == 1) {
-                bVar.hu(true);
+                bVar.hD(true);
                 return 0;
             }
-            bVar.hu(false);
+            bVar.hD(false);
             return 4;
         } else {
             boolean z = bVar.getId() == TbadkCoreApplication.m411getInst().getUsedThemeId() && skinType == 2;
-            bVar.hu(z);
+            bVar.hD(z);
             if (arrayList == null || arrayList.size() <= 0) {
                 return !z ? 4 : 0;
             }
@@ -124,14 +127,14 @@ public class i {
             } else if (themeSkinUpdateInfo.props_version.intValue() <= bVar.getVersionCode()) {
                 return !z ? 4 : 0;
             } else {
-                bVar.mO(themeSkinUpdateInfo.package_url);
-                bVar.mQ(themeSkinUpdateInfo.props_version.intValue());
+                bVar.mL(themeSkinUpdateInfo.package_url);
+                bVar.ns(themeSkinUpdateInfo.props_version.intValue());
                 return 5;
             }
         }
     }
 
-    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> bQ(List<b> list) {
+    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> bT(List<b> list) {
         int i;
         int i2 = 0;
         if (list == null || list.size() <= 0) {
@@ -150,7 +153,7 @@ public class i {
                 arrayList2.add(list.get(i5 - 2));
                 arrayList2.add(list.get(i5 - 1));
                 i = i2 + 3;
-                aVar.bV(arrayList2);
+                aVar.bY(arrayList2);
                 arrayList.add(aVar);
             } else {
                 i = i2;
@@ -171,7 +174,7 @@ public class i {
                 arrayList3.add(list.get(size - i7));
                 i6 = i7 - 1;
             }
-            aVar2.bV(arrayList3);
+            aVar2.bY(arrayList3);
             arrayList.add(aVar2);
         }
         return arrayList;
@@ -180,23 +183,23 @@ public class i {
     public static void a(TbPageContext<?> tbPageContext, int i, String str) {
         if (tbPageContext != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.bO(n.c.cp_link_tip_d);
-            aVar.cB(str);
-            aVar.b(n.i.cancel_text, new j(aVar));
-            aVar.a(n.i.become_member_immediately, new k(aVar, i, tbPageContext));
+            aVar.bH(n.d.cp_link_tip_d);
+            aVar.cE(str);
+            aVar.b(n.j.cancel_text, new j(aVar));
+            aVar.a(n.j.become_member_immediately, new k(aVar, i, tbPageContext));
             aVar.b(tbPageContext);
-            aVar.tv();
+            aVar.tf();
         }
     }
 
     public static void b(TbPageContext<?> tbPageContext, int i, String str) {
         if (tbPageContext != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.bN(n.i.tip_download_activity_require);
-            aVar.b(n.i.cancel_text, new l(aVar));
-            aVar.a(n.i.tip_download_activity_in, new m(aVar, str, tbPageContext));
+            aVar.bG(n.j.tip_download_activity_require);
+            aVar.b(n.j.cancel_text, new l(aVar));
+            aVar.a(n.j.tip_download_activity_in, new m(aVar, str, tbPageContext));
             aVar.b(tbPageContext);
-            aVar.tv();
+            aVar.tf();
         }
     }
 }

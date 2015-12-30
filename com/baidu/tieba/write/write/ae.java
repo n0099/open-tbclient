@@ -4,15 +4,15 @@ import com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements PhotoLiveLinearLayout.a {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
-    public void aIH() {
-        this.dRf.aJS();
+    public void aLc() {
+        this.dYD.aMn();
     }
 }

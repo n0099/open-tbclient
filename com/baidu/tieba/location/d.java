@@ -8,11 +8,11 @@ import com.baidu.tieba.location.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements LocationListener {
-    final /* synthetic */ c ckD;
+    final /* synthetic */ c coH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.ckD = cVar;
+        this.coH = cVar;
     }
 
     @Override // android.location.LocationListener
@@ -38,23 +38,23 @@ public class d implements LocationListener {
         c.a aVar2;
         c.a aVar3;
         Handler handler4;
-        handler = this.ckD.mHandler;
+        handler = this.coH.mHandler;
         if (handler.hasMessages(0)) {
-            handler4 = this.ckD.mHandler;
+            handler4 = this.coH.mHandler;
             handler4.removeMessages(0);
         }
-        handler2 = this.ckD.mHandler;
-        runnable = this.ckD.ckA;
+        handler2 = this.coH.mHandler;
+        runnable = this.coH.coE;
         handler2.removeCallbacks(runnable);
-        handler3 = this.ckD.mHandler;
-        runnable2 = this.ckD.ckz;
+        handler3 = this.coH.mHandler;
+        runnable2 = this.coH.coD;
         handler3.removeCallbacks(runnable2);
-        aVar = this.ckD.ckw;
+        aVar = this.coH.coA;
         if (aVar == null) {
-            this.ckD.ckw = new c.a(this.ckD, null);
-            aVar2 = this.ckD.ckw;
+            this.coH.coA = new c.a(this.coH, null);
+            aVar2 = this.coH.coA;
             aVar2.setSelfExecute(true);
-            aVar3 = this.ckD.ckw;
+            aVar3 = this.coH.coA;
             aVar3.execute(location);
         }
     }

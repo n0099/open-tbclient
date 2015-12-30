@@ -1,31 +1,22 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements FragmentTabWidget.a {
-    final /* synthetic */ e aQs;
+public class f implements NoNetworkView.a {
+    final /* synthetic */ e aUi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aQs = eVar;
+        this.aUi = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void c(int i, boolean z) {
-        FragmentTabWidget fragmentTabWidget;
-        FragmentTabWidget fragmentTabWidget2;
-        if (i != 0) {
-            if (i != 1) {
-                return;
-            }
-            this.aQs.fw(1);
-            fragmentTabWidget = this.aQs.aQn;
-            fragmentTabWidget.d(i, true);
-            return;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ax(boolean z) {
+        if (this.aUi.aUh == 0 && this.aUi.aUb != null) {
+            this.aUi.aUb.ca(z);
+        } else if (this.aUi.aUh == 1 && this.aUi.aUc != null) {
+            this.aUi.aUc.ca(z);
         }
-        this.aQs.fw(0);
-        fragmentTabWidget2 = this.aQs.aQn;
-        fragmentTabWidget2.d(i, true);
     }
 }

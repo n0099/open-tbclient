@@ -34,7 +34,6 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        setUseStyleImmersiveSticky(false);
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_WEBVIEW_PROXY, (Class) null);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
@@ -133,7 +132,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.Ik();
+            this.jsBridge.Ia();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -155,9 +154,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.cb(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.cd(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
-                TbWebViewActivity.this.mView.ad(TbWebViewActivity.this.isNeedShowShareItem());
+                TbWebViewActivity.this.mView.aa(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -188,16 +187,17 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (com.baidu.tbadk.util.q.d(TbWebViewActivity.this.getPageContext(), str)) {
-                return true;
-            }
-            if (com.baidu.tbadk.util.q.a(TbWebViewActivity.this, str)) {
+            int a = com.baidu.tbadk.util.q.a(TbWebViewActivity.this, str);
+            if (a == 0) {
                 TbWebViewActivity.this.finish();
                 return true;
+            } else if (a != 1) {
+                TbWebViewActivity.this.mUrl = str;
+                TbWebViewActivity.this.refresh();
+                return true;
+            } else {
+                return true;
             }
-            TbWebViewActivity.this.mUrl = str;
-            TbWebViewActivity.this.refresh();
-            return true;
         }
     }
 

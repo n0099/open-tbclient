@@ -1,27 +1,51 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.baidu.tieba.pb.pb.main.do  reason: invalid class name */
 /* loaded from: classes.dex */
-public class Cdo implements DialogInterface.OnCancelListener {
-    final /* synthetic */ da cGh;
+public class Cdo implements Animation.AnimationListener {
+    final /* synthetic */ dk cKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Cdo(da daVar) {
-        this.cGh = daVar;
+    public Cdo(dk dkVar) {
+        this.cKg = dkVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.cGh.cFQ;
-        if (runnable == null) {
-            this.cGh.cFQ = new dp(this);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.k kVar;
+        com.baidu.tbadk.editortools.k kVar2;
+        View view;
+        boolean z2;
+        z = this.cKg.cJw;
+        if (!z) {
+            kVar = this.cKg.Li;
+            if (kVar != null) {
+                kVar2 = this.cKg.Li;
+                kVar2.ob();
+                return;
+            }
+            return;
         }
-        com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
-        runnable2 = this.cGh.cFQ;
-        hj.postDelayed(runnable2, 150L);
+        view = this.cKg.cJs;
+        if (view != null) {
+            z2 = this.cKg.cJq;
+            if (z2) {
+                this.cKg.fk(false);
+            } else {
+                this.cKg.fl(false);
+            }
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

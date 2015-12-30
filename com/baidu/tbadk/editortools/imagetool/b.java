@@ -21,7 +21,7 @@ public class b extends y {
         this.toolLaunchAction = new int[]{12, 13, 9};
     }
 
-    public void eo(int i) {
+    public void ei(int i) {
         if (this.toolView != null) {
             MultiImgToolView multiImgToolView = (MultiImgToolView) this.toolView;
             if (i == 1) {
@@ -33,14 +33,14 @@ public class b extends y {
         }
     }
 
-    public void fg(String str) {
+    public void fk(String str) {
         TextView mutiImageTips;
         if (this.toolView != null && (mutiImageTips = ((MultiImgToolView) this.toolView).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void fh(String str) {
+    public void fl(String str) {
         if (this.toolView instanceof MultiImgToolView) {
             ((MultiImgToolView) this.toolView).setNoPicTips(str);
         }

@@ -10,10 +10,10 @@ import java.util.List;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<d> list = new ArrayList<>();
+    private ArrayList<d> rN = new ArrayList<>();
 
     public ArrayList<d> getData() {
-        return this.list;
+        return this.rN;
     }
 
     public void a(TbPageContext<?> tbPageContext, List<ExcContent> list) {
@@ -24,29 +24,29 @@ public class a {
                     if (a(excContent)) {
                         c a = f.a(tbPageContext, excContent);
                         if (a != null) {
-                            if (a.amW()) {
+                            if (a.aoh()) {
                                 if (gVar != null) {
-                                    this.list.add(gVar);
+                                    this.rN.add(gVar);
                                 }
-                                this.list.add(a);
+                                this.rN.add(a);
                                 gVar = null;
                             } else {
                                 g gVar2 = gVar == null ? new g() : gVar;
-                                gVar2.g(a.amV());
+                                gVar2.f(a.aog());
                                 gVar = gVar2;
                             }
                         }
                     } else {
                         if (gVar != null) {
-                            this.list.add(gVar);
+                            this.rN.add(gVar);
                         }
-                        this.list.add(f.c(excContent));
+                        this.rN.add(f.c(excContent));
                         gVar = null;
                     }
                 }
             }
             if (gVar != null) {
-                this.list.add(gVar);
+                this.rN.add(gVar);
             }
         }
     }

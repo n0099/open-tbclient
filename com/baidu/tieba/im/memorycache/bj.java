@@ -18,13 +18,20 @@ public class bj implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.Zt().g(imMessageCenterPojo);
+        b.aay().a(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
         if (z) {
-            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
+            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void f(String str, List<CommonMsgPojo> list) {
+        if (list != null && list.size() != 0) {
+            for (CommonMsgPojo commonMsgPojo : list) {
+                if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
+                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.ia(commonMsgPojo.getContent());
+                }
+            }
+        }
     }
 }

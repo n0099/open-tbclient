@@ -13,28 +13,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.e;
 /* loaded from: classes.dex */
 public class b {
-    private static b atR;
+    private static b avv;
 
     private b() {
     }
 
-    public static b CP() {
-        if (atR == null) {
+    public static b CE() {
+        if (avv == null) {
             synchronized (b.class) {
-                if (atR == null) {
-                    atR = new b();
+                if (avv == null) {
+                    avv = new b();
                 }
             }
         }
-        return atR;
+        return avv;
     }
 
-    public void CQ() {
+    public void CF() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void CR() {
+    public void CG() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -58,8 +58,9 @@ public class b {
             currentAccountObj.setSex(userData.getSex());
             currentAccountObj.setMemberType(userData.getIsMem());
             currentAccountObj.setVipInfo(userData.getUserVipInfo());
+            TbadkCoreApplication.m411getInst().setDefaultBubble(userData.getBimg_url());
             e payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.rz() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.ri() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);

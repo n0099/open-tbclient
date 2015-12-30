@@ -5,77 +5,77 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private q cJF = null;
-    private ae cJG = null;
+    private q cNV = null;
+    private ae cNW = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.cIK && this.requestCode != 23011) {
+        if (this.cNa && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.cJG = new ae(getPageContext(), aah());
-        this.cJG.setSex(getSex());
-        this.cJG.setId(getUid());
-        this.cJG.setUniqueId(getUniqueId());
+        this.cNW = new ae(getPageContext(), abn());
+        this.cNW.setSex(getSex());
+        this.cNW.setId(getUid());
+        this.cNW.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public e a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.cJF == null) {
-            this.cJF = new q(this, aah());
+        if (this.cNV == null) {
+            this.cNV = new q(this, abn());
         }
-        return this.cJF;
+        return this.cNV;
     }
 
-    public ae ano() {
-        return this.cJG;
-    }
-
-    @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String amZ() {
-        return getPageContext().getString(n.i.person_bar_title);
+    public ae aoz() {
+        return this.cNW;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ana() {
-        return getPageContext().getString(n.i.person_bar_no_personal_title);
+    public String aok() {
+        return getPageContext().getString(n.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String anb() {
-        return getPageContext().getString(n.i.person_bar_no_common_title);
+    public String aol() {
+        return getPageContext().getString(n.j.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String anc() {
-        return getPageContext().getString(n.i.person_bar_personal);
+    public String aom() {
+        return getPageContext().getString(n.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String and() {
-        return getPageContext().getString(n.i.person_bar_common);
+    public String aon() {
+        return getPageContext().getString(n.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String anh() {
+    public String aoo() {
+        return getPageContext().getString(n.j.person_bar_common);
+    }
+
+    @Override // com.baidu.tieba.person.BasePersonInfoActivity
+    public String aos() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int ani() {
+    public int aot() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        ad any;
+        ad aoJ;
         super.onPageSelected(i);
-        if (this.cJF != null && this.cJF.getItem(i) != null && (baseFragment = (BaseFragment) this.cJF.getItem(i)) != null && (baseFragment instanceof s) && (any = ((s) baseFragment).any()) != null) {
-            any.setEditState(false);
-            any.notifyDataSetChanged();
+        if (this.cNV != null && this.cNV.getItem(i) != null && (baseFragment = (BaseFragment) this.cNV.getItem(i)) != null && (baseFragment instanceof s) && (aoJ = ((s) baseFragment).aoJ()) != null) {
+            aoJ.setEditState(false);
+            aoJ.notifyDataSetChanged();
         }
     }
 

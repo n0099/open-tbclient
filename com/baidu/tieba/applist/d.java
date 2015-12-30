@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
 class d extends m<Object> {
-    final /* synthetic */ b aKs;
+    final /* synthetic */ b aLQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aKs = bVar;
+        this.aLQ = bVar;
     }
 
     @Override // com.baidu.tbadk.util.m

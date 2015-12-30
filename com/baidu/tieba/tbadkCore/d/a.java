@@ -4,29 +4,29 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.adp.lib.stats.d dAi;
-    private final int dAj = 10;
-    private final int dAk = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String dAl = null;
-    public boolean adk = false;
+    private com.baidu.adp.lib.stats.d dHN;
+    private final int dHO = 10;
+    private final int dHP = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String dHQ = null;
+    public boolean adO = false;
 
     public a(String str) {
-        K(str, false);
+        J(str, false);
     }
 
-    public void K(String str, boolean z) {
-        this.dAl = str;
-        this.adk = z;
-        this.dAi = new com.baidu.adp.lib.stats.d("dbg");
-        b.j(str, getNetType(), z);
+    public void J(String str, boolean z) {
+        this.dHQ = str;
+        this.adO = z;
+        this.dHN = new com.baidu.adp.lib.stats.d("dbg");
+        b.h(str, getNetType(), z);
     }
 
     public void start() {
-        this.dAi.hB();
+        this.dHN.hB();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long hC = this.dAi.hC();
+        long hC = this.dHN.hC();
         long j2 = 0;
         long j3 = 0;
         if (z) {
@@ -38,38 +38,38 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e aDv;
-        if (this.dAi != null && (aDv = aDv()) != null) {
+        e aFI;
+        if (this.dHN != null && (aFI = aFI()) != null) {
             if (z) {
-                if (aDv.dAq != null) {
-                    aDv.dAq.num++;
+                if (aFI.dHV != null) {
+                    aFI.dHV.num++;
                     if (z2) {
-                        aDv.dAq.dAn += j2;
-                        aDv.dAq.size += j;
+                        aFI.dHV.dHS += j2;
+                        aFI.dHV.size += j;
                     } else {
-                        aDv.dAq.dAo++;
+                        aFI.dHV.dHT++;
                     }
                 } else {
                     return;
                 }
-            } else if (aDv.dAr != null) {
-                aDv.dAr.num++;
+            } else if (aFI.dHW != null) {
+                aFI.dHW.num++;
                 if (z2) {
-                    aDv.dAr.dAn += j3;
-                    aDv.dAr.size += j;
+                    aFI.dHW.dHS += j3;
+                    aFI.dHW.size += j;
                     j2 = j3;
                 } else {
-                    aDv.dAr.dAo++;
+                    aFI.dHW.dHT++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.dAi = null;
+            this.dHN = null;
             if (z2) {
-                b.a(aDv, 10);
+                b.a(aFI, 10);
             }
-            if (this.dAl == "frsStat") {
+            if (this.dHQ == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.q("act", "frs");
@@ -86,34 +86,34 @@ public class a {
     }
 
     public void destory() {
-        e aDv;
-        if (this.dAi != null && (aDv = aDv()) != null && aDv.dAs != null) {
-            long hC = this.dAi.hC();
+        e aFI;
+        if (this.dHN != null && (aFI = aFI()) != null && aFI.dHX != null) {
+            long hC = this.dHN.hC();
             if (hC > 3000) {
-                d dVar = aDv.dAs;
-                dVar.dAn = hC + dVar.dAn;
-                aDv.dAs.num++;
-                b.a(aDv, 10);
+                d dVar = aFI.dHX;
+                dVar.dHS = hC + dVar.dHS;
+                aFI.dHX.num++;
+                b.a(aFI, 10);
             }
         }
     }
 
-    private e aDv() {
-        return b.k(this.dAl, getNetType(), this.adk);
+    private e aFI() {
+        return b.i(this.dHQ, getNetType(), this.adO);
     }
 
     private String getNetType() {
-        int iV = i.iV();
-        if (iV == 0) {
+        int iW = i.iW();
+        if (iW == 0) {
             return "N";
         }
-        if (iV == 1) {
+        if (iW == 1) {
             return "WIFI";
         }
-        if (iV == 3) {
+        if (iW == 3) {
             return "3G";
         }
-        if (iV != 2) {
+        if (iW != 2) {
             return "N";
         }
         return "2G";

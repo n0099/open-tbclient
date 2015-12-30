@@ -6,11 +6,11 @@ import com.baidu.adp.lib.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Handler.Callback {
-    final /* synthetic */ c ckD;
+    final /* synthetic */ c coH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.ckD = cVar;
+        this.coH = cVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -18,10 +18,10 @@ public class h implements Handler.Callback {
         int i;
         switch (message.what) {
             case 0:
-                this.ckD.gH();
-                a.b bVar = this.ckD.ckp;
-                i = this.ckD.errorCode;
-                bVar.a(i, "", null, this.ckD.ux, this.ckD.ckt);
+                this.coH.gH();
+                a.b bVar = this.coH.cot;
+                i = this.coH.errorCode;
+                bVar.a(i, "", null, this.coH.uz, this.coH.cox);
                 return false;
             default:
                 return false;

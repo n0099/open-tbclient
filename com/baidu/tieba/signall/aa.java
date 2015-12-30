@@ -1,20 +1,29 @@
 package com.baidu.tieba.signall;
 
-import android.view.View;
+import android.content.Context;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ z drq;
+public class aa implements Runnable {
+    final /* synthetic */ x dyy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar) {
-        this.drq = zVar;
+    public aa(x xVar) {
+        this.dyy = xVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SignAllForumActivity signAllForumActivity;
-        signAllForumActivity = this.drq.drf;
-        signAllForumActivity.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        Context context2;
+        ProgressBar progressBar;
+        context = this.dyy.mContext;
+        int dip2px = com.baidu.adp.lib.util.k.dip2px(context, 6.0f);
+        context2 = this.dyy.mContext;
+        int dip2px2 = com.baidu.adp.lib.util.k.dip2px(context2, 100.0f);
+        int i = dip2px2 - (dip2px * 2);
+        int i2 = (dip2px2 - i) / 2;
+        progressBar = this.dyy.mProgress;
+        progressBar.getProgressDrawable().setBounds(i2, i2, i2 + i, i + i2);
     }
 }

@@ -5,29 +5,29 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements c.b {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        an anVar;
-        an anVar2;
+        ao aoVar;
+        ao aoVar2;
         cVar.dismiss();
-        com.baidu.tieba.tbadkCore.data.o oVar = null;
-        anVar = this.cHd.cGS;
-        if (anVar.amF() != null) {
-            anVar2 = this.cHd.cGS;
-            oVar = anVar2.amF().ajK();
+        com.baidu.tieba.tbadkCore.data.r rVar = null;
+        aoVar = this.cLc.cKR;
+        if (aoVar.anR() != null) {
+            aoVar2 = this.cLc.cKR;
+            rVar = aoVar2.anR().akS();
         }
-        if (oVar != null) {
+        if (rVar != null) {
             if (i == 0) {
-                oVar.aQ(this.cHd.getPageContext().getPageActivity());
+                rVar.aR(this.cLc.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.cHd.c(oVar);
+                this.cLc.c(rVar);
             }
         }
     }

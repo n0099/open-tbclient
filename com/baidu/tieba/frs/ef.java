@@ -2,15 +2,15 @@ package com.baidu.tieba.frs;
 
 import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class ef extends SparseArray<et> {
-    public void a(eu euVar) {
+public class ef extends SparseArray<eu> {
+    public void a(ev evVar) {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < size()) {
-                et valueAt = valueAt(i2);
+                eu valueAt = valueAt(i2);
                 if (valueAt != null) {
-                    valueAt.a(euVar);
+                    valueAt.a(evVar);
                 }
                 i = i2 + 1;
             } else {
@@ -24,7 +24,7 @@ public class ef extends SparseArray<et> {
         while (true) {
             int i2 = i;
             if (i2 < size()) {
-                et valueAt = valueAt(i2);
+                eu valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.init();
                 }
@@ -40,10 +40,10 @@ public class ef extends SparseArray<et> {
         while (true) {
             int i2 = i;
             if (i2 < size()) {
-                et valueAt = valueAt(i2);
+                eu valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.Mf();
+                    valueAt.My();
                 }
                 i = i2 + 1;
             } else {
@@ -52,14 +52,14 @@ public class ef extends SparseArray<et> {
         }
     }
 
-    public void a(int i, et etVar) {
+    public void a(int i, eu euVar) {
         if (i > 100) {
             i = 100;
         }
-        put(i, etVar);
+        put(i, euVar);
     }
 
-    public et gk(int i) {
+    public eu gd(int i) {
         if (i > 100) {
             i = 100;
         }

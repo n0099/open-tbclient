@@ -1,11 +1,11 @@
 package com.baidu.tbadk.mvc.f.a;
 /* loaded from: classes.dex */
 public interface a {
-    b DW();
+    b DL();
 
-    void DX();
+    void DM();
 
-    void DY();
+    void DN();
 
     void by(boolean z);
 

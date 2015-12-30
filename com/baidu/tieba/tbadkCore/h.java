@@ -18,7 +18,7 @@ public class h {
         this.icon = str;
     }
 
-    public void mo(int i) {
+    public void mQ(int i) {
         this.weight = i;
     }
 
@@ -52,6 +52,6 @@ public class h {
         setTitle(starEnter.title);
         setType(starEnter.type.intValue());
         setUrl(starEnter.url);
-        mo(starEnter.weight.intValue());
+        mQ(starEnter.weight.intValue());
     }
 }

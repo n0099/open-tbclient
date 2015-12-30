@@ -9,48 +9,48 @@ import com.baidu.tieba.n;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static a dhF;
-    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> dhG = new HashMap<>();
+    private static a dnl;
+    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> dnm = new HashMap<>();
 
-    public static final a avO() {
-        if (dhF != null) {
-            return dhF;
+    public static final a axH() {
+        if (dnl != null) {
+            return dnl;
         }
         synchronized (a.class) {
-            if (dhF == null) {
-                dhF = new a();
+            if (dnl == null) {
+                dnl = new a();
             }
         }
-        return dhF;
+        return dnl;
     }
 
     public void registerHolder(int i, Class<? extends PbRecBaseViewHolder> cls) {
-        if (i >= 0 && cls != null && !this.dhG.containsKey(Integer.valueOf(i))) {
-            this.dhG.put(Integer.valueOf(i), cls);
+        if (i >= 0 && cls != null && !this.dnm.containsKey(Integer.valueOf(i))) {
+            this.dnm.put(Integer.valueOf(i), cls);
         }
     }
 
     public PbRecBaseViewHolder l(Context context, int i) {
         View inflate;
-        if (context == null || !this.dhG.containsKey(Integer.valueOf(i))) {
+        if (context == null || !this.dnm.containsKey(Integer.valueOf(i))) {
             return null;
         }
         switch (i) {
             case 1:
-                inflate = LayoutInflater.from(context).inflate(n.g.pb_item_app, (ViewGroup) null);
+                inflate = LayoutInflater.from(context).inflate(n.h.pb_item_app, (ViewGroup) null);
                 break;
             case 2:
-                inflate = LayoutInflater.from(context).inflate(n.g.pb_item_app_new, (ViewGroup) null);
+                inflate = LayoutInflater.from(context).inflate(n.h.pb_item_app_new, (ViewGroup) null);
                 break;
             case 3:
-                inflate = LayoutInflater.from(context).inflate(n.g.pb_item_app_multi_pic, (ViewGroup) null);
+                inflate = LayoutInflater.from(context).inflate(n.h.pb_item_app_multi_pic, (ViewGroup) null);
                 break;
             default:
                 inflate = null;
                 break;
         }
         try {
-            return this.dhG.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
+            return this.dnm.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
         } catch (Exception e) {
             BdLog.e(e.toString());
             return null;

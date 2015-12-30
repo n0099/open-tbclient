@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private int agm;
-    private List<u> agt;
-    private List<u> agu;
-    private boolean agv;
-    private boolean agw;
-    private int agx = 2;
-    private int agy = 1;
+    private List<u> ahA;
+    private List<u> ahB;
+    private boolean ahC;
+    private boolean ahD;
+    private int ahE = 2;
+    private int ahF = 1;
+    private int aht;
 
     public h(List<u> list, boolean z, int i) {
-        this.agm = 2;
-        this.agt = list;
-        this.agw = z;
-        this.agm = i;
-        l(list);
+        this.aht = 2;
+        this.ahA = list;
+        this.ahD = z;
+        this.aht = i;
+        m(list);
     }
 
-    public void l(List<u> list) {
-        if (list != null && list.size() >= this.agx && list.size() <= this.agm) {
-            this.agv = true;
-        } else if (list.size() > this.agm && this.agw) {
-            this.agv = true;
+    public void m(List<u> list) {
+        if (list != null && list.size() >= this.ahE && list.size() <= this.aht) {
+            this.ahC = true;
+        } else if (list.size() > this.aht && this.ahD) {
+            this.ahC = true;
         } else {
-            this.agv = false;
+            this.ahC = false;
         }
-        this.agu = wu();
+        this.ahB = wf();
     }
 
-    private List<u> wu() {
+    private List<u> wf() {
         ArrayList arrayList = new ArrayList();
-        if (this.agt != null) {
-            if (this.agv) {
-                if (this.agt.size() > this.agm && this.agt.size() >= this.agy) {
-                    arrayList.addAll(this.agt.subList(0, this.agm));
-                    arrayList.addAll(0, this.agt.subList(this.agm - this.agy, this.agm));
-                    arrayList.addAll(this.agt.subList(0, this.agy));
+        if (this.ahA != null) {
+            if (this.ahC) {
+                if (this.ahA.size() > this.aht && this.ahA.size() >= this.ahF) {
+                    arrayList.addAll(this.ahA.subList(0, this.aht));
+                    arrayList.addAll(0, this.ahA.subList(this.aht - this.ahF, this.aht));
+                    arrayList.addAll(this.ahA.subList(0, this.ahF));
                 } else {
-                    arrayList.addAll(this.agt);
-                    arrayList.addAll(0, this.agt.subList(this.agt.size() - this.agy, this.agt.size()));
-                    arrayList.addAll(this.agt.subList(0, this.agy));
+                    arrayList.addAll(this.ahA);
+                    arrayList.addAll(0, this.ahA.subList(this.ahA.size() - this.ahF, this.ahA.size()));
+                    arrayList.addAll(this.ahA.subList(0, this.ahF));
                 }
-            } else if (this.agt != null && this.agt.size() > 0 && this.agt.size() >= this.agy) {
-                arrayList.addAll(this.agt.subList(0, this.agy));
+            } else if (this.ahA != null && this.ahA.size() > 0 && this.ahA.size() >= this.ahF) {
+                arrayList.addAll(this.ahA.subList(0, this.ahF));
             }
         }
         return arrayList;
     }
 
-    public int da(int i) {
-        if (this.agv) {
-            int size = this.agu.size();
+    public int cT(int i) {
+        if (this.ahC) {
+            int size = this.ahB.size();
             if (i == 0) {
-                return (size - 1) - this.agy;
+                return (size - 1) - this.ahF;
             }
-            if (i == size - this.agy) {
-                return this.agy;
+            if (i == size - this.ahF) {
+                return this.ahF;
             }
             return i;
         }
         return i;
     }
 
-    public int db(int i) {
-        if (this.agv) {
-            return i - this.agy;
+    public int cU(int i) {
+        if (this.ahC) {
+            return i - this.ahF;
         }
         return i;
     }
 
-    public int wv() {
-        if (this.agt == null) {
+    public int wg() {
+        if (this.ahA == null) {
             return 0;
         }
-        return this.agt.size();
+        return this.ahA.size();
     }
 
-    public int ww() {
-        if (this.agv) {
-            return this.agy;
+    public int wh() {
+        if (this.ahC) {
+            return this.ahF;
         }
         return 0;
     }
 
-    public void dc(int i) {
-        this.agm = i;
-        l(this.agt);
+    public void cV(int i) {
+        this.aht = i;
+        m(this.ahA);
     }
 
-    public void dd(int i) {
-        this.agx = i;
-        l(this.agt);
+    public void cW(int i) {
+        this.ahE = i;
+        m(this.ahA);
     }
 
-    public List<u> wx() {
-        return this.agu;
+    public List<u> wi() {
+        return this.ahB;
     }
 
-    public void de(int i) {
-        this.agy = i;
-        l(this.agt);
+    public void cX(int i) {
+        this.ahF = i;
+        m(this.ahA);
     }
 }

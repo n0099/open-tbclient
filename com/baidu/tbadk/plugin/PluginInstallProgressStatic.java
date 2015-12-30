@@ -10,36 +10,36 @@ import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PluginInstallProgressStatic {
-    private static Runnable awx = new d();
-    private static boolean azy;
+    private static boolean aBb;
+    private static Runnable ayb = new d();
 
     static {
         if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
-            h.hj().post(awx);
+            h.hj().post(ayb);
             MessageManager.getInstance().registerListener(new e(2000993));
             MessageManager.getInstance().registerListener(new f(2000988));
         }
-        azy = false;
+        aBb = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Fb() {
+    public static final void EP() {
         if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
-            h.hj().removeCallbacks(awx);
-            h.hj().postDelayed(awx, 120000L);
-            if (!azy) {
-                azy = true;
-                String string = TbadkCoreApplication.m411getInst().getResources().getString(n.i.plugin_tip_installing);
+            h.hj().removeCallbacks(ayb);
+            h.hj().postDelayed(ayb, 120000L);
+            if (!aBb) {
+                aBb = true;
+                String string = TbadkCoreApplication.m411getInst().getResources().getString(n.j.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Fc() {
+    public static final void EQ() {
         if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
-            azy = false;
-            h.hj().removeCallbacks(awx);
+            aBb = false;
+            h.hj().removeCallbacks(ayb);
             NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }

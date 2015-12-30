@@ -24,28 +24,28 @@ public class i implements View.OnClickListener {
         int i3;
         boolean z2;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.bXu;
+        i = this.this$0.cbu;
         if (i == 0) {
-            z = this.this$0.aAh;
+            z = this.this$0.aBO;
             if (!z) {
                 str = TbConfig.PERSON_USER_PIC_TEMP_FILE;
             }
         } else {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.cIU;
-        i2 = this.this$0.bXu;
-        Bitmap fC = editHeadsImageView.fC(i2 == 0);
-        if (fC == null) {
+        EditHeadsImageView editHeadsImageView = this.this$0.cNk;
+        i2 = this.this$0.cbu;
+        Bitmap fB = editHeadsImageView.fB(i2 == 0);
+        if (fB == null) {
             return;
         }
-        b = this.this$0.b(str, fC);
+        b = this.this$0.b(str, fB);
         if (b) {
-            i3 = this.this$0.bXu;
+            i3 = this.this$0.cbu;
             if (i3 == 0) {
-                z2 = this.this$0.aAh;
+                z2 = this.this$0.aBO;
                 if (z2) {
-                    this.this$0.anm();
+                    this.this$0.aox();
                     return;
                 }
                 Intent intent = this.this$0.getIntent();
@@ -54,11 +54,11 @@ public class i implements View.OnClickListener {
                 this.this$0.closeActivity();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cQ(str), "head");
-            aVar.Da();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cT(str), "head");
+            aVar.CP();
             aVar.a(new j(this));
             aVar.br(false);
-            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(n.i.uploading));
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(n.j.uploading));
         }
     }
 }

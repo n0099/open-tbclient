@@ -121,7 +121,7 @@ public class ap implements a0, n {
                 }
             }
         }
-        ia = new String(bArr).split(ic);
+        ia = new String(bArr).split(";");
         b3();
         a aVar = new a();
         aVar.f57int = b4();
@@ -183,7 +183,7 @@ public class ap implements a0, n {
             str = TextUtils.join(ie, arrayList);
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(format).append(ic).append(format2).append(ic).append(str);
+        sb.append(format).append(";").append(format2).append(";").append(str);
         String sb2 = sb.toString();
         if ("mounted".equals(Environment.getExternalStorageState())) {
             File file = new File(I + File.separator + ib);

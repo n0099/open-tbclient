@@ -4,28 +4,28 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements BannerView.a {
-    final /* synthetic */ x bgI;
+    final /* synthetic */ x bkz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.bgI = xVar;
+        this.bkz = xVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zI() {
+    public void zu() {
         com.baidu.tbadk.core.data.j jVar;
         com.baidu.tbadk.core.data.j jVar2;
-        jVar = this.bgI.bcV;
+        jVar = this.bkz.bgV;
         if (jVar != null) {
-            jVar2 = this.bgI.bcV;
+            jVar2 = this.bkz.bgV;
             if (jVar2.getType() == 2) {
-                this.bgI.Nt();
+                this.bkz.NM();
             }
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zJ() {
-        this.bgI.NH();
+    public void zv() {
+        this.bkz.Oa();
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ LogoActivity aFj;
+    final /* synthetic */ LogoActivity aGJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(LogoActivity logoActivity) {
-        this.aFj = logoActivity;
+        this.aGJ = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -29,42 +29,46 @@ class c implements Runnable {
         Bitmap bitmap2;
         Bitmap bitmap3;
         RelativeLayout relativeLayout2;
-        RelativeLayout relativeLayout3;
         View view2;
-        view = this.aFj.aEZ;
+        RelativeLayout relativeLayout3;
+        View view3;
+        view = this.aGJ.aGz;
         if (view != null) {
-            relativeLayout = this.aFj.mRootView;
+            relativeLayout = this.aGJ.mRootView;
             if (relativeLayout != null) {
-                this.aFj.aFa = com.baidu.tbadk.core.util.c.f(this.aFj.getPageContext().getPageActivity(), n.e.logo_ad_bg);
-                bitmap = this.aFj.aFa;
+                this.aGJ.aGA = com.baidu.tbadk.core.util.c.f(this.aGJ.getPageContext().getPageActivity(), n.f.logo_ad_bg);
+                bitmap = this.aGJ.aGA;
                 if (bitmap == null) {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inPreferredConfig = TbConfig.BitmapConfig;
                     options.inSampleSize = 2;
-                    this.aFj.aFa = com.baidu.tbadk.core.util.c.a(this.aFj.getPageContext().getPageActivity(), n.e.logo_ad_bg, options);
+                    this.aGJ.aGA = com.baidu.tbadk.core.util.c.a(this.aGJ.getPageContext().getPageActivity(), n.f.logo_ad_bg, options);
                 }
-                bitmap2 = this.aFj.aFa;
+                bitmap2 = this.aGJ.aGA;
                 if (bitmap2 != null) {
                     try {
-                        bitmap3 = this.aFj.aFa;
+                        bitmap3 = this.aGJ.aGA;
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap3);
-                        relativeLayout2 = this.aFj.mRootView;
+                        relativeLayout2 = this.aGJ.mRootView;
                         relativeLayout2.setBackgroundDrawable(bitmapDrawable);
                     } catch (Throwable th) {
                         BdLog.e(th.getMessage());
                     }
                 }
-                relativeLayout3 = this.aFj.mRootView;
-                view2 = this.aFj.aEZ;
-                relativeLayout3.addView(view2);
-                z.EY().S(System.currentTimeMillis());
+                view2 = this.aGJ.aGz;
+                if (view2.getParent() == null) {
+                    relativeLayout3 = this.aGJ.mRootView;
+                    view3 = this.aGJ.aGz;
+                    relativeLayout3.addView(view3);
+                }
+                z.EN().T(System.currentTimeMillis());
             }
         }
         com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
-        aVar = this.aFj.aFf;
+        aVar = this.aGJ.aGF;
         hj.removeCallbacks(aVar);
         com.baidu.adp.lib.h.h hj2 = com.baidu.adp.lib.h.h.hj();
-        aVar2 = this.aFj.aFf;
+        aVar2 = this.aGJ.aGF;
         hj2.postDelayed(aVar2, 3000L);
     }
 }

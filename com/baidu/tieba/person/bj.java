@@ -9,11 +9,11 @@ import com.baidu.tieba.person.PersonImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj implements c.b {
-    final /* synthetic */ PersonImageActivity cLp;
+    final /* synthetic */ PersonImageActivity cPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PersonImageActivity personImageActivity) {
-        this.cLp = personImageActivity;
+        this.cPF = personImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -22,21 +22,21 @@ public class bj implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         PersonImageActivity.a aVar;
-        listMenu = this.cLp.getListMenu();
+        listMenu = this.cPF.getListMenu();
         if (cVar == listMenu) {
             if (i == 0) {
                 try {
-                    multiImageView = this.cLp.bGn;
+                    multiImageView = this.cPF.bJU;
                     byte[] currentImageData = multiImageView.getCurrentImageData();
                     if (currentImageData != null) {
-                        multiImageView2 = this.cLp.bGn;
+                        multiImageView2 = this.cPF.bJU;
                         String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                        this.cLp.cLo = new PersonImageActivity.a(currentImageUrl, currentImageData);
-                        aVar = this.cLp.cLo;
+                        this.cPF.cPE = new PersonImageActivity.a(currentImageUrl, currentImageData);
+                        aVar = this.cPF.cPE;
                         aVar.execute(new String[0]);
-                        this.cLp.mProgress.setVisibility(0);
+                        this.cPF.mProgress.setVisibility(0);
                     } else {
-                        this.cLp.showToast(this.cLp.getPageContext().getString(n.i.no_data));
+                        this.cPF.showToast(this.cPF.getPageContext().getString(n.j.no_data));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());

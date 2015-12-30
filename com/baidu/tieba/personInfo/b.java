@@ -18,7 +18,7 @@ class b extends CustomMessageListener {
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
             ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
             if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = personInfoDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.avR.setArguments(new Bundle());
+                fragmentTabStructure.axv.setArguments(new Bundle());
             }
         }
     }

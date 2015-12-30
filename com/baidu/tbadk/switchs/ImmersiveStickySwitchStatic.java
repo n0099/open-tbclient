@@ -2,15 +2,16 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.c.a;
 import com.baidu.adp.lib.c.e;
+import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
 public class ImmersiveStickySwitchStatic extends a {
     static {
-        e.gw().f(ImmersiveStickySwitchStatic.class);
+        e.gw().e(ImmersiveStickySwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.c.a
     protected String getName() {
-        return "android_chenjinshi_switch";
+        return "android_immersive_switch";
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -36,5 +37,10 @@ public class ImmersiveStickySwitchStatic extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
+        if (i == 1) {
+            b.tJ().putBoolean("switch_immersive_sticky_status", true);
+        } else {
+            b.tJ().putBoolean("switch_immersive_sticky_status", false);
+        }
     }
 }

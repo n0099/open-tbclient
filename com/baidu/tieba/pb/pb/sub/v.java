@@ -8,32 +8,32 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
     public void d(Object obj) {
-        an anVar;
-        an anVar2;
-        an anVar3;
-        an anVar4;
-        an anVar5;
-        an anVar6;
-        an anVar7;
+        ao aoVar;
+        ao aoVar2;
+        ao aoVar3;
+        ao aoVar4;
+        ao aoVar5;
+        ao aoVar6;
+        ao aoVar7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        anVar = this.cHd.cGS;
-        if (anVar.amF() != null) {
-            anVar5 = this.cHd.cGS;
-            if (anVar5.amF().ajT() != null) {
-                anVar6 = this.cHd.cGS;
-                if (anVar6.amF().ajT().getAuthor() != null) {
-                    anVar7 = this.cHd.cGS;
-                    str = String.valueOf(anVar7.amF().ajT().getAuthor().getUserId());
+        aoVar = this.cLc.cKR;
+        if (aoVar.anR() != null) {
+            aoVar5 = this.cLc.cKR;
+            if (aoVar5.anR().Iv() != null) {
+                aoVar6 = this.cLc.cKR;
+                if (aoVar6.anR().Iv().getAuthor() != null) {
+                    aoVar7 = this.cLc.cKR;
+                    str = String.valueOf(aoVar7.anR().Iv().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class v implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.cHd;
-        Activity pageActivity = this.cHd.getPageContext().getPageActivity();
-        anVar2 = this.cHd.cGS;
-        String id = anVar2.amF().ajR().getId();
-        anVar3 = this.cHd.cGS;
-        String name = anVar3.amF().ajR().getName();
-        anVar4 = this.cHd.cGS;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, anVar4.amF().ajT().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.cLc;
+        Activity pageActivity = this.cLc.getPageContext().getPageActivity();
+        aoVar2 = this.cLc.cKR;
+        String id = aoVar2.anR().akZ().getId();
+        aoVar3 = this.cLc.cKR;
+        String name = aoVar3.anR().akZ().getName();
+        aoVar4 = this.cLc.cKR;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, aoVar4.anR().Iv().getId(), str, str2, str3)));
     }
 }

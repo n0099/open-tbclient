@@ -21,11 +21,12 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.h.j;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
-import com.baidu.adp.plugin.pluginBase.a;
+import com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
@@ -33,7 +34,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.g;
-import com.baidu.tbadk.core.view.j;
+import com.baidu.tbadk.core.view.d;
+import com.baidu.tbadk.core.view.k;
 import com.baidu.tbadk.f.f;
 import com.baidu.tbadk.f.h;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -44,7 +46,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ProxyAdkBaseActivity<T> extends a {
+public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
     public static final byte KEYBOARD_STATE_SHOW = -3;
@@ -54,7 +56,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     private List<Dialog> dialogList;
     private View loadingRootView;
     private f loadingView;
-    private com.baidu.tbadk.core.a mLayoutInflateFactory;
+    private a mLayoutInflateFactory;
     private c mLayoutMode;
     private ProgressBar mProgressBar;
     protected com.baidu.adp.widget.f mSwipeBackLayout;
@@ -65,7 +67,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     protected ProgressDialog mWaitingDialog = null;
     private AlertDialog mListMenu = null;
     protected int mSkinType = 3;
-    private final com.baidu.tbadk.core.view.c mGuidPage = null;
+    private final d mGuidPage = null;
     private DialogInterface.OnCancelListener mDialogListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tbadk.ProxyAdkBaseActivity.1
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
@@ -88,7 +90,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
         this.mSwipeBackLayout = new com.baidu.adp.widget.f(getActivity());
         this.mSwipeBackLayout.n(getActivity());
@@ -101,10 +103,10 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = g.uf();
+        this.customToast = g.tP();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
-        this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
+        this.mLayoutInflateFactory = new a();
         this.mLayoutInflateFactory.a(this.mLayoutMode);
         getLayoutInflater().setFactory(this.mLayoutInflateFactory);
         if (getGpuSwitch()) {
@@ -114,7 +116,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bd.dz(getClass().getName());
+        bd.dC(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -129,7 +131,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.plugin.pluginBase.c, com.baidu.adp.base.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.i
     public TbPageContext<T> getPageContext() {
         if (this.pageContext == null) {
             this.pageContext = new ProxyAdkBaseActivityPageContext(this);
@@ -182,7 +184,7 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            j.r(getPageContext().getPageActivity());
+            k.r(getPageContext().getPageActivity());
         }
     }
 
@@ -190,7 +192,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         return TbadkCoreApplication.m411getInst().isGpuOpen();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.c, android.view.KeyEvent.Callback
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 82) {
             try {
@@ -208,7 +210,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.c, android.view.KeyEvent.Callback
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         try {
             return super.onKeyUp(i, keyEvent);
@@ -225,11 +227,11 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vX();
+            this.mGuidPage.vH();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -243,16 +245,16 @@ public class ProxyAdkBaseActivity<T> extends a {
         super.onDestroy();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void finish() {
-        k.c(getApplicationContext(), getWindow().getDecorView());
+        com.baidu.adp.lib.util.k.c(getApplicationContext(), getWindow().getDecorView());
         dismissAllDialog();
         dismissAllPopupWindow();
         super.finish();
         closeAnimation();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.a
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
     public void releaseResouce() {
     }
 
@@ -267,7 +269,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void showProgressBar(boolean z, int i, int i2) {
         if (this.mProgressBar == null) {
             this.mProgressBar = new ProgressBar(getActivity());
-            this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(n.e.progressbar));
+            this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(n.f.progressbar));
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
         }
@@ -275,12 +277,12 @@ public class ProxyAdkBaseActivity<T> extends a {
             this.mProgressBar.bringToFront();
         }
         if (this.mProgressBar != null) {
-            this.mProgressBar.setPadding(k.dip2px(getActivity(), i), k.dip2px(getActivity(), i2), 0, 0);
+            this.mProgressBar.setPadding(com.baidu.adp.lib.util.k.dip2px(getActivity(), i), com.baidu.adp.lib.util.k.dip2px(getActivity(), i2), 0, 0);
             this.mProgressBar.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         try {
             if (this.mProgressBar != null && this.mProgressBar.isShown()) {
@@ -316,8 +318,8 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing() && com.baidu.adp.lib.h.j.k(getActivity())) {
-            String string = str != null ? str : TbadkCoreApplication.m411getInst().getResources().getString(n.i.Waiting);
+        if (!isFinishing() && j.k(getActivity())) {
+            String string = str != null ? str : TbadkCoreApplication.m411getInst().getResources().getString(n.j.Waiting);
             if (onCancelListener != null) {
                 this.mWaitingDialog = ProgressDialog.show(getActivity(), "", string, true, true, onCancelListener);
             } else {
@@ -330,7 +332,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.mWaitingDialog != null) {
             try {
                 if (this.mWaitingDialog.isShowing()) {
-                    com.baidu.adp.lib.h.j.b(this.mWaitingDialog, getActivity());
+                    j.b(this.mWaitingDialog, getActivity());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -344,29 +346,29 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).tE();
+        BdToast.b(getActivity(), str, i).to();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).tE();
+        BdToast.a(getActivity(), str, i, i2).to();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).tE();
+        BdToast.a(getActivity(), str, defaultIcon).to();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).tE();
+        BdToast.a(getActivity(), str, defaultIcon, i).to();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.a
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
     public void showToast(String str) {
         String name = getClass().getName();
         String str2 = String.valueOf(getApplicationContext().getPackageName()) + ".chat";
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
             this.customToast.showToast(str, 2000);
         } else {
-            k.showToast(getActivity(), str);
+            com.baidu.adp.lib.util.k.showToast(getActivity(), str);
         }
     }
 
@@ -384,7 +386,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
             this.customToast.showToast(i, 2000);
         } else {
-            k.showToast(getActivity(), i);
+            com.baidu.adp.lib.util.k.showToast(getActivity(), i);
         }
     }
 
@@ -392,7 +394,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (z) {
             showToast(str);
         } else {
-            k.showToast(getActivity(), str);
+            com.baidu.adp.lib.util.k.showToast(getActivity(), str);
         }
     }
 
@@ -400,7 +402,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (z) {
             showToast(i);
         } else {
-            k.showToast(getActivity(), i);
+            com.baidu.adp.lib.util.k.showToast(getActivity(), i);
         }
     }
 
@@ -427,7 +429,7 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     protected AlertDialog newListMenu(String[] strArr, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(TbadkCoreApplication.m411getInst().getResources().getString(n.i.operation));
+        builder.setTitle(TbadkCoreApplication.m411getInst().getResources().getString(n.j.operation));
         builder.setItems(strArr, onClickListener);
         this.mListMenu = builder.create();
         this.mListMenu.setCanceledOnTouchOutside(true);
@@ -444,18 +446,18 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     protected void showListMenu() {
         if (this.mListMenu != null && !this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.h.j.a(this.mListMenu, getActivity());
+            j.a(this.mListMenu, getActivity());
         }
     }
 
     protected void hideListMenu() {
         if (this.mListMenu != null && this.mListMenu.isShowing()) {
-            com.baidu.adp.lib.h.j.b(this.mListMenu, getActivity());
+            j.b(this.mListMenu, getActivity());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
         this.customToast.onPause();
@@ -467,14 +469,14 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         TbadkCoreApplication.m411getInst().AddResumeNum();
-        bd.dz(getClass().getName());
+        bd.dC(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -497,7 +499,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onStop() {
         super.onStop();
         onResourceRecycle();
@@ -508,10 +510,10 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     protected void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.tH();
+            this.loadingView.tr();
         }
         if (this.refreshView != null) {
-            this.refreshView.tH();
+            this.refreshView.tr();
         }
         if (this.mSwipeBackLayout != null) {
             this.mSwipeBackLayout.onChangeSkinType(i);
@@ -558,15 +560,15 @@ public class ProxyAdkBaseActivity<T> extends a {
         this.mLayoutMode = cVar;
     }
 
-    public com.baidu.tbadk.core.a getLayoutInflate() {
+    public a getLayoutInflate() {
         return this.mLayoutInflateFactory;
     }
 
-    public void setLayoutInflate(com.baidu.tbadk.core.a aVar) {
+    public void setLayoutInflate(a aVar) {
         this.mLayoutInflateFactory = aVar;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
     public void onPreLoad(BdListView bdListView) {
         super.onPreLoad(bdListView);
         ah.a(bdListView, getUniqueId());
@@ -577,7 +579,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (com.baidu.adp.lib.h.j.a(dialog, getActivity())) {
+        if (j.a(dialog, getActivity())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -597,20 +599,20 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.dialogList != null) {
             this.dialogList.remove(dialog);
         }
-        com.baidu.adp.lib.h.j.b(dialog, getActivity());
+        j.b(dialog, getActivity());
     }
 
     public void dismissAllDialog() {
         if (this.dialogList != null) {
             for (Dialog dialog : this.dialogList) {
-                com.baidu.adp.lib.h.j.b(dialog, getActivity());
+                j.b(dialog, getActivity());
             }
             this.dialogList.clear();
         }
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(popupWindow, view)) {
+        if (j.showPopupWindowAsDropDown(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -621,7 +623,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(popupWindow, view, i, i2)) {
+        if (j.showPopupWindowAsDropDown(popupWindow, view, i, i2)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -632,7 +634,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAtLocation(popupWindow, view, i, i2, i3)) {
+        if (j.showPopupWindowAtLocation(popupWindow, view, i, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -643,7 +645,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        com.baidu.adp.lib.h.j.a(popupWindow, getActivity());
+        j.a(popupWindow, getActivity());
         if (this.popupWindowList != null) {
             this.popupWindowList.remove(popupWindow);
         }
@@ -652,7 +654,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void dismissAllPopupWindow() {
         if (this.popupWindowList != null) {
             for (PopupWindow popupWindow : this.popupWindowList) {
-                com.baidu.adp.lib.h.j.a(popupWindow, getActivity());
+                j.a(popupWindow, getActivity());
             }
             this.popupWindowList.clear();
         }
@@ -777,12 +779,12 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Dh();
+        return this.loadingView.CW();
     }
 
     public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.v(view);
+            this.loadingView.u(view);
         }
     }
 
@@ -790,7 +792,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fL(str);
+        this.refreshView.fP(str);
         this.refreshView.b(view, z);
     }
 
@@ -800,7 +802,7 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     public void hideNetRefreshView(View view) {
         if (this.refreshView != null) {
-            this.refreshView.v(view);
+            this.refreshView.u(view);
         }
     }
 

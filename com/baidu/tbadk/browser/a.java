@@ -1,6 +1,7 @@
 package com.baidu.tbadk.browser;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class a implements Runnable {
+public class a implements Runnable {
     final /* synthetic */ BaseWebViewActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */

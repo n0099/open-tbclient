@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.chosen;
 import android.view.View;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cyo;
+    final /* synthetic */ PbChosenActivity cBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PbChosenActivity pbChosenActivity) {
-        this.cyo = pbChosenActivity;
+        this.cBV = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,14 +16,14 @@ class m implements View.OnClickListener {
         com.baidu.tbadk.editortools.d.e eVar2;
         com.baidu.tbadk.editortools.d.e eVar3;
         com.baidu.tieba.pb.chosen.a.l lVar;
-        if (this.cyo.checkUpIsLogin()) {
-            eVar = this.cyo.aXY;
+        if (this.cBV.checkUpIsLogin()) {
+            eVar = this.cBV.bbY;
             if (eVar != null) {
-                eVar2 = this.cyo.aXY;
-                if (eVar2.Bu() != null) {
-                    eVar3 = this.cyo.aXY;
-                    eVar3.Bu().oD();
-                    lVar = this.cyo.cxT;
+                eVar2 = this.cBV.bbY;
+                if (eVar2.Bj() != null) {
+                    eVar3 = this.cBV.bbY;
+                    eVar3.Bj().ob();
+                    lVar = this.cBV.cBA;
                     lVar.setVisible(false);
                 }
             }

@@ -9,33 +9,33 @@ import com.baidu.tbadk.widget.TbViewPager;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class ChildViewPager extends TbViewPager {
-    private PointF dwM;
-    private PointF dwN;
-    private a dwO;
-    private int dwP;
-    private boolean dwQ;
+    private PointF dEm;
+    private PointF dEn;
+    private a dEo;
+    private int dEp;
+    private boolean dEq;
 
     /* loaded from: classes.dex */
     public interface a {
-        void mn(int i);
+        void mP(int i);
     }
 
     public ChildViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dwM = new PointF();
-        this.dwN = new PointF();
+        this.dEm = new PointF();
+        this.dEn = new PointF();
         init();
     }
 
     public ChildViewPager(Context context) {
         super(context);
-        this.dwM = new PointF();
-        this.dwN = new PointF();
+        this.dEm = new PointF();
+        this.dEn = new PointF();
         init();
     }
 
     private void init() {
-        this.dwP = new ViewConfiguration().getScaledTouchSlop();
+        this.dEp = new ViewConfiguration().getScaledTouchSlop();
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
@@ -45,45 +45,45 @@ public class ChildViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.dwN.x = motionEvent.getX();
-        this.dwN.y = motionEvent.getY();
+        this.dEn.x = motionEvent.getX();
+        this.dEn.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.dwM.x = motionEvent.getX();
-            this.dwM.y = motionEvent.getY();
+            this.dEm.x = motionEvent.getX();
+            this.dEm.y = motionEvent.getY();
             getParent().requestDisallowInterceptTouchEvent(true);
-            this.dwQ = true;
+            this.dEq = true;
             postDelayed(new c(this), 500L);
         }
         if (motionEvent.getAction() == 2) {
-            int abs = (int) Math.abs(this.dwN.x - this.dwM.x);
-            int abs2 = (int) Math.abs(this.dwN.y - this.dwM.y);
+            int abs = (int) Math.abs(this.dEn.x - this.dEm.x);
+            int abs2 = (int) Math.abs(this.dEn.y - this.dEm.y);
             if (abs > abs2) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             } else {
                 getParent().requestDisallowInterceptTouchEvent(false);
             }
-            if (abs > this.dwP || abs2 > this.dwP) {
+            if (abs > this.dEp || abs2 > this.dEp) {
                 setPressed(false);
             }
-            this.dwQ = false;
+            this.dEq = false;
         }
         if (motionEvent.getAction() == 1) {
-            if (Math.abs(this.dwM.x - this.dwN.x) + Math.abs(this.dwM.y - this.dwN.y) < getResources().getDimensionPixelSize(n.d.ds6)) {
-                mn(getCurrentItem());
+            if (Math.abs(this.dEm.x - this.dEn.x) + Math.abs(this.dEm.y - this.dEn.y) < getResources().getDimensionPixelSize(n.e.ds6)) {
+                mP(getCurrentItem());
             }
             setPressed(false);
-            this.dwQ = false;
+            this.dEq = false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void mn(int i) {
-        if (this.dwO != null) {
-            this.dwO.mn(i);
+    public void mP(int i) {
+        if (this.dEo != null) {
+            this.dEo.mP(i);
         }
     }
 
     public void setOnSingleTouchListener(a aVar) {
-        this.dwO = aVar;
+        this.dEo = aVar;
     }
 }

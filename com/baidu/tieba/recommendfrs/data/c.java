@@ -1,87 +1,29 @@
 package com.baidu.tieba.recommendfrs.data;
 
-import com.baidu.tbadk.mvc.b.j;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.card.a.q;
+import com.baidu.tieba.card.a.r;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ExcFrsPage.ExcFrsPageResIdl;
-import tbclient.ExcFrsPage.ExcellentTagInfo;
-import tbclient.ExcFrsPage.ExcellentThreadInfo;
+import tbclient.Personalized.CardTopic;
+import tbclient.Personalized.TopicInfo;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.mvc.b.b, j {
-    private boolean czM = true;
-    private List<ExcellentThreadInfo> diM;
-    private List<ExcellentTagInfo> dix;
-    private boolean mHasMore;
-    private int pn;
-
-    public int getPn() {
-        return this.pn;
-    }
-
-    public boolean isEmpty() {
-        return this.dix == null || this.dix.size() <= 0 || this.diM == null || this.diM.size() <= 0;
-    }
-
-    public List<ExcellentThreadInfo> getThreadList() {
-        return this.diM;
-    }
-
-    public List<ExcellentTagInfo> awk() {
-        return this.dix;
-    }
-
-    public boolean getHasMore() {
-        return this.mHasMore;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void g(JSONObject jSONObject) {
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        ExcFrsPageResIdl excFrsPageResIdl;
-        if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
-            this.diM = excFrsPageResIdl.data.thread_list;
-            this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
-            this.pn = excFrsPageResIdl.data.pn.intValue();
-            if (excFrsPageResIdl.data.tag_list != null) {
-                this.dix = new ArrayList();
-                for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
-                    if (excellentTagInfo != null) {
-                        this.dix.add(excellentTagInfo);
-                    }
+public class c extends r {
+    public void a(CardTopic cardTopic) {
+        if (cardTopic != null && !StringUtils.isNull(cardTopic.card_title) && y.l(cardTopic.topic_list) >= 4) {
+            this.aQF = cardTopic.card_title;
+            this.position = cardTopic.position.intValue();
+            this.aQG = new ArrayList();
+            for (TopicInfo topicInfo : cardTopic.topic_list) {
+                if (!StringUtils.isNull(topicInfo.topic_name)) {
+                    q qVar = new q();
+                    qVar.aQA = topicInfo.topic_id.longValue();
+                    qVar.aQB = topicInfo.topic_name;
+                    qVar.desc = topicInfo.desc;
+                    qVar.aQC = topicInfo.is_hot.intValue() == 1;
+                    this.aQG.add(qVar);
                 }
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Dq() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.b
-    public boolean R(byte[] bArr) {
-        try {
-            a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public boolean awl() {
-        return this.czM;
     }
 }

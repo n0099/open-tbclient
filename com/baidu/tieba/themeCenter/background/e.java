@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d dEx;
+    final /* synthetic */ d dMb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.dEx = dVar;
+        this.dMb = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -28,13 +28,13 @@ public class e extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof BackgroundGroupHttpResponseMessage) || (responsedMessage instanceof BackgroundGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    aVar3 = this.dEx.dEv;
+                    aVar3 = this.dMb.dLZ;
                     if (aVar3 != null) {
-                        aVar4 = this.dEx.dEv;
+                        aVar4 = this.dMb.dLZ;
                         int error = responsedMessage.getError();
                         String errorString = responsedMessage.getErrorString();
-                        kVar2 = this.dEx.mRecommand;
-                        list2 = this.dEx.dEu;
+                        kVar2 = this.dMb.mRecommand;
+                        list2 = this.dMb.dLY;
                         aVar4.a(error, errorString, kVar2, list2);
                         return;
                     }
@@ -42,20 +42,20 @@ public class e extends com.baidu.adp.framework.listener.a {
                 }
                 if (responsedMessage instanceof BackgroundGroupHttpResponseMessage) {
                     BackgroundGroupHttpResponseMessage backgroundGroupHttpResponseMessage = (BackgroundGroupHttpResponseMessage) responsedMessage;
-                    this.dEx.mRecommand = backgroundGroupHttpResponseMessage.getRecommand();
-                    this.dEx.dEu = backgroundGroupHttpResponseMessage.getGroupList();
+                    this.dMb.mRecommand = backgroundGroupHttpResponseMessage.getRecommand();
+                    this.dMb.dLY = backgroundGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BackgroundGroupSocketResponseMessage) {
                     BackgroundGroupSocketResponseMessage backgroundGroupSocketResponseMessage = (BackgroundGroupSocketResponseMessage) responsedMessage;
-                    this.dEx.mRecommand = backgroundGroupSocketResponseMessage.getRecommand();
-                    this.dEx.dEu = backgroundGroupSocketResponseMessage.getGroupList();
+                    this.dMb.mRecommand = backgroundGroupSocketResponseMessage.getRecommand();
+                    this.dMb.dLY = backgroundGroupSocketResponseMessage.getGroupList();
                 }
-                aVar = this.dEx.dEv;
+                aVar = this.dMb.dLZ;
                 if (aVar != null) {
-                    aVar2 = this.dEx.dEv;
+                    aVar2 = this.dMb.dLZ;
                     int error2 = responsedMessage.getError();
                     String errorString2 = responsedMessage.getErrorString();
-                    kVar = this.dEx.mRecommand;
-                    list = this.dEx.dEu;
+                    kVar = this.dMb.mRecommand;
+                    list = this.dMb.dLY;
                     aVar2.a(error2, errorString2, kVar, list);
                 }
             }

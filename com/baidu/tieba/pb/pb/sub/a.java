@@ -6,11 +6,11 @@ import com.baidu.tieba.usermute.i;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class a implements i.a {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.usermute.i.a
@@ -18,26 +18,26 @@ class a implements i.a {
         w wVar;
         boolean z;
         w wVar2;
-        wVar = this.cHd.cGU;
-        wVar.alU();
+        wVar = this.cLc.cKT;
+        wVar.ang();
         SparseArray<Object> sparseArray = (SparseArray) obj;
         if (i == 0 && dataRes != null) {
             boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
-            sparseArray.put(n.f.tag_user_mute_visible, true);
+            sparseArray.put(n.g.tag_user_mute_visible, true);
             z = z2;
         } else {
-            sparseArray.put(n.f.tag_user_mute_visible, false);
+            sparseArray.put(n.g.tag_user_mute_visible, false);
             z = false;
         }
-        int intValue = sparseArray.get(n.f.tag_from) instanceof Integer ? ((Integer) sparseArray.get(n.f.tag_from)).intValue() : 0;
+        int intValue = sparseArray.get(n.g.tag_from) instanceof Integer ? ((Integer) sparseArray.get(n.g.tag_from)).intValue() : 0;
         if (intValue != 0) {
             if (intValue == 1) {
-                wVar2 = this.cHd.cGU;
+                wVar2 = this.cLc.cKT;
                 wVar2.a(sparseArray, z);
                 return;
             }
             return;
         }
-        this.cHd.a(z, sparseArray);
+        this.cLc.a(z, sparseArray);
     }
 }

@@ -1,25 +1,27 @@
 package com.baidu.tieba.person.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ae extends CustomMessageListener {
-    final /* synthetic */ ad cNh;
+public class ae implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId cRq = BdUniqueId.gen();
+    private boolean isSelf;
+    private List<com.baidu.tbadk.data.g> mPhotoAlbum;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(ad adVar, int i) {
-        super(i);
-        this.cNh = adVar;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return cRq;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
-        }
-        this.cNh.e(customResponsedMessage);
+    public List<com.baidu.tbadk.data.g> getPhotoAlbum() {
+        return this.mPhotoAlbum;
+    }
+
+    public void setPhotoAlbum(List<com.baidu.tbadk.data.g> list) {
+        this.mPhotoAlbum = list;
+    }
+
+    public void setSelf(boolean z) {
+        this.isSelf = z;
     }
 }

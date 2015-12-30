@@ -1,163 +1,192 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.database.DataSetObserver;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.ViewStub;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.n;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ca extends BaseAdapter {
-    private ArrayList<com.baidu.tbadk.core.data.m> XX;
-    private String bcm;
-    private int bcn = 0;
-    private Context mContext;
+public class ca {
+    private static final int bfY = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds70);
+    private static final int bfZ = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds100);
+    private static final int bga = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds20);
+    private static final int bgb = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds18);
+    private static final int bgc = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds16);
+    private static final int bgd = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds50);
+    private static final int bge = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.fontsize32);
+    private static final int bgf = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.fontsize28);
+    private static final int bgg = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.fontsize20);
 
-    public ca(Context context, ArrayList<com.baidu.tbadk.core.data.m> arrayList) {
-        this.mContext = context;
-        this.XX = arrayList;
-        this.bcm = this.mContext.getText(n.i.frs_good).toString();
-        Nr();
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        if (dataSetObserver != null) {
-            super.unregisterDataSetObserver(dataSetObserver);
-        }
-    }
-
-    public void setData(ArrayList<com.baidu.tbadk.core.data.m> arrayList) {
-        this.XX = arrayList;
-        Nr();
-    }
-
-    private void Nr() {
-        int i = 0;
-        if (this.XX != null) {
-            ArrayList<com.baidu.tbadk.core.data.m> arrayList = new ArrayList<>();
-            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-            mVar.bA(0);
-            mVar.cp(this.bcm);
-            arrayList.add(mVar);
-            if (this.XX != null && this.XX.size() > 0) {
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= this.XX.size()) {
-                        break;
-                    }
-                    com.baidu.tbadk.core.data.m mVar2 = this.XX.get(i2);
-                    if (mVar2.rY() != 0) {
-                        arrayList.add(mVar2);
-                    }
-                    i = i2 + 1;
+    public static void a(BaseActivity<?> baseActivity, View view, View view2, TextView textView, View view3, View view4, RelativeLayout relativeLayout, View view5, com.baidu.tbadk.core.data.z zVar, int i, View.OnClickListener onClickListener) {
+        View view6;
+        TextView textView2;
+        cc ccVar;
+        View view7;
+        if (baseActivity != null && view != null && view2 != null && textView != null && view3 != null && view4 != null && relativeLayout != null && view5 != null && zVar != null) {
+            boolean z = false;
+            if (zVar.getAuthor() != null && zVar.getAuthor().getGodInfo() != null) {
+                z = true;
+            }
+            if (z) {
+                if (zVar.ss() != 0 && !em.Oz().e(zVar.ss(), zVar.getId())) {
+                    em.Oz().d(zVar.ss(), zVar.getId());
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10633").aa("tid", zVar.getId()).aa(ImageViewerConfig.FORUM_ID, String.valueOf(zVar.ss())));
                 }
-            }
-            this.XX = arrayList;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.XX == null) {
-            return 0;
-        }
-        return this.XX.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.XX.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
-        View view2;
-        a aVar;
-        View view3;
-        try {
-            if (view == null) {
-                view3 = LayoutInflater.from(this.mContext).inflate(n.g.dialog_good_item, (ViewGroup) null);
-                try {
-                    aVar = new a(this, null);
-                    aVar.aGw = (TextView) view3.findViewById(n.f.frs_dia_good_text);
-                    aVar.bco = (ImageView) view3.findViewById(n.f.frs_dia_divider);
-                    aVar.bcp = (ImageView) view3.findViewById(n.f.frs_btm_divider);
-                    aVar.bcq = (ImageView) view3.findViewById(n.f.frs_btm_divider_s);
-                    view3.setTag(aVar);
-                } catch (Exception e) {
-                    view2 = view3;
-                    exc = e;
-                    BdLog.e(exc.getMessage());
-                    return view2;
+                cb cbVar = new cb(zVar, onClickListener);
+                com.baidu.tbadk.core.util.as.i(view, n.f.frs_item_control_btn_trans_bg);
+                view.setClickable(true);
+                view.setOnClickListener(cbVar);
+                relativeLayout.setOnClickListener(null);
+                relativeLayout.setClickable(false);
+                view2.setOnClickListener(cbVar);
+                ViewGroup.MarginLayoutParams marginLayoutParams = null;
+                if (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
                 }
-            } else {
-                aVar = (a) view.getTag();
-                view3 = view;
+                if (marginLayoutParams == null) {
+                    marginLayoutParams = new LinearLayout.LayoutParams(bfY, bfY);
+                } else {
+                    marginLayoutParams.rightMargin = bgb;
+                }
+                marginLayoutParams.width = bfZ;
+                marginLayoutParams.height = bfZ;
+                textView.setTextSize(0, bge);
+                view3.setVisibility(8);
+                view4.setVisibility(8);
+                View findViewWithTag = relativeLayout.findViewWithTag("frs_god_intro_tag");
+                if (findViewWithTag == null || !(findViewWithTag instanceof TextView)) {
+                    TextView textView3 = new TextView(baseActivity.getActivity());
+                    textView3.setTextSize(0, bgg);
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams.topMargin = bgc;
+                    layoutParams.rightMargin = bgd;
+                    layoutParams.addRule(5, n.g.frs_user_tshow_icon_box);
+                    layoutParams.addRule(3, n.g.frs_item_loc_view);
+                    textView3.setLayoutParams(layoutParams);
+                    textView3.setSingleLine(true);
+                    textView3.setEllipsize(TextUtils.TruncateAt.END);
+                    textView3.setIncludeFontPadding(false);
+                    textView3.setGravity(16);
+                    textView3.setTag("frs_god_intro_tag");
+                    relativeLayout.addView(textView3);
+                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams2.addRule(11);
+                    layoutParams2.addRule(15);
+                    View imageView = new ImageView(baseActivity.getActivity());
+                    imageView.setTag("frs_god_arrow_tag");
+                    imageView.setLayoutParams(layoutParams2);
+                    relativeLayout.addView(imageView);
+                    view6 = imageView;
+                    textView2 = textView3;
+                } else {
+                    TextView textView4 = (TextView) findViewWithTag;
+                    textView4.setVisibility(0);
+                    View findViewWithTag2 = relativeLayout.findViewWithTag("frs_god_arrow_tag");
+                    if (findViewWithTag2 != null) {
+                        findViewWithTag2.setVisibility(0);
+                    }
+                    view6 = findViewWithTag2;
+                    textView2 = textView4;
+                }
+                if (textView2 != null) {
+                    if (StringUtils.isNull(zVar.getAuthor().getGodInfo().intro, true)) {
+                        textView2.setText(n.j.god_intro_default);
+                    } else {
+                        textView2.setText(zVar.getAuthor().getGodInfo().intro);
+                    }
+                }
+                View findViewById = view5.findViewById(n.g.frs_god_extra_info);
+                if (findViewById == null) {
+                    ViewStub viewStub = (ViewStub) view5.findViewById(n.g.frs_god_extra_vs);
+                    if (viewStub == null) {
+                        view7 = findViewById;
+                        ccVar = null;
+                    } else {
+                        view7 = viewStub.inflate();
+                        ccVar = new cc(view7);
+                        view7.setTag(ccVar);
+                    }
+                } else {
+                    findViewById.setVisibility(0);
+                    ccVar = (cc) findViewById.getTag();
+                    view7 = findViewById;
+                }
+                if (zVar != null && !zVar.sJ() && !TextUtils.isEmpty(zVar.getAddress()) && !TextUtils.isEmpty(zVar.getAddress().trim())) {
+                    ccVar.bgj.setVisibility(0);
+                    ccVar.bgk.setVisibility(0);
+                    ccVar.bgj.setText(zVar.getAddress());
+                } else {
+                    ccVar.bgj.setVisibility(8);
+                    ccVar.bgk.setVisibility(8);
+                }
+                if (zVar.getPraise() != null && zVar.getPraise().getNum() > 0) {
+                    ccVar.agz.setVisibility(0);
+                    ccVar.agz.setText(com.baidu.tbadk.core.util.ax.x(zVar.getPraise().getNum()));
+                } else {
+                    ccVar.agz.setVisibility(8);
+                }
+                int reply_num = zVar.getReply_num();
+                if (reply_num > 0) {
+                    ccVar.bcG.setVisibility(0);
+                    ccVar.bcG.setText(com.baidu.tbadk.core.util.ax.x(reply_num));
+                } else {
+                    ccVar.bcG.setVisibility(8);
+                }
+                ccVar.agy.setText(com.baidu.tbadk.core.util.ax.s(zVar.getLast_time_int() * 1000));
+                if (ccVar.ahf != i) {
+                    com.baidu.tbadk.core.util.as.i(view6, n.f.icon_arrow_list);
+                    com.baidu.tbadk.core.util.as.b(textView2, n.d.cp_cont_h, 1);
+                    com.baidu.tbadk.core.util.as.i((View) textView2, n.f.icon_shen);
+                    if (view7 != null) {
+                        baseActivity.getLayoutMode().k(view7);
+                    }
+                    ccVar.ahf = i;
+                    return;
+                }
+                return;
             }
-            com.baidu.tbadk.core.util.as.i(aVar.bco, n.c.frs_goodheader_line);
-            com.baidu.tbadk.core.util.as.i(aVar.bcp, n.c.frs_goodheader_line);
-            if (this.bcn == i) {
-                com.baidu.tbadk.core.util.as.b(aVar.aGw, n.c.frs_goodheader_text_S, 1);
-                aVar.bcq.setVisibility(0);
-                com.baidu.tbadk.core.util.as.i(aVar.bcq, n.c.frs_goodheader_line_S);
-            } else {
-                com.baidu.tbadk.core.util.as.b(aVar.aGw, n.c.frs_goodheader_text, 1);
-                aVar.bcq.setVisibility(8);
+            view.setBackgroundDrawable(null);
+            view.setClickable(false);
+            relativeLayout.setOnClickListener(onClickListener);
+            view2.setOnClickListener(onClickListener);
+            relativeLayout.setClickable(true);
+            ViewGroup.LayoutParams layoutParams3 = null;
+            if (view2.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams3 = (LinearLayout.LayoutParams) view2.getLayoutParams();
+                ((LinearLayout.LayoutParams) layoutParams3).rightMargin = bga;
+            } else if (view2.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                layoutParams3 = (RelativeLayout.LayoutParams) view2.getLayoutParams();
+                ((RelativeLayout.LayoutParams) layoutParams3).rightMargin = bga;
             }
-            if (i % 3 == 2 || i == getCount() - 1) {
-                aVar.bco.setVisibility(4);
-            } else {
-                aVar.bco.setVisibility(0);
+            if (layoutParams3 == null) {
+                layoutParams3 = new LinearLayout.LayoutParams(bfY, bfY);
             }
-            if (i / 3 == (getCount() - 1) / 3) {
-                aVar.bcp.setVisibility(8);
-            } else {
-                aVar.bcp.setVisibility(0);
+            layoutParams3.width = bfY;
+            layoutParams3.height = bfY;
+            textView.setTextSize(0, bgf);
+            view3.setVisibility(0);
+            view4.setVisibility(0);
+            View findViewWithTag3 = relativeLayout.findViewWithTag("frs_god_intro_tag");
+            if (findViewWithTag3 != null) {
+                findViewWithTag3.setVisibility(8);
             }
-            Object item = getItem(i);
-            if (item == null) {
-                return view3;
+            View findViewById2 = view5.findViewById(n.g.frs_god_extra_info);
+            if (findViewById2 != null) {
+                findViewById2.setVisibility(8);
             }
-            aVar.aGw.setText(((com.baidu.tbadk.core.data.m) item).rX());
-            return view3;
-        } catch (Exception e2) {
-            exc = e2;
-            view2 = view;
+            View findViewWithTag4 = relativeLayout.findViewWithTag("frs_god_arrow_tag");
+            if (findViewWithTag4 != null) {
+                findViewWithTag4.setVisibility(8);
+            }
         }
-    }
-
-    /* loaded from: classes.dex */
-    private class a {
-        TextView aGw;
-        ImageView bco;
-        ImageView bcp;
-        ImageView bcq;
-
-        private a() {
-        }
-
-        /* synthetic */ a(ca caVar, a aVar) {
-            this();
-        }
-    }
-
-    public void gb(int i) {
-        this.bcn = i;
     }
 }

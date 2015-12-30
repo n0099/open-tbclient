@@ -4,19 +4,19 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
-    private j mSearchData;
+    private k mSearchData;
 
     public PostSearchHttpResponseMessage(int i) {
         super(i);
     }
 
-    public j getSearchData() {
+    public k getSearchData() {
         return this.mSearchData;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
-        this.mSearchData = new j();
+        this.mSearchData = new k();
         this.mSearchData.parseJson(jSONObject);
     }
 }

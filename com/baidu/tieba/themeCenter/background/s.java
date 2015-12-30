@@ -3,11 +3,11 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.tieba.themeCenter.background.y;
 /* loaded from: classes.dex */
 class s implements y.a {
-    final /* synthetic */ BackgroundPreviewActivity dFa;
+    final /* synthetic */ BackgroundPreviewActivity dMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(BackgroundPreviewActivity backgroundPreviewActivity) {
-        this.dFa = backgroundPreviewActivity;
+        this.dMC = backgroundPreviewActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.background.y.a
@@ -15,16 +15,16 @@ class s implements y.a {
         aa aaVar;
         aa aaVar2;
         aa aaVar3;
-        BackgroundPreviewActivity backgroundPreviewActivity = this.dFa;
-        aaVar = this.dFa.dEX;
+        BackgroundPreviewActivity backgroundPreviewActivity = this.dMC;
+        aaVar = this.dMC.dMz;
         backgroundPreviewActivity.hideLoadingView(aaVar.getRootView());
         if (i == 0) {
-            aaVar2 = this.dFa.dEX;
+            aaVar2 = this.dMC.dMz;
             aaVar2.e(dressItemData);
             return;
         }
-        this.dFa.showToast(str);
-        aaVar3 = this.dFa.dEX;
-        aaVar3.LY();
+        this.dMC.showToast(str);
+        aaVar3 = this.dMC.dMz;
+        aaVar3.Mr();
     }
 }

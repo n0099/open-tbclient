@@ -1,23 +1,23 @@
 package com.baidu.tieba.frs.collect;
 
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 /* loaded from: classes.dex */
-class b implements q.a {
-    final /* synthetic */ MyCollectFrsActivity bgk;
+class b implements r.a {
+    final /* synthetic */ MyCollectFrsActivity bkc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(MyCollectFrsActivity myCollectFrsActivity) {
-        this.bgk = myCollectFrsActivity;
+        this.bkc = myCollectFrsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.q.a
+    @Override // com.baidu.tbadk.core.view.r.a
     public void onListPullRefresh(boolean z) {
         l lVar;
-        if (!com.baidu.adp.lib.util.k.jg()) {
-            lVar = this.bgk.bgf;
+        if (!com.baidu.adp.lib.util.k.jh()) {
+            lVar = this.bkc.bjX;
             lVar.completePullRefresh();
             return;
         }
-        this.bgk.refresh();
+        this.bkc.refresh();
     }
 }

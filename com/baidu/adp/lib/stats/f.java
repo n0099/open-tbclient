@@ -5,9 +5,9 @@ public class f {
     public String mCuid;
     public String mNetType;
     public String wA;
-    public String wg;
-    public String wq;
-    public String wr;
+    public String wB;
+    public String wC;
+    public String wi;
     public String ws;
     public String wt;
     public String wu;

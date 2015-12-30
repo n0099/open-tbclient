@@ -17,97 +17,97 @@ import com.baidu.tieba.tbadkCore.ah;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements j.a {
-    private static int cfo = 7;
-    private boolean alT;
-    private com.baidu.tbadk.core.data.b cfq;
-    private boolean cfr;
-    private h cfs;
-    private i cft;
+    private static int cjs = 7;
+    private boolean amZ;
+    private com.baidu.tbadk.core.data.b cju;
+    private boolean cjv;
+    private h cjw;
+    private i cjx;
     private TbPageContext<?> mContext;
-    private int cfp = 0;
-    private boolean cfu = false;
-    private final View.OnClickListener aZW = new b(this);
-    private final View.OnClickListener aZV = new c(this);
-    private final CustomMessageListener cfv = new d(this, 0);
+    private int cjt = 0;
+    private boolean cjy = false;
+    private final View.OnClickListener bdT = new b(this);
+    private final View.OnClickListener bdS = new c(this);
+    private final CustomMessageListener cjz = new d(this, 0);
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.alT = false;
-        this.cfr = false;
-        this.alT = z;
-        this.cfr = z2;
+        this.amZ = false;
+        this.cjv = false;
+        this.amZ = z;
+        this.cjv = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.cfv);
-        this.cft = new i(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.cjz);
+        this.cjx = new i(tbPageContext.getPageActivity(), str, str2);
     }
 
-    public void d(com.baidu.tbadk.core.data.b bVar, int i) {
-        this.cfq = bVar;
-        this.cfp = i;
-        this.cft.c(this.cfq);
+    public void c(com.baidu.tbadk.core.data.b bVar, int i) {
+        this.cju = bVar;
+        this.cjt = i;
+        this.cjx.d(this.cju);
     }
 
-    public boolean adJ() {
-        return this.cfr && this.cfq != null && this.cfq.rB() && !ah.isInstalledPackage(this.mContext.getPageActivity(), this.cfq.Ur);
+    public boolean aeS() {
+        return this.cjv && this.cju != null && this.cju.rk() && !ah.isInstalledPackage(this.mContext.getPageActivity(), this.cju.US);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public View f(ViewGroup viewGroup, int i) {
-        if (iZ(i)) {
-            this.cfs = new h(viewGroup);
-            adK();
-            viewGroup.addView(this.cfs.getView());
-            return this.cfs.getView();
+        if (jy(i)) {
+            this.cjw = new h(viewGroup);
+            aeT();
+            viewGroup.addView(this.cjw.getView());
+            return this.cjw.getView();
         }
         return null;
     }
 
-    private boolean iZ(int i) {
-        return adJ() && this.cfp != 0 && i == this.cfp;
+    private boolean jy(int i) {
+        return aeS() && this.cjt != 0 && i == this.cjt;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adK() {
-        if (this.cfq != null && this.cfq.UA != null) {
-            adL();
-            if (this.cfq.rD()) {
-                this.cfs.adQ().setVisibility(8);
-                this.cfs.q(this.aZV);
-            } else if (this.cfq.rC()) {
-                adM();
+    public void aeT() {
+        if (this.cju != null && this.cju.Vb != null) {
+            aeU();
+            if (this.cju.rm()) {
+                this.cjw.aeZ().setVisibility(8);
+                this.cjw.q(this.bdS);
+            } else if (this.cju.rl()) {
+                aeV();
             }
         }
     }
 
-    private void adL() {
-        this.cfs.adP().setEvent(new e(this));
-        this.cfs.adP().d(this.cfq.UA.UF, this.alT ? 30 : 31, false);
+    private void aeU() {
+        this.cjw.aeY().setEvent(new e(this));
+        this.cjw.aeY().d(this.cju.Vb.Vg, this.amZ ? 30 : 31, false);
     }
 
-    private void adM() {
-        if (this.cfq != null) {
-            this.cfs.adQ().setVisibility(0);
-            if (com.baidu.tbadk.download.b.Bm().eW(this.cfq.Ur)) {
-                this.cfq.Ul = 2;
+    private void aeV() {
+        if (this.cju != null) {
+            this.cjw.aeZ().setVisibility(0);
+            if (com.baidu.tbadk.download.b.Bb().fa(this.cju.US)) {
+                this.cju.UL = 2;
             }
-            switch (this.cfq.Ul) {
+            switch (this.cju.UL) {
                 case 0:
-                    String string = this.mContext.getString(n.i.pb_app_download);
-                    if (this.cfq.UA != null && !StringUtils.isNull(this.cfq.UA.UK)) {
-                        string = this.cfq.UA.UK;
+                    String string = this.mContext.getString(n.j.pb_app_download);
+                    if (this.cju.Vb != null && !StringUtils.isNull(this.cju.Vb.Vl)) {
+                        string = this.cju.Vb.Vl;
                     }
-                    if (string.length() > cfo) {
-                        string = string.substring(0, cfo);
+                    if (string.length() > cjs) {
+                        string = string.substring(0, cjs);
                     }
-                    this.cfs.jj(string);
-                    this.cfs.q(this.aZW);
+                    this.cjw.jw(string);
+                    this.cjw.q(this.bdT);
                     return;
                 case 1:
-                    this.cfs.adR();
-                    this.cfs.q(null);
+                    this.cjw.afa();
+                    this.cjw.q(null);
                     return;
                 case 2:
-                    this.cfs.adT();
-                    this.cfs.q(this.aZW);
+                    this.cjw.afc();
+                    this.cjw.q(this.bdT);
                     return;
                 default:
                     return;
@@ -116,49 +116,49 @@ public class a implements j.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tbadk.core.data.b bVar) {
+    public void c(com.baidu.tbadk.core.data.b bVar) {
         String string;
         if (bVar != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            if (com.baidu.adp.lib.util.i.iR()) {
-                string = this.mContext.getString(n.i.frs_network_tips);
+            if (com.baidu.adp.lib.util.i.iS()) {
+                string = this.mContext.getString(n.j.frs_network_tips);
             } else {
-                string = this.mContext.getString(n.i.confirm_download_app);
+                string = this.mContext.getString(n.j.confirm_download_app);
             }
-            aVar.cC(string);
-            aVar.a(n.i.alert_yes_button, new f(this));
-            aVar.b(n.i.alert_no_button, new g(this));
-            aVar.b(this.mContext).tv();
+            aVar.cF(string);
+            aVar.a(n.j.alert_yes_button, new f(this));
+            aVar.b(n.j.alert_no_button, new g(this));
+            aVar.b(this.mContext).tf();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.cfq != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.cju != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.cfq.Ur, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.cju.US, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.cfq.Ul = 2;
+                        this.cju.UL = 2;
                     } else if (status == 2 || status == 4) {
                         if (!ax.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.cfq.Ul = 0;
+                        this.cju.UL = 0;
                     } else if (status == 1) {
-                        this.cfq.Ul = 1;
+                        this.cju.UL = 1;
                     }
-                    adK();
+                    aeT();
                 }
             }
         }
     }
 
-    public void adN() {
-        if (!this.cfu) {
-            this.cfu = true;
-            this.cft.adX();
+    public void aeW() {
+        if (!this.cjy) {
+            this.cjy = true;
+            this.cjx.aff();
         }
     }
 }

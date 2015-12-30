@@ -38,7 +38,7 @@ public class TbConfig {
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
-    public static final int BUILD_NUMBER = 244;
+    public static final int BUILD_NUMBER = 103;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -128,6 +128,7 @@ public class TbConfig {
     public static final boolean GROUP_MSG_DEFAULT_SWITCH = true;
     public static final int HEAD_IMG_SIZE = 960;
     public static final String HOME_FORUM_FEED_LIST = "c/u/feed/forum";
+    public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
     public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
     public static final String IMAGE_CACHE_DIR_NAME = "images";
     public static final String IMAGE_PB_ADDRESS = "c/f/pb/picpage";
@@ -249,6 +250,7 @@ public class TbConfig {
     public static final int READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI = 2000;
     public static final int READ_IMAGE_CACHE_TIMEOUT_WIFI = 300;
     public static final String RECOMMEND_FRS = "c/f/excellent/excfrspage";
+    public static final String RECOMMEND_HOME_PAGE_ADDRESS = "c/f/excellent/personalized";
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String REPORT_APPLIST = "http://als.baidu.com/device/logForC";
@@ -371,6 +373,7 @@ public class TbConfig {
     public static String SET_USER_PICS = String.valueOf(SERVER_ADDRESS) + "c/c/img/setuserpic";
     public static String ADD_USER_ATTR_URL = "c/c/user/addUserAttr";
     public static String VOTE_ADD = "c/c/post/addPollPost";
+    public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static boolean COULD_UPDATE = true;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;

@@ -15,11 +15,11 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.widget.ListView.v {
-    final /* synthetic */ a bCx;
+    final /* synthetic */ a bGb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bCx = aVar;
+        this.bGb = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -28,14 +28,14 @@ public class d implements com.baidu.adp.widget.ListView.v {
         HotTopicActivity hotTopicActivity2;
         HotTopicActivity hotTopicActivity3;
         if (uVar != null) {
-            hotTopicActivity = this.bCx.bCu;
+            hotTopicActivity = this.bGb.bFY;
             if (hotTopicActivity != null && (uVar instanceof z) && !(uVar instanceof com.baidu.tieba.hottopic.data.b)) {
                 MessageManager messageManager = MessageManager.getInstance();
-                hotTopicActivity2 = this.bCx.bCu;
+                hotTopicActivity2 = this.bGb.bFY;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(hotTopicActivity2.getPageContext().getPageActivity()).createNormalCfg(((z) uVar).getTid(), null, HotTopicActivityConfig.ST_TYPE)));
-                av ab = new av("c10368").ab("tid", ((z) uVar).getTid());
-                hotTopicActivity3 = this.bCx.bCu;
-                TiebaStatic.log(ab.ab("obj_id", hotTopicActivity3.Ul()));
+                av aa = new av("c10368").aa("tid", ((z) uVar).getTid());
+                hotTopicActivity3 = this.bGb.bFY;
+                TiebaStatic.log(aa.aa("obj_id", hotTopicActivity3.Vo()));
             }
         }
     }

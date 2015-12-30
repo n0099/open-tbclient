@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class e {
-    private static e axo = null;
+    private static e ayS = null;
 
     private e() {
     }
 
-    public static synchronized e Er() {
+    public static synchronized e Eg() {
         e eVar;
         synchronized (e.class) {
-            if (axo == null) {
-                axo = new e();
+            if (ayS == null) {
+                ayS = new e();
             }
-            eVar = axo;
+            eVar = ayS;
         }
         return eVar;
     }
 
-    public boolean Es() {
-        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m411getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Et();
+    public boolean Eh() {
+        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m411getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Ei();
     }
 
-    public boolean Et() {
+    public boolean Ei() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,15 +46,15 @@ public class e {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bf.vD().b(tbPageContext, new String[]{str});
+            bf.vn().b(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
-            showToast(n.i.plugin_pay_error);
-        } else if (!Es()) {
-            showToast(n.i.plugin_pay_wallet_not_found);
+            showToast(n.j.plugin_pay_error);
+        } else if (!Eh()) {
+            showToast(n.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));
         }

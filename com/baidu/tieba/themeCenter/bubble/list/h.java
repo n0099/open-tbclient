@@ -12,67 +12,64 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.q;
-import com.baidu.tbadk.core.view.s;
+import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.t;
 import com.baidu.tieba.n;
 import com.baidu.tieba.themeCenter.MemberRecommendView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.view.MemberBuyEntryButton;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private NoNetworkView aWm;
-    private MemberBuyEntryButton dEU;
-    private MemberRecommendView dEy;
-    private BubbleListActivity dFM;
-    private d dFR;
-    private boolean dFS = false;
+    private NoNetworkView bam;
+    private MemberRecommendView dMc;
+    private BubbleListActivity dNo;
+    private d dNt;
+    private boolean dNu = false;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
-    private s mPullView;
+    private t mPullView;
     private View mRoot;
     private int topMargin;
 
     public h(BubbleListActivity bubbleListActivity, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
         this.mPullView = null;
         this.topMargin = 0;
-        this.dFM = bubbleListActivity;
-        this.topMargin = k.d(bubbleListActivity.getPageContext().getPageActivity(), n.d.ds120);
-        this.mRoot = LayoutInflater.from(this.dFM.getPageContext().getPageActivity()).inflate(n.g.bubble_list, (ViewGroup) null);
-        this.dFM.setContentView(this.mRoot);
-        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.f.view_navigation_bar);
+        this.dNo = bubbleListActivity;
+        this.topMargin = k.d(bubbleListActivity.getPageContext().getPageActivity(), n.e.ds120);
+        this.mRoot = LayoutInflater.from(this.dNo.getPageContext().getPageActivity()).inflate(n.h.bubble_list, (ViewGroup) null);
+        this.dNo.setContentView(this.mRoot);
+        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(n.i.bubble_all);
-        this.dEy = (MemberRecommendView) this.mRoot.findViewById(n.f.view_member_recommend);
-        this.mListView = (BdListView) this.mRoot.findViewById(n.f.listview_bubble);
-        this.dEU = (MemberBuyEntryButton) this.mRoot.findViewById(n.f.root_bg_list_buy_member);
-        this.mPullView = new s(this.dFM.getPageContext());
+        this.mNavigationBar.setTitleText(n.j.bubble_all);
+        this.dMc = (MemberRecommendView) this.mRoot.findViewById(n.g.view_member_recommend);
+        this.dMc.setFromType(7);
+        this.mListView = (BdListView) this.mRoot.findViewById(n.g.listview_bubble);
+        this.mPullView = new t(this.dNo.getPageContext());
         this.mListView.setPullRefresh(this.mPullView);
-        TextView textView = new TextView(this.dFM.getActivity());
-        textView.setHeight(k.d(this.dFM.getActivity(), n.d.ds20));
+        TextView textView = new TextView(this.dNo.getActivity());
+        textView.setHeight(k.d(this.dNo.getActivity(), n.e.ds20));
         this.mListView.addFooterView(textView);
-        this.dFR = new d(this.dFM.getPageContext(), aVar);
-        this.mListView.setAdapter((ListAdapter) this.dFR);
+        this.dNt = new d(this.dNo.getPageContext(), aVar);
+        this.mListView.setAdapter((ListAdapter) this.dNt);
     }
 
-    public void a(BdListView.e eVar, q.a aVar) {
+    public void a(BdListView.e eVar, r.a aVar) {
         this.mListView.setOnSrollToBottomListener(eVar);
         this.mPullView.a(aVar);
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.k kVar, List<DressItemData> list, boolean z) {
         if (list == null || list.size() <= 0) {
-            LY();
+            Mr();
             return;
         }
-        LZ();
-        this.dEU.show(z);
+        Ms();
         b(kVar);
-        G(bS(list));
+        H(bV(list));
     }
 
-    private List<List<DressItemData>> bS(List<DressItemData> list) {
+    private List<List<DressItemData>> bV(List<DressItemData> list) {
         ArrayList arrayList = new ArrayList();
         int size = list.size();
         for (int i = 0; i < size; i = i + 1 + 1) {
@@ -87,63 +84,62 @@ public class h {
         return arrayList;
     }
 
-    private void G(List<List<DressItemData>> list) {
+    private void H(List<List<DressItemData>> list) {
         if (list == null || list.size() <= 0) {
             this.mListView.setVisibility(8);
             return;
         }
         this.mListView.setVisibility(0);
-        this.dFR.setData(list);
-        this.dFR.notifyDataSetChanged();
+        this.dNt.setData(list);
+        this.dNt.notifyDataSetChanged();
     }
 
     private boolean b(com.baidu.tieba.themeCenter.dressCenter.k kVar) {
-        if (kVar == null || StringUtils.isNull(kVar.aFw())) {
-            this.dEy.setVisibility(8);
+        if (kVar == null || StringUtils.isNull(kVar.aHL())) {
+            this.dMc.setVisibility(8);
             return false;
         }
-        this.dEy.setVisibility(0);
-        this.dEy.a(kVar);
+        this.dMc.setVisibility(0);
+        this.dMc.a(kVar);
         return true;
     }
 
-    public void LY() {
-        this.dEy.setVisibility(8);
+    public void Mr() {
+        this.dMc.setVisibility(8);
         this.mListView.setVisibility(8);
         this.mRoot.setVisibility(8);
-        as.j(this.mRoot, n.c.cp_bg_line_d);
-        String string = this.dFM.getPageContext().getResources().getString(n.i.no_data_text);
-        this.dFM.setNetRefreshViewTopMargin(this.topMargin);
-        this.dFM.showNetRefreshView(this.mRoot, string, false);
+        as.j(this.mRoot, n.d.cp_bg_line_d);
+        String string = this.dNo.getPageContext().getResources().getString(n.j.no_data_text);
+        this.dNo.setNetRefreshViewTopMargin(this.topMargin);
+        this.dNo.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void LZ() {
-        as.j(this.mRoot, n.c.cp_bg_line_c);
-        this.dFM.hideNetRefreshView(this.mRoot);
-        this.dEy.setVisibility(0);
+    public void Ms() {
+        as.j(this.mRoot, n.d.cp_bg_line_c);
+        this.dNo.hideNetRefreshView(this.mRoot);
+        this.dMc.setVisibility(0);
         this.mListView.setVisibility(0);
         this.mRoot.setVisibility(0);
     }
 
-    public void aFu() {
+    public void aHJ() {
         this.mListView.completePullRefresh();
     }
 
-    public void oV() {
-        com.baidu.tbadk.i.a.a(this.dFM.getPageContext(), this.mRoot);
+    public void ot() {
+        com.baidu.tbadk.i.a.a(this.dNo.getPageContext(), this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.dFM.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.dNo.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.aWm != null && this.aWm.getVisibility() == 0) {
-            this.aWm.onChangeSkinType(this.dFM.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.bam != null && this.bam.getVisibility() == 0) {
+            this.bam.onChangeSkinType(this.dNo.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dFR != null) {
-            this.dFR.notifyDataSetChanged();
+        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dNt != null) {
+            this.dNt.notifyDataSetChanged();
         }
         if (this.mPullView != null) {
-            this.mPullView.cV(TbadkApplication.getInst().getSkinType());
+            this.mPullView.cP(TbadkApplication.getInst().getSkinType());
         }
-        this.dEU.onChangeSkinType(this.dFM.getPageContext(), TbadkApplication.getInst().getSkinType());
     }
 
     public View getRootView() {

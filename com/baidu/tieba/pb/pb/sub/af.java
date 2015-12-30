@@ -1,27 +1,33 @@
 package com.baidu.tieba.pb.pb.sub;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.pb.b.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ w cHA;
+public class af implements c.a {
+    final /* synthetic */ w cLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(w wVar) {
-        this.cHA = wVar;
+        this.cLC = wVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        View.OnLongClickListener onLongClickListener;
-        View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.cHA.aSQ;
-        if (onLongClickListener != null) {
-            onLongClickListener2 = this.cHA.aSQ;
-            onLongClickListener2.onLongClick(view);
-            return false;
-        }
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.cLC.fo(false);
+        this.cLC.ao(view);
+        this.cLC.fo(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean b(View view, MotionEvent motionEvent) {
         return false;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

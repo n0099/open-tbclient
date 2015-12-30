@@ -6,6 +6,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.ax;
@@ -14,13 +15,13 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bFE;
-    private final /* synthetic */ long boJ;
+    final /* synthetic */ a bJl;
+    private final /* synthetic */ long bsA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, long j) {
-        this.bFE = aVar;
-        this.boJ = j;
+        this.bJl = aVar;
+        this.bsA = j;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,35 +37,38 @@ public class d implements View.OnClickListener {
         LinearLayout linearLayout2;
         TbPageContext tbPageContext;
         ImageView imageView3;
+        BdTypeListView bdTypeListView;
         LinearLayout linearLayout3;
-        linearLayout = this.bFE.bFu;
+        linearLayout = this.bJl.bJb;
         Animation animation2 = linearLayout.getAnimation();
-        animation = this.bFE.bFy;
+        animation = this.bJl.bJf;
         if (animation2 == animation) {
-            linearLayout3 = this.bFE.bFu;
+            linearLayout3 = this.bJl.bJb;
             linearLayout3.clearAnimation();
-            return;
-        }
-        textView = this.bFE.bFv;
-        textView.setVisibility(0);
-        textView2 = this.bFE.bFv;
-        textView2.setText(ax.x(this.boJ + 1));
-        z = this.bFE.bFC;
-        if (z) {
-            imageView3 = this.bFE.bFt;
-            as.c(imageView3, n.e.bless_gif);
         } else {
-            imageView = this.bFE.bFt;
-            as.c(imageView, n.e.candle_gif);
+            textView = this.bJl.bJc;
+            textView.setVisibility(0);
+            textView2 = this.bJl.bJc;
+            textView2.setText(ax.y(this.bsA + 1));
+            z = this.bJl.bJj;
+            if (z) {
+                imageView3 = this.bJl.bJa;
+                as.c(imageView3, n.f.bless_gif);
+            } else {
+                imageView = this.bJl.bJa;
+                as.c(imageView, n.f.candle_gif);
+            }
+            a aVar = this.bJl;
+            imageView2 = this.bJl.bJa;
+            aVar.bJe = (AnimationDrawable) imageView2.getDrawable();
+            animationDrawable = this.bJl.bJe;
+            animationDrawable.start();
+            linearLayout2 = this.bJl.bJb;
+            linearLayout2.postDelayed(new e(this), 2000L);
+            tbPageContext = this.bJl.bIX;
+            ((HotTopicActivity) tbPageContext.getOrignalPage()).Vk();
         }
-        a aVar = this.bFE;
-        imageView2 = this.bFE.bFt;
-        aVar.bFx = (AnimationDrawable) imageView2.getDrawable();
-        animationDrawable = this.bFE.bFx;
-        animationDrawable.start();
-        linearLayout2 = this.bFE.bFu;
-        linearLayout2.postDelayed(new e(this), 2000L);
-        tbPageContext = this.bFE.bFq;
-        ((HotTopicActivity) tbPageContext.getOrignalPage()).Ui();
+        bdTypeListView = this.bJl.aVi;
+        bdTypeListView.setEnabled(true);
     }
 }

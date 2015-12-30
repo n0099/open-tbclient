@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class c extends ImageView implements r {
-    private int aqq;
-    private boolean aqr;
+    private int arU;
+    private boolean arV;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements r {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aqr = false;
+        this.arV = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements r {
     }
 
     public void setIcon(int i) {
-        this.aqq = i;
-        as.b((ImageView) this, this.aqq, this.mSkinType);
+        this.arU = i;
+        as.b((ImageView) this, this.arU, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -42,17 +42,17 @@ public class c extends ImageView implements r {
     }
 
     @Override // com.baidu.tbadk.editortools.r
-    public void oD() {
+    public void ob() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.r
     public void hide() {
-        Bt();
+        Bi();
         setVisibility(8);
     }
 
-    public void eY(String str) {
+    public void fc(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,23 +67,23 @@ public class c extends ImageView implements r {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            as.a(this.mTip, n.c.cp_cont_g, 1, this.mSkinType);
+            as.a(this.mTip, n.d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                as.c(this.mTip, n.e.icon_news_head_prompt_one, this.mSkinType);
+                as.c(this.mTip, n.f.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                as.c(this.mTip, n.e.icon_news_down_bar_one, this.mSkinType);
+                as.c(this.mTip, n.f.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void Bt() {
+    public void Bi() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class c extends ImageView implements r {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Bt();
+                Bi();
             } else if (aVar.data instanceof String) {
-                eY((String) aVar.data);
+                fc((String) aVar.data);
             }
         }
     }
@@ -108,23 +108,23 @@ public class c extends ImageView implements r {
     @Override // com.baidu.tbadk.editortools.r
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        as.b((ImageView) this, this.aqq, i);
+        as.b((ImageView) this, this.arU, i);
         if (this.mTip != null) {
-            as.a(this.mTip, n.c.cp_cont_g, 1, i);
+            as.a(this.mTip, n.d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                as.c(this.mTip, n.e.icon_news_head_prompt_one, i);
+                as.c(this.mTip, n.f.icon_news_head_prompt_one, i);
             } else {
-                as.c(this.mTip, n.e.icon_news_down_bar_one, i);
+                as.c(this.mTip, n.f.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aqr;
+        return this.arV;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aqr = z;
+        this.arV = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

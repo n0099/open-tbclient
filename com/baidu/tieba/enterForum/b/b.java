@@ -5,71 +5,71 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private boolean Cq;
-    private int aPW;
-    private int aPX;
-    private int aPY;
-    private String aPZ;
-    private c aQa;
-    private boolean auZ;
+    private boolean Cv;
+    private int aTO;
+    private int aTP;
+    private int aTQ;
+    private String aTR;
+    private c aTS;
+    private boolean awD;
     private int isMem;
     int redirect;
     private int time = 0;
-    private d aPT = new d();
-    private h aPU = new h();
-    private g aPV = new g();
+    private d aTL = new d();
+    private h aTM = new h();
+    private g aTN = new g();
 
     public int getRedirect() {
         return this.redirect;
     }
 
-    public void fs(int i) {
+    public void fn(int i) {
         this.redirect = i;
     }
 
-    public void bX(boolean z) {
-        this.auZ = z;
+    public void bY(boolean z) {
+        this.awD = z;
     }
 
     public b() {
-        this.Cq = true;
-        this.Cq = false;
+        this.Cv = true;
+        this.Cv = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void ft(int i) {
-        this.aPY = i;
+    public void fo(int i) {
+        this.aTQ = i;
     }
 
     public void setIsMem(int i) {
         this.isMem = i;
     }
 
-    public void fu(int i) {
-        this.aPW = i;
+    public void fp(int i) {
+        this.aTO = i;
     }
 
-    public void fv(int i) {
-        this.aPX = i;
+    public void fq(int i) {
+        this.aTP = i;
     }
 
-    public void gL(String str) {
-        this.aPZ = str;
+    public void gV(String str) {
+        this.aTR = str;
     }
 
     public void a(g gVar) {
-        this.aPV = gVar;
+        this.aTN = gVar;
     }
 
-    public g JB() {
-        return this.aPV;
+    public g JS() {
+        return this.aTN;
     }
 
     public c getHotSearchInfoData() {
-        return this.aQa;
+        return this.aTS;
     }
 
     public void a(DataRes dataRes) {
@@ -81,25 +81,25 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                fu(dataRes.msign_valid.intValue());
-                fv(dataRes.msign_level.intValue());
-                ft(dataRes.is_login.intValue());
-                gL(dataRes.msign_text);
+                fp(dataRes.msign_valid.intValue());
+                fq(dataRes.msign_level.intValue());
+                fo(dataRes.is_login.intValue());
+                gV(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aPT.setLevel(this.aPX);
+                this.aTL.setLevel(this.aTP);
                 if (dataRes.like_forum != null) {
-                    this.aPT.K(dataRes.like_forum);
+                    this.aTL.L(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aPU.K(dataRes.banner);
+                    this.aTM.L(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aPV.L(dataRes.recommend_forum_info);
+                    this.aTN.M(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.aQa = new c();
-                    this.aQa.a(dataRes.hot_search);
+                    this.aTS = new c();
+                    this.aTS.a(dataRes.hot_search);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -108,30 +108,30 @@ public class b {
     }
 
     public void a(h hVar) {
-        this.aPU = hVar;
+        this.aTM = hVar;
     }
 
-    public d JC() {
-        return this.aPT;
+    public d JT() {
+        return this.aTL;
     }
 
     public void a(d dVar) {
-        this.aPT = dVar;
+        this.aTL = dVar;
     }
 
-    public void as(boolean z) {
-        this.Cq = z;
+    public void ap(boolean z) {
+        this.Cv = z;
     }
 
     public boolean isSuccess() {
-        return this.Cq;
+        return this.Cv;
     }
 
-    public boolean JD() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.apf.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.apf.longValue();
+    public boolean JU() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.aqJ.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.aqJ.longValue();
     }
 
     public void a(c cVar) {
-        this.aQa = cVar;
+        this.aTS = cVar;
     }
 }

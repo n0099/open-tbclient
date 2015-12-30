@@ -4,21 +4,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        an anVar;
-        an anVar2;
-        anVar = this.cHd.cGS;
-        if (anVar != null) {
-            anVar2 = this.cHd.cGS;
-            anVar2.DJ();
+        ao aoVar;
+        ao aoVar2;
+        aoVar = this.cLc.cKR;
+        if (aoVar != null) {
+            aoVar2 = this.cLc.cKR;
+            aoVar2.Dy();
         }
     }
 }

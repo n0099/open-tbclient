@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cyo;
+    final /* synthetic */ PbChosenActivity cBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbChosenActivity pbChosenActivity) {
-        this.cyo = pbChosenActivity;
+        this.cBV = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,29 +23,29 @@ class p implements View.OnClickListener {
         com.baidu.tieba.pb.chosen.net.a aVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
-        aVar = this.cyo.chosenData;
+        aVar = this.cBV.chosenData;
         if (aVar != null) {
-            aVar3 = this.cyo.chosenData;
+            aVar3 = this.cBV.chosenData;
             if (aVar3.getThreadInfo() != null) {
                 av avVar = new av("pb_new_share");
-                aVar4 = this.cyo.chosenData;
+                aVar4 = this.cBV.chosenData;
                 av r = avVar.r("obj_source", aVar4.getThreadInfo().source.intValue());
-                aVar5 = this.cyo.chosenData;
-                TiebaStatic.log(r.ab("abtest", aVar5.getThreadInfo().abtest));
+                aVar5 = this.cBV.chosenData;
+                TiebaStatic.log(r.aa("abtest", aVar5.getThreadInfo().abtest));
             }
         }
-        if (this.cyo.checkUpIsLogin()) {
-            i = this.cyo.from;
+        if (this.cBV.checkUpIsLogin()) {
+            i = this.cBV.from;
             if (i == 2) {
                 TiebaStatic.log("c10148");
             }
-            tVar = this.cyo.cya;
+            tVar = this.cBV.cBH;
             if (tVar == null) {
-                this.cyo.cya = new t(this.cyo);
+                this.cBV.cBH = new t(this.cBV);
             }
-            tVar2 = this.cyo.cya;
-            aVar2 = this.cyo.chosenData;
-            str = this.cyo.shareUrl;
+            tVar2 = this.cBV.cBH;
+            aVar2 = this.cBV.chosenData;
+            str = this.cBV.shareUrl;
             tVar2.a(aVar2, str);
         }
     }

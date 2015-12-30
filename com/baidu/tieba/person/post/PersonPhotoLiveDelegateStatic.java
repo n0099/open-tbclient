@@ -17,14 +17,14 @@ public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.avR = new u();
+        cVar.axv = new u();
         cVar.type = 2;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.g.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.h.fragmenttabindicator, (ViewGroup) null);
         return this.mIndicator;
     }
 

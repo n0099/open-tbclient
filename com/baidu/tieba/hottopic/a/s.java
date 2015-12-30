@@ -9,66 +9,66 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.j, com.baidu.tbadk.core.view.viewpager.c> {
-    private p bCR;
-    private com.baidu.tbadk.core.view.viewpager.b bCS;
-    private HotTopicActivity bCu;
+    private HotTopicActivity bFY;
+    private p bGv;
+    private com.baidu.tbadk.core.view.viewpager.b bGw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public s(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bCR = new p(hotTopicActivity, RelateForumItemData.TYPE_FORUM_CARD);
-        this.bCu = hotTopicActivity;
+        this.bGv = new p(hotTopicActivity, RelateForumItemData.TYPE_FORUM_CARD);
+        this.bFY = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: V */
+    /* renamed from: Q */
     public com.baidu.tbadk.core.view.viewpager.c a(ViewGroup viewGroup) {
-        this.bCS = new com.baidu.tbadk.core.view.viewpager.b(this.bCu.getPageContext().getPageActivity());
-        this.bCS.a(this.bCu.getPageContext().getPageActivity(), this.bCR);
-        this.bCS.setMaxScrollCountLimit(4);
-        this.bCu.a(this.bCS);
-        return this.bCS.getViewHolder();
+        this.bGw = new com.baidu.tbadk.core.view.viewpager.b(this.bFY.getPageContext().getPageActivity());
+        this.bGw.a(this.bFY.getPageContext().getPageActivity(), this.bGv);
+        this.bGw.setMaxScrollCountLimit(4);
+        this.bFY.a(this.bGw);
+        return this.bGw.getViewHolder();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.hottopic.data.j jVar, com.baidu.tbadk.core.view.viewpager.c cVar) {
-        if (cVar == null || jVar == null || this.bCS == null) {
+        if (cVar == null || jVar == null || this.bGw == null) {
             return null;
         }
         a(cVar, jVar);
-        c(cVar.afY, view);
+        d(cVar.ahf, view);
         return view;
     }
 
-    private void c(int i, View view) {
+    private void d(int i, View view) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.bCS != null) {
-            this.bCS.cZ(skinType);
+        if (this.bGw != null) {
+            this.bGw.cK(skinType);
         }
-        if (this.bCu != null && i != skinType) {
-            this.bCu.getLayoutMode().af(skinType == 1);
-            this.bCu.getLayoutMode().k(view);
+        if (this.bFY != null && i != skinType) {
+            this.bFY.getLayoutMode().ac(skinType == 1);
+            this.bFY.getLayoutMode().k(view);
         }
     }
 
     private void a(com.baidu.tbadk.core.view.viewpager.c cVar, com.baidu.tieba.hottopic.data.j jVar) {
         if (cVar != null && jVar != null) {
-            cVar.agd.setText(TbadkCoreApplication.m411getInst().getString(n.i.relate_forum_recommend));
-            cVar.agg.setVisibility(0);
-            if (this.bCS != null) {
-                if (jVar.bEx) {
-                    this.bCS.setDatas(jVar.bEw);
-                    jVar.bEx = false;
+            cVar.ahk.setText(TbadkCoreApplication.m411getInst().getString(n.j.relate_forum_recommend));
+            cVar.ahn.setVisibility(0);
+            if (this.bGw != null) {
+                if (jVar.bIb) {
+                    this.bGw.setDatas(jVar.bIa);
+                    jVar.bIb = false;
                 }
-                if (jVar.bEy) {
-                    this.bCS.notifyDataSetChanged();
-                    jVar.bEy = false;
+                if (jVar.bIc) {
+                    this.bGw.notifyDataSetChanged();
+                    jVar.bIc = false;
                 }
-                this.bCS.getMoreView().setOnClickListener(new t(this, jVar));
+                this.bGw.getMoreView().setOnClickListener(new t(this, jVar));
             }
         }
     }

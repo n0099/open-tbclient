@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d dHf;
+    final /* synthetic */ d dOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.dHf = dVar;
+        this.dOG = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,22 +27,22 @@ public class e extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof SkinUpdateHttpResponsedMessage) || (responsedMessage instanceof SkinUpdateSocketResponsedMessage)) {
                 if (responsedMessage instanceof SkinUpdateSocketResponsedMessage) {
-                    this.dHf.mUpdateList = ((SkinUpdateSocketResponsedMessage) responsedMessage).getUpdateList();
+                    this.dOG.mUpdateList = ((SkinUpdateSocketResponsedMessage) responsedMessage).getUpdateList();
                 } else if (responsedMessage instanceof SkinUpdateHttpResponsedMessage) {
-                    this.dHf.mUpdateList = ((SkinUpdateHttpResponsedMessage) responsedMessage).getUpdateList();
+                    this.dOG.mUpdateList = ((SkinUpdateHttpResponsedMessage) responsedMessage).getUpdateList();
                 }
-                arrayList = this.dHf.dHc;
+                arrayList = this.dOG.dOD;
                 if (arrayList != null) {
-                    arrayList2 = this.dHf.dHc;
+                    arrayList2 = this.dOG.dOD;
                     if (arrayList2.size() <= 2) {
                         return;
                     }
-                    this.dHf.aFy();
-                    aVar = this.dHf.dHd;
+                    this.dOG.aHN();
+                    aVar = this.dOG.dOE;
                     if (aVar != null) {
-                        aVar2 = this.dHf.dHd;
-                        z = this.dHf.dHe;
-                        list = this.dHf.mThemeList;
+                        aVar2 = this.dOG.dOE;
+                        z = this.dOG.dOF;
+                        list = this.dOG.mThemeList;
                         aVar2.a(z, list);
                     }
                 }

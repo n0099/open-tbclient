@@ -1,10 +1,20 @@
 package com.baidu.tieba.tbadkCore.voice;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.content.Context;
+import com.baidu.adp.base.h;
+import com.baidu.adp.base.l;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean aEk() {
-        return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VOICE_RECORDER_AVAILABLE, Boolean.class) != null;
+    public static VoiceManager aT(Context context) {
+        TbPageContext tbPageContext;
+        if (context instanceof VoiceManager.c) {
+            return ((VoiceManager.c) context).getVoiceManager();
+        }
+        if ((l.C(context) instanceof h) && (tbPageContext = (TbPageContext) l.C(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+            return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
+        }
+        return null;
     }
 }

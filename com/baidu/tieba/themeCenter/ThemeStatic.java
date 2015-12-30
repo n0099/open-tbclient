@@ -59,17 +59,17 @@ public class ThemeStatic {
         MessageManager.getInstance().registerTask(new CustomMessageTask(CmdConfigCustom.CMD_GET_SKIN_FROM_DB, new x()));
     }
 
-    public static List<b> bR(List<b> list) {
+    public static List<b> bU(List<b> list) {
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         for (b bVar : list) {
             if (bVar != null) {
-                if (com.baidu.tbadk.core.util.n.cP(String.valueOf(bVar.getId()) + ".apk")) {
+                if (com.baidu.tbadk.core.util.n.cS(String.valueOf(bVar.getId()) + ".apk")) {
                     arrayList.add(bVar);
                 } else {
-                    n.aFl().mR(bVar.getId());
+                    n.aHA().nt(bVar.getId());
                 }
             }
         }

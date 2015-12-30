@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
 class c extends Thread {
-    final /* synthetic */ ClearTempService dkK;
+    final /* synthetic */ ClearTempService drS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ClearTempService clearTempService) {
-        this.dkK = clearTempService;
+        this.drS = clearTempService;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -20,17 +20,17 @@ class c extends Thread {
         Handler handler2;
         super.run();
         try {
-            File file = new File(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
-            File file2 = new File(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
-            File file3 = new File(n.ya + "/" + TbConfig.getTempDirName() + "/voice");
-            this.dkK.deleteCache(file, false);
-            this.dkK.deleteDir(file2);
-            this.dkK.deleteDir(file3);
+            File file = new File(n.yc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
+            File file2 = new File(n.yc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
+            File file3 = new File(n.yc + "/" + TbConfig.getTempDirName() + "/voice");
+            this.drS.deleteCache(file, false);
+            this.drS.deleteDir(file2);
+            this.drS.deleteDir(file3);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        handler = this.dkK.handler;
-        handler2 = this.dkK.handler;
+        handler = this.drS.handler;
+        handler2 = this.drS.handler;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

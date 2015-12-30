@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.stats.switchs.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0006a {
+public class c implements a.InterfaceC0007a {
     final /* synthetic */ a this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,13 @@ public class c implements a.InterfaceC0006a {
         this.this$0 = aVar;
     }
 
-    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0006a
+    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0007a
     public void hz() {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.wh = true;
-        if (this.this$0.wf) {
+        this.this$0.wj = true;
+        if (this.this$0.wh) {
             com.baidu.adp.lib.stats.b.i.ip().iw();
         }
         handler = a.mHandler;

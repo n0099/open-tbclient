@@ -9,11 +9,11 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.write.data.b;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchLocationActivity dMC;
+    final /* synthetic */ SearchLocationActivity dUb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SearchLocationActivity searchLocationActivity) {
-        this.dMC = searchLocationActivity;
+        this.dUb = searchLocationActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,16 +21,16 @@ class c implements AdapterView.OnItemClickListener {
         h hVar;
         h hVar2;
         h hVar3;
-        hVar = this.dMC.dMw;
+        hVar = this.dUb.dTV;
         if (hVar != null) {
-            hVar2 = this.dMC.dMw;
-            if (hVar2.aIa()) {
+            hVar2 = this.dUb.dTV;
+            if (hVar2.aKv()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
-                hVar3 = this.dMC.dMw;
+                hVar3 = this.dUb.dTV;
                 b.a aVar = (b.a) hVar3.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.getName(), aVar.getName(), aVar.getScreatString()));
-                this.dMC.finish();
+                this.dUb.finish();
             }
         }
     }

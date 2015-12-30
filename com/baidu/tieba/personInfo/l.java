@@ -1,28 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.usermute.i;
+import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends CustomMessageListener {
-    final /* synthetic */ d cSn;
+public class l implements i.a {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(d dVar, int i) {
-        super(i);
-        this.cSn = dVar;
+    public l(d dVar) {
+        this.cWV = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        az azVar;
-        az azVar2;
-        azVar = this.cSn.cRH;
-        if (azVar != null) {
-            azVar2 = this.cSn.cRH;
-            azVar2.kw(0);
+    @Override // com.baidu.tieba.usermute.i.a
+    public void a(DataRes dataRes, int i, String str, Object obj) {
+        if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
+            if (dataRes.is_mute.equals("0")) {
+                this.cWV.cWu = 0;
+            } else if (dataRes.is_mute.equals("1")) {
+                this.cWV.cWu = 1;
+            }
         }
     }
 }

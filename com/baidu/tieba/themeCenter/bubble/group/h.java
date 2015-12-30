@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g dFH;
+    final /* synthetic */ g dNj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.dFH = gVar;
+        this.dNj = gVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BubbleGroupActivity bubbleGroupActivity;
         TiebaStatic.log("c10283");
-        bubbleGroupActivity = this.dFH.dFD;
+        bubbleGroupActivity = this.dNj.dNf;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleListActivityConfig(bubbleGroupActivity.getActivity())));
     }
 }

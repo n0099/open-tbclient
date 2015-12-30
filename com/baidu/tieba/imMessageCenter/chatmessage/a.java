@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity bYO;
+    final /* synthetic */ ChatMessageActivity ccO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.bYO = chatMessageActivity;
+        this.ccO = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,17 +35,17 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.bYO.mFragmentManager = this.bYO.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.bYO;
-            fragmentManager = this.bYO.mFragmentManager;
-            chatMessageActivity.bYN = fragmentManager.beginTransaction();
-            fragmentTransaction = this.bYO.bYN;
-            fragmentTransaction.add(n.f.content, fragment);
-            fragmentTransaction2 = this.bYO.bYN;
+            this.ccO.mFragmentManager = this.ccO.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.ccO;
+            fragmentManager = this.ccO.mFragmentManager;
+            chatMessageActivity.ccN = fragmentManager.beginTransaction();
+            fragmentTransaction = this.ccO.ccN;
+            fragmentTransaction.add(n.g.content, fragment);
+            fragmentTransaction2 = this.ccO.ccN;
             fragmentTransaction2.commitAllowingStateLoss();
         }
-        if (this.bYO.getIntent() != null) {
-            int intExtra = this.bYO.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+        if (this.ccO.getIntent() != null) {
+            int intExtra = this.ccO.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
             Intent intent = new Intent();
             intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
             intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

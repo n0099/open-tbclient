@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a bWS;
-    private b bWT;
+    private a caR;
+    private b caS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,24 +28,24 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.bWS = new a(str, chatMessage);
-        this.bWS.execute(new Object[0]);
+        this.caR = new a(str, chatMessage);
+        this.caR.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.bWT = bVar;
+        this.caS = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String bWU;
-        private ChatMessage bWV;
-        private ac bWW = new ac();
+        private String caT;
+        private ChatMessage caU;
+        private ac caV = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.bWU = str;
-            this.bWV = chatMessage;
+            this.caT = str;
+            this.caU = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class af extends com.baidu.adp.base.e {
         /* renamed from: t */
         public String doInBackground(Object... objArr) {
             try {
-                return this.bWW.iH(this.bWU);
+                return this.caV.iT(this.caT);
             } catch (Exception e) {
                 return null;
             }
@@ -65,8 +65,8 @@ public class af extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (af.this.bWT != null) {
-                af.this.bWT.a(str, this.bWV);
+            if (af.this.caS != null) {
+                af.this.caS.a(str, this.caU);
             }
         }
     }

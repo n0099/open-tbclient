@@ -1,47 +1,25 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.core.util.bj;
 /* loaded from: classes.dex */
-class aa implements com.baidu.adp.lib.f.c<HeadImageView> {
-    private final /* synthetic */ Context val$context;
+class aa implements bj.a {
+    final /* synthetic */ z agQ;
+    private final /* synthetic */ String agR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(Context context) {
-        this.val$context = context;
+    public aa(z zVar, String str) {
+        this.agQ = zVar;
+        this.agR = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wm */
-    public HeadImageView hc() {
-        return new HeadImageView(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void l(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public HeadImageView m(HeadImageView headImageView) {
-        return headImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public HeadImageView n(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-        return headImageView;
+    @Override // com.baidu.tbadk.core.util.bj.a
+    public boolean n(View view) {
+        Object tag = view.getTag();
+        if (tag != null && this.agR.equals(tag)) {
+            view.invalidate();
+            return false;
+        }
+        return false;
     }
 }

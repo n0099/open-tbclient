@@ -6,104 +6,104 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    private String wN;
-    protected String wX;
+    private String wP;
     protected String wZ;
-    protected p xa;
-    private StringBuffer wO = new StringBuffer();
-    private StringBuffer wP = new StringBuffer();
-    private int wQ = 0;
-    private int wR = 0;
-    private long wF = 0;
-    private long wS = 0;
-    protected long wT = 0;
+    protected String xb;
+    protected p xc;
+    private StringBuffer wQ = new StringBuffer();
+    private StringBuffer wR = new StringBuffer();
+    private int wS = 0;
+    private int wT = 0;
+    private long wH = 0;
     private long wU = 0;
-    private long wV = 0;
-    protected int wW = 50;
-    protected final String wY = ".log";
+    protected long wV = 0;
+    private long wW = 0;
+    private long wX = 0;
+    protected int wY = 50;
+    protected final String xa = ".log";
     protected boolean mUseSdCard = true;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(p pVar) {
-        this.xa = pVar;
+        this.xc = pVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.d dVar) {
         if (dVar != null) {
             try {
-                this.wO.append(dVar.toString());
-                this.wO.append("\r\n");
-                this.wQ++;
+                this.wQ.append(dVar.toString());
+                this.wQ.append("\r\n");
+                this.wS++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.xa != null) {
-            this.xa.g(this);
+        if (this.xc != null) {
+            this.xc.g(this);
         }
-        this.wF = System.currentTimeMillis();
+        this.wH = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.d dVar) {
         if (dVar != null) {
             try {
-                this.wP.append(dVar.toString());
-                this.wP.append("\r\n");
-                this.wR++;
+                this.wR.append(dVar.toString());
+                this.wR.append("\r\n");
+                this.wT++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.xa != null) {
-            this.xa.g(this);
+        if (this.xc != null) {
+            this.xc.g(this);
         }
-        this.wS = System.currentTimeMillis();
+        this.wU = System.currentTimeMillis();
     }
 
     public int hM() {
-        return this.wQ;
-    }
-
-    public int hN() {
-        return this.wR;
-    }
-
-    public long hO() {
-        return this.wT;
-    }
-
-    public void f(long j) {
-        this.wT = j;
-    }
-
-    public long hP() {
-        return this.wF;
-    }
-
-    public long hQ() {
         return this.wS;
     }
 
+    public int hN() {
+        return this.wT;
+    }
+
+    public long hO() {
+        return this.wV;
+    }
+
+    public void f(long j) {
+        this.wV = j;
+    }
+
+    public long hP() {
+        return this.wH;
+    }
+
+    public long hQ() {
+        return this.wU;
+    }
+
     public String hR() {
-        if (TextUtils.isEmpty(this.wZ)) {
+        if (TextUtils.isEmpty(this.xb)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.wX);
+            sb.append(this.wZ);
             sb.append(com.baidu.adp.lib.stats.a.hl().hr());
             sb.append("Writing");
             sb.append(".log");
-            this.wZ = sb.toString();
+            this.xb = sb.toString();
         }
-        return this.wZ;
+        return this.xb;
     }
 
     public String hS() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.wX);
+        sb.append(this.wZ);
         sb.append(System.currentTimeMillis());
         sb.append(com.baidu.adp.lib.stats.a.hl().hr());
         sb.append("Uploading");
@@ -112,41 +112,41 @@ public class a {
     }
 
     public long hT() {
-        return this.wU;
+        return this.wW;
     }
 
     public long hU() {
-        return this.wV;
+        return this.wX;
     }
 
     public void g(long j) {
-        this.wU = j;
+        this.wW = j;
     }
 
     public void h(long j) {
-        this.wV = j;
+        this.wX = j;
     }
 
     public synchronized void hV() {
-        this.wO = new StringBuffer();
-        this.wQ = 0;
-        this.wU = 0L;
+        this.wQ = new StringBuffer();
+        this.wS = 0;
+        this.wW = 0L;
     }
 
     public synchronized void hW() {
-        this.wP = new StringBuffer();
-        this.wR = 0;
-        this.wV = 0L;
+        this.wR = new StringBuffer();
+        this.wT = 0;
+        this.wX = 0L;
     }
 
     public void av(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.wN = str;
+            this.wP = str;
         }
     }
 
     public String hX() {
-        return this.wN;
+        return this.wP;
     }
 
     public boolean hY() {
@@ -162,11 +162,11 @@ public class a {
     }
 
     public StringBuffer ia() {
-        return this.wO;
+        return this.wQ;
     }
 
     public StringBuffer ib() {
-        return this.wP;
+        return this.wR;
     }
 
     public boolean ic() {
@@ -178,7 +178,7 @@ public class a {
     }
 
     public String ie() {
-        return this.wX;
+        return this.wZ;
     }
 
     public static String aw(String str) {

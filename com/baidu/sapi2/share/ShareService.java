@@ -60,7 +60,7 @@ public final class ShareService extends Service {
                 if (ShareService.this.e == null) {
                     ShareService.this.e = new Handler(Looper.getMainLooper());
                 }
-                ShareService.this.e.post(new RunnableC0027a());
+                ShareService.this.e.post(new RunnableC0028a());
             }
             if (!ShareService.d) {
                 ShareService.this.a((Context) ShareService.this);
@@ -97,8 +97,8 @@ public final class ShareService extends Service {
 
         /* renamed from: com.baidu.sapi2.share.ShareService$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC0027a implements Runnable {
-            RunnableC0027a() {
+        class RunnableC0028a implements Runnable {
+            RunnableC0028a() {
             }
 
             @Override // java.lang.Runnable

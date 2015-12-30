@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ BasePersonInfoActivity cIO;
+    final /* synthetic */ BasePersonInfoActivity cNe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BasePersonInfoActivity basePersonInfoActivity) {
-        this.cIO = basePersonInfoActivity;
+        this.cNe = basePersonInfoActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        this.cIO.bVi = com.baidu.tbadk.core.a.h.bu(this.cIO.ani()) % 3;
+        this.cNe.bYU = com.baidu.tbadk.core.a.h.bn(this.cNe.aot()) % 3;
         String str = "";
-        switch (this.cIO.ani()) {
+        switch (this.cNe.aot()) {
             case 2:
                 str = "like";
                 break;
@@ -34,8 +34,8 @@ public class d implements View.OnClickListener {
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", str);
-        i = this.cIO.bVi;
+        i = this.cNe.bYU;
         httpMessage.addParam("val", String.valueOf(i + 1));
-        this.cIO.sendMessage(httpMessage);
+        this.cNe.sendMessage(httpMessage);
     }
 }

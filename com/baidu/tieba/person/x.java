@@ -9,69 +9,69 @@ import com.baidu.tieba.person.post.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends HttpMessageListener {
-    final /* synthetic */ s cKg;
+    final /* synthetic */ s cOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(s sVar, int i) {
         super(i);
-        this.cKg = sVar;
+        this.cOw = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonBarActivity anx;
+        PersonBarActivity aoI;
         String str;
-        PersonBarActivity anx2;
+        PersonBarActivity aoI2;
         boolean z;
         String str2;
         String str3;
         ae aeVar;
         ae aeVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-            anx = this.cKg.anx();
-            if (anx != null) {
-                if (this.cKg.cJQ != null && this.cKg.cJQ.getView() != null) {
-                    this.cKg.cJQ.getView().setVisibility(0);
+            aoI = this.cOw.aoI();
+            if (aoI != null) {
+                if (this.cOw.cOg != null && this.cOw.cOg.getView() != null) {
+                    this.cOw.cOg.getView().setVisibility(0);
                 }
-                this.cKg.mListView.completePullRefresh();
+                this.cOw.mListView.completePullRefresh();
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                anx2 = this.cKg.anx();
-                if (tag == anx2.getUniqueId()) {
+                aoI2 = this.cOw.aoI();
+                if (tag == aoI2.getUniqueId()) {
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {
                             r personBarData = personBarResponseMessage.getPersonBarData();
-                            aeVar = this.cKg.cJG;
-                            aeVar.km(this.cKg.cJU);
-                            aeVar2 = this.cKg.cJG;
-                            aeVar2.kU(personBarResponseMessage.getResultString());
-                            this.cKg.a(personBarData, false);
+                            aeVar = this.cOw.cNW;
+                            aeVar.kJ(this.cOw.cOk);
+                            aeVar2 = this.cOw.cNW;
+                            aeVar2.kR(personBarResponseMessage.getResultString());
+                            this.cOw.a(personBarData, false);
                             return;
                         }
-                        this.cKg.showToast(httpResponsedMessage.getErrorString());
-                        u.a aVar = this.cKg.cJQ;
-                        str3 = this.cKg.cJX;
-                        aVar.kW(str3);
+                        this.cOw.showToast(httpResponsedMessage.getErrorString());
+                        u.a aVar = this.cOw.cOg;
+                        str3 = this.cOw.cOn;
+                        aVar.kT(str3);
                         return;
                     }
-                    this.cKg.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cKg.getResources().getString(n.i.neterror) : httpResponsedMessage.getErrorString());
-                    z = this.cKg.cKa;
+                    this.cOw.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cOw.getResources().getString(n.j.neterror) : httpResponsedMessage.getErrorString());
+                    z = this.cOw.cOq;
                     if (z) {
-                        u.a aVar2 = this.cKg.cJQ;
-                        str2 = this.cKg.cJX;
-                        aVar2.kW(str2);
+                        u.a aVar2 = this.cOw.cOg;
+                        str2 = this.cOw.cOn;
+                        aVar2.kT(str2);
                         return;
                     }
-                    this.cKg.cJQ.kW("");
+                    this.cOw.cOg.kT("");
                     return;
                 }
                 return;
             }
-            u.a aVar3 = this.cKg.cJQ;
-            str = this.cKg.cJX;
-            aVar3.kW(str);
+            u.a aVar3 = this.cOw.cOg;
+            str = this.cOw.cOn;
+            aVar3.kT(str);
         }
     }
 }

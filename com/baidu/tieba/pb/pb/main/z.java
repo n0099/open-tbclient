@@ -4,32 +4,32 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class z extends CustomMessageListener {
-    final /* synthetic */ PbActivity cCm;
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(PbActivity pbActivity, int i) {
         super(i);
-        this.cCm = pbActivity;
+        this.cFS = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        da daVar;
-        da daVar2;
-        da daVar3;
+        dk dkVar;
+        dk dkVar2;
+        dk dkVar3;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            daVar = this.cCm.cBL;
-            if (daVar != null) {
+            dkVar = this.cFS.cFq;
+            if (dkVar != null) {
                 if (booleanValue) {
-                    daVar3 = this.cCm.cBL;
-                    daVar3.YT();
+                    dkVar3 = this.cFS.cFq;
+                    dkVar3.ZY();
                     return;
                 }
-                daVar2 = this.cCm.cBL;
-                daVar2.YS();
+                dkVar2 = this.cFS.cFq;
+                dkVar2.ZX();
             }
         }
     }

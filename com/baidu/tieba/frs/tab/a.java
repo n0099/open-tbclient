@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.eu;
 import com.baidu.tieba.frs.tab.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements i.a {
-    final /* synthetic */ HorizontalTabView biq;
+    final /* synthetic */ HorizontalTabView bmg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(HorizontalTabView horizontalTabView) {
-        this.biq = horizontalTabView;
+        this.bmg = horizontalTabView;
     }
 
     @Override // com.baidu.tieba.frs.tab.i.a
-    public void gw(int i) {
+    public void gp(int i) {
         TabItemView tabItemView;
         g gVar;
         g gVar2;
-        et etVar;
-        et etVar2;
-        et etVar3;
+        eu euVar;
+        eu euVar2;
+        eu euVar3;
         TabItemView tabItemView2;
-        tabItemView = this.biq.bii;
+        tabItemView = this.bmg.blY;
         if (tabItemView != null) {
-            etVar = this.biq.bio;
-            if (etVar != null) {
-                etVar2 = this.biq.bio;
-                if (etVar2 != null) {
-                    etVar3 = this.biq.bio;
-                    tabItemView2 = this.biq.bii;
-                    etVar3.a(tabItemView2.getTabId(), i, null);
+            euVar = this.bmg.bme;
+            if (euVar != null) {
+                euVar2 = this.bmg.bme;
+                if (euVar2 != null) {
+                    euVar3 = this.bmg.bme;
+                    tabItemView2 = this.bmg.blY;
+                    euVar3.a(tabItemView2.getTabId(), i, null);
                 }
             }
         }
-        gVar = this.biq.bij;
+        gVar = this.bmg.blZ;
         if (gVar != null) {
-            gVar2 = this.biq.bij;
-            gVar2.gv(i);
+            gVar2 = this.bmg.blZ;
+            gVar2.go(i);
         }
     }
 }

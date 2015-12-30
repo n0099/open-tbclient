@@ -31,7 +31,7 @@ public class PbLotteryHttpResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         setError(-1);
-        setErrorString(TbadkCoreApplication.m411getInst().getString(n.i.lottery_failed));
+        setErrorString(TbadkCoreApplication.m411getInst().getString(n.j.lottery_failed));
     }
 
     public com.baidu.tieba.pb.a.a getLotteryInfo() {

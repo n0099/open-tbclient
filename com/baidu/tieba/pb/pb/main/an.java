@@ -1,44 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity cCm;
-    private final /* synthetic */ MarkData cCt;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a cCu;
+public class an implements a.b {
+    final /* synthetic */ PbActivity cFS;
+    private final /* synthetic */ MarkData cFZ;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a cGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.cCm = pbActivity;
-        this.cCt = markData;
-        this.cCu = aVar;
+        this.cFS = pbActivity;
+        this.cFZ = markData;
+        this.cGa = aVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        da daVar;
-        da daVar2;
-        da daVar3;
-        dialogInterface.dismiss();
-        int[] iArr = new int[2];
-        daVar = this.cCm.cBL;
-        if (daVar != null) {
-            daVar2 = this.cCm.cBL;
-            if (daVar2.getView() != null) {
-                daVar3 = this.cCm.cBL;
-                daVar3.getView().getLocationOnScreen(iArr);
-            }
-        }
-        if (iArr[0] > 0) {
-            Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.cCt);
-            this.cCm.setResult(-1, intent);
-            this.cCu.dismiss();
-            this.cCm.akh();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.cFZ);
+        this.cFS.setResult(-1, intent);
+        this.cGa.dismiss();
+        this.cFS.alo();
     }
 }

@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Animation.AnimationListener {
-    final /* synthetic */ a dNL;
+    final /* synthetic */ a dVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.dNL = aVar;
+        this.dVk = aVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +21,6 @@ public class d implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.dNL.aIA();
+        this.dVk.aKV();
     }
 }

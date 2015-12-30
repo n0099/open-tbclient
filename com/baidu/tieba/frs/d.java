@@ -1,27 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsActivity bag;
+class d extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(FrsActivity frsActivity, int i, int i2) {
-        super(i, i2);
-        this.bag = frsActivity;
+    public d(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bed = frsActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-            this.bag.a(getMyPostHttpResponseMessage.getError(), StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString()) ? this.bag.getResources().getString(n.i.neterror) : getMyPostHttpResponseMessage.getErrorString(), getMyPostHttpResponseMessage.getResponseData());
-        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-            this.bag.a(getMyPostSocketResponseMessage.getError(), StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString()) ? this.bag.getResources().getString(n.i.neterror) : getMyPostSocketResponseMessage.getErrorString(), getMyPostSocketResponseMessage.getResponseData());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.tbadkCore.p pVar;
+        com.baidu.tieba.tbadkCore.p pVar2;
+        if (customResponsedMessage != null && com.baidu.tbadk.core.sharedPref.b.tJ().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1) {
+            pVar = this.bed.bdo;
+            if (pVar.akG() != null) {
+                pVar2 = this.bed.bdo;
+                pVar2.akG().setCanAddPhotoLivePost(true);
+            }
         }
     }
 }

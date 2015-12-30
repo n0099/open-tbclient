@@ -13,11 +13,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cGq;
+    final /* synthetic */ a cKp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cGq = aVar;
+        this.cKp = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,13 +33,13 @@ public class b implements View.OnClickListener {
             str2 = ((HeadImageView) view).getUserName();
             str3 = userId;
         } else {
-            if (view.getTag(n.f.tag_user_id) instanceof String) {
-                str = (String) view.getTag(n.f.tag_user_id);
+            if (view.getTag(n.g.tag_user_id) instanceof String) {
+                str = (String) view.getTag(n.g.tag_user_id);
             } else {
                 str = view.getTag() instanceof String ? (String) view.getTag() : null;
             }
-            if (view.getTag(n.f.tag_user_name) instanceof String) {
-                str2 = (String) view.getTag(n.f.tag_user_name);
+            if (view.getTag(n.g.tag_user_name) instanceof String) {
+                str2 = (String) view.getTag(n.g.tag_user_name);
                 str3 = str;
             } else {
                 str2 = null;
@@ -47,13 +47,13 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.cGq.cCy;
-            if (pbActivity.akb() != null) {
+            pbActivity = this.cKp.cGj;
+            if (pbActivity.ali() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.cGq.cCy;
+                pbActivity2 = this.cKp.cGj;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.cGq.cCy;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.akb().akE(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.cKp.cGj;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.ali().alL(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

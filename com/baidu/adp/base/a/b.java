@@ -18,14 +18,14 @@ import java.sql.SQLException;
 public class b {
     private a nB;
     private SQLiteDatabase nz = null;
-    private a.InterfaceC0001a nA = null;
+    private a.InterfaceC0002a nA = null;
 
     public b(a aVar) {
         this.nB = aVar;
     }
 
-    public void a(a.InterfaceC0001a interfaceC0001a) {
-        this.nA = interfaceC0001a;
+    public void a(a.InterfaceC0002a interfaceC0002a) {
+        this.nA = interfaceC0002a;
     }
 
     public SQLiteDatabase dL() {

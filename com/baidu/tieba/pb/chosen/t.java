@@ -11,10 +11,10 @@ import com.baidu.tieba.n;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class t {
-    private PbChosenActivity cyq;
+    private PbChosenActivity cBX;
 
     public t(PbChosenActivity pbChosenActivity) {
-        this.cyq = pbChosenActivity;
+        this.cBX = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -22,26 +22,26 @@ public class t {
             String str2 = aVar.getThreadInfo().forum.forum_name;
             String str3 = aVar.getThreadInfo().title;
             String str4 = aVar.getThreadInfo()._abstract;
-            Resources resources = this.cyq.getPageContext().getPageActivity().getResources();
-            String format = MessageFormat.format(resources.getString(n.i.share_content_tpl), str3, str2, str4);
-            String string = resources.getString(n.i.chosen_pb_share_content, str3);
+            Resources resources = this.cBX.getPageContext().getPageActivity().getResources();
+            String format = MessageFormat.format(resources.getString(n.j.share_content_tpl), str3, str2, str4);
+            String string = resources.getString(n.j.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.title = str3;
             fVar.content = format;
             fVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getThreadInfo().excid;
-            fVar.akL = string;
-            fVar.akK = str4;
-            fVar.akJ = Long.toString(aVar.getThreadInfo().excid.longValue());
-            fVar.akG = true;
+            fVar.alR = string;
+            fVar.alQ = str4;
+            fVar.alP = Long.toString(aVar.getThreadInfo().excid.longValue());
+            fVar.alM = true;
             if (!StringUtils.isNull(str)) {
                 fVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cyq.getPageContext().getPageActivity(), fVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cBX.getPageContext().getPageActivity(), fVar, true);
             shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.addOutsideTextView(n.i.share_tieba_qunzu, n.e.icon_unite_share_qunzu, new u(this));
-            shareDialogConfig.addOutsideTextView(n.i.forum_friend, n.e.icon_unite_share_baf, new v(this));
+            shareDialogConfig.addOutsideTextView(n.j.share_tieba_qunzu, n.f.icon_unite_share_qunzu, new u(this));
+            shareDialogConfig.addOutsideTextView(n.j.forum_friend, n.f.icon_unite_share_baf, new v(this));
             shareDialogConfig.setCopyLinkListener(new w(this, fVar));
-            this.cyq.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.cBX.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -72,10 +72,10 @@ public class t {
             mVar.setDesc(aVar.getThreadInfo()._abstract);
             mVar.x(str3, false);
             aVar2.m(mVar);
-            aVar2.a(n.i.share, new x(aVar, pbChosenActivity, mVar, j, str, str2, str3));
-            aVar2.b(n.i.alert_no_button, new y(pbChosenActivity, mVar));
-            aVar2.am(false);
-            aVar2.b(pbChosenActivity.getPageContext()).tv();
+            aVar2.a(n.j.share, new x(aVar, pbChosenActivity, mVar, j, str, str2, str3));
+            aVar2.b(n.j.alert_no_button, new y(pbChosenActivity, mVar));
+            aVar2.aj(false);
+            aVar2.b(pbChosenActivity.getPageContext()).tf();
         }
     }
 
@@ -87,10 +87,10 @@ public class t {
             mVar.setTitle(aVar.getThreadInfo().title);
             mVar.setDesc(aVar.getThreadInfo()._abstract);
             aVar2.m(mVar);
-            aVar2.a(n.i.share, new z(aVar, pbChosenActivity, mVar, i, str, j, str2));
-            aVar2.b(n.i.alert_no_button, new aa(pbChosenActivity, mVar));
-            aVar2.am(false);
-            aVar2.b(pbChosenActivity.getPageContext()).tv();
+            aVar2.a(n.j.share, new z(aVar, pbChosenActivity, mVar, i, str, j, str2));
+            aVar2.b(n.j.alert_no_button, new aa(pbChosenActivity, mVar));
+            aVar2.aj(false);
+            aVar2.b(pbChosenActivity.getPageContext()).tf();
         }
     }
 }

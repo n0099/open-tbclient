@@ -34,9 +34,27 @@ public class ImMessageCenterPojo implements Serializable {
     private long read_msgId;
     int send_status;
     private long sent_msgId;
+    private long sid;
+    private String taskId;
     int type;
     int unread_count;
     private int userType;
+
+    public long getSid() {
+        return this.sid;
+    }
+
+    public void setSid(long j) {
+        this.sid = j;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String str) {
+        this.taskId = str;
+    }
 
     public boolean isSelf() {
         return this.isSelf;

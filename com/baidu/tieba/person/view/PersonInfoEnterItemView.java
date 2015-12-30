@@ -14,10 +14,10 @@ import com.baidu.tieba.n;
 import com.baidu.tieba.person.data.d;
 /* loaded from: classes.dex */
 public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu.tieba.person.a.a {
-    private static int cRA = -1;
-    private TbImageView MW;
-    private ImageView aOv;
-    private TextView agd;
+    private static int cWb = -1;
+    private TbImageView Nm;
+    private ImageView aSn;
+    private TextView ahk;
 
     public PersonInfoEnterItemView(Context context) {
         this(context, null);
@@ -25,71 +25,71 @@ public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu
 
     public PersonInfoEnterItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(getContext()).inflate(n.g.personinfo_enter_item, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(n.h.personinfo_enter_item, (ViewGroup) this, true);
         init();
     }
 
     private void init() {
-        this.MW = (TbImageView) findViewById(n.f.icon);
-        this.agd = (TextView) findViewById(n.f.title);
-        this.aOv = (ImageView) findViewById(n.f.red_tip);
-        this.MW.setDefaultBgResource(0);
+        this.Nm = (TbImageView) findViewById(n.g.icon);
+        this.ahk = (TextView) findViewById(n.g.title);
+        this.aSn = (ImageView) findViewById(n.g.red_tip);
+        this.Nm.setDefaultBgResource(0);
     }
 
     public void setTitle(String str) {
-        if (this.agd != null) {
-            this.agd.setText(str);
+        if (this.ahk != null) {
+            this.ahk.setText(str);
         }
     }
 
-    public void bW(boolean z) {
-        if (this.aOv != null) {
+    public void bX(boolean z) {
+        if (this.aSn != null) {
             if (z) {
-                this.aOv.setVisibility(0);
+                this.aSn.setVisibility(0);
             } else {
-                this.aOv.setVisibility(8);
+                this.aSn.setVisibility(8);
             }
         }
     }
 
     public TbImageView getIcon() {
-        return this.MW;
+        return this.Nm;
     }
 
     public TextView getTitle() {
-        return this.agd;
+        return this.ahk;
     }
 
     public void setIcon(int i) {
-        as.c(this.MW, i);
+        as.c(this.Nm, i);
     }
 
     public void a(d dVar, int i, com.baidu.tieba.personInfo.a aVar) {
-        cRA = i;
+        cWb = i;
         if (dVar == null) {
             setVisibility(8);
         } else {
             setVisibility(0);
-            this.agd.setText(dVar.cNp);
-            as.b(this.agd, n.c.cp_cont_f, 1);
-            as.c(this.MW, dVar.cNo);
-            as.c(this.aOv, n.e.icon_news_down_bar_one);
+            this.ahk.setText(dVar.cRT);
+            as.b(this.ahk, n.d.cp_cont_f, 1);
+            as.c(this.Nm, dVar.cRS);
+            as.c(this.aSn, n.f.icon_news_down_bar_one);
         }
         setOnClickListener(new a(this, aVar, dVar));
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        as.b(this.agd, n.c.cp_cont_f, 1);
-        as.c(this.aOv, n.e.icon_news_down_bar_one);
+        as.b(this.ahk, n.d.cp_cont_f, 1);
+        as.c(this.aSn, n.f.icon_news_down_bar_one);
     }
 
     public int getRedTipType() {
-        return cRA;
+        return cWb;
     }
 
     @Override // com.baidu.tieba.person.a.a
     public void setRedTipShow(boolean z) {
-        bW(z);
+        bX(z);
     }
 }

@@ -9,23 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e<WriteActivity> {
-    private WriteActivity dPA;
-    private a dPy;
-    private ArrayList<com.baidu.tbadk.core.data.z> dPz;
+    private a dWX;
+    private ArrayList<com.baidu.tbadk.core.data.z> dWY;
+    private WriteActivity dWZ;
     private int mErrCode;
 
     public o(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.dPy = null;
-        this.dPz = null;
+        this.dWX = null;
+        this.dWY = null;
         this.mErrCode = 0;
-        this.dPA = writeActivity;
-        this.dPz = new ArrayList<>();
+        this.dWZ = writeActivity;
+        this.dWY = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.z> aJi() {
-        return this.dPz;
+    public ArrayList<com.baidu.tbadk.core.data.z> aLD() {
+        return this.dWY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,18 +34,18 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nu(String str) {
-        if (this.dPy == null) {
-            this.dPy = new a(this, null);
-            this.dPy.setPriority(3);
-            this.dPy.execute(str);
+    public void ns(String str) {
+        if (this.dWX == null) {
+            this.dWX = new a(this, null);
+            this.dWX.setPriority(3);
+            this.dWX.execute(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, o, o> {
-        private com.baidu.tbadk.core.util.ab Ty;
+        private com.baidu.tbadk.core.util.ab Ua;
 
         private a() {
         }
@@ -60,14 +60,14 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: F */
         public o doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.Ty = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-            this.Ty.o("kw", obj);
-            String ul = this.Ty.ul();
-            if (!this.Ty.uM().vG().rf()) {
+            this.Ua = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+            this.Ua.o("kw", obj);
+            String tV = this.Ua.tV();
+            if (!this.Ua.uw().vq().qO()) {
                 return null;
             }
-            o oVar = new o(o.this.dPA);
-            oVar.parserJson(ul);
+            o oVar = new o(o.this.dWZ);
+            oVar.parserJson(tV);
             return oVar;
         }
 
@@ -77,16 +77,16 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(o oVar) {
             super.onPostExecute(oVar);
-            o.this.dPy = null;
+            o.this.dWX = null;
             o.this.mLoadDataCallBack.d(oVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            o.this.dPy = null;
-            if (this.Ty != null) {
-                this.Ty.gL();
+            o.this.dWX = null;
+            if (this.Ua != null) {
+                this.Ua.gL();
             }
         }
     }
@@ -110,7 +110,7 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
                         if (jSONObject2 != null) {
                             com.baidu.tbadk.core.data.z zVar = new com.baidu.tbadk.core.data.z();
                             zVar.parserJson(jSONObject2);
-                            this.dPz.add(zVar);
+                            this.dWY.add(zVar);
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.dPy != null) {
-            this.dPy.cancel();
+        if (this.dWX != null) {
+            this.dWX.cancel();
             return true;
         }
         return true;

@@ -3,7 +3,13 @@ package com.baidu.tbadk.core.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y {
-    public static <T> int k(List<T> list) {
+    public static <T> void k(List<T> list) {
+        if (list != null) {
+            list.clear();
+        }
+    }
+
+    public static <T> int l(List<T> list) {
         if (list == null || list.isEmpty()) {
             return 0;
         }
@@ -15,12 +21,5 @@ public class y {
             return null;
         }
         return list.get(i);
-    }
-
-    public static <T> int a(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
     }
 }

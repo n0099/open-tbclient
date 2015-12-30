@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity cmr;
+    final /* synthetic */ SquareSearchActivity cqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(SquareSearchActivity squareSearchActivity, int i) {
         super(i);
-        this.cmr = squareSearchActivity;
+        this.cqu = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ class o extends CustomMessageListener {
         if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
             return;
         }
-        this.cmr.a(5, (ArrayList) data);
+        this.cqu.a(5, (ArrayList) data);
     }
 }

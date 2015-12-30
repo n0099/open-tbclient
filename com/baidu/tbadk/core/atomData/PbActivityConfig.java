@@ -22,10 +22,12 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_INTENT_TOP_DATA = "top_data";
     public static final String KEY_INTENT_TYPE = "type";
     public static final String KEY_IS_AD = "is_ad";
+    public static final String KEY_IS_FROM_THREAD_CONFIG = "is_from_thread_config";
     public static final String KEY_IS_GOOD = "is_good";
     public static final String KEY_IS_PV = "is_pv";
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
     public static final String KEY_IS_TOP = "is_top";
+    public static final String KEY_LOCATE = "locate";
     public static final String KEY_MARK = "mark";
     public static final String KEY_MSG_ID = "msg_id";
     public static final String KEY_MSG_OP_STAT = "op_stat";
@@ -36,10 +38,13 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_ST_TYPE = "st_type";
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
+    public static final String KEY_THREAD_TYPE = "thread_type";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
     public static final String PRAISE_DATA = "praise_data";
     public static final String QUERY_WORD = "query_word";
     public static final String START_FOR_RESULT = "1";
+    public static final int THREAD_TYPE_NOT_SHOW_IS_TOP = 0;
+    public static final int THREAD_TYPE_SHOW_IS_TOP = 1;
     public static final boolean isBottomHaveShared = true;
     private final Context mContext;
 
@@ -70,6 +75,21 @@ public class PbActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra("thread_id", str);
             intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+        }
+        return this;
+    }
+
+    public PbActivityConfig createNormalCfg(String str, String str2, int i, String str3) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra(KEY_THREAD_TYPE, i);
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
@@ -200,7 +220,16 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
+            intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
             intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (zVar.getPraise() == null ? 0L : zVar.getPraise().getNum()));
+        }
+        return this;
+    }
+
+    public PbActivityConfig addLocateParam(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("locate", str);
         }
         return this;
     }

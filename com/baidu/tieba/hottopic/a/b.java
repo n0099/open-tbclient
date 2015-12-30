@@ -10,21 +10,21 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bCx;
+    final /* synthetic */ a bGb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bCx = aVar;
+        this.bGb = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aB;
+        com.baidu.adp.widget.ListView.u au;
         HotTopicActivity hotTopicActivity;
-        if (this.bCx.aB(((Integer) view.getTag()).intValue()) instanceof z) {
-            String str = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((z) aB).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m411getInst().getString(n.i.user_icon_web_view_title);
-            hotTopicActivity = this.bCx.bCu;
+        if (this.bGb.au(((Integer) view.getTag()).intValue()) instanceof z) {
+            String str = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((z) au).getAuthor().getUserId();
+            String string = TbadkCoreApplication.m411getInst().getString(n.j.user_icon_web_view_title);
+            hotTopicActivity = this.bGb.bFY;
             com.baidu.tbadk.browser.f.a(hotTopicActivity.getApplicationContext(), string, str, true, true, false);
             TiebaStatic.log(new av("c10134").r("obj_type", 3));
         }

@@ -18,35 +18,35 @@ class p extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> qJ;
+        ArrayList<com.baidu.tbadk.mainTab.b> qs;
         w wVar;
         boolean z;
         w wVar2;
         int i;
         w wVar3;
         boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qJ = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qJ()) != null && qJ.size() != 0) {
-            wVar = this.this$0.dCW;
-            wVar.R(qJ);
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qs = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qs()) != null && qs.size() != 0) {
+            wVar = this.this$0.dKy;
+            wVar.Q(qs);
             z = this.this$0.isUserChanged;
             if (!z) {
-                z2 = this.this$0.dCR;
+                z2 = this.this$0.dKt;
                 if (!z2) {
-                    this.this$0.W(this.this$0.getIntent());
+                    this.this$0.V(this.this$0.getIntent());
                     this.this$0.isUserChanged = false;
-                    this.this$0.dCR = false;
-                    wVar3 = this.this$0.dCW;
-                    wVar3.aES();
+                    this.this$0.dKt = false;
+                    wVar3 = this.this$0.dKy;
+                    wVar3.aHg();
                 }
             }
-            wVar2 = this.this$0.dCW;
-            FragmentTabHost aEU = wVar2.aEU();
-            i = this.this$0.dCQ;
-            aEU.setCurrentTabByType(i);
+            wVar2 = this.this$0.dKy;
+            FragmentTabHost aHi = wVar2.aHi();
+            i = this.this$0.dKs;
+            aHi.setCurrentTabByType(i);
             this.this$0.isUserChanged = false;
-            this.this$0.dCR = false;
-            wVar3 = this.this$0.dCW;
-            wVar3.aES();
+            this.this$0.dKt = false;
+            wVar3 = this.this$0.dKy;
+            wVar3.aHg();
         }
     }
 }

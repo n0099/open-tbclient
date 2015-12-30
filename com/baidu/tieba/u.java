@@ -13,7 +13,7 @@ public class u implements DialogInterface.OnDismissListener {
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.this$0.aGd.dismiss();
+        this.this$0.aHD.dismiss();
         this.this$0.mHandler.postDelayed(new v(this), 100L);
     }
 }

@@ -6,27 +6,27 @@ import android.widget.TextView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class fe implements com.baidu.adp.lib.f.c<TextView> {
-    final /* synthetic */ TabMenuPopView bfY;
+    final /* synthetic */ TabMenuPopView bjQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fe(TabMenuPopView tabMenuPopView) {
-        this.bfY = tabMenuPopView;
+        this.bjQ = tabMenuPopView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Gr */
+    /* renamed from: Gg */
     public TextView hc() {
         Context context;
         Context context2;
-        context = this.bfY.mContext;
+        context = this.bjQ.mContext;
         TextView textView = new TextView(context);
-        context2 = this.bfY.mContext;
-        textView.setTextSize(0, com.baidu.adp.lib.util.k.d(context2, n.d.fontsize28));
-        com.baidu.tbadk.core.util.as.i((View) textView, n.e.bg_tab_meun);
-        com.baidu.tbadk.core.util.as.b(textView, n.c.cp_cont_f, 1);
+        context2 = this.bjQ.mContext;
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.d(context2, n.e.fontsize28));
+        com.baidu.tbadk.core.util.as.i((View) textView, n.f.bg_tab_meun);
+        com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_f, 1);
         textView.setGravity(17);
-        textView.setOnClickListener(this.bfY);
+        textView.setOnClickListener(this.bjQ);
         return textView;
     }
 
@@ -46,8 +46,8 @@ class fe implements com.baidu.adp.lib.f.c<TextView> {
     /* renamed from: e */
     public TextView m(TextView textView) {
         if (textView != null) {
-            com.baidu.tbadk.core.util.as.i((View) textView, n.e.bg_tab_meun);
-            com.baidu.tbadk.core.util.as.b(textView, n.c.cp_cont_f, 1);
+            com.baidu.tbadk.core.util.as.i((View) textView, n.f.bg_tab_meun);
+            com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_f, 1);
         }
         return textView;
     }

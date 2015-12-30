@@ -4,8 +4,8 @@ import android.view.View;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d extends b {
-    private IntentConfig apJ;
-    private IntentConfig apK;
+    private IntentConfig arl;
+    private IntentConfig arm;
     private View.OnClickListener mClickListener;
 
     @Override // com.baidu.tbadk.d.b
@@ -14,14 +14,14 @@ public class d extends b {
     }
 
     public void a(IntentConfig intentConfig) {
-        this.apJ = intentConfig;
+        this.arl = intentConfig;
     }
 
     public void b(IntentConfig intentConfig) {
-        this.apK = intentConfig;
+        this.arm = intentConfig;
     }
 
-    public IntentConfig be(boolean z) {
-        return z ? this.apJ : this.apK;
+    public IntentConfig bd(boolean z) {
+        return z ? this.arl : this.arm;
     }
 }

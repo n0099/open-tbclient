@@ -1,30 +1,44 @@
 package com.baidu.tieba.pb.pb.sub;
 
+import android.app.Dialog;
 import android.util.SparseArray;
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
 import com.baidu.tieba.n;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements a.b {
-    final /* synthetic */ w cHA;
-    private final /* synthetic */ SparseArray cHD;
+public class ak implements View.OnClickListener {
+    final /* synthetic */ w cLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(w wVar, SparseArray sparseArray) {
-        this.cHA = wVar;
-        this.cHD = sparseArray;
+    public ak(w wVar) {
+        this.cLC = wVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        NewSubPbActivity.a aVar;
         NewSubPbActivity.a aVar2;
-        NewSubPbActivity.a aVar3;
-        aVar2 = this.cHA.cHt;
-        if (aVar2 != null) {
-            aVar3 = this.cHA.cHt;
-            aVar3.d(new Object[]{this.cHD.get(n.f.tag_del_post_id), this.cHD.get(n.f.tag_manage_user_identity), this.cHD.get(n.f.tag_del_post_is_self), this.cHD.get(n.f.tag_del_post_type)});
+        Dialog dialog2;
+        Dialog dialog3;
+        NewSubPbActivity newSubPbActivity;
+        dialog = this.cLC.cIU;
+        if (dialog != null) {
+            dialog2 = this.cLC.cIU;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.cLC.cIU;
+                newSubPbActivity = this.cLC.cLg;
+                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
+            }
         }
-        aVar.dismiss();
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            aVar = this.cLC.cLu;
+            if (aVar != null) {
+                aVar2 = this.cLC.cLu;
+                aVar2.d(new Object[]{sparseArray.get(n.g.tag_manage_user_identity), sparseArray.get(n.g.tag_forbid_user_name), sparseArray.get(n.g.tag_forbid_user_post_id)});
+            }
+        }
     }
 }

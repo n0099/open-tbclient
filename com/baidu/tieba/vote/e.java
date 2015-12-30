@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ b dJS;
+    final /* synthetic */ b dRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.dJS = bVar;
+        this.dRr = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class e implements View.OnClickListener {
         PbActivity pbActivity4;
         List list;
         VoteDataInfo voteDataInfo3;
-        if (view.getId() == n.f.btn_pb_vote) {
-            pbActivity = this.dJS.cCy;
+        if (view.getId() == n.g.btn_pb_vote) {
+            pbActivity = this.dRr.cGj;
             if (pbActivity != null) {
-                pbActivity2 = this.dJS.cCy;
+                pbActivity2 = this.dRr.cGj;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.dJS.dJN;
+                    voteDataInfo = this.dRr.dRm;
                     if (voteDataInfo != null) {
-                        j = this.dJS.mForumId;
+                        j = this.dRr.mForumId;
                         if (j > 0) {
-                            j2 = this.dJS.mThreadId;
+                            j2 = this.dRr.mThreadId;
                             if (j2 > 0) {
-                                z = this.dJS.dJP;
+                                z = this.dRr.dRo;
                                 if (!z) {
-                                    pbActivity3 = this.dJS.cCy;
+                                    pbActivity3 = this.dRr.cGj;
                                     a aVar = new a(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.dJS.dJN;
+                                    voteDataInfo2 = this.dRr.dRm;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar2 : options) {
                                             if (aVar2 != null && aVar2.isSelected()) {
                                                 sb.append(aVar2.getId()).append(",");
-                                                list = this.dJS.dJO;
+                                                list = this.dRr.dRn;
                                                 list.add((f) aVar2);
-                                                voteDataInfo3 = this.dJS.dJN;
+                                                voteDataInfo3 = this.dRr.dRm;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class e implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.dJS.cCy;
-                                            UtilHelper.showToast(pbActivity4.getActivity(), n.i.vote_checked_less_one);
+                                            pbActivity4 = this.dRr.cGj;
+                                            UtilHelper.showToast(pbActivity4.getActivity(), n.j.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.dJS.mForumId;
-                                        j4 = this.dJS.mThreadId;
+                                        j3 = this.dRr.mForumId;
+                                        j4 = this.dRr.mThreadId;
                                         aVar.c(j3, j4, sb.toString());
-                                        this.dJS.dJP = true;
+                                        this.dRr.dRo = true;
                                     }
                                 }
                             }

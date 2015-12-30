@@ -21,14 +21,17 @@ class t implements ViewPager.OnPageChangeListener {
         j jVar;
         j jVar2;
         int i2;
-        boolean aeh;
+        int i3;
+        int i4;
+        boolean afq;
         a aVar;
-        z = this.this$0.cgu;
+        int i5;
+        z = this.this$0.cky;
         if (!z) {
-            jVar = this.this$0.cgo;
-            if (jVar != null && i > this.this$0.cgm.getItemNum() - 5) {
-                jVar2 = this.this$0.cgo;
-                jVar2.aea();
+            jVar = this.this$0.cks;
+            if (jVar != null && i > this.this$0.ckq.getItemNum() - 5) {
+                jVar2 = this.this$0.cks;
+                jVar2.afh();
             }
         } else {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
@@ -37,14 +40,21 @@ class t implements ViewPager.OnPageChangeListener {
         }
         ImageViewerActivity imageViewerActivity = this.this$0;
         i2 = this.this$0.mIndex;
-        imageViewerActivity.ah(i2, i);
+        imageViewerActivity.at(i2, i);
         this.this$0.mIndex = i;
-        this.this$0.aeg();
-        this.this$0.aem();
-        aeh = this.this$0.aeh();
-        if (aeh) {
-            aVar = this.this$0.cgw;
-            aVar.adN();
+        this.this$0.afp();
+        this.this$0.afv();
+        i3 = this.this$0.ckF;
+        i4 = this.this$0.mIndex;
+        if (i3 < i4) {
+            ImageViewerActivity imageViewerActivity2 = this.this$0;
+            i5 = this.this$0.mIndex;
+            imageViewerActivity2.ckF = i5;
+        }
+        afq = this.this$0.afq();
+        if (afq) {
+            aVar = this.this$0.ckA;
+            aVar.aeW();
         }
     }
 
@@ -60,12 +70,12 @@ class t implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.this$0.cgp;
-            if (nanoTime - j > 300000000 && this.this$0.cgf != null) {
+            j = this.this$0.ckt;
+            if (nanoTime - j > 300000000 && this.this$0.cki != null) {
                 i2 = this.this$0.mIndex;
-                if (i2 < this.this$0.cgf.size()) {
-                    hashMap = this.this$0.cgq;
-                    ArrayList arrayList = this.this$0.cgf;
+                if (i2 < this.this$0.cki.size()) {
+                    hashMap = this.this$0.cku;
+                    ArrayList arrayList = this.this$0.cki;
                     i3 = this.this$0.mIndex;
                     hashMap.put((String) arrayList.get(i3), true);
                 }

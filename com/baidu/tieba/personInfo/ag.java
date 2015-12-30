@@ -1,46 +1,38 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.dialog.c;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements com.baidu.adp.widget.ListView.v {
-    final /* synthetic */ af cSq;
+public class ag implements c.b {
+    final /* synthetic */ d cWV;
+    private final /* synthetic */ com.baidu.tbadk.data.g cWW;
+    private final /* synthetic */ List cWX;
+    private final /* synthetic */ int cxE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.cSq = afVar;
+    public ag(d dVar, com.baidu.tbadk.data.g gVar, List list, int i) {
+        this.cWV = dVar;
+        this.cWW = gVar;
+        this.cWX = list;
+        this.cxE = i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public void a(View view, com.baidu.adp.widget.ListView.u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        d dVar;
-        BaseFragmentActivity baseFragmentActivity;
-        d dVar2;
-        aw awVar;
-        d dVar3;
-        BaseFragmentActivity baseFragmentActivity2;
-        d dVar4;
-        dVar = this.cSq.cSn;
-        baseFragmentActivity = dVar.aHN;
-        if (bj.ah(baseFragmentActivity.getPageContext().getPageActivity())) {
-            dVar2 = this.cSq.cSn;
-            awVar = dVar2.cMT;
-            UserData userData = awVar.getUserData();
-            if (bdUniqueId == com.baidu.tieba.person.data.f.cNs && userData != null) {
-                int like_bars = userData.getLike_bars();
-                dVar3 = this.cSq.cSn;
-                baseFragmentActivity2 = dVar3.aHN;
-                CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(baseFragmentActivity2.getPageContext().getPageActivity(), like_bars, userData.getUserId(), userData.getSex()));
-                dVar4 = this.cSq.cSn;
-                dVar4.sendMessage(customMessage);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        this.cWV.cWt = true;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.cWV.apS();
+                }
+            } else {
+                this.cWV.apR();
             }
+        } else {
+            this.cWV.d(this.cWW, this.cWX, this.cxE);
         }
+        cVar.dismiss();
     }
 }

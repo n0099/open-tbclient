@@ -1,26 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
-class s implements q.a {
-    final /* synthetic */ PbActivity cCm;
+class s implements PbActivity.b {
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.cCm = pbActivity;
+        this.cFS = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.q.a
-    public void onListPullRefresh(boolean z) {
-        cc ccVar;
-        da daVar;
-        ccVar = this.cCm.cBG;
-        if (!ccVar.fe(true)) {
-            daVar = this.cCm.cBL;
-            daVar.alC();
+    @Override // com.baidu.tieba.pb.pb.main.PbActivity.b
+    public void fa(boolean z) {
+        cf cfVar;
+        dk dkVar;
+        cf cfVar2;
+        dk dkVar2;
+        cfVar = this.cFS.cFl;
+        if (cfVar.fd(true)) {
+            dkVar2 = this.cFS.cFq;
+            dkVar2.amM();
             return;
         }
-        TiebaStatic.eventStat(this.cCm.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
+        dkVar = this.cFS.cFq;
+        dkVar.ang();
+        cfVar2 = this.cFS.cFl;
+        cfVar2.kq(1);
     }
 }

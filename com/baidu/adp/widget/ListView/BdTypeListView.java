@@ -8,29 +8,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    x IF;
+    x IW;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.IF = null;
+        this.IW = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.IF = null;
+        this.IW = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.IF = null;
+        this.IW = null;
         init();
     }
 
     private void init() {
-        if (this.IF == null) {
-            this.IF = new x();
+        if (this.IW == null) {
+            this.IW = new x();
         }
         super.setOnItemClickListener(new s(this));
         super.setOnItemLongClickListener(new t(this));
@@ -49,20 +49,20 @@ public class BdTypeListView extends BdListView {
     public void g(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.IF.a(it.next());
+            this.IW.a(it.next());
         }
-        setAdapter((ListAdapter) this.IF);
+        setAdapter((ListAdapter) this.IW);
     }
 
     public void setData(List<u> list) {
-        this.IF.setData(list);
+        this.IW.setData(list);
     }
 
     public List<u> getData() {
-        return this.IF.getData();
+        return this.IW.getData();
     }
 
-    public u aB(int i) {
-        return this.IF.getItem(i);
+    public u au(int i) {
+        return this.IW.getItem(i);
     }
 }

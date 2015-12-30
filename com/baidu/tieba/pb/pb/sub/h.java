@@ -5,15 +5,15 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements TbRichTextView.e {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
     public void b(View view, String str) {
-        this.cHd.g(null, str, "LINK_IMAGE");
+        this.cLc.g(null, str, "LINK_IMAGE");
     }
 }

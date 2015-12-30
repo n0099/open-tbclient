@@ -55,7 +55,7 @@ public class f extends BroadcastReceiver {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                 VoiceManager.b playView2 = this.this$0.getPlayView();
                 if (playView2 != null) {
-                    playView2.aJ(intExtra);
+                    playView2.aC(intExtra);
                 }
                 if (this.this$0.mCurPlayModel != null) {
                     this.this$0.mCurPlayModel.elapse = intExtra;
@@ -86,9 +86,9 @@ public class f extends BroadcastReceiver {
                     VoiceManager.b playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            string = l.getString(n.i.voice_err_io);
+                            string = l.getString(n.j.voice_err_io);
                         } else {
-                            string = l.getString(n.i.voice_err_play);
+                            string = l.getString(n.j.voice_err_play);
                         }
                         playView4.onShowErr(5, string);
                     }
@@ -105,7 +105,7 @@ public class f extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.oK();
+                    playView5.oi();
                 }
                 MediaService.startPlay(context);
             } else {

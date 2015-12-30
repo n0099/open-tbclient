@@ -1,40 +1,40 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class g {
-    private String apD;
-    private String apE;
-    private boolean apF = false;
+    private String arg;
+    private String arh;
+    private boolean ari = false;
     private boolean isAdded = false;
 
-    public String Ba() {
-        return this.apD;
+    public String AQ() {
+        return this.arg;
     }
 
-    public void eQ(String str) {
-        this.apD = str;
+    public void eT(String str) {
+        this.arg = str;
     }
 
     public String getSmallUrl() {
-        return this.apE;
+        return this.arh;
     }
 
-    public void eR(String str) {
-        this.apE = str;
+    public void eU(String str) {
+        this.arh = str;
     }
 
-    public boolean Bb() {
-        return this.apF;
+    public boolean AR() {
+        return this.ari;
     }
 
-    public void bc(boolean z) {
-        this.apF = z;
+    public void bb(boolean z) {
+        this.ari = z;
     }
 
     public boolean isAdded() {
         return this.isAdded;
     }
 
-    public void bd(boolean z) {
+    public void bc(boolean z) {
         this.isAdded = z;
     }
 }

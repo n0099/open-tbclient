@@ -24,9 +24,9 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: L */
     public com.baidu.tieba.hottopic.b.b a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.hottopic.b.b(LayoutInflater.from(this.mContext).inflate(n.g.hot_topic_topicinfo_item, viewGroup, false));
+        return new com.baidu.tieba.hottopic.b.b(LayoutInflater.from(this.mContext).inflate(n.h.hot_topic_topicinfo_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,52 +41,52 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     }
 
     private void a(com.baidu.tieba.hottopic.b.b bVar, com.baidu.tieba.hottopic.data.d dVar) {
-        if (bVar != null && dVar != null && !StringUtils.isNull(dVar.bBb)) {
-            if (!TextUtils.isEmpty(dVar.bDR)) {
+        if (bVar != null && dVar != null && !StringUtils.isNull(dVar.aQB)) {
+            if (!TextUtils.isEmpty(dVar.bHu)) {
                 int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getContext());
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.bEJ.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.bIn.getLayoutParams();
                 layoutParams.height = K / 2;
-                bVar.bEJ.setLayoutParams(layoutParams);
-                bVar.bEJ.setEvent(new i(this, bVar));
-                bVar.bEJ.d(dVar.bDR, 10, false);
+                bVar.bIn.setLayoutParams(layoutParams);
+                bVar.bIn.setEvent(new i(this, bVar));
+                bVar.bIn.d(dVar.bHu, 10, false);
             } else {
-                bVar.bEJ.setVisibility(8);
+                bVar.bIn.setVisibility(8);
             }
-            bVar.bEK.setSingleLine();
-            dVar.bBb = dVar.bBb.trim();
+            bVar.bIo.setSingleLine();
+            dVar.aQB = dVar.aQB.trim();
             StringBuilder sb = new StringBuilder();
-            if (dVar.bBb.length() > 14) {
-                String substring = dVar.bBb.substring(1, 10);
-                sb.append(dVar.bBb.charAt(0));
+            if (dVar.aQB.length() > 14) {
+                String substring = dVar.aQB.substring(1, 10);
+                sb.append(dVar.aQB.charAt(0));
                 sb.append(substring);
                 sb.append("...");
-                sb.append(dVar.bBb.charAt(dVar.bBb.length() - 1));
-                bVar.bEK.setText(sb);
+                sb.append(dVar.aQB.charAt(dVar.aQB.length() - 1));
+                bVar.bIo.setText(sb);
             } else {
-                bVar.bEK.setText(dVar.bBb);
+                bVar.bIo.setText(dVar.aQB);
             }
-            bVar.bEL.setText(TbadkCoreApplication.m411getInst().getString(n.i.hot_topic_info_threadCount).replace("%s", ax.B(dVar.postNum)));
-            bVar.bEM.setMaxLines(3);
-            if (StringUtils.isNull(dVar.bDQ)) {
-                bVar.bEM.setVisibility(8);
+            bVar.bIp.setText(TbadkCoreApplication.m411getInst().getString(n.j.hot_topic_info_threadCount).replace("%s", ax.C(dVar.postNum)));
+            bVar.bIq.setMaxLines(3);
+            if (StringUtils.isNull(dVar.bHt)) {
+                bVar.bIq.setVisibility(8);
                 return;
             }
-            bVar.bEM.setVisibility(0);
-            bVar.bEM.setEllipsize(TextUtils.TruncateAt.END);
-            bVar.bEM.setText(dVar.bDQ);
+            bVar.bIq.setVisibility(0);
+            bVar.bIq.setEllipsize(TextUtils.TruncateAt.END);
+            bVar.bIq.setText(dVar.bHt);
         }
     }
 
     private void a(com.baidu.tieba.hottopic.b.b bVar) {
         if (bVar != null) {
             this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-            if (bVar.afY != this.mSkinType) {
-                bVar.afY = this.mSkinType;
-                as.j(bVar.getView(), n.c.cp_bg_line_d);
-                as.b(bVar.bEK, n.c.cp_cont_b, 1);
-                as.b(bVar.bEL, n.c.cp_cont_e, 1);
-                as.b(bVar.bEM, n.c.cp_cont_b, 1);
-                as.j(bVar.aFH, n.c.cp_bg_line_c);
+            if (bVar.ahf != this.mSkinType) {
+                bVar.ahf = this.mSkinType;
+                as.j(bVar.getView(), n.d.cp_bg_line_d);
+                as.b(bVar.bIo, n.d.cp_cont_b, 1);
+                as.b(bVar.bIp, n.d.cp_cont_e, 1);
+                as.b(bVar.bIq, n.d.cp_cont_b, 1);
+                as.j(bVar.aHh, n.d.cp_bg_line_c);
             }
         }
     }

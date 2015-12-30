@@ -163,7 +163,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.nC();
+            onGetPreLoadListView.na();
         }
     }
 

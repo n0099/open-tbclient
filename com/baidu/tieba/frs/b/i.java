@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.g {
-    final /* synthetic */ a bji;
+    final /* synthetic */ a bmZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.bji = aVar;
+        this.bmZ = aVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -32,43 +32,43 @@ public class i extends com.baidu.adp.base.g {
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
         boolean z = false;
-        frsActivity = this.bji.bhN;
-        com.baidu.tieba.tbadkCore.p MT = frsActivity.MT();
-        if (MT != null && MT.ajy() != null) {
-            String name = MT.ajy().getName();
+        frsActivity = this.bmZ.blE;
+        com.baidu.tieba.tbadkCore.p Nn = frsActivity.Nn();
+        if (Nn != null && Nn.akG() != null) {
+            String name = Nn.akG().getName();
             if (obj != null && (obj instanceof y)) {
-                com.baidu.tieba.tbadkCore.d.aBA().J(name, false);
+                com.baidu.tieba.tbadkCore.d.aDI().I(name, false);
                 ((y) obj).setLike(1);
-                MT.c((y) obj);
-                MT.bN(((y) obj).aBB());
+                Nn.c((y) obj);
+                Nn.bQ(((y) obj).aDJ());
                 z = true;
             }
-            frsActivity2 = this.bji.bhN;
-            frsActivity2.baf.d(Boolean.valueOf(z));
+            frsActivity2 = this.bmZ.blE;
+            frsActivity2.bec.d(Boolean.valueOf(z));
             if (!z) {
-                xVar = this.bji.Ml;
+                xVar = this.bmZ.MB;
                 if (xVar.getErrorCode() == 22) {
-                    frsActivity4 = this.bji.bhN;
-                    frsActivity4.showToast(this.bji.getPageContext().getString(n.i.had_liked_forum));
+                    frsActivity4 = this.bmZ.blE;
+                    frsActivity4.showToast(this.bmZ.getPageContext().getString(n.j.had_liked_forum));
                     return;
                 }
-                xVar2 = this.bji.Ml;
-                if (!AntiHelper.mC(xVar2.getErrorCode())) {
-                    frsActivity3 = this.bji.bhN;
-                    xVar3 = this.bji.Ml;
+                xVar2 = this.bmZ.MB;
+                if (!AntiHelper.ne(xVar2.getErrorCode())) {
+                    frsActivity3 = this.bmZ.blE;
+                    xVar3 = this.bmZ.MB;
                     frsActivity3.showToast(xVar3.getErrorString());
                     return;
                 }
-                Activity pageActivity = this.bji.getPageContext().getPageActivity();
-                xVar4 = this.bji.Ml;
+                Activity pageActivity = this.bmZ.getPageContext().getPageActivity();
+                xVar4 = this.bmZ.MB;
                 AntiHelper.Q(pageActivity, xVar4.getErrorString());
                 return;
             }
-            this.bji.a(MT, true);
-            frsActivity5 = this.bji.bhN;
-            frsActivity5.showToast(this.bji.getPageContext().getString(n.i.like_success));
+            this.bmZ.a(Nn, true);
+            frsActivity5 = this.bmZ.blE;
+            frsActivity5.showToast(this.bmZ.getPageContext().getString(n.j.like_success));
             TbadkCoreApplication.m411getInst().addLikeForum(name);
-            this.bji.e(true, MT.ajy().getId());
+            this.bmZ.e(true, Nn.akG().getId());
             y yVar = (y) obj;
             yVar.setLike(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));

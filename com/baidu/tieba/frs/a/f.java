@@ -9,24 +9,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class f extends x.a {
-    TextView aER;
-    HeadImageView aJP;
-    TextView agd;
-    LinearLayout bhH;
-    TbImageView bhJ;
-    TextView bhK;
-    TextView bhL;
-    TextView bhM;
+    TextView aGr;
+    HeadImageView aLn;
+    TextView ahk;
+    TbImageView blA;
+    TextView blB;
+    TextView blC;
+    TextView blD;
+    LinearLayout bly;
 
     public f(View view) {
         super(view);
-        this.bhH = (LinearLayout) view.findViewById(n.f.single_replenish_parent);
-        this.aJP = (HeadImageView) view.findViewById(n.f.single_replenish_locality_head);
-        this.aER = (TextView) view.findViewById(n.f.single_replenish_locality_name);
-        this.bhK = (TextView) view.findViewById(n.f.single_replenish_locality_sub);
-        this.agd = (TextView) view.findViewById(n.f.single_replenish_locality_title);
-        this.bhJ = (TbImageView) view.findViewById(n.f.single_replenish_locality_pic);
-        this.bhL = (TextView) view.findViewById(n.f.single_replenish_locality_brief);
-        this.bhM = (TextView) view.findViewById(n.f.single_replenish_desc);
+        this.bly = (LinearLayout) view.findViewById(n.g.single_replenish_parent);
+        this.aLn = (HeadImageView) view.findViewById(n.g.single_replenish_locality_head);
+        this.aGr = (TextView) view.findViewById(n.g.single_replenish_locality_name);
+        this.blB = (TextView) view.findViewById(n.g.single_replenish_locality_sub);
+        this.ahk = (TextView) view.findViewById(n.g.single_replenish_locality_title);
+        this.blA = (TbImageView) view.findViewById(n.g.single_replenish_locality_pic);
+        this.blC = (TextView) view.findViewById(n.g.single_replenish_locality_brief);
+        this.blD = (TextView) view.findViewById(n.g.single_replenish_desc);
     }
 }

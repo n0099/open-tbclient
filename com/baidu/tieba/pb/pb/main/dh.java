@@ -1,41 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class dh implements View.OnClickListener {
-    private final /* synthetic */ boolean cCo;
-    final /* synthetic */ da cGh;
-
+class dh extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(da daVar, boolean z) {
-        this.cGh = daVar;
-        this.cCo = z;
+    public dh(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.cGh.cEV;
-        if (dialog != null) {
-            dialog2 = this.cGh.cEV;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.cGh.cEV;
-                pbActivity2 = this.cGh.cCy;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity2.getPageContext());
-            }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.cGh.cCy;
-            pbActivity.a(this.cCo, (String) sparseArray.get(n.f.tag_user_mute_mute_userid), sparseArray);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        dd.amq().a(0, customResponsedMessage);
     }
 }

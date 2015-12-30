@@ -18,7 +18,7 @@ class g implements a.b {
             this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
             aVar.dismiss();
         } catch (Exception e) {
-            this.this$0.showToast(n.i.goto_developActivity_error_toast);
+            this.this$0.showToast(n.j.goto_developActivity_error_toast);
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ j aAB;
+    final /* synthetic */ j aCi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i) {
         super(i);
-        this.aAB = jVar;
+        this.aCi = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class k extends CustomMessageListener {
         if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
             return;
         }
-        this.aAB.Fw();
+        this.aCi.Fk();
     }
 }

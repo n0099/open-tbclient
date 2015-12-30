@@ -2,10 +2,10 @@ package com.baidu.tieba.recapp;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.tbadkCore.data.n;
+import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder extends x.a {
-    protected n dhH;
+    protected q dnn;
     protected boolean mIsFromCDN;
     private int position;
     protected View rootView;
@@ -18,16 +18,16 @@ public abstract class PbRecBaseViewHolder extends x.a {
         return this.rootView;
     }
 
-    public void update(n nVar, int i, boolean z) {
-        if (!nVar.dzw) {
-            com.baidu.tbadk.distribute.a.Bf().a(this.rootView.getContext(), nVar.aCX(), "show", "pb", nVar.dzx, nVar.threadId);
-            com.baidu.tbadk.distribute.a.Bf().a(nVar.aCX(), nVar.dzx, nVar.threadId, "PB", "show", nVar.pageNumber);
-            nVar.dzw = true;
+    public void update(q qVar, int i, boolean z) {
+        if (!qVar.dGZ) {
+            com.baidu.tbadk.distribute.a.AV().a(this.rootView.getContext(), qVar.aFk(), "show", "pb", qVar.dHa, qVar.threadId);
+            com.baidu.tbadk.distribute.a.AV().a(qVar.aFk(), qVar.dHa, qVar.threadId, "PB", "show", qVar.pageNumber);
+            qVar.dGZ = true;
         }
-        if (nVar != null) {
-            com.baidu.tbadk.distribute.a.apR = nVar.bgO;
+        if (qVar != null) {
+            com.baidu.tbadk.distribute.a.art = qVar.bkF;
         }
-        this.dhH = nVar;
+        this.dnn = qVar;
         this.position = i;
         this.mIsFromCDN = z;
         this.rootView.setTag(this);
@@ -38,13 +38,13 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        if (!this.dhH.dzw) {
-            com.baidu.tbadk.distribute.a.Bf().a(this.rootView.getContext(), this.dhH.aCX(), "show", "pb", this.dhH.dzx, this.dhH.threadId);
-            com.baidu.tbadk.distribute.a.Bf().a(this.dhH.aCX(), this.dhH.dzx, this.dhH.threadId, "PB", "show", this.dhH.pageNumber);
-            this.dhH.dzw = true;
+        if (!this.dnn.dGZ) {
+            com.baidu.tbadk.distribute.a.AV().a(this.rootView.getContext(), this.dnn.aFk(), "show", "pb", this.dnn.dHa, this.dnn.threadId);
+            com.baidu.tbadk.distribute.a.AV().a(this.dnn.aFk(), this.dnn.dHa, this.dnn.threadId, "PB", "show", this.dnn.pageNumber);
+            this.dnn.dGZ = true;
         }
-        if (this.dhH != null) {
-            com.baidu.tbadk.distribute.a.apR = this.dhH.bgO;
+        if (this.dnn != null) {
+            com.baidu.tbadk.distribute.a.art = this.dnn.bkF;
         }
     }
 }

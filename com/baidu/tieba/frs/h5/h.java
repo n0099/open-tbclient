@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.et;
 import com.baidu.tieba.frs.eu;
-import com.baidu.tieba.frs.ew;
+import com.baidu.tieba.frs.ev;
+import com.baidu.tieba.frs.ex;
 import com.baidu.tieba.frs.ey;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h implements et {
-    private eu aWF;
+public class h implements eu {
+    private ev baG;
 
-    @Override // com.baidu.tieba.frs.et
-    public void a(int i, int i2, ew ewVar) {
-        if (i > 100 && this.aWF != null && ewVar != null && ewVar.bfp != null && (ewVar.bfp instanceof String)) {
+    @Override // com.baidu.tieba.frs.eu
+    public void a(int i, int i2, ex exVar) {
+        if (i > 100 && this.baG != null && exVar != null && exVar.bji != null && (exVar.bji instanceof String)) {
             ArrayList<u> arrayList = new ArrayList<>();
-            g gVar = new g((String) ewVar.bfp);
-            gVar.stType = ewVar.stType;
+            g gVar = new g((String) exVar.bji);
+            gVar.stType = exVar.stType;
             arrayList.add(gVar);
             ey eyVar = new ey();
             eyVar.hasMore = false;
-            eyVar.bfr = false;
-            eyVar.bfs = false;
-            eyVar.pn = ewVar.pn;
-            eyVar.bfp = ewVar.bfp;
-            this.aWF.a(i, i2, eyVar, arrayList);
+            eyVar.bjj = false;
+            eyVar.bjk = false;
+            eyVar.pn = exVar.pn;
+            eyVar.bji = exVar.bji;
+            this.baG.a(i, i2, eyVar, arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.frs.et
-    public void a(eu euVar) {
-        this.aWF = euVar;
+    @Override // com.baidu.tieba.frs.eu
+    public void a(ev evVar) {
+        this.baG = evVar;
     }
 
-    @Override // com.baidu.tieba.frs.et
+    @Override // com.baidu.tieba.frs.eu
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.et
-    public void Mf() {
+    @Override // com.baidu.tieba.frs.eu
+    public void My() {
     }
 }

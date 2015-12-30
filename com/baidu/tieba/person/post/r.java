@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 class r implements View.OnClickListener {
-    final /* synthetic */ p cRd;
+    final /* synthetic */ p cVF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.cRd = pVar;
+        this.cVF = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,10 +23,10 @@ class r implements View.OnClickListener {
         Object tag = view.getTag();
         if (tag instanceof PersonPostModel.PostInfoList) {
             TiebaStatic.log("c10254");
-            baseFragmentActivity = this.cRd.mActivity;
-            PhotoLiveActivityConfig rw = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).cn(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bv(23014).rw();
-            baseFragmentActivity2 = this.cRd.mActivity;
-            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rw));
+            baseFragmentActivity = this.cVF.mActivity;
+            PhotoLiveActivityConfig rf = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).cp(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bo(23014).rf();
+            baseFragmentActivity2 = this.cVF.mActivity;
+            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rf));
         }
     }
 }

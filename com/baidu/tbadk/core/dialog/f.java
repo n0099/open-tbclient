@@ -13,7 +13,7 @@ import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<g> XX = new ArrayList<>();
+    private ArrayList<g> YA = new ArrayList<>();
     private TbPageContext<?> mContext;
 
     public f(TbPageContext<?> tbPageContext) {
@@ -21,18 +21,18 @@ public class f extends BaseAdapter {
     }
 
     public void setData(ArrayList<g> arrayList) {
-        this.XX = arrayList;
+        this.YA = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.XX.size();
+        return this.YA.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.XX.get(i);
+        return this.YA.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -43,56 +43,56 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        g gVar = this.XX.get(i);
+        g gVar = this.YA.get(i);
         if (gVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a(this, null);
-            aVar2.XY = (TextView) view.findViewById(n.f.text_tip);
-            aVar2.XZ = (TextView) view.findViewById(n.f.text_desc);
-            aVar2.Ya = view.findViewById(n.f.checked_icon);
-            aVar2.Yb = view.findViewById(n.f.line);
+            aVar2.YB = (TextView) view.findViewById(n.g.text_tip);
+            aVar2.YC = (TextView) view.findViewById(n.g.text_desc);
+            aVar2.YD = view.findViewById(n.g.checked_icon);
+            aVar2.YE = view.findViewById(n.g.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.XY.setText(gVar.tF());
+        aVar.YB.setText(gVar.tp());
         if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.XZ.setVisibility(8);
+            aVar.YC.setVisibility(8);
         } else {
-            aVar.XZ.setText(gVar.getDesc());
-            aVar.XZ.setVisibility(0);
+            aVar.YC.setText(gVar.getDesc());
+            aVar.YC.setVisibility(0);
         }
         if (gVar.isChecked()) {
-            aVar.Ya.setVisibility(0);
+            aVar.YD.setVisibility(0);
         } else {
-            aVar.Ya.setVisibility(8);
+            aVar.YD.setVisibility(8);
         }
-        if (cd(i)) {
-            aVar.Yb.setVisibility(8);
-            as.i(view, n.e.dialog_single_button_bg_selector);
+        if (bW(i)) {
+            aVar.YE.setVisibility(8);
+            as.i(view, n.f.dialog_single_button_bg_selector);
         } else {
-            aVar.Yb.setVisibility(0);
-            as.i(view, n.e.dialg_alert_btn_bg);
+            aVar.YE.setVisibility(0);
+            as.i(view, n.f.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.mContext.getLayoutMode().af(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.mContext.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
         this.mContext.getLayoutMode().k(view);
         return view;
     }
 
-    private boolean cd(int i) {
-        return this.XX != null && i == this.XX.size() + (-1);
+    private boolean bW(int i) {
+        return this.YA != null && i == this.YA.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView XY;
-        TextView XZ;
-        View Ya;
-        View Yb;
+        TextView YB;
+        TextView YC;
+        View YD;
+        View YE;
 
         private a() {
         }

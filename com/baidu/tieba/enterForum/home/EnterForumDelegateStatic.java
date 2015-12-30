@@ -18,22 +18,22 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.avR = new e();
+        cVar.axv = new e();
         cVar.type = 1;
-        cVar.avS = n.i.home;
-        cVar.avT = n.e.s_icon_tabbar_enterforum;
+        cVar.axw = n.j.home;
+        cVar.axx = n.f.s_icon_tabbar_enterforum;
         return cVar;
     }
 
     static {
         d dVar = new d(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        dVar.setPriority(3);
+        dVar.setPriority(4);
         MessageManager.getInstance().registerListener(dVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.g.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.h.fragmenttabindicator, (ViewGroup) null);
         return this.mIndicator;
     }
 }

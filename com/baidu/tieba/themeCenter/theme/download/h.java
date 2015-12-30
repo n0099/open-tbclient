@@ -16,100 +16,100 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private NoNetworkView aWm;
-    private com.baidu.tieba.themeCenter.theme.all.c dGA;
-    private DownloadedThemeListActivity dHg;
-    private TextView dHh;
+    private NoNetworkView bam;
+    private DownloadedThemeListActivity dOH;
+    private TextView dOI;
+    private com.baidu.tieba.themeCenter.theme.all.c dOb;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private boolean dHe = true;
-    private boolean dGX = false;
+    private boolean dOF = true;
+    private boolean dOy = false;
 
     public h(DownloadedThemeListActivity downloadedThemeListActivity, SkinItemView.a aVar) {
-        this.dHg = downloadedThemeListActivity;
-        this.mRoot = LayoutInflater.from(this.dHg.getPageContext().getPageActivity()).inflate(n.g.downloaded_theme_list_activity_layout, (ViewGroup) null);
-        this.dHg.setContentView(this.mRoot);
-        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.f.view_navigation_bar);
+        this.dOH = downloadedThemeListActivity;
+        this.mRoot = LayoutInflater.from(this.dOH.getPageContext().getPageActivity()).inflate(n.h.downloaded_theme_list_activity_layout, (ViewGroup) null);
+        this.dOH.setContentView(this.mRoot);
+        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(n.i.themes_downloaded);
-        this.dHh = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.navigation_right_button_layout, (View.OnClickListener) null).findViewById(n.f.right_textview);
-        this.dHh.setText(n.i.theme_manager);
-        this.aWm = (NoNetworkView) this.mRoot.findViewById(n.f.view_no_network);
-        this.mListView = (BdListView) this.mRoot.findViewById(n.f.downloaded_theme_listview);
-        this.dGA = new com.baidu.tieba.themeCenter.theme.all.c(this.dHg.getPageContext(), aVar);
-        this.mListView.setAdapter((ListAdapter) this.dGA);
+        this.mNavigationBar.setTitleText(n.j.themes_downloaded);
+        this.dOI = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.h.navigation_right_button_layout, (View.OnClickListener) null).findViewById(n.g.right_textview);
+        this.dOI.setText(n.j.theme_manager);
+        this.bam = (NoNetworkView) this.mRoot.findViewById(n.g.view_no_network);
+        this.mListView = (BdListView) this.mRoot.findViewById(n.g.downloaded_theme_listview);
+        this.dOb = new com.baidu.tieba.themeCenter.theme.all.c(this.dOH.getPageContext(), aVar);
+        this.mListView.setAdapter((ListAdapter) this.dOb);
     }
 
-    public void bU(List<com.baidu.tieba.themeCenter.theme.top.a> list) {
+    public void bX(List<com.baidu.tieba.themeCenter.theme.top.a> list) {
         if (list == null || list.size() <= 0) {
-            LY();
+            Mr();
             return;
         }
-        aFC();
-        LZ();
-        this.dGA.setData(list);
-        this.dGA.notifyDataSetChanged();
+        aHR();
+        Ms();
+        this.dOb.setData(list);
+        this.dOb.notifyDataSetChanged();
     }
 
-    public void LY() {
+    public void Mr() {
         this.mListView.setVisibility(8);
-        this.dHg.showNetRefreshView(this.mRoot, this.dHg.getPageContext().getResources().getString(n.i.no_data_text), false);
+        this.dOH.showNetRefreshView(this.mRoot, this.dOH.getPageContext().getResources().getString(n.j.no_data_text), false);
     }
 
-    public void LZ() {
+    public void Ms() {
         this.mListView.setVisibility(0);
-        this.dHg.hideNetRefreshView(this.mRoot);
+        this.dOH.hideNetRefreshView(this.mRoot);
     }
 
-    public void aFC() {
-        if (this.dHe) {
-            this.dHh.setVisibility(0);
+    public void aHR() {
+        if (this.dOF) {
+            this.dOI.setVisibility(0);
             return;
         }
-        this.dHh.setVisibility(8);
-        this.dGX = false;
+        this.dOI.setVisibility(8);
+        this.dOy = false;
     }
 
-    public void tH() {
-        this.dHg.getLayoutMode().af(TbadkApplication.getInst().getSkinType() == 1);
-        this.dHg.getLayoutMode().k(this.mRoot);
+    public void tr() {
+        this.dOH.getLayoutMode().ac(TbadkApplication.getInst().getSkinType() == 1);
+        this.dOH.getLayoutMode().k(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.dHg.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.dOH.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.aWm != null && this.aWm.getVisibility() == 0) {
-            this.aWm.onChangeSkinType(this.dHg.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.bam != null && this.bam.getVisibility() == 0) {
+            this.bam.onChangeSkinType(this.dOH.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dGA != null) {
-            this.dGA.notifyDataSetChanged();
+        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dOb != null) {
+            this.dOb.notifyDataSetChanged();
         }
-        as.b(this.dHh, n.c.navi_op_text, 1);
+        as.b(this.dOI, n.d.navi_op_text, 1);
     }
 
-    public boolean aFD() {
-        if (this.dGX) {
-            this.dHh.setText(n.i.theme_manager);
-            this.dGX = false;
+    public boolean aHS() {
+        if (this.dOy) {
+            this.dOI.setText(n.j.theme_manager);
+            this.dOy = false;
         } else {
-            this.dHh.setText(n.i.theme_edit_down);
-            this.dGX = true;
+            this.dOI.setText(n.j.theme_edit_down);
+            this.dOy = true;
             TiebaStatic.log("c10274");
         }
-        return this.dGX;
+        return this.dOy;
     }
 
     public boolean isInEditMode() {
-        return this.dGX;
+        return this.dOy;
     }
 
-    public TextView aFE() {
-        return this.dHh;
+    public TextView aHT() {
+        return this.dOI;
     }
 
-    public void hw(boolean z) {
-        this.dHe = z;
+    public void hF(boolean z) {
+        this.dOF = z;
         if (!z) {
-            this.dGX = false;
+            this.dOy = false;
         }
     }
 }

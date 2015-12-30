@@ -14,87 +14,87 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView djc;
-    private TextView djd;
-    private SlidingTabLayout dje;
-    private Animation djf;
-    private Animation djg;
+    private ImageView dpG;
+    private TextView dpH;
+    private SlidingTabLayout dpI;
+    private Animation dpJ;
+    private Animation dpK;
     private Context mContext;
     private View rootView;
-    private boolean djh = true;
-    private com.baidu.adp.lib.h.d cbH = new f(this);
+    private boolean dpL = true;
+    private com.baidu.adp.lib.h.d cfH = new f(this);
 
     public e(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.djd = (TextView) view.findViewById(n.f.tab_widget_switch);
-        this.djc = (ImageView) view.findViewById(n.f.tab_widget_more);
-        this.dje = (SlidingTabLayout) view.findViewById(n.f.tab_widget_sliding_tab);
+        this.dpH = (TextView) view.findViewById(n.g.tab_widget_switch);
+        this.dpG = (ImageView) view.findViewById(n.g.tab_widget_more);
+        this.dpI = (SlidingTabLayout) view.findViewById(n.g.tab_widget_sliding_tab);
     }
 
     public void L(View.OnClickListener onClickListener) {
-        if (this.djc != null) {
-            this.djc.setOnClickListener(onClickListener);
+        if (this.dpG != null) {
+            this.dpG.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.dje != null) {
-            this.dje.setViewPager(viewPager);
+        if (this.dpI != null) {
+            this.dpI.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        as.j(this.rootView, n.c.cp_bg_line_e);
-        as.j((View) this.djd, n.c.cp_bg_line_e);
-        as.b(this.djd, n.c.cp_cont_f, 1);
-        if (this.djh) {
-            as.c(this.djc, n.e.icon_triangle_down_normal);
+        as.j(this.rootView, n.d.cp_bg_line_e);
+        as.j((View) this.dpH, n.d.cp_bg_line_e);
+        as.b(this.dpH, n.d.cp_cont_f, 1);
+        if (this.dpL) {
+            as.c(this.dpG, n.f.icon_triangle_down_normal);
         } else {
-            as.c(this.djc, n.e.icon_triangle_up_normal);
+            as.c(this.dpG, n.f.icon_triangle_up_normal);
         }
-        as.i(this.djc, n.e.rec_frs_btn_more_selector);
-        if (this.dje != null) {
-            this.dje.onChangeSkinType(i);
+        as.i(this.dpG, n.f.rec_frs_btn_more_selector);
+        if (this.dpI != null) {
+            this.dpI.onChangeSkinType(i);
         }
     }
 
-    public void awB() {
-        this.djh = false;
+    public void ayH() {
+        this.dpL = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.djd != null) {
-            this.djd.clearAnimation();
-            this.djd.setVisibility(0);
-            this.djd.startAnimation(getInAnimation());
+        if (this.dpH != null) {
+            this.dpH.clearAnimation();
+            this.dpH.setVisibility(0);
+            this.dpH.startAnimation(getInAnimation());
         }
-        as.c(this.djc, n.e.icon_triangle_up_normal);
-        this.dje.setDrawBottomLine(false);
+        as.c(this.dpG, n.f.icon_triangle_up_normal);
+        this.dpI.setDrawBottomLine(false);
     }
 
-    public void awC() {
-        this.djh = true;
+    public void ayI() {
+        this.dpL = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.djd != null) {
-            this.djd.clearAnimation();
-            this.djd.startAnimation(getOutAnimation());
+        if (this.dpH != null) {
+            this.dpH.clearAnimation();
+            this.dpH.startAnimation(getOutAnimation());
         }
-        as.c(this.djc, n.e.icon_triangle_down_normal);
-        this.dje.setDrawBottomLine(true);
+        as.c(this.dpG, n.f.icon_triangle_down_normal);
+        this.dpI.setDrawBottomLine(true);
     }
 
     private Animation getInAnimation() {
-        if (this.djf == null) {
-            this.djf = AnimationUtils.loadAnimation(this.mContext, n.a.fade_in);
-            this.djf.setAnimationListener(this.cbH);
+        if (this.dpJ == null) {
+            this.dpJ = AnimationUtils.loadAnimation(this.mContext, n.a.fade_in);
+            this.dpJ.setAnimationListener(this.cfH);
         }
-        return this.djf;
+        return this.dpJ;
     }
 
     private Animation getOutAnimation() {
-        if (this.djg == null) {
-            this.djg = AnimationUtils.loadAnimation(this.mContext, n.a.fade_out);
-            this.djg.setAnimationListener(this.cbH);
+        if (this.dpK == null) {
+            this.dpK = AnimationUtils.loadAnimation(this.mContext, n.a.fade_out);
+            this.dpK.setAnimationListener(this.cfH);
         }
-        return this.djg;
+        return this.dpK;
     }
 }

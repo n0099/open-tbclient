@@ -40,7 +40,7 @@ public class g extends BroadcastReceiver {
             }
             String str4 = "";
             if (PluginCenter.getInstance().getPlugin(str) != null) {
-                str4 = PluginCenter.getInstance().getPlugin(str).kq();
+                str4 = PluginCenter.getInstance().getPlugin(str).kr();
             }
             if (!TextUtils.isEmpty(str4)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -69,11 +69,11 @@ public class g extends BroadcastReceiver {
             bundle.putString("package_name", str);
             bundle.putString("current_path", str2);
             setResultExtras(bundle);
-            z = this.this$0.DH;
+            z = this.this$0.Ea;
             if (!z) {
                 return;
             }
-            this.this$0.I(str, str2);
+            this.this$0.H(str, str2);
         }
     }
 }

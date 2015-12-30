@@ -6,26 +6,26 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes.dex */
 public class g implements c {
-    private SpannableStringBuilder cIo;
-    private int cIp;
+    private SpannableStringBuilder cMr;
+    private int cMs;
     private String color;
     private int textSize;
 
     public g() {
-        this.cIp = 0;
+        this.cMs = 0;
         this.textSize = -1;
-        this.cIo = new SpannableStringBuilder();
+        this.cMr = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.cIp = 0;
+        this.cMs = 0;
         this.textSize = -1;
-        this.cIo = new SpannableStringBuilder();
+        this.cMr = new SpannableStringBuilder();
         if (excContent != null) {
-            this.cIo.append((CharSequence) excContent.text);
+            this.cMr.append((CharSequence) excContent.text);
         }
         if (excContent.align != null) {
-            this.cIp = excContent.align.intValue();
+            this.cMs = excContent.align.intValue();
         }
         if (!StringUtils.isNull(excContent.color)) {
             this.color = excContent.color;
@@ -38,9 +38,9 @@ public class g implements c {
         }
     }
 
-    public void g(CharSequence charSequence) {
+    public void f(CharSequence charSequence) {
         if (charSequence != null) {
-            this.cIo.append(charSequence);
+            this.cMr.append(charSequence);
         }
     }
 
@@ -50,21 +50,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence amV() {
-        return this.cIo;
+    public CharSequence aog() {
+        return this.cMr;
     }
 
-    public int amX() {
-        return this.cIp;
+    public int aoi() {
+        return this.cMs;
     }
 
-    public String amY() {
+    public String aoj() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean amW() {
-        return (this.cIp > 0 && this.cIp < 3) || !StringUtils.isNull(this.color);
+    public boolean aoh() {
+        return (this.cMs > 0 && this.cMs < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

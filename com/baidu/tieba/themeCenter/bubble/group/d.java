@@ -12,12 +12,12 @@ import com.baidu.tieba.themeCenter.dressCenter.k;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<BubbleGroupActivity> {
-    private final HttpMessageListener cmR;
-    private com.baidu.adp.framework.listener.a cok;
-    private List<c> dEu;
-    private boolean dEw;
-    private BubbleGroupActivity dFD;
-    private a dFE;
+    private final HttpMessageListener cqU;
+    private com.baidu.adp.framework.listener.a csn;
+    private List<c> dLY;
+    private boolean dMa;
+    private BubbleGroupActivity dNf;
+    private a dNg;
     private k mRecommand;
 
     /* loaded from: classes.dex */
@@ -27,22 +27,22 @@ public class d extends com.baidu.adp.base.e<BubbleGroupActivity> {
 
     public d(BubbleGroupActivity bubbleGroupActivity) {
         super(bubbleGroupActivity.getPageContext());
-        this.cok = new e(this, CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
-        this.cmR = new f(this, CmdConfigHttp.CMD_BUBBLE_SET);
-        this.dFD = bubbleGroupActivity;
-        this.dEw = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        afV();
-        registerListener(this.cok);
-        aFo();
-        registerListener(this.cmR);
+        this.csn = new e(this, CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
+        this.cqU = new f(this, CmdConfigHttp.CMD_BUBBLE_SET);
+        this.dNf = bubbleGroupActivity;
+        this.dMa = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        ahe();
+        registerListener(this.csn);
+        aHD();
+        registerListener(this.cqU);
     }
 
-    private void afV() {
+    private void ahe() {
         com.baidu.tieba.tbadkCore.a.a.a(309030, BubbleGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void aFo() {
+    private void aHD() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BUBBLE_SET, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.BUBBLE_SET);
         tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
@@ -61,17 +61,17 @@ public class d extends com.baidu.adp.base.e<BubbleGroupActivity> {
     }
 
     public void a(a aVar) {
-        this.dFE = aVar;
+        this.dNg = aVar;
     }
 
-    public boolean azO() {
-        return this.dEw;
+    public boolean aBV() {
+        return this.dMa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mW(int i) {
-        if (this.dEu != null && this.dEu.size() > 0) {
-            for (c cVar : this.dEu) {
+    public void ny(int i) {
+        if (this.dLY != null && this.dLY.size() > 0) {
+            for (c cVar : this.dLY) {
                 if (cVar != null && cVar.getBubbleList() != null) {
                     for (DressItemData dressItemData : cVar.getBubbleList()) {
                         if (dressItemData != null) {

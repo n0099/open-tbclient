@@ -1,6 +1,7 @@
 package com.baidu.tieba.image;
 
 import android.view.animation.Animation;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -16,12 +17,15 @@ public class o implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         boolean z;
         NavigationBar navigationBar;
-        this.this$0.bGq = true;
-        z = this.this$0.bGr;
+        this.this$0.bJX = true;
+        z = this.this$0.bJY;
         if (z) {
-            this.this$0.bGr = false;
-            navigationBar = this.this$0.bli;
+            this.this$0.bJY = false;
+            navigationBar = this.this$0.boZ;
             navigationBar.setVisibility(8);
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.this$0.ckq.setSystemUiVisibility(4);
+            }
         }
     }
 

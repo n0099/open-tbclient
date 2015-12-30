@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
-    public static final String KEY_COOKIE = "Cookie";
+    private static final String KEY_COOKIE = "Cookie";
     private Comparator<Map.Entry<String, Object>> mComparator;
     private HashMap<String, String> mHeaders;
     private boolean mNeedProgress;
@@ -106,17 +106,18 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     public String addCookie(String str, String str2) {
+        Map<String, String> parseKVString;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        HashMap hashMap = new HashMap();
-        if (this.mHeaders.containsKey(KEY_COOKIE)) {
-            hashMap.putAll(j.B(this.mHeaders.get(KEY_COOKIE), ";"));
+        if (this.mHeaders.containsKey(KEY_COOKIE) && (parseKVString = parseKVString(this.mHeaders.get(KEY_COOKIE), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null) {
+            String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
+            parseKVString.put(str, str2);
+            addHeader(KEY_COOKIE, map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
+            return str3;
         }
-        String str3 = hashMap.containsKey(str) ? (String) hashMap.get(str) : null;
-        hashMap.put(str, str2);
-        addHeader(KEY_COOKIE, j.b(";", hashMap));
-        return str3;
+        addHeader(KEY_COOKIE, String.valueOf(str) + '=' + str2 + ';');
+        return null;
     }
 
     public String removeHeader(String str) {
@@ -127,9 +128,9 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         if (str == null || !this.mHeaders.containsKey(KEY_COOKIE)) {
             return null;
         }
-        Map<String, String> B = j.B(this.mHeaders.get(KEY_COOKIE), ";");
-        String remove = B.remove(str);
-        addHeader(KEY_COOKIE, j.b(";", B));
+        Map<String, String> parseKVString = parseKVString(this.mHeaders.get(KEY_COOKIE), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        String remove = parseKVString.remove(str);
+        addHeader(KEY_COOKIE, map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
         return remove;
     }
 
@@ -215,5 +216,38 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     @Override // com.baidu.adp.framework.message.Message
     public void setClientLogID(long j) {
         super.setClientLogID(j);
+    }
+
+    private Map<String, String> parseKVString(String str, String str2) {
+        String[] split;
+        HashMap hashMap = new HashMap();
+        if (str != null && str2 != null) {
+            for (String str3 : str.split(str2)) {
+                int indexOf = str3.indexOf("=");
+                if (indexOf != -1) {
+                    String trim = str3.substring(0, indexOf).trim();
+                    String trim2 = str3.substring(indexOf + 1).trim();
+                    if (!trim.isEmpty() && !trim2.isEmpty()) {
+                        hashMap.put(trim.trim(), trim2.trim());
+                    }
+                }
+            }
+        }
+        return hashMap;
+    }
+
+    private String map2KVString(String str, Map<?, ?> map) {
+        StringBuilder sb = new StringBuilder();
+        if (str != null && map != null) {
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                Object key = entry.getKey();
+                Object value = entry.getValue();
+                sb.append(key == null ? "null" : key.toString());
+                sb.append('=');
+                sb.append(value == null ? "null" : value.toString());
+                sb.append(str);
+            }
+        }
+        return sb.toString();
     }
 }

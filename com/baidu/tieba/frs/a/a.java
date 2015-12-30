@@ -10,10 +10,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.m;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bm;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class a extends bm<com.baidu.tbadk.core.data.b, b> {
+public class a extends bp<com.baidu.tbadk.core.data.b, b> {
     public a(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
@@ -21,43 +21,43 @@ public class a extends bm<com.baidu.tbadk.core.data.b, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: C */
+    /* renamed from: H */
     public b a(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(n.g.frs_locality_bar_big_image, (ViewGroup) null));
+        return new b(LayoutInflater.from(this.mContext).inflate(n.h.frs_locality_bar_big_image, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, b bVar2) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) bVar2);
-        bVar2.bhH.setPadding(0, i - this.aZm == 0 ? this.aYn : this.aYo, 0, 0);
-        this.aXA.getLayoutMode().af(this.mSkinType == 1);
-        this.aXA.getLayoutMode().k(view);
-        if (!bVar.UB && (this.aXA instanceof FrsActivity)) {
-            bVar.UB = true;
-            ((FrsActivity) this.aXA).a(bVar, "show");
-            ((FrsActivity) this.aXA).b(bVar, "show");
+        bVar2.bly.setPadding(0, i - this.bdi == 0 ? this.bcm : this.bcn, 0, 0);
+        this.bbA.getLayoutMode().ac(this.mSkinType == 1);
+        this.bbA.getLayoutMode().k(view);
+        if (!bVar.Vc && (this.bbA instanceof FrsActivity)) {
+            bVar.Vc = true;
+            ((FrsActivity) this.bbA).a(bVar, "show");
+            ((FrsActivity) this.bbA).b(bVar, "show");
         }
-        if (m.rh().rj()) {
-            bVar2.aJP.setVisibility(0);
-            bVar2.aJP.d(bVar.UA.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.qQ().qS()) {
+            bVar2.aLn.setVisibility(0);
+            bVar2.aLn.d(bVar.Vb.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            bVar2.aJP.setVisibility(8);
+            bVar2.aLn.setVisibility(8);
         }
-        if (m.rh().rn() && !TextUtils.isEmpty(bVar.UA.UF)) {
-            bVar2.bhJ.setVisibility(0);
-            bVar2.bhJ.d(bVar.UA.UF, this.mIsFromCDN ? 30 : 31, false);
+        if (m.qQ().qW() && !TextUtils.isEmpty(bVar.Vb.Vg)) {
+            bVar2.blA.setVisibility(0);
+            bVar2.blA.d(bVar.Vb.Vg, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            bVar2.bhJ.setVisibility(8);
+            bVar2.blA.setVisibility(8);
         }
-        bVar2.aER.setText(bVar.UA.userName);
-        bVar2.bhI.setText(ax.s(bVar.Uz));
-        if (StringUtils.isNull(bVar.UA.UD)) {
-            bVar2.agd.setVisibility(8);
+        bVar2.aGr.setText(bVar.Vb.userName);
+        bVar2.blz.setText(ax.s(bVar.Va));
+        if (StringUtils.isNull(bVar.Vb.Ve)) {
+            bVar2.ahk.setVisibility(8);
         } else {
-            bVar2.agd.setVisibility(0);
-            bVar2.agd.setText(bVar.UA.UD);
+            bVar2.ahk.setVisibility(0);
+            bVar2.ahk.setText(bVar.Vb.Ve);
         }
         return view;
     }

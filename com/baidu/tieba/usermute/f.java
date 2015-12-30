@@ -14,11 +14,11 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ UserMuteAddAndDelModel dIS;
+    final /* synthetic */ UserMuteAddAndDelModel dQt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.dIS = userMuteAddAndDelModel;
+        this.dQt = userMuteAddAndDelModel;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -29,14 +29,14 @@ public class f implements a.b {
         com.baidu.adp.base.h hVar2;
         if (Build.VERSION.SDK_INT < 11) {
             aVar.dismiss();
-            hVar2 = this.dIS.dIK;
-            ((TbPageContext) hVar2).showToast(n.i.frs_header_games_unavailable);
+            hVar2 = this.dQt.dQl;
+            ((TbPageContext) hVar2).showToast(n.j.frs_header_games_unavailable);
             return;
         }
         int i = -1;
-        from = this.dIS.dIL;
+        from = this.dQt.dQm;
         if (from != UserMuteAddAndDelModel.From.PB) {
-            from2 = this.dIS.dIL;
+            from2 = this.dQt.dQm;
             if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                 TiebaStatic.log("c10038");
                 i = 5;
@@ -47,7 +47,7 @@ public class f implements a.b {
         }
         aVar.dismiss();
         MessageManager messageManager = MessageManager.getInstance();
-        hVar = this.dIS.dIK;
+        hVar = this.dQt.dQl;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) hVar.getPageActivity(), 2, true, i)));
     }
 }

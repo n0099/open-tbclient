@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class m {
     private String checkUrl;
 
-    public String xo() {
+    public String wX() {
         return this.checkUrl;
     }
 

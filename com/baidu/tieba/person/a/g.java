@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class g extends c<com.baidu.tieba.person.data.e, com.baidu.tieba.person.b.d> {
-    private com.baidu.tieba.person.data.e cMk;
+    private com.baidu.tieba.person.data.e cQC;
     private String userId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,9 +22,9 @@ public class g extends c<com.baidu.tieba.person.data.e, com.baidu.tieba.person.b
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aj */
+    /* renamed from: ag */
     public com.baidu.tieba.person.b.d a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(n.g.personinfo_fans_view, viewGroup, false));
+        return new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(n.h.personinfo_fans_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,9 +32,9 @@ public class g extends c<com.baidu.tieba.person.data.e, com.baidu.tieba.person.b
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.e eVar, com.baidu.tieba.person.b.d dVar) {
         a(dVar, view);
-        if (eVar != null && this.aRB) {
+        if (eVar != null && this.aVr) {
             a(dVar, eVar, view);
-            this.aRB = false;
+            this.aVr = false;
         }
         return view;
     }
@@ -43,39 +43,39 @@ public class g extends c<com.baidu.tieba.person.data.e, com.baidu.tieba.person.b
         if (eVar != null) {
             this.userId = eVar.userId;
             if (eVar.sex == 2) {
-                dVar.cNY.setText(this.mContext.getResources().getString(n.i.attention_to_her));
+                dVar.cSE.setText(this.mContext.getResources().getString(n.j.attention_to_her));
             } else {
-                dVar.cNY.setText(this.mContext.getResources().getString(n.i.attention_to_him));
+                dVar.cSE.setText(this.mContext.getResources().getString(n.j.attention_to_him));
             }
-            if (eVar.cNr > 0) {
-                dVar.cNZ.setVisibility(0);
-                dVar.cNR.setVisibility(0);
-                dVar.cNQ.setVisibility(4);
-                dVar.cNZ.setText(new StringBuilder(String.valueOf(eVar.cNr)).toString());
+            if (eVar.cRV > 0) {
+                dVar.cSF.setVisibility(0);
+                dVar.cSx.setVisibility(0);
+                dVar.cSw.setVisibility(4);
+                dVar.cSF.setText(new StringBuilder(String.valueOf(eVar.cRV)).toString());
             } else {
-                dVar.cNZ.setVisibility(4);
-                dVar.cNR.setVisibility(4);
-                dVar.cNQ.setVisibility(0);
+                dVar.cSF.setVisibility(4);
+                dVar.cSx.setVisibility(4);
+                dVar.cSw.setVisibility(0);
             }
             a(view, eVar);
         }
     }
 
     private void a(com.baidu.tieba.person.b.d dVar, View view) {
-        if (dVar.afY != TbadkCoreApplication.m411getInst().getSkinType()) {
-            as.i(view, n.e.addresslist_item_bg);
-            as.b(dVar.cNY, n.c.cp_cont_f, 1);
-            as.b(dVar.cNZ, n.c.cp_cont_c, 1);
-            as.j(dVar.line, n.c.cp_bg_line_b);
-            as.j(dVar.cyG, n.c.cp_bg_line_c);
-            as.b(dVar.cNQ, n.c.cp_cont_d, 1);
-            as.c(dVar.cNR, n.e.icon_arrow_tab);
+        if (dVar.ahf != TbadkCoreApplication.m411getInst().getSkinType()) {
+            as.i(view, n.f.addresslist_item_bg);
+            as.b(dVar.cSE, n.d.cp_cont_f, 1);
+            as.b(dVar.cSF, n.d.cp_cont_c, 1);
+            as.j(dVar.line, n.d.cp_bg_line_b);
+            as.j(dVar.aPe, n.d.cp_bg_line_c);
+            as.b(dVar.cSw, n.d.cp_cont_d, 1);
+            as.c(dVar.cSx, n.f.icon_arrow_tab);
         }
     }
 
     private void a(View view, com.baidu.tieba.person.data.e eVar) {
         if (eVar != null) {
-            this.cMk = eVar;
+            this.cQC = eVar;
             view.setOnClickListener(new h(this));
         }
     }

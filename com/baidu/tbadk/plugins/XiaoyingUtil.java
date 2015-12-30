@@ -26,7 +26,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.lU().bu(PKG_NAME_VIDEO);
+        return PluginPackageManager.ls().bx(PKG_NAME_VIDEO);
     }
 
     public static int getShowTime() {
@@ -38,7 +38,7 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.lU().bo(PKG_NAME_VIDEO) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(MotuVideoConfig.class);
+        return PluginPackageManager.ls().br(PKG_NAME_VIDEO) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(MotuVideoConfig.class);
     }
 
     public static void startXiaoying(Context context) {
@@ -50,10 +50,10 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(n.i.plugin_xiaoying_install_fail)).tE();
-            } else if (!i.iP()) {
-                BdToast.b(context, context.getString(n.i.neterror)).tE();
-            } else if (i.iQ()) {
+                BdToast.b(context, context.getString(n.j.plugin_xiaoying_install_fail)).to();
+            } else if (!i.iQ()) {
+                BdToast.b(context, context.getString(n.j.neterror)).to();
+            } else if (i.iR()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
             } else {
                 showStartPlayVideoDialog(context, str, i, i2, str2);
@@ -65,17 +65,17 @@ public class XiaoyingUtil {
         h<?> C = l.C(context);
         if (C != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(C.getPageActivity());
-            aVar.cC(TbadkCoreApplication.m411getInst().getString(n.i.play_video_mobile_tip));
-            aVar.a(n.i.confirm, new c(context, str, i, i2, str2));
-            aVar.b(n.i.cancel, new d());
-            aVar.b(C).tv();
+            aVar.cF(TbadkCoreApplication.m411getInst().getString(n.j.play_video_mobile_tip));
+            aVar.a(n.j.confirm, new c(context, str, i, i2, str2));
+            aVar.b(n.j.cancel, new d());
+            aVar.b(C).tf();
         }
     }
 
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         PluginSetting findPluginSetting;
-        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lU().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().findPluginSetting(PKG_NAME_VIDEO)) == null) {
+        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.ls().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().findPluginSetting(PKG_NAME_VIDEO)) == null) {
             return false;
         }
         return pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code;
@@ -85,10 +85,10 @@ public class XiaoyingUtil {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cC(str);
+            aVar.cF(str);
             aVar.a(str2, new e(pageActivity, tbPageContext));
-            aVar.b(n.i.cancel, new f());
-            aVar.b(tbPageContext).tv();
+            aVar.b(n.j.cancel, new f());
+            aVar.b(tbPageContext).tf();
         }
     }
 }

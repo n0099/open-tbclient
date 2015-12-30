@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ s cKg;
+    final /* synthetic */ s cOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(s sVar) {
-        this.cKg = sVar;
+        this.cOw = sVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,37 +30,37 @@ class z implements View.OnClickListener {
         ForumData forumData5;
         String str;
         ForumData forumData6;
-        this.cKg.cua = ((Integer) view.getTag()).intValue();
-        i = this.cKg.cua;
+        this.cOw.cyc = ((Integer) view.getTag()).intValue();
+        i = this.cOw.cyc;
         if (i >= 0) {
-            i2 = this.cKg.cua;
-            adVar = this.cKg.cJR;
+            i2 = this.cOw.cyc;
+            adVar = this.cOw.cOh;
             if (i2 < adVar.getCount()) {
-                z = this.cKg.cJW;
+                z = this.cOw.cOm;
                 if (!z) {
-                    s sVar = this.cKg;
-                    adVar2 = this.cKg.cJR;
-                    i3 = this.cKg.cua;
-                    sVar.cJV = (ForumData) adVar2.getItem(i3);
-                    forumData = this.cKg.cJV;
+                    s sVar = this.cOw;
+                    adVar2 = this.cOw.cOh;
+                    i3 = this.cOw.cyc;
+                    sVar.cOl = (ForumData) adVar2.getItem(i3);
+                    forumData = this.cOw.cOl;
                     if (forumData != null) {
-                        forumData2 = this.cKg.cJV;
+                        forumData2 = this.cOw.cOl;
                         if (forumData2.getId() != null) {
-                            forumData3 = this.cKg.cJV;
+                            forumData3 = this.cOw.cOl;
                             if (forumData3.getName() != null) {
-                                s sVar2 = this.cKg;
-                                forumData4 = this.cKg.cJV;
-                                sVar2.cJS = forumData4.getName();
-                                this.cKg.cJW = true;
+                                s sVar2 = this.cOw;
+                                forumData4 = this.cOw.cOl;
+                                sVar2.cOi = forumData4.getName();
+                                this.cOw.cOm = true;
                                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-                                forumData5 = this.cKg.cJV;
+                                forumData5 = this.cOw.cOl;
                                 httpMessage.addParam(ImageViewerConfig.FORUM_ID, forumData5.getId());
-                                str = this.cKg.cJS;
+                                str = this.cOw.cOi;
                                 httpMessage.addParam("kw", str);
-                                forumData6 = this.cKg.cJV;
+                                forumData6 = this.cOw.cOl;
                                 httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
                                 httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
-                                this.cKg.sendMessage(httpMessage);
+                                this.cOw.sendMessage(httpMessage);
                             }
                         }
                     }

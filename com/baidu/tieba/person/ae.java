@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.base.e {
-    private static final String aJe = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask aJf = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aJe);
-    private int cJU;
+    private static final String aKC = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aKD = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aKC);
+    private int cOk;
     private r mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aJf.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(aJf);
+        aKD.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aKD);
     }
 
     public ae(TbPageContext tbPageContext, boolean z) {
@@ -40,26 +40,26 @@ public class ae extends com.baidu.adp.base.e {
         this.mSex = i;
     }
 
-    public boolean aah() {
+    public boolean abn() {
         return this.mIsHost;
     }
 
-    public void km(int i) {
-        this.cJU = i;
+    public void kJ(int i) {
+        this.cOk = i;
     }
 
-    public r anA() {
+    public r aoL() {
         return this.mData;
     }
 
-    public void IR() {
+    public void Ji() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!aah()) {
+        if (!abn()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -79,17 +79,17 @@ public class ae extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void kU(String str) {
-        if (this.cJU == 1 && this.mIsHost) {
+    public void kR(String str) {
+        if (this.cOk == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    com.baidu.adp.lib.cache.o<String> cz = com.baidu.tbadk.core.b.a.ts().cz("tb.my_pages");
-                    if (cz != null) {
-                        cz.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                    com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tc().cC("tb.my_pages");
+                    if (cC != null) {
+                        cC.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

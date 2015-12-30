@@ -8,24 +8,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
 import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
 /* loaded from: classes.dex */
 public class EditMarkStatic {
     private static int msgCount = 0;
-    private static volatile boolean cud = false;
 
     static {
         j jVar = new j(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         MessageManager.getInstance().registerListener(new k(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
         MessageManager.getInstance().registerListener(jVar);
         com.baidu.tieba.tbadkCore.a.a.a(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.aj("c/f/livegroup/getStoreRemindTime", 309117));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.ak("c/f/livegroup/getStoreRemindTime", 309117));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_MY_COLLECTION_RES_TOOL, new l());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

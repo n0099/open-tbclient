@@ -14,9 +14,9 @@ public class bs implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.this$0.mProgress.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.cJh != null) && view.getTag() != null) {
-                this.this$0.cJo = false;
-                this.this$0.nx(view.getTag().toString());
+            if ((this.this$0.mBitmap != null || this.this$0.cNx != null) && view.getTag() != null) {
+                this.this$0.cNE = false;
+                this.this$0.nv(view.getTag().toString());
             }
         }
     }

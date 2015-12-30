@@ -1,26 +1,20 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class i extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity dqq;
+public class i {
+    public String UQ;
+    public String dxv;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(SignAllForumActivity signAllForumActivity, int i) {
-        super(i);
-        this.dqq = signAllForumActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Integer num;
-        z zVar;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
-            zVar = this.dqq.dqi;
-            zVar.aAd().setHasPrivilege(true);
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.dxv = jSONObject.optString("banner_pic");
+                this.UQ = jSONObject.optString("banner_url");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

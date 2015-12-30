@@ -8,15 +8,15 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements c.b {
-    final /* synthetic */ PersonChangeActivity cKS;
-    private final /* synthetic */ String cKT;
-    private final /* synthetic */ String cKU;
+    final /* synthetic */ PersonChangeActivity cPi;
+    private final /* synthetic */ String cPj;
+    private final /* synthetic */ String cPk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.cKS = personChangeActivity;
-        this.cKT = str;
-        this.cKU = str2;
+        this.cPi = personChangeActivity;
+        this.cPj = str;
+        this.cPk = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -29,26 +29,26 @@ public class am implements c.b {
         TextView textView4;
         cVar.dismiss();
         if (i == 0) {
-            this.cKS.mSex = 1;
-            textView4 = this.cKS.cKC;
-            textView4.setText(this.cKT);
+            this.cPi.mSex = 1;
+            textView4 = this.cPi.cOS;
+            textView4.setText(this.cPj);
         } else if (i == 1) {
-            this.cKS.mSex = 2;
-            textView = this.cKS.cKC;
-            textView.setText(this.cKU);
+            this.cPi.mSex = 2;
+            textView = this.cPi.cOS;
+            textView.setText(this.cPk);
         }
-        this.cKS.anD();
-        i2 = this.cKS.mSex;
-        if (i2 != this.cKS.cKJ.anJ().getSex()) {
-            view2 = this.cKS.cKy;
+        this.cPi.aoO();
+        i2 = this.cPi.mSex;
+        if (i2 != this.cPi.cOZ.aoU().getSex()) {
+            view2 = this.cPi.cOO;
             view2.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView3 = this.cKS.bQX;
-                com.baidu.tbadk.core.util.as.b(textView3, n.c.navi_op_text, 1);
+                textView3 = this.cPi.bUD;
+                com.baidu.tbadk.core.util.as.b(textView3, n.d.navi_op_text, 1);
                 return;
             }
-            textView2 = this.cKS.bQX;
-            com.baidu.tbadk.core.util.as.b(textView2, n.c.cp_link_tip_a, 1);
+            textView2 = this.cPi.bUD;
+            com.baidu.tbadk.core.util.as.b(textView2, n.d.cp_link_tip_a, 1);
         }
     }
 }

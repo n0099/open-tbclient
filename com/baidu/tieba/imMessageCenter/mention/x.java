@@ -1,15 +1,22 @@
 package com.baidu.tieba.imMessageCenter.mention;
+
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements Runnable {
-    final /* synthetic */ v ceu;
+public class x implements BdListView.f {
+    final /* synthetic */ w ciw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(v vVar) {
-        this.ceu = vVar;
+    public x(w wVar) {
+        this.ciw = wVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.ceu.aNj.nD();
+    @Override // com.baidu.adp.widget.ListView.BdListView.f
+    public void s(BdListView bdListView) {
+        if (this.ciw instanceof j) {
+            this.ciw.cih.aeO().IR();
+        } else {
+            this.ciw.cih.aeN().IR();
+        }
     }
 }

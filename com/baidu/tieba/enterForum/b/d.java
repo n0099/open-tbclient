@@ -9,26 +9,26 @@ import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class d {
-    private ArrayList<w> aQd = new ArrayList<>();
-    private boolean aQe;
+    private ArrayList<w> aTV = new ArrayList<>();
+    private boolean aTW;
     private int level;
 
-    public ArrayList<w> JF() {
-        return this.aQd;
+    public ArrayList<w> JW() {
+        return this.aTV;
     }
 
     public void setLevel(int i) {
         this.level = i;
     }
 
-    public void JG() {
-        Iterator<w> it = this.aQd.iterator();
+    public void JX() {
+        Iterator<w> it = this.aTV.iterator();
         while (it.hasNext()) {
-            it.next().mq(0);
+            it.next().mS(0);
         }
     }
 
-    public void K(List<?> list) {
+    public void L(List<?> list) {
         if (list != null) {
             a(list, null);
         }
@@ -43,9 +43,9 @@ public class d {
                         w wVar = new w();
                         wVar.a((LikeForum) list.get(i));
                         if (wVar.getLevel() >= this.level) {
-                            this.aQe = true;
+                            this.aTW = true;
                         }
-                        this.aQd.add(wVar);
+                        this.aTV.add(wVar);
                     } else {
                         return;
                     }

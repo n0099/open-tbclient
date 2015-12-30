@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements TbRichTextView.d {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(NewSubPbActivity newSubPbActivity) {
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
     public void a(View view, String str, int i) {
-        an anVar;
+        ao aoVar;
         com.baidu.tbadk.widget.richText.a ac;
         int i2;
         int a;
@@ -30,81 +30,81 @@ public class i implements TbRichTextView.d {
         boolean z;
         String str3;
         try {
-            anVar = this.cHd.cGS;
-            com.baidu.tieba.pb.a.d amF = anVar.amF();
-            ac = this.cHd.ac(str, i);
-            ArrayList<com.baidu.tbadk.widget.richText.c> FL = ac.FL();
-            i2 = this.cHd.cCg;
-            com.baidu.tbadk.widget.richText.c cVar = FL.get(i2);
+            aoVar = this.cLc.cKR;
+            com.baidu.tieba.pb.a.d anR = aoVar.anR();
+            ac = this.cLc.ac(str, i);
+            ArrayList<com.baidu.tbadk.widget.richText.c> FA = ac.FA();
+            i2 = this.cLc.cFM;
+            com.baidu.tbadk.widget.richText.c cVar = FA.get(i2);
             if (cVar != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-                if (cVar.FQ().Ga()) {
-                    this.cHd.cCh = false;
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
+                if (cVar.FF().FP()) {
+                    this.cLc.cFN = false;
                     String str4 = "";
-                    com.baidu.tieba.tbadkCore.data.o ajK = amF.ajK();
-                    com.baidu.tbadk.widget.richText.a aDe = ajK.aDe();
+                    com.baidu.tieba.tbadkCore.data.r akS = anR.akS();
+                    com.baidu.tbadk.widget.richText.a aFr = akS.aFr();
                     int size = arrayList.size();
-                    a = this.cHd.a(aDe, ac, i, i, arrayList, hashMap);
+                    a = this.cLc.a(aFr, ac, i, i, arrayList, concurrentHashMap);
                     int size2 = arrayList.size();
                     if (size != size2) {
                         str4 = arrayList.get(size2 - 1);
                     }
-                    ArrayList<com.baidu.tieba.tbadkCore.data.o> aDc = ajK.aDc();
+                    ArrayList<com.baidu.tieba.tbadkCore.data.r> aFp = akS.aFp();
                     int i3 = 0;
                     while (true) {
                         int i4 = i3;
-                        if (i4 >= aDc.size()) {
+                        if (i4 >= aFp.size()) {
                             break;
                         }
-                        a = this.cHd.a(aDc.get(i4).aDe(), ac, a, i, arrayList, hashMap);
+                        a = this.cLc.a(aFp.get(i4).aFr(), ac, a, i, arrayList, concurrentHashMap);
                         i3 = i4 + 1;
                     }
                     String str5 = null;
                     String str6 = null;
                     String str7 = null;
                     boolean z2 = false;
-                    if (amF == null) {
+                    if (anR == null) {
                         str2 = null;
                     } else {
-                        if (amF.ajR() != null) {
-                            str5 = amF.ajR().getName();
-                            str6 = amF.ajR().getId();
+                        if (anR.akZ() != null) {
+                            str5 = anR.akZ().getName();
+                            str6 = anR.akZ().getId();
                         }
-                        if (amF.ajT() != null) {
-                            str7 = amF.ajT().getId();
+                        if (anR.Iv() != null) {
+                            str7 = anR.Iv().getId();
                         }
                         z2 = true;
                         str2 = str7;
                     }
-                    this.cHd.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.cHd.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, hashMap, false, true, false)));
+                    this.cLc.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.cLc.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, concurrentHashMap, false, true, false)));
                     return;
                 }
-                d = this.cHd.d(cVar);
+                d = this.cLc.d(cVar);
                 arrayList.add(d);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.imageUrl = str;
-                z = this.cHd.mIsFromCDN;
+                z = this.cLc.mIsFromCDN;
                 imageUrlData.urlType = z ? 17 : 18;
-                hashMap.put(d, imageUrlData);
+                concurrentHashMap.put(d, imageUrlData);
                 String str8 = null;
                 String str9 = null;
                 String str10 = null;
                 boolean z3 = false;
-                if (amF == null) {
+                if (anR == null) {
                     str3 = null;
                 } else {
-                    if (amF.ajR() != null) {
-                        str8 = amF.ajR().getName();
-                        str9 = amF.ajR().getId();
+                    if (anR.akZ() != null) {
+                        str8 = anR.akZ().getName();
+                        str9 = anR.akZ().getId();
                     }
-                    if (amF.ajT() != null) {
-                        str10 = amF.ajT().getId();
+                    if (anR.Iv() != null) {
+                        str10 = anR.Iv().getId();
                     }
                     z3 = true;
                     str3 = str10;
                 }
-                this.cHd.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.cHd.getPageContext().getPageActivity()).createConfig(arrayList, 0, str8, str9, str3, z3, arrayList.get(0), true, hashMap, false, true, false)));
+                this.cLc.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.cLc.getPageContext().getPageActivity()).createConfig(arrayList, 0, str8, str9, str3, z3, arrayList.get(0), true, concurrentHashMap, false, true, false)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

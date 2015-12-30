@@ -6,6 +6,7 @@ import org.json.JSONObject;
 public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     private int errorCode;
     private String errorMessage;
+    private String success_remind;
     private String tid_typedesc;
 
     public String getTid() {
@@ -20,11 +21,16 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
         return this.errorMessage;
     }
 
+    public String getRemindMessage() {
+        return this.success_remind;
+    }
+
     public ApplyCopyThreadResponseMessage(int i) {
         super(i);
         this.errorCode = 0;
         this.errorMessage = null;
         this.tid_typedesc = null;
+        this.success_remind = null;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -35,6 +41,7 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
                 this.tid_typedesc = optJSONObject2.optString("tid_typedesc");
+                this.success_remind = optJSONObject2.optString("success_remind");
             }
             if (optJSONObject != null) {
                 this.errorCode = optJSONObject.optInt("errorno");

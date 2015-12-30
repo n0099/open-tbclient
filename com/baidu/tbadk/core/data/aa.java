@@ -5,81 +5,81 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class aa {
-    private String WN;
-    private String WO;
-    private String WP;
-    private int WQ;
-    private String WR;
-    private long WS;
-    private String WT;
-    private String WU;
+    private String Xp;
+    private String Xq;
+    private String Xr;
+    private int Xs;
+    private String Xt;
+    private long Xu;
+    private String Xv;
+    private String Xw;
     private String summary;
 
-    public String sB() {
-        return this.WN;
+    public String sk() {
+        return this.Xp;
     }
 
     public String getSummary() {
         return this.summary;
     }
 
-    public String ti() {
-        return this.WP;
+    public String sS() {
+        return this.Xr;
     }
 
-    public int tj() {
-        return this.WQ;
+    public int sT() {
+        return this.Xs;
     }
 
-    public String tk() {
-        return this.WR;
+    public String sU() {
+        return this.Xt;
     }
 
-    public long tl() {
-        return this.WS;
+    public long sV() {
+        return this.Xu;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
-            this.WN = topCode.img_url;
-            this.WO = topCode.game_link;
+            this.Xp = topCode.img_url;
+            this.Xq = topCode.game_link;
             this.summary = topCode.summary;
-            this.WP = topCode.code_link;
-            this.WQ = topCode.get_type.intValue();
-            this.WR = topCode.surplusgift;
+            this.Xr = topCode.code_link;
+            this.Xs = topCode.get_type.intValue();
+            this.Xt = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.WS = 0L;
+                this.Xu = 0L;
             } else {
-                this.WS = topCode.giftworth.longValue();
+                this.Xu = topCode.giftworth.longValue();
             }
-            this.WT = topCode.type_text;
-            this.WU = topCode.subtitle;
+            this.Xv = topCode.type_text;
+            this.Xw = topCode.subtitle;
         }
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.WN = jSONObject.optString("img_url");
-                this.WO = jSONObject.optString("game_link");
+                this.Xp = jSONObject.optString("img_url");
+                this.Xq = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.WP = jSONObject.optString("code_link");
-                this.WQ = jSONObject.optInt("get_type", 1);
-                this.WR = jSONObject.optString("surplusgift");
-                this.WS = jSONObject.optLong("giftworth", 0L);
-                this.WT = jSONObject.optString("type_text");
-                this.WU = jSONObject.optString("subtitle");
+                this.Xr = jSONObject.optString("code_link");
+                this.Xs = jSONObject.optInt("get_type", 1);
+                this.Xt = jSONObject.optString("surplusgift");
+                this.Xu = jSONObject.optLong("giftworth", 0L);
+                this.Xv = jSONObject.optString("type_text");
+                this.Xw = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public String tm() {
-        return this.WT;
+    public String sW() {
+        return this.Xv;
     }
 
-    public String tn() {
-        return this.WU;
+    public String sX() {
+        return this.Xw;
     }
 }

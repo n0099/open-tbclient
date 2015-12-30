@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnFocusChangeListener {
-    final /* synthetic */ a ded;
+    final /* synthetic */ a djJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.ded = aVar;
+        this.djJ = aVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         PostSearchActivity postSearchActivity;
         if (!z) {
-            postSearchActivity = this.ded.deb;
+            postSearchActivity = this.djJ.djG;
             com.baidu.adp.lib.util.k.c(postSearchActivity.getPageContext().getPageActivity(), view);
             return;
         }
-        this.ded.auv();
-        this.ded.auu();
+        this.djJ.awo();
+        this.djJ.awn();
     }
 }

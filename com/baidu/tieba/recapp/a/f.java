@@ -3,11 +3,11 @@ package com.baidu.tieba.recapp.a;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ d dhN;
+    final /* synthetic */ d dnt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.dhN = dVar;
+        this.dnt = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

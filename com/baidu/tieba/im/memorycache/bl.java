@@ -1,34 +1,42 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.RequestSendPVTJMessage;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ String bUs;
+public class bl implements a.b {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, String str) {
+    public bl(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
         this.this$0 = imMemoryCacheRegisterStatic;
-        this.bUs = str;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            try {
-                com.baidu.tieba.im.db.g.Xg().Xh();
-                com.baidu.tieba.im.db.i.Xl().J(this.bUs, 1);
-                com.baidu.tieba.im.db.c.Xc().ic(this.bUs);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            } finally {
-                com.baidu.tieba.im.db.g.Xg().endTransaction();
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
+        b.aay().g(imMessageCenterPojo);
+        if (z) {
+            MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void f(String str, List<CommonMsgPojo> list) {
+        for (CommonMsgPojo commonMsgPojo : list) {
+            if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
+                RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
+                com.baidu.tieba.im.data.e a = com.baidu.tieba.im.util.h.a(commonMsgPojo);
+                if (a != null) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bPT, "task_id", a.taskId);
+                }
             }
         }
-        return null;
     }
 }

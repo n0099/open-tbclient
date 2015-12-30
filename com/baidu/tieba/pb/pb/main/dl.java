@@ -1,27 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.view.View;
+import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dl implements View.OnClickListener {
-    final /* synthetic */ da cGh;
+public class dl implements a.InterfaceC0080a {
+    final /* synthetic */ dk cKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dl(da daVar) {
-        this.cGh = daVar;
+    public dl(dk dkVar) {
+        this.cKg = dkVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.cGh.cFh;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.cGh.cFh;
-            pbActivity = this.cGh.cCy;
-            com.baidu.adp.lib.h.j.b(dialog2, pbActivity.getPageContext());
-        }
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0080a
+    public void mS() {
     }
 }

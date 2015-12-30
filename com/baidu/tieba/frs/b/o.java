@@ -4,56 +4,56 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.cd;
-import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.cg;
 import com.baidu.tieba.frs.eu;
+import com.baidu.tieba.frs.ev;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.f<FrsActivity> {
-    private cd aZq;
-    private SparseArray<a> bgT;
-    private eu bgW;
-    private FrsActivity bhN;
-    private Runnable bjn;
-    private et bjo;
+    private cg bdm;
+    private SparseArray<a> bkK;
+    private ev bkN;
+    private FrsActivity blE;
+    private Runnable bne;
+    private eu bnf;
 
     /* loaded from: classes.dex */
     public static class a {
-        public int asj;
+        public int atN;
         public int top;
     }
 
     public o(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.bgT = new SparseArray<>();
-        this.bjo = new p(this);
-        this.bgW = new q(this);
-        this.bhN = frsActivity;
+        this.bkK = new SparseArray<>();
+        this.bnf = new p(this);
+        this.bkN = new q(this);
+        this.blE = frsActivity;
     }
 
-    public void oX() {
-        this.aZq = new cd(this.bhN, this.bhN.aZT);
-        this.bhN.a(this.aZq);
+    public void ov() {
+        this.bdm = new cg(this.blE, this.blE.bdQ);
+        this.blE.a(this.bdm);
     }
 
     public void onActivityDestroy() {
-        if (this.bjn != null) {
-            com.baidu.adp.lib.h.h.hj().removeCallbacks(this.bjn);
+        if (this.bne != null) {
+            com.baidu.adp.lib.h.h.hj().removeCallbacks(this.bne);
         }
     }
 
-    public void I(View view) {
-        View NN = this.aZq.NN();
-        if (NN != null && (NN instanceof FrameLayout)) {
-            ((FrameLayout) NN).addView(view);
+    public void J(View view) {
+        View Og = this.bdm.Og();
+        if (Og != null && (Og instanceof FrameLayout)) {
+            ((FrameLayout) Og).addView(view);
         }
     }
 
-    public et PN() {
-        return this.bjo;
+    public eu Qf() {
+        return this.bnf;
     }
 
-    public eu PO() {
-        return this.bgW;
+    public ev Qg() {
+        return this.bkN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,17 +62,17 @@ public class o extends com.baidu.adp.base.f<FrsActivity> {
     }
 
     public boolean ad(int i, int i2) {
-        a aVar = this.bgT.get(ac(i, i2));
-        return aVar != null && aVar.asj >= this.aZq.getListView().getHeaderViewsCount() + (-1);
+        a aVar = this.bkK.get(ac(i, i2));
+        return aVar != null && aVar.atN >= this.bdm.getListView().getHeaderViewsCount() + (-1);
     }
 
     public void a(int i, int i2, a aVar) {
-        this.bgT.put(ac(i, i2), aVar);
+        this.bkK.put(ac(i, i2), aVar);
     }
 
-    public void gJ(int i) {
-        if (this.aZq.getListView() != null && this.aZq.getListView().getChildAt(0) != null) {
-            this.aZq.getListView().setSelectionFromTop(this.aZq.getListView().getFirstVisiblePosition(), this.aZq.getListView().getChildAt(0).getTop() - i);
+    public void gC(int i) {
+        if (this.bdm.getListView() != null && this.bdm.getListView().getChildAt(0) != null) {
+            this.bdm.getListView().setSelectionFromTop(this.bdm.getListView().getFirstVisiblePosition(), this.bdm.getListView().getChildAt(0).getTop() - i);
         }
     }
 }

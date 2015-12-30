@@ -3,21 +3,21 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class n extends com.baidu.tbadk.util.m<Void> {
-    final /* synthetic */ m bME;
-    private final /* synthetic */ CustomResponsedMessage bMF;
+    final /* synthetic */ m bQk;
+    private final /* synthetic */ CustomResponsedMessage bQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, CustomResponsedMessage customResponsedMessage) {
-        this.bME = mVar;
-        this.bMF = customResponsedMessage;
+        this.bQk = mVar;
+        this.bQl = customResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.m
-    /* renamed from: Hl */
+    /* renamed from: Ha */
     public Void doInBackground() {
-        if (this.bMF.getData() instanceof String) {
-            f.il((String) this.bMF.getData());
+        if (this.bQl.getData() instanceof String) {
+            f.ix((String) this.bQl.getData());
             return null;
         }
         return null;

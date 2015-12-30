@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
-    private a.InterfaceC0001a nC;
+    private a.InterfaceC0002a nC;
     private int nE;
     private final String nF;
     private SQLiteDatabase nz = null;
@@ -17,8 +17,8 @@ public abstract class d implements a {
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0001a interfaceC0001a) {
-        this.nC = interfaceC0001a;
+    public void a(a.InterfaceC0002a interfaceC0002a) {
+        this.nC = interfaceC0002a;
     }
 
     public d(String str, int i) {

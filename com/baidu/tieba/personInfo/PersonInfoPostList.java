@@ -1,6 +1,7 @@
 package com.baidu.tieba.personInfo;
 
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class PersonInfoPostList implements Serializable {
         if (jSONObject != null) {
             this.forumId = jSONObject.optLong("forum_id");
             this.threadId = jSONObject.optLong("thread_id");
-            this.threadType = jSONObject.optLong("thread_type");
+            this.threadType = jSONObject.optLong(PbActivityConfig.KEY_THREAD_TYPE);
             this.postId = jSONObject.optLong("post_id");
             this.isThread = jSONObject.optInt("is_thread");
             this.createTime = jSONObject.optInt("create_time");

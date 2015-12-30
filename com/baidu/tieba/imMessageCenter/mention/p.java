@@ -1,66 +1,39 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter;
-import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-public class p extends CustomMessageListener {
-    final /* synthetic */ k ceq;
+class p implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterShowItemData cdM;
+    final /* synthetic */ o cit;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(k kVar, int i) {
-        super(i);
-        this.ceq = kVar;
+    public p(o oVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.cit = oVar;
+        this.cdM = imMessageCenterShowItemData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterListAdapter imMessageCenterListAdapter;
-        ImMessageCenterListAdapter imMessageCenterListAdapter2;
-        ImMessageCenterListAdapter imMessageCenterListAdapter3;
-        ImMessageCenterListAdapter imMessageCenterListAdapter4;
-        ImMessageCenterModel imMessageCenterModel;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2016002) {
-                if (customResponsedMessage.getCmd() != 2016004) {
-                    if (customResponsedMessage.getCmd() != 2016007) {
-                        if (customResponsedMessage.getCmd() == 2016001) {
-                            imMessageCenterModel = this.ceq.bZy;
-                            aVar = this.ceq.bJK;
-                            imMessageCenterModel.setData(null, aVar);
-                            return;
-                        } else if (customResponsedMessage.getCmd() == 2016010) {
-                            imMessageCenterListAdapter3 = this.ceq.bZC;
-                            if (imMessageCenterListAdapter3 != null) {
-                                imMessageCenterListAdapter4 = this.ceq.bZC;
-                                imMessageCenterListAdapter4.notifyDataSetChanged();
-                                return;
-                            }
-                            return;
-                        } else if (customResponsedMessage.getCmd() == 2016011) {
-                            imMessageCenterListAdapter = this.ceq.bZC;
-                            if (imMessageCenterListAdapter != null) {
-                                imMessageCenterListAdapter2 = this.ceq.bZC;
-                                imMessageCenterListAdapter2.notifyDataSetChanged();
-                                return;
-                            }
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    this.ceq.g(customResponsedMessage);
-                    return;
-                }
-                this.ceq.f(customResponsedMessage);
-                return;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && this.cdM != null) {
+            this.cdM.setUnReadCount(0);
+            if (this.cdM.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.d.Yj().it("apply_join_group");
+            } else if (this.cdM.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+                com.baidu.tieba.im.db.d.Yj().it("group_intro_change");
+                com.baidu.tieba.im.db.d.Yj().it("group_name_change");
+                com.baidu.tieba.im.db.d.Yj().it("group_notice_change");
+                com.baidu.tieba.im.db.d.Yj().it("group_level_up");
+                com.baidu.tieba.im.db.d.Yj().it("dismiss_group");
+                com.baidu.tieba.im.db.d.Yj().it("kick_out");
+                com.baidu.tieba.im.db.d.Yj().it("group_activitys_change");
+            } else if (this.cdM.getOwnerName().equals("6")) {
+                com.baidu.tieba.im.db.d.Yj().it("live_notify");
             }
-            this.ceq.e(customResponsedMessage);
         }
+        return null;
     }
 }

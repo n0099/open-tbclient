@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ FrsGoodActivity bgy;
+    final /* synthetic */ FrsGoodActivity bkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(FrsGoodActivity frsGoodActivity, int i) {
         super(i);
-        this.bgy = frsGoodActivity;
+        this.bkp = frsGoodActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class n extends CustomMessageListener {
         String str;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.z)) {
             com.baidu.tbadk.core.data.z zVar = (com.baidu.tbadk.core.data.z) customResponsedMessage.getData();
-            this.bgy.aXW = zVar.getId();
-            str = this.bgy.aXW;
+            this.bkp.bbW = zVar.getId();
+            str = this.bkp.bbW;
             if (TextUtils.isEmpty(str) || zVar.getPraise() == null) {
                 return;
             }
-            this.bgy.fU(zVar.getPraise().getIsLike());
+            this.bkp.fP(zVar.getPraise().getIsLike());
         }
     }
 }

@@ -17,7 +17,7 @@ public class b {
     private TextView mItemTime;
     private View mItemView;
 
-    public static b i(Context context, View view) {
+    public static b h(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             return new b(context);
         }
@@ -30,11 +30,11 @@ public class b {
         this.mItemName = null;
         this.mItemTime = null;
         this.mItemLineBottom = null;
-        this.mItemView = LayoutInflater.from(context).inflate(n.g.zan_list_item, (ViewGroup) null);
-        this.mItemHead = (HeadImageView) this.mItemView.findViewById(n.f.zan_list_item_head);
-        this.mItemName = (TextView) this.mItemView.findViewById(n.f.zan_list_item_name);
-        this.mItemTime = (TextView) this.mItemView.findViewById(n.f.zan_list_item_time);
-        this.mItemLineBottom = (ImageView) this.mItemView.findViewById(n.f.zan_list_item_line_bottom);
+        this.mItemView = LayoutInflater.from(context).inflate(n.h.zan_list_item, (ViewGroup) null);
+        this.mItemHead = (HeadImageView) this.mItemView.findViewById(n.g.zan_list_item_head);
+        this.mItemName = (TextView) this.mItemView.findViewById(n.g.zan_list_item_name);
+        this.mItemTime = (TextView) this.mItemView.findViewById(n.g.zan_list_item_time);
+        this.mItemLineBottom = (ImageView) this.mItemView.findViewById(n.g.zan_list_item_line_bottom);
         this.mItemLineBottom.setVisibility(0);
         this.mItemView.setTag(this);
     }

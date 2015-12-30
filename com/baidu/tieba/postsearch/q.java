@@ -1,22 +1,17 @@
 package com.baidu.tieba.postsearch;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class q implements View.OnTouchListener {
-    final /* synthetic */ k den;
+class q implements a.b {
+    final /* synthetic */ l djT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(k kVar) {
-        this.den = kVar;
+    public q(l lVar) {
+        this.djT = lVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        PostSearchActivity postSearchActivity;
-        postSearchActivity = this.den.deb;
-        postSearchActivity.aus();
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

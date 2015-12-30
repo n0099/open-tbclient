@@ -1,116 +1,105 @@
 package com.baidu.tieba.postsearch;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private PostSearchActivity deb;
-    private View dei;
-    private BdListView dej;
-    private com.baidu.tbadk.core.dialog.a del;
-    private com.baidu.tbadk.core.view.n mNoDataView;
-    private View mRootView;
-    private com.baidu.tieba.mainentrance.i dek = null;
-    private View mFooterView = null;
-    private boolean dem = false;
+    public List<a> cQY = new ArrayList();
+    public com.baidu.tbadk.core.data.q djM = new com.baidu.tbadk.core.data.q();
 
-    public k(PostSearchActivity postSearchActivity, View view) {
-        this.deb = postSearchActivity;
-        this.mRootView = view;
-        initView();
+    /* loaded from: classes.dex */
+    public static class a {
+        public String content;
+        public int djN;
+        public String fname;
+        public int is_floor;
+        public String name;
+        public String name_show;
+        public long pid;
+        public int thread_type;
+        public long tid;
+        public long time;
+        public String title;
     }
 
-    private void initView() {
-        this.dei = this.deb.findViewById(n.f.history_frame);
-        this.dej = (BdListView) this.mRootView.findViewById(n.f.history_list);
-        this.dek = new com.baidu.tieba.mainentrance.i(this.deb.getPageContext().getPageActivity(), null);
-        this.dek.ek(false);
-        this.dej.setAdapter((ListAdapter) this.dek);
-        this.mFooterView = LayoutInflater.from(this.deb.getPageContext().getPageActivity()).inflate(n.g.home_dialog_search_footer, (ViewGroup) null);
-        this.dej.addFooterView(this.mFooterView);
-        this.mFooterView.setOnClickListener(new l(this));
-        this.dej.setOnItemClickListener(new m(this));
-        this.dej.setOnTouchListener(new n(this));
+    public boolean abB() {
+        return (this.cQY == null || this.cQY.size() == 0) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void XC() {
-        if (this.del == null) {
-            this.del = new com.baidu.tbadk.core.dialog.a(this.deb.getPageContext().getPageActivity()).cC(this.deb.getPageContext().getString(n.i.alert_clean_history)).a(this.deb.getPageContext().getString(n.i.clear_all_text), new o(this)).b(this.deb.getPageContext().getString(n.i.alert_no_button), new p(this)).b(this.deb.getPageContext());
+    public boolean isHasMore() {
+        return this.djM != null && this.djM.rO() == 1;
+    }
+
+    public int getCurrentPage() {
+        if (this.djM != null) {
+            return this.djM.rM();
         }
-        this.del.tv();
+        return 0;
     }
 
-    private void fA(int i) {
-        if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.deb.getPageContext().getPageActivity(), this.dei, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cS(n.i.text_no_search_record), null);
-            this.mNoDataView.onChangeSkinType(this.deb.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-            this.mNoDataView.setOnTouchListener(new q(this));
-        }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.cS(i));
-        this.mNoDataView.setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showNoDataView() {
-        fA(n.i.text_no_search_record);
-    }
-
-    public void auC() {
-        this.dej.setVisibility(8);
-        fA(n.i.no_search_result_record);
-    }
-
-    private void hideNoDataView() {
-        if (this.mNoDataView != null) {
-            this.mNoDataView.setVisibility(8);
+    public void parseJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                parseJson(new JSONObject(str));
+            } catch (Exception e) {
+            }
         }
     }
 
-    public void Mm() {
-        this.dem = true;
-        this.deb.showLoadingView(this.dei, false, this.deb.getResources().getDimensionPixelSize(n.d.ds386));
-    }
-
-    public void asV() {
-        this.dem = false;
-        this.deb.hideLoadingView(this.dei);
-    }
-
-    public void aj(ArrayList<String> arrayList) {
-        this.dei.setVisibility(0);
-        asV();
-        if (arrayList == null || arrayList.size() == 0) {
-            this.dej.setVisibility(8);
-            showNoDataView();
-            return;
-        }
-        hideNoDataView();
-        this.dej.setVisibility(0);
-        this.dek.setData(arrayList);
-        this.dek.notifyDataSetChanged();
-    }
-
-    public void auD() {
-        this.dei.setVisibility(8);
-    }
-
-    public boolean auE() {
-        return this.dei.getVisibility() == 0 && !this.dem && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
-    }
-
-    public void onChangeSkinType(int i) {
-        com.baidu.tbadk.i.a.a(this.deb.getPageContext(), this.mFooterView);
-        this.dek.notifyDataSetChanged();
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.deb.getPageContext(), i);
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.djM.parserJson(jSONObject.getJSONObject("page"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                if (optJSONArray != null && optJSONArray.length() != 0) {
+                    this.cQY.clear();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("author");
+                            String optString = jSONObject3.optString(IntentConfig.NAME_SHOW, "");
+                            String optString2 = jSONObject3.optString("name", "");
+                            long optLong = jSONObject2.optLong(Info.kBaiduPIDKey, 0L);
+                            String optString3 = jSONObject2.optString("title", "");
+                            long optLong2 = jSONObject2.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
+                            String optString4 = jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, "");
+                            String optString5 = jSONObject2.optString(ImageViewerConfig.FORUM_NAME, "");
+                            long optLong3 = jSONObject2.optLong("tid", 0L);
+                            int optInt = jSONObject2.optInt("is_floor", 0);
+                            int optInt2 = jSONObject2.optInt("is_replay", 0);
+                            int optInt3 = jSONObject2.optInt(PbActivityConfig.KEY_THREAD_TYPE, 0);
+                            if (optInt3 != 33 || TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                                a aVar = new a();
+                                aVar.pid = optLong;
+                                aVar.title = optString3;
+                                aVar.time = optLong2;
+                                aVar.content = optString4;
+                                aVar.fname = optString5;
+                                aVar.tid = optLong3;
+                                aVar.is_floor = optInt;
+                                aVar.djN = optInt2;
+                                aVar.name = optString2;
+                                aVar.name_show = optString;
+                                aVar.thread_type = optInt3;
+                                this.cQY.add(aVar);
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.d(e.getMessage());
+            }
         }
     }
 }

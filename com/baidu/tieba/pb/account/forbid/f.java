@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.ax;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String cxM = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String cBt = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,9 +25,9 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String Am;
-        private WeakReference<b> aHt;
-        private String cxN;
+        private String Ao;
+        private WeakReference<b> aIV;
+        private String cBu;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -39,32 +39,32 @@ public class f {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.cxN = str6;
-            this.Am = str7;
+            this.cBu = str6;
+            this.Ao = str7;
             this.mPostId = str5;
-            this.aHt = new WeakReference<>(bVar);
+            this.aIV = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: v */
+        /* renamed from: u */
         public ForbidResultData doInBackground(String... strArr) {
-            ab abVar = new ab(f.cxM);
-            abVar.o("day", this.cxN);
+            ab abVar = new ab(f.cBt);
+            abVar.o("day", this.cBu);
             abVar.o("un", this.mUserName);
             abVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
             abVar.o("word", this.mForumName);
             abVar.o("z", this.mThreadId);
-            abVar.o("reason", this.Am);
+            abVar.o("reason", this.Ao);
             abVar.o("ntn", "banid");
             abVar.o("post_id", this.mPostId);
-            abVar.uM().vF().mIsNeedTbs = true;
-            String ul = abVar.ul();
-            if (abVar.uM().vG().rf()) {
+            abVar.uw().vp().mIsNeedTbs = true;
+            String tV = abVar.tV();
+            if (abVar.uw().vq().qO()) {
                 try {
-                    return (ForbidResultData) i.objectWithJsonStr(ul, ForbidResultData.class);
+                    return (ForbidResultData) i.objectWithJsonStr(tV, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -73,7 +73,7 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = abVar.uQ();
+            forbidResultData2.error_code = abVar.uA();
             forbidResultData2.error_msg = abVar.getErrorString();
             return forbidResultData2;
         }
@@ -84,7 +84,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aHt.get();
+            b bVar = this.aIV.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ax.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

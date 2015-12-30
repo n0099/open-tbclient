@@ -1,43 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.util.SparseArray;
 import com.baidu.tieba.n;
+import com.baidu.tieba.usermute.i;
+import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
-class j implements a.b {
-    final /* synthetic */ PbActivity cCm;
+class j implements i.a {
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PbActivity pbActivity) {
-        this.cCm = pbActivity;
+        this.cFS = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        cc ccVar;
-        da daVar;
-        da daVar2;
-        da daVar3;
-        cc ccVar2;
-        da daVar4;
-        this.cCm.MS();
-        ccVar = this.cCm.cBG;
-        com.baidu.tbadk.core.data.q Uy = ccVar.Uy();
-        daVar = this.cCm.cBL;
-        int pageNum = daVar.getPageNum();
-        if (pageNum <= 0) {
-            this.cCm.showToast(n.i.pb_page_error);
-        } else if (Uy == null || pageNum <= Uy.sb()) {
-            daVar2 = this.cCm.cBL;
-            daVar2.alO();
-            this.cCm.stopVoice();
-            daVar3 = this.cCm.cBL;
-            daVar3.alx();
-            ccVar2 = this.cCm.cBG;
-            daVar4 = this.cCm.cBL;
-            ccVar2.jT(daVar4.getPageNum());
-            aVar.dismiss();
+    @Override // com.baidu.tieba.usermute.i.a
+    public void a(DataRes dataRes, int i, String str, Object obj) {
+        dk dkVar;
+        boolean z;
+        dk dkVar2;
+        dkVar = this.cFS.cFq;
+        dkVar.ang();
+        SparseArray<Object> sparseArray = (SparseArray) obj;
+        if (i == 0 && dataRes != null) {
+            boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
+            sparseArray.put(n.g.tag_user_mute_visible, true);
+            z = z2;
         } else {
-            this.cCm.showToast(n.i.pb_page_error);
+            sparseArray.put(n.g.tag_user_mute_visible, false);
+            z = false;
+        }
+        int intValue = ((Integer) sparseArray.get(n.g.tag_from)).intValue();
+        if (intValue == 0) {
+            this.cFS.a(z, sparseArray);
+        } else if (intValue == 1) {
+            dkVar2 = this.cFS.cFq;
+            dkVar2.a(sparseArray, z);
         }
     }
 }

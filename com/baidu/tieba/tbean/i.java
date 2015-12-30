@@ -4,11 +4,11 @@ import java.util.Comparator;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 class i implements Comparator<IconInfo> {
-    final /* synthetic */ e dCv;
+    final /* synthetic */ e dJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.dCv = eVar;
+        this.dJX = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

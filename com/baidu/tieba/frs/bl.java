@@ -10,34 +10,32 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class bl extends x.a {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    public int afY;
-    public AppDownloadView bbC;
-    public TbImageView bbD;
-    public TextView bbE;
-    public LinearLayout bbj;
-    public HeadImageView bbl;
-    public TextView bbm;
-    public TextView bbn;
-    public TextView bbp;
-
-    static {
-        $assertionsDisabled = !bl.class.desiredAssertionStatus();
-    }
+    public AppDownloadView beu;
+    public LinearLayout bfi;
+    public View bfj;
+    public HeadImageView bfk;
+    public TextView bfl;
+    public TextView bfm;
+    public TextView bfn;
+    public TextView bfo;
+    public TbImageView bfp;
+    public TbImageView bfq;
+    public TbImageView bfr;
+    public TextView bfs;
 
     public bl(View view) {
         super(view);
-        this.afY = 3;
-        if (!$assertionsDisabled && view == null) {
-            throw new AssertionError();
-        }
-        this.bbj = (LinearLayout) view.findViewById(n.f.frs_app_item_parent);
-        this.bbl = (HeadImageView) view.findViewById(n.f.frs_app_icon);
-        this.bbm = (TextView) view.findViewById(n.f.frs_app_name);
-        this.bbn = (TextView) view.findViewById(n.f.frs_app_time);
-        this.bbC = (AppDownloadView) view.findViewById(n.f.frs_app_download_view);
-        this.bbp = (TextView) view.findViewById(n.f.frs_app_desc);
-        this.bbD = (TbImageView) view.findViewById(n.f.frs_app_url);
-        this.bbE = (TextView) view.findViewById(n.f.frs_app_download);
+        this.bfi = (LinearLayout) view.findViewById(n.g.frs_app_item_parent);
+        this.bfk = (HeadImageView) view.findViewById(n.g.frs_app_multi_pic_icon);
+        this.bfl = (TextView) view.findViewById(n.g.frs_app_multi_pic_name);
+        this.bfm = (TextView) view.findViewById(n.g.frs_app_multi_pic_time);
+        this.beu = (AppDownloadView) view.findViewById(n.g.frs_app_download_view);
+        this.bfn = (TextView) view.findViewById(n.g.frs_app_multi_pic_title);
+        this.bfo = (TextView) view.findViewById(n.g.frs_app_multi_pic_desc);
+        this.bfp = (TbImageView) view.findViewById(n.g.frs_app_multi_pic_left);
+        this.bfq = (TbImageView) view.findViewById(n.g.frs_app_multi_pic_center);
+        this.bfr = (TbImageView) view.findViewById(n.g.frs_app_multi_pic_right);
+        this.bfs = (TextView) view.findViewById(n.g.frs_app_download);
+        this.bfj = view.findViewById(n.g.frs_app_multi_pic_container);
     }
 }

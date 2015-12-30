@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements b.a {
-    final /* synthetic */ b atG;
+    final /* synthetic */ b avk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.atG = bVar;
+        this.avk = bVar;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
@@ -24,22 +24,22 @@ public class c implements b.a {
         CommonTabWidgetView commonTabWidgetView3;
         ArrayList arrayList3;
         boolean z;
-        this.atG.hideProgressBar();
-        commonTabWidgetView = this.atG.atE;
+        this.avk.hideProgressBar();
+        commonTabWidgetView = this.avk.avi;
         commonTabWidgetView.reset();
-        commonTabWidgetView2 = this.atG.atE;
-        arrayList = this.atG.XX;
+        commonTabWidgetView2 = this.avk.avi;
+        arrayList = this.avk.YA;
         commonTabWidgetView2.setDatas(arrayList);
-        arrayList2 = this.atG.XX;
+        arrayList2 = this.avk.YA;
         int size = arrayList2.size();
         int i3 = 0;
         boolean z2 = false;
         while (i3 < size) {
-            arrayList3 = this.atG.XX;
-            a.b CE = ((a) arrayList3.get(i3)).CE();
-            if (CE != null) {
+            arrayList3 = this.avk.YA;
+            a.b Ct = ((a) arrayList3.get(i3)).Ct();
+            if (Ct != null) {
                 z = true;
-                this.atG.c(CE);
+                this.avk.c(Ct);
             } else {
                 z = z2;
             }
@@ -47,26 +47,26 @@ public class c implements b.a {
             z2 = z;
         }
         if (!z2) {
-            commonTabWidgetView3 = this.atG.atE;
+            commonTabWidgetView3 = this.avk.avi;
             commonTabWidgetView3.setVisibility(8);
         }
-        i = this.atG.atv;
+        i = this.avk.auZ;
         if (i < 0) {
-            this.atG.setCurrentTab(0);
+            this.avk.setCurrentTab(0);
             return;
         }
-        b bVar = this.atG;
-        i2 = this.atG.atv;
+        b bVar = this.avk;
+        i2 = this.avk.auZ;
         bVar.setCurrentTab(i2);
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
-    public void CI() {
-        this.atG.showProgressBar();
+    public void Cx() {
+        this.avk.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
-    public void CJ() {
-        this.atG.hideProgressBar();
+    public void Cy() {
+        this.avk.hideProgressBar();
     }
 }

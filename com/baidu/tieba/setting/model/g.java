@@ -7,10 +7,10 @@ import com.baidu.tieba.n;
 import com.baidu.tieba.setting.more.MsgRemindActivity;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
-    private MsgRemindActivity dlL;
-    private a dlM;
-    private com.baidu.adp.framework.listener.e dlN;
-    private com.baidu.adp.framework.listener.e dlO;
+    private MsgRemindActivity dsS;
+    private a dsT;
+    private com.baidu.adp.framework.listener.e dsU;
+    private com.baidu.adp.framework.listener.e dsV;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,11 +19,11 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
 
     public g(MsgRemindActivity msgRemindActivity) {
         super(msgRemindActivity.getPageContext());
-        this.dlN = new h(this, 104102);
-        this.dlO = new i(this, 104101);
-        this.dlL = msgRemindActivity;
-        registerListener(this.dlO);
-        registerListener(this.dlN);
+        this.dsU = new h(this, 104102);
+        this.dsV = new i(this, 104101);
+        this.dsS = msgRemindActivity;
+        registerListener(this.dsV);
+        registerListener(this.dsU);
     }
 
     @Override // com.baidu.adp.base.e
@@ -38,7 +38,7 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
 
     public void a(int i, boolean z, a aVar) {
         if (i == 14 || i == 2 || i == 3 || i == 4 || i == 5 || i == 1 || i == 6) {
-            this.dlM = aVar;
+            this.dsT = aVar;
             if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -49,40 +49,40 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
                 requestUpdateMaskInfoMessage.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage);
             }
-            this.dlL.showProgressBar();
+            this.dsS.showProgressBar();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, boolean z, boolean z2, String str) {
         if (z) {
-            this.dlL.showToast(this.dlL.getResources().getString(n.i.success));
-            if (this.dlM != null) {
-                this.dlM.a(i, true, z2);
+            this.dsS.showToast(this.dsS.getResources().getString(n.j.success));
+            if (this.dsT != null) {
+                this.dsT.a(i, true, z2);
                 if (i != 14) {
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.yg().yl() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().yo() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().ym() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().yn() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().yw() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().yv() && !com.baidu.tbadk.coreExtra.messageCenter.c.yg().yk()) {
-                        this.dlM.a(14, true, false);
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xS().xX() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().ya() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().xY() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().xZ() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().yi() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().yh() && !com.baidu.tbadk.coreExtra.messageCenter.c.xS().xW()) {
+                        this.dsT.a(14, true, false);
                         return;
                     }
                     return;
                 }
-                this.dlM.a(2, true, z2);
-                this.dlM.a(3, true, z2);
-                this.dlM.a(4, true, z2);
-                this.dlM.a(5, true, z2);
-                this.dlM.a(1, true, z2);
-                this.dlM.a(13, true, z2);
+                this.dsT.a(2, true, z2);
+                this.dsT.a(3, true, z2);
+                this.dsT.a(4, true, z2);
+                this.dsT.a(5, true, z2);
+                this.dsT.a(1, true, z2);
+                this.dsT.a(13, true, z2);
                 return;
             }
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.dlL.showToast(str);
+            this.dsS.showToast(str);
         } else {
-            this.dlL.showToast(n.i.bubble_setdefualt_error);
+            this.dsS.showToast(n.j.bubble_setdefualt_error);
         }
-        if (this.dlM != null) {
-            this.dlM.a(i, false, z2);
+        if (this.dsT != null) {
+            this.dsT.a(i, false, z2);
         }
     }
 }

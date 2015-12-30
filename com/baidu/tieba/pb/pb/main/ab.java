@@ -1,40 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.n;
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.pb.pb.main.cf;
 /* loaded from: classes.dex */
-public class ab implements c.b {
-    final /* synthetic */ PbActivity cCm;
-    private final /* synthetic */ SparseArray cCn;
-    private final /* synthetic */ boolean cCo;
-    private final /* synthetic */ String cCp;
+class ab implements cf.a {
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str) {
-        this.cCm = pbActivity;
-        this.cCn = sparseArray;
-        this.cCo = z;
-        this.cCp = str;
+    public ab(PbActivity pbActivity) {
+        this.cFS = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        UserMuteAddAndDelModel userMuteAddAndDelModel;
-        da daVar;
-        switch (i) {
-            case 0:
-                daVar = this.cCm.cBL;
-                daVar.a(((Integer) this.cCn.get(n.f.tag_del_post_type)).intValue(), (String) this.cCn.get(n.f.tag_del_post_id), ((Integer) this.cCn.get(n.f.tag_manage_user_identity)).intValue(), ((Boolean) this.cCn.get(n.f.tag_del_post_is_self)).booleanValue());
-                break;
-            case 1:
-                userMuteAddAndDelModel = this.cCm.cBJ;
-                userMuteAddAndDelModel.a(this.cCo, this.cCp, (String) this.cCn.get(n.f.tag_user_mute_mute_username), (String) this.cCn.get(n.f.tag_user_mute_thread_id), (String) this.cCn.get(n.f.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB);
-                break;
+    @Override // com.baidu.tieba.pb.pb.main.cf.a
+    public void f(int i, String str, String str2) {
+        dk dkVar;
+        if (StringUtils.isNull(str)) {
+            if (i == 0) {
+                this.cFS.showToast(n.j.upgrage_toast_dialog);
+            } else {
+                this.cFS.showToast(n.j.neterror);
+            }
+        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
+            this.cFS.cFQ = str2;
+            dkVar = this.cFS.cFq;
+            dkVar.kI(str);
+        } else {
+            this.cFS.showToast(str);
         }
-        cVar.dismiss();
     }
 }

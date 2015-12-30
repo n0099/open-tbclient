@@ -77,7 +77,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     @Override // com.baidu.adp.framework.b
     /* renamed from: a */
     public void sendMessage(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        com.baidu.adp.lib.util.k.je();
+        com.baidu.adp.lib.util.k.jf();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.fd())) {
                 k.a("queue", socketMessage, 0, "sendMessage", j.pt, "duplicate message be removed");
@@ -274,7 +274,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.oQ != null) {
             this.oQ.dW();
         }
-        if (!com.baidu.adp.lib.util.k.jg() || c.f(this.oN) || c.f(this.oM) || c.f(this.oL) || !BdSocketLinkService.isAvailable()) {
+        if (!com.baidu.adp.lib.util.k.jh() || c.f(this.oN) || c.f(this.oM) || c.f(this.oL) || !BdSocketLinkService.isAvailable()) {
             ev();
             return false;
         }

@@ -35,6 +35,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
     public static final String REFRESH_TO_FRS = "tb_frslist";
+    public static final String YUELAOU_LOCATE = "yuelaou_locate";
 
     public FrsActivityConfig(Context context) {
         super(context);
@@ -42,6 +43,20 @@ public class FrsActivityConfig extends IntentConfig {
 
     public FrsActivityConfig createNormalCfg(String str, String str2) {
         return createBackSpecialCfg(str, str2, false, false);
+    }
+
+    public FrsActivityConfig createCfgForpersonalized(String str, String str2, String str3) {
+        Intent intent = getIntent();
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("back_special", false);
+        intent.putExtra(GOOD, false);
+        intent.putExtra(YUELAOU_LOCATE, str3);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        return this;
     }
 
     public FrsActivityConfig createGoodCfg(String str, String str2) {

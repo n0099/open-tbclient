@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bVR;
+    final /* synthetic */ b bZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bVR = bVar;
+        this.bZQ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,34 +26,34 @@ public class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            list2 = this.bVR.mList;
+                            list2 = this.bZQ.mList;
                             if (list2 != null) {
-                                list3 = this.bVR.mList;
+                                list3 = this.bZQ.mList;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().c(new com.baidu.tbadk.coreExtra.d.e());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().yb();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().xX();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xv().c(new com.baidu.tbadk.coreExtra.d.e());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xv().xN();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xv().xJ();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.bVR.mList;
+                            list = this.bZQ.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.bVR.ch(false);
+                            this.bZQ.ci(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.bVR.g(customResponsedMessage);
+                    this.bZQ.g(customResponsedMessage);
                     return;
                 }
-                this.bVR.f(customResponsedMessage);
+                this.bZQ.f(customResponsedMessage);
                 return;
             }
-            this.bVR.e(customResponsedMessage);
+            this.bZQ.e(customResponsedMessage);
         }
     }
 }

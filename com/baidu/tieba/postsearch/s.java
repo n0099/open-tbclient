@@ -1,205 +1,186 @@
 package com.baidu.tieba.postsearch;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class s {
-    public String clJ;
-    public ArrayList<String> deB;
-    private PostSearchActivity deb;
-    private String des;
-    public int det = 0;
-    public int deu = 0;
-    public int dev = 1;
-    public int dew = 1;
-    public int dex = 1;
-    public boolean dey = false;
-    public boolean dez = false;
-    public boolean deA = false;
-    private int deC = 0;
-    private final HttpMessageListener deD = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
-    private CustomMessageListener cmo = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
+public class s extends BaseFragment implements BdListView.e {
+    private PbListView aVj;
+    private PostSearchActivity djG;
+    private BdListView djU;
+    private w djV;
+    private k djW;
+    private String djX;
+    private com.baidu.tbadk.core.view.o mNoDataView;
+    private View mRootView;
+    private int mTabType;
 
-    public s(PostSearchActivity postSearchActivity) {
-        this.deb = postSearchActivity;
-        this.deb.registerListener(this.cmo);
-        this.deb.registerListener(this.deD);
+    public s() {
+        this.mTabType = -1;
+        this.djX = "";
     }
 
-    public boolean ad(String str, int i) {
-        if (StringUtils.isNull(str)) {
-            return false;
-        }
-        if (!str.equals(this.clJ)) {
-            auK();
-        }
-        switch (i) {
-            case 1:
-                return lK(str);
-            case 2:
-                return lL(str);
-            case 3:
-                return lM(str);
-            default:
-                return false;
-        }
+    public s(int i) {
+        this.mTabType = -1;
+        this.djX = "";
+        this.mTabType = i;
     }
 
-    public boolean lK(String str) {
-        if (this.dey) {
-            return false;
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.mRootView = layoutInflater.inflate(n.h.post_search_list_fragment, (ViewGroup) null);
+        initView();
+        return this.mRootView;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+        this.djG = (PostSearchActivity) getBaseFragmentActivity();
+        this.djV = new w(this.djG.getPageContext());
+        this.djU.setAdapter((ListAdapter) this.djV);
+        this.aVj = new PbListView(this.djG.getPageContext().getPageActivity());
+        this.aVj.mT();
+        this.djU.setOnSrollToBottomListener(this);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        super.onPrimary();
+        gL(false);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (this.djG != null) {
+            com.baidu.tbadk.i.a.a(this.djG.getPageContext(), this.mRootView);
         }
-        this.clJ = str;
-        this.deC = 1;
-        this.deb.sendMessage(lv(this.deC));
-        this.dey = true;
-        return true;
-    }
-
-    public boolean lL(String str) {
-        if (this.dez) {
-            return false;
+        if (this.aVj != null) {
+            this.aVj.cP(i);
         }
-        this.clJ = str;
-        this.deC = 2;
-        this.deb.sendMessage(lv(this.deC));
-        this.dez = true;
-        return true;
-    }
-
-    public boolean lM(String str) {
-        if (this.deA) {
-            return false;
-        }
-        this.clJ = str;
-        this.deC = 3;
-        this.deb.sendMessage(lv(this.deC));
-        this.deA = true;
-        return true;
-    }
-
-    public void auH() {
-        this.deb.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
-    }
-
-    public void auI() {
-        if (!StringUtils.isNull(this.clJ) && !this.clJ.equals(this.des)) {
-            this.deb.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.clJ));
-            this.des = this.clJ;
+        if (this.djV != null) {
+            this.djV.notifyDataSetChanged();
         }
     }
 
-    public void auJ() {
-        if (this.deB != null) {
-            this.deB.clear();
+    public void a(k kVar, boolean z) {
+        hideNoDataView();
+        hideLoadingView(this.mRootView);
+        if (kVar == null || kVar.cQY == null || kVar.cQY.size() == 0) {
+            if (!z || this.djW == null || this.djW.cQY == null || this.djW.cQY.size() == 0) {
+                Om();
+                showNoDataView();
+                this.djU.setVisibility(8);
+                this.djW = kVar;
+                return;
+            }
+            if (this.djW.djM.rO() == 1) {
+                Ok();
+                return;
+            } else {
+                Ol();
+                return;
+            }
         }
-        this.deb.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
-    }
-
-    public void auK() {
-        this.dev = 1;
-        this.dew = 1;
-        this.dex = 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void auL() {
-        if (this.deB == null) {
-            this.deB = new ArrayList<>();
+        if (!z || this.djW == null || this.djW.cQY == null || this.djW.cQY.size() == 0) {
+            this.djW = kVar;
+        } else {
+            this.djW.djM = kVar.djM;
+            this.djW.cQY.addAll(kVar.cQY);
         }
-        this.deB.remove(this.clJ);
-        this.deB.add(0, this.clJ);
-        by(this.deB);
+        if (this.djW.djM.rO() == 1) {
+            Ok();
+        } else {
+            Ol();
+        }
+        this.djV.clear();
+        this.djV.bx(this.djW.cQY);
+        this.djV.notifyDataSetChanged();
+        if (!z) {
+            this.djU.setSelection(0);
+        }
+        this.djU.setVisibility(0);
     }
 
-    private void by(List<String> list) {
-        int size;
-        if (list != null && list.size() - 5 > 0) {
-            int size2 = list.size();
-            for (int i = 0; i < size; i++) {
-                list.remove((size2 - i) - 1);
+    public void gL(boolean z) {
+        String str = this.djG.cpN;
+        if (!StringUtils.isNull(str)) {
+            boolean z2 = !str.equals(this.djX) || z;
+            if (this.djW == null || (this.djW != null && !this.djW.abB() && this.djW.isHasMore())) {
+                z2 = true;
+            }
+            if (z2) {
+                showLoadingView(this.mRootView, false, this.djG.getResources().getDimensionPixelSize(n.e.ds320));
+                this.djG.awr().ae(str, this.mTabType);
+                this.djX = str;
             }
         }
     }
 
-    private HttpMessage lv(int i) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.clJ);
-        httpMessage.addParam("rn", (Object) 30);
-        httpMessage.addParam("kw", this.deb.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.deC));
-        switch (i) {
-            case 1:
-                httpMessage.addParam("sm", (Object) 1);
-                httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.dev));
-                break;
-            case 2:
-                httpMessage.addParam("sm", (Object) 2);
-                httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.dew));
-                break;
-            case 3:
-                httpMessage.addParam("sm", (Object) 2);
-                httpMessage.addParam("only_thread", (Object) 1);
-                httpMessage.addParam("pn", Integer.valueOf(this.dex));
-                break;
+    public void awy() {
+        if (this.djW != null && this.djW.cQY != null) {
+            this.djW.cQY.clear();
+            this.djV.clear();
+            this.djV.bx(this.djW.cQY);
+            this.djV.notifyDataSetChanged();
         }
-        return httpMessage;
+        Om();
+        hideNoDataView();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void lw(int i) {
-        switch (i) {
-            case 1:
-                this.dev++;
-                return;
-            case 2:
-                this.dew++;
-                return;
-            case 3:
-                this.dex++;
-                return;
-            default:
-                return;
+    private void initView() {
+        this.djU = (BdListView) this.mRootView.findViewById(n.g.result_list);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void onScrollToBottom() {
+        if (!StringUtils.isNull(this.djX) && this.djW != null && this.djW.isHasMore() && this.djG.awr().ae(this.djX, this.mTabType)) {
+            awz();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int lx(int i) {
-        switch (i) {
-            case 1:
-                return this.dev;
-            case 2:
-                return this.dew;
-            case 3:
-                return this.dex;
-            default:
-                return 0;
-        }
+    private void awz() {
+        this.djU.setNextPage(this.aVj);
+        this.aVj.startLoadData();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ly(int i) {
-        switch (i) {
-            case 1:
-                this.dey = false;
-                return;
-            case 2:
-                this.dez = false;
-                return;
-            case 3:
-                this.deA = false;
-                return;
-            default:
-                return;
+    private void Ok() {
+        this.djU.setNextPage(this.aVj);
+        this.aVj.vP();
+        this.aVj.setText(this.djG.getResources().getString(n.j.pb_load_more));
+    }
+
+    private void Ol() {
+        this.djU.setNextPage(this.aVj);
+        this.aVj.vP();
+        this.aVj.setText(this.djG.getResources().getString(n.j.list_no_more));
+    }
+
+    private void Om() {
+        this.djU.setNextPage(null);
+    }
+
+    private void showNoDataView() {
+        if (this.mNoDataView == null) {
+            this.mNoDataView = NoDataViewFactory.a(this.djG.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cM(n.j.no_search_result_record), null);
+            this.mNoDataView.onChangeSkinType(this.djG.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        }
+        this.mNoDataView.setVisibility(0);
+    }
+
+    private void hideNoDataView() {
+        if (this.mNoDataView != null) {
+            this.mNoDataView.setVisibility(8);
         }
     }
 }

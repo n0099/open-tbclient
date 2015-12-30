@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.fc;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface f {
-    int Pi();
+    int PA();
 
     void a(Context context, i iVar);
 
@@ -14,5 +14,5 @@ public interface f {
 
     void setData(List<fc> list);
 
-    void wh();
+    void vR();
 }

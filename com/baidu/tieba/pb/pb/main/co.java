@@ -1,39 +1,112 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements View.OnClickListener {
-    private final /* synthetic */ String cAA;
-    private final /* synthetic */ String cAy;
-    private final /* synthetic */ String cAz;
-    final /* synthetic */ cn cDY;
+public class co extends com.baidu.adp.base.f<PbActivity> {
+    private TextView cHA;
+    private TextView cHH;
+    private View cHI;
+    private TextView cHJ;
+    private TextView cHK;
+    private TextView cHL;
+    private View cHM;
+    private TextView cHN;
+    private View cHO;
+    private PbActivity cHP;
+    private View.OnClickListener mClickListener;
+    private View mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public co(cn cnVar, String str, String str2, String str3) {
-        this.cDY = cnVar;
-        this.cAy = str;
-        this.cAz = str2;
-        this.cAA = str3;
+    public co(PbActivity pbActivity, View.OnClickListener onClickListener) {
+        super(pbActivity.getPageContext());
+        this.mView = null;
+        this.cHA = null;
+        this.cHH = null;
+        this.cHI = null;
+        this.cHJ = null;
+        this.cHK = null;
+        this.cHL = null;
+        this.cHM = null;
+        this.cHN = null;
+        this.cHO = null;
+        this.cHP = null;
+        this.mClickListener = null;
+        this.cHP = pbActivity;
+        this.mClickListener = onClickListener;
+        initUI();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cAy) && !StringUtils.isNull(this.cAz)) {
-            if (com.baidu.adp.lib.util.i.iP()) {
-                context = this.cDY.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cAy) + "," + this.cAz, this.cAA, this.cAA, context.getString(n.i.app_info_for_map));
-                context2 = this.cDY.mContext;
-                com.baidu.tbadk.browser.f.B(context2, format);
-                return;
-            }
-            this.cDY.cCy.showToast(n.i.neterror);
+    public View getView() {
+        return this.mView;
+    }
+
+    public TextView amf() {
+        return this.cHA;
+    }
+
+    public TextView amk() {
+        return this.cHH;
+    }
+
+    public View aml() {
+        return this.cHI;
+    }
+
+    public TextView amm() {
+        return this.cHJ;
+    }
+
+    public TextView amn() {
+        return this.cHK;
+    }
+
+    public TextView amo() {
+        return this.cHN;
+    }
+
+    public TextView amp() {
+        return this.cHL;
+    }
+
+    public void fi(boolean z) {
+        if (z) {
+            this.cHN.setVisibility(8);
+            this.cHO.setVisibility(8);
+            return;
         }
+        this.cHN.setVisibility(0);
+        this.cHO.setVisibility(0);
+    }
+
+    public void fj(boolean z) {
+        if (z) {
+            this.cHL.setVisibility(8);
+            this.cHM.setVisibility(8);
+            return;
+        }
+        this.cHL.setVisibility(0);
+        this.cHM.setVisibility(0);
+    }
+
+    private void initUI() {
+        this.mView = LayoutInflater.from(this.cHP.getPageContext().getPageActivity()).inflate(n.h.pb_more_view, (ViewGroup) null);
+        this.cHA = (TextView) this.mView.findViewById(n.g.pb_more_view_item_mark);
+        this.cHA.setOnClickListener(this.mClickListener);
+        this.cHH = (TextView) this.mView.findViewById(n.g.pb_more_view_item_share);
+        this.cHI = this.mView.findViewById(n.g.pb_more_view_item_line_share);
+        this.cHH.setOnClickListener(this.mClickListener);
+        this.cHJ = (TextView) this.mView.findViewById(n.g.pb_more_view_item_jump);
+        this.cHJ.setOnClickListener(this.mClickListener);
+        this.cHK = (TextView) this.mView.findViewById(n.g.pb_more_view_item_see);
+        this.cHK.setOnClickListener(this.mClickListener);
+        this.cHN = (TextView) this.mView.findViewById(n.g.pb_more_view_item_report);
+        this.cHN.setOnClickListener(this.mClickListener);
+        this.cHO = this.mView.findViewById(n.g.pb_more_view_item_report_line);
+        this.cHL = (TextView) this.mView.findViewById(n.g.pb_more_view_item_upgrade_thread);
+        this.cHM = this.mView.findViewById(n.g.pb_more_view_item_upgrade_line);
+        this.cHL.setOnClickListener(this.mClickListener);
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class df extends x.a {
-    public int afY;
-    public View bdL;
-    public PhotoLiveCardView bdM;
-    public View bdN;
+    View bhF;
+    TextView bhG;
+    View bhH;
+    TextView bhI;
 
     public df(View view) {
         super(view);
-        this.afY = 3;
-        this.bdL = view.findViewById(n.f.more_live_list);
-        this.bdM = (PhotoLiveCardView) view.findViewById(n.f.photo_live_card);
-        this.bdN = view.findViewById(n.f.make_headlines);
+        this.bhG = (TextView) view.findViewById(n.g.frs_fortune_bag_content);
+        this.bhF = view.findViewById(n.g.frs_fortune_bag_item);
+        this.bhH = view.findViewById(n.g.frs_my_service_item);
+        this.bhI = (TextView) view.findViewById(n.g.frs_my_service_content);
     }
 }

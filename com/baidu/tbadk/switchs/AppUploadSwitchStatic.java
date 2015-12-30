@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class AppUploadSwitchStatic extends a {
     static {
-        e.gw().f(AppUploadSwitchStatic.class);
+        e.gw().e(AppUploadSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

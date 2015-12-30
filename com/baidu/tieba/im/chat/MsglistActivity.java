@@ -3,6 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements al {
     protected abstract boolean first(al alVar);
@@ -28,7 +29,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
-        adjustResizeForSoftInput(false);
+        adjustResizeForSoftInput(n.d.transparent, false);
         if (this.mListModel != null) {
             this.mListModel.setImageUploadUIProgressCallback(this.mUploadProgressCallback);
         }
@@ -36,7 +37,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            bq.bIn = com.baidu.tbadk.util.e.Fq();
+            bq.bLU = com.baidu.tbadk.util.e.Fe();
         }
     }
 
@@ -52,6 +53,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
+        adjustResizeForSoftInput(n.d.transparent, false);
         initCallback();
         if (first(this)) {
             loadDraft();

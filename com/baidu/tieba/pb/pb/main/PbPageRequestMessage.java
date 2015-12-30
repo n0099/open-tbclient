@@ -3,11 +3,13 @@ package com.baidu.tieba.pb.pb.main;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.squareup.wire.Wire;
 import tbclient.CommonReq;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
 /* loaded from: classes.dex */
 public class PbPageRequestMessage extends NetMessage {
+    public static final Wire WIRE = new Wire(new Class[0]);
     private Integer arround;
     private Integer back;
     private Integer banner;
@@ -23,6 +25,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer last;
     private String lastids;
     private Integer lz;
+    private String mLocate;
     private Integer mark;
     private String message_click;
     private Integer message_id;
@@ -263,6 +266,14 @@ public class PbPageRequestMessage extends NetMessage {
         this.st_type = str;
     }
 
+    public String getLocate() {
+        return this.mLocate;
+    }
+
+    public void setLocate(String str) {
+        this.mLocate = str;
+    }
+
     public Integer get_thread_type() {
         return this.thread_type;
     }
@@ -362,6 +373,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.q_type = get_q_type();
             builder.pn = get_pn();
             builder.st_type = get_st_type();
+            builder.yuelaou_locate = getLocate();
             builder.thread_type = get_thread_type();
             builder.banner = get_banner();
             builder.arround = get_arround();

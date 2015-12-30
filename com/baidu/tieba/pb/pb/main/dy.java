@@ -1,32 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.b.a;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dy implements a.InterfaceC0078a {
-    final /* synthetic */ da cGh;
+public class dy implements DialogInterface.OnCancelListener {
+    final /* synthetic */ dk cKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dy(da daVar) {
-        this.cGh = daVar;
+    public dy(dk dkVar) {
+        this.cKg = dkVar;
     }
 
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0078a
-    public void NX() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.cGh.aRs;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.cGh.aRs;
-            bdTypeListView2.setSelection(0);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Runnable runnable;
+        Runnable runnable2;
+        runnable = this.cKg.cJP;
+        if (runnable == null) {
+            this.cKg.cJP = new dz(this);
         }
-    }
-
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0078a
-    public void NW() {
-        PbActivity pbActivity;
-        pbActivity = this.cGh.cCy;
-        pbActivity.MS();
+        com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
+        runnable2 = this.cKg.cJP;
+        hj.postDelayed(runnable2, 150L);
     }
 }

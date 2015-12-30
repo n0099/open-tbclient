@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    private final /* synthetic */ TbPageContext Sn;
+    private final /* synthetic */ TbPageContext SL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(TbPageContext tbPageContext) {
-        this.Sn = tbPageContext;
+        this.SL = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.Sn.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.SL.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
         aVar.dismiss();
     }
 }

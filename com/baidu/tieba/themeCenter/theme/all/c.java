@@ -11,29 +11,29 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private int bjr;
-    private SkinItemView.a dGj;
-    private int dGk;
-    private int dGl;
+    private int bni;
+    private SkinItemView.a dNK;
+    private int dNL;
+    private int dNM;
     private TbPageContext<?> mContext;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
 
     /* loaded from: classes.dex */
     public static class a {
-        public SkinItemView dGm;
-        public SkinItemView dGn;
-        public SkinItemView dGo;
+        public SkinItemView dNN;
+        public SkinItemView dNO;
+        public SkinItemView dNP;
     }
 
     public c(TbPageContext<?> tbPageContext, SkinItemView.a aVar) {
-        this.bjr = 0;
-        this.dGk = 0;
-        this.dGl = 0;
+        this.bni = 0;
+        this.dNL = 0;
+        this.dNM = 0;
         this.mContext = tbPageContext;
-        this.dGj = aVar;
-        this.bjr = k.d(this.mContext.getPageActivity(), n.d.ds20);
-        this.dGk = k.d(this.mContext.getPageActivity(), n.d.ds32);
-        this.dGl = k.d(this.mContext.getPageActivity(), n.d.ds22);
+        this.dNK = aVar;
+        this.bni = k.d(this.mContext.getPageActivity(), n.e.ds20);
+        this.dNL = k.d(this.mContext.getPageActivity(), n.e.ds32);
+        this.dNM = k.d(this.mContext.getPageActivity(), n.e.ds22);
     }
 
     @Override // android.widget.Adapter
@@ -46,7 +46,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mY */
+    /* renamed from: nA */
     public com.baidu.tieba.themeCenter.theme.top.a getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= getCount()) {
             return null;
@@ -66,44 +66,44 @@ public class c extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.all_theme_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.all_theme_list_item, viewGroup, false);
             aVar = new a();
-            aVar.dGm = (SkinItemView) view.findViewById(n.f.theme_view1);
-            aVar.dGn = (SkinItemView) view.findViewById(n.f.theme_view2);
-            aVar.dGo = (SkinItemView) view.findViewById(n.f.theme_view3);
-            aVar.dGm.setOnItemClickCallback(this.dGj);
-            aVar.dGn.setOnItemClickCallback(this.dGj);
-            aVar.dGo.setOnItemClickCallback(this.dGj);
-            aVar.dGm.setListenerTag(this.mContext.getUniqueId());
-            aVar.dGn.setListenerTag(this.mContext.getUniqueId());
-            aVar.dGo.setListenerTag(this.mContext.getUniqueId());
+            aVar.dNN = (SkinItemView) view.findViewById(n.g.theme_view1);
+            aVar.dNO = (SkinItemView) view.findViewById(n.g.theme_view2);
+            aVar.dNP = (SkinItemView) view.findViewById(n.g.theme_view3);
+            aVar.dNN.setOnItemClickCallback(this.dNK);
+            aVar.dNO.setOnItemClickCallback(this.dNK);
+            aVar.dNP.setOnItemClickCallback(this.dNK);
+            aVar.dNN.setListenerTag(this.mContext.getUniqueId());
+            aVar.dNO.setListenerTag(this.mContext.getUniqueId());
+            aVar.dNP.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
-        if (item != null && item.aFG() != null && item.aFG().size() > 0) {
-            if (item.aFG().size() == 1) {
-                aVar.dGm.a(item.aFG().get(0));
-                aVar.dGm.setVisibility(0);
-                aVar.dGn.setVisibility(8);
-                aVar.dGo.setVisibility(8);
-            } else if (item.aFG().size() == 2) {
-                aVar.dGm.a(item.aFG().get(0));
-                aVar.dGn.a(item.aFG().get(1));
-                aVar.dGm.setVisibility(0);
-                aVar.dGn.setVisibility(0);
-                aVar.dGo.setVisibility(8);
-            } else if (item.aFG().size() >= 3) {
-                aVar.dGm.a(item.aFG().get(0));
-                aVar.dGn.a(item.aFG().get(1));
-                aVar.dGo.a(item.aFG().get(2));
-                aVar.dGm.setVisibility(0);
-                aVar.dGn.setVisibility(0);
-                aVar.dGo.setVisibility(0);
+        if (item != null && item.aHV() != null && item.aHV().size() > 0) {
+            if (item.aHV().size() == 1) {
+                aVar.dNN.a(item.aHV().get(0));
+                aVar.dNN.setVisibility(0);
+                aVar.dNO.setVisibility(8);
+                aVar.dNP.setVisibility(8);
+            } else if (item.aHV().size() == 2) {
+                aVar.dNN.a(item.aHV().get(0));
+                aVar.dNO.a(item.aHV().get(1));
+                aVar.dNN.setVisibility(0);
+                aVar.dNO.setVisibility(0);
+                aVar.dNP.setVisibility(8);
+            } else if (item.aHV().size() >= 3) {
+                aVar.dNN.a(item.aHV().get(0));
+                aVar.dNO.a(item.aHV().get(1));
+                aVar.dNP.a(item.aHV().get(2));
+                aVar.dNN.setVisibility(0);
+                aVar.dNO.setVisibility(0);
+                aVar.dNP.setVisibility(0);
             }
         }
         if (i == 0) {
-            view.setPadding(this.dGk, this.bjr, this.dGl, 0);
+            view.setPadding(this.dNL, this.bni, this.dNM, 0);
         } else {
-            view.setPadding(this.dGk, 0, this.dGl, 0);
+            view.setPadding(this.dNL, 0, this.dNM, 0);
         }
         this.mContext.getLayoutMode().k(view);
         return view;

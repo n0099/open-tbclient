@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ m biK;
+    final /* synthetic */ m bmB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.biK = mVar;
+        this.bmB = mVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,27 +25,27 @@ public class o implements AdapterView.OnItemClickListener {
         BaseAdapter baseAdapter2;
         i.a aVar2;
         i iVar2;
-        iVar = this.biK.biI;
+        iVar = this.bmB.bmz;
         if (iVar != null) {
-            iVar2 = this.biK.biI;
-            iVar2.Pj();
+            iVar2 = this.bmB.bmz;
+            iVar2.PB();
         }
-        baseAdapter = this.biK.biJ;
+        baseAdapter = this.bmB.bmA;
         if (baseAdapter != null) {
-            aVar = this.biK.bin;
+            aVar = this.bmB.bmd;
             if (aVar != null) {
-                list = this.biK.mData;
+                list = this.bmB.mData;
                 for (fc fcVar : list) {
                     if (fcVar != null) {
                         fcVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.biK.biJ;
+                baseAdapter2 = this.bmB.bmA;
                 fc fcVar2 = (fc) baseAdapter2.getItem(i);
                 if (fcVar2 != null) {
                     fcVar2.isSelected = true;
-                    aVar2 = this.biK.bin;
-                    aVar2.gw(fcVar2.beF);
+                    aVar2 = this.bmB.bmd;
+                    aVar2.gp(fcVar2.biz);
                 }
             }
         }

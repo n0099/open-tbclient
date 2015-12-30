@@ -4,25 +4,25 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ e cbI;
+    final /* synthetic */ e cfI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.cbI = eVar;
+        this.cfI = eVar;
     }
 
     @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.cbI.cbC = true;
+        this.cfI.cfC = true;
     }
 
     @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         Animation animation2;
-        this.cbI.cbC = false;
-        animation2 = this.cbI.cbF;
-        if (animation == animation2 && this.cbI.abT()) {
-            this.cbI.abV();
+        this.cfI.cfC = false;
+        animation2 = this.cfI.cfF;
+        if (animation == animation2 && this.cfI.adc()) {
+            this.cfI.ade();
         }
     }
 }

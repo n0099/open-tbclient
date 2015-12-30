@@ -116,4 +116,33 @@ public class PluginSettings implements Serializable, Cloneable {
         }
         return pluginSettings;
     }
+
+    public List<PluginSetting> getPluginSettingsSortLoadPriorty() {
+        if (this.mPlugins.isEmpty()) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
+            a(entry.getValue(), arrayList);
+        }
+        return arrayList;
+    }
+
+    private void a(PluginSetting pluginSetting, List<PluginSetting> list) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < list.size()) {
+                if (pluginSetting.load_priority >= list.get(i2).load_priority) {
+                    i = i2 + 1;
+                } else {
+                    list.add(i2, pluginSetting);
+                    return;
+                }
+            } else {
+                list.add(pluginSetting);
+                return;
+            }
+        }
+    }
 }

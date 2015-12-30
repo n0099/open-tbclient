@@ -13,9 +13,9 @@ class u implements CustomMessageTask.CustomRunnable<b> {
             return null;
         }
         b data = customMessage.getData();
-        if (n.aFl().mR(data.getId())) {
-            com.baidu.tbadk.core.util.n.cZ(String.valueOf(data.getId()) + ".apk");
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, n.aFl().aFn());
+        if (n.aHA().nt(data.getId())) {
+            com.baidu.tbadk.core.util.n.dc(String.valueOf(data.getId()) + ".apk");
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, n.aHA().aHC());
         }
         return null;
     }

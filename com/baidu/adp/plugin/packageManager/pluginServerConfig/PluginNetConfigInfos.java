@@ -36,9 +36,10 @@ public class PluginNetConfigInfos extends i implements Serializable {
         public String icon;
         public Newest newest;
         public String package_name;
-        public int priority = 1000;
         public String verbose;
         public int version_code;
+        public int priority = 1000;
+        public int load_priority = 1000;
     }
 
     public String getConfig_version() {

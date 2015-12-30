@@ -4,13 +4,13 @@ import com.baidu.tieba.enterForum.c.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aRi;
-    final /* synthetic */ d aRj;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aUZ;
+    final /* synthetic */ d aVa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aRj = dVar;
-        this.aRi = bVar;
+        this.aVa = dVar;
+        this.aUZ = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,18 +18,18 @@ public class e implements Runnable {
         c cVar;
         c cVar2;
         c.b bVar;
-        cVar = this.aRj.aRh;
+        cVar = this.aVa.aUY;
         c.a aVar = new c.a();
         aVar.type = 0;
-        if (this.aRi != null && this.aRi.isSuccess()) {
-            aVar.aRl = true;
-            aVar.aRm = this.aRi;
+        if (this.aUZ != null && this.aUZ.isSuccess()) {
+            aVar.aVc = true;
+            aVar.aVd = this.aUZ;
         } else {
-            aVar.aRl = false;
-            aVar.aRm = this.aRi;
+            aVar.aVc = false;
+            aVar.aVd = this.aUZ;
         }
-        cVar2 = this.aRj.aRh;
-        bVar = cVar2.aRb;
+        cVar2 = this.aVa.aUY;
+        bVar = cVar2.aUS;
         bVar.a(aVar);
     }
 }

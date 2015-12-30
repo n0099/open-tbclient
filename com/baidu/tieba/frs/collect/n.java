@@ -5,27 +5,27 @@ import com.baidu.tieba.tbadkCore.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements ab.a {
-    final /* synthetic */ l bgq;
+    final /* synthetic */ l bki;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.bgq = lVar;
+        this.bki = lVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void NW() {
+    public void Op() {
         MyCollectFrsActivity myCollectFrsActivity;
-        myCollectFrsActivity = this.bgq.bfn;
-        myCollectFrsActivity.MS();
+        myCollectFrsActivity = this.bki.bjg;
+        myCollectFrsActivity.Nm();
     }
 
     @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void NX() {
+    public void Oq() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bgq.bgo;
+        bdTypeListView = this.bki.bkg;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.bgq.bgo;
+            bdTypeListView2 = this.bki.bkg;
             bdTypeListView2.setSelection(0);
         }
     }

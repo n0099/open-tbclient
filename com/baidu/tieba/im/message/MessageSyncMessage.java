@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
+import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public class MessageSyncMessage extends TbSocketMessage {
     private int height;
     private boolean isForTimer;
     private SparseArray<Long> mMids;
+    private NewpushRepair newpushRepire;
     private String notifyMaxTime;
     private String notifyMinTime;
     private String processType;
@@ -48,6 +50,14 @@ public class MessageSyncMessage extends TbSocketMessage {
 
     public void setSyncTypeString(String str) {
         this.syncTypeString = str;
+    }
+
+    public NewpushRepair getNewpushRepire() {
+        return this.newpushRepire;
+    }
+
+    public void setNewpushRepire(NewpushRepair newpushRepair) {
+        this.newpushRepire = newpushRepair;
     }
 
     public String getProcessType() {
@@ -131,6 +141,7 @@ public class MessageSyncMessage extends TbSocketMessage {
                 builder.groupMids.add(builder2.build(false));
             }
         }
+        builder.newpushRepire = getNewpushRepire();
         GetGroupMsgReqIdl.Builder builder3 = new GetGroupMsgReqIdl.Builder();
         builder3.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder3.data = builder.build(false);

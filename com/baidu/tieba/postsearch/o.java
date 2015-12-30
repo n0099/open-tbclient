@@ -1,26 +1,22 @@
 package com.baidu.tieba.postsearch;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.dialog.a;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements a.b {
-    final /* synthetic */ k den;
+public class o implements View.OnTouchListener {
+    final /* synthetic */ l djT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(k kVar) {
-        this.den = kVar;
+    public o(l lVar) {
+        this.djT = lVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         PostSearchActivity postSearchActivity;
-        BdListView bdListView;
-        aVar.dismiss();
-        postSearchActivity = this.den.deb;
-        postSearchActivity.auy().auJ();
-        bdListView = this.den.dej;
-        bdListView.setVisibility(8);
-        this.den.showNoDataView();
+        postSearchActivity = this.djT.djG;
+        postSearchActivity.awl();
+        return false;
     }
 }

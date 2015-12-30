@@ -8,13 +8,13 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b aRA;
+    final /* synthetic */ b aVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i, int i2) {
         super(i, i2);
-        this.aRA = bVar;
+        this.aVq = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,40 +25,40 @@ public class c extends com.baidu.adp.framework.listener.a {
         boolean d;
         BaseFragmentActivity baseFragmentActivity2;
         BaseFragmentActivity baseFragmentActivity3;
-        aVar = this.aRA.aRw;
+        aVar = this.aVq.aVm;
         if (aVar != null) {
-            baseFragmentActivity = this.aRA.aHN;
+            baseFragmentActivity = this.aVq.aJl;
             if (baseFragmentActivity != null) {
-                this.aRA.aRy = false;
-                aVar2 = this.aRA.aRw;
-                aVar2.Kr();
-                d = this.aRA.d(responsedMessage);
+                this.aVq.aVo = false;
+                aVar2 = this.aVq.aVm;
+                aVar2.KK();
+                d = this.aVq.d(responsedMessage);
                 if (!d) {
-                    if (!this.aRA.Eg()) {
+                    if (!this.aVq.DV()) {
                         return;
                     }
-                    this.aRA.fB(n.i.no_data_text);
+                    this.aVq.fw(n.j.no_data_text);
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     String errorString = responsedMessage.getErrorString();
-                    baseFragmentActivity2 = this.aRA.aHN;
-                    String string = baseFragmentActivity2.getResources().getString(n.i.no_data_text);
+                    baseFragmentActivity2 = this.aVq.aJl;
+                    String string = baseFragmentActivity2.getResources().getString(n.j.no_data_text);
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
-                    baseFragmentActivity3 = this.aRA.aHN;
+                    baseFragmentActivity3 = this.aVq.aJl;
                     baseFragmentActivity3.showToast(string);
-                    if (k.jg()) {
-                        this.aRA.fB(n.i.no_data_text);
+                    if (k.jh()) {
+                        this.aVq.fw(n.j.no_data_text);
                     } else {
-                        this.aRA.fB(n.i.neterror);
+                        this.aVq.fw(n.j.neterror);
                     }
                 } else if (!(responsedMessage instanceof ForumClassSocketResponseMessage)) {
                     if (!(responsedMessage instanceof ForumClassHttpResponseMessage)) {
                         return;
                     }
-                    this.aRA.a(((ForumClassHttpResponseMessage) responsedMessage).getData());
+                    this.aVq.a(((ForumClassHttpResponseMessage) responsedMessage).getData());
                 } else {
-                    this.aRA.a(((ForumClassSocketResponseMessage) responsedMessage).getData());
+                    this.aVq.a(((ForumClassSocketResponseMessage) responsedMessage).getData());
                 }
             }
         }

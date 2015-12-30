@@ -1,28 +1,21 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.widget.CustomViewPager;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements FragmentTabWidget.a {
-    final /* synthetic */ y ceA;
+public class ab implements NoNetworkView.a {
+    final /* synthetic */ z ciC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.ceA = yVar;
+    public ab(z zVar) {
+        this.ciC = zVar;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void c(int i, boolean z) {
-        bc bcVar;
-        CustomViewPager customViewPager;
-        FragmentTabWidget fragmentTabWidget;
-        bcVar = this.ceA.ceg;
-        bcVar.adC();
-        customViewPager = this.ceA.cex;
-        customViewPager.setCurrentItem(i);
-        fragmentTabWidget = this.ceA.cew;
-        fragmentTabWidget.d(i, true);
-        this.ceA.cez = i;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ax(boolean z) {
+        com.baidu.tbadk.mvc.f.a.a jv = this.ciC.jv(this.ciC.getCurrentTabIndex());
+        if (jv != null) {
+            jv.by(z);
+        }
     }
 }

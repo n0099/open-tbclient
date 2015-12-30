@@ -6,26 +6,26 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements a.b {
-    final /* synthetic */ PersonChangeActivity cKS;
+    final /* synthetic */ PersonChangeActivity cPi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PersonChangeActivity personChangeActivity) {
-        this.cKS = personChangeActivity;
+        this.cPi = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        if (this.cKS.cKJ.anJ().getPhotoChanged()) {
+        if (this.cPi.cOZ.aoU().getPhotoChanged()) {
             Intent intent = new Intent();
-            if (this.cKS.cKx.booleanValue()) {
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cKS.cKJ.anJ());
+            if (this.cPi.cON.booleanValue()) {
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cPi.cOZ.aoU());
             } else {
-                intent.putExtra("data", this.cKS.cKJ.anJ());
+                intent.putExtra("data", this.cPi.cOZ.aoU());
             }
-            this.cKS.setResult(-1, intent);
-            this.cKS.sendUpdateMessage();
+            this.cPi.setResult(-1, intent);
+            this.cPi.sendUpdateMessage();
         }
-        this.cKS.finish();
+        this.cPi.finish();
     }
 }

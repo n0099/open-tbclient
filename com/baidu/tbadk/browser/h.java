@@ -27,16 +27,16 @@ class h implements bf.a {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_RANK, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring, str2)));
                         }
                     } else {
-                        Static.c(tbPageContext, str.substring(3), tbPageContext.getString(n.i.kn_zhibo), false, true, false, false);
+                        Static.c(tbPageContext, str.substring(3), tbPageContext.getString(n.j.kn_zhibo), false, true, false, false);
                     }
                 } else {
                     Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);
                 }
             } else {
-                Static.c(tbPageContext, f.P(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
+                Static.c(tbPageContext, f.O(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
             }
         } else {
-            Static.c(tbPageContext, f.P(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
+            Static.c(tbPageContext, f.O(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
         }
         return true;
     }

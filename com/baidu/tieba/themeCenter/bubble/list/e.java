@@ -12,15 +12,15 @@ import com.baidu.tieba.themeCenter.dressCenter.k;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e<BubbleListActivity> {
-    private int MZ;
-    private final HttpMessageListener cmR;
-    private final int dEQ;
-    private boolean dER;
-    private com.baidu.adp.framework.listener.a dES;
-    private BubbleListActivity dFM;
-    private List<DressItemData> dFN;
-    private List<DressItemData> dFO;
-    private a dFP;
+    private int Np;
+    private final HttpMessageListener cqU;
+    private final int dMt;
+    private boolean dMu;
+    private com.baidu.adp.framework.listener.a dMv;
+    private BubbleListActivity dNo;
+    private List<DressItemData> dNp;
+    private List<DressItemData> dNq;
+    private a dNr;
     private boolean hasMore;
     private boolean isDefault;
     private k mRecommand;
@@ -32,26 +32,26 @@ public class e extends com.baidu.adp.base.e<BubbleListActivity> {
 
     public e(BubbleListActivity bubbleListActivity) {
         super(bubbleListActivity.getPageContext());
-        this.dEQ = 16;
-        this.MZ = 0;
+        this.dMt = 16;
+        this.Np = 0;
         this.hasMore = true;
         this.isDefault = false;
-        this.dES = new f(this, CmdConfigHttp.CMD_BUBBLE_LIST, 309031);
-        this.cmR = new g(this, CmdConfigHttp.CMD_BUBBLE_SET);
-        this.dFM = bubbleListActivity;
-        this.dER = bubbleListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        CQ();
-        registerListener(this.dES);
-        aFo();
-        registerListener(this.cmR);
+        this.dMv = new f(this, CmdConfigHttp.CMD_BUBBLE_LIST, 309031);
+        this.cqU = new g(this, CmdConfigHttp.CMD_BUBBLE_SET);
+        this.dNo = bubbleListActivity;
+        this.dMu = bubbleListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        CF();
+        registerListener(this.dMv);
+        aHD();
+        registerListener(this.cqU);
     }
 
-    private void CQ() {
+    private void CF() {
         com.baidu.tieba.tbadkCore.a.a.a(309031, BubbleListSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void aFo() {
+    private void aHD() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BUBBLE_SET, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.BUBBLE_SET);
         tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
@@ -61,18 +61,18 @@ public class e extends com.baidu.adp.base.e<BubbleListActivity> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         BubbleListRequestMessage bubbleListRequestMessage = new BubbleListRequestMessage();
-        this.MZ = 1;
-        bubbleListRequestMessage.setPn(this.MZ);
+        this.Np = 1;
+        bubbleListRequestMessage.setPn(this.Np);
         bubbleListRequestMessage.setRn(15);
         sendMessage(bubbleListRequestMessage);
         return false;
     }
 
-    public void aFr() {
+    public void aHG() {
         if (this.hasMore) {
-            this.MZ++;
+            this.Np++;
             BubbleListRequestMessage bubbleListRequestMessage = new BubbleListRequestMessage();
-            bubbleListRequestMessage.setPn(this.MZ);
+            bubbleListRequestMessage.setPn(this.Np);
             bubbleListRequestMessage.setRn(16);
             sendMessage(bubbleListRequestMessage);
         }
@@ -83,18 +83,18 @@ public class e extends com.baidu.adp.base.e<BubbleListActivity> {
         return false;
     }
 
-    public boolean aFs() {
-        return this.dER;
+    public boolean aHH() {
+        return this.dMu;
     }
 
     public void a(a aVar) {
-        this.dFP = aVar;
+        this.dNr = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mW(int i) {
-        if (this.dFO != null && this.dFO.size() > 0) {
-            for (DressItemData dressItemData : this.dFO) {
+    public void ny(int i) {
+        if (this.dNq != null && this.dNq.size() > 0) {
+            for (DressItemData dressItemData : this.dNq) {
                 if (dressItemData != null) {
                     if (dressItemData.getPropsId() == i) {
                         dressItemData.setInUse(true);

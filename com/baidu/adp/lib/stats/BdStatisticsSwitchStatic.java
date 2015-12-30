@@ -2,7 +2,7 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        com.baidu.adp.lib.c.e.gw().f(BdStatisticsSwitchStatic.class);
+        com.baidu.adp.lib.c.e.gw().e(BdStatisticsSwitchStatic.class);
     }
 
     public static boolean hA() {

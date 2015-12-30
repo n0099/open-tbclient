@@ -2,7 +2,7 @@ package com.baidu.tieba.applist;
 /* loaded from: classes.dex */
 public class ApplistReportSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        com.baidu.adp.lib.c.e.gw().f(ApplistReportSwitchStatic.class);
+        com.baidu.adp.lib.c.e.gw().e(ApplistReportSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

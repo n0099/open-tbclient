@@ -11,13 +11,13 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity bYU;
+    final /* synthetic */ AddFriendActivity ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.bYU = addFriendActivity;
+        this.ccU = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,20 +31,20 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.bYU.userId;
-                str2 = this.bYU.name;
+                str = this.ccU.userId;
+                str2 = this.ccU.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new k(str, str2)));
-                z = this.bYU.bYT;
+                z = this.ccU.ccT;
                 if (z) {
-                    this.bYU.showToast(this.bYU.getPageContext().getPageActivity().getString(n.i.add_ok_but_level_is_lower), false);
+                    this.ccU.showToast(this.ccU.getPageContext().getPageActivity().getString(n.j.add_ok_but_level_is_lower), false);
                 } else {
-                    this.bYU.showToast(this.bYU.getPageContext().getPageActivity().getString(n.i.group_apply_succ), false);
+                    this.ccU.showToast(this.ccU.getPageContext().getPageActivity().getString(n.j.group_apply_succ), false);
                 }
-                this.bYU.finish();
-            } else if (AntiHelper.mC(error)) {
-                AntiHelper.Q(this.bYU.getPageContext().getPageActivity(), errorString);
+                this.ccU.finish();
+            } else if (AntiHelper.ne(error)) {
+                AntiHelper.Q(this.ccU.getPageContext().getPageActivity(), errorString);
             } else {
-                com.baidu.adp.lib.util.k.showToast(this.bYU.getPageContext().getPageActivity(), errorString);
+                com.baidu.adp.lib.util.k.showToast(this.ccU.getPageContext().getPageActivity(), errorString);
             }
         }
     }

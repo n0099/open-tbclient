@@ -9,22 +9,22 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ a bky;
+    final /* synthetic */ a bop;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.bky = aVar;
+        this.bop = aVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c tI() {
+    public com.baidu.tbadk.core.flow.a.c ts() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.setDrawableId(n.e.icon_dot_personal_s);
-        cVar.cf(n.e.icon_dot_personal_n);
-        cVar.setSpacing(n.d.ds10);
+        cVar.setDrawableId(n.f.icon_dot_personal_s);
+        cVar.bY(n.f.icon_dot_personal_n);
+        cVar.setSpacing(n.e.ds10);
         cVar.setGravity(85);
-        cVar.ch(n.d.ds20);
-        cVar.cg(n.d.ds16);
+        cVar.ca(n.e.ds20);
+        cVar.bZ(n.e.ds16);
         return cVar;
     }
 
@@ -37,14 +37,14 @@ public class g implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e tJ() {
+    public com.baidu.tbadk.core.flow.a.e tt() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds280));
+        eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tK() {
-        return this.bky.bjL;
+    public View tu() {
+        return this.bop.bnC;
     }
 }

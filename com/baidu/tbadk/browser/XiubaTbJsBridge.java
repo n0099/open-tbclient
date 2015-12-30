@@ -92,7 +92,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Bm().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(n.i.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Bb().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(n.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -11,19 +11,19 @@ import com.baidu.tieba.n;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b> {
-    private TextView cuU;
-    private TextView cuV;
-    private TextView cuW;
+    private TextView cyU;
+    private TextView cyV;
+    private TextView cyW;
     private View mLine;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.cuU = (TextView) view.findViewById(n.f.title);
-        this.cuV = (TextView) view.findViewById(n.f.content);
-        this.cuW = (TextView) view.findViewById(n.f.time);
-        this.mLine = view.findViewById(n.f.line);
+        this.cyU = (TextView) view.findViewById(n.g.title);
+        this.cyV = (TextView) view.findViewById(n.g.content);
+        this.cyW = (TextView) view.findViewById(n.g.time);
+        this.mLine = view.findViewById(n.g.line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,33 +32,33 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.base
     public void B(com.baidu.tieba.myCollection.baseHistory.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            if (this.cuU != null && bVar.aik() != null) {
+            if (this.cyU != null && bVar.ajx() != null) {
                 if (bVar.getThreadType() == 33) {
-                    this.cuU.setText(PhotoLiveCardData.getLiveIconTitle(bVar.aik()));
+                    this.cyU.setText(PhotoLiveCardData.getLiveIconTitle(bVar.ajx()));
                 } else {
-                    this.cuU.setText(bVar.aik());
+                    this.cyU.setText(bVar.ajx());
                 }
             }
-            if (this.cuV != null && bVar.getForumName() != null) {
-                this.cuV.setText(bVar.getForumName());
+            if (this.cyV != null && bVar.getForumName() != null) {
+                this.cyV.setText(bVar.getForumName());
             }
-            if (this.cuW != null) {
+            if (this.cyW != null) {
                 String e = ax.e(new Date(bVar.getTime()));
                 if (e == null) {
                     e = "";
                 }
-                this.cuW.setText(e);
+                this.cyW.setText(e);
             }
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        as.i(this.mRootView, n.e.list_item_selector);
-        as.i(this.mLine, n.c.cp_bg_line_b);
-        as.b(this.cuU, n.c.cp_cont_b, 1);
-        as.b(this.cuV, n.c.cp_cont_d, 1);
-        as.b(this.cuW, n.c.cp_cont_d, 1);
+        as.i(this.mRootView, n.f.list_item_selector);
+        as.i(this.mLine, n.d.cp_bg_line_b);
+        as.b(this.cyU, n.d.cp_cont_b, 1);
+        as.b(this.cyV, n.d.cp_cont_d, 1);
+        as.b(this.cyW, n.d.cp_cont_d, 1);
         return true;
     }
 }

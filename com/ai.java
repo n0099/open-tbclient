@@ -4,15 +4,15 @@ import com.baidu.cloudsdk.social.share.uiwithlayout.SwitchButton;
 /* loaded from: classes.dex */
 public class ai implements Runnable {
     final /* synthetic */ boolean a;
-    final /* synthetic */ SwitchButton dSF;
+    final /* synthetic */ SwitchButton ead;
 
     public ai(SwitchButton switchButton, boolean z) {
-        this.dSF = switchButton;
+        this.ead = switchButton;
         this.a = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.dSF.setChecked(this.a);
+        this.ead.setChecked(this.a);
     }
 }

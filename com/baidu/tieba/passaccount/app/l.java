@@ -3,17 +3,17 @@ package com.baidu.tieba.passaccount.app;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class l implements DialogInterface.OnCancelListener {
-    final /* synthetic */ k cwn;
+    final /* synthetic */ k czR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.cwn = kVar;
+        this.czR = kVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         LoginActivity loginActivity;
-        loginActivity = this.cwn.cwm;
+        loginActivity = this.czR.czQ;
         loginActivity.destroyWaitingDialog();
     }
 }

@@ -5,13 +5,13 @@ import android.text.TextWatcher;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class q implements TextWatcher {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aoe;
-    final /* synthetic */ PaymentConfirmActivity cxe;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a apI;
+    final /* synthetic */ PaymentConfirmActivity cAI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(PaymentConfirmActivity paymentConfirmActivity, com.baidu.tbadk.core.dialog.a aVar) {
-        this.cxe = paymentConfirmActivity;
-        this.aoe = aVar;
+        this.cAI = paymentConfirmActivity;
+        this.apI = aVar;
     }
 
     @Override // android.text.TextWatcher
@@ -24,6 +24,6 @@ class q implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.aoe.ao(!StringUtils.isNull(editable.toString()));
+        this.apI.al(!StringUtils.isNull(editable.toString()));
     }
 }

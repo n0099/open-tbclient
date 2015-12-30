@@ -8,15 +8,15 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    private final /* synthetic */ String aQP;
-    final /* synthetic */ p bCP;
-    private final /* synthetic */ String bCQ;
+    private final /* synthetic */ String aUG;
+    final /* synthetic */ p bGt;
+    private final /* synthetic */ String bGu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar, String str, String str2) {
-        this.bCP = pVar;
-        this.bCQ = str;
-        this.aQP = str2;
+        this.bGt = pVar;
+        this.bGu = str;
+        this.aUG = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,17 +25,17 @@ public class r implements View.OnClickListener {
         HotTopicActivity hotTopicActivity2;
         HotTopicActivity hotTopicActivity3;
         HotTopicActivity hotTopicActivity4;
-        hotTopicActivity = this.bCP.bCN;
+        hotTopicActivity = this.bGt.bGr;
         if (hotTopicActivity != null) {
-            hotTopicActivity2 = this.bCP.bCN;
+            hotTopicActivity2 = this.bGt.bGr;
             if (hotTopicActivity2.checkUpIsLogin()) {
-                if (ax.aR(this.bCQ)) {
-                    hotTopicActivity4 = this.bCP.bCN;
-                    hotTopicActivity4.bDm.bg(this.bCQ, this.aQP);
+                if (ax.aR(this.bGu)) {
+                    hotTopicActivity4 = this.bGt.bGr;
+                    hotTopicActivity4.bGQ.bc(this.bGu, this.aUG);
                 }
-                av ab = new av("c10365").ab("obj_type", "2");
-                hotTopicActivity3 = this.bCP.bCN;
-                TiebaStatic.log(ab.ab("obj_id", hotTopicActivity3.Ul()));
+                av aa = new av("c10365").aa("obj_type", "2");
+                hotTopicActivity3 = this.bGt.bGr;
+                TiebaStatic.log(aa.aa("obj_id", hotTopicActivity3.Vo()));
             }
         }
     }

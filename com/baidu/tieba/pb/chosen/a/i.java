@@ -14,101 +14,101 @@ import com.baidu.tieba.n;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes.dex */
 public class i {
+    private a cCA;
+    public boolean cCB;
+    private Animation cCD;
+    private View cCv;
+    private TextView cCw;
+    private ImageView cCx;
+    private TextView cCy;
+    private TextView cCz;
     private Context context;
-    private View cyP;
-    private TextView cyQ;
-    private ImageView cyR;
-    private TextView cyS;
-    private TextView cyT;
-    private a cyU;
-    public boolean cyV;
-    private Animation cyX;
-    private long cyW = 0;
-    private boolean cyY = false;
+    private long cCC = 0;
+    private boolean cCE = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eN(boolean z);
+        void eM(boolean z);
 
         void g(long j, String str);
     }
 
     public i(Context context) {
         this.context = context;
-        this.cyP = LayoutInflater.from(context).inflate(n.g.chosen_pb_post_info, (ViewGroup) null);
-        this.cyQ = (TextView) this.cyP.findViewById(n.f.chosen_post_info_copyright);
-        this.cyR = (ImageView) this.cyP.findViewById(n.f.chosen_post_info_praise_icon);
-        this.cyS = (TextView) this.cyP.findViewById(n.f.chosen_post_info_praise_num);
-        this.cyT = (TextView) this.cyP.findViewById(n.f.chosen_post_info_original_post);
+        this.cCv = LayoutInflater.from(context).inflate(n.h.chosen_pb_post_info, (ViewGroup) null);
+        this.cCw = (TextView) this.cCv.findViewById(n.g.chosen_post_info_copyright);
+        this.cCx = (ImageView) this.cCv.findViewById(n.g.chosen_post_info_praise_icon);
+        this.cCy = (TextView) this.cCv.findViewById(n.g.chosen_post_info_praise_num);
+        this.cCz = (TextView) this.cCv.findViewById(n.g.chosen_post_info_original_post);
     }
 
-    public View ajr() {
-        return this.cyP;
+    public View akz() {
+        return this.cCv;
     }
 
     public void a(a aVar) {
-        this.cyU = aVar;
+        this.cCA = aVar;
     }
 
-    public void jM(int i) {
-        if (this.cyQ != null) {
-            this.cyQ.setText(i);
+    public void kj(int i) {
+        if (this.cCw != null) {
+            this.cCw.setText(i);
         }
     }
 
     public void y(View.OnClickListener onClickListener) {
-        if (this.cyT != null) {
-            this.cyT.setOnClickListener(onClickListener);
+        if (this.cCz != null) {
+            this.cCz.setOnClickListener(onClickListener);
         }
     }
 
-    public void bf(long j) {
+    public void bk(long j) {
         if (j >= 0) {
-            this.cyW = j;
-            if (this.cyS != null) {
-                this.cyS.setText(this.context.getString(n.i.chosen_pb_praise_num, ax.w(j)));
+            this.cCC = j;
+            if (this.cCy != null) {
+                this.cCy.setText(this.context.getString(n.j.chosen_pb_praise_num, ax.x(j)));
             }
         }
     }
 
     public void a(ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            jM(n.i.chosen_pb_copyright);
-            bf(excellentPbThreadInfo.zan.zansum.longValue());
-            eR(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            kj(n.j.chosen_pb_copyright);
+            bk(excellentPbThreadInfo.zan.zansum.longValue());
+            eQ(excellentPbThreadInfo.zan.is_zan.booleanValue());
             y(new j(this, excellentPbThreadInfo));
-            this.cyR.setOnClickListener(new k(this));
+            this.cCx.setOnClickListener(new k(this));
         }
     }
 
-    public void ajs() {
-        this.cyY = false;
+    public void akA() {
+        this.cCE = false;
     }
 
-    public void eQ(boolean z) {
-        eR(z);
+    public void eP(boolean z) {
+        eQ(z);
         if (z) {
-            this.cyW++;
+            this.cCC++;
         } else {
-            this.cyW--;
+            this.cCC--;
         }
-        bf(this.cyW);
+        bk(this.cCC);
     }
 
-    private void eR(boolean z) {
-        this.cyV = z;
+    private void eQ(boolean z) {
+        this.cCB = z;
         if (z) {
-            as.c(this.cyR, n.e.btn_zambia_big_s);
+            as.c(this.cCx, n.f.btn_zambia_big_s);
         } else {
-            as.c(this.cyR, n.e.btn_zambia_big_n);
+            as.c(this.cCx, n.f.btn_zambia_big_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation ajt() {
-        if (this.cyX == null) {
-            this.cyX = AnimationUtils.loadAnimation(this.context, n.a.praise_animation_scale3);
+    public Animation akB() {
+        if (this.cCD == null) {
+            this.cCD = AnimationUtils.loadAnimation(this.context, n.a.praise_animation_scale3);
         }
-        return this.cyX;
+        return this.cCD;
     }
 }

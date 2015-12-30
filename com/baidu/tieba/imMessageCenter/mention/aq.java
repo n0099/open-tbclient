@@ -1,59 +1,56 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.imMessageCenter.mention.ap;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class aq extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ap ceP;
+public class aq extends com.baidu.adp.base.e<bd> {
+    private BdUniqueId ciR;
+    private a ciS;
+    private bd ciq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq(ap apVar, int i) {
-        super(i);
-        this.ceP = apVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void c(long j, long j2, long j3);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        ap.a aVar;
-        bc bcVar4;
-        bc bcVar5;
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            bcVar = this.ceP.cep;
-            bcVar.showToast(n.i.neterror);
-            return;
-        }
-        CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
-        if (checkPostResponseMessage.hasError()) {
-            if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                bcVar5 = this.ceP.cep;
-                bcVar5.showToast(checkPostResponseMessage.getErrorString());
-                return;
-            }
-            bcVar4 = this.ceP.cep;
-            bcVar4.showToast(n.i.neterror);
-            return;
-        }
-        long forumId = checkPostResponseMessage.getForumId();
-        long postState = checkPostResponseMessage.getPostState();
-        long quoteId = checkPostResponseMessage.getQuoteId();
-        long repostId = checkPostResponseMessage.getRepostId();
-        if (postState == 1) {
-            aVar = this.ceP.ceO;
-            aVar.c(forumId, quoteId, repostId);
-        } else if (postState == 0) {
-            bcVar3 = this.ceP.cep;
-            bcVar3.showToast(n.i.thread_delete_tip);
-        } else if (postState == -1) {
-            bcVar2 = this.ceP.cep;
-            bcVar2.showToast(n.i.thread_shield_tip);
-        }
+    static {
+        com.baidu.tieba.tbadkCore.a.a.c(303010, CheckPostResponseMessage.class, false);
+    }
+
+    public aq(bd bdVar) {
+        super(com.baidu.adp.base.l.C(bdVar.getPageContext().getPageActivity()));
+        this.ciR = BdUniqueId.gen();
+        this.ciq = bdVar;
+        aeI();
+    }
+
+    public void a(long j, int i, String str) {
+        CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
+        checkPostRequestMessage.setPid(j);
+        checkPostRequestMessage.setPostType(i);
+        checkPostRequestMessage.setForumName(str);
+        checkPostRequestMessage.setTag(this.ciq.getUniqueId());
+        sendMessage(checkPostRequestMessage);
+    }
+
+    public void aeI() {
+        ar arVar = new ar(this, 303010);
+        arVar.setTag(this.ciq.getUniqueId());
+        arVar.setSelfListener(true);
+        this.ciq.registerListener(arVar);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(a aVar) {
+        this.ciS = aVar;
     }
 }

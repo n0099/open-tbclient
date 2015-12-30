@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements aj {
     private String avatar;
-    private int bqr;
-    private int dpQ;
-    private int dpR;
-    private int dpS;
-    private int dpT;
-    private boolean dpU;
-    private boolean dpV;
-    private boolean dpW;
-    private boolean dpX;
-    private int dpY;
+    private int bui;
+    private int dxd;
+    private int dxe;
+    private int dxf;
+    private int dxg;
+    private boolean dxh;
+    private boolean dxi;
+    private boolean dxj;
+    private boolean dxk;
+    private int dxl;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class e implements aj {
         return this.avatar;
     }
 
-    public int azF() {
-        return this.dpQ;
+    public int aBM() {
+        return this.dxd;
     }
 
-    public int azG() {
-        return this.dpR;
+    public int aBN() {
+        return this.dxe;
     }
 
-    public int RI() {
-        return this.bqr;
+    public int Sa() {
+        return this.bui;
     }
 
-    public int azH() {
-        return this.dpS;
+    public int aBO() {
+        return this.dxf;
     }
 
-    public int azI() {
-        return this.dpT;
+    public int aBP() {
+        return this.dxg;
     }
 
-    public void ma(int i) {
-        this.dpQ = i;
+    public void mC(int i) {
+        this.dxd = i;
     }
 
-    public void mb(int i) {
-        this.dpR = i;
+    public void mD(int i) {
+        this.dxe = i;
     }
 
-    public void gV(int i) {
-        this.bqr = i;
+    public void gO(int i) {
+        this.bui = i;
     }
 
-    public boolean azJ() {
-        return this.dpU;
+    public boolean aBQ() {
+        return this.dxh;
     }
 
-    public void gY(boolean z) {
-        this.dpU = z;
-        this.dpQ = 1;
+    public void hh(boolean z) {
+        this.dxh = z;
+        this.dxd = 1;
     }
 
-    public boolean azK() {
-        return this.dpW;
+    public boolean aBR() {
+        return this.dxj;
     }
 
-    public void gZ(boolean z) {
-        this.dpW = z;
-        this.dpQ = 0;
+    public void hi(boolean z) {
+        this.dxj = z;
+        this.dxd = 0;
     }
 
-    public boolean azL() {
-        return this.dpX;
+    public boolean aBS() {
+        return this.dxk;
     }
 
-    public void ha(boolean z) {
-        this.dpX = z;
+    public void hj(boolean z) {
+        this.dxk = z;
     }
 
-    public int azM() {
-        return this.dpY;
+    public int aBT() {
+        return this.dxl;
     }
 
-    public void mc(int i) {
-        this.dpY = i;
+    public void mE(int i) {
+        this.dxl = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements aj {
         this.errorMsg = str;
     }
 
-    public boolean azN() {
-        return this.dpV;
+    public boolean aBU() {
+        return this.dxi;
     }
 
-    public void hb(boolean z) {
-        this.dpV = z;
+    public void hk(boolean z) {
+        this.dxi = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class e implements aj {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.dpQ = jSONObject.optInt("is_sign_in");
-            this.dpR = jSONObject.optInt("cont_sign_num");
-            this.bqr = jSONObject.optInt("user_level");
-            this.dpS = jSONObject.optInt("user_exp");
-            this.dpT = jSONObject.optInt("need_exp");
-            if (this.dpQ != 0) {
-                this.dpU = true;
-                this.dpW = false;
+            this.dxd = jSONObject.optInt("is_sign_in");
+            this.dxe = jSONObject.optInt("cont_sign_num");
+            this.bui = jSONObject.optInt("user_level");
+            this.dxf = jSONObject.optInt("user_exp");
+            this.dxg = jSONObject.optInt("need_exp");
+            if (this.dxd != 0) {
+                this.dxh = true;
+                this.dxj = false;
             }
         }
     }
@@ -136,8 +136,8 @@ public class e implements aj {
     public ArrayList<ai> getImages() {
         ArrayList<ai> arrayList = new ArrayList<>();
         ai aiVar = new ai();
-        aiVar.WN = this.avatar;
-        aiVar.abp = 10;
+        aiVar.Xp = this.avatar;
+        aiVar.abU = 10;
         arrayList.add(aiVar);
         return arrayList;
     }

@@ -5,17 +5,17 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ ag dMc;
+    final /* synthetic */ ag dTB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(ag agVar) {
-        this.dMc = agVar;
+        this.dTB = agVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         GridView gridView;
-        gridView = this.dMc.mGridView;
+        gridView = this.dTB.mGridView;
         HeadImageView headImageView = (HeadImageView) gridView.findViewWithTag(str);
         if (headImageView != null && aVar != null) {
             headImageView.invalidate();

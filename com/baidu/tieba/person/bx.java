@@ -10,13 +10,13 @@ public class bx implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
             RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
             boolean isFollow = requestLocalPersonListMessage.isFollow();
-            String str = com.baidu.tbadk.core.b.a.ts().cz("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
-            com.baidu.tieba.person.data.n nVar = new com.baidu.tieba.person.data.n();
+            String str = com.baidu.tbadk.core.b.a.tc().cC("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
+            com.baidu.tieba.person.data.p pVar = new com.baidu.tieba.person.data.p();
             if (str != null) {
-                nVar.parserJson(str);
+                pVar.parserJson(str);
             }
             ResponseLocalPersonListMessage responseLocalPersonListMessage = new ResponseLocalPersonListMessage();
-            responseLocalPersonListMessage.setData(nVar);
+            responseLocalPersonListMessage.setData(pVar);
             return responseLocalPersonListMessage;
         }
         return null;

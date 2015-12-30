@@ -11,47 +11,47 @@ import tbclient.Hottopic.GoodThread;
 import tbclient.Hottopic.MagicPostList;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<u> bDG;
-    private d bDH = null;
-    private List<g> bDI = null;
-    private List<i> bDJ = null;
-    private j bDK = null;
-    private e bDL = null;
-    private a bDM = null;
-    private a bDN = null;
-    private b bDO = null;
-    private q bDF = null;
+    private ArrayList<u> bHk;
+    private d bHl = null;
+    private List<g> bHm = null;
+    private List<i> bHn = null;
+    private j bHo = null;
+    private e bHp = null;
+    private a bHq = null;
+    private a bHr = null;
+    private b bHs = null;
+    private q bHj = null;
 
     public c() {
-        this.bDG = null;
-        this.bDG = new ArrayList<>();
+        this.bHk = null;
+        this.bHk = new ArrayList<>();
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.topic_info != null) {
-                this.bDH = new d();
-                this.bDH.a(dataRes.topic_info);
+                this.bHl = new d();
+                this.bHl.a(dataRes.topic_info);
             }
             if (dataRes.magic_post != null && dataRes.magic_post.mc_post_list != null && dataRes.magic_post.mc_post_list.size() != 0 && !StringUtils.isNull(dataRes.magic_post.magic_title)) {
-                this.bDI = new ArrayList();
+                this.bHm = new ArrayList();
                 g gVar = new g();
                 gVar.a(dataRes.magic_post);
-                this.bDI.add(gVar);
+                this.bHm.add(gVar);
                 for (MagicPostList magicPostList : dataRes.magic_post.mc_post_list) {
                     if (magicPostList.user_info != null && !StringUtils.isNull(magicPostList.user_info.user_name) && !StringUtils.isNull(magicPostList.content_text)) {
                         g gVar2 = new g();
                         gVar2.a(magicPostList);
-                        this.bDI.add(gVar2);
+                        this.bHm.add(gVar2);
                     }
                 }
             }
             if (dataRes.thread_module != null) {
-                this.bDJ = new ArrayList();
+                this.bHn = new ArrayList();
                 if (dataRes.thread_module.thread_module_1 != null && dataRes.thread_module.thread_module_1.thread_list != null && dataRes.thread_module.thread_module_1.thread_list.size() != 0 && !StringUtils.isNull(dataRes.thread_module.thread_module_1.module_name)) {
                     i iVar = new i();
                     iVar.a(dataRes.thread_module.thread_module_1);
-                    this.bDJ.add(iVar);
+                    this.bHn.add(iVar);
                     int size = dataRes.thread_module.thread_module_1.thread_list.size();
                     int i = size > 3 ? 3 : size;
                     for (int i2 = 0; i2 < i; i2++) {
@@ -59,14 +59,14 @@ public class c {
                         if (!StringUtils.isNull(goodThread.title)) {
                             i iVar2 = new i();
                             iVar2.a(goodThread);
-                            this.bDJ.add(iVar2);
+                            this.bHn.add(iVar2);
                         }
                     }
                 }
                 if (dataRes.thread_module.thread_module_2 != null && dataRes.thread_module.thread_module_2.thread_list != null && dataRes.thread_module.thread_module_2.thread_list.size() != 0 && !StringUtils.isNull(dataRes.thread_module.thread_module_2.module_name)) {
                     i iVar3 = new i();
                     iVar3.a(dataRes.thread_module.thread_module_2);
-                    this.bDJ.add(iVar3);
+                    this.bHn.add(iVar3);
                     int size2 = dataRes.thread_module.thread_module_2.thread_list.size();
                     int i3 = size2 > 3 ? 3 : size2;
                     for (int i4 = 0; i4 < i3; i4++) {
@@ -74,14 +74,14 @@ public class c {
                         if (!StringUtils.isNull(goodThread2.title)) {
                             i iVar4 = new i();
                             iVar4.a(goodThread2);
-                            this.bDJ.add(iVar4);
+                            this.bHn.add(iVar4);
                         }
                     }
                 }
                 if (dataRes.thread_module.thread_module_3 != null && dataRes.thread_module.thread_module_3.thread_list != null && dataRes.thread_module.thread_module_3.thread_list.size() != 0 && !StringUtils.isNull(dataRes.thread_module.thread_module_3.module_name)) {
                     i iVar5 = new i();
                     iVar5.a(dataRes.thread_module.thread_module_3);
-                    this.bDJ.add(iVar5);
+                    this.bHn.add(iVar5);
                     int size3 = dataRes.thread_module.thread_module_3.thread_list.size();
                     int i5 = size3 <= 3 ? size3 : 3;
                     for (int i6 = 0; i6 < i5; i6++) {
@@ -89,104 +89,104 @@ public class c {
                         if (!StringUtils.isNull(goodThread3.title)) {
                             i iVar6 = new i();
                             iVar6.a(goodThread3);
-                            this.bDJ.add(iVar6);
+                            this.bHn.add(iVar6);
                         }
                     }
                 }
             }
             if (dataRes.relate_forum != null && dataRes.relate_forum.size() != 0) {
-                this.bDK = new j();
-                this.bDK.aP(dataRes.relate_forum);
+                this.bHo = new j();
+                this.bHo.aM(dataRes.relate_forum);
             }
             if (dataRes.pk_module != null && !StringUtils.isNull(dataRes.pk_module.ques_desc)) {
-                this.bDL = new e();
-                this.bDL.a(dataRes.pk_module);
+                this.bHp = new e();
+                this.bHp.a(dataRes.pk_module);
             }
             if (dataRes.bless_module != null) {
-                this.bDM = new a();
-                this.bDM.a(dataRes.bless_module);
+                this.bHq = new a();
+                this.bHq.a(dataRes.bless_module);
             }
             if (dataRes.candle_module != null) {
-                this.bDN = new a();
-                this.bDN.a(dataRes.candle_module);
+                this.bHr = new a();
+                this.bHr.a(dataRes.candle_module);
             }
             if (dataRes.hot_thread != null && dataRes.hot_thread.thread_list != null && dataRes.hot_thread.thread_list.size() != 0 && !StringUtils.isNull(dataRes.hot_thread.hot_title)) {
-                this.bDO = new b();
-                this.bDO.a(dataRes.hot_thread);
+                this.bHs = new b();
+                this.bHs.a(dataRes.hot_thread);
                 if (dataRes.hot_thread.page != null) {
-                    this.bDF = new q();
-                    this.bDF.a(dataRes.hot_thread.page);
+                    this.bHj = new q();
+                    this.bHj.a(dataRes.hot_thread.page);
                 }
             }
-            Uz();
+            VC();
         }
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.aYW != null && bVar.aYW.size() != 0) {
-            for (z zVar : bVar.aYW) {
-                this.bDG.add(zVar);
+        if (bVar != null && bVar.bcS != null && bVar.bcS.size() != 0) {
+            for (z zVar : bVar.bcS) {
+                this.bHk.add(zVar);
             }
         }
     }
 
-    public d Us() {
-        return this.bDH;
+    public d Vv() {
+        return this.bHl;
     }
 
-    public e Ut() {
-        return this.bDL;
+    public e Vw() {
+        return this.bHp;
     }
 
-    public a Uu() {
-        return this.bDM;
+    public a Vx() {
+        return this.bHq;
     }
 
-    public a Uv() {
-        return this.bDN;
+    public a Vy() {
+        return this.bHr;
     }
 
-    public j Uw() {
-        return this.bDK;
+    public j Vz() {
+        return this.bHo;
     }
 
-    public ArrayList<u> Ux() {
-        return this.bDG;
+    public ArrayList<u> VA() {
+        return this.bHk;
     }
 
-    public q Uy() {
-        return this.bDF;
+    public q VB() {
+        return this.bHj;
     }
 
-    private ArrayList<u> Uz() {
-        if (this.bDH != null && !StringUtils.isNull(this.bDH.bBb) && !StringUtils.isNull(this.bDH.bDQ)) {
-            this.bDG.add(this.bDH);
+    private ArrayList<u> VC() {
+        if (this.bHl != null && !StringUtils.isNull(this.bHl.aQB) && !StringUtils.isNull(this.bHl.bHt)) {
+            this.bHk.add(this.bHl);
         }
-        if (this.bDK != null && this.bDK.getCount() > 0) {
-            this.bDG.add(this.bDK);
+        if (this.bHo != null && this.bHo.getCount() > 0) {
+            this.bHk.add(this.bHo);
         }
-        if (this.bDL != null) {
-            this.bDG.add(this.bDL);
+        if (this.bHp != null) {
+            this.bHk.add(this.bHp);
         }
-        if (this.bDI != null && this.bDI.size() != 0) {
-            if (this.bDI.size() > 8) {
-                this.bDI = this.bDI.subList(0, 8);
+        if (this.bHm != null && this.bHm.size() != 0) {
+            if (this.bHm.size() > 8) {
+                this.bHm = this.bHm.subList(0, 8);
             }
-            for (g gVar : this.bDI) {
-                this.bDG.add(gVar);
-            }
-        }
-        if (this.bDJ != null && this.bDJ.size() != 0) {
-            for (i iVar : this.bDJ) {
-                this.bDG.add(iVar);
+            for (g gVar : this.bHm) {
+                this.bHk.add(gVar);
             }
         }
-        if (this.bDO != null && this.bDO.aYW != null && this.bDO.aYW.size() > 0) {
-            this.bDG.add(this.bDO);
-            for (z zVar : this.bDO.aYW) {
-                this.bDG.add(zVar);
+        if (this.bHn != null && this.bHn.size() != 0) {
+            for (i iVar : this.bHn) {
+                this.bHk.add(iVar);
             }
         }
-        return this.bDG;
+        if (this.bHs != null && this.bHs.bcS != null && this.bHs.bcS.size() > 0) {
+            this.bHk.add(this.bHs);
+            for (z zVar : this.bHs.bcS) {
+                this.bHk.add(zVar);
+            }
+        }
+        return this.bHk;
     }
 }

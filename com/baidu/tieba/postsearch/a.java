@@ -8,71 +8,80 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class a {
-    private EditText cln = null;
-    private TextView clo = null;
-    private PostSearchActivity deb;
-    private View dec;
+    private PostSearchActivity djG;
+    private View djH;
     private NavigationBar mNavigationBar;
     private View mRootView;
+    private EditText cpr = null;
+    private TextView cps = null;
+    private Runnable djI = null;
 
     public a(PostSearchActivity postSearchActivity, View view) {
         this.mRootView = view;
-        this.deb = postSearchActivity;
-        Qh();
+        this.djG = postSearchActivity;
+        Qz();
     }
 
-    private void Qh() {
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(n.f.view_navigation_bar);
+    private void Qz() {
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(n.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-        this.dec = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, n.g.post_search_navigation_view, (View.OnClickListener) null);
-        this.cln = (EditText) this.dec.findViewById(n.f.search_text);
-        this.clo = (TextView) this.dec.findViewById(n.f.search_del);
-        this.clo.setVisibility(8);
-        this.cln.setOnFocusChangeListener(new c(this));
-        this.cln.setOnClickListener(new d(this));
-        this.cln.setOnEditorActionListener(new e(this));
-        this.clo.setOnClickListener(new f(this));
-        this.cln.addTextChangedListener(new g(this));
+        this.djH = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, n.h.post_search_navigation_view, (View.OnClickListener) null);
+        this.cpr = (EditText) this.djH.findViewById(n.g.search_text);
+        this.cps = (TextView) this.djH.findViewById(n.g.search_del);
+        this.cps.setVisibility(8);
+        this.cpr.setOnFocusChangeListener(new c(this));
+        this.cpr.setOnClickListener(new d(this));
+        this.cpr.setOnEditorActionListener(new e(this));
+        this.cps.setOnClickListener(new f(this));
+        this.cpr.addTextChangedListener(new g(this));
+        this.djI = new h(this);
+        com.baidu.adp.lib.h.h.hj().postDelayed(this.djI, 500L);
     }
 
-    public void lJ(String str) {
-        this.cln.setText(str);
+    public void lG(String str) {
+        this.cpr.setText(str);
     }
 
-    public void Qb() {
+    public void Qt() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
-    public void aus() {
-        com.baidu.adp.lib.util.k.c(this.deb.getPageContext().getPageActivity(), this.cln);
+    public void awl() {
+        com.baidu.adp.lib.util.k.c(this.djG.getPageContext().getPageActivity(), this.cpr);
     }
 
-    public void aut() {
-        this.clo.setVisibility(8);
+    public void awm() {
+        this.cps.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auu() {
-        if (!StringUtils.isNull(this.cln.getText().toString())) {
-            this.clo.setVisibility(0);
+    public void awn() {
+        if (!StringUtils.isNull(this.cpr.getText().toString())) {
+            this.cps.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auv() {
-        if (!this.deb.aux()) {
-            this.deb.auw();
-            if (!this.cln.hasFocus()) {
-                this.cln.requestFocus();
-                com.baidu.adp.lib.util.k.d(this.deb.getPageContext().getPageActivity(), this.cln);
+    public void awo() {
+        if (!this.djG.awq()) {
+            this.djG.awp();
+            if (!this.cpr.hasFocus()) {
+                this.cpr.requestFocus();
+                com.baidu.adp.lib.util.k.d(this.djG.getPageContext().getPageActivity(), this.cpr);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.deb.getPageContext(), i);
-        com.baidu.tbadk.i.a.a(this.deb.getPageContext(), this.dec);
+        this.mNavigationBar.onChangeSkinType(this.djG.getPageContext(), i);
+        com.baidu.tbadk.i.a.a(this.djG.getPageContext(), this.djH);
+    }
+
+    public void onDestroy() {
+        if (this.djI != null) {
+            com.baidu.adp.lib.h.h.hj().removeCallbacks(this.djI);
+        }
     }
 }

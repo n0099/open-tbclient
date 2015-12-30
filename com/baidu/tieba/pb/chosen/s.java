@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.pb.chosen.a.i;
 /* loaded from: classes.dex */
 class s implements i.a {
-    final /* synthetic */ PbChosenActivity cyo;
+    final /* synthetic */ PbChosenActivity cBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbChosenActivity pbChosenActivity) {
-        this.cyo = pbChosenActivity;
+        this.cBV = pbChosenActivity;
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.i.a
@@ -25,20 +25,20 @@ class s implements i.a {
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
         if (!StringUtils.isNull(str)) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cyo.getPageContext().getPageActivity());
-            i = this.cyo.cyd;
-            this.cyo.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createCfgForPbChosen(str, i)));
-            aVar = this.cyo.chosenData;
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cBV.getPageContext().getPageActivity());
+            i = this.cBV.cBK;
+            this.cBV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createCfgForPbChosen(str, i)));
+            aVar = this.cBV.chosenData;
             if (aVar != null) {
-                aVar2 = this.cyo.chosenData;
+                aVar2 = this.cBV.chosenData;
                 if (aVar2.getThreadInfo() != null) {
-                    aVar3 = this.cyo.chosenData;
+                    aVar3 = this.cBV.chosenData;
                     if (aVar3.getThreadInfo().excid != null) {
                         av avVar = new av("pb_new_detail_btn");
-                        aVar4 = this.cyo.chosenData;
+                        aVar4 = this.cBV.chosenData;
                         av r = avVar.r("obj_source", aVar4.getThreadInfo().source.intValue());
-                        aVar5 = this.cyo.chosenData;
-                        TiebaStatic.log(r.ab("abtest", aVar5.getThreadInfo().abtest));
+                        aVar5 = this.cBV.chosenData;
+                        TiebaStatic.log(r.aa("abtest", aVar5.getThreadInfo().abtest));
                     }
                 }
             }
@@ -46,7 +46,7 @@ class s implements i.a {
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.i.a
-    public void eN(boolean z) {
+    public void eM(boolean z) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
@@ -61,40 +61,40 @@ class s implements i.a {
         com.baidu.tieba.pb.chosen.net.a aVar12;
         com.baidu.tieba.pb.chosen.net.a aVar13;
         com.baidu.tieba.pb.chosen.net.a aVar14;
-        aVar = this.cyo.chosenData;
+        aVar = this.cBV.chosenData;
         if (aVar != null) {
-            aVar2 = this.cyo.chosenData;
+            aVar2 = this.cBV.chosenData;
             if (aVar2.getThreadInfo() != null) {
-                aVar3 = this.cyo.chosenData;
+                aVar3 = this.cBV.chosenData;
                 if (aVar3.getThreadInfo().excid != null) {
-                    aVar4 = this.cyo.cxY;
+                    aVar4 = this.cBV.cBF;
                     if (aVar4 == null) {
-                        this.cyo.cxY = new com.baidu.tieba.pb.chosen.net.zan.a();
+                        this.cBV.cBF = new com.baidu.tieba.pb.chosen.net.zan.a();
                     }
                     if (z) {
-                        aVar11 = this.cyo.cxY;
-                        PbChosenActivity pbChosenActivity = this.cyo;
-                        aVar12 = this.cyo.chosenData;
+                        aVar11 = this.cBV.cBF;
+                        PbChosenActivity pbChosenActivity = this.cBV;
+                        aVar12 = this.cBV.chosenData;
                         long longValue = aVar12.getThreadInfo().excid.longValue();
-                        aVar13 = this.cyo.chosenData;
+                        aVar13 = this.cBV.chosenData;
                         long longValue2 = aVar13.getThreadInfo().thread_id.longValue();
-                        aVar14 = this.cyo.chosenData;
+                        aVar14 = this.cBV.chosenData;
                         aVar11.a(pbChosenActivity, longValue, longValue2, aVar14.getThreadInfo().post_id.longValue(), 2);
                     } else {
-                        aVar5 = this.cyo.cxY;
-                        PbChosenActivity pbChosenActivity2 = this.cyo;
-                        aVar6 = this.cyo.chosenData;
+                        aVar5 = this.cBV.cBF;
+                        PbChosenActivity pbChosenActivity2 = this.cBV;
+                        aVar6 = this.cBV.chosenData;
                         long longValue3 = aVar6.getThreadInfo().excid.longValue();
-                        aVar7 = this.cyo.chosenData;
+                        aVar7 = this.cBV.chosenData;
                         long longValue4 = aVar7.getThreadInfo().thread_id.longValue();
-                        aVar8 = this.cyo.chosenData;
+                        aVar8 = this.cBV.chosenData;
                         aVar5.a(pbChosenActivity2, longValue3, longValue4, aVar8.getThreadInfo().post_id.longValue(), 1);
                     }
                     av avVar = new av("pb_new_like");
-                    aVar9 = this.cyo.chosenData;
+                    aVar9 = this.cBV.chosenData;
                     av r = avVar.r("obj_source", aVar9.getThreadInfo().source.intValue());
-                    aVar10 = this.cyo.chosenData;
-                    TiebaStatic.log(r.ab("abtest", aVar10.getThreadInfo().abtest));
+                    aVar10 = this.cBV.chosenData;
+                    TiebaStatic.log(r.aa("abtest", aVar10.getThreadInfo().abtest));
                 }
             }
         }

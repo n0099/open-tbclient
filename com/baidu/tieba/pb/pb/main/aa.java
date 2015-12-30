@@ -1,33 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
-import com.baidu.tieba.pb.pb.main.cc;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class aa implements cc.a {
-    final /* synthetic */ PbActivity cCm;
+class aa implements NoNetworkView.a {
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbActivity pbActivity) {
-        this.cCm = pbActivity;
+        this.cFS = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cc.a
-    public void f(int i, String str, String str2) {
-        da daVar;
-        if (StringUtils.isNull(str)) {
-            if (i == 0) {
-                this.cCm.showToast(n.i.upgrage_toast_dialog);
-            } else {
-                this.cCm.showToast(n.i.neterror);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ax(boolean z) {
+        boolean z2;
+        cf cfVar;
+        z2 = this.cFS.cFa;
+        if (!z2 && z) {
+            cfVar = this.cFS.cFl;
+            if (cfVar.alR()) {
+                return;
             }
-        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
-            this.cCm.cCk = str2;
-            daVar = this.cCm.cBL;
-            daVar.kL(str);
-        } else {
-            this.cCm.showToast(str);
+            this.cFS.alw();
         }
     }
 }

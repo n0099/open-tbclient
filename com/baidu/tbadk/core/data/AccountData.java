@@ -7,6 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private int mGodType;
     private boolean mIsSelectTail;
     private String mMemberIconUrl;
     private int mMemberType;
@@ -141,5 +142,13 @@ public class AccountData implements Serializable {
 
     public void setIsSelectTail(boolean z) {
         this.mIsSelectTail = z;
+    }
+
+    public int getGodType() {
+        return this.mGodType;
+    }
+
+    public void setGodType(int i) {
+        this.mGodType = i;
     }
 }

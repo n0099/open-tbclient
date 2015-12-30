@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.squareup.wire.Wire;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
@@ -59,7 +58,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
-        PbPageResIdl pbPageResIdl = (PbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, PbPageResIdl.class);
+        PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0) {
@@ -74,10 +73,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bx.akA().a(this.cacheKey, this.isFromMark, bArr);
+                ca.alH().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bx.akA().m(this.cacheKey, bArr);
+                ca.alH().m(this.cacheKey, bArr);
                 return;
             default:
                 return;

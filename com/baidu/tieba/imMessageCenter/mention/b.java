@@ -9,20 +9,20 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView aVi;
-    private HeadImageView aYF;
-    private TextView bff;
-    private TextView cee;
+    private TextView aZi;
+    private TextView agS;
+    private HeadImageView bcC;
+    private TextView cif;
     private View mLine;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aYF = (HeadImageView) view.findViewById(n.f.photo);
-        this.bff = (TextView) view.findViewById(n.f.user_name);
-        this.aVi = (TextView) view.findViewById(n.f.time);
-        this.cee = (TextView) view.findViewById(n.f.content);
-        this.mLine = view.findViewById(n.f.line);
-        this.aYF.setOnClickListener(new c(this));
+        this.bcC = (HeadImageView) view.findViewById(n.g.photo);
+        this.agS = (TextView) view.findViewById(n.g.user_name);
+        this.aZi = (TextView) view.findViewById(n.g.time);
+        this.cif = (TextView) view.findViewById(n.g.content);
+        this.mLine = view.findViewById(n.g.line);
+        this.bcC.setOnClickListener(new c(this));
         view.setOnClickListener(new d(this));
     }
 
@@ -32,34 +32,34 @@ public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void B(FeedData feedData) {
         super.B(feedData);
         if (feedData.getReplyer() != null) {
-            this.bff.setText(feedData.getReplyer().getName_show());
-            this.aYF.setVisibility(0);
+            this.agS.setText(feedData.getReplyer().getName_show());
+            this.bcC.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.aYF.setTag(null);
+            this.bcC.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.aYF.d(portrait, 12, false);
+                this.bcC.d(portrait, 12, false);
             } else {
-                this.aYF.setImageResource(n.e.photo);
+                this.bcC.setImageResource(n.f.photo);
             }
         }
-        this.aVi.setText(com.baidu.tbadk.core.util.ax.s(feedData.getTime()));
-        this.cee.setText(feedData.getContent());
+        this.aZi.setText(com.baidu.tbadk.core.util.ax.s(feedData.getTime()));
+        this.cif.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.core.util.as.i(getRootView(), n.e.list_selector);
-        com.baidu.tbadk.core.util.as.j(this.mLine, n.c.cp_bg_line_b);
+        com.baidu.tbadk.core.util.as.i(getRootView(), n.f.list_selector);
+        com.baidu.tbadk.core.util.as.j(this.mLine, n.d.cp_bg_line_b);
         if (i == 1) {
-            this.aVi.setTextColor(getResources().getColor(n.c.c_515865));
-            this.cee.setTextColor(getResources().getColor(n.c.c_7b8591));
-            this.bff.setTextColor(getResources().getColor(n.c.cp_cont_c_1));
+            this.aZi.setTextColor(getResources().getColor(n.d.c_515865));
+            this.cif.setTextColor(getResources().getColor(n.d.c_7b8591));
+            this.agS.setTextColor(getResources().getColor(n.d.cp_cont_c_1));
         } else {
-            this.aVi.setTextColor(getResources().getColor(n.c.c_b2b6ba));
-            this.cee.setTextColor(getResources().getColor(n.c.c_262626));
-            this.bff.setTextColor(getResources().getColor(n.c.cp_cont_c));
+            this.aZi.setTextColor(getResources().getColor(n.d.c_b2b6ba));
+            this.cif.setTextColor(getResources().getColor(n.d.c_262626));
+            this.agS.setTextColor(getResources().getColor(n.d.cp_cont_c));
         }
-        this.aVi.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(n.e.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.aZi.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(n.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

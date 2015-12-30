@@ -3,24 +3,24 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class t extends z {
-    public static final BdUniqueId VJ = BdUniqueId.gen();
-    private PhotoLiveCardData VK;
+    public static final BdUniqueId Wj = BdUniqueId.gen();
+    private PhotoLiveCardData Wk;
 
-    public PhotoLiveCardData sk() {
-        return this.VK;
+    public PhotoLiveCardData rT() {
+        return this.Wk;
     }
 
     public void a(PhotoLiveCardData photoLiveCardData) {
-        this.VK = photoLiveCardData;
+        this.Wk = photoLiveCardData;
     }
 
     @Override // com.baidu.tbadk.core.data.z, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return VJ;
+        return Wj;
     }
 
     @Override // com.baidu.tbadk.core.data.z
     public String getTid() {
-        return this.VK != null ? String.valueOf(this.VK.getThreadId()) : super.getTid();
+        return this.Wk != null ? String.valueOf(this.Wk.getThreadId()) : super.getTid();
     }
 }

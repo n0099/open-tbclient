@@ -23,16 +23,16 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.chosen.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0079a {
-        TbImageView aEB;
+    public static class C0074a {
+        TbImageView aGb;
     }
 
     public a(Context context) {
         this.maxWidth = 0;
         this.padding = 0;
         this.context = context;
-        this.maxWidth = com.baidu.adp.lib.util.k.K(context) - (((int) context.getResources().getDimension(n.d.ds30)) * 2);
-        this.padding = context.getResources().getDimensionPixelSize(n.d.ds32);
+        this.maxWidth = com.baidu.adp.lib.util.k.K(context) - (((int) context.getResources().getDimension(n.e.ds30)) * 2);
+        this.padding = context.getResources().getDimensionPixelSize(n.e.ds32);
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void bo(List<com.baidu.tieba.pb.c.a.d> list) {
+    public void bl(List<com.baidu.tieba.pb.c.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -52,7 +52,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jL */
+    /* renamed from: ki */
     public com.baidu.tieba.pb.c.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -99,49 +99,54 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            return e(i, view);
+            return f(i, view);
         }
         if (itemViewType != 1) {
             return null;
         }
-        return d(i, view);
+        return e(i, view);
     }
 
-    private View d(int i, View view) {
-        C0079a c0079a;
-        if (view == null || !(view.getTag() instanceof C0079a)) {
-            view = LayoutInflater.from(this.context).inflate(n.g.chosen_pb_image_item, (ViewGroup) null);
-            c0079a = new C0079a();
-            c0079a.aEB = (TbImageView) view.findViewById(n.f.pb_chosen_list_image);
-            view.setTag(c0079a);
+    private View e(int i, View view) {
+        C0074a c0074a;
+        if (view == null || !(view.getTag() instanceof C0074a)) {
+            view = LayoutInflater.from(this.context).inflate(n.h.chosen_pb_image_item, (ViewGroup) null);
+            c0074a = new C0074a();
+            c0074a.aGb = (TbImageView) view.findViewById(n.g.pb_chosen_list_image);
+            view.setTag(c0074a);
         } else {
-            c0079a = (C0079a) view.getTag();
+            c0074a = (C0074a) view.getTag();
         }
         com.baidu.tieba.pb.c.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.c.a.e) {
             com.baidu.tieba.pb.c.a.e eVar = (com.baidu.tieba.pb.c.a.e) item;
-            ViewGroup.LayoutParams layoutParams = c0079a.aEB.getLayoutParams();
-            int i2 = this.maxWidth;
-            int kh = eVar.kh(i2);
-            if (layoutParams == null) {
-                layoutParams = new AbsListView.LayoutParams(i2, kh);
+            if (StringUtils.isNull(eVar.cMq) || "1".equals(eVar.cMq)) {
+                c0074a.aGb.setVisibility(8);
             } else {
-                layoutParams.height = kh;
-                layoutParams.width = i2;
+                c0074a.aGb.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0074a.aGb.getLayoutParams();
+                int i2 = this.maxWidth;
+                int kE = eVar.kE(i2);
+                if (layoutParams == null) {
+                    layoutParams = new AbsListView.LayoutParams(i2, kE);
+                } else {
+                    layoutParams.height = kE;
+                    layoutParams.width = i2;
+                }
+                c0074a.aGb.setLayoutParams(layoutParams);
+                c0074a.aGb.d(eVar.getSrc(), 17, false);
             }
-            c0079a.aEB.setLayoutParams(layoutParams);
-            c0079a.aEB.d(eVar.getSrc(), 17, false);
         }
         return view;
     }
 
-    private View e(int i, View view) {
+    private View f(int i, View view) {
         TextView textView;
         if (view instanceof TextView) {
             textView = (TextView) view;
         } else {
             textView = new TextView(this.context);
-            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(n.d.fontsize32));
+            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(n.e.fontsize32));
             textView.setLineSpacing(0.0f, 1.2f);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             textView.setPadding(this.padding, 0, this.padding, 0);
@@ -149,8 +154,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.c.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.c.a.g) {
             com.baidu.tieba.pb.c.a.g gVar = (com.baidu.tieba.pb.c.a.g) item;
-            textView.setText(gVar.amV());
-            switch (gVar.amX()) {
+            textView.setText(gVar.aog());
+            switch (gVar.aoi()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -161,12 +166,12 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.amY())) {
-                if (!as.a(textView, gVar.amY())) {
-                    as.b(textView, n.c.cp_cont_b, 1);
+            if (!StringUtils.isNull(gVar.aoj())) {
+                if (!as.a(textView, gVar.aoj())) {
+                    as.b(textView, n.d.cp_cont_b, 1);
                 }
             } else {
-                as.b(textView, n.c.cp_cont_b, 1);
+                as.b(textView, n.d.cp_cont_b, 1);
             }
             if (gVar.getTextSize() > 0) {
                 textView.setTextSize(0, gVar.getTextSize());

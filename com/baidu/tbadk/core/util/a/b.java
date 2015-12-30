@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class b {
-    private final h acK = new h();
+    private final h adp = new h();
     public boolean mIsNeedTbs = false;
-    public boolean acL = true;
+    public boolean adq = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean acM = false;
-    public int acN = 0;
+    public boolean adr = false;
+    public int ads = 0;
 
-    public h vI() {
-        return this.acK;
+    public h vs() {
+        return this.adp;
     }
 
     public void a(u uVar) {
@@ -53,25 +53,25 @@ public class b {
         }
         String netType = i.getNetType();
         if (netType != null) {
-            String wW = com.baidu.tbadk.coreExtra.b.a.wT().wW();
+            String wF = com.baidu.tbadk.coreExtra.b.a.wC().wF();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    str = String.valueOf(wW) + "ka=open";
+                    str = String.valueOf(wF) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.al(str);
                 }
                 z = false;
-                str = wW;
+                str = wF;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.al(str);
             } else {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                    str = String.valueOf(wW) + "ka=open";
+                    str = String.valueOf(wF) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.al(str);
                 }
                 z = false;
-                str = wW;
+                str = wF;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.al(str);
             }
@@ -84,18 +84,18 @@ public class b {
         uVar.o("model", Build.MODEL);
     }
 
-    public String vJ() {
-        if (this.acK.mUrl == null) {
+    public String vt() {
+        if (this.adp.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.acK.mUrl.startsWith(str)) {
-            int indexOf = this.acK.mUrl.indexOf(63);
+        if (this.adp.mUrl.startsWith(str)) {
+            int indexOf = this.adp.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.acK.mUrl.length();
+                indexOf = this.adp.mUrl.length();
             }
-            return this.acK.mUrl.substring(str.length(), indexOf);
+            return this.adp.mUrl.substring(str.length(), indexOf);
         }
-        return this.acK.mUrl;
+        return this.adp.mUrl;
     }
 }

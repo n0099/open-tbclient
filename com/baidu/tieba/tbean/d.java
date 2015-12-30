@@ -22,8 +22,8 @@ import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private int cxI;
-    private UserInfo dCm;
+    private int cBp;
+    private UserInfo dJO;
     private List<IconInfo> mData;
     private TbPageContext<?> mPageContext;
 
@@ -41,7 +41,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mH */
+    /* renamed from: nj */
     public IconInfo getItem(int i) {
         if (this.mData == null) {
             return null;
@@ -65,17 +65,17 @@ public class d extends BaseAdapter {
             return null;
         }
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(n.g.buy_tbean_item, (ViewGroup) null);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(n.h.buy_tbean_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.mRoot = view.findViewById(n.f.item_root);
-            aVar2.dCn = (TextView) view.findViewById(n.f.tbean_num_tv);
-            aVar2.dCo = (TextView) view.findViewById(n.f.tbean_member_tv);
-            aVar2.dCq = (TextView) view.findViewById(n.f.name_tv);
-            aVar2.dCp = (TbImageView) view.findViewById(n.f.icon_iv);
-            aVar2.dCr = (TextView) view.findViewById(n.f.duration_tv);
-            aVar2.dCs = (TextView) view.findViewById(n.f.tbean_price_tv);
-            aVar2.cqR = (CheckBox) view.findViewById(n.f.tbean_cb);
-            aVar2.aFP = view.findViewById(n.f.divider_line);
+            aVar2.mRoot = view.findViewById(n.g.item_root);
+            aVar2.dJP = (TextView) view.findViewById(n.g.tbean_num_tv);
+            aVar2.dJQ = (TextView) view.findViewById(n.g.tbean_member_tv);
+            aVar2.dJS = (TextView) view.findViewById(n.g.name_tv);
+            aVar2.dJR = (TbImageView) view.findViewById(n.g.icon_iv);
+            aVar2.dJT = (TextView) view.findViewById(n.g.duration_tv);
+            aVar2.dJU = (TextView) view.findViewById(n.g.tbean_price_tv);
+            aVar2.cuU = (CheckBox) view.findViewById(n.g.tbean_cb);
+            aVar2.aHp = view.findViewById(n.g.divider_line);
             view.setTag(aVar2);
             applyNightMode(view);
             aVar = aVar2;
@@ -88,7 +88,7 @@ public class d extends BaseAdapter {
 
     private void a(a aVar, IconInfo iconInfo, int i) {
         if (aVar != null) {
-            if (iconInfo == null || this.dCm == null || iconInfo.discount == null || iconInfo.discount.isEmpty()) {
+            if (iconInfo == null || this.dJO == null || iconInfo.discount == null || iconInfo.discount.isEmpty()) {
                 aVar.mRoot.setVisibility(8);
                 return;
             }
@@ -113,16 +113,16 @@ public class d extends BaseAdapter {
                 return;
             }
             int intValue = (discount2.rebate.intValue() * iconInfo.non_member_t.intValue()) / 100;
-            aVar.dCo.setText(aO(discount2.rebate.intValue() - 100, intValue - iconInfo.non_member_t.intValue()));
-            if (this.dCm.is_mem.intValue() != 2) {
+            aVar.dJQ.setText(bd(discount2.rebate.intValue() - 100, intValue - iconInfo.non_member_t.intValue()));
+            if (this.dJO.is_mem.intValue() != 2) {
                 intValue = iconInfo.non_member_t.intValue();
             }
-            aVar.dCn.setText(mL(intValue));
-            aVar.dCq.setText(iconInfo.name);
-            aVar.dCp.d(iconInfo.picUrl, 10, false);
-            aVar.dCr.setText(this.mPageContext.getPageActivity().getString(n.i.valid_day, new Object[]{Integer.valueOf(iconInfo.duration == null ? 0 : iconInfo.duration.intValue())}));
-            aVar.dCs.setText(mK(mJ(iconInfo.dubi.intValue())));
-            aVar.cqR.setChecked(this.cxI == i);
+            aVar.dJP.setText(nn(intValue));
+            aVar.dJS.setText(iconInfo.name);
+            aVar.dJR.d(iconInfo.picUrl, 10, false);
+            aVar.dJT.setText(this.mPageContext.getPageActivity().getString(n.j.valid_day, new Object[]{Integer.valueOf(iconInfo.duration == null ? 0 : iconInfo.duration.intValue())}));
+            aVar.dJU.setText(nm(nl(iconInfo.dubi.intValue())));
+            aVar.cuU.setChecked(this.cBp == i);
         }
     }
 
@@ -130,91 +130,91 @@ public class d extends BaseAdapter {
         com.baidu.tbadk.i.a.a(this.mPageContext, view);
     }
 
-    public void mI(int i) {
-        if (this.cxI != i) {
-            this.cxI = i;
+    public void nk(int i) {
+        if (this.cBp != i) {
+            this.cBp = i;
         }
     }
 
     public void a(List<IconInfo> list, UserInfo userInfo) {
         this.mData = list;
-        this.dCm = userInfo;
+        this.dJO = userInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        View aFP;
-        CheckBox cqR;
-        TextView dCn;
-        TextView dCo;
-        TbImageView dCp;
-        TextView dCq;
-        TextView dCr;
-        TextView dCs;
+        View aHp;
+        CheckBox cuU;
+        TextView dJP;
+        TextView dJQ;
+        TbImageView dJR;
+        TextView dJS;
+        TextView dJT;
+        TextView dJU;
         View mRoot;
 
         a() {
         }
     }
 
-    public int mJ(int i) {
+    public int nl(int i) {
         return (int) (i / 100.0f);
     }
 
-    private SpannableString aO(int i, int i2) {
+    private SpannableString bd(int i, int i2) {
         if (this.mPageContext == null) {
             return null;
         }
-        String mN = q.mN(i2);
-        String str = String.valueOf("[member]") + this.mPageContext.getPageActivity().getString(n.i.super_mem_tbean_tip, new Object[]{Integer.valueOf(i)}) + "% [image]" + mN;
+        String np = q.np(i2);
+        String str = String.valueOf("[member]") + this.mPageContext.getPageActivity().getString(n.j.super_mem_tbean_tip, new Object[]{Integer.valueOf(i)}) + "% [image]" + np;
         SpannableString spannableString = new SpannableString(str);
-        Bitmap cE = as.cE(n.e.icon_huobi_huiyuan);
-        if (cE != null) {
-            int dimensionPixelSize = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds26);
-            int width = (cE.getWidth() * dimensionPixelSize) / cE.getHeight();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(cE);
+        Bitmap cx = as.cx(n.f.icon_huobi_huiyuan);
+        if (cx != null) {
+            int dimensionPixelSize = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds26);
+            int width = (cx.getWidth() * dimensionPixelSize) / cx.getHeight();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(cx);
             bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tbadk.widget.f(bitmapDrawable), 0, "[member]".length(), 33);
         }
-        Bitmap cE2 = as.cE(n.e.icon_huobi_tdou);
-        BitmapDrawable bitmapDrawable2 = new BitmapDrawable(cE2);
-        bitmapDrawable2.setBounds(0, 0, cE2.getWidth(), cE2.getHeight());
+        Bitmap cx2 = as.cx(n.f.icon_huobi_tdou);
+        BitmapDrawable bitmapDrawable2 = new BitmapDrawable(cx2);
+        bitmapDrawable2.setBounds(0, 0, cx2.getWidth(), cx2.getHeight());
         com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(bitmapDrawable2);
-        fVar.eT(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.d.ds4));
-        fVar.eU(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.d.ds4));
-        q.setSpan(spannableString, str, String.valueOf(i) + "%", new ForegroundColorSpan(as.getColor(n.c.cp_link_tip_d)));
+        fVar.eN(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.e.ds4));
+        fVar.eO(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.e.ds4));
+        q.setSpan(spannableString, str, String.valueOf(i) + "%", new ForegroundColorSpan(as.getColor(n.d.cp_link_tip_d)));
         q.setSpan(spannableString, str, "[image]", fVar);
-        q.setSpan(spannableString, str, mN, new ForegroundColorSpan(as.getColor(n.c.cp_link_tip_d)));
+        q.setSpan(spannableString, str, np, new ForegroundColorSpan(as.getColor(n.d.cp_link_tip_d)));
         return spannableString;
     }
 
-    private SpannableString mK(int i) {
+    private SpannableString nm(int i) {
         if (this.mPageContext == null) {
             return null;
         }
         String valueOf = String.valueOf(i);
-        String string = this.mPageContext.getPageActivity().getString(n.i.tbean_price, new Object[]{valueOf});
+        String string = this.mPageContext.getPageActivity().getString(n.j.tbean_price, new Object[]{valueOf});
         SpannableString spannableString = new SpannableString(string);
-        q.setSpan(spannableString, string, "¥" + valueOf, new ForegroundColorSpan(as.getColor(n.c.cp_link_tip_d)));
+        q.setSpan(spannableString, string, "¥" + valueOf, new ForegroundColorSpan(as.getColor(n.d.cp_link_tip_d)));
         q.setSpan(spannableString, string, valueOf, new RelativeSizeSpan(1.3f));
         return spannableString;
     }
 
-    private SpannableString mL(int i) {
+    private SpannableString nn(int i) {
         if (this.mPageContext == null) {
             return null;
         }
-        String mN = q.mN(i);
-        String str = String.valueOf(this.mPageContext.getPageActivity().getString(n.i.tbean_give_num)) + "[image]" + mN;
-        Bitmap cE = as.cE(n.e.icon_huobi_tdou);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cE);
-        bitmapDrawable.setBounds(0, 0, cE.getWidth(), cE.getHeight());
+        String np = q.np(i);
+        String str = String.valueOf(this.mPageContext.getPageActivity().getString(n.j.tbean_give_num)) + "[image]" + np;
+        Bitmap cx = as.cx(n.f.icon_huobi_tdou);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cx);
+        bitmapDrawable.setBounds(0, 0, cx.getWidth(), cx.getHeight());
         com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(bitmapDrawable);
-        fVar.eT(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.d.ds4));
-        fVar.eU(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.d.ds4));
+        fVar.eN(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.e.ds4));
+        fVar.eO(com.baidu.adp.lib.util.k.d(this.mPageContext.getPageActivity(), n.e.ds4));
         SpannableString spannableString = new SpannableString(str);
-        q.setSpan(spannableString, str, mN, new ForegroundColorSpan(as.getColor(n.c.cp_link_tip_d)));
+        q.setSpan(spannableString, str, np, new ForegroundColorSpan(as.getColor(n.d.cp_link_tip_d)));
         q.setSpan(spannableString, str, "[image]", fVar);
         return spannableString;
     }

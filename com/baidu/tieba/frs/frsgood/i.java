@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements c.b {
-    private final /* synthetic */ com.baidu.tbadk.core.data.z bak;
-    final /* synthetic */ FrsGoodActivity bgy;
+    private final /* synthetic */ com.baidu.tbadk.core.data.z beh;
+    final /* synthetic */ FrsGoodActivity bkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsGoodActivity frsGoodActivity, com.baidu.tbadk.core.data.z zVar) {
-        this.bgy = frsGoodActivity;
-        this.bak = zVar;
+        this.bkp = frsGoodActivity;
+        this.beh = zVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -26,28 +26,28 @@ public class i implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                str = this.bgy.mThreadId;
+                str = this.bkp.mThreadId;
                 if (str != null) {
-                    FrsGoodActivity frsGoodActivity = this.bgy;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bgy.getPageContext().getPageActivity());
-                    com.baidu.tbadk.core.data.z zVar = this.bak;
-                    str2 = this.bgy.aZi;
-                    z = this.bgy.aZo;
+                    FrsGoodActivity frsGoodActivity = this.bkp;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bkp.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.z zVar = this.beh;
+                    str2 = this.bkp.bde;
+                    z = this.bkp.bdk;
                     frsGoodActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(zVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
             case 1:
-                this.bgy.b(this.bak);
+                this.bkp.d(this.beh);
                 break;
             case 2:
-                this.bgy.c(this.bak);
+                this.bkp.e(this.beh);
                 break;
         }
-        com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.bak != null && !readThreadHistory.mF(this.bak.getId())) {
-            readThreadHistory.mE(this.bak.getId());
+        com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+        if (readThreadHistory != null && this.beh != null && !readThreadHistory.mC(this.beh.getId())) {
+            readThreadHistory.mB(this.beh.getId());
         }
-        this.bgy.bgr.ND();
+        this.bkp.bkj.NW();
     }
 }

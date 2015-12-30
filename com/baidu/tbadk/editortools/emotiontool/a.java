@@ -8,7 +8,7 @@ public abstract class a implements Comparable<a> {
         void a(c cVar);
     }
 
-    protected abstract void BK();
+    protected abstract void Bz();
 
     public abstract void a(InterfaceC0048a interfaceC0048a);
 
@@ -16,7 +16,7 @@ public abstract class a implements Comparable<a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        BK();
+        Bz();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

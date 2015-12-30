@@ -5,6 +5,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.GroupLastId;
+import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GETTYPE = "";
@@ -22,6 +23,8 @@ public final class DataReq extends Message {
     public final String max_time;
     @ProtoField(tag = 8, type = Message.Datatype.STRING)
     public final String min_time;
+    @ProtoField(tag = 11)
+    public final NewpushRepair newpushRepire;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String process_type;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
@@ -92,11 +95,11 @@ public final class DataReq extends Message {
             }
             if (builder.process_type == null) {
                 this.process_type = "";
-                return;
             } else {
                 this.process_type = builder.process_type;
-                return;
             }
+            this.newpushRepire = builder.newpushRepire;
+            return;
         }
         this.width = builder.width;
         this.height = builder.height;
@@ -108,6 +111,7 @@ public final class DataReq extends Message {
         this.min_time = builder.min_time;
         this.max_time = builder.max_time;
         this.process_type = builder.process_type;
+        this.newpushRepire = builder.newpushRepire;
     }
 
     /* loaded from: classes.dex */
@@ -117,6 +121,7 @@ public final class DataReq extends Message {
         public Integer height;
         public String max_time;
         public String min_time;
+        public NewpushRepair newpushRepire;
         public String process_type;
         public String pushTimes;
         public Integer smallHeight;
@@ -139,6 +144,7 @@ public final class DataReq extends Message {
                 this.min_time = dataReq.min_time;
                 this.max_time = dataReq.max_time;
                 this.process_type = dataReq.process_type;
+                this.newpushRepire = dataReq.newpushRepire;
             }
         }
 

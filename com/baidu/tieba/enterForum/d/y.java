@@ -9,27 +9,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class y extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.w, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aQB;
-    private View aSJ;
-    private TextView aSM;
-    private TextView aSN;
-    private TextView aSO;
-    private TbImageView aSP;
-    final View.OnLongClickListener aSQ;
+    private ViewEventCenter aUs;
+    private View aWL;
+    private TextView aWO;
+    private TextView aWP;
+    private TextView aWQ;
+    private TbImageView aWR;
+    final View.OnLongClickListener aWS;
     final View.OnClickListener mClickListener;
 
     public y(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mClickListener = new z(this);
-        this.aSQ = new aa(this);
-        this.aQB = viewEventCenter;
-        this.aSJ = view.findViewById(n.f.container);
-        this.aSM = (TextView) view.findViewById(n.f.forum_icon_sign);
-        this.aSN = (TextView) view.findViewById(n.f.home_lv_like_forum);
-        this.aSO = (TextView) view.findViewById(n.f.forum_lv_like_grade);
-        this.aSP = (TbImageView) view.findViewById(n.f.home_lv_like_forum_icon);
-        this.aSP.setDefaultBgResource(n.c.cp_cont_e);
-        this.aSP.setDefaultResource(n.e.icon_default_ba_120);
+        this.aWS = new aa(this);
+        this.aUs = viewEventCenter;
+        this.aWL = view.findViewById(n.g.container);
+        this.aWO = (TextView) view.findViewById(n.g.forum_icon_sign);
+        this.aWP = (TextView) view.findViewById(n.g.home_lv_like_forum);
+        this.aWQ = (TextView) view.findViewById(n.g.forum_lv_like_grade);
+        this.aWR = (TbImageView) view.findViewById(n.g.home_lv_like_forum_icon);
+        this.aWR.setDefaultBgResource(n.d.cp_cont_e);
+        this.aWR.setDefaultResource(n.f.icon_default_ba_120);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,31 +39,31 @@ public class y extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.w, com.
         super.B(wVar);
         if (wVar != null) {
             int level = wVar.getLevel();
-            this.aSN.setText(wVar.getName());
-            if (wVar.aCp() == 0) {
-                this.aSM.setVisibility(8);
+            this.aWP.setText(wVar.getName());
+            if (wVar.aEx() == 0) {
+                this.aWO.setVisibility(8);
             } else {
-                this.aSM.setVisibility(0);
+                this.aWO.setVisibility(0);
             }
             if (level == 0) {
-                this.aSO.setVisibility(4);
+                this.aWQ.setVisibility(4);
             } else {
-                this.aSO.setVisibility(0);
-                as.i((View) this.aSO, com.baidu.tbadk.core.util.c.cp(level));
+                this.aWQ.setVisibility(0);
+                as.i((View) this.aWQ, com.baidu.tbadk.core.util.c.ci(level));
             }
-            this.aSP.d(wVar.getAvatar(), 10, false);
-            this.aSJ.setOnClickListener(this.mClickListener);
-            this.aSJ.setOnLongClickListener(this.aSQ);
+            this.aWR.d(wVar.getAvatar(), 10, false);
+            this.aWL.setOnClickListener(this.mClickListener);
+            this.aWL.setOnLongClickListener(this.aWS);
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        as.i(this.aSJ, n.e.addresslist_item_bg);
-        this.aSP.invalidate();
-        if (this.aSO.isShown() && getData() != null) {
-            as.i((View) this.aSO, com.baidu.tbadk.core.util.c.cp(getData().getLevel()));
+        as.i(this.aWL, n.f.addresslist_item_bg);
+        this.aWR.invalidate();
+        if (this.aWQ.isShown() && getData() != null) {
+            as.i((View) this.aWQ, com.baidu.tbadk.core.util.c.ci(getData().getLevel()));
             return true;
         }
         return true;

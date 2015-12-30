@@ -1,18 +1,32 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import com.baidu.tieba.n;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aGn;
+class b extends Handler {
+    final /* synthetic */ AccountActivity aHO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AccountActivity accountActivity) {
-        this.aGn = accountActivity;
+        this.aHO = accountActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new com.baidu.tbadk.core.dialog.c(this.aGn.getPageContext().getPageActivity()).bQ(n.i.alert_title).a(new String[]{this.aGn.getPageContext().getString(n.i.delete_account_only), this.aGn.getPageContext().getString(n.i.delete_account_and_group_cache), this.aGn.getPageContext().getString(n.i.delete_account_cancle)}, new c(this, view)).d(this.aGn.getPageContext()).tz();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.aHO.GI();
+                return;
+            case 2:
+                if (message.obj instanceof AccountData) {
+                    this.aHO.k((AccountData) message.obj);
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 }

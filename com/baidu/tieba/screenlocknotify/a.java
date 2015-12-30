@@ -16,7 +16,7 @@ class a extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String stringExtra;
         if (intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra("reason")) != null && stringExtra.equals("homekey")) {
-            f.awH().dke.awP();
+            f.ayO().drm.ayW();
             this.this$0.finish();
         }
     }

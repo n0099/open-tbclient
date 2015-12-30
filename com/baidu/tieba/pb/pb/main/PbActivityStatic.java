@@ -8,44 +8,45 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class PbActivityStatic {
-    private static void JM() {
+    private static void Kf() {
         com.baidu.tieba.tbadkCore.a.a.a(302001, pbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aj("c/f/pb/page", 302001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ak("c/f/pb/page", 302001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.aDP();
-        aky();
+        com.baidu.tieba.tbadkCore.location.d.aGc();
+        alF();
     }
 
-    private static void akw() {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, ee.class);
+    private static void alD() {
+        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, eo.class);
     }
 
-    private static void akx() {
+    private static void alE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_APPLY_COPY_THREAD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_APPLY_COPY_THREAD);
         tbHttpMessageTask.setResponsedClass(ApplyCopyThreadResponseMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     static {
-        JM();
-        akw();
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PB_ACTIVITY, new bp());
+        Kf();
+        alD();
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PB_ACTIVITY, new bs());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Uq();
-        akx();
+        Vt();
+        alE();
     }
 
-    private static void Uq() {
-        com.baidu.tbadk.core.util.bf.vD().a(new bq());
+    private static void Vt() {
+        com.baidu.tbadk.core.util.bf.vn().a(new bt());
     }
 
-    private static void aky() {
+    private static void alF() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_LOTTERY_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/lottery");
         tbHttpMessageTask.setResponsedClass(PbLotteryHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

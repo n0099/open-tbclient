@@ -9,11 +9,11 @@ public class c implements Comparator<File> {
     @Override // java.util.Comparator
     /* renamed from: b */
     public int compare(File file, File file2) {
-        int K;
+        int J;
         if (file == null || file2 == null) {
             return 0;
         }
-        K = a.K(file.getAbsolutePath(), file2.getAbsolutePath());
-        return K;
+        J = a.J(file.getAbsolutePath(), file2.getAbsolutePath());
+        return J;
     }
 }

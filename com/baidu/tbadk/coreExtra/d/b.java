@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ej(str2);
+                        em(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ej(str2);
+                        em(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yB() {
+    public void yn() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String yC() {
+    public String yo() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void ej(String str) {
-        String yC = yC();
-        if (!TextUtils.equals(yC, str) || !ek(yC)) {
-            af(str, yC);
+    public void em(String str) {
+        String yo = yo();
+        if (!TextUtils.equals(yo, str) || !en(yo)) {
+            ae(str, yo);
         }
     }
 
-    private boolean ek(String str) {
-        File cR = n.cR(az.dy(str));
-        return cR != null && cR.exists() && cR.isFile();
+    private boolean en(String str) {
+        File cU = n.cU(az.dB(str));
+        return cU != null && cU.exists() && cU.isFile();
     }
 
-    private void af(String str, String str2) {
-        if (i.iQ()) {
-            new a(str, az.dy(str), str2).execute(new String[0]);
+    private void ae(String str, String str2) {
+        if (i.iR()) {
+            new a(str, az.dB(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private ab Ty = null;
-        private final String Zb;
-        private final String ajh;
-        private final String aji;
+        private ab Ua = null;
+        private final String ZE;
+        private final String akn;
+        private final String ako;
 
         public a(String str, String str2, String str3) {
-            this.ajh = str;
-            this.Zb = str2;
-            this.aji = str3;
+            this.akn = str;
+            this.ZE = str2;
+            this.ako = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.Ty = new ab(this.ajh);
-                bool = Boolean.valueOf(this.Ty.a(String.valueOf(this.Zb) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.Ua = new ab(this.akn);
+                bool = Boolean.valueOf(this.Ua.a(String.valueOf(this.ZE) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Zb) + ".tmp", null, this.Zb)) && !TextUtils.isEmpty(this.ajh) && !this.ajh.equals(this.aji)) {
-                        n.cZ(az.dy(this.aji));
+                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.ZE) + ".tmp", null, this.ZE)) && !TextUtils.isEmpty(this.akn) && !this.akn.equals(this.ako)) {
+                        n.dc(az.dB(this.ako));
                     }
                 } else {
-                    n.cZ(String.valueOf(this.Zb) + ".tmp");
+                    n.dc(String.valueOf(this.ZE) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -139,7 +139,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().yB();
+                new b().yn();
             }
         }
     }

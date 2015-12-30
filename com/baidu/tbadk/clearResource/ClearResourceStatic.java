@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ClearResourceStatic {
-    private static long SN = 86400000;
+    private static long Tn = 86400000;
 
     static {
         MessageManager.getInstance().registerListener(new a(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));

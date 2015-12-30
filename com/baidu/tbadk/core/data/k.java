@@ -6,11 +6,11 @@ import tbclient.ThreadInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class k extends z {
-    public static final BdUniqueId Vj = BdUniqueId.gen();
-    private PhotoLiveCardData Vk = null;
+    public static final BdUniqueId VJ = BdUniqueId.gen();
+    private PhotoLiveCardData VK = null;
 
-    public PhotoLiveCardData rQ() {
-        return this.Vk;
+    public PhotoLiveCardData rz() {
+        return this.VK;
     }
 
     @Override // com.baidu.tbadk.core.data.z
@@ -23,23 +23,23 @@ public class k extends z {
 
     private void a(ZhiBoInfoTW zhiBoInfoTW) {
         if (zhiBoInfoTW != null) {
-            if (this.Vk == null) {
-                this.Vk = new PhotoLiveCardData();
+            if (this.VK == null) {
+                this.VK = new PhotoLiveCardData();
             }
-            this.Vk.parserProtobuf(zhiBoInfoTW);
-            this.Vk.setShowExpressionViewIndexList(this.Vk.getExpressionDatas());
+            this.VK.parserProtobuf(zhiBoInfoTW);
+            this.VK.setShowExpressionViewIndexList(this.VK.getExpressionDatas());
             if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
-                setId(String.valueOf(this.Vk.getThreadId()));
-                cu(String.valueOf(this.Vk.getThreadId()));
+                setId(String.valueOf(this.VK.getThreadId()));
+                cx(String.valueOf(this.VK.getThreadId()));
             }
-            if (StringUtils.isNull(sL())) {
-                cv(this.Vk.getForumName());
+            if (StringUtils.isNull(sv())) {
+                cy(this.VK.getForumName());
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.data.z, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return Vj;
+        return VJ;
     }
 }

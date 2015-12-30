@@ -1,26 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bag;
+public class ae implements a.b {
+    final /* synthetic */ FrsActivity bed;
+    private final /* synthetic */ com.baidu.tbadk.core.data.b bej;
+    private final /* synthetic */ boolean bek;
+    private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(FrsActivity frsActivity) {
-        this.bag = frsActivity;
+    public ae(FrsActivity frsActivity, com.baidu.tbadk.core.data.b bVar, boolean z, int i) {
+        this.bed = frsActivity;
+        this.bej = bVar;
+        this.bek = z;
+        this.val$position = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bag.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.bag.getPageContext().getPageActivity(), 23007)));
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10125").ab(ImageViewerConfig.FORUM_ID, this.bag.getForumId()).r("obj_type", 1));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        if (this.bej.rl()) {
+            this.bed.a(this.bej, this.bek ? "area_download" : "btn_download");
+            this.bed.a(this.bej, this.val$position);
+            aVar.dismiss();
+        }
     }
 }

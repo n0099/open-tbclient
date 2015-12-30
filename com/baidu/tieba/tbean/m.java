@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ j dCO;
+    final /* synthetic */ j dKq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.dCO = jVar;
+        this.dKq = jVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,19 +22,19 @@ public class m implements AdapterView.OnItemClickListener {
         BdListView bdListView;
         BdListView bdListView2;
         BdListView bdListView3;
-        j jVar = this.dCO;
-        dVar = this.dCO.dCz;
-        jVar.dCK = dVar.getItem(i);
-        dVar2 = this.dCO.dCz;
-        dVar2.mI(i);
-        dVar3 = this.dCO.dCz;
+        j jVar = this.dKq;
+        dVar = this.dKq.dKb;
+        jVar.dKm = dVar.getItem(i);
+        dVar2 = this.dKq.dKb;
+        dVar2.nk(i);
+        dVar3 = this.dKq.dKb;
         dVar3.notifyDataSetChanged();
-        this.dCO.aEB();
-        bdListView = this.dCO.dCy;
+        this.dKq.aGP();
+        bdListView = this.dKq.dKa;
         int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-        bdListView2 = this.dCO.dCy;
-        j jVar2 = this.dCO;
-        bdListView3 = this.dCO.dCy;
+        bdListView2 = this.dKq.dKa;
+        j jVar2 = this.dKq;
+        bdListView3 = this.dKq.dKa;
         jVar2.a(bdListView3, (ViewGroup) bdListView2.getChildAt(i - firstVisiblePosition), i);
     }
 }

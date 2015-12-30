@@ -7,57 +7,57 @@ import tbclient.ThemeSkinPropMain;
 /* loaded from: classes.dex */
 public class b {
     private String activityUrl;
-    private int bOp;
-    private String dDB;
-    private String dDC;
-    private String dDD;
-    private String dDE;
-    private int dDF;
-    private ArrayList<String> dDG;
-    private String dDI;
-    private String dDJ;
+    private int bRV;
+    private String dLf;
+    private String dLg;
+    private String dLh;
+    private String dLi;
+    private int dLj;
+    private ArrayList<String> dLk;
+    private String dLm;
+    private String dLn;
     private String description;
     private int id;
     private String picUrl;
     private String title;
     private int versionCode;
     private int newVersionCode = 0;
-    private boolean dDH = false;
+    private boolean dLl = false;
     private int activityFinish = 0;
-    private int aba = 1;
+    private int abE = 1;
 
     public void a(ThemeSkinPropMain themeSkinPropMain) {
         if (themeSkinPropMain != null) {
             this.id = themeSkinPropMain.props_id.intValue();
             this.title = themeSkinPropMain.title;
             this.picUrl = themeSkinPropMain.example_url;
-            this.dDB = themeSkinPropMain.package_size;
-            this.dDC = themeSkinPropMain.package_url;
+            this.dLf = themeSkinPropMain.package_size;
+            this.dLg = themeSkinPropMain.package_url;
             this.versionCode = themeSkinPropMain.props_version.intValue();
-            this.dDD = themeSkinPropMain.permission;
-            this.dDE = themeSkinPropMain.props_state_img;
-            this.dDF = themeSkinPropMain.free_user_level.intValue();
+            this.dLh = themeSkinPropMain.permission;
+            this.dLi = themeSkinPropMain.props_state_img;
+            this.dLj = themeSkinPropMain.free_user_level.intValue();
             this.activityUrl = themeSkinPropMain.activity_url;
             this.activityFinish = themeSkinPropMain.is_finished.intValue();
-            this.dDJ = themeSkinPropMain.package_key;
+            this.dLn = themeSkinPropMain.package_key;
         }
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.title = dataRes.title;
-            this.dDB = dataRes.package_size;
-            this.dDC = dataRes.package_url;
+            this.dLf = dataRes.package_size;
+            this.dLg = dataRes.package_url;
             this.description = dataRes.description;
             this.versionCode = dataRes.props_version.intValue();
-            this.dDD = dataRes.permission;
-            this.dDI = dataRes.permission;
-            this.dDE = dataRes.props_state_img;
-            this.dDF = dataRes.free_user_level.intValue();
+            this.dLh = dataRes.permission;
+            this.dLm = dataRes.permission;
+            this.dLi = dataRes.props_state_img;
+            this.dLj = dataRes.free_user_level.intValue();
             this.activityUrl = dataRes.activity_url;
-            this.dDG = new ArrayList<>();
+            this.dLk = new ArrayList<>();
             this.activityFinish = dataRes.is_finished.intValue();
-            this.dDJ = dataRes.package_key;
+            this.dLn = dataRes.package_key;
             ArrayList arrayList = new ArrayList();
             if (dataRes.pic_url != null && dataRes.pic_url.size() > 0) {
                 for (String str : dataRes.pic_url) {
@@ -66,9 +66,9 @@ public class b {
                     }
                 }
                 if (arrayList.size() > 5) {
-                    this.dDG.addAll(arrayList.subList(0, 5));
+                    this.dLk.addAll(arrayList.subList(0, 5));
                 } else {
-                    this.dDG.addAll(arrayList);
+                    this.dLk.addAll(arrayList);
                 }
             }
         }
@@ -94,24 +94,24 @@ public class b {
         return this.picUrl;
     }
 
-    public void mN(String str) {
+    public void mK(String str) {
         this.picUrl = str;
     }
 
     public String getPackageSize() {
-        return this.dDB;
+        return this.dLf;
     }
 
     public void setPackageSize(String str) {
-        this.dDB = str;
+        this.dLf = str;
     }
 
-    public String aFb() {
-        return this.dDC;
+    public String aHq() {
+        return this.dLg;
     }
 
-    public void mO(String str) {
-        this.dDC = str;
+    public void mL(String str) {
+        this.dLg = str;
     }
 
     public int getVersionCode() {
@@ -122,32 +122,32 @@ public class b {
         this.versionCode = i;
     }
 
-    public String aFc() {
-        return this.dDD;
+    public String aHr() {
+        return this.dLh;
     }
 
-    public void mP(String str) {
-        this.dDD = str;
+    public void mM(String str) {
+        this.dLh = str;
     }
 
-    public String aFd() {
-        return this.dDE;
+    public String aHs() {
+        return this.dLi;
     }
 
-    public void mQ(String str) {
-        this.dDE = str;
+    public void mN(String str) {
+        this.dLi = str;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public int aFe() {
-        return this.dDF;
+    public int aHt() {
+        return this.dLj;
     }
 
-    public void mO(int i) {
-        this.dDF = i;
+    public void nq(int i) {
+        this.dLj = i;
     }
 
     public String getActivityUrl() {
@@ -158,44 +158,44 @@ public class b {
         this.activityUrl = str;
     }
 
-    public int aFf() {
-        return this.aba;
+    public int aHu() {
+        return this.abE;
     }
 
-    public void mP(int i) {
-        this.aba = i;
+    public void nr(int i) {
+        this.abE = i;
     }
 
-    public ArrayList<String> aFg() {
-        return this.dDG;
+    public ArrayList<String> aHv() {
+        return this.dLk;
     }
 
-    public int XG() {
-        return this.bOp;
+    public int YL() {
+        return this.bRV;
     }
 
-    public void hZ(int i) {
-        this.bOp = i;
+    public void iz(int i) {
+        this.bRV = i;
     }
 
-    public boolean aFh() {
-        return this.dDH;
+    public boolean aHw() {
+        return this.dLl;
     }
 
-    public void hu(boolean z) {
-        this.dDH = z;
+    public void hD(boolean z) {
+        this.dLl = z;
     }
 
     public int getNewVersionCode() {
         return this.newVersionCode;
     }
 
-    public void mQ(int i) {
+    public void ns(int i) {
         this.newVersionCode = i;
     }
 
-    public String aFi() {
-        return this.dDI;
+    public String aHx() {
+        return this.dLm;
     }
 
     public int getActivityFinish() {

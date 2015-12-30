@@ -12,11 +12,11 @@ import com.baidu.tieba.tbadkCore.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.b {
-    final /* synthetic */ a bji;
+    final /* synthetic */ a bmZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.bji = aVar;
+        this.bmZ = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -27,16 +27,16 @@ public class g implements a.b {
         FrsActivity frsActivity2;
         aj ajVar;
         aVar.dismiss();
-        frsActivity = this.bji.bhN;
-        com.baidu.tieba.tbadkCore.p MT = frsActivity.MT();
+        frsActivity = this.bmZ.blE;
+        com.baidu.tieba.tbadkCore.p Nn = frsActivity.Nn();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-            frsActivity2 = this.bji.bhN;
-            m411getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bji.getPageContext().getPageActivity(), this.bji.getPageContext().getString(n.i.login_to_use), true, 11036)));
-        } else if (MT != null && MT.ajy() != null) {
-            ajVar = this.bji.bja;
-            ajVar.m(MT.ajy().getName(), com.baidu.adp.lib.h.b.c(MT.ajy().getId(), 0L));
+            frsActivity2 = this.bmZ.blE;
+            m411getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bmZ.getPageContext().getPageActivity(), this.bmZ.getPageContext().getString(n.j.login_to_use), true, 11036)));
+        } else if (Nn != null && Nn.akG() != null) {
+            ajVar = this.bmZ.bmR;
+            ajVar.m(Nn.akG().getName(), com.baidu.adp.lib.h.b.c(Nn.akG().getId(), 0L));
         }
     }
 }

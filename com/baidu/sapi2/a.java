@@ -2526,7 +2526,7 @@ public final class a {
                             requestParams.put("callback", "p");
                             requestParams.put("apiver", "v3");
                             requestParams.put("tt", String.valueOf(System.currentTimeMillis()));
-                            a.this.d.get(a.this.c.context, "https://passport.baidu.com/channel/unicast", requestParams, new HandlerC0023a(optString3, optString2));
+                            a.this.d.get(a.this.c.context, "https://passport.baidu.com/channel/unicast", requestParams, new HandlerC0024a(optString3, optString2));
                             break;
                         } else {
                             this.b.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
@@ -2551,11 +2551,11 @@ public final class a {
 
         /* renamed from: com.baidu.sapi2.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class HandlerC0023a extends HttpResponseHandler {
+        class HandlerC0024a extends HttpResponseHandler {
             final /* synthetic */ String a;
             final /* synthetic */ String b;
 
-            HandlerC0023a(String str, String str2) {
+            HandlerC0024a(String str, String str2) {
                 this.a = str;
                 this.b = str2;
             }
@@ -2598,7 +2598,7 @@ public final class a {
                                 hashMap.put("sig", a.this.a(hashMap, a.this.c.appSignKey));
                                 a.this.d = new AsyncHttpClient();
                                 a.this.d.setUserAgent(a.this.B());
-                                a.this.d.post(a.this.c.context, a.this.e.a() + com.baidu.sapi2.utils.d.G, new RequestParams(hashMap), new HandlerC0024a());
+                                a.this.d.post(a.this.c.context, a.this.e.a() + com.baidu.sapi2.utils.d.G, new RequestParams(hashMap), new HandlerC0025a());
                                 return;
                             default:
                                 l.this.a.onFailure(l.this.b);
@@ -2617,8 +2617,8 @@ public final class a {
 
             /* renamed from: com.baidu.sapi2.a$l$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            class HandlerC0024a extends HttpResponseHandler {
-                HandlerC0024a() {
+            class HandlerC0025a extends HttpResponseHandler {
+                HandlerC0025a() {
                 }
 
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -3902,13 +3902,13 @@ public final class a {
             sapiCallback.onFailure(fastRegResult);
             return;
         }
-        this.d.post(this.c.context, this.e.a() + com.baidu.sapi2.utils.d.r, requestParams, new HandlerC0020a(fastRegResult, handler, runnable, sapiCallback, requestParams, zArr));
+        this.d.post(this.c.context, this.e.a() + com.baidu.sapi2.utils.d.r, requestParams, new HandlerC0021a(fastRegResult, handler, runnable, sapiCallback, requestParams, zArr));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0020a extends HttpResponseHandler {
+    public class HandlerC0021a extends HttpResponseHandler {
         final /* synthetic */ FastRegResult a;
         final /* synthetic */ Handler b;
         final /* synthetic */ Runnable c;
@@ -3916,7 +3916,7 @@ public final class a {
         final /* synthetic */ RequestParams e;
         final /* synthetic */ boolean[] f;
 
-        HandlerC0020a(FastRegResult fastRegResult, Handler handler, Runnable runnable, SapiCallback sapiCallback, RequestParams requestParams, boolean[] zArr) {
+        HandlerC0021a(FastRegResult fastRegResult, Handler handler, Runnable runnable, SapiCallback sapiCallback, RequestParams requestParams, boolean[] zArr) {
             this.a = fastRegResult;
             this.b = handler;
             this.c = runnable;
@@ -3947,7 +3947,7 @@ public final class a {
                         this.d.onSuccess(this.a);
                         return;
                     case 7:
-                        this.b.postDelayed(new RunnableC0021a(), 400L);
+                        this.b.postDelayed(new RunnableC0022a(), 400L);
                         return;
                     default:
                         a.this.e.d();
@@ -3967,13 +3967,13 @@ public final class a {
 
         /* renamed from: com.baidu.sapi2.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC0021a implements Runnable {
-            RunnableC0021a() {
+        class RunnableC0022a implements Runnable {
+            RunnableC0022a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a(HandlerC0020a.this.d, HandlerC0020a.this.e, HandlerC0020a.this.b, HandlerC0020a.this.c, HandlerC0020a.this.f);
+                a.this.a(HandlerC0021a.this.d, HandlerC0021a.this.e, HandlerC0021a.this.b, HandlerC0021a.this.c, HandlerC0021a.this.f);
             }
         }
 
@@ -4134,7 +4134,7 @@ public final class a {
                         return;
                     }
                 case 4:
-                    a.this.b(new C0022a());
+                    a.this.b(new C0023a());
                     return;
                 default:
                     return;
@@ -4143,8 +4143,8 @@ public final class a {
 
         /* renamed from: com.baidu.sapi2.a$k$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class C0022a implements SapiCallback<SapiResult> {
-            C0022a() {
+        class C0023a implements SapiCallback<SapiResult> {
+            C0023a() {
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -4305,7 +4305,7 @@ public final class a {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(B());
         HashMap hashMap = new HashMap();
-        String a2 = a.C0038a.a(com.baidu.sapi2.utils.a.d(this.c.context));
+        String a2 = a.C0039a.a(com.baidu.sapi2.utils.a.d(this.c.context));
         hashMap.put("ptpl", this.c.tpl);
         hashMap.put("device_id", a2);
         hashMap.put("device_info", com.baidu.sapi2.utils.a.d());
@@ -4348,7 +4348,7 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(B());
             HashMap hashMap = new HashMap();
-            String a2 = a.C0038a.a(com.baidu.sapi2.utils.a.d(this.c.context));
+            String a2 = a.C0039a.a(com.baidu.sapi2.utils.a.d(this.c.context));
             hashMap.put("ptpl", this.c.tpl);
             hashMap.put("device_id", a2);
             hashMap.put("device_info", com.baidu.sapi2.utils.a.d());
@@ -4394,7 +4394,7 @@ public final class a {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(B());
         HashMap hashMap = new HashMap();
-        String a2 = a.C0038a.a(com.baidu.sapi2.utils.a.d(this.c.context));
+        String a2 = a.C0039a.a(com.baidu.sapi2.utils.a.d(this.c.context));
         hashMap.put("ptpl", this.c.tpl);
         hashMap.put("device_id", a2);
         hashMap.put("device_token", str);

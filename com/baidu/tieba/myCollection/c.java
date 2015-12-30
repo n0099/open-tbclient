@@ -18,135 +18,135 @@ import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private final NoNetworkView aNL;
-    private final NavigationBar bli;
-    private final TextView ctO;
-    private final FragmentTabHost ctP;
-    private Fragment ctR;
-    private CollectTabActivity ctS;
+    private final NoNetworkView aRD;
+    private final NavigationBar boZ;
+    private final TextView cxQ;
+    private final FragmentTabHost cxR;
+    private Fragment cxT;
+    private CollectTabActivity cxU;
     private View mRootView;
-    private int ctQ = -1;
-    private boolean ctT = false;
+    private int cxS = -1;
+    private boolean cxV = false;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new d(this);
 
-    public int ahP() {
-        return this.ctQ;
+    public int aiZ() {
+        return this.cxS;
     }
 
-    public Fragment ahQ() {
-        return this.ctR;
+    public Fragment aja() {
+        return this.cxT;
     }
 
     public c(CollectTabActivity collectTabActivity) {
-        this.ctS = collectTabActivity;
-        this.mRootView = this.ctS.findViewById(n.f.tab);
-        this.ctP = (FragmentTabHost) this.ctS.findViewById(n.f.tab_host);
-        this.ctP.setup(this.ctS.getSupportFragmentManager());
-        this.ctP.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.bli = (NavigationBar) this.ctS.findViewById(n.f.navigation_bar);
-        this.aNL = (NoNetworkView) this.ctS.findViewById(n.f.view_no_network);
-        this.bli.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bli.setTitleText(n.i.my_mark);
-        this.ctO = (TextView) this.bli.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.navigation_right_button_layout, this.ctS).findViewById(n.f.right_textview);
-        this.ctO.setText(n.i.edit);
-        as.b(this.ctO, n.c.navi_op_text, 1);
-        this.ctO.setOnClickListener(this.ctS);
-        this.bli.onChangeSkinType(this.ctS.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.cxU = collectTabActivity;
+        this.mRootView = this.cxU.findViewById(n.g.tab);
+        this.cxR = (FragmentTabHost) this.cxU.findViewById(n.g.tab_host);
+        this.cxR.setup(this.cxU.getSupportFragmentManager());
+        this.cxR.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.boZ = (NavigationBar) this.cxU.findViewById(n.g.navigation_bar);
+        this.aRD = (NoNetworkView) this.cxU.findViewById(n.g.view_no_network);
+        this.boZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.boZ.setTitleText(n.j.my_mark);
+        this.cxQ = (TextView) this.boZ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.h.navigation_right_button_layout, this.cxU).findViewById(n.g.right_textview);
+        this.cxQ.setText(n.j.edit);
+        as.b(this.cxQ, n.d.navi_op_text, 1);
+        this.cxQ.setOnClickListener(this.cxU);
+        this.boZ.onChangeSkinType(this.cxU.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public TextView ahR() {
-        return this.ctO;
+    public TextView ajb() {
+        return this.cxQ;
     }
 
     public void ex(boolean z) {
         int i;
         int i2 = -1;
-        if (this.ctR instanceof com.baidu.tbadk.c.b) {
-            com.baidu.tbadk.c.b bVar = (com.baidu.tbadk.c.b) this.ctR;
+        if (this.cxT instanceof com.baidu.tbadk.c.b) {
+            com.baidu.tbadk.c.b bVar = (com.baidu.tbadk.c.b) this.cxT;
             if (!bVar.isEnableEdit()) {
                 z = false;
             }
             ey(bVar.isEnableEdit());
             i2 = bVar.getType();
         }
-        this.ctT = z;
-        this.ctO.setText(this.ctT ? n.i.done : n.i.edit);
+        this.cxV = z;
+        this.cxQ.setText(this.cxV ? n.j.done : n.j.edit);
         if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-            as.b(this.ctO, n.c.navi_op_text, 1);
+            as.b(this.cxQ, n.d.navi_op_text, 1);
         } else {
-            TextView textView = this.ctO;
-            if (this.ctT) {
-                i = n.c.cp_link_tip_a;
+            TextView textView = this.cxQ;
+            if (this.cxV) {
+                i = n.d.cp_link_tip_a;
             } else {
-                i = n.c.navi_op_text;
+                i = n.d.navi_op_text;
             }
             as.b(textView, i, 1);
         }
         Bundle bundle = new Bundle();
-        bundle.putBoolean(com.baidu.tbadk.c.b.EDITOR_STATE_EXTRA, this.ctT);
+        bundle.putBoolean(com.baidu.tbadk.c.b.EDITOR_STATE_EXTRA, this.cxV);
         bundle.putInt(com.baidu.tbadk.c.b.FRAGMENT_TYPE, i2);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 
-    public boolean ahS() {
-        return this.ctT;
+    public boolean ajc() {
+        return this.cxV;
     }
 
-    public void R(ArrayList<com.baidu.tbadk.mainTab.b> arrayList) {
+    public void Q(ArrayList<com.baidu.tbadk.mainTab.b> arrayList) {
         if (arrayList != null && !arrayList.isEmpty()) {
-            this.ctP.reset();
+            this.cxR.reset();
             for (int i = 0; i < arrayList.size(); i++) {
                 com.baidu.tbadk.mainTab.b bVar = arrayList.get(i);
                 if (bVar != null && bVar.isAvailable()) {
-                    a(bVar, bVar.getTabIndicator(this.ctS.getPageContext().getPageActivity()));
+                    a(bVar, bVar.getTabIndicator(this.cxU.getPageContext().getPageActivity()));
                 }
             }
-            this.ctP.ci(0);
-            this.ctP.setCurrentTab(0);
+            this.cxR.cb(0);
+            this.cxR.setCurrentTab(0);
             if (arrayList.size() == 1) {
-                this.ctP.getFragmentTabWidget().setVisibility(8);
+                this.cxR.getFragmentTabWidget().setVisibility(8);
             }
-            jA(0);
+            jY(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jA(int i) {
-        FragmentTabHost.b cl = this.ctP.cl(i);
-        this.ctQ = cl.mType;
-        this.ctR = cl.Zw;
+    public void jY(int i) {
+        FragmentTabHost.c ce = this.cxR.ce(i);
+        this.cxS = ce.mType;
+        this.cxT = ce.aaa;
     }
 
     private void a(com.baidu.tbadk.mainTab.b bVar, FragmentTabIndicator fragmentTabIndicator) {
         com.baidu.tbadk.mainTab.c fragmentTabStructure = bVar.getFragmentTabStructure();
         if (fragmentTabStructure != null) {
-            FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-            bVar2.Zw = fragmentTabStructure.avR;
-            bVar2.mType = fragmentTabStructure.type;
-            fragmentTabIndicator.setText(fragmentTabStructure.avS);
-            fragmentTabIndicator.setTextSize(0, this.ctS.getResources().getDimension(n.d.fontsize32));
-            fragmentTabIndicator.setTextColorResId(n.c.s_actionbar_text_color);
-            fragmentTabIndicator.cX(TbadkCoreApplication.m411getInst().getSkinType());
+            FragmentTabHost.c cVar = new FragmentTabHost.c();
+            cVar.aaa = fragmentTabStructure.axv;
+            cVar.mType = fragmentTabStructure.type;
+            fragmentTabIndicator.setText(fragmentTabStructure.axw);
+            fragmentTabIndicator.setTextSize(0, this.cxU.getResources().getDimension(n.e.fontsize32));
+            fragmentTabIndicator.setTextColorResId(n.d.s_actionbar_text_color);
+            fragmentTabIndicator.cR(TbadkCoreApplication.m411getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
-            bVar2.Zv = fragmentTabIndicator;
-            bVar2.Zx = bVar;
-            this.ctP.a(bVar2);
+            cVar.ZZ = fragmentTabIndicator;
+            cVar.aab = bVar;
+            this.cxR.a(cVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        as.j(this.mRootView, n.c.cp_bg_line_d);
-        this.ctP.onChangeSkinType(i);
-        this.bli.onChangeSkinType(this.ctS.getPageContext(), i);
-        this.aNL.onChangeSkinType(this.ctS.getPageContext(), i);
+        as.j(this.mRootView, n.d.cp_bg_line_d);
+        this.cxR.onChangeSkinType(i);
+        this.boZ.onChangeSkinType(this.cxU.getPageContext(), i);
+        this.aRD.onChangeSkinType(this.cxU.getPageContext(), i);
     }
 
     public void ey(boolean z) {
-        this.ctO.setEnabled(z);
+        this.cxQ.setEnabled(z);
         if (!z) {
-            this.ctO.setText(n.i.edit);
-            as.b(this.ctO, n.c.navi_op_text, 1);
+            this.cxQ.setText(n.j.edit);
+            as.b(this.cxQ, n.d.navi_op_text, 1);
         }
     }
 }

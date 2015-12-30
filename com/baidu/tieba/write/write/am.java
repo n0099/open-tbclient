@@ -5,15 +5,15 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dRf.showDialog(n.f.live_time_rel);
+        this.dYD.showDialog(n.g.live_time_rel);
     }
 }

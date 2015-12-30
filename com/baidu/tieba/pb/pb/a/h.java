@@ -10,11 +10,11 @@ import com.baidu.tieba.tbadkCore.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.g {
-    final /* synthetic */ g cAo;
+    final /* synthetic */ g cDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.cAo = gVar;
+        this.cDT = gVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -26,22 +26,22 @@ public class h extends com.baidu.adp.base.g {
         x xVar3;
         com.baidu.tieba.pb.a.c cVar2;
         if (obj != null && (obj instanceof y) && (yVar = (y) obj) != null) {
-            cVar = this.cAo.cAm;
-            if (cVar.ajy() != null) {
-                xVar3 = this.cAo.Ml;
+            cVar = this.cDT.cDR;
+            if (cVar.akG() != null) {
+                xVar3 = this.cDT.MB;
                 if (xVar3.getErrorCode() == 0) {
-                    cVar2 = this.cAo.cAm;
-                    cVar2.ajy().setLike(1);
+                    cVar2 = this.cDT.cDR;
+                    cVar2.akG().setLike(1);
                     yVar.setLike(1);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
                     return;
                 }
             }
         }
-        xVar = this.cAo.Ml;
+        xVar = this.cDT.MB;
         if (!StringUtils.isNull(xVar.getErrorString())) {
             TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-            xVar2 = this.cAo.Ml;
+            xVar2 = this.cDT.MB;
             com.baidu.adp.lib.util.k.showToast(m411getInst, xVar2.getErrorString());
         }
     }

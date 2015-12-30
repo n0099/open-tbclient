@@ -17,46 +17,46 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends LinearLayout {
-    private int avF;
-    public int avG;
-    private int avH;
-    private int avI;
-    private TextView avJ;
-    private int avK;
-    private int avL;
-    private HashMap<String, a> avM;
+    private int axj;
+    public int axk;
+    private int axl;
+    private int axm;
+    private TextView axn;
+    private int axo;
+    private int axp;
+    private HashMap<String, a> axq;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.avF = 0;
-        this.avM = new HashMap<>();
+        this.axj = 0;
+        this.axq = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.avF = 0;
-        this.avM = new HashMap<>();
+        this.axj = 0;
+        this.axq = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.avK = getResources().getDimensionPixelSize(n.d.ds2);
-        this.avL = getResources().getDimensionPixelSize(n.d.ds12);
-        this.avJ = new TextView(getContext());
+        this.axo = getResources().getDimensionPixelSize(n.e.ds2);
+        this.axp = getResources().getDimensionPixelSize(n.e.ds12);
+        this.axn = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.avJ.setLayoutParams(layoutParams);
-        this.avJ.setGravity(17);
-        this.avJ.setDuplicateParentStateEnabled(true);
-        addView(this.avJ);
+        this.axn.setLayoutParams(layoutParams);
+        this.axn.setGravity(17);
+        this.axn.setDuplicateParentStateEnabled(true);
+        addView(this.axn);
     }
 
     public void setContentTvTopMargin(int i) {
-        if (this.avJ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.avJ.getLayoutParams();
+        if (this.axn.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axn.getLayoutParams();
             layoutParams.topMargin = i;
-            this.avJ.setLayoutParams(layoutParams);
+            this.axn.setLayoutParams(layoutParams);
         }
     }
 
@@ -65,7 +65,7 @@ public class FragmentTabIndicator extends LinearLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, a> entry : this.avM.entrySet()) {
+        for (Map.Entry<String, a> entry : this.axq.entrySet()) {
             entry.getValue().view.measure(View.MeasureSpec.makeMeasureSpec(size, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(size2, ExploreByTouchHelper.INVALID_ID));
         }
     }
@@ -76,20 +76,20 @@ public class FragmentTabIndicator extends LinearLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, a>> it = this.avM.entrySet().iterator();
-        while (it.hasNext() && this.avJ.getText() != null) {
+        Iterator<Map.Entry<String, a>> it = this.axq.entrySet().iterator();
+        while (it.hasNext() && this.axn.getText() != null) {
             a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.avJ.getPaint().measureText(this.avJ.getText().toString());
-            if (value.avN) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uu;
+            int measureText = (int) this.axn.getPaint().measureText(this.axn.getText().toString());
+            if (value.axr) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uw;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.uu) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.uw) - (measureText / 2);
             }
-            if (this.avF == 1) {
-                i5 = measuredWidth - this.avL;
-                measuredHeight = this.avK;
+            if (this.axj == 1) {
+                i5 = measuredWidth - this.axp;
+                measuredHeight = this.axo;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -99,96 +99,96 @@ public class FragmentTabIndicator extends LinearLayout {
     }
 
     public void setTipPosType(int i) {
-        this.avF = i;
+        this.axj = i;
     }
 
     public void a(String str, a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.avM.put(str, aVar);
+            this.axq.put(str, aVar);
         }
     }
 
-    public a fM(String str) {
-        return this.avM.get(str);
+    public a fQ(String str) {
+        return this.axq.get(str);
     }
 
     public void setText(int i) {
-        this.avJ.setText(i);
+        this.axn.setText(i);
     }
 
     public void setText(String str) {
-        this.avJ.setText(str);
+        this.axn.setText(str);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.avJ.setText(spannableString);
+        this.axn.setText(spannableString);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.avH = i;
+        this.axl = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.avI = i;
+        this.axm = i;
     }
 
     public void setCompoundDrawablePadding(int i) {
-        this.avJ.setCompoundDrawablePadding(i);
+        this.axn.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.avJ.setTextSize(f);
+        this.axn.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.avJ.setTextSize(i, f);
+        this.axn.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.avG = i;
+        this.axk = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cX(TbadkCoreApplication.m411getInst().getSkinType());
+        cR(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void cX(int i) {
-        as.b(this.avJ, this.avG, 1);
-        if (this.avJ != null) {
-            this.avJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, as.c((Resources) null, this.avH), as.getDrawable(this.avI), (Drawable) null);
+    public void cR(int i) {
+        as.b(this.axn, this.axk, 1);
+        if (this.axn != null) {
+            this.axn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, as.c((Resources) null, this.axl), as.getDrawable(this.axm), (Drawable) null);
         }
-        for (Map.Entry<String, a> entry : this.avM.entrySet()) {
-            entry.getValue().cX(i);
+        for (Map.Entry<String, a> entry : this.axq.entrySet()) {
+            entry.getValue().cR(i);
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int avO;
-        public FragmentTabIndicator avQ;
-        public int uu;
+        public int axs;
+        public FragmentTabIndicator axu;
+        public int uw;
         public View view;
-        public boolean avN = true;
-        public int avP = n.c.frs_slidebar_message_text;
+        public boolean axr = true;
+        public int axt = n.d.frs_slidebar_message_text;
 
-        public void cX(int i) {
-            if (this.avO != 0) {
-                as.i(this.view, this.avO);
+        public void cR(int i) {
+            if (this.axs != 0) {
+                as.i(this.view, this.axs);
             }
             if (this.view instanceof TextView) {
-                if (this.avP != 0) {
-                    as.b((TextView) this.view, this.avP, 1);
+                if (this.axt != 0) {
+                    as.b((TextView) this.view, this.axt, 1);
                 }
                 int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {
-                    as.i((View) ((TextView) this.view), n.e.icon_news_head_prompt_one);
+                    as.i((View) ((TextView) this.view), n.f.icon_news_head_prompt_one);
                 } else if (c >= 10 && c < 100) {
-                    as.i((View) ((TextView) this.view), n.e.icon_news_head_prompt_two);
+                    as.i((View) ((TextView) this.view), n.f.icon_news_head_prompt_two);
                 } else if (c >= 100) {
-                    as.i((View) ((TextView) this.view), n.e.icon_news_head_prompt_more);
+                    as.i((View) ((TextView) this.view), n.f.icon_news_head_prompt_more);
                 }
             }
         }
@@ -205,9 +205,9 @@ public class FragmentTabIndicator extends LinearLayout {
         }
     }
 
-    public void Dp() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.avJ.getLayoutParams();
+    public void De() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axn.getLayoutParams();
         layoutParams.width = -2;
-        this.avJ.setLayoutParams(layoutParams);
+        this.axn.setLayoutParams(layoutParams);
     }
 }

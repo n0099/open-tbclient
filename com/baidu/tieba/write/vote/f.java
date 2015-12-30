@@ -7,11 +7,11 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ c dOx;
+    final /* synthetic */ c dVW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.dOx = cVar;
+        this.dVW = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -19,23 +19,23 @@ public class f implements a.b {
         EditText editText;
         WriteVoteActivity writeVoteActivity;
         int i;
-        editText = this.dOx.dOt;
+        editText = this.dVW.dVS;
         String trim = editText.getText().toString().trim();
         int g = !TextUtils.isEmpty(trim) ? com.baidu.adp.lib.h.b.g(trim, 7) : 0;
         if (g > 0 && g <= 99) {
-            this.dOx.dOo = g;
+            this.dVW.dVN = g;
             if (g == 1 || g == 7 || g == 30) {
-                this.dOx.dOp = false;
+                this.dVW.dVO = false;
             } else {
-                this.dOx.dOp = true;
+                this.dVW.dVO = true;
             }
-            c cVar = this.dOx;
-            i = this.dOx.dOo;
-            cVar.nB(i);
+            c cVar = this.dVW;
+            i = this.dVW.dVN;
+            cVar.ot(i);
             aVar.dismiss();
         } else if (g == 0) {
-            writeVoteActivity = this.dOx.dOu;
-            writeVoteActivity.showToast(n.i.endtime_input_error);
+            writeVoteActivity = this.dVW.dVT;
+            writeVoteActivity.showToast(n.j.endtime_input_error);
         }
     }
 }

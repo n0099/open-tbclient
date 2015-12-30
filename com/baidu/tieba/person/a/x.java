@@ -1,20 +1,20 @@
 package com.baidu.tieba.person.a;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ w cMH;
+class x implements View.OnClickListener {
+    private final /* synthetic */ UserData bML;
+    final /* synthetic */ v cQW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.cMH = wVar;
+    public x(v vVar, UserData userData) {
+        this.cQW = vVar;
+        this.bML = userData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.b(this.cMH.mContext, this.cMH.mContext.getResources().getString(n.i.user_set_private)).tE();
+        this.cQW.e(this.bML);
     }
 }

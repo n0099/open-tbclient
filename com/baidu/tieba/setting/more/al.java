@@ -1,24 +1,23 @@
 package com.baidu.tieba.setting.more;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import protobuf.MaskInfo;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tbadk.core.util.bj;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class al extends com.baidu.adp.framework.listener.e {
+class al implements SapiWebView.ChangePwdCallback {
+    final /* synthetic */ SapiWebViewActivity dvL;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(int i) {
-        super(i);
+    public al(SapiWebViewActivity sapiWebViewActivity) {
+        this.dvL = sapiWebViewActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        MaskInfo maskInfo;
-        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && (socketResponsedMessage instanceof ResponseOnlineMessage) && (maskInfo = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) != null) {
-            SettingStatic.maskInfo = maskInfo;
-            SettingStatic.aze();
-        }
+    @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
+    public void onSuccess() {
+        this.dvL.showToast(n.j.succ_modify_pwd);
+        SapiAccountManager.getInstance().logout();
+        bj.ag(this.dvL.getPageContext().getPageActivity());
+        this.dvL.finish();
     }
 }

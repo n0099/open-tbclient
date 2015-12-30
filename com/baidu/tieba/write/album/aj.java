@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag dMc;
+    final /* synthetic */ ag dTB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.dMc = agVar;
+        this.dTB = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -22,26 +22,26 @@ class aj implements x {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         o oVar5;
-        oVar = this.dMc.dKx;
+        oVar = this.dTB.dRW;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.dMc.dKx;
+        oVar2 = this.dTB.dRW;
         if (oVar2.size() < maxImagesAllowed) {
-            oVar3 = this.dMc.dKx;
-            if (oVar3.aHH()) {
-                oVar5 = this.dMc.dKx;
-                oVar5.nm(String.valueOf(System.currentTimeMillis()));
+            oVar3 = this.dTB.dRW;
+            if (oVar3.aKc()) {
+                oVar5 = this.dTB.dRW;
+                oVar5.nk(String.valueOf(System.currentTimeMillis()));
             }
-            oVar4 = this.dMc.dKx;
-            String aHG = oVar4.aHG();
-            if (!StringUtils.isNull(aHG, true)) {
-                albumActivity2 = this.dMc.dKK;
-                ar.b(albumActivity2.getPageContext(), aHG);
+            oVar4 = this.dTB.dRW;
+            String aKb = oVar4.aKb();
+            if (!StringUtils.isNull(aKb, true)) {
+                albumActivity2 = this.dTB.dSj;
+                ar.b(albumActivity2.getPageContext(), aKb);
                 return;
             }
-            albumActivity = this.dMc.dKK;
+            albumActivity = this.dTB.dSj;
             ar.c(albumActivity.getPageContext());
             return;
         }
-        this.dMc.showToast(String.format(this.dMc.getPageContext().getString(n.i.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.dTB.showToast(String.format(this.dTB.getPageContext().getString(n.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

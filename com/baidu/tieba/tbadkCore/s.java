@@ -7,5 +7,5 @@ public interface s {
 
     void b(n nVar);
 
-    void fX(int i);
+    void fS(int i);
 }

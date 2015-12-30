@@ -5,23 +5,23 @@ import com.baidu.tieba.discover.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b aOx;
-    private final /* synthetic */ com.baidu.tieba.discover.data.c aOy;
+    final /* synthetic */ b aSp;
+    private final /* synthetic */ com.baidu.tieba.discover.data.c aSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.tieba.discover.data.c cVar) {
-        this.aOx = bVar;
-        this.aOy = cVar;
+        this.aSp = bVar;
+        this.aSq = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         x xVar;
         x xVar2;
-        xVar = this.aOx.aOw;
+        xVar = this.aSp.aSo;
         if (xVar != null) {
-            xVar2 = this.aOx.aOw;
-            xVar2.g(this.aOy);
+            xVar2 = this.aSp.aSo;
+            xVar2.g(this.aSq);
         }
     }
 }

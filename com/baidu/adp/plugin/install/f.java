@@ -11,7 +11,7 @@ public class f implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.this$0.lx();
-        this.this$0.lw();
+        this.this$0.kU();
+        this.this$0.kT();
     }
 }

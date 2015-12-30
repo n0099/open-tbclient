@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class LiveSDKSwitchStatic extends a {
     static {
-        e.gw().f(LiveSDKSwitchStatic.class);
+        e.gw().e(LiveSDKSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

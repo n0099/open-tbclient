@@ -1,23 +1,23 @@
 package com.baidu.tieba.hottopic.view;
 /* loaded from: classes.dex */
 class g implements Runnable {
-    final /* synthetic */ HotTopicPkView bFZ;
+    final /* synthetic */ HotTopicPkView bJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(HotTopicPkView hotTopicPkView) {
-        this.bFZ = hotTopicPkView;
+        this.bJG = hotTopicPkView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         for (int i = 0; i < 4; i++) {
-            this.bFZ.postInvalidate();
+            this.bJG.postInvalidate();
             try {
                 Thread.sleep(100L);
             } catch (InterruptedException e) {
             }
         }
-        this.bFZ.bFX = false;
-        this.bFZ.postInvalidate();
+        this.bJG.bJE = false;
+        this.bJG.postInvalidate();
     }
 }

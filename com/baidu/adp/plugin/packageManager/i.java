@@ -13,44 +13,49 @@ public class i implements com.baidu.adp.plugin.install.a {
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void L(boolean z) {
+    public void H(boolean z) {
         String str;
         String str2;
         long j;
         String str3;
         if (z) {
-            if (PluginPackageManager.lU().hs()) {
-                PluginSettings mo = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().mo();
-                com.baidu.adp.plugin.b.a lI = com.baidu.adp.plugin.b.a.lI();
-                str3 = this.this$0.DI;
-                lI.d("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (mo == null ? "" : mo.getContainerVersion()));
+            if (PluginPackageManager.ls().hs()) {
+                PluginSettings lM = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
+                com.baidu.adp.plugin.b.a lf = com.baidu.adp.plugin.b.a.lf();
+                str3 = this.this$0.Eb;
+                lf.d("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (lM == null ? "" : lM.getContainerVersion()));
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c mr = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr();
-            str2 = this.this$0.DI;
-            mr.bD(str2);
-            if (PluginPackageManager.lU().hs()) {
-                com.baidu.adp.plugin.b.a lI2 = com.baidu.adp.plugin.b.a.lI();
+            com.baidu.adp.plugin.packageManager.pluginSettings.c lP = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP();
+            str2 = this.this$0.Eb;
+            lP.bG(str2);
+            if (PluginPackageManager.ls().hs()) {
+                com.baidu.adp.plugin.b.a lf2 = com.baidu.adp.plugin.b.a.lf();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.DK;
-                lI2.e("plugin_install", currentTimeMillis - j);
+                j = this.this$0.Ed;
+                lf2.e("plugin_install", currentTimeMillis - j);
             }
-        } else if (PluginPackageManager.lU().hs()) {
-            PluginSettings mo2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().mo();
-            com.baidu.adp.plugin.b.a lI3 = com.baidu.adp.plugin.b.a.lI();
-            str = this.this$0.DI;
-            lI3.d("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (mo2 == null ? "" : mo2.getContainerVersion()));
+        } else if (PluginPackageManager.ls().hs()) {
+            PluginSettings lM2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
+            com.baidu.adp.plugin.b.a lf3 = com.baidu.adp.plugin.b.a.lf();
+            str = this.this$0.Eb;
+            lf3.d("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (lM2 == null ? "" : lM2.getContainerVersion()));
         }
-        this.this$0.lZ();
-        this.this$0.mb();
+        this.this$0.lx();
+        this.this$0.J(true);
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void bf(String str) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().g(str, true);
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().findPluginSetting(str);
-        if (findPluginSetting != null && findPluginSetting.versionCode < 42) {
-            com.baidu.adp.plugin.b.a.lI().F("plugin_launch_lowversion", str);
-            com.baidu.adp.plugin.b.a.lI().d("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
+    public void bi(String str) {
+        int i;
+        com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().g(str, true);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().findPluginSetting(str);
+        if (findPluginSetting != null) {
+            int i2 = findPluginSetting.versionCode;
+            i = PluginPackageManager.DW;
+            if (i2 < i) {
+                com.baidu.adp.plugin.b.a.lf().E("plugin_launch_lowversion", str);
+                com.baidu.adp.plugin.b.a.lf().d("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
+            }
         }
     }
 }

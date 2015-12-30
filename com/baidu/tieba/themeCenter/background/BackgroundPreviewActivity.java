@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.y;
 /* loaded from: classes.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
-    private int dED;
-    private y dEW;
-    private aa dEX;
-    private int dEY;
-    private y.a dEZ = new s(this);
+    private int dMA;
+    private y.a dMB = new s(this);
+    private int dMg;
+    private y dMy;
+    private aa dMz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -21,15 +21,15 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
         Intent intent = getIntent();
         if (intent != null) {
-            this.dED = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
-            this.dEY = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
+            this.dMg = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
+            this.dMA = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
         }
-        this.dEW = new y(this.dED, this.dEY);
-        this.dEW.a(this.dEZ);
-        this.dEX = new aa(this);
-        showLoadingView(this.dEX.getRootView());
-        this.dEX.setExpandListRefreshListener(new t(this));
-        this.dEW.LoadData();
+        this.dMy = new y(this.dMg, this.dMA);
+        this.dMy.a(this.dMB);
+        this.dMz = new aa(this);
+        showLoadingView(this.dMz.getRootView());
+        this.dMz.setExpandListRefreshListener(new t(this));
+        this.dMy.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,8 +38,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         super.onResume();
         if (TbadkCoreApplication.m411getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.dEX.getRootView());
-            this.dEW.LoadData();
+            showLoadingView(this.dMz.getRootView());
+            this.dMy.LoadData();
         }
     }
 
@@ -47,8 +47,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dEX != null) {
-            this.dEX.oV();
+        if (this.dMz != null) {
+            this.dMz.ot();
         }
     }
 
@@ -56,16 +56,16 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dEW != null) {
-            this.dEW.destroy();
+        if (this.dMy != null) {
+            this.dMy.destroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dEW != null && this.dEX != null) {
-            showLoadingView(this.dEX.getRootView());
-            this.dEW.LoadData();
+        if (this.dMy != null && this.dMz != null) {
+            showLoadingView(this.dMz.getRootView());
+            this.dMy.LoadData();
         }
     }
 }

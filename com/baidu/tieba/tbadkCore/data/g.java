@@ -1,25 +1,32 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import tbclient.TPointPost;
+import tbclient.ActBtn;
 /* loaded from: classes.dex */
 public class g {
-    public long dzo;
-    public boolean dzp;
-    public String position;
+    private String text;
+    private int type;
+    private String url;
 
-    public g(TPointPost tPointPost) {
-        if (tPointPost != null) {
-            this.position = tPointPost.position;
-            this.dzo = tPointPost.template_id.longValue();
-            this.dzp = tPointPost.is_tuiguang.intValue() != 0;
+    public g(ActBtn actBtn) {
+        this.type = 0;
+        this.url = null;
+        this.text = null;
+        if (actBtn != null) {
+            this.type = actBtn.type.intValue();
+            this.url = actBtn.url;
+            this.text = actBtn.text;
         }
     }
 
-    public String getPosition() {
-        return this.position;
+    public String getUrl() {
+        return this.url;
     }
 
-    public long aCJ() {
-        return this.dzo;
+    public String getText() {
+        return this.text;
+    }
+
+    public int getType() {
+        return this.type;
     }
 }

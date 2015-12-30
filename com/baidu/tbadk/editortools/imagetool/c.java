@@ -13,7 +13,7 @@ import com.baidu.tieba.n;
 public class c {
     public static z h(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
-        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(n.g.editor_tool_container_image, (ViewGroup) null);
+        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(n.h.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
         if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
             return null;
@@ -30,17 +30,17 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        as.b(multiImgToolView.getMutiImageTips(), n.c.cp_cont_c, 1);
+        as.b(multiImgToolView.getMutiImageTips(), n.d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, z zVar) {
         ImageView imageView = new ImageView(context);
-        as.c(imageView, n.e.btn_add_photo_selector);
+        as.c(imageView, n.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         int dip2px = k.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, k.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(n.d.default_gap_20) + dip2px, context.getResources().getDimensionPixelSize(n.d.default_gap_24) + dip2px, dip2px);
+        imageView.setPadding(dip2px, k.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(n.e.default_gap_20) + dip2px, context.getResources().getDimensionPixelSize(n.e.default_gap_24) + dip2px, dip2px);
         imageView.setOnClickListener(new d(zVar));
         return imageView;
     }

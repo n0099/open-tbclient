@@ -4,17 +4,17 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements PopupWindow.OnDismissListener {
-    final /* synthetic */ i biC;
-    private final /* synthetic */ TabItemView biD;
+    final /* synthetic */ i bmt;
+    private final /* synthetic */ TabItemView bmu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar, TabItemView tabItemView) {
-        this.biC = iVar;
-        this.biD = tabItemView;
+        this.bmt = iVar;
+        this.bmu = tabItemView;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.biD.setState(TabItemView.biv);
+        this.bmu.setState(TabItemView.bml);
     }
 }

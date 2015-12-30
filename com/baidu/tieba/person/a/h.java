@@ -12,11 +12,11 @@ import com.baidu.tieba.person.data.PersonListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g cMl;
+    final /* synthetic */ g cQD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.cMl = gVar;
+        this.cQD = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,26 +28,26 @@ public class h implements View.OnClickListener {
         Context context2;
         com.baidu.tieba.person.data.e eVar2;
         com.baidu.tieba.person.data.e eVar3;
-        context = this.cMl.mContext;
+        context = this.cQD.mContext;
         if (bj.ah(context)) {
-            eVar = this.cMl.cMk;
+            eVar = this.cQD.cQC;
             if (eVar.isSelf) {
                 TiebaStatic.log("person_self_attentionme_click");
             } else {
                 TiebaStatic.log("person_guid_attentionme_click");
-                str = this.cMl.userId;
+                str = this.cQD.userId;
                 if (str != null) {
                     av avVar = new av("c10614");
-                    str2 = this.cMl.userId;
-                    TiebaStatic.log(avVar.ab("obj_id", str2));
+                    str2 = this.cQD.userId;
+                    TiebaStatic.log(avVar.aa("obj_id", str2));
                 }
             }
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.cMl.mContext;
+            context2 = this.cQD.mContext;
             Context applicationContext = context2.getApplicationContext();
-            eVar2 = this.cMl.cMk;
+            eVar2 = this.cQD.cQC;
             String str3 = eVar2.userId;
-            eVar3 = this.cMl.cMk;
+            eVar3 = this.cQD.cQC;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(applicationContext, false, str3, eVar3.sex)));
         }
     }

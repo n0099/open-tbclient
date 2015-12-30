@@ -3,6 +3,7 @@ package com.baidu.tieba.image;
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,26 +13,26 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class m {
-    private AntiData cfY;
-    private LinkedList<l> cfZ;
-    private String cfW = null;
+    private AntiData ckb;
+    private LinkedList<l> ckc;
+    private String cjZ = null;
     private String fid = null;
-    private int cfX = 0;
+    private int cka = 0;
     private Context mContext = null;
-    private String cga = null;
-    private String cgb = null;
+    private String ckd = null;
+    private String cke = null;
     private String tid = null;
-    private com.baidu.tbadk.core.data.b cgc = null;
-    private int cgd = 0;
+    private com.baidu.tbadk.core.data.b ckf = null;
+    private int ckg = 0;
 
     public m() {
-        this.cfY = null;
-        this.cfZ = null;
-        this.cfZ = new LinkedList<>();
-        this.cfY = new AntiData();
+        this.ckb = null;
+        this.ckc = null;
+        this.ckc = new LinkedList<>();
+        this.ckb = new AntiData();
     }
 
-    public void A(String str, boolean z) {
+    public void z(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -39,24 +40,24 @@ public class m {
         }
     }
 
-    public LinkedList<l> aed() {
-        return this.cfZ;
+    public LinkedList<l> afm() {
+        return this.ckc;
     }
 
     public int getImageNum() {
-        return this.cfX;
+        return this.cka;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                jb(jSONObject.optInt("is_new_url", 0));
+                jz(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.cfW = optJSONObject.optString("name");
+                    this.cjZ = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.cfX = jSONObject.optInt("pic_amount", 0);
+                this.cka = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -64,8 +65,8 @@ public class m {
                             l lVar = new l(this.mContext);
                             lVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = lVar.getIndex();
-                            if (index >= 1 && index <= this.cfX) {
-                                this.cfZ.addLast(lVar);
+                            if (index >= 1 && index <= this.cka) {
+                                this.ckc.addLast(lVar);
                             }
                         }
                     } else {
@@ -73,8 +74,8 @@ public class m {
                             l lVar2 = new l(this.mContext);
                             lVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = lVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.cfX) {
-                                this.cfZ.addFirst(lVar2);
+                            if (index2 >= 1 && index2 <= this.cka) {
+                                this.ckc.addFirst(lVar2);
                             }
                         }
                     }
@@ -82,8 +83,8 @@ public class m {
                 l(jSONObject);
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
                 if (optJSONObject2 != null) {
-                    this.cga = optJSONObject2.optString("tid");
-                    this.cgb = optJSONObject2.optString("title");
+                    this.ckd = optJSONObject2.optString("tid");
+                    this.cke = optJSONObject2.optString("title");
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -134,9 +135,9 @@ public class m {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.cgc = new com.baidu.tbadk.core.data.b();
-            this.cgc.a(build);
-            this.cgc.Us = "c0111";
+            this.ckf = new com.baidu.tbadk.core.data.b();
+            this.ckf.a(build);
+            this.ckf.UT = "c0111";
         }
     }
 
@@ -157,18 +158,18 @@ public class m {
         builder.label_visible = Integer.valueOf(optJSONObject.optInt("label_visible", 0));
         builder.label_text = optJSONObject.optString("label_text");
         builder.rank_level = Integer.valueOf(optJSONObject.optInt("rank_level", 0));
-        builder.thread_type = optJSONObject.optString("thread_type");
+        builder.thread_type = optJSONObject.optString(PbActivityConfig.KEY_THREAD_TYPE);
         builder.button_text = optJSONObject.optString("button_text");
         builder.card_desc = optJSONObject.optString("card_desc");
         builder.card_tag = optJSONObject.optString("card_tag");
         return builder.build(true);
     }
 
-    public void jb(int i) {
-        this.cgd = i;
+    public void jz(int i) {
+        this.ckg = i;
     }
 
-    public com.baidu.tbadk.core.data.b aee() {
-        return this.cgc;
+    public com.baidu.tbadk.core.data.b afn() {
+        return this.ckf;
     }
 }

@@ -16,21 +16,21 @@ public class ar {
         try {
             if (!n.fi()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.tQ());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.tQ());
                 }
             } else {
-                File cV = n.cV("camera.jpg");
-                if (cV != null) {
-                    Uri fromFile = Uri.fromFile(cV);
+                File cY = n.cY("camera.jpg");
+                if (cY != null) {
+                    Uri fromFile = Uri.fromFile(cY);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", fromFile);
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.j.error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -43,17 +43,17 @@ public class ar {
         try {
             if (!n.fi()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.tQ());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ug());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.tQ());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (n.cO(n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (n.cR(n.yc + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -69,9 +69,9 @@ public class ar {
             }
             if (!z) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.i.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(n.j.error_sd_error));
                 }
             }
         } catch (Exception e) {

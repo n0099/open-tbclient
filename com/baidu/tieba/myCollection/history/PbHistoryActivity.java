@@ -19,11 +19,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
-    private com.baidu.tbadk.mvc.g.d<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b, g> aNO;
-    private final a.InterfaceC0054a<com.baidu.tieba.myCollection.baseHistory.b> awe = new b(this);
-    private RelativeLayout cuP;
-    private TextView cuQ;
-    private com.baidu.tieba.myCollection.baseHistory.a cuR;
+    private com.baidu.tbadk.mvc.g.d<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b, g> aRG;
+    private final a.InterfaceC0054a<com.baidu.tieba.myCollection.baseHistory.b> axI = new b(this);
+    private RelativeLayout cyP;
+    private TextView cyQ;
+    private com.baidu.tieba.myCollection.baseHistory.a cyR;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
 
@@ -31,20 +31,20 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cuR = new com.baidu.tieba.myCollection.baseHistory.a(this);
-        this.cuR.a(this.awe);
-        this.cuP = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(n.g.pb_history_activity, (ViewGroup) null);
-        setContentView(this.cuP);
-        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
+        this.cyR = new com.baidu.tieba.myCollection.baseHistory.a(this);
+        this.cyR.a(this.axI);
+        this.cyP = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(n.h.pb_history_activity, (ViewGroup) null);
+        setContentView(this.cyP);
+        this.mNavigationBar = (NavigationBar) findViewById(n.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(n.i.my_history);
-        this.cuQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(n.i.delete_all_user_chat));
-        this.cuQ.setOnClickListener(new c(this));
-        this.cuQ.setVisibility(8);
-        this.mListView = (BdListView) findViewById(n.f.list);
-        this.aNO = new com.baidu.tbadk.mvc.g.d<>(getPageContext(), g.class, n.g.pb_history_list_item, null);
-        this.aNO.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.D(n.i.pb_history_no_data_tip, n.i.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.mListView.setAdapter((ListAdapter) this.aNO);
+        this.mNavigationBar.setTitleText(n.j.my_history);
+        this.cyQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(n.j.delete_all_user_chat));
+        this.cyQ.setOnClickListener(new c(this));
+        this.cyQ.setVisibility(8);
+        this.mListView = (BdListView) findViewById(n.g.list);
+        this.aRG = new com.baidu.tbadk.mvc.g.d<>(getPageContext(), g.class, n.h.pb_history_list_item, null);
+        this.aRG.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.C(n.j.pb_history_no_data_tip, n.j.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.mListView.setAdapter((ListAdapter) this.aRG);
         this.mListView.setOnItemClickListener(new f(this));
     }
 
@@ -52,7 +52,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        LV();
+        Mo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,31 +60,31 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aNO.a(getPageContext(), i);
-        getLayoutMode().k(this.cuP);
+        this.aRG.a(getPageContext(), i);
+        getLayoutMode().k(this.cyP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LV() {
-        this.cuR.Dz();
+    public void Mo() {
+        this.cyR.Do();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bm(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
+    public void bj(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-            bn(list);
+            bk(list);
         }
-        if (this.aNO != null) {
-            this.aNO.r(list);
+        if (this.aRG != null) {
+            this.aRG.s(list);
         }
         if (list == null || list.size() == 0) {
-            this.cuQ.setVisibility(8);
+            this.cyQ.setVisibility(8);
         } else {
-            this.cuQ.setVisibility(0);
+            this.cyQ.setVisibility(0);
         }
     }
 
-    private void bn(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
+    private void bk(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
         if (list != null && list.size() != 0) {
             Iterator<com.baidu.tieba.myCollection.baseHistory.b> it = list.iterator();
             while (it.hasNext()) {

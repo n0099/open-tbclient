@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class o extends SQLiteOpenHelper {
     public o(Context context) {
-        super(context, "theme_center.db", (SQLiteDatabase.CursorFactory) null, 2);
+        super(context, "theme_center.db", (SQLiteDatabase.CursorFactory) null, 3);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

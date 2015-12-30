@@ -4,18 +4,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
-public class g extends NetModel<h, i, bc> {
-    public g(TbPageContext<bc> tbPageContext, h hVar) {
+public class g extends NetModel<h, i, bd> {
+    public g(TbPageContext<bd> tbPageContext, h hVar) {
         super(tbPageContext, hVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oZ() {
+    protected int ox() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String pa() {
+    protected String oy() {
         return "c/u/feed/atme";
     }
 
@@ -25,7 +25,7 @@ public class g extends NetModel<h, i, bc> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int pb() {
+    protected int oz() {
         return 0;
     }
 }
