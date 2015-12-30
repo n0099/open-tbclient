@@ -1,49 +1,70 @@
 package com.baidu.tieba.im.memorycache;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo bTZ;
-    private final /* synthetic */ SocketResponsedMessage bUb;
-    final /* synthetic */ ak bUi;
-    private final /* synthetic */ ChatMessage bUj;
+public class al extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.bUi = akVar;
-        this.bTZ = imMessageCenterPojo;
-        this.bUj = chatMessage;
-        this.bUb = socketResponsedMessage;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null) {
-            try {
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            } finally {
-                com.baidu.tieba.im.db.g.Xg().endTransaction();
-            }
-            if (customMessage instanceof CustomMessage) {
-                com.baidu.tieba.im.db.g.Xg().Xh();
-                com.baidu.tieba.im.db.i.Xl().a(this.bTZ, 3);
-                if (this.bTZ.getCustomGroupType() == 2) {
-                    com.baidu.tieba.im.db.l.Xr().a(this.bUj.getUserId(), this.bUj.getToUserId(), String.valueOf(this.bUj.getRecordId()), String.valueOf(this.bUj.getMsgId()), this.bUj.getLocalData().getStatus().shortValue());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ImMessageCenterPojo O;
+        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+            ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
+            ChatMessage chatMessage = (ChatMessage) responseCommitPersonalMessage.getOrginalMessage();
+            int toUserType = responseCommitPersonalMessage.getToUserType();
+            if (socketResponsedMessage.hasError()) {
+                chatMessage.getLocalData().setStatus((short) 2);
+            } else {
+                long msgId = responseCommitPersonalMessage.getMsgId();
+                long recordId = responseCommitPersonalMessage.getRecordId();
+                chatMessage.setMsgId(msgId);
+                chatMessage.setRecordId(recordId);
+                chatMessage.getLocalData().setStatus((short) 3);
+                if (responseCommitPersonalMessage.getToUserType() == 0) {
+                    com.baidu.tieba.im.c.a.iX(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                 } else {
-                    com.baidu.tieba.im.db.k.Xq().a(this.bUj.getUserId(), this.bUj.getToUserId(), String.valueOf(this.bUj.getRecordId()), String.valueOf(this.bUj.getMsgId()), this.bUj.getLocalData().getStatus().shortValue());
+                    com.baidu.tieba.im.c.a.iY(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.bUb);
             }
+            com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, chatMessage.getContent());
+            if (chatMessage instanceof PersonalChatMessage) {
+                b.aay().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+            } else if (chatMessage instanceof OfficialChatMessage) {
+                b.aay().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+            } else {
+                return;
+            }
+            if (chatMessage instanceof PersonalChatMessage) {
+                O = b.aay().O(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 2);
+            } else if (chatMessage instanceof OfficialChatMessage) {
+                O = b.aay().O(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 4);
+            } else {
+                return;
+            }
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new am(this, O, chatMessage, socketResponsedMessage));
+            customMessageTask.setParallel(TiebaIMConfig.getParallel());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+            customMessageTask.setPriority(4);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
         }
-        return null;
     }
 }

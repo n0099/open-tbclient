@@ -4,19 +4,19 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.tbadk.util.m<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bWG;
+    final /* synthetic */ a caF;
     private final /* synthetic */ String val$groupId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(a aVar, String str) {
-        this.bWG = aVar;
+        this.caF = aVar;
         this.val$groupId = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.m
-    /* renamed from: aaB */
+    /* renamed from: abJ */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.c.Xc().b(this.val$groupId, 2, (String) null, 1000);
+        return com.baidu.tieba.im.db.c.Yi().b(this.val$groupId, 2, (String) null, 1000);
     }
 }

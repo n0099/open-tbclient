@@ -1,22 +1,22 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.core.view.i;
+import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements i.a {
-    final /* synthetic */ o SD;
+public class r implements j.a {
+    final /* synthetic */ o Td;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.SD = oVar;
+        this.Td = oVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.i.a
-    public void qG() {
-        this.SD.qD();
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void qp() {
+        this.Td.qm();
     }
 
-    @Override // com.baidu.tbadk.core.view.i.a
-    public void qH() {
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void qq() {
     }
 }

@@ -1,42 +1,70 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.n;
+import com.baidu.tieba.pb.a;
+import com.baidu.tieba.pb.pb.main.dj;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ w cHA;
+public class x implements a.InterfaceC0072a {
+    final /* synthetic */ w cLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.cHA = wVar;
+        this.cLC = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray<Object> sparseArray;
-        NewSubPbActivity newSubPbActivity;
-        NewSubPbActivity newSubPbActivity2;
-        if (view != null && (sparseArray = (SparseArray) view.getTag()) != null) {
-            boolean booleanValue = sparseArray.get(n.f.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.f.tag_should_manage_visible)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(n.f.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.f.tag_user_mute_visible)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(n.f.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.f.tag_should_delete_visible)).booleanValue() : false;
-            if (booleanValue) {
-                if (booleanValue2) {
-                    sparseArray.put(n.f.tag_from, 1);
-                    newSubPbActivity2 = this.cHA.cHi;
-                    newSubPbActivity2.d(sparseArray);
-                    return;
+    @Override // com.baidu.tieba.pb.a.InterfaceC0072a
+    public void t(String str, String str2, String str3) {
+        com.baidu.tieba.pb.a.d dVar;
+        com.baidu.tieba.tbadkCore.data.r rVar;
+        com.baidu.tieba.pb.a.d dVar2;
+        com.baidu.tieba.pb.a.d dVar3;
+        com.baidu.tieba.tbadkCore.data.r rVar2;
+        com.baidu.tieba.tbadkCore.data.r rVar3;
+        com.baidu.tieba.tbadkCore.data.r rVar4;
+        com.baidu.tieba.pb.a.d dVar4;
+        com.baidu.tieba.pb.a.d dVar5;
+        com.baidu.tieba.pb.a.d dVar6;
+        dVar = this.cLC.cLA;
+        if (dVar != null) {
+            rVar = this.cLC.cDb;
+            if (rVar != null) {
+                dVar2 = this.cLC.cLA;
+                if (dVar2.akZ() != null) {
+                    dVar3 = this.cLC.cLA;
+                    if (dVar3.Iv() != null) {
+                        rVar2 = this.cLC.cDb;
+                        if (rVar2.aFA() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                            rVar3 = this.cLC.cDb;
+                            long templateId = rVar3.aFA().getTemplateId();
+                            rVar4 = this.cLC.cDb;
+                            String aEU = rVar4.aFA().aEU();
+                            dVar4 = this.cLC.cLA;
+                            String id = dVar4.akZ().getId();
+                            dVar5 = this.cLC.cLA;
+                            String name = dVar5.akZ().getName();
+                            dVar6 = this.cLC.cLA;
+                            com.baidu.tieba.pb.a.a(templateId, aEU, str, "PB", str2, str3, "tpoint", id, name, dVar6.Iv().getTid());
+                        }
+                    }
                 }
-                this.cHA.ak(view);
-            } else if (booleanValue2) {
-                sparseArray.put(n.f.tag_from, 0);
-                newSubPbActivity = this.cHA.cHi;
-                newSubPbActivity.d(sparseArray);
-            } else if (booleanValue3) {
-                this.cHA.a(((Integer) sparseArray.get(n.f.tag_del_post_type)).intValue(), (String) sparseArray.get(n.f.tag_del_post_id), ((Integer) sparseArray.get(n.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(n.f.tag_del_post_is_self)).booleanValue());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.pb.a.InterfaceC0072a
+    public int akq() {
+        com.baidu.tieba.tbadkCore.data.r rVar;
+        com.baidu.tieba.tbadkCore.data.r rVar2;
+        rVar = this.cLC.cDb;
+        if (dj.e(rVar)) {
+            rVar2 = this.cLC.cDb;
+            ArrayList<com.baidu.tieba.tbadkCore.data.j> aER = rVar2.aFA().aER();
+            if (aER == null) {
+                return 0;
+            }
+            return aER.size();
+        }
+        return 0;
     }
 }

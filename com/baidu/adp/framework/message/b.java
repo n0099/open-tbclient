@@ -7,4 +7,5 @@ public class b {
     public long qA = 0;
     public long qB = 0;
     public int qC = 0;
+    public long qD = 0;
 }

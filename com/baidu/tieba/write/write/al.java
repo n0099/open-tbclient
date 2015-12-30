@@ -7,29 +7,29 @@ import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PostCategoryView postCategoryView;
         InputMethodManager inputMethodManager;
-        EditText aJK;
+        EditText aMf;
         InputMethodManager inputMethodManager2;
-        EditText aJJ;
-        postCategoryView = this.dRf.dQJ;
-        postCategoryView.aII();
-        WriteActivity writeActivity = this.dRf;
-        inputMethodManager = this.dRf.mInputManager;
-        aJK = this.dRf.aJK();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aJK);
-        WriteActivity writeActivity2 = this.dRf;
-        inputMethodManager2 = this.dRf.mInputManager;
-        aJJ = this.dRf.aJJ();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aJJ);
+        EditText aMe;
+        postCategoryView = this.dYD.dYh;
+        postCategoryView.aLd();
+        WriteActivity writeActivity = this.dYD;
+        inputMethodManager = this.dYD.mInputManager;
+        aMf = this.dYD.aMf();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aMf);
+        WriteActivity writeActivity2 = this.dYD;
+        inputMethodManager2 = this.dYD.mInputManager;
+        aMe = this.dYD.aMe();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aMe);
     }
 }

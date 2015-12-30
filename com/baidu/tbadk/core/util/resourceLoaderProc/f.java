@@ -11,18 +11,18 @@ public class f extends a {
         this.width = 0;
         this.height = 0;
         if (z) {
-            this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.d.frs_starheader_photo_width);
+            this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.e.frs_starheader_photo_width);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.d.frs_header_photo_width);
-        this.height = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.d.frs_header_photo_height);
+        this.width = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.e.frs_header_photo_width);
+        this.height = TbadkCoreApplication.m411getInst().getApp().getResources().getDimensionPixelSize(n.e.frs_header_photo_height);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a c = super.c(str, str2, objArr);
-        if (c != null && c.ng() != null && c.ng().isRecycled()) {
+        if (c != null && c.mE() != null && c.mE().isRecycled()) {
             return null;
         }
         return c;
@@ -49,12 +49,12 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vS() {
+    public boolean vC() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vT() {
+    public boolean vD() {
         return false;
     }
 }

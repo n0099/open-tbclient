@@ -10,11 +10,11 @@ import com.baidu.tieba.n;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0052a<T>> auM = null;
-    private c auN = null;
-    private a<T>.b auO = null;
-    public T auP;
-    private final com.baidu.tbadk.img.c auQ;
+    private WeakReference<InterfaceC0052a<T>> awq = null;
+    private c awr = null;
+    private a<T>.b aws = null;
+    public T awt;
+    private final com.baidu.tbadk.img.c awu;
     private String mPath;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
@@ -31,28 +31,28 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.auQ = new com.baidu.tbadk.img.c(str2);
+        this.awu = new com.baidu.tbadk.img.c(str2);
     }
 
     public void i(int i, int i2, int i3, int i4) {
-        this.auQ.i(i, i2, i3, i4);
+        this.awu.i(i, i2, i3, i4);
     }
 
     public void br(boolean z) {
-        if (this.auO == null) {
-            this.auO = new b(this, null);
-            this.auO.bs(z);
-            this.auO.execute(new String[0]);
+        if (this.aws == null) {
+            this.aws = new b(this, null);
+            this.aws.bs(z);
+            this.aws.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements c.a {
-        private boolean auR;
+        private boolean awv;
 
         private b() {
-            this.auR = false;
+            this.awv = false;
         }
 
         /* synthetic */ b(a aVar, b bVar) {
@@ -60,7 +60,7 @@ public class a<T> {
         }
 
         protected void bs(boolean z) {
-            this.auR = z;
+            this.awv = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,12 +68,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: k */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Db();
+            return CQ();
         }
 
-        private ImageUploadResult Db() {
-            a.this.auQ.a(this, null);
-            ImageUploadResult s = a.this.auQ.s(a.this.mPath, this.auR);
+        private ImageUploadResult CQ() {
+            a.this.awu.a(this, null);
+            ImageUploadResult s = a.this.awu.s(a.this.mPath, this.awv);
             publishProgress(100);
             return s;
         }
@@ -97,8 +97,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.auM != null && a.this.auM.get() != null) {
-                ((InterfaceC0052a) a.this.auM.get()).b(numArr[0].intValue(), a.this.auP);
+            if (numArr != null && numArr.length != 0 && a.this.awq != null && a.this.awq.get() != null) {
+                ((InterfaceC0052a) a.this.awq.get()).b(numArr[0].intValue(), a.this.awt);
             }
         }
 
@@ -106,19 +106,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.auN != null) {
+            if (a.this.awr != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(n.i.send_error);
-                a.this.auN.a(a.this.mPath, imageUploadResult);
+                imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(n.j.send_error);
+                a.this.awr.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.auO = null;
-            a.this.auQ.cancel();
+            a.this.aws = null;
+            a.this.awu.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,42 +127,42 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.auO = null;
-            if (a.this.auN != null) {
+            a.this.aws = null;
+            if (a.this.awr != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(n.i.send_error);
+                    imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(n.j.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.auN.a(a.this.mPath, imageUploadResult);
+                a.this.awr.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
     public void a(InterfaceC0052a<T> interfaceC0052a) {
-        this.auM = new WeakReference<>(interfaceC0052a);
+        this.awq = new WeakReference<>(interfaceC0052a);
     }
 
     public void a(c cVar) {
-        this.auN = cVar;
+        this.awr = cVar;
     }
 
     public void setGroupId(String str) {
-        this.auQ.setGroupId(str);
+        this.awu.setGroupId(str);
     }
 
-    public T CZ() {
-        return this.auP;
+    public T CO() {
+        return this.awt;
     }
 
     public void y(T t) {
-        this.auP = t;
+        this.awt = t;
     }
 
-    public void Da() {
-        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.uG().getMsgSPicMaxSize();
-        LocalViewSize.ImageSize uI = LocalViewSize.uG().uI();
-        i(uI.width, uI.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+    public void CP() {
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.uq().getMsgSPicMaxSize();
+        LocalViewSize.ImageSize us = LocalViewSize.uq().us();
+        i(us.width, us.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
     }
 }

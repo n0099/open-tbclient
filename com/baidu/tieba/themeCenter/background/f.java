@@ -9,17 +9,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d dEx;
+    final /* synthetic */ d dMb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i, int i2) {
         super(i, i2);
-        this.dEx = dVar;
+        this.dMb = dVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0045, code lost:
-        r1 = r5.dEx.mU(r0);
+        r1 = r5.dMb.nw(r0);
      */
     @Override // com.baidu.adp.framework.listener.a
     /*
@@ -30,30 +30,30 @@ public class f extends com.baidu.adp.framework.listener.a {
         d.a aVar;
         com.baidu.tieba.themeCenter.dressCenter.k kVar;
         List<c> list;
-        DressItemData mU;
+        DressItemData nw;
         BackgroundGroupActivity backgroundGroupActivity2;
         if (responsedMessage != null) {
             if ((responsedMessage instanceof BackgroundSetHttpResponseMessage) || (responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
                     if (responsedMessage.getError() != 2270014) {
-                        backgroundGroupActivity2 = this.dEx.dEt;
+                        backgroundGroupActivity2 = this.dMb.dLX;
                         backgroundGroupActivity2.showToast(responsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 int propId = ((BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()).getPropId();
-                backgroundGroupActivity = this.dEx.dEt;
-                if (propId == backgroundGroupActivity.getPropId() && mU != null) {
-                    TiebaStatic.log(new av("c10286").r("obj_id", propId).r("obj_type", mU.getFreeUserLevel()));
+                backgroundGroupActivity = this.dMb.dLX;
+                if (propId == backgroundGroupActivity.getPropId() && nw != null) {
+                    TiebaStatic.log(new av("c10286").r("obj_id", propId).r("obj_type", nw.getFreeUserLevel()));
                 }
-                com.baidu.tbadk.core.sharedPref.b.tZ().putInt("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
-                this.dEx.mT(propId);
-                aVar = this.dEx.dEv;
+                com.baidu.tbadk.core.sharedPref.b.tJ().putInt("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
+                this.dMb.nv(propId);
+                aVar = this.dMb.dLZ;
                 int error = responsedMessage.getError();
                 String errorString = responsedMessage.getErrorString();
-                kVar = this.dEx.mRecommand;
-                list = this.dEx.dEu;
+                kVar = this.dMb.mRecommand;
+                list = this.dMb.dLY;
                 aVar.a(error, errorString, kVar, list);
             }
         }

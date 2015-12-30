@@ -5,6 +5,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
+    private String agC = "";
     private int categoryId;
     private int cid;
     private int ctime;
@@ -39,6 +40,10 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
 
     public void setUpdateType(int i) {
         this.updateType = i;
+    }
+
+    public void setYuelaouLocate(String str) {
+        this.agC = str;
     }
 
     public void setLastId(String str) {
@@ -118,12 +123,12 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> pe() {
+    public HashMap<String, Object> oC() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object aa(boolean z) {
+    public Object X(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -143,6 +148,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
+        builder.yuelaou_locate = this.agC;
         if (z) {
             com.baidu.tbadk.util.i.a(builder, true);
         }
@@ -152,12 +158,12 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dr() {
+    public String Dg() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ds() {
+    public boolean Dh() {
         return false;
     }
 

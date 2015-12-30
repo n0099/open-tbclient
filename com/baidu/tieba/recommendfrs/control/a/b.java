@@ -1,55 +1,26 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.card.a.t;
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class b {
-    private com.baidu.tieba.recommendfrs.control.a.a diC;
-    private e diD;
-    private com.baidu.tieba.recommendfrs.data.d diE = new com.baidu.tieba.recommendfrs.data.d();
-    private a diF;
+class b implements Comparator<t> {
+    final /* synthetic */ a doQ;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(long j, String str, int i);
-
-        void a(boolean z, com.baidu.tieba.recommendfrs.data.c cVar, boolean z2, long j);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.doQ = aVar;
     }
 
-    public b(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.diC = new com.baidu.tieba.recommendfrs.control.a.a(tbPageContext);
-        this.diC.setUniqueId(bdUniqueId);
-        this.diD = new e(tbPageContext, this.diE);
-        this.diD.setUniqueId(bdUniqueId);
-        this.diC.a(new c(this));
-        this.diD.a(new d(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public long a(MvcNetMessage<com.baidu.tieba.recommendfrs.data.d, com.baidu.tieba.recommendfrs.data.c> mvcNetMessage) {
-        com.baidu.tieba.recommendfrs.data.d requestData;
-        if (mvcNetMessage == null || (requestData = mvcNetMessage.getRequestData()) == null) {
-            return -1L;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(t tVar, t tVar2) {
+        if (tVar == null || tVar2 == null) {
+            return 0;
         }
-        return requestData.awm();
-    }
-
-    public void bx(long j) {
-        this.diC.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.recommendfrs.data.b(j));
-    }
-
-    public void c(int i, long j, long j2) {
-        if (!this.diD.isLoading()) {
-            this.diE.setPn(i);
-            this.diE.setTagCode(j);
-            this.diE.by(j2);
-            this.diD.DJ();
+        if (tVar.getPosition() > tVar2.getPosition()) {
+            return 1;
         }
-    }
-
-    public void a(a aVar) {
-        this.diF = aVar;
+        return tVar.getPosition() < tVar2.getPosition() ? -1 : 0;
     }
 }

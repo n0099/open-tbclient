@@ -9,20 +9,20 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AbsListView.RecyclerListener {
-    final /* synthetic */ l bgq;
+    final /* synthetic */ l bki;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bgq = lVar;
+        this.bki = lVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(n.f.abstract_voice);
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(n.g.abstract_voice);
         if (playVoiceBnt != null) {
             playVoiceBnt.reset();
         }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(n.f.abstract_img_layout);
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(n.g.abstract_img_layout);
         if (frsCommonImageLayout != null) {
             frsCommonImageLayout.reset();
         }

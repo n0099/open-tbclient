@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l dnj;
+    final /* synthetic */ l duv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(l lVar) {
-        this.dnj = lVar;
+        this.duv = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
         int i2 = 1;
-        eVar = this.dnj.dmV;
-        eVar.bW(i);
+        eVar = this.duv.duh;
+        eVar.bP(i);
         switch (i) {
             case 0:
                 TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10411").r("obj_type", 1));
@@ -35,7 +35,7 @@ public class p implements AdapterView.OnItemClickListener {
                 i2 = 0;
                 break;
         }
-        com.baidu.tbadk.core.m.rh().bs(i2);
-        this.dnj.lZ(i2);
+        com.baidu.tbadk.core.m.qQ().bl(i2);
+        this.duv.mB(i2);
     }
 }

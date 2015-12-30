@@ -4,17 +4,17 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements AbsListView.OnScrollListener {
-    final /* synthetic */ SquareSearchActivity cmr;
+    final /* synthetic */ SquareSearchActivity cqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(SquareSearchActivity squareSearchActivity) {
-        this.cmr = squareSearchActivity;
+        this.cqu = squareSearchActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.k.c(this.cmr.getPageContext().getPageActivity(), absListView);
+            com.baidu.adp.lib.util.k.c(this.cqu.getPageContext().getPageActivity(), absListView);
         }
     }
 

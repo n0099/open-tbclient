@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int biu = 0;
-    public static int biv = 1;
-    public static int biw = 2;
-    private h bix;
+    public static int bmk = 0;
+    public static int bml = 1;
+    public static int bmm = 2;
+    private h bmn;
     private int mState;
 
     public TabItemView(Context context, h hVar, int i) {
         super(context);
-        this.mState = biu;
-        this.bix = hVar;
+        this.mState = bmk;
+        this.bmn = hVar;
         j(context, i);
     }
 
@@ -26,29 +26,29 @@ public class TabItemView extends TextView {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bix != null) {
-            setText(this.bix.name);
+        if (this.bmn != null) {
+            setText(this.bmn.name);
         }
-        wh();
+        vR();
     }
 
     public void setState(int i) {
-        if (this.bix != null && this.bix.bit != null && this.bix.bit.beJ != null && this.bix.bit.beJ.size() > 0) {
-            if (i == biw) {
-                Drawable drawable = as.getDrawable(n.e.icon_toolbar_arrow_up);
+        if (this.bmn != null && this.bmn.bmj != null && this.bmn.bmj.biD != null && this.bmn.bmj.biD.size() > 0) {
+            if (i == bmm) {
+                Drawable drawable = as.getDrawable(n.f.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
             } else {
-                Drawable drawable2 = as.getDrawable(n.e.icon_toolbar_arrow_down);
+                Drawable drawable2 = as.getDrawable(n.f.icon_toolbar_arrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable2, null);
             }
-            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(n.d.ds16));
+            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(n.e.ds16));
         }
-        if (i == biv || i == biw) {
-            as.b(this, n.c.s_actionbar_text_line_color_s, 1);
+        if (i == bml || i == bmm) {
+            as.b(this, n.d.s_actionbar_text_line_color_s, 1);
         } else {
-            as.b(this, n.c.cp_cont_f, 1);
+            as.b(this, n.d.cp_cont_f, 1);
         }
         setGravity(17);
         this.mState = i;
@@ -56,17 +56,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bix == null) {
+        if (this.bmn == null) {
             return -1;
         }
-        return this.bix.bis;
+        return this.bmn.bmi;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void wh() {
+    public void vR() {
         setState(this.mState);
     }
 

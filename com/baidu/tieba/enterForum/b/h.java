@@ -8,9 +8,9 @@ import java.util.List;
 import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class h {
-    private ArrayList<x> aQh = new ArrayList<>();
+    private ArrayList<x> aTZ = new ArrayList<>();
 
-    public void K(List<?> list) {
+    public void L(List<?> list) {
         if (list != null && !list.isEmpty()) {
             a(list, null);
         }
@@ -24,7 +24,7 @@ public class h {
                     if (list.get(i) instanceof Banner) {
                         x xVar = new x();
                         xVar.a((Banner) list.get(i));
-                        this.aQh.add(xVar);
+                        this.aTZ.add(xVar);
                     } else {
                         return;
                     }

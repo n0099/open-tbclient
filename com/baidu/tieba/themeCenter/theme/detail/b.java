@@ -13,11 +13,11 @@ import com.baidu.tieba.themeCenter.SkinProgressView;
 import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ SkinDetailActivity dGJ;
+    final /* synthetic */ SkinDetailActivity dOk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SkinDetailActivity skinDetailActivity) {
-        this.dGJ = skinDetailActivity;
+        this.dOk = skinDetailActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,6 +36,7 @@ class b implements View.OnClickListener {
         com.baidu.tieba.themeCenter.b bVar11;
         com.baidu.tieba.themeCenter.b bVar12;
         com.baidu.tieba.themeCenter.b bVar13;
+        int id;
         com.baidu.tieba.themeCenter.b bVar14;
         com.baidu.tieba.themeCenter.b bVar15;
         com.baidu.tieba.themeCenter.b bVar16;
@@ -47,85 +48,88 @@ class b implements View.OnClickListener {
         com.baidu.tieba.themeCenter.b bVar20;
         com.baidu.tieba.themeCenter.b bVar21;
         if (view instanceof SkinProgressView) {
-            bVar = this.dGJ.mSkinData;
+            bVar = this.dOk.mSkinData;
             if (bVar != null) {
-                bVar2 = this.dGJ.mSkinData;
-                int aFf = bVar2.aFf();
-                if (aFf == 1 || aFf == 5 || aFf == 3) {
-                    if (aFf == 1) {
+                bVar2 = this.dOk.mSkinData;
+                int aHu = bVar2.aHu();
+                if (aHu == 1 || aHu == 5 || aHu == 3) {
+                    if (aHu == 1) {
                         TiebaStatic.log("c10275");
-                    } else if (aFf == 5) {
+                    } else if (aHu == 5) {
                         TiebaStatic.log("c10354");
                     }
-                    bVar3 = this.dGJ.mSkinData;
-                    if (!StringUtils.isNull(bVar3.aFb())) {
-                        bVar4 = this.dGJ.mSkinData;
+                    bVar3 = this.dOk.mSkinData;
+                    if (!StringUtils.isNull(bVar3.aHq())) {
+                        bVar4 = this.dOk.mSkinData;
                         if (com.baidu.tieba.themeCenter.i.f(bVar4)) {
-                            gVar = this.dGJ.dGD;
+                            gVar = this.dOk.dOe;
                             gVar.e(2, 0.0f);
-                            bVar5 = this.dGJ.mSkinData;
-                            bVar5.mP(2);
-                            com.baidu.tbadk.download.b Bm = com.baidu.tbadk.download.b.Bm();
+                            bVar5 = this.dOk.mSkinData;
+                            bVar5.nr(2);
+                            com.baidu.tbadk.download.b Bb = com.baidu.tbadk.download.b.Bb();
                             StringBuilder sb = new StringBuilder();
-                            bVar6 = this.dGJ.mSkinData;
+                            bVar6 = this.dOk.mSkinData;
                             String sb2 = sb.append(bVar6.getId()).toString();
-                            bVar7 = this.dGJ.mSkinData;
-                            String aFb = bVar7.aFb();
-                            bVar8 = this.dGJ.mSkinData;
+                            bVar7 = this.dOk.mSkinData;
+                            String aHq = bVar7.aHq();
+                            bVar8 = this.dOk.mSkinData;
                             String title = bVar8.getTitle();
-                            bVar9 = this.dGJ.mSkinData;
-                            Bm.a(sb2, aFb, title, 0, bVar9.getId(), null, false, true, false);
+                            bVar9 = this.dOk.mSkinData;
+                            Bb.a(sb2, aHq, title, 0, bVar9.getId(), null, false, true, false);
                             return;
                         }
-                        this.dGJ.aFz();
+                        this.dOk.aHO();
                     }
-                } else if (aFf == 2) {
-                    gVar3 = this.dGJ.dGD;
+                } else if (aHu == 2) {
+                    gVar3 = this.dOk.dOe;
                     gVar3.e(3, 0.0f);
-                    bVar19 = this.dGJ.mSkinData;
-                    bVar19.mP(3);
-                    com.baidu.tbadk.download.b Bm2 = com.baidu.tbadk.download.b.Bm();
-                    bVar20 = this.dGJ.mSkinData;
-                    Bm2.eV(bVar20.aFb());
-                    SkinDetailActivity skinDetailActivity = this.dGJ;
-                    bVar21 = this.dGJ.mSkinData;
+                    bVar19 = this.dOk.mSkinData;
+                    bVar19.nr(3);
+                    com.baidu.tbadk.download.b Bb2 = com.baidu.tbadk.download.b.Bb();
+                    bVar20 = this.dOk.mSkinData;
+                    Bb2.eZ(bVar20.aHq());
+                    SkinDetailActivity skinDetailActivity = this.dOk;
+                    bVar21 = this.dOk.mSkinData;
                     skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DELETE_SKIN_TEMP_FILE, bVar21));
-                } else if (aFf == 4) {
+                } else if (aHu == 4) {
                     TiebaStatic.log("c10269");
-                    bVar10 = this.dGJ.mSkinData;
+                    bVar10 = this.dOk.mSkinData;
                     if (com.baidu.tieba.themeCenter.i.f(bVar10)) {
-                        bVar11 = this.dGJ.mSkinData;
+                        bVar11 = this.dOk.mSkinData;
                         if (bVar11.getId() != -1) {
-                            bVar12 = this.dGJ.mSkinData;
-                            if (bVar12.getId() == -2) {
-                                TbadkCoreApplication.m411getInst().setSkinType(1);
-                            } else {
+                            bVar12 = this.dOk.mSkinData;
+                            if (bVar12.getId() != -2) {
+                                bVar13 = this.dOk.mSkinData;
+                                id = bVar13.getId();
                                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                                bVar13 = this.dGJ.mSkinData;
-                                int id = bVar13.getId();
-                                bVar14 = this.dGJ.mSkinData;
-                                m411getInst.setUsedTheme(id, bVar14.aFe());
+                                bVar14 = this.dOk.mSkinData;
+                                int id2 = bVar14.getId();
+                                bVar15 = this.dOk.mSkinData;
+                                m411getInst.setUsedTheme(id2, bVar15.aHt());
                                 av avVar = new av("c10220");
-                                bVar15 = this.dGJ.mSkinData;
-                                av r = avVar.r("obj_id", bVar15.getId());
-                                bVar16 = this.dGJ.mSkinData;
-                                TiebaStatic.log(r.r("obj_type", bVar16.aFe()));
-                                BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-                                bVar17 = this.dGJ.mSkinData;
-                                backgroundSetRequestMessage.setPropId(bVar17.getId());
-                                MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
+                                bVar16 = this.dOk.mSkinData;
+                                av r = avVar.r("obj_id", bVar16.getId());
+                                bVar17 = this.dOk.mSkinData;
+                                TiebaStatic.log(r.r("obj_type", bVar17.aHt()));
+                            } else {
+                                TbadkCoreApplication.m411getInst().setSkinType(1);
+                                id = 125000;
                             }
                         } else {
                             TbadkCoreApplication.m411getInst().setSkinType(0);
+                            id = 125000;
                         }
+                        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
+                        backgroundSetRequestMessage.setPropId(id);
+                        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_THEME_LIST));
-                        gVar2 = this.dGJ.dGD;
+                        gVar2 = this.dOk.dOe;
                         gVar2.e(0, 0.0f);
-                        bVar18 = this.dGJ.mSkinData;
-                        bVar18.mP(0);
+                        bVar18 = this.dOk.mSkinData;
+                        bVar18.nr(0);
                         return;
                     }
-                    this.dGJ.aFz();
+                    this.dOk.aHO();
                 }
             }
         }

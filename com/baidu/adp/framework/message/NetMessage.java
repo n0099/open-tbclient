@@ -5,14 +5,17 @@ import com.baidu.adp.BdUniqueId;
 public abstract class NetMessage {
     private static final String HTTP_DATA_KEY = "data";
     private static final String HTTP_HEADER_KEY = "x_bd_data_type";
+    private static a mGlobalSwitchToHttpStrategy;
     private long clientLogID;
     private int httpCmd;
+    private a mSwitchToHttpStrategy;
     private int socketCmd;
     private BdUniqueId tag;
     private HttpMessage mHttpMessage = null;
     private SocketMessage mSocketMessage = null;
     private NetType mNetType = NetType.AUTO;
     private int socketErrNo = 0;
+    private long socketCostTime = 0;
 
     /* loaded from: classes.dex */
     public enum NetType {
@@ -29,6 +32,11 @@ public abstract class NetMessage {
             System.arraycopy(valuesCustom, 0, netTypeArr, 0, length);
             return netTypeArr;
         }
+    }
+
+    /* loaded from: classes.dex */
+    public interface a {
+        boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }
 
     protected abstract Object encode(boolean z);
@@ -104,5 +112,29 @@ public abstract class NetMessage {
 
     public int getSocketErrNo() {
         return this.socketErrNo;
+    }
+
+    public static void setGlobalSwitchToHttpStrategy(a aVar) {
+        if (aVar != null) {
+            mGlobalSwitchToHttpStrategy = aVar;
+        }
+    }
+
+    public void setSwitchToHttpStrategy(a aVar) {
+        if (aVar != null) {
+            this.mSwitchToHttpStrategy = aVar;
+        }
+    }
+
+    public a getSwitchToHttpStrategy() {
+        return this.mSwitchToHttpStrategy == null ? mGlobalSwitchToHttpStrategy : this.mSwitchToHttpStrategy;
+    }
+
+    public long getSocketCostTime() {
+        return this.socketCostTime;
+    }
+
+    public void setSocketCostTime(long j) {
+        this.socketCostTime = j;
     }
 }

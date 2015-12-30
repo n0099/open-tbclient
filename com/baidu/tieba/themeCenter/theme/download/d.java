@@ -15,17 +15,17 @@ import java.util.List;
 import tbclient.GetUpdateInfo.ThemeSkinUpdateInfo;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private com.baidu.tieba.themeCenter.b dGs;
-    private ArrayList<com.baidu.tieba.themeCenter.b> dHc;
-    private a dHd;
+    private com.baidu.tieba.themeCenter.b dNT;
+    private ArrayList<com.baidu.tieba.themeCenter.b> dOD;
+    private a dOE;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
     private ArrayList<ThemeSkinUpdateInfo> mUpdateList;
-    private boolean dHe = true;
-    private boolean dGX = false;
-    private com.baidu.adp.framework.listener.a aWh = new e(this, CmdConfigHttp.CMD_THEME_LIST_UPDATE, 309013);
-    private CustomMessageListener dGv = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
-    private CustomMessageListener dGw = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
-    private com.baidu.tieba.themeCenter.b dHb = new com.baidu.tieba.themeCenter.b();
+    private boolean dOF = true;
+    private boolean dOy = false;
+    private com.baidu.adp.framework.listener.a bah = new e(this, CmdConfigHttp.CMD_THEME_LIST_UPDATE, 309013);
+    private CustomMessageListener dNW = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
+    private CustomMessageListener dNX = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
+    private com.baidu.tieba.themeCenter.b dOC = new com.baidu.tieba.themeCenter.b();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,18 +33,18 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d() {
-        this.dHb.setTitle(TbadkCoreApplication.m411getInst().getString(n.i.default_theme));
-        this.dHb.setId(-1);
-        this.dGs = new com.baidu.tieba.themeCenter.b();
-        this.dGs.setTitle(TbadkCoreApplication.m411getInst().getString(n.i.night_theme));
-        this.dGs.setId(-2);
-        CQ();
-        registerListener(this.aWh);
-        registerListener(this.dGv);
-        registerListener(this.dGw);
+        this.dOC.setTitle(TbadkCoreApplication.m411getInst().getString(n.j.default_theme));
+        this.dOC.setId(-1);
+        this.dNT = new com.baidu.tieba.themeCenter.b();
+        this.dNT.setTitle(TbadkCoreApplication.m411getInst().getString(n.j.night_theme));
+        this.dNT.setId(-2);
+        CF();
+        registerListener(this.bah);
+        registerListener(this.dNW);
+        registerListener(this.dNX);
     }
 
-    private void CQ() {
+    private void CF() {
         com.baidu.tieba.tbadkCore.a.a.a(309013, SkinUpdateSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309013, CmdConfigHttp.CMD_THEME_LIST_UPDATE, TbConfig.THEME_LIST_UPDATE, SkinUpdateHttpResponsedMessage.class, false, false, false, false);
     }
@@ -62,49 +62,49 @@ public class d extends com.baidu.adp.base.e<d> {
         return false;
     }
 
-    public void hv(boolean z) {
-        this.dGX = z;
-        if (this.dHd != null) {
-            aFy();
-            this.dHd.a(this.dHe, this.mThemeList);
+    public void hE(boolean z) {
+        this.dOy = z;
+        if (this.dOE != null) {
+            aHN();
+            this.dOE.a(this.dOF, this.mThemeList);
         }
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.dGv);
-        MessageManager.getInstance().unRegisterListener(this.aWh);
-        MessageManager.getInstance().unRegisterListener(this.dGw);
+        MessageManager.getInstance().unRegisterListener(this.dNW);
+        MessageManager.getInstance().unRegisterListener(this.bah);
+        MessageManager.getInstance().unRegisterListener(this.dNX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFy() {
-        if (this.dHc == null || this.dHc.size() <= 0) {
-            this.dHe = false;
-            this.dGX = false;
+    public void aHN() {
+        if (this.dOD == null || this.dOD.size() <= 0) {
+            this.dOF = false;
+            this.dOy = false;
             return;
         }
-        if (this.dHc.size() > 2) {
-            this.dHe = true;
+        if (this.dOD.size() > 2) {
+            this.dOF = true;
         } else {
-            this.dHe = false;
-            this.dGX = false;
+            this.dOF = false;
+            this.dOy = false;
         }
-        Iterator<com.baidu.tieba.themeCenter.b> it = this.dHc.iterator();
+        Iterator<com.baidu.tieba.themeCenter.b> it = this.dOD.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.themeCenter.b next = it.next();
             if (next != null) {
-                next.mP(i.a(next, this.mUpdateList));
-                if (!this.dGX) {
-                    next.hZ(8);
+                next.nr(i.a(next, this.mUpdateList));
+                if (!this.dOy) {
+                    next.iz(8);
                 } else {
-                    next.hZ(7);
+                    next.iz(7);
                 }
             }
         }
-        this.mThemeList = i.bQ(this.dHc);
+        this.mThemeList = i.bT(this.dOD);
     }
 
     public void a(a aVar) {
-        this.dHd = aVar;
+        this.dOE = aVar;
     }
 }

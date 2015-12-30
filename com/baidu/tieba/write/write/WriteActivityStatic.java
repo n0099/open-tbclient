@@ -9,6 +9,6 @@ public class WriteActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.m411getInst().RegisterIntent(WriteVoteActivityConfig.class, WriteVoteActivity.class);
-        com.baidu.tieba.tbadkCore.location.d.aDP();
+        com.baidu.tieba.tbadkCore.location.d.aGc();
     }
 }

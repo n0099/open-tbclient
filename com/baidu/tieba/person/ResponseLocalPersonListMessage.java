@@ -4,21 +4,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
-    private com.baidu.tieba.person.data.n data;
+    private com.baidu.tieba.person.data.p data;
 
     public ResponseLocalPersonListMessage() {
         super(CmdConfigCustom.CMD_READ_PERSON_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.person.data.n' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.person.data.p' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
         return this.data;
     }
 
-    public void setData(com.baidu.tieba.person.data.n nVar) {
-        this.data = nVar;
+    public void setData(com.baidu.tieba.person.data.p pVar) {
+        this.data = pVar;
     }
 }

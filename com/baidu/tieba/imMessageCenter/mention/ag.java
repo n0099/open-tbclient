@@ -1,38 +1,69 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ag extends HttpMessageListener {
-    final /* synthetic */ af ceG;
+public class ag {
+    private static ag ciF = null;
+    private final HttpMessageListener ciG = new ah(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long ciH = 0;
+    private final Handler mHandler = new ai(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(af afVar, int i) {
-        super(i);
-        this.ceG = afVar;
+    static {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
-            ae msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.a.xL() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.yg().yi()) {
-                if (msgData.adv() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgBookmark(msgData.adv());
-                }
-                if (msgData.adt() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yg().yl()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgAtme(msgData.adt());
-                }
-                if (msgData.ads() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yg().yn()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgReplyme(msgData.ads());
-                }
-                if (msgData.adu() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yg().ym()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgFans(msgData.adu());
-                }
+    public static synchronized ag aeE() {
+        ag agVar;
+        synchronized (ag.class) {
+            if (ciF == null) {
+                ciF = new ag();
             }
+            agVar = ciF;
         }
+        return agVar;
+    }
+
+    public ag() {
+        MessageManager.getInstance().registerListener(this.ciG);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aeF() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean iQ() {
+        return com.baidu.adp.lib.util.i.iQ();
+    }
+
+    public void aeG() {
+        this.ciH = 0L;
+        destroy();
+        start();
+    }
+
+    public void start() {
+        long currentTimeMillis = System.currentTimeMillis() - this.ciH;
+        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
+        if (j >= 600000) {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
+        } else {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
+        }
+        this.ciH = System.currentTimeMillis();
+    }
+
+    public void destroy() {
+        this.mHandler.removeMessages(1);
     }
 }

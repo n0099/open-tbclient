@@ -10,6 +10,8 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_BACKGROUND_ITEM_DIALOG = 13;
     public static final int FROM_BACKGROUND_LIST_PAGE = 12;
     public static final int FROM_BUBBLE = 7;
+    public static final int FROM_BUBBLE_ITEM_CLICK = 18;
+    public static final int FROM_BUBBLE_RECOMMEND_CLCK = 19;
     public static final int FROM_DRESSUP_CENTER = 8;
     public static final int FROM_EXP_SPEED = 2;
     public static final int FROM_MEMBERCENTER_BOTTOM = 16;
@@ -130,5 +132,15 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public void setSceneId(String str) {
         getIntent().putExtra("scene_id", str);
+    }
+
+    public void setStType(String str) {
+        getIntent().putExtra("st_type", str);
+    }
+
+    public void setFrom(int i) {
+        if (i > 0) {
+            getIntent().putExtra("from", i);
+        }
     }
 }

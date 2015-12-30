@@ -8,8 +8,8 @@ public class LoadHistoryMessage extends CustomMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bUA;
-        public String bUz;
+        public String bYn;
+        public String bYo;
         public String id;
         public int limit;
     }

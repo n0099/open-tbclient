@@ -1,19 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 /* loaded from: classes.dex */
-class n implements q.a {
-    final /* synthetic */ j cQY;
+class n implements r.a {
+    final /* synthetic */ j cVA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.cQY = jVar;
+        this.cVA = jVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.q.a
+    @Override // com.baidu.tbadk.core.view.r.a
     public void onListPullRefresh(boolean z) {
         g gVar;
-        gVar = this.cQY.cQP;
-        gVar.fH(true);
+        gVar = this.cVA.cVr;
+        gVar.fG(true);
     }
 }

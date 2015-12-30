@@ -1,29 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import android.graphics.drawable.Drawable;
+import android.text.Html;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cn extends CustomMessageListener {
-    final /* synthetic */ FrsMoreFeedForumsActivity bdj;
+public class cn implements Html.ImageGetter {
+    final /* synthetic */ cg bhg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
-        super(i);
-        this.bdj = frsMoreFeedForumsActivity;
+    public cn(cg cgVar) {
+        this.bhg = cgVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        co coVar;
-        List<FeedForumData> list;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
-            coVar = this.bdj.bdh;
-            list = this.bdj.bbP;
-            coVar.a(list, (com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
-        }
+    @Override // android.text.Html.ImageGetter
+    public Drawable getDrawable(String str) {
+        Drawable drawable = this.bhg.beB.getResources().getDrawable(Integer.parseInt(str));
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        return drawable;
     }
 }

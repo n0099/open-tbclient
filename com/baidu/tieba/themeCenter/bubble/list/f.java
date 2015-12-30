@@ -9,13 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ e dFQ;
+    final /* synthetic */ e dNs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i, int i2) {
         super(i, i2);
-        this.dFQ = eVar;
+        this.dNs = eVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -36,52 +36,52 @@ public class f extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof BubbleListHttpResponseMessage) || (responsedMessage instanceof BubbleListSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    e eVar = this.dFQ;
-                    i2 = eVar.MZ;
-                    eVar.MZ = i2 - 1;
+                    e eVar = this.dNs;
+                    i2 = eVar.Np;
+                    eVar.Np = i2 - 1;
                 } else {
                     if (responsedMessage instanceof BubbleListHttpResponseMessage) {
                         BubbleListHttpResponseMessage bubbleListHttpResponseMessage = (BubbleListHttpResponseMessage) responsedMessage;
-                        this.dFQ.mRecommand = bubbleListHttpResponseMessage.getRecommand();
-                        this.dFQ.dFN = bubbleListHttpResponseMessage.getBubbleList();
-                        this.dFQ.hasMore = bubbleListHttpResponseMessage.hasMore();
-                        this.dFQ.isDefault = bubbleListHttpResponseMessage.isDefault();
+                        this.dNs.mRecommand = bubbleListHttpResponseMessage.getRecommand();
+                        this.dNs.dNp = bubbleListHttpResponseMessage.getBubbleList();
+                        this.dNs.hasMore = bubbleListHttpResponseMessage.hasMore();
+                        this.dNs.isDefault = bubbleListHttpResponseMessage.isDefault();
                     } else if (responsedMessage instanceof BubbleListSocketResponseMessage) {
                         BubbleListSocketResponseMessage bubbleListSocketResponseMessage = (BubbleListSocketResponseMessage) responsedMessage;
-                        this.dFQ.mRecommand = bubbleListSocketResponseMessage.getRecommand();
-                        this.dFQ.dFN = bubbleListSocketResponseMessage.getBubbleList();
-                        this.dFQ.hasMore = bubbleListSocketResponseMessage.hasMore();
-                        this.dFQ.isDefault = bubbleListSocketResponseMessage.isDefault();
+                        this.dNs.mRecommand = bubbleListSocketResponseMessage.getRecommand();
+                        this.dNs.dNp = bubbleListSocketResponseMessage.getBubbleList();
+                        this.dNs.hasMore = bubbleListSocketResponseMessage.hasMore();
+                        this.dNs.isDefault = bubbleListSocketResponseMessage.isDefault();
                     }
-                    list = this.dFQ.dFO;
+                    list = this.dNs.dNq;
                     if (list == null) {
-                        this.dFQ.dFO = new ArrayList();
+                        this.dNs.dNq = new ArrayList();
                     }
-                    i = this.dFQ.MZ;
+                    i = this.dNs.Np;
                     if (i == 1) {
-                        list5 = this.dFQ.dFO;
+                        list5 = this.dNs.dNq;
                         list5.clear();
                         DressItemData dressItemData = new DressItemData();
                         dressItemData.setPropsId(0);
-                        z = this.dFQ.isDefault;
+                        z = this.dNs.isDefault;
                         dressItemData.setInUse(z);
-                        list6 = this.dFQ.dFO;
+                        list6 = this.dNs.dNq;
                         list6.add(dressItemData);
                     }
-                    list2 = this.dFQ.dFN;
+                    list2 = this.dNs.dNp;
                     if (list2 != null) {
-                        list3 = this.dFQ.dFO;
-                        list4 = this.dFQ.dFN;
+                        list3 = this.dNs.dNq;
+                        list4 = this.dNs.dNp;
                         list3.addAll(list4);
                     }
                 }
-                aVar = this.dFQ.dFP;
+                aVar = this.dNs.dNr;
                 if (aVar != null) {
-                    aVar2 = this.dFQ.dFP;
+                    aVar2 = this.dNs.dNr;
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
-                    kVar = this.dFQ.mRecommand;
-                    list7 = this.dFQ.dFO;
+                    kVar = this.dNs.mRecommand;
+                    list7 = this.dNs.dNq;
                     aVar2.a(error, errorString, kVar, list7);
                 }
             }

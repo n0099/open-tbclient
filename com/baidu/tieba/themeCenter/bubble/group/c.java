@@ -7,15 +7,15 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 import tbclient.ThemeBgProp;
 /* loaded from: classes.dex */
 public class c {
-    private List<DressItemData> dFC;
+    private List<DressItemData> dNe;
     private String groupName;
 
     public void a(ThemeBubbleInMain themeBubbleInMain) {
         if (themeBubbleInMain != null) {
             this.groupName = themeBubbleInMain.bubble_category;
-            this.dFC = new ArrayList();
+            this.dNe = new ArrayList();
             for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-                this.dFC.add(new DressItemData(themeBgProp));
+                this.dNe.add(new DressItemData(themeBgProp));
             }
         }
     }
@@ -25,6 +25,6 @@ public class c {
     }
 
     public List<DressItemData> getBubbleList() {
-        return this.dFC;
+        return this.dNe;
     }
 }

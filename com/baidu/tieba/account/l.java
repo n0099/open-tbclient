@@ -1,23 +1,16 @@
 package com.baidu.tieba.account;
 
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
+import com.baidu.tbadk.TiebaDatabase;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.tbadkCore.e.b {
-    final /* synthetic */ AccountRestoreActivity aGA;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(AccountRestoreActivity accountRestoreActivity) {
-        this.aGA = accountRestoreActivity;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.e.b
-    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (TextUtils.equals("AccountJsBridge", str) && TextUtils.equals("exit", str2)) {
-            jsPromptResult.confirm();
-            this.aGA.exitPage();
-            return true;
+public class l {
+    public static void deleteAccountAllInfo(String str) {
+        if (str != null) {
+            com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.a("delete from cash_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from mark_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from draft_box where account=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from account_data where id=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from setting where account=?", new Object[]{str});
         }
-        return false;
     }
 }

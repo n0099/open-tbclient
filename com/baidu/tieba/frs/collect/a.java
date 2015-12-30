@@ -7,45 +7,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<u> SS = new ArrayList<>();
-    MyCollectFrsActivity bfn;
-    private int bgc;
+    private ArrayList<u> Ts = new ArrayList<>();
+    private int bjU;
+    MyCollectFrsActivity bjg;
     private long mForumId;
 
     public a(MyCollectFrsActivity myCollectFrsActivity, long j) {
-        this.bfn = myCollectFrsActivity;
+        this.bjg = myCollectFrsActivity;
         this.mForumId = j;
     }
 
-    public int Or() {
-        return this.bgc;
+    public int OJ() {
+        return this.bjU;
     }
 
-    public void gn(int i) {
-        this.bgc = i;
+    public void gg(int i) {
+        this.bjU = i;
     }
 
     public void firstLoadData() {
-        this.bgc = 0;
+        this.bjU = 0;
         Y(0, 0);
     }
 
-    public void JU() {
+    public void Kn() {
         Y(0, 0);
     }
 
-    public void Os() {
-        Y(this.bgc, 1);
+    public void OK() {
+        Y(this.bjU, 1);
     }
 
     private void Y(int i, int i2) {
-        this.bgc = i;
+        this.bjU = i;
         GetUserForumStoreRequestMessage getUserForumStoreRequestMessage = new GetUserForumStoreRequestMessage();
         getUserForumStoreRequestMessage.setType(i2);
         getUserForumStoreRequestMessage.setUserId(getUserId());
         getUserForumStoreRequestMessage.setForumId(this.mForumId);
-        getUserForumStoreRequestMessage.setOffset(this.bgc);
-        this.bfn.sendMessage(getUserForumStoreRequestMessage);
+        getUserForumStoreRequestMessage.setOffset(this.bjU);
+        this.bjg.sendMessage(getUserForumStoreRequestMessage);
     }
 
     public long getUserId() {
@@ -57,17 +57,17 @@ public class a {
         return Long.valueOf(currentAccount).longValue();
     }
 
-    public ArrayList<u> qJ() {
-        return this.SS;
+    public ArrayList<u> qs() {
+        return this.Ts;
     }
 
     public void setData(List<u> list) {
         if (list != null && !list.isEmpty()) {
-            this.SS.addAll(list);
+            this.Ts.addAll(list);
         }
     }
 
     public void clearData() {
-        this.SS.clear();
+        this.Ts.clear();
     }
 }

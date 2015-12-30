@@ -17,67 +17,67 @@ import com.baidu.tieba.n;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.a.a cQt;
-    private static String cQu;
-    public TextView aLY;
-    public TextView aYC;
-    protected final LinearLayout cQp;
-    private final LinearLayout cQq;
-    protected final ColumnLayout cQr;
-    protected final ColumnLayout cQs;
-    private InterfaceC0082a cQv;
-    public LinearLayout cQw;
-    public HeadImageView cQx;
-    public TextView cQy;
-    public TextView cQz;
-    private final LinearLayout ccA;
-    private int cvt;
+    private static com.baidu.adp.widget.a.a cUV;
+    private static String cUW;
+    public TextView aNz;
+    public TextView agy;
+    protected final LinearLayout cUR;
+    private final LinearLayout cUS;
+    protected final ColumnLayout cUT;
+    protected final ColumnLayout cUU;
+    private InterfaceC0077a cUX;
+    public LinearLayout cUY;
+    public HeadImageView cUZ;
+    public TextView cVa;
+    public TextView cVb;
+    private final LinearLayout cgA;
+    private int czt;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.person.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0082a {
-        void am(View view);
+    public interface InterfaceC0077a {
+        void as(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.cQw = (LinearLayout) view.findViewById(n.f.top_line);
-        this.cQx = (HeadImageView) view.findViewById(n.f.portrait);
-        this.cQy = (TextView) view.findViewById(n.f.username);
-        this.aYC = (TextView) view.findViewById(n.f.reply_time);
-        this.aLY = (TextView) view.findViewById(n.f.forum_name);
-        this.cQz = (TextView) view.findViewById(n.f.reply_count);
-        this.cQq = (LinearLayout) view.findViewById(n.f.item_content);
-        this.cQr = (ColumnLayout) view.findViewById(n.f.item_header);
-        this.cQs = (ColumnLayout) view.findViewById(n.f.item_footer);
-        this.ccA = (LinearLayout) view.findViewById(n.f.person_thread);
-        this.cQp = (LinearLayout) view.findViewById(n.f.person_child);
-        this.cvt = com.baidu.adp.lib.util.k.dip2px(view.getContext(), 42.0f);
-        if (this.cQq != null) {
-            this.cQq.setOnClickListener(this);
+        this.cUY = (LinearLayout) view.findViewById(n.g.top_line);
+        this.cUZ = (HeadImageView) view.findViewById(n.g.portrait);
+        this.cVa = (TextView) view.findViewById(n.g.username);
+        this.agy = (TextView) view.findViewById(n.g.reply_time);
+        this.aNz = (TextView) view.findViewById(n.g.forum_name);
+        this.cVb = (TextView) view.findViewById(n.g.reply_count);
+        this.cUS = (LinearLayout) view.findViewById(n.g.item_content);
+        this.cUT = (ColumnLayout) view.findViewById(n.g.item_header);
+        this.cUU = (ColumnLayout) view.findViewById(n.g.item_footer);
+        this.cgA = (LinearLayout) view.findViewById(n.g.person_thread);
+        this.cUR = (LinearLayout) view.findViewById(n.g.person_child);
+        this.czt = com.baidu.adp.lib.util.k.dip2px(view.getContext(), 42.0f);
+        if (this.cUS != null) {
+            this.cUS.setOnClickListener(this);
         }
-        this.cQx.setOnClickListener(this);
-        this.cQy.setOnClickListener(this);
-        this.aLY.setOnClickListener(this);
-        this.cQz.setOnClickListener(this);
-        this.cQr.setOnClickListener(this);
-        this.cQs.setOnClickListener(this);
+        this.cUZ.setOnClickListener(this);
+        this.cVa.setOnClickListener(this);
+        this.aNz.setOnClickListener(this);
+        this.cVb.setOnClickListener(this);
+        this.cUT.setOnClickListener(this);
+        this.cUU.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == n.f.forum_name) {
+        if (view.getId() == n.g.forum_name) {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.cQv != null) {
-            this.cQv.am(view);
+        } else if (this.cUX != null) {
+            this.cUX.as(view);
         }
     }
 
-    public void a(InterfaceC0082a interfaceC0082a) {
-        this.cQv = interfaceC0082a;
+    public void a(InterfaceC0077a interfaceC0077a) {
+        this.cUX = interfaceC0077a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00cc */
@@ -174,41 +174,41 @@ class a implements View.OnClickListener {
             }
         }
         if (str5 != null) {
-            this.cQy.setText(str4);
-            this.aYC.setText(str3);
-            this.aLY.setText(str2);
-            this.aLY.setTag(str2);
-            this.cQz.setText(str6);
-            this.aLY.setOnClickListener(this);
-            eE(str);
-            if (this.cQq != null) {
-                this.cQq.setTag(strArr);
+            this.cVa.setText(str4);
+            this.agy.setText(str3);
+            this.aNz.setText(str2);
+            this.aNz.setTag(str2);
+            this.cVb.setText(str6);
+            this.aNz.setOnClickListener(this);
+            eH(str);
+            if (this.cUS != null) {
+                this.cUS.setTag(strArr);
             }
-            this.cQr.setTag(strArr);
-            this.cQs.setTag(strArr);
+            this.cUT.setTag(strArr);
+            this.cUU.setTag(strArr);
         }
     }
 
-    private void eE(String str) {
-        if (cQu != null && !cQu.equals(str)) {
-            cQt = null;
+    private void eH(String str) {
+        if (cUW != null && !cUW.equals(str)) {
+            cUV = null;
         }
-        if (cQt != null) {
-            this.cQx.setImageBitmap(cQt.ng());
-            cQu = str;
+        if (cUV != null) {
+            this.cUZ.setImageBitmap(cUV.mE());
+            cUW = str;
             return;
         }
-        this.cQx.a(str, 12, this.cvt, this.cvt, false);
+        this.cUZ.a(str, 12, this.czt, this.czt, false);
     }
 
-    public void cV(int i) {
-        as.b(this.aLY, n.c.cp_cont_d, 1);
-        as.b(this.aYC, n.c.cp_cont_d, 1);
-        as.b(this.cQy, n.c.cp_cont_f, 1);
-        as.i(this.ccA, n.c.cp_bg_line_c);
-        as.i(this.cQp, n.e.daily_recommend_item_selector);
+    public void cP(int i) {
+        as.b(this.aNz, n.d.cp_cont_d, 1);
+        as.b(this.agy, n.d.cp_cont_d, 1);
+        as.b(this.cVa, n.d.cp_cont_f, 1);
+        as.i(this.cgA, n.d.cp_bg_line_c);
+        as.i(this.cUR, n.f.daily_recommend_item_selector);
         TbadkCoreApplication.m411getInst().getSkinType();
-        this.cQz.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        as.b(this.cQz, n.c.cp_link_tip_c, 1);
+        this.cVb.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        as.b(this.cVb, n.d.cp_link_tip_c, 1);
     }
 }

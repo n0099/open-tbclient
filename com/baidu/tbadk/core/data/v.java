@@ -5,19 +5,19 @@ import org.json.JSONObject;
 import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class v {
-    private String VU;
-    private String VV;
-    private IconData VW = new IconData();
+    private String Wu;
+    private String Wv;
+    private IconData Ww = new IconData();
     private boolean isAdded;
     private String name;
     private int sex;
     private long userId;
 
-    public void ss() {
+    public void sb() {
         this.isAdded = true;
     }
 
-    public boolean st() {
+    public boolean sc() {
         return this.isAdded;
     }
 
@@ -25,14 +25,14 @@ public class v {
         if (userInfo != null) {
             this.isAdded = false;
             this.userId = userInfo.user_id.longValue();
-            this.VU = userInfo.portrait;
+            this.Wu = userInfo.portrait;
             this.name = userInfo.user_name;
             this.sex = userInfo.gender.intValue();
-            this.VV = userInfo.intro;
+            this.Wv = userInfo.intro;
             if (userInfo.tshow_icon != null) {
-                this.VW.setIcon(userInfo.tshow_icon.icon);
-                this.VW.setIconName(userInfo.tshow_icon.name);
-                this.VW.setUrl(userInfo.tshow_icon.url);
+                this.Ww.setIcon(userInfo.tshow_icon.icon);
+                this.Ww.setIconName(userInfo.tshow_icon.name);
+                this.Ww.setUrl(userInfo.tshow_icon.url);
             }
         }
     }
@@ -41,39 +41,39 @@ public class v {
         return this.userId;
     }
 
-    public String su() {
-        return this.VU;
+    public String sd() {
+        return this.Wu;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public boolean sv() {
+    public boolean se() {
         return 2 == this.sex;
     }
 
-    public String sw() {
-        return this.VV;
+    public String sf() {
+        return this.Wv;
     }
 
-    public IconData sx() {
-        return this.VW;
+    public IconData sg() {
+        return this.Ww;
     }
 
     public void h(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.userId = jSONObject.optLong("user_id");
             this.name = jSONObject.optString("user_name");
-            this.VU = jSONObject.optString("portait");
+            this.Wu = jSONObject.optString("portait");
             this.sex = jSONObject.optInt("gender");
             this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.VV = jSONObject.optString("intro");
+            this.Wv = jSONObject.optString("intro");
             JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
             if (optJSONObject != null) {
-                this.VW.setIcon(optJSONObject.optString("icon"));
-                this.VW.setIconName(optJSONObject.optString("user_name"));
-                this.VW.setUrl(optJSONObject.optString("url"));
+                this.Ww.setIcon(optJSONObject.optString("icon"));
+                this.Ww.setIconName(optJSONObject.optString("user_name"));
+                this.Ww.setUrl(optJSONObject.optString("url"));
             }
         }
     }

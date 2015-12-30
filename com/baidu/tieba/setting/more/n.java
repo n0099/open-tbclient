@@ -6,38 +6,38 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l dnj;
+    final /* synthetic */ l duv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.dnj = lVar;
+        this.duv = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
-        eVar = this.dnj.dmU;
-        eVar.bW(i);
+        eVar = this.duv.dug;
+        eVar.bP(i);
         switch (i) {
             case 0:
-                com.baidu.tbadk.core.m.rh().ag(true);
-                com.baidu.tbadk.core.m.rh().bt(0);
+                com.baidu.tbadk.core.m.qQ().ad(true);
+                com.baidu.tbadk.core.m.qQ().bm(0);
                 break;
             case 1:
-                com.baidu.tbadk.core.m.rh().ag(true);
-                com.baidu.tbadk.core.m.rh().bt(1);
+                com.baidu.tbadk.core.m.qQ().ad(true);
+                com.baidu.tbadk.core.m.qQ().bm(1);
                 TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10415").r("obj_type", 1));
                 break;
             case 2:
-                com.baidu.tbadk.core.m.rh().ag(true);
-                com.baidu.tbadk.core.m.rh().bt(2);
+                com.baidu.tbadk.core.m.qQ().ad(true);
+                com.baidu.tbadk.core.m.qQ().bm(2);
                 TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10415").r("obj_type", 3));
                 break;
             case 3:
-                com.baidu.tbadk.core.m.rh().ag(false);
+                com.baidu.tbadk.core.m.qQ().ad(false);
                 break;
         }
-        this.dnj.axR();
-        this.dnj.axQ();
+        this.duv.azX();
+        this.duv.azW();
     }
 }

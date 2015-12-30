@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class bk implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0064, code lost:
@@ -41,51 +41,51 @@ class bk implements View.OnFocusChangeListener {
         WriteData writeData3;
         View view2;
         TextView textView2;
-        editText = this.dRf.dNn;
+        editText = this.dYD.dUM;
         if (view != editText) {
-            view2 = this.dRf.mBack;
+            view2 = this.dYD.mBack;
             if (view != view2) {
-                textView2 = this.dRf.dNs;
+                textView2 = this.dYD.dUR;
             }
         }
         if (!z) {
-            editText2 = this.dRf.dNn;
+            editText2 = this.dYD.dUM;
             if (view == editText2) {
-                textView = this.dRf.dNt;
+                textView = this.dYD.dUS;
                 textView.setVisibility(0);
             }
         } else {
-            this.dRf.dRc = true;
-            this.dRf.aJs();
-            kVar = this.dRf.aqK;
-            kVar.zY();
-            Activity activity = this.dRf.getActivity();
-            editText3 = this.dRf.dNn;
+            this.dYD.dYA = true;
+            this.dYD.aLN();
+            kVar = this.dYD.aso;
+            kVar.zK();
+            Activity activity = this.dYD.getActivity();
+            editText3 = this.dYD.dUM;
             com.baidu.adp.lib.util.k.d(activity, editText3);
         }
-        editText4 = this.dRf.dNr;
+        editText4 = this.dYD.dUQ;
         if (view == editText4) {
             if (!z) {
-                writeData = this.dRf.dBW;
+                writeData = this.dYD.dJy;
                 if (writeData.getType() == 0) {
-                    editText5 = this.dRf.dNr;
-                    editText5.setHint(n.i.content);
+                    editText5 = this.dYD.dUQ;
+                    editText5.setHint(n.j.content);
                     return;
                 }
                 return;
             }
-            this.dRf.dRc = false;
-            writeData2 = this.dRf.dBW;
+            this.dYD.dYA = false;
+            writeData2 = this.dYD.dJy;
             if (writeData2.getType() != 0) {
-                writeData3 = this.dRf.dBW;
+                writeData3 = this.dYD.dJy;
             }
-            editText6 = this.dRf.dNr;
+            editText6 = this.dYD.dUQ;
             editText6.setHint((CharSequence) null);
-            this.dRf.aJs();
-            kVar2 = this.dRf.aqK;
-            kVar2.zY();
-            Activity activity2 = this.dRf.getActivity();
-            editText7 = this.dRf.dNr;
+            this.dYD.aLN();
+            kVar2 = this.dYD.aso;
+            kVar2.zK();
+            Activity activity2 = this.dYD.getActivity();
+            editText7 = this.dYD.dUQ;
             com.baidu.adp.lib.util.k.d(activity2, editText7);
         }
     }

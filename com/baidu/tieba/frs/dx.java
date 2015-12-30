@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class dx extends bm<com.baidu.tbadk.core.data.w, dy> implements View.OnClickListener, PhotoLiveCardView.b {
+public class dx extends bp<com.baidu.tbadk.core.data.w, dy> implements View.OnClickListener, PhotoLiveCardView.b {
     /* JADX INFO: Access modifiers changed from: protected */
     public dx(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
@@ -25,49 +25,49 @@ public class dx extends bm<com.baidu.tbadk.core.data.w, dy> implements View.OnCl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: v */
+    /* renamed from: A */
     public dy a(ViewGroup viewGroup) {
-        return new dy(LayoutInflater.from(this.mContext).inflate(n.g.frs_item_single_photolivecard, viewGroup, false));
+        return new dy(LayoutInflater.from(this.mContext).inflate(n.h.frs_item_single_photolivecard, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, dy dyVar) {
         super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) dyVar);
-        if (dyVar.afY != this.mSkinType) {
-            com.baidu.tbadk.i.a.a(this.aXA.getPageContext(), view);
-            dyVar.afY = this.mSkinType;
+        if (dyVar.ahf != this.mSkinType) {
+            com.baidu.tbadk.i.a.a(this.bbA.getPageContext(), view);
+            dyVar.ahf = this.mSkinType;
         }
-        PhotoLiveCardData sy = wVar.sy();
-        if (2 == b(sy)) {
-            dyVar.beA.setShowContent(true);
-            dyVar.beA.setShowCover(false);
-            dyVar.beA.setShowExpression(false);
+        PhotoLiveCardData sh = wVar.sh();
+        if (2 == b(sh)) {
+            dyVar.biu.setShowContent(true);
+            dyVar.biu.setShowCover(false);
+            dyVar.biu.setShowExpression(false);
         } else {
-            dyVar.beA.setShowContent(false);
-            dyVar.beA.setShowCover(true);
-            dyVar.beA.setShowExpression(true);
+            dyVar.biu.setShowContent(false);
+            dyVar.biu.setShowCover(true);
+            dyVar.biu.setShowExpression(true);
         }
-        dyVar.beA.setChooseStyle(sy.getShowStyle());
-        dyVar.beA.setShowLiveIcon(true);
-        dyVar.beA.setHeadPaddingTop(n.d.ds24);
-        dyVar.beA.setPortraitClicklistener(this);
-        dyVar.beA.setShowImage(com.baidu.tbadk.core.m.rh().rn());
-        if (sy.isShowDiffViewInSameAdapter()) {
-            dyVar.beA.setShowBottom(true);
-            dyVar.beA.setShowRefreshTimeInButtom(true);
-            dyVar.beA.setShowHeadLiveIcon(true);
-            dyVar.beA.setShowRefreshTimeInHead(false);
-            dyVar.beA.setContentPaddingBottom(0);
+        dyVar.biu.setChooseStyle(sh.getShowStyle());
+        dyVar.biu.setShowLiveIcon(true);
+        dyVar.biu.setHeadPaddingTop(n.e.ds24);
+        dyVar.biu.setPortraitClicklistener(this);
+        dyVar.biu.setShowImage(com.baidu.tbadk.core.m.qQ().qW());
+        if (sh.isShowDiffViewInSameAdapter()) {
+            dyVar.biu.setShowBottom(true);
+            dyVar.biu.setShowRefreshTimeInButtom(true);
+            dyVar.biu.setShowHeadLiveIcon(true);
+            dyVar.biu.setShowRefreshTimeInHead(false);
+            dyVar.biu.setContentPaddingBottom(0);
         } else {
-            dyVar.beA.setShowBottom(false);
-            dyVar.beA.setShowRefreshTimeInHead(true);
-            dyVar.beA.setShowHeadLiveIcon(false);
-            dyVar.beA.setShowRefreshTimeInButtom(false);
-            dyVar.beA.setContentPaddingBottom(n.d.ds36);
+            dyVar.biu.setShowBottom(false);
+            dyVar.biu.setShowRefreshTimeInHead(true);
+            dyVar.biu.setShowHeadLiveIcon(false);
+            dyVar.biu.setShowRefreshTimeInButtom(false);
+            dyVar.biu.setContentPaddingBottom(n.e.ds36);
         }
-        dyVar.beA.setData(sy);
+        dyVar.biu.setData(sh);
         return view;
     }
 
@@ -77,7 +77,7 @@ public class dx extends bm<com.baidu.tbadk.core.data.w, dy> implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() != n.f.live_card_layout || !this.aXA.checkUpIsLogin()) {
+        if (view.getId() != n.g.live_card_layout || !this.bbA.checkUpIsLogin()) {
         }
     }
 
@@ -87,7 +87,7 @@ public class dx extends bm<com.baidu.tbadk.core.data.w, dy> implements View.OnCl
         if (tag instanceof PhotoLiveCardData) {
             PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10246").ab(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10246").aa(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
             }
         }

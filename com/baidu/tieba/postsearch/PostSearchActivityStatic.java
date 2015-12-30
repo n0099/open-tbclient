@@ -12,25 +12,25 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        auz();
-        auA();
-        auB();
+        aws();
+        awt();
+        awu();
     }
 
-    private static void auz() {
+    private static void aws() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void auA() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new h());
+    private static void awt() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new i());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void auB() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new i());
+    private static void awu() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new j());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

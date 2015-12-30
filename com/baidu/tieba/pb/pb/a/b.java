@@ -10,13 +10,13 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    private final /* synthetic */ int bnf;
-    final /* synthetic */ a czV;
+    private final /* synthetic */ int bqV;
+    final /* synthetic */ a cDA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, int i) {
-        this.czV = aVar;
-        this.bnf = i;
+        this.cDA = aVar;
+        this.bqV = i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0042  */
@@ -39,42 +39,42 @@ public class b implements View.OnClickListener {
         com.baidu.tieba.pb.a.c cVar8;
         com.baidu.tieba.pb.a.c cVar9;
         if (!com.baidu.tieba.pb.pb.main.b.isFastDoubleClick()) {
-            pbActivity = this.czV.cCy;
+            pbActivity = this.cDA.cGj;
             if (pbActivity.checkUpIsLogin()) {
-                if (this.bnf == 1) {
-                    cVar5 = this.czV.czO;
-                    if (cVar5.ajy() != null) {
-                        cVar9 = this.czV.czO;
-                        if (cVar9.ajy().isLike() == 1) {
-                            this.czV.jO(0);
-                            cVar6 = this.czV.czO;
+                if (this.bqV == 1) {
+                    cVar5 = this.cDA.cDt;
+                    if (cVar5.akG() != null) {
+                        cVar9 = this.cDA.cDt;
+                        if (cVar9.akG().isLike() == 1) {
+                            this.cDA.kl(0);
+                            cVar6 = this.cDA.cDt;
                             if (cVar6 == null) {
                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                                 av avVar = new av("c10396");
-                                cVar7 = this.czV.czO;
-                                av ab = avVar.ab(ImageViewerConfig.FORUM_ID, cVar7.getForumId());
-                                cVar8 = this.czV.czO;
-                                TiebaStatic.log(ab.ab("tid", cVar8.getThreadId()).ab("uid", currentAccount));
+                                cVar7 = this.cDA.cDt;
+                                av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cVar7.getForumId());
+                                cVar8 = this.cDA.cDt;
+                                TiebaStatic.log(aa.aa("tid", cVar8.getThreadId()).aa("uid", currentAccount));
                                 return;
                             }
                             return;
                         }
                     }
-                    this.czV.ajU();
-                    cVar6 = this.czV.czO;
+                    this.cDA.alb();
+                    cVar6 = this.cDA.cDt;
                     if (cVar6 == null) {
                     }
                 } else {
-                    cVar = this.czV.czO;
+                    cVar = this.cDA.cDt;
                     if (cVar != null) {
-                        cVar2 = this.czV.czO;
-                        if (cVar2.ajz() != null) {
-                            cVar3 = this.czV.czO;
-                            if (cVar3.ajz().ta() != null) {
-                                context = this.czV.mContext;
-                                cVar4 = this.czV.czO;
-                                com.baidu.tbadk.browser.f.B(context, cVar4.ajz().ta());
-                                context2 = this.czV.mContext;
+                        cVar2 = this.cDA.cDt;
+                        if (cVar2.akH() != null) {
+                            cVar3 = this.cDA.cDt;
+                            if (cVar3.akH().sK() != null) {
+                                context = this.cDA.mContext;
+                                cVar4 = this.cDA.cDt;
+                                com.baidu.tbadk.browser.f.B(context, cVar4.akH().sK());
+                                context2 = this.cDA.mContext;
                                 TiebaStatic.eventStat(context2, "lottery", "click", 1, "page", "pb");
                             }
                         }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String doC = "has_shown_funtion_intro";
+    public static String dvP = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -24,12 +24,12 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             z = false;
         }
         if (z) {
-            com.baidu.tbadk.core.util.as.i((View) this.anJ, n.e.icon_news_head_new);
-            this.anJ.setText((CharSequence) null);
+            com.baidu.tbadk.core.util.as.i((View) this.apj, n.f.icon_news_head_new);
+            this.apj.setText((CharSequence) null);
             return;
         }
-        this.anJ.setText(TbConfig.getVersion());
-        this.anJ.setBackgroundDrawable(null);
-        this.anJ.setTextAppearance(this.mContext, z2 ? n.j.setting_version_text_1 : n.j.setting_version_text);
+        this.apj.setText(TbConfig.getVersion());
+        this.apj.setBackgroundDrawable(null);
+        this.apj.setTextAppearance(this.mContext, z2 ? n.k.setting_version_text_1 : n.k.setting_version_text);
     }
 }

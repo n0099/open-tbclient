@@ -44,7 +44,7 @@ public class VersionData implements Serializable {
                 this.newVersionCode = jSONObject.optInt("new_version_code", -1);
                 this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
                 this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
-                if (xq()) {
+                if (wZ()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -54,7 +54,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean xq() {
+    private boolean wZ() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isHttpUrl(this.url) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

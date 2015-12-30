@@ -17,89 +17,97 @@ import com.baidu.tbadk.coreExtra.view.z;
 import com.baidu.tbadk.widget.a;
 import com.baidu.tieba.n;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class MultiImageView extends RelativeLayout {
-    private a.e alL;
-    private a.d alM;
-    private boolean alU;
-    private Button amB;
-    private Button amC;
-    private LinearLayout amD;
-    private i amE;
-    private ViewPager.OnPageChangeListener amF;
-    private j amG;
-    private int amH;
-    private boolean amI;
-    private boolean amJ;
+    private a.e amR;
+    private a.d amS;
+    private Button anK;
+    private Button anL;
+    private LinearLayout anM;
+    private i anN;
+    private ViewPager.OnPageChangeListener anO;
+    private j anP;
+    private int anQ;
+    private boolean anR;
+    private boolean anS;
+    private boolean anT;
+    private boolean ana;
     private View.OnClickListener mOnClickListener;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
+    private int mSkinType;
 
     public MultiImageView(Context context) {
         super(context);
-        this.amB = null;
-        this.amC = null;
-        this.amD = null;
+        this.mSkinType = 3;
+        this.anK = null;
+        this.anL = null;
+        this.anM = null;
         this.mOnClickListener = null;
-        this.amE = null;
+        this.anN = null;
         this.mOnPageChangeListener = null;
-        this.amF = null;
-        this.alL = null;
-        this.amG = null;
-        this.alM = null;
-        this.amH = 0;
-        this.amI = true;
-        this.amJ = false;
-        this.alU = false;
+        this.anO = null;
+        this.amR = null;
+        this.anP = null;
+        this.amS = null;
+        this.anQ = 0;
+        this.anR = true;
+        this.anS = false;
+        this.ana = false;
+        this.anT = false;
         init();
     }
 
     public void setOnScrollOutListener(BaseViewPager.a aVar) {
-        if (this.amE != null) {
-            this.amE.setOnFlipOutListener(aVar);
+        if (this.anN != null) {
+            this.anN.setOnFlipOutListener(aVar);
         }
     }
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.amB = null;
-        this.amC = null;
-        this.amD = null;
+        this.mSkinType = 3;
+        this.anK = null;
+        this.anL = null;
+        this.anM = null;
         this.mOnClickListener = null;
-        this.amE = null;
+        this.anN = null;
         this.mOnPageChangeListener = null;
-        this.amF = null;
-        this.alL = null;
-        this.amG = null;
-        this.alM = null;
-        this.amH = 0;
-        this.amI = true;
-        this.amJ = false;
-        this.alU = false;
+        this.anO = null;
+        this.amR = null;
+        this.anP = null;
+        this.amS = null;
+        this.anQ = 0;
+        this.anR = true;
+        this.anS = false;
+        this.ana = false;
+        this.anT = false;
         init();
     }
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amB = null;
-        this.amC = null;
-        this.amD = null;
+        this.mSkinType = 3;
+        this.anK = null;
+        this.anL = null;
+        this.anM = null;
         this.mOnClickListener = null;
-        this.amE = null;
+        this.anN = null;
         this.mOnPageChangeListener = null;
-        this.amF = null;
-        this.alL = null;
-        this.amG = null;
-        this.alM = null;
-        this.amH = 0;
-        this.amI = true;
-        this.amJ = false;
-        this.alU = false;
+        this.anO = null;
+        this.amR = null;
+        this.anP = null;
+        this.amS = null;
+        this.anQ = 0;
+        this.anR = true;
+        this.anS = false;
+        this.ana = false;
+        this.anT = false;
         init();
     }
 
     private void init() {
-        this.amJ = UtilHelper.isSupportGesture(getContext());
+        this.anS = UtilHelper.isSupportGesture(getContext());
         initEvent();
         initUI();
     }
@@ -107,40 +115,53 @@ public class MultiImageView extends RelativeLayout {
     private void initEvent() {
         this.mOnClickListener = new t(this);
         this.mOnPageChangeListener = new u(this);
-        this.alL = new v(this);
-        this.alM = new w(this);
+        this.amR = new v(this);
+        this.amS = new w(this);
+    }
+
+    public void cK(int i) {
+        if (this.mSkinType != i && this.anN != null) {
+            int childCount = this.anN.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.anN.getChildAt(i2);
+                if (childAt instanceof z) {
+                    ((z) childAt).onChangeSkinType(i);
+                }
+            }
+            this.mSkinType = i;
+        }
     }
 
     public void onResume() {
-        if (this.amE.getCurrentView() != null) {
-            if (this.amI) {
-                int childCount = this.amE.getChildCount();
+        if (this.anN.getCurrentView() != null) {
+            if (this.anR) {
+                int childCount = this.anN.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    View childAt = this.amE.getChildAt(i);
-                    if (childAt != null && (childAt instanceof z) && ((z) childAt).getImageView() != this.amE.getCurrentView()) {
+                    View childAt = this.anN.getChildAt(i);
+                    if (childAt != null && (childAt instanceof z) && ((z) childAt).getImageView() != this.anN.getCurrentView()) {
                         ((z) childAt).release();
                     }
                 }
             }
-            View findViewWithTag = this.amE.findViewWithTag(String.valueOf(this.amE.getCurrentItem()));
+            View findViewWithTag = this.anN.findViewWithTag(String.valueOf(this.anN.getCurrentItem()));
             if (findViewWithTag != null && (findViewWithTag instanceof z)) {
-                ((z) findViewWithTag).aY(this.alU);
+                ((z) findViewWithTag).f(this.ana, true);
             }
-            this.amE.getCurrentView().play();
+            this.anN.getCurrentView().play();
         }
     }
 
     public void onPause() {
-        if (this.amE.getCurrentView() != null) {
-            this.amE.getCurrentView().pause();
+        if (this.anN.getCurrentView() != null) {
+            this.anN.getCurrentView().pause();
         }
     }
 
     public void onDestroy() {
-        if (this.amE != null) {
-            int childCount = this.amE.getChildCount();
+        if (this.anN != null) {
+            int childCount = this.anN.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                View childAt = this.amE.getChildAt(i);
+                View childAt = this.anN.getChildAt(i);
                 if (childAt != null && (childAt instanceof z)) {
                     ((z) childAt).onDestroy();
                 }
@@ -149,84 +170,94 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.amE = new i(getContext());
-        this.amE.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.amE.setOnPageChangeListener(this.mOnPageChangeListener);
-        addView(this.amE);
-        this.amD = new LinearLayout(getContext());
+        this.anN = new i(getContext());
+        this.anN.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.anN.setOnPageChangeListener(this.mOnPageChangeListener);
+        addView(this.anN);
+        this.anM = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = com.baidu.adp.lib.util.k.dip2px(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        this.amD.setOrientation(0);
-        this.amD.setLayoutParams(layoutParams);
-        addView(this.amD);
+        this.anM.setOrientation(0);
+        this.anM.setLayoutParams(layoutParams);
+        addView(this.anM);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        this.amC = new Button(getContext());
-        this.amC.setBackgroundDrawable(getContext().getResources().getDrawable(n.e.image_zoomout));
-        this.amC.setLayoutParams(layoutParams2);
-        this.amC.setOnClickListener(this.mOnClickListener);
-        this.amC.setEnabled(false);
-        this.amD.addView(this.amC);
-        this.amB = new Button(getContext());
-        this.amB.setBackgroundDrawable(getContext().getResources().getDrawable(n.e.image_zoomin));
-        this.amB.setLayoutParams(layoutParams2);
-        this.amB.setOnClickListener(this.mOnClickListener);
-        this.amB.setEnabled(false);
-        this.amD.addView(this.amB);
-        if (this.amJ) {
-            this.amD.setVisibility(8);
+        this.anL = new Button(getContext());
+        this.anL.setBackgroundDrawable(getContext().getResources().getDrawable(n.f.image_zoomout));
+        this.anL.setLayoutParams(layoutParams2);
+        this.anL.setOnClickListener(this.mOnClickListener);
+        this.anL.setEnabled(false);
+        this.anM.addView(this.anL);
+        this.anK = new Button(getContext());
+        this.anK.setBackgroundDrawable(getContext().getResources().getDrawable(n.f.image_zoomin));
+        this.anK.setLayoutParams(layoutParams2);
+        this.anK.setOnClickListener(this.mOnClickListener);
+        this.anK.setEnabled(false);
+        this.anM.addView(this.anK);
+        if (this.anS) {
+            this.anM.setVisibility(8);
         }
-        this.amG = new j(getContext(), null, this.alM);
-        setAdapter(this.amG);
+        this.anP = new j(getContext(), null, this.amS);
+        setAdapter(this.anP);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.amF = onPageChangeListener;
+        this.anO = onPageChangeListener;
     }
 
     public int getItemNum() {
-        return this.amG.getCount();
+        return this.anP.getCount();
     }
 
     public int getCurrentItem() {
-        return this.amE.getCurrentItem();
+        return this.anN.getCurrentItem();
     }
 
     public void setZoomButton(com.baidu.tbadk.widget.a aVar) {
         if (aVar != null) {
             if (aVar.canZoomIn()) {
-                this.amB.setEnabled(true);
+                this.anK.setEnabled(true);
             } else {
-                this.amB.setEnabled(false);
+                this.anK.setEnabled(false);
             }
             if (aVar.canZoomOut()) {
-                this.amC.setEnabled(true);
+                this.anL.setEnabled(true);
                 return;
             } else {
-                this.amC.setEnabled(false);
+                this.anL.setEnabled(false);
                 return;
             }
         }
-        this.amC.setEnabled(false);
-        this.amB.setEnabled(false);
+        this.anL.setEnabled(false);
+        this.anK.setEnabled(false);
     }
 
-    public void zX() {
-        if (!this.amJ) {
-            this.amD.setVisibility(0);
+    public void zJ() {
+        if (!this.anS) {
+            this.anM.setVisibility(0);
         }
     }
 
-    public void zY() {
-        if (!this.amJ) {
-            this.amD.setVisibility(8);
+    public void aU(boolean z) {
+        this.anT = z;
+        if (this.anN != null) {
+            View findViewWithTag = this.anN.findViewWithTag(String.valueOf(this.anN.getCurrentItem()));
+            if (findViewWithTag instanceof z) {
+                ((z) findViewWithTag).aU(z);
+            }
+        }
+    }
+
+    public void zK() {
+        if (!this.anS) {
+            this.anM.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.baidu.tbadk.widget.a getCurrentImageView() {
-        return this.amE.getCurrentView();
+        return this.anN.getCurrentView();
     }
 
     @Override // android.view.View
@@ -235,76 +266,76 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setPageMargin(int i) {
-        this.amE.setPageMargin(i);
+        this.anN.setPageMargin(i);
     }
 
     public void H(int i, int i2) {
-        this.amE.setOffscreenPageLimit(i);
-        this.amH = UtilHelper.getBitmapMaxMemory(getContext()) - ((((i * 2) + 1) * i2) * 2);
-        this.amH = (int) (this.amH * 0.8d);
-        if (this.amH < 6291456) {
-            this.amI = true;
-            this.amH = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
+        this.anN.setOffscreenPageLimit(i);
+        this.anQ = UtilHelper.getBitmapMaxMemory(getContext()) - ((((i * 2) + 1) * i2) * 2);
+        this.anQ = (int) (this.anQ * 0.8d);
+        if (this.anQ < 6291456) {
+            this.anR = true;
+            this.anQ = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
         } else {
-            this.amI = false;
+            this.anR = false;
         }
-        PagerAdapter adapter = this.amE.getAdapter();
+        PagerAdapter adapter = this.anN.getAdapter();
         if (adapter != null && (adapter instanceof j)) {
-            ((j) adapter).setGifMaxUseableMem(this.amH);
+            ((j) adapter).setGifMaxUseableMem(this.anQ);
         }
     }
 
     private void setAdapter(j jVar) {
-        jVar.a(this.alL);
-        this.amE.setAdapter(jVar);
+        jVar.a(this.amR);
+        this.anN.setAdapter(jVar);
     }
 
     public void setCurrentItem(int i, boolean z) {
-        this.amE.setCurrentItem(i, z);
+        this.anN.setCurrentItem(i, z);
     }
 
     public void setTempSize(int i) {
-        this.amG.setTempSize(i);
-        this.amG.notifyDataSetChanged();
+        this.anP.setTempSize(i);
+        this.anP.notifyDataSetChanged();
     }
 
     public void setAddSize(int i) {
-        this.amG.setAddSize(i);
+        this.anP.setAddSize(i);
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.amG.setOnClickListener(onClickListener);
+        this.anP.setOnClickListener(onClickListener);
     }
 
     public void setItemOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.amG.setOnLongClickListener(onLongClickListener);
+        this.anP.setOnLongClickListener(onLongClickListener);
     }
 
     public void setUrlData(ArrayList<String> arrayList) {
-        this.amG.setData(arrayList);
-        this.amG.notifyDataSetChanged();
+        this.anP.setData(arrayList);
+        this.anP.notifyDataSetChanged();
     }
 
-    public void setAssistUrls(HashMap<String, ImageUrlData> hashMap) {
-        this.amG.setAssistUrls(hashMap);
+    public void setAssistUrls(Map<String, ImageUrlData> map) {
+        this.anP.setAssistUrls(map);
     }
 
     public void setHasNext(boolean z) {
-        this.amG.setHasNext(z);
-        this.amG.notifyDataSetChanged();
+        this.anP.setHasNext(z);
+        this.anP.notifyDataSetChanged();
     }
 
     public boolean getHasNext() {
-        return this.amG.getHasNext();
+        return this.anP.getHasNext();
     }
 
     public void setNextTitle(String str) {
-        this.amG.setNextTitle(str);
+        this.anP.setNextTitle(str);
     }
 
     public byte[] getCurrentImageData() {
         Bitmap imageBitmap;
-        com.baidu.tbadk.widget.a selectedView = this.amE.getSelectedView();
+        com.baidu.tbadk.widget.a selectedView = this.anN.getSelectedView();
         if (selectedView == null) {
             return null;
         }
@@ -316,7 +347,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public String getCurrentImageUrl() {
-        com.baidu.tbadk.widget.a selectedView = this.amE.getSelectedView();
+        com.baidu.tbadk.widget.a selectedView = this.anN.getSelectedView();
         if (!(selectedView.getTag() instanceof String)) {
             return null;
         }
@@ -324,31 +355,31 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setAllowLocalUrl(boolean z) {
-        this.alU = z;
-        if (this.amG != null) {
-            this.amG.setAllowLocalUrl(z);
+        this.ana = z;
+        if (this.anP != null) {
+            this.anP.setAllowLocalUrl(z);
         }
     }
 
     public void setIsFromCDN(boolean z) {
-        if (this.amG != null) {
-            this.amG.setIsCdn(z);
+        if (this.anP != null) {
+            this.anP.setIsCdn(z);
         }
     }
 
     public void setHeadImage(boolean z) {
-        if (this.amG != null) {
-            this.amG.setHeadImage(z);
+        if (this.anP != null) {
+            this.anP.setHeadImage(z);
         }
     }
 
     public void a(j.a aVar) {
-        this.amG.a(aVar);
+        this.anP.a(aVar);
     }
 
     public void setOriImgSelectedCallback(z.b bVar) {
-        if (this.amG != null) {
-            this.amG.setOriImgSelectedCallback(bVar);
+        if (this.anP != null) {
+            this.anP.setOriImgSelectedCallback(bVar);
         }
     }
 }

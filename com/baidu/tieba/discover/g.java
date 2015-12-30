@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements t.a {
-    final /* synthetic */ a aOb;
+    final /* synthetic */ a aRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.aOb = aVar;
+        this.aRT = aVar;
     }
 
     @Override // com.baidu.tieba.discover.t.a
@@ -20,44 +20,44 @@ public class g implements t.a {
         List list2;
         List list3;
         List list4;
-        bdListView = this.aOb.aNK;
+        bdListView = this.aRT.aRC;
         bdListView.completePullRefresh();
         if (aVar != null) {
             if (!z) {
-                this.aOb.aNR = true;
+                this.aRT.aRJ = true;
             } else {
-                this.aOb.aNS = true;
+                this.aRT.aRK = true;
             }
             if (z2) {
-                list = this.aOb.aNP;
+                list = this.aRT.aRH;
                 list.clear();
-                list2 = this.aOb.aNQ;
+                list2 = this.aRT.aRI;
                 list2.clear();
-                if (aVar.IW() != null && !aVar.IW().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.IW()) {
-                        if (dVar != null && dVar.Je() != null) {
+                if (aVar.Jn() != null && !aVar.Jn().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.Jn()) {
+                        if (dVar != null && dVar.Jv() != null) {
                             if (dVar.getType() == 1) {
-                                list3 = this.aOb.aNP;
+                                list3 = this.aRT.aRH;
                                 if (list3.isEmpty()) {
-                                    this.aOb.aNP = dVar.Je();
+                                    this.aRT.aRH = dVar.Jv();
                                 }
                             } else {
-                                list4 = this.aOb.aNQ;
+                                list4 = this.aRT.aRI;
                                 list4.add(dVar);
                             }
                         }
                     }
                 }
-                this.aOb.a(aVar.IV());
-                this.aOb.bR(true);
+                this.aRT.a(aVar.Jm());
+                this.aRT.bS(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.t.a
-    public void IQ() {
+    public void Jh() {
         BdListView bdListView;
-        bdListView = this.aOb.aNK;
+        bdListView = this.aRT.aRC;
         bdListView.completePullRefresh();
     }
 }

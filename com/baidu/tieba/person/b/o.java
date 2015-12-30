@@ -1,0 +1,14 @@
+package com.baidu.tieba.person.b;
+
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.widget.ListView.x;
+/* loaded from: classes.dex */
+public class o extends x.a {
+    public LinearLayout cUO;
+
+    public o(View view) {
+        super(view);
+        this.cUO = (LinearLayout) view;
+    }
+}

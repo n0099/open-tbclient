@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class v extends x {
     public static void a(int i, int i2, int i3, long j, long j2, int i4, int i5, int i6, long j3, long j4, int i7, int i8, int i9, long j5, long j6, int i10, int i11, int i12, long j7, long j8, int i13, int i14, int i15, long j9, long j10, int i16) {
-        if (y.ES().ET()) {
+        if (y.EH().EI()) {
             com.baidu.adp.lib.stats.d he = he();
             he.q("action", "dlStat");
             he.q("c_dnum", String.valueOf(i));
@@ -32,13 +32,13 @@ public class v extends x {
             he.q("op_spnum", String.valueOf(i15));
             he.q("op_costt", String.valueOf(j10));
             he.q("op_dlsize", String.valueOf(j9));
-            he.q("nettype", y.eM(i16));
+            he.q("nettype", y.eG(i16));
             com.baidu.adp.lib.stats.a.hl().a(TbConfig.TMP_PIC_DIR_NAME, he);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (y.ES().ET()) {
+        if (y.EH().EI()) {
             com.baidu.adp.lib.stats.d he = he();
             he.q("action", "dcStat");
             he.q("dcnum", String.valueOf(i));

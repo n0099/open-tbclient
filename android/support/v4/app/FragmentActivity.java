@@ -306,8 +306,9 @@ public class FragmentActivity extends Activity {
         this.mFragments.execPendingActions();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onPostResume() {
+    public void onPostResume() {
         super.onPostResume();
         this.mHandler.removeMessages(2);
         onResumeFragments();

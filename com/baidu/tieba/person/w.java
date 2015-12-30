@@ -15,13 +15,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends HttpMessageListener {
-    final /* synthetic */ s cKg;
+    final /* synthetic */ s cOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(s sVar, int i) {
         super(i);
-        this.cKg = sVar;
+        this.cOw = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,47 +42,47 @@ public class w extends HttpMessageListener {
         ad adVar2;
         ad adVar3;
         ae aeVar3;
-        this.cKg.cJW = false;
+        this.cOw.cOm = false;
         if (httpResponsedMessage.getError() == 0) {
-            aeVar = this.cKg.cJG;
-            ArrayList<ForumData> anv = aeVar.anA().anv();
-            aeVar2 = this.cKg.cJG;
-            int anp = aeVar2.anA().anp();
-            i = this.cKg.cua;
-            if (i < anp) {
-                aeVar3 = this.cKg.cJG;
-                aeVar3.anA().ki(anp - 1);
+            aeVar = this.cOw.cNW;
+            ArrayList<ForumData> aoG = aeVar.aoL().aoG();
+            aeVar2 = this.cOw.cNW;
+            int aoA = aeVar2.aoL().aoA();
+            i = this.cOw.cyc;
+            if (i < aoA) {
+                aeVar3 = this.cOw.cNW;
+                aeVar3.aoL().kF(aoA - 1);
             }
-            if (anv != null) {
-                i2 = this.cKg.cua;
+            if (aoG != null) {
+                i2 = this.cOw.cyc;
                 if (i2 >= 0) {
-                    i3 = this.cKg.cua;
-                    if (i3 < anv.size()) {
-                        i4 = this.cKg.cua;
-                        anv.remove(i4);
+                    i3 = this.cOw.cyc;
+                    if (i3 < aoG.size()) {
+                        i4 = this.cOw.cyc;
+                        aoG.remove(i4);
                         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                        str = this.cKg.cJS;
+                        str = this.cOw.cOi;
                         m411getInst.delLikeForum(str);
-                        adVar = this.cKg.cJR;
+                        adVar = this.cOw.cOh;
                         if (adVar != null) {
-                            this.cKg.fD(true);
-                            adVar2 = this.cKg.cJR;
-                            adVar2.Y(anv);
-                            adVar3 = this.cKg.cJR;
+                            this.cOw.fC(true);
+                            adVar2 = this.cOw.cOh;
+                            adVar2.X(aoG);
+                            adVar3 = this.cOw.cOh;
                             adVar3.notifyDataSetChanged();
                         }
                     }
                 }
             }
-            this.cKg.showToast(n.i.success);
-            forumData = this.cKg.cJV;
+            this.cOw.showToast(n.j.success);
+            forumData = this.cOw.cOl;
             if (forumData != null) {
-                forumData2 = this.cKg.cJV;
+                forumData2 = this.cOw.cOl;
                 if (!TextUtils.isEmpty(forumData2.getId())) {
-                    s sVar = this.cKg;
-                    forumData3 = this.cKg.cJV;
+                    s sVar = this.cOw;
+                    forumData3 = this.cOw.cOl;
                     sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, forumData3.getId()));
-                    forumData4 = this.cKg.cJV;
+                    forumData4 = this.cOw.cOl;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(forumData4.getId(), 0L))));
                     return;
                 }
@@ -90,6 +90,6 @@ public class w extends HttpMessageListener {
             }
             return;
         }
-        this.cKg.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cKg.getResources().getString(n.i.neterror) : httpResponsedMessage.getErrorString());
+        this.cOw.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cOw.getResources().getString(n.j.neterror) : httpResponsedMessage.getErrorString());
     }
 }

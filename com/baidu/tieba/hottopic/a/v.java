@@ -12,11 +12,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ u bCY;
+    final /* synthetic */ u bGC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.bCY = uVar;
+        this.bGC = uVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,18 +26,18 @@ public class v implements View.OnClickListener {
         int intValue;
         ArrayList arrayList;
         RelateTopicForumActivity relateTopicForumActivity3;
-        relateTopicForumActivity = this.bCY.bCV;
+        relateTopicForumActivity = this.bGC.bGz;
         if (relateTopicForumActivity != null) {
-            relateTopicForumActivity2 = this.bCY.bCV;
-            if (relateTopicForumActivity2.checkUpIsLogin() && view.getId() == n.f.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
-                arrayList = this.bCY.Yg;
+            relateTopicForumActivity2 = this.bGC.bGz;
+            if (relateTopicForumActivity2.checkUpIsLogin() && view.getId() == n.g.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+                arrayList = this.bGC.YJ;
                 RelateForumItemData relateForumItemData = (RelateForumItemData) arrayList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new av("c10371").ab(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.f.bEd));
+                    TiebaStatic.log(new av("c10371").aa(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.f.bHG));
                 }
                 if (ax.aR(relateForumItemData.forumName)) {
-                    relateTopicForumActivity3 = this.bCY.bCV;
-                    relateTopicForumActivity3.bDm.bg(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    relateTopicForumActivity3 = this.bGC.bGz;
+                    relateTopicForumActivity3.bGQ.bc(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }

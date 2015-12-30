@@ -13,24 +13,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private String alj;
-    private String alk;
-    private Button all;
-    private TbImageView alm;
-    private boolean aln;
-    private float alo;
-    private boolean alp;
-    private a alq;
-    View.OnClickListener alr;
+    private String amp;
+    private String amq;
+    private Button amr;
+    private TbImageView ams;
+    private boolean amt;
+    private float amu;
+    private boolean amv;
+    private a amw;
+    View.OnClickListener amx;
     private String link;
     private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void zI();
+        void zu();
 
-        void zJ();
+        void zv();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alj = "";
-        this.alk = "";
-        this.aln = false;
-        this.alo = 0.1388889f;
-        this.alp = false;
-        this.alr = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.amp = "";
+        this.amq = "";
+        this.amt = false;
+        this.amu = 0.1388889f;
+        this.amv = false;
+        this.amx = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -53,30 +53,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(n.g.bannerview, this);
-        this.all = (Button) findViewById(n.f.btn_close);
-        this.all.setOnClickListener(this.alr);
-        this.alm = (TbImageView) findViewById(n.f.banner_image);
-        this.alm.setAutoChangeStyle(true);
-        this.alm.setOnClickListener(this.alr);
+        LayoutInflater.from(context).inflate(n.h.bannerview, this);
+        this.amr = (Button) findViewById(n.g.btn_close);
+        this.amr.setOnClickListener(this.amx);
+        this.ams = (TbImageView) findViewById(n.g.banner_image);
+        this.ams.setAutoChangeStyle(true);
+        this.ams.setOnClickListener(this.amx);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.alm != null && aVar != null) {
-            this.alm.setEvent(aVar);
+        if (this.ams != null && aVar != null) {
+            this.ams.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.alp = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.amv = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.aln && this.alp) {
-            ViewGroup.LayoutParams layoutParams = this.alm.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.alo) + 0.5d);
-            this.alm.setLayoutParams(layoutParams);
-            this.alm.a(str, 10, 720, 100, false);
+        if (!this.amt && this.amv) {
+            ViewGroup.LayoutParams layoutParams = this.ams.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.amu) + 0.5d);
+            this.ams.setLayoutParams(layoutParams);
+            this.ams.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.alq = aVar;
+        this.amw = aVar;
     }
 
-    public boolean zH() {
-        return this.alp;
+    public boolean zt() {
+        return this.amv;
     }
 
     public void reset() {
-        this.aln = false;
-        this.alp = false;
+        this.amt = false;
+        this.amv = false;
     }
 
-    public void oV() {
-        this.alm.postInvalidate();
+    public void ot() {
+        this.ams.postInvalidate();
     }
 }

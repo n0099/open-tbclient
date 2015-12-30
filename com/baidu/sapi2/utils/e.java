@@ -66,7 +66,7 @@ public class e {
         try {
             String join = TextUtils.join(b, a(str));
             String d2 = d();
-            return TextUtils.join("_", new String[]{d2, a.C0038a.b(new f().a(join, d2, d))});
+            return TextUtils.join("_", new String[]{d2, a.C0039a.b(new f().a(join, d2, d))});
         } catch (Throwable th) {
             L.e(th);
             return "";

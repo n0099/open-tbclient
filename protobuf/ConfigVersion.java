@@ -9,7 +9,7 @@ public final class ConfigVersion extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
 
     /* renamed from: plugin  reason: collision with root package name */
-    public final String f134plugin;
+    public final String f127plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
@@ -25,23 +25,23 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = builder.sync;
             }
-            if (builder.f135plugin == null) {
-                this.f134plugin = "";
+            if (builder.f128plugin == null) {
+                this.f127plugin = "";
                 return;
             } else {
-                this.f134plugin = builder.f135plugin;
+                this.f127plugin = builder.f128plugin;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f134plugin = builder.f135plugin;
+        this.f127plugin = builder.f128plugin;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
 
         /* renamed from: plugin  reason: collision with root package name */
-        public String f135plugin;
+        public String f128plugin;
         public String sync;
 
         public Builder() {
@@ -51,7 +51,7 @@ public final class ConfigVersion extends Message {
             super(configVersion);
             if (configVersion != null) {
                 this.sync = configVersion.sync;
-                this.f135plugin = configVersion.f134plugin;
+                this.f128plugin = configVersion.f127plugin;
             }
         }
 

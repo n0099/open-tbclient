@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n {
-    private static n dEf;
-    private SQLiteDatabase dEg = new o(TbadkCoreApplication.m411getInst().getApp()).getWritableDatabase();
+    private static n dLJ;
+    private SQLiteDatabase dLK = new o(TbadkCoreApplication.m411getInst().getApp()).getWritableDatabase();
 
-    public static synchronized n aFl() {
+    public static synchronized n aHA() {
         n nVar;
         synchronized (n.class) {
-            if (dEf == null) {
-                dEf = new n();
+            if (dLJ == null) {
+                dLJ = new n();
             }
-            nVar = dEf;
+            nVar = dLJ;
         }
         return nVar;
     }
@@ -26,12 +26,12 @@ public class n {
     private n() {
     }
 
-    public void mR(String str) {
-        new o(TbadkCoreApplication.m411getInst().getApp()).f(this.dEg, str);
+    public void mO(String str) {
+        new o(TbadkCoreApplication.m411getInst().getApp()).f(this.dLK, str);
     }
 
-    public void mS(String str) {
-        new o(TbadkCoreApplication.m411getInst().getApp()).g(this.dEg, str);
+    public void mP(String str) {
+        new o(TbadkCoreApplication.m411getInst().getApp()).g(this.dLK, str);
     }
 
     private ContentValues g(b bVar) {
@@ -43,12 +43,12 @@ public class n {
         contentValues.put("title", bVar.getTitle());
         contentValues.put("picUrl", bVar.getPicUrl());
         contentValues.put("packageSize", bVar.getPackageSize());
-        contentValues.put("packageUrl", bVar.aFb());
+        contentValues.put("packageUrl", bVar.aHq());
         contentValues.put("versionCode", Integer.valueOf(bVar.getVersionCode()));
-        contentValues.put("permissionIconUrl", bVar.aFc());
-        contentValues.put("stateIconUrl", bVar.aFd());
+        contentValues.put("permissionIconUrl", bVar.aHr());
+        contentValues.put("stateIconUrl", bVar.aHs());
         contentValues.put("activityUrl", bVar.getActivityUrl());
-        contentValues.put("permissionType", Integer.valueOf(bVar.aFe()));
+        contentValues.put("permissionType", Integer.valueOf(bVar.aHt()));
         return contentValues;
     }
 
@@ -58,25 +58,25 @@ public class n {
             return false;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.dEg == null || StringUtils.isNull(currentAccount)) {
+        if (this.dLK == null || StringUtils.isNull(currentAccount)) {
             return false;
         }
-        return this.dEg.update(new StringBuilder("theme_").append(currentAccount).toString(), g, "id = ?", new String[]{new StringBuilder().append(bVar.getId()).toString()}) != 0 || this.dEg.insert(new StringBuilder("theme_").append(currentAccount).toString(), null, g) > 0;
+        return this.dLK.update(new StringBuilder("theme_").append(currentAccount).toString(), g, "id = ?", new String[]{new StringBuilder().append(bVar.getId()).toString()}) != 0 || this.dLK.insert(new StringBuilder("theme_").append(currentAccount).toString(), null, g) > 0;
     }
 
-    public boolean mR(int i) {
+    public boolean nt(int i) {
         if (i <= 0) {
             return false;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        return (this.dEg == null || StringUtils.isNull(currentAccount) || this.dEg.delete(new StringBuilder("theme_").append(currentAccount).toString(), "id = ?", new String[]{String.valueOf(i)}) <= 0) ? false : true;
+        return (this.dLK == null || StringUtils.isNull(currentAccount) || this.dLK.delete(new StringBuilder("theme_").append(currentAccount).toString(), "id = ?", new String[]{String.valueOf(i)}) <= 0) ? false : true;
     }
 
-    public ArrayList<String> aFm() {
+    public ArrayList<String> aHB() {
         ArrayList<String> arrayList = null;
-        if (this.dEg != null) {
-            this.dEg.beginTransaction();
-            Cursor rawQuery = this.dEg.rawQuery("SELECT name FROM sqlite_master WHERE type='table' order by name", null);
+        if (this.dLK != null) {
+            this.dLK.beginTransaction();
+            Cursor rawQuery = this.dLK.rawQuery("SELECT name FROM sqlite_master WHERE type='table' order by name", null);
             if (rawQuery != null && rawQuery.getCount() > 0) {
                 arrayList = new ArrayList<>();
                 while (rawQuery.moveToNext()) {
@@ -86,66 +86,66 @@ public class n {
                     }
                 }
                 com.baidu.adp.lib.util.o.b(rawQuery);
-                this.dEg.setTransactionSuccessful();
-                this.dEg.endTransaction();
+                this.dLK.setTransactionSuccessful();
+                this.dLK.endTransaction();
             }
         }
         return arrayList;
     }
 
-    public b mS(int i) {
+    public b nu(int i) {
         Cursor rawQuery;
         b bVar = null;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.dEg != null && !StringUtils.isNull(currentAccount) && (rawQuery = this.dEg.rawQuery("SELECT * FROM theme_" + currentAccount + " WHERE id=?", new String[]{String.valueOf(i)})) != null && rawQuery.getCount() > 0) {
+        if (this.dLK != null && !StringUtils.isNull(currentAccount) && (rawQuery = this.dLK.rawQuery("SELECT * FROM theme_" + currentAccount + " WHERE id=?", new String[]{String.valueOf(i)})) != null && rawQuery.getCount() > 0) {
             if (rawQuery.moveToFirst()) {
                 bVar = new b();
                 bVar.setId(i);
                 bVar.setTitle(rawQuery.getString(rawQuery.getColumnIndex("title")));
-                bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
+                bVar.mK(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
                 bVar.setPackageSize(rawQuery.getString(rawQuery.getColumnIndex("packageSize")));
-                bVar.mO(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
+                bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
                 bVar.setVersionCode(rawQuery.getInt(rawQuery.getColumnIndex("versionCode")));
-                bVar.mP(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
-                bVar.mQ(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
+                bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
+                bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
                 bVar.setActivityUrl(rawQuery.getString(rawQuery.getColumnIndex("activityUrl")));
-                bVar.mO(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
+                bVar.nq(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
             }
             com.baidu.adp.lib.util.o.b(rawQuery);
         }
         return bVar;
     }
 
-    public List<b> mT(String str) {
+    public List<b> mQ(String str) {
         ArrayList arrayList = null;
-        if (this.dEg != null && !StringUtils.isNull(str)) {
-            this.dEg.beginTransaction();
-            Cursor rawQuery = this.dEg.rawQuery("SELECT * FROM " + str, null);
+        if (this.dLK != null && !StringUtils.isNull(str)) {
+            this.dLK.beginTransaction();
+            Cursor rawQuery = this.dLK.rawQuery("SELECT * FROM " + str, null);
             if (rawQuery != null) {
                 arrayList = new ArrayList();
                 while (rawQuery.moveToNext()) {
                     b bVar = new b();
                     bVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("id")));
                     bVar.setTitle(rawQuery.getString(rawQuery.getColumnIndex("title")));
-                    bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
+                    bVar.mK(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
                     bVar.setPackageSize(rawQuery.getString(rawQuery.getColumnIndex("packageSize")));
-                    bVar.mO(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
+                    bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
                     bVar.setVersionCode(rawQuery.getInt(rawQuery.getColumnIndex("versionCode")));
-                    bVar.mP(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
-                    bVar.mQ(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
+                    bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
+                    bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
                     bVar.setActivityUrl(rawQuery.getString(rawQuery.getColumnIndex("activityUrl")));
-                    bVar.mO(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
+                    bVar.nq(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
                     arrayList.add(bVar);
                 }
                 com.baidu.adp.lib.util.o.b(rawQuery);
-                this.dEg.setTransactionSuccessful();
-                this.dEg.endTransaction();
+                this.dLK.setTransactionSuccessful();
+                this.dLK.endTransaction();
             }
         }
         return arrayList;
     }
 
-    public List<b> aFn() {
-        return mT("theme_" + TbadkCoreApplication.getCurrentAccount());
+    public List<b> aHC() {
+        return mQ("theme_" + TbadkCoreApplication.getCurrentAccount());
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.i;
 /* loaded from: classes.dex */
 public class a {
-    private int dED;
+    private int dMg;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
@@ -25,10 +25,10 @@ public class a {
                 a = g(dressItemData);
             }
             if (a) {
-                this.dED = dressItemData.getPropsId();
+                this.dMg = dressItemData.getPropsId();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-                httpMessage.setExtra(Integer.valueOf(this.dED));
-                httpMessage.addParam("bcode", String.valueOf(this.dED));
+                httpMessage.setExtra(Integer.valueOf(this.dMg));
+                httpMessage.addParam("bcode", String.valueOf(this.dMg));
                 MessageManager.getInstance().sendMessage(httpMessage);
             } else if (dressItemData.getFreeUserLevel() == 100) {
                 if (dressItemData.getActivityFinish() == 0) {
@@ -36,11 +36,11 @@ public class a {
                 }
             } else {
                 if (dressItemData.getFreeUserLevel() == 101) {
-                    string = this.mPageContext.getString(n.i.become_annual_can_use_bubble);
+                    string = this.mPageContext.getString(n.j.become_annual_can_use_bubble);
                 } else if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.mPageContext.getString(n.i.become_vip_can_use_bubble), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                    string = String.format(this.mPageContext.getString(n.j.become_vip_can_use_bubble), Integer.valueOf(dressItemData.getFreeUserLevel()));
                 } else {
-                    string = this.mPageContext.getString(n.i.become_member_can_use_bubble);
+                    string = this.mPageContext.getString(n.j.become_member_can_use_bubble);
                 }
                 i.a(this.mPageContext, 5, string);
             }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.w aQO;
-    final /* synthetic */ o aSC;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.w aUF;
+    final /* synthetic */ o aWE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, com.baidu.tieba.tbadkCore.w wVar) {
-        this.aSC = oVar;
-        this.aQO = wVar;
+        this.aWE = oVar;
+        this.aUF = wVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,14 +20,14 @@ public class p implements View.OnClickListener {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
         ViewEventCenter viewEventCenter3;
-        viewEventCenter = this.aSC.aQB;
+        viewEventCenter = this.aWE.aUs;
         if (viewEventCenter != null) {
-            if (this.aQO.getType() == 0) {
-                viewEventCenter3 = this.aSC.aQB;
-                viewEventCenter3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.aQO, null, null));
-            } else if (this.aQO.getType() == 1) {
-                TiebaStatic.eventStat(this.aSC.getActivity(), "find_more_text_click", null);
-                viewEventCenter2 = this.aSC.aQB;
+            if (this.aUF.getType() == 0) {
+                viewEventCenter3 = this.aWE.aUs;
+                viewEventCenter3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.aUF, null, null));
+            } else if (this.aUF.getType() == 1) {
+                TiebaStatic.eventStat(this.aWE.getActivity(), "find_more_text_click", null);
+                viewEventCenter2 = this.aWE.aUs;
                 viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, null, null, null));
             }
         }

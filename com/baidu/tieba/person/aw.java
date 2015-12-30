@@ -8,7 +8,7 @@ public class aw extends e {
     }
 
     @Override // com.baidu.tieba.person.e
-    protected BaseFragment ank() {
+    protected BaseFragment aov() {
         return new ax();
     }
 }

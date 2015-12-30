@@ -16,9 +16,9 @@ import com.baidu.tieba.discover.t;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TbImageView MW;
-    private ImageView aOv;
-    private TextView agd;
+    private TbImageView Nm;
+    private ImageView aSn;
+    private TextView ahk;
 
     public a(Context context) {
         this(context, null);
@@ -26,45 +26,45 @@ public class a extends RelativeLayout {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(getContext()).inflate(n.g.discover_header_item, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(n.h.discover_header_item, (ViewGroup) this, true);
         init();
     }
 
     private void init() {
-        this.MW = (TbImageView) findViewById(n.f.icon);
-        this.agd = (TextView) findViewById(n.f.title);
-        this.aOv = (ImageView) findViewById(n.f.red_tip);
-        this.MW.setDefaultBgResource(0);
+        this.Nm = (TbImageView) findViewById(n.g.icon);
+        this.ahk = (TextView) findViewById(n.g.title);
+        this.aSn = (ImageView) findViewById(n.g.red_tip);
+        this.Nm.setDefaultBgResource(0);
     }
 
-    public void ar(String str, String str2) {
-        if (this.MW != null) {
-            this.MW.setDefaultResource(t.gG(str2));
+    public void ap(String str, String str2) {
+        if (this.Nm != null) {
+            this.Nm.setDefaultResource(t.gQ(str2));
             if (!StringUtils.isNull(str)) {
-                this.MW.d(str, 10, false);
+                this.Nm.d(str, 10, false);
             }
         }
     }
 
     public void setTitle(String str) {
-        if (this.agd != null) {
-            this.agd.setText(str);
+        if (this.ahk != null) {
+            this.ahk.setText(str);
         }
     }
 
-    public void bW(boolean z) {
-        if (this.aOv != null) {
+    public void bX(boolean z) {
+        if (this.aSn != null) {
             if (z) {
-                this.aOv.setVisibility(0);
+                this.aSn.setVisibility(0);
             } else {
-                this.aOv.setVisibility(8);
+                this.aSn.setVisibility(8);
             }
         }
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        as.i(this, n.e.addresslist_item_bg);
-        this.MW.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        as.i(this, n.f.addresslist_item_bg);
+        this.Nm.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
     }
 }

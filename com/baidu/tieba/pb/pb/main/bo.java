@@ -1,20 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo implements View.OnClickListener {
-    final /* synthetic */ PbActivity cCm;
+public class bo implements a.b {
+    final /* synthetic */ bh cGg;
+    private final /* synthetic */ String caQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(PbActivity pbActivity) {
-        this.cCm = pbActivity;
+    public bo(bh bhVar, String str) {
+        this.cGg = bhVar;
+        this.caQ = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        PbActivity pbActivity = this.cCm;
-        str = this.cCm.asF;
-        pbActivity.showToast(str);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        PbActivity pbActivity;
+        cf cfVar;
+        PbActivity pbActivity2;
+        cf cfVar2;
+        PbActivity pbActivity3;
+        cf cfVar3;
+        PbActivity pbActivity4;
+        cf cfVar4;
+        aVar.dismiss();
+        pbActivity = this.cGg.cFS;
+        cfVar = pbActivity.cFl;
+        if (cfVar != null) {
+            pbActivity2 = this.cGg.cFS;
+            cfVar2 = pbActivity2.cFl;
+            if (cfVar2.getPbData() != null) {
+                com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10398");
+                pbActivity3 = this.cGg.cFS;
+                cfVar3 = pbActivity3.cFl;
+                com.baidu.tbadk.core.util.av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cfVar3.getPbData().getForumId()).aa("uid", this.caQ);
+                pbActivity4 = this.cGg.cFS;
+                cfVar4 = pbActivity4.cFl;
+                TiebaStatic.log(aa.aa("tid", cfVar4.getPbData().getThreadId()).aa("is_like", "2"));
+            }
+        }
     }
 }

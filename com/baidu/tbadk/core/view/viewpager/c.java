@@ -9,27 +9,27 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class c extends x.a {
-    public int afY;
-    public RelativeLayout agc;
-    public TextView agd;
-    public TextView age;
-    public IndicatorView agf;
-    public View agg;
-    public BdBaseViewPager agh;
+    public int ahf;
+    public RelativeLayout ahj;
+    public TextView ahk;
+    public TextView ahl;
+    public IndicatorView ahm;
+    public View ahn;
+    public BdBaseViewPager aho;
 
     public c(View view, Context context) {
         super(view);
-        this.afY = 3;
-        this.agd = null;
-        this.age = null;
-        this.agf = null;
-        this.agg = null;
-        this.agh = null;
-        this.agc = (RelativeLayout) view.findViewById(n.f.top_area);
-        this.agd = (TextView) view.findViewById(n.f.theme_title);
-        this.age = (TextView) view.findViewById(n.f.more_textview);
-        this.agf = (IndicatorView) view.findViewById(n.f.tab_indicator);
-        this.agg = view.findViewById(n.f.bottom_divider_line);
-        this.agh = (BdBaseViewPager) view.findViewById(n.f.bd_base_view_pager);
+        this.ahf = 3;
+        this.ahk = null;
+        this.ahl = null;
+        this.ahm = null;
+        this.ahn = null;
+        this.aho = null;
+        this.ahj = (RelativeLayout) view.findViewById(n.g.top_area);
+        this.ahk = (TextView) view.findViewById(n.g.theme_title);
+        this.ahl = (TextView) view.findViewById(n.g.more_textview);
+        this.ahm = (IndicatorView) view.findViewById(n.g.tab_indicator);
+        this.ahn = view.findViewById(n.g.bottom_divider_line);
+        this.aho = (BdBaseViewPager) view.findViewById(n.g.bd_base_view_pager);
     }
 }

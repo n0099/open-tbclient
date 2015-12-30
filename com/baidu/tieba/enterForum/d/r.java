@@ -17,11 +17,11 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class r extends LinearLayout {
-    private ViewEventCenter aQB;
-    private View aSD;
-    private BannerView aSE;
-    private TextView aSF;
-    private View aSG;
+    private ViewEventCenter aUs;
+    private View aWF;
+    private BannerView aWG;
+    private TextView aWH;
+    private View aWI;
 
     public r(Context context) {
         this(context, null);
@@ -33,32 +33,32 @@ public class r extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aQB = viewEventCenter;
+        this.aUs = viewEventCenter;
     }
 
     public void init() {
-        LayoutInflater.from(getContext()).inflate(n.g.enter_forum_header_view, this);
+        LayoutInflater.from(getContext()).inflate(n.h.enter_forum_header_view, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.aSF = (TextView) findViewById(n.f.search_root);
-        this.aSF.setOnClickListener(new s(this));
+        this.aWH = (TextView) findViewById(n.g.search_root);
+        this.aWH.setOnClickListener(new s(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
-            if (this.aSD == null) {
-                KK();
+            if (this.aWF == null) {
+                Ld();
             }
-            com.baidu.tbadk.i.a.a(tbPageContext, this.aSD);
-            this.aSD.setVisibility(0);
-        } else if (this.aSD != null) {
-            this.aSD.setVisibility(8);
+            com.baidu.tbadk.i.a.a(tbPageContext, this.aWF);
+            this.aWF.setVisibility(0);
+        } else if (this.aWF != null) {
+            this.aWF.setVisibility(8);
         }
     }
 
-    public void KK() {
-        this.aSD = ((ViewStub) findViewById(n.f.viewstub_guide)).inflate();
-        View findViewById = this.aSD.findViewById(n.f.enterforum_guide_find_interest);
+    public void Ld() {
+        this.aWF = ((ViewStub) findViewById(n.g.viewstub_guide)).inflate();
+        View findViewById = this.aWF.findViewById(n.g.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));
         if (!TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
             findViewById.setVisibility(8);
@@ -69,28 +69,28 @@ public class r extends LinearLayout {
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        if (this.aSE != null) {
-            this.aSE.oV();
+        if (this.aWG != null) {
+            this.aWG.ot();
         }
-        if (this.aSG != null) {
-            com.baidu.tbadk.i.a.a(tbPageContext, this.aSG);
+        if (this.aWI != null) {
+            com.baidu.tbadk.i.a.a(tbPageContext, this.aWI);
         }
     }
 
     public void setSearchHint(String str) {
-        this.aSF.setText(UtilHelper.getFixedText(str, 20));
+        this.aWH.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public View getBannerView() {
-        return this.aSG;
+        return this.aWI;
     }
 
-    public void D(View view) {
+    public void E(View view) {
         if (view != null) {
-            if (this.aSG != null) {
-                removeView(this.aSG);
+            if (this.aWI != null) {
+                removeView(this.aWI);
             }
-            this.aSG = view;
+            this.aWI = view;
             addView(view, 0);
         }
     }

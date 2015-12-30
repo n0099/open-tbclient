@@ -7,15 +7,15 @@ import com.baidu.tieba.write.view.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class al implements a.InterfaceC0091a {
-    final /* synthetic */ ag dMc;
+class al implements a.InterfaceC0087a {
+    final /* synthetic */ ag dTB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.dMc = agVar;
+        this.dTB = agVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0091a
+    @Override // com.baidu.tieba.write.view.a.InterfaceC0087a
     public void a(int i, d dVar) {
         o oVar;
         o oVar2;
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0091a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.dMc.dKx;
-            if (!albumId.equals(oVar.aHC())) {
-                oVar2 = this.dMc.dKx;
-                List<ImageFileInfo> aHF = oVar2.aHF();
+            oVar = this.dTB.dRW;
+            if (!albumId.equals(oVar.aJX())) {
+                oVar2 = this.dTB.dRW;
+                List<ImageFileInfo> aKa = oVar2.aKa();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : aHF) {
+                    for (ImageFileInfo imageFileInfo : aKa) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0091a {
                     z = false;
                 } else {
                     z = true;
-                    list = aHF;
+                    list = aKa;
                 }
-                oVar3 = this.dMc.dKx;
-                oVar3.bY(list);
-                oVar4 = this.dMc.dKx;
-                oVar4.nl(albumId);
-                this.dMc.setData(list, z);
-                textView = this.dMc.Mf;
+                oVar3 = this.dTB.dRW;
+                oVar3.cb(list);
+                oVar4 = this.dTB.dRW;
+                oVar4.nj(albumId);
+                this.dTB.setData(list, z);
+                textView = this.dTB.Mv;
                 textView.setText(name);
             }
         }

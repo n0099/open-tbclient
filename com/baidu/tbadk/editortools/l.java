@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ k ark;
+    final /* synthetic */ k asO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.ark = kVar;
+        this.asO = kVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,33 +19,33 @@ public class l implements View.OnClickListener {
         Runnable runnable;
         if (view instanceof r) {
             r rVar = (r) view;
-            this.ark.b(new a(31, 0, Integer.valueOf(rVar.getToolId())));
-            gVar = this.ark.aqS;
-            gVar.a(this.ark.ei(rVar.getToolId()));
-            jVar = this.ark.arf;
+            this.asO.b(new a(31, 0, Integer.valueOf(rVar.getToolId())));
+            gVar = this.asO.asw;
+            gVar.a(this.asO.ec(rVar.getToolId()));
+            jVar = this.asO.asJ;
             if (jVar != null) {
-                jVar2 = this.ark.arf;
-                jVar2.BA();
+                jVar2 = this.asO.asJ;
+                jVar2.Bp();
                 com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
-                runnable = this.ark.ari;
+                runnable = this.asO.asM;
                 hj.removeCallbacks(runnable);
             }
             if (rVar.getToolId() == 1) {
                 rVar.hide();
-                this.ark.oD();
-                this.ark.b(new a(1, 3, null));
+                this.asO.ob();
+                this.asO.b(new a(1, 3, null));
                 return;
             }
             int toolId = rVar.getToolId();
-            y ei = this.ark.ei(toolId);
-            if (ei.toolView == null) {
-                if (ei.toolLaunchAction != null && ei.toolLaunchAction.length > 0) {
-                    this.ark.b(new a(ei.toolLaunchAction[0], -1, null));
+            y ec = this.asO.ec(toolId);
+            if (ec.toolView == null) {
+                if (ec.toolLaunchAction != null && ec.toolLaunchAction.length > 0) {
+                    this.asO.b(new a(ec.toolLaunchAction[0], -1, null));
                     return;
                 }
                 return;
             }
-            this.ark.b(new a(1, toolId, null));
+            this.asO.b(new a(1, toolId, null));
         }
     }
 }

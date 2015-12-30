@@ -11,71 +11,71 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements bj.a {
-    private final /* synthetic */ int acF;
-    private final /* synthetic */ boolean acG;
+    private final /* synthetic */ int adk;
+    private final /* synthetic */ boolean adl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(int i, boolean z) {
-        this.acF = i;
-        this.acG = z;
+        this.adk = i;
+        this.adl = z;
     }
 
     @Override // com.baidu.tbadk.core.util.bj.a
     public boolean n(View view) {
-        int aw;
-        int aw2;
-        int aw3;
-        int aw4;
+        int at;
+        int at2;
+        int at3;
+        int at4;
         Object tag = view.getTag();
         if (tag != null) {
             if ("skin_text_group".equals(tag)) {
-                bj.c((TextView) view, this.acF);
+                bj.c((TextView) view, this.adk);
                 return false;
             } else if ("skin_text_content".equals(tag)) {
-                bj.c((TextView) view, this.acF);
+                bj.c((TextView) view, this.adk);
                 return false;
             } else if ("skin_text_num".equals(tag)) {
-                bj.k((TextView) view, this.acF);
+                bj.k((TextView) view, this.adk);
                 return false;
             } else if ("skin_check_box".equals(tag)) {
-                bj.a((CheckBox) view, this.acF);
+                bj.a((CheckBox) view, this.adk);
                 return false;
             } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TbadkCoreApplication.m411getInst().getApp(), this.acG ? n.j.sidebar_content_1 : n.j.sidebar_content);
+                ((TextView) view).setTextAppearance(TbadkCoreApplication.m411getInst().getApp(), this.adl ? n.k.sidebar_content_1 : n.k.sidebar_content);
                 return false;
             } else if ("skin_more_up".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    aw4 = bj.aw(this.acG);
-                    ((RadioButton) view).setTextColor(aw4);
+                    at4 = bj.at(this.adl);
+                    ((RadioButton) view).setTextColor(at4);
                 }
-                as.i(view, n.e.more_up);
+                as.i(view, n.f.more_up);
                 return false;
             } else if ("skin_more_middle".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    aw3 = bj.aw(this.acG);
-                    ((RadioButton) view).setTextColor(aw3);
+                    at3 = bj.at(this.adl);
+                    ((RadioButton) view).setTextColor(at3);
                 }
-                as.i(view, n.e.more_middle);
+                as.i(view, n.f.more_middle);
                 return false;
             } else if ("skin_more_down".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    aw2 = bj.aw(this.acG);
-                    ((RadioButton) view).setTextColor(aw2);
+                    at2 = bj.at(this.adl);
+                    ((RadioButton) view).setTextColor(at2);
                 }
-                as.i(view, n.e.more_down);
+                as.i(view, n.f.more_down);
                 return false;
             } else if ("skin_more_all".equals(tag)) {
                 if (view instanceof RadioButton) {
-                    aw = bj.aw(this.acG);
-                    ((RadioButton) view).setTextColor(aw);
+                    at = bj.at(this.adl);
+                    ((RadioButton) view).setTextColor(at);
                 }
-                as.i(view, n.e.more_all);
+                as.i(view, n.f.more_all);
                 return false;
             } else if ("skin_arrow".equals(tag)) {
-                as.c((ImageView) view, n.e.icon_ba_top_arrow_big);
+                as.c((ImageView) view, n.f.icon_ba_top_arrow_big);
                 return false;
             } else if ("skin_list_line".equals(tag)) {
-                bj.k(view, this.acF);
+                bj.k(view, this.adk);
                 return false;
             } else {
                 return false;

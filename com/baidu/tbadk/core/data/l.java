@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class l {
-    private long Vl;
-    private long Vm;
-    private int Vn;
-    private String Vo;
-    private long Vp;
-    private long Vq;
-    private long Vr;
-    private int Vs;
-    private int Vt;
-    private int Vu;
+    private long VL;
+    private long VM;
+    private int VN;
+    private String VO;
+    private long VP;
+    private long VQ;
+    private long VR;
+    private int VS;
+    private int VT;
+    private int VU;
     private String desc;
     private long endTime;
     private int id;
@@ -38,12 +38,12 @@ public class l {
         this.name = str;
     }
 
-    public long rR() {
-        return this.Vl;
+    public long rA() {
+        return this.VL;
     }
 
     public void k(long j) {
-        this.Vl = j;
+        this.VL = j;
     }
 
     public String getThumbnailUrl() {
@@ -55,7 +55,7 @@ public class l {
     }
 
     public void l(long j) {
-        this.Vm = j;
+        this.VM = j;
     }
 
     public String getDesc() {
@@ -66,28 +66,28 @@ public class l {
         this.desc = str;
     }
 
-    public int rS() {
-        return this.Vn;
+    public int rB() {
+        return this.VN;
     }
 
-    public void bw(int i) {
-        this.Vn = i;
+    public void bp(int i) {
+        this.VN = i;
     }
 
-    public String rT() {
-        return this.Vo;
+    public String rC() {
+        return this.VO;
     }
 
-    public void co(String str) {
-        this.Vo = str;
+    public void cr(String str) {
+        this.VO = str;
     }
 
-    public long rU() {
-        return this.Vp;
+    public long rD() {
+        return this.VP;
     }
 
     public void m(long j) {
-        this.Vp = j;
+        this.VP = j;
     }
 
     public long getEndTime() {
@@ -98,32 +98,32 @@ public class l {
         this.endTime = j;
     }
 
-    public long rV() {
-        return this.Vq;
+    public long rE() {
+        return this.VQ;
     }
 
     public void n(long j) {
-        this.Vq = j;
+        this.VQ = j;
     }
 
     public void o(long j) {
-        this.Vr = j;
+        this.VR = j;
     }
 
-    public void bx(int i) {
-        this.Vt = i;
+    public void bq(int i) {
+        this.VT = i;
     }
 
-    public void by(int i) {
-        this.Vs = i;
+    public void br(int i) {
+        this.VS = i;
     }
 
-    public int rW() {
-        return this.Vu;
+    public int rF() {
+        return this.VU;
     }
 
-    public void bz(int i) {
-        this.Vu = i;
+    public void bs(int i) {
+        this.VU = i;
     }
 
     public int getSendCount() {

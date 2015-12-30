@@ -13,13 +13,13 @@ import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 /* loaded from: classes.dex */
 class d extends HttpMessageListener {
-    final /* synthetic */ PaymentConfirmActivity cxe;
+    final /* synthetic */ PaymentConfirmActivity cAI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PaymentConfirmActivity paymentConfirmActivity, int i) {
         super(i);
-        this.cxe = paymentConfirmActivity;
+        this.cAI = paymentConfirmActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,27 +35,27 @@ class d extends HttpMessageListener {
         boolean z;
         PaymentConfirmInfoData paymentConfirmInfoData4;
         boolean z2;
-        PaymentConfirmActivity paymentConfirmActivity = this.cxe;
-        sVar = this.cxe.cwU;
-        paymentConfirmActivity.hideLoadingView(sVar.RT());
+        PaymentConfirmActivity paymentConfirmActivity = this.cAI;
+        sVar = this.cAI.cAy;
+        paymentConfirmActivity.hideLoadingView(sVar.Sl());
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePaymentConfirmInfoMessage)) {
             ResponsePaymentConfirmInfoMessage responsePaymentConfirmInfoMessage = (ResponsePaymentConfirmInfoMessage) httpResponsedMessage;
-            this.cxe.paymentConfirmInfoData = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();
+            this.cAI.paymentConfirmInfoData = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();
             if (!responsePaymentConfirmInfoMessage.hasError()) {
-                paymentConfirmInfoData = this.cxe.paymentConfirmInfoData;
+                paymentConfirmInfoData = this.cAI.paymentConfirmInfoData;
                 if (paymentConfirmInfoData != null) {
-                    PaymentConfirmActivity paymentConfirmActivity2 = this.cxe;
-                    PaymentConfirmActivity paymentConfirmActivity3 = this.cxe;
-                    paymentConfirmInfoData2 = this.cxe.paymentConfirmInfoData;
+                    PaymentConfirmActivity paymentConfirmActivity2 = this.cAI;
+                    PaymentConfirmActivity paymentConfirmActivity3 = this.cAI;
+                    paymentConfirmInfoData2 = this.cAI.paymentConfirmInfoData;
                     a = paymentConfirmActivity3.a(paymentConfirmInfoData2);
-                    paymentConfirmActivity2.cwX = a;
-                    sVar2 = this.cxe.cwU;
-                    paymentConfirmInfoData3 = this.cxe.paymentConfirmInfoData;
-                    z = this.cxe.cwX;
+                    paymentConfirmActivity2.cAB = a;
+                    sVar2 = this.cAI.cAy;
+                    paymentConfirmInfoData3 = this.cAI.paymentConfirmInfoData;
+                    z = this.cAI.cAB;
                     sVar2.b(paymentConfirmInfoData3, z);
-                    PaymentConfirmActivity paymentConfirmActivity4 = this.cxe;
-                    paymentConfirmInfoData4 = this.cxe.paymentConfirmInfoData;
-                    z2 = this.cxe.cwX;
+                    PaymentConfirmActivity paymentConfirmActivity4 = this.cAI;
+                    paymentConfirmInfoData4 = this.cAI.paymentConfirmInfoData;
+                    z2 = this.cAI.cAB;
                     paymentConfirmActivity4.a(paymentConfirmInfoData4, z2);
                     return;
                 }
@@ -63,18 +63,18 @@ class d extends HttpMessageListener {
             if (responsePaymentConfirmInfoMessage.getError() == 1) {
                 Intent intent = new Intent();
                 intent.putExtra("class", 32);
-                paymentConfirmRequestData = this.cxe.cwW;
+                paymentConfirmRequestData = this.cAI.cAA;
                 intent.putExtra(PaymentConfirmActivityConfig.REQUEST_PARAMS, paymentConfirmRequestData);
                 TbadkCoreApplication.setIntent(intent);
-                ReloginManager.tU().e(null);
-                this.cxe.closeActivity();
+                ReloginManager.tE().e(null);
+                this.cAI.closeActivity();
                 return;
             }
             String errorString = responsePaymentConfirmInfoMessage.getErrorString();
             if (StringUtils.isNull(errorString)) {
-                errorString = this.cxe.getResources().getString(n.i.neterror);
+                errorString = this.cAI.getResources().getString(n.j.neterror);
             }
-            this.cxe.showToast(errorString);
+            this.cAI.showToast(errorString);
         }
     }
 }

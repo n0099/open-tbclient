@@ -11,12 +11,12 @@ public class BuyTBeanActivityStatic {
     static {
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
         com.baidu.tieba.tbadkCore.a.a.c(306001, GetYinJiResponseMessage.class, false);
-        aEs();
-        aEt();
+        aGG();
+        aGH();
     }
 
-    private static void aEs() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, com.baidu.tieba.tbadkCore.a.a.aj("c/e/pay/geticonlist", 306001));
+    private static void aGG() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, com.baidu.tieba.tbadkCore.a.a.ak("c/e/pay/geticonlist", 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -25,7 +25,7 @@ public class BuyTBeanActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aEt() {
-        bf.vD().a(new c());
+    private static void aGH() {
+        bf.vn().a(new c());
     }
 }

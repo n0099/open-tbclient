@@ -1,13 +1,13 @@
 package com.baidu.adp.newwidget.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f BP = new f();
+    public static f BR = new f();
 
     private f() {
     }
 
-    public static f kl() {
-        return BP;
+    public static f km() {
+        return BR;
     }
 
     public a an(int i) {

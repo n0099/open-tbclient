@@ -1,45 +1,13 @@
 package com.baidu.adp.plugin.a;
 
-import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 /* loaded from: classes.dex */
-public interface b {
-    Service getService();
+public interface b extends a {
+    FragmentManager proxyGetSupportFragmentManager();
 
-    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
+    void proxyOnAttachFragment(Fragment fragment);
 
-    void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    void proxyFinalize();
-
-    PackageManager proxyGetPackageManager();
-
-    SharedPreferences proxyGetSharedPreferences(String str, int i);
-
-    void proxyOnConfigurationChanged(Configuration configuration);
-
-    void proxyOnDestroy();
-
-    void proxyOnLowMemory();
-
-    void proxyOnRebind(Intent intent);
-
-    void proxyOnStart(Intent intent, int i);
-
-    int proxyOnStartCommand(Intent intent, int i, int i2);
-
-    boolean proxyOnUnbind(Intent intent);
-
-    void proxyStartActivity(Intent intent);
-
-    ComponentName proxyStartService(Intent intent);
-
-    boolean proxyStopService(Intent intent);
+    void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i);
 }

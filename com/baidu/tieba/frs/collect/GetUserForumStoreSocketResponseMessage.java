@@ -52,7 +52,7 @@ public class GetUserForumStoreSocketResponseMessage extends SocketResponsedMessa
         if (getUserForumStoreResIdl.data != null) {
             List<ThreadInfo> list = getUserForumStoreResIdl.data.store_thread;
             this.hasMore = getUserForumStoreResIdl.data.has_more.intValue() == 1;
-            this.responseData.bI(list);
+            this.responseData.bL(list);
         }
     }
 }

@@ -6,33 +6,33 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
 class av extends CustomMessageListener {
-    final /* synthetic */ PbActivity cCm;
+    final /* synthetic */ PbActivity cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public av(PbActivity pbActivity, int i) {
         super(i);
-        this.cCm = pbActivity;
+        this.cFS = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.pb.pb.sub.ap apVar = (com.baidu.tieba.pb.pb.sub.ap) customResponsedMessage.getData();
-            switch (apVar.getType()) {
+            com.baidu.tieba.pb.pb.sub.aq aqVar = (com.baidu.tieba.pb.pb.sub.aq) customResponsedMessage.getData();
+            switch (aqVar.getType()) {
                 case 0:
-                    this.cCm.b((com.baidu.tieba.pb.a.d) apVar.getData());
+                    this.cFS.b((com.baidu.tieba.pb.a.d) aqVar.getData());
                     return;
                 case 1:
-                    this.cCm.a((a.b) apVar.getData());
+                    this.cFS.a((a.b) aqVar.getData());
                     return;
                 case 2:
-                    if (apVar.getData() == null) {
-                        this.cCm.a(false, (MarkData) null);
+                    if (aqVar.getData() == null) {
+                        this.cFS.a(false, (MarkData) null);
                         return;
                     } else {
-                        this.cCm.a(true, (MarkData) apVar.getData());
+                        this.cFS.a(true, (MarkData) aqVar.getData());
                         return;
                     }
                 default:

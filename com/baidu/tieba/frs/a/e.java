@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.m;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bm;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class e extends bm<com.baidu.tbadk.core.data.b, f> {
+public class e extends bp<com.baidu.tbadk.core.data.b, f> {
     public e(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
@@ -20,54 +20,54 @@ public class e extends bm<com.baidu.tbadk.core.data.b, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: E */
+    /* renamed from: J */
     public f a(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(n.g.frs_locality_bar_single_replenish, (ViewGroup) null));
+        return new f(LayoutInflater.from(this.mContext).inflate(n.h.frs_locality_bar_single_replenish, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) fVar);
-        fVar.bhH.setPadding(0, i - this.aZm == 0 ? this.aYn : this.aYo, 0, 0);
-        this.aXA.getLayoutMode().af(this.mSkinType == 1);
-        this.aXA.getLayoutMode().k(view);
-        if (!bVar.UB && (this.aXA instanceof FrsActivity)) {
-            bVar.UB = true;
-            ((FrsActivity) this.aXA).a(bVar, "show");
-            ((FrsActivity) this.aXA).b(bVar, "show");
+        fVar.bly.setPadding(0, i - this.bdi == 0 ? this.bcm : this.bcn, 0, 0);
+        this.bbA.getLayoutMode().ac(this.mSkinType == 1);
+        this.bbA.getLayoutMode().k(view);
+        if (!bVar.Vc && (this.bbA instanceof FrsActivity)) {
+            bVar.Vc = true;
+            ((FrsActivity) this.bbA).a(bVar, "show");
+            ((FrsActivity) this.bbA).b(bVar, "show");
         }
-        if (m.rh().rj()) {
-            fVar.aJP.setVisibility(0);
-            fVar.aJP.d(bVar.UA.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.qQ().qS()) {
+            fVar.aLn.setVisibility(0);
+            fVar.aLn.d(bVar.Vb.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            fVar.aJP.setVisibility(8);
+            fVar.aLn.setVisibility(8);
         }
-        if (m.rh().rn() && !TextUtils.isEmpty(bVar.UA.UF)) {
-            fVar.bhJ.setVisibility(0);
-            fVar.bhJ.d(bVar.UA.UF, this.mIsFromCDN ? 30 : 31, false);
+        if (m.qQ().qW() && !TextUtils.isEmpty(bVar.Vb.Vg)) {
+            fVar.blA.setVisibility(0);
+            fVar.blA.d(bVar.Vb.Vg, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            fVar.bhJ.setVisibility(8);
+            fVar.blA.setVisibility(8);
         }
-        fVar.aER.setText(bVar.UA.userName);
-        if (StringUtils.isNull(bVar.UA.UD)) {
-            fVar.agd.setVisibility(8);
+        fVar.aGr.setText(bVar.Vb.userName);
+        if (StringUtils.isNull(bVar.Vb.Ve)) {
+            fVar.ahk.setVisibility(8);
         } else {
-            fVar.agd.setVisibility(0);
-            fVar.agd.setText(bVar.UA.UD);
+            fVar.ahk.setVisibility(0);
+            fVar.ahk.setText(bVar.Vb.Ve);
         }
-        if (StringUtils.isNull(bVar.UA.UI)) {
-            fVar.bhL.setVisibility(8);
+        if (StringUtils.isNull(bVar.Vb.Vj)) {
+            fVar.blC.setVisibility(8);
         } else {
-            fVar.bhL.setVisibility(0);
-            fVar.bhL.setText(bVar.UA.UI);
+            fVar.blC.setVisibility(0);
+            fVar.blC.setText(bVar.Vb.Vj);
         }
-        if (StringUtils.isNull(bVar.UA.UJ)) {
-            fVar.bhM.setVisibility(8);
+        if (StringUtils.isNull(bVar.Vb.Vk)) {
+            fVar.blD.setVisibility(8);
         } else {
-            fVar.bhM.setVisibility(0);
-            fVar.bhM.setText(bVar.UA.UJ);
+            fVar.blD.setVisibility(0);
+            fVar.blD.setText(bVar.Vb.Vk);
         }
         return view;
     }

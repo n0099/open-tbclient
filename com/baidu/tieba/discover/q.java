@@ -5,18 +5,18 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ a aOb;
+    final /* synthetic */ a aRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(a aVar) {
-        this.aOb = aVar;
+        this.aRT = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.mvc.g.d dVar;
-        a aVar = this.aOb;
-        dVar = this.aOb.aNO;
+        a aVar = this.aRT;
+        dVar = this.aRT.aRG;
         aVar.b((com.baidu.tieba.discover.data.c) dVar.getItem(i));
     }
 }

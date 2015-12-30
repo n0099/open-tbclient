@@ -13,9 +13,9 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static String xZ = "baidu";
-    public static final File ya = Environment.getExternalStorageDirectory();
-    private static final char yb = File.separatorChar;
+    private static String yb = "baidu";
+    public static final File yc = Environment.getExternalStorageDirectory();
+    private static final char yd = File.separatorChar;
 
     public static boolean fi() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -37,21 +37,21 @@ public class e {
 
     public static String aE(String str) {
         if (str != null) {
-            return ya + "/" + xZ + "/" + str + "/";
+            return yc + "/" + yb + "/" + str + "/";
         }
-        return ya + "/" + xZ + "/";
+        return yc + "/" + yb + "/";
     }
 
     public static String s(String str, String str2) {
         if (str != null) {
-            return ya + "/" + xZ + "/" + str + "/" + str2;
+            return yc + "/" + yb + "/" + str + "/" + str2;
         }
-        return ya + "/" + xZ + "/" + str2;
+        return yc + "/" + yb + "/" + str2;
     }
 
     public static boolean iA() {
         try {
-            StatFs statFs = new StatFs(ya.getPath());
+            StatFs statFs = new StatFs(yc.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -543,7 +543,7 @@ public class e {
     }
 
     static boolean iB() {
-        return yb == '\\';
+        return yd == '\\';
     }
 
     public static void k(File file) {

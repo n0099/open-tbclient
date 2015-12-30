@@ -20,7 +20,7 @@ public class ApplistRequest extends HttpMessage {
         addParam("applist", listToString());
         addParam("screen_w", String.valueOf(k.K(TbadkCoreApplication.m411getInst().getContext())));
         addParam("screen_h", String.valueOf(k.L(TbadkCoreApplication.m411getInst().getContext())));
-        addParam("mnc", String.valueOf(i.iY()));
+        addParam("mnc", String.valueOf(i.iZ()));
         addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("_os_version", Build.VERSION.RELEASE);
         addParam("brand", Build.BRAND);
@@ -28,13 +28,13 @@ public class ApplistRequest extends HttpMessage {
     }
 
     private String listToString() {
-        JSONObject HQ;
+        JSONObject HG;
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             for (a aVar : getAppInfos()) {
-                if (aVar != null && (HQ = aVar.HQ()) != null) {
-                    jSONArray.put(HQ);
+                if (aVar != null && (HG = aVar.HG()) != null) {
+                    jSONArray.put(HG);
                 }
             }
             jSONObject.put("applist", jSONArray);
@@ -52,7 +52,7 @@ public class ApplistRequest extends HttpMessage {
             aVar.setIcon(applicationInfo.loadIcon(packageManager));
             aVar.setName(applicationInfo.loadLabel(packageManager).toString());
             String str = applicationInfo.packageName;
-            aVar.gA(str);
+            aVar.gE(str);
             try {
                 aVar.setVersion(packageManager.getPackageInfo(str, 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {

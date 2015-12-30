@@ -11,12 +11,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class d implements b {
-    private boolean agY = false;
-    private ab dBN;
+    private boolean aib = false;
+    private ab dJq;
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public VideoFinishResult c(String str, File file) {
-        int uQ;
+        int uA;
         boolean z = true;
         VideoFinishResult videoFinishResult = new VideoFinishResult();
         if (StringUtils.isNull(str) || file == null || !file.exists()) {
@@ -24,31 +24,31 @@ public class d implements b {
             videoFinishResult.setErrorMessage(TbErrInfo.getErrMsg(-20));
             videoFinishResult.setSuccess(false);
         } else {
-            byte[] A = A(file);
-            if (A == null || A.length <= 0) {
+            byte[] z2 = z(file);
+            if (z2 == null || z2.length <= 0) {
                 videoFinishResult.setErrorNo(-20);
                 videoFinishResult.setErrorMessage(TbErrInfo.getErrMsg(-20));
                 videoFinishResult.setSuccess(false);
             } else {
-                this.dBN = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VIDEO_SINGLE_UPLOAD_ADDRESS);
-                this.dBN.d("video_chunk", A);
+                this.dJq = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VIDEO_SINGLE_UPLOAD_ADDRESS);
+                this.dJq.d("video_chunk", z2);
                 String str2 = null;
-                if (this.agY) {
-                    uQ = this.dBN.uQ();
-                    str2 = this.dBN.getErrorString();
+                if (this.aib) {
+                    uA = this.dJq.uA();
+                    str2 = this.dJq.getErrorString();
                 } else {
-                    String uo = this.dBN.uo();
-                    if (this.dBN.uM().vG().rf()) {
-                        videoFinishResult.parseJson(uo);
-                        uQ = 0;
+                    String tY = this.dJq.tY();
+                    if (this.dJq.uw().vq().qO()) {
+                        videoFinishResult.parseJson(tY);
+                        uA = 0;
                         z = false;
                     } else {
-                        uQ = this.dBN.uQ();
-                        str2 = this.dBN.getErrorString();
+                        uA = this.dJq.uA();
+                        str2 = this.dJq.getErrorString();
                     }
                 }
                 if (z) {
-                    videoFinishResult.setErrorNo(uQ);
+                    videoFinishResult.setErrorNo(uA);
                     videoFinishResult.setErrorMessage(str2);
                     videoFinishResult.setSuccess(false);
                 }
@@ -57,7 +57,7 @@ public class d implements b {
         return videoFinishResult;
     }
 
-    private byte[] A(File file) {
+    private byte[] z(File file) {
         byte[] bArr = null;
         if (file != null) {
             try {
@@ -88,9 +88,9 @@ public class d implements b {
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
-        this.agY = true;
-        if (this.dBN != null) {
-            this.dBN.gL();
+        this.aib = true;
+        if (this.dJq != null) {
+            this.dJq.gL();
         }
     }
 }

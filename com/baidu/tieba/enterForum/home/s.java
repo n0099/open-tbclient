@@ -1,24 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends CustomMessageListener {
-    final /* synthetic */ h aQN;
+public class s extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ i aUE;
+    private final /* synthetic */ String aUG;
+    private final /* synthetic */ boolean aUH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(h hVar, int i) {
-        super(i);
-        this.aQN = hVar;
+    public s(i iVar, String str, boolean z) {
+        this.aUE = iVar;
+        this.aUG = str;
+        this.aUH = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && this.aQN.aQu != null) {
-            this.aQN.aQu.nD();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.aUG)) {
+            com.baidu.tieba.im.settingcache.h.abN().e(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aUG), this.aUH);
         }
+        return null;
     }
 }

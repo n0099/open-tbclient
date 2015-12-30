@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean qM;
     private boolean qN;
     private boolean qO;
-    private DupLicateMode qP;
+    private boolean qP;
+    private DupLicateMode qQ;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (qQ) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qR) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.qM = false;
         this.qN = false;
-        this.qO = true;
-        this.qP = DupLicateMode.NONE;
+        this.qO = false;
+        this.qP = true;
+        this.qQ = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void i(boolean z) {
-        this.qM = z;
+        this.qN = z;
     }
 
     public boolean fa() {
-        return this.qM;
-    }
-
-    public boolean fb() {
         return this.qN;
     }
 
+    public boolean fb() {
+        return this.qO;
+    }
+
     public void j(boolean z) {
-        this.qN = z;
+        this.qO = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -66,18 +66,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean fc() {
-        return this.qO;
-    }
-
-    public void k(boolean z) {
-        this.qO = z;
-    }
-
-    public DupLicateMode fd() {
         return this.qP;
     }
 
+    public void k(boolean z) {
+        this.qP = z;
+    }
+
+    public DupLicateMode fd() {
+        return this.qQ;
+    }
+
     public void a(DupLicateMode dupLicateMode) {
-        this.qP = dupLicateMode;
+        this.qQ = dupLicateMode;
     }
 }

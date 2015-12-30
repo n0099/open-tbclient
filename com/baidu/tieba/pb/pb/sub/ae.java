@@ -2,54 +2,40 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.util.SparseArray;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bj;
 import com.baidu.tieba.n;
-import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements AdapterView.OnItemClickListener {
-    final /* synthetic */ w cHA;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ w cLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(w wVar) {
-        this.cHA = wVar;
+        this.cLC = wVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray<Object> sparseArray;
         NewSubPbActivity newSubPbActivity;
-        ArrayList arrayList;
-        SparseArray sparseArray;
-        String str;
-        com.baidu.tbadk.editortools.d.p pVar;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        newSubPbActivity = this.cHA.cHi;
-        if (bj.ah(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.cHA.cHw;
-            if (arrayList != null) {
-                arrayList2 = this.cHA.cHw;
-                if (i < arrayList2.size()) {
-                    arrayList3 = this.cHA.cHw;
-                    if (arrayList3.get(i) != null) {
-                        w wVar = this.cHA;
-                        arrayList4 = this.cHA.cHw;
-                        wVar.cHx = ((com.baidu.tieba.tbadkCore.data.o) arrayList4.get(i)).getId();
-                        sparseArray = (SparseArray) view.getTag();
-                        if (sparseArray == null && (str = (String) sparseArray.get(n.f.tag_photo_username)) != null) {
-                            pVar = this.cHA.ceY;
-                            pVar.fy(str);
-                            this.cHA.f(i, view);
-                            return;
-                        }
-                    }
+        NewSubPbActivity newSubPbActivity2;
+        if (view != null && (sparseArray = (SparseArray) view.getTag()) != null) {
+            boolean booleanValue = sparseArray.get(n.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.g.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(n.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.g.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(n.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(n.g.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (booleanValue2) {
+                    sparseArray.put(n.g.tag_from, 1);
+                    newSubPbActivity2 = this.cLC.cLg;
+                    newSubPbActivity2.d(sparseArray);
+                    return;
                 }
-            }
-            this.cHA.cHx = null;
-            sparseArray = (SparseArray) view.getTag();
-            if (sparseArray == null) {
+                this.cLC.ap(view);
+            } else if (booleanValue2) {
+                sparseArray.put(n.g.tag_from, 0);
+                newSubPbActivity = this.cLC.cLg;
+                newSubPbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.cLC.a(((Integer) sparseArray.get(n.g.tag_del_post_type)).intValue(), (String) sparseArray.get(n.g.tag_del_post_id), ((Integer) sparseArray.get(n.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(n.g.tag_del_post_is_self)).booleanValue());
             }
         }
     }

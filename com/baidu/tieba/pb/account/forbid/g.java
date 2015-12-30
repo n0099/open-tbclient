@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ax;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String cxO = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
+    private static final String cBv = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,29 +24,29 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aHp;
-        private String aHq;
-        private WeakReference<b> aHt;
+        private String aIR;
+        private String aIS;
+        private WeakReference<b> aIV;
 
         public a(String str, String str2, b bVar) {
-            this.aHp = str;
-            this.aHq = str2;
-            this.aHt = new WeakReference<>(bVar);
+            this.aIR = str;
+            this.aIS = str2;
+            this.aIV = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: w */
+        /* renamed from: v */
         public ForbidTplData doInBackground(String... strArr) {
-            ab abVar = new ab(g.cxO);
-            abVar.o("forum_id", this.aHp);
-            abVar.o("user_id", this.aHq);
-            String ul = abVar.ul();
-            if (abVar.uM().vG().rf()) {
+            ab abVar = new ab(g.cBv);
+            abVar.o("forum_id", this.aIR);
+            abVar.o("user_id", this.aIS);
+            String tV = abVar.tV();
+            if (abVar.uw().vq().qO()) {
                 try {
-                    return (ForbidTplData) i.objectWithJsonStr(ul, ForbidTplData.class);
+                    return (ForbidTplData) i.objectWithJsonStr(tV, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -55,7 +55,7 @@ public class g {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = abVar.uQ();
+            forbidTplData2.error.errno = abVar.uA();
             forbidTplData2.error.errMsg = abVar.getErrorString();
             return forbidTplData2;
         }
@@ -66,7 +66,7 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            b bVar = this.aHt.get();
+            b bVar = this.aIV.get();
             if (bVar != null) {
                 if (forbidTplData.error.errno == 0 && ax.isEmpty(forbidTplData.error.errMsg)) {
                     bVar.a(forbidTplData);

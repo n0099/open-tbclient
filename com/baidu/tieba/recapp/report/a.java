@@ -6,51 +6,67 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String dhQ;
-    private int dhR;
-    private String dhU;
+    private String dnB;
+    private JSONObject dnw;
+    private String dnx;
+    private int dny;
     private String extInfo;
     private JSONObject jsonObject;
     private int pageNumber;
-    private long dhT = System.currentTimeMillis() / 1000;
-    private int dhS = i.iV();
+    private long dnA = System.currentTimeMillis() / 1000;
+    private int dnz = i.iW();
 
-    public void lT(String str) {
+    public void lQ(String str) {
         this.extInfo = str;
     }
 
-    public void lU(String str) {
-        this.dhQ = str;
+    public void lR(String str) {
+        this.dnx = str;
     }
 
-    public void lL(int i) {
-        this.dhR = i;
+    public void mk(int i) {
+        this.dny = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void lV(String str) {
-        this.dhU = str;
+    public void lS(String str) {
+        this.dnB = str;
     }
 
-    public JSONObject avT() {
+    public void aZ(String str, String str2) {
+        if (this.dnw == null) {
+            this.dnw = new JSONObject();
+        }
+        try {
+            this.dnw.put(str, str2);
+        } catch (Exception e) {
+        }
+    }
+
+    public JSONObject axM() {
         if (this.jsonObject != null) {
             return this.jsonObject;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.dhR);
-            jSONObject.put("da_type", this.dhQ);
+            jSONObject.put("da_locate", this.dny);
+            jSONObject.put("da_type", this.dnx);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.dhT);
-            jSONObject.put("net_type", this.dhS);
+            jSONObject.put("origin_time", this.dnA);
+            jSONObject.put("net_type", this.dnz);
             jSONObject.put("page_num", this.pageNumber);
-            jSONObject.put("da_price", this.dhU);
+            jSONObject.put("da_price", this.dnB);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
         } catch (JSONException e) {
-            e.printStackTrace();
+        }
+        if (this.dnw != null) {
+            try {
+                jSONObject.put("ext", this.dnw);
+            } catch (Exception e2) {
+            }
         }
         this.jsonObject = jSONObject;
         return jSONObject;

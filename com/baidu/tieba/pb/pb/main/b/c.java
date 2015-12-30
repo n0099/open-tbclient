@@ -16,140 +16,140 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.share.h;
 import com.baidu.tieba.n;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.ck;
+import com.baidu.tieba.pb.pb.main.co;
 /* loaded from: classes.dex */
 public class c {
-    public final View azZ;
-    private PbActivity cCy;
-    public final TextView cGu;
-    public final ImageView cGv;
-    public final ImageView cGw;
-    public final ImageView cGx;
+    public final View aBG;
+    private PbActivity cGj;
+    public final TextView cKt;
+    public final ImageView cKu;
+    public final ImageView cKv;
+    public final ImageView cKw;
     public final NavigationBar mNavigationBar;
     private MorePopupWindow mPopWindow = null;
-    private ck cGy = null;
+    private co cKx = null;
 
     public c(PbActivity pbActivity) {
-        this.cCy = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.cCy.findViewById(n.f.view_navigation_bar);
+        this.cGj = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.cGj.findViewById(n.g.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new d(this));
-        this.azZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.bcT);
-        this.cGu = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, n.g.pb_title_textview, (View.OnClickListener) null);
-        this.cGx = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.widget_nb_add_floor, pbActivity.bcT);
-        this.cGv = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.nb_item_floor_host, pbActivity.bcT);
+        this.aBG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.bgT);
+        this.cKt = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, n.h.pb_title_textview, (View.OnClickListener) null);
+        this.cKw = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.h.widget_nb_add_floor, pbActivity.bgT);
+        this.cKu = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.h.nb_item_floor_host, pbActivity.bgT);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(k.d(this.cCy.getPageContext().getPageActivity(), n.d.ds30), 0, k.d(this.cCy.getPageContext().getPageActivity(), n.d.ds26), 0);
-        this.cGv.setLayoutParams(layoutParams);
-        this.cGw = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.nb_item_floor_more, pbActivity.bcT);
+        layoutParams.setMargins(k.d(this.cGj.getPageContext().getPageActivity(), n.e.ds30), 0, k.d(this.cGj.getPageContext().getPageActivity(), n.e.ds26), 0);
+        this.cKu.setLayoutParams(layoutParams);
+        this.cKv = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.h.nb_item_floor_more, pbActivity.bgT);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams2.setMargins(0, 0, k.d(this.cCy.getPageContext().getPageActivity(), n.d.ds16), 0);
-        this.cGw.setLayoutParams(layoutParams2);
-        as.a(this.cGw, n.e.btn_more_selector_s, n.e.btn_more_selector);
-        as.a(this.cGx, n.e.icon_floor_addition_selector_s, n.e.icon_floor_addition_selector);
-        this.cGu.setOnClickListener(pbActivity.bcT);
+        layoutParams2.setMargins(0, 0, k.d(this.cGj.getPageContext().getPageActivity(), n.e.ds16), 0);
+        this.cKv.setLayoutParams(layoutParams2);
+        as.a(this.cKv, n.f.btn_more_selector_s, n.f.btn_more_selector);
+        as.a(this.cKw, n.f.icon_floor_addition_selector_s, n.f.icon_floor_addition_selector);
+        this.cKt.setOnClickListener(pbActivity.bgT);
     }
 
-    public void fn(boolean z) {
-        this.cGw.setVisibility(z ? 0 : 8);
+    public void fm(boolean z) {
+        this.cKv.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar ama() {
+    public NavigationBar anm() {
         return this.mNavigationBar;
     }
 
-    public void kM(String str) {
+    public void kJ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.cGu.setVisibility(0);
-            this.cGu.setText(String.valueOf(str) + this.cCy.getPageContext().getString(n.i.bar));
-            m.rh().cg(str);
+            this.cKt.setVisibility(0);
+            this.cKt.setText(String.valueOf(str) + this.cGj.getPageContext().getString(n.j.bar));
+            m.qQ().ci(str);
         }
     }
 
-    public void amb() {
-        this.cGv.setVisibility(4);
-        this.cGv.setEnabled(false);
+    public void ann() {
+        this.cKu.setVisibility(4);
+        this.cKu.setEnabled(false);
     }
 
-    public void fs(boolean z) {
+    public void fr(boolean z) {
         if (z) {
-            as.c(this.cGv, n.e.s_only_host_button_bg);
+            as.c(this.cKu, n.f.s_only_host_button_bg);
         } else {
-            as.a(this.cGv, n.e.s_icon_floor_host_bg, n.e.icon_floor_host_bg);
+            as.a(this.cKu, n.f.s_icon_floor_host_bg, n.f.icon_floor_host_bg);
         }
     }
 
-    public void fx(boolean z) {
+    public void fw(boolean z) {
         if (z) {
-            this.cGx.setVisibility(0);
+            this.cKw.setVisibility(0);
         } else {
-            this.cGx.setVisibility(8);
+            this.cKw.setVisibility(8);
         }
     }
 
     public void a(boolean z, boolean z2, boolean z3, boolean z4) {
-        if (!this.cCy.isProgressBarShown()) {
+        if (!this.cGj.isProgressBarShown()) {
             if (this.mPopWindow == null) {
-                this.cGy = new ck((PbActivity) this.cCy.getPageContext().getOrignalPage(), this.cCy.bcT);
+                this.cKx = new co((PbActivity) this.cGj.getPageContext().getOrignalPage(), this.cGj.bgT);
                 int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-                this.mPopWindow = new MorePopupWindow(this.cCy.getPageContext().getPageActivity(), this.cGy.getView(), this.mNavigationBar, as.getDrawable(n.e.bg_pull_down_right_n), new e(this));
-                this.mPopWindow.onChangeSkinType(this.cCy, skinType, as.getDrawable(n.e.bg_pull_down_right_n));
+                this.mPopWindow = new MorePopupWindow(this.cGj.getPageContext().getPageActivity(), this.cKx.getView(), this.mNavigationBar, as.getDrawable(n.f.bg_pull_down_right_n), new e(this));
+                this.mPopWindow.onChangeSkinType(this.cGj, skinType, as.getDrawable(n.f.bg_pull_down_right_n));
             }
             if (z4) {
-                this.cGy.fk(false);
+                this.cKx.fj(false);
             } else {
-                this.cGy.fk(true);
+                this.cKx.fj(true);
             }
             if (z3) {
-                this.cGy.fj(false);
+                this.cKx.fi(false);
             } else {
-                this.cGy.fj(true);
+                this.cKx.fi(true);
             }
-            if (h.ak(this.cCy.getPageContext().getPageActivity())) {
-                this.cGy.akY().setVisibility(0);
-                this.cGy.akZ().setVisibility(0);
+            if (h.aj(this.cGj.getPageContext().getPageActivity())) {
+                this.cKx.amk().setVisibility(0);
+                this.cKx.aml().setVisibility(0);
             } else {
-                this.cGy.akY().setVisibility(8);
-                this.cGy.akZ().setVisibility(8);
+                this.cKx.amk().setVisibility(8);
+                this.cKx.aml().setVisibility(8);
             }
             if (this.mPopWindow != null) {
                 this.mPopWindow.refresh();
             }
-            l(z, z2);
+            n(z, z2);
             this.mPopWindow.showWindowInRightBottomOfHost();
         }
     }
 
-    private void l(boolean z, boolean z2) {
-        if (this.cGy != null) {
+    private void n(boolean z, boolean z2) {
+        if (this.cKx != null) {
             if (!z) {
-                this.cGy.alb().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cKx.amn().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.cGy.alb().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cKx.amn().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.cGy.akU().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cKx.amf().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.cGy.akU().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cKx.amf().setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void qE() {
+    public void qn() {
         if (this.mPopWindow != null) {
-            j.a(this.mPopWindow, this.cCy.getPageContext().getPageActivity());
+            j.a(this.mPopWindow, this.cGj.getPageContext().getPageActivity());
         }
     }
 
-    public ck amc() {
-        return this.cGy;
+    public co ano() {
+        return this.cKx;
     }
 
-    public boolean amd() {
+    public boolean anp() {
         return this.mPopWindow != null && this.mPopWindow.isShowing();
     }
 
-    public void aeH() {
+    public void afQ() {
         this.mPopWindow = null;
-        this.cGy = null;
+        this.cKx = null;
     }
 }

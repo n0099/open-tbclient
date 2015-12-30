@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class a extends x.a {
-    public ImageView cNI;
-    public TextView cNJ;
-    public TbImageView cNK;
-    public TextView cNL;
-    public ImageView cNM;
+    public ImageView cSo;
+    public TextView cSp;
+    public TbImageView cSq;
+    public TextView cSr;
+    public ImageView cSs;
 
     public a(View view) {
         super(view);
-        this.cNI = (ImageView) view.findViewById(n.f.icon_member_center);
-        this.cNJ = (TextView) view.findViewById(n.f.membership_title);
-        this.cNK = (TbImageView) view.findViewById(n.f.icon_member_level);
-        this.cNL = (TextView) view.findViewById(n.f.membership_hint);
-        this.cNM = (ImageView) view.findViewById(n.f.membership_red_dot);
+        this.cSo = (ImageView) view.findViewById(n.g.icon_member_center);
+        this.cSp = (TextView) view.findViewById(n.g.membership_title);
+        this.cSq = (TbImageView) view.findViewById(n.g.icon_member_level);
+        this.cSr = (TextView) view.findViewById(n.g.membership_hint);
+        this.cSs = (ImageView) view.findViewById(n.g.membership_red_dot);
     }
 }

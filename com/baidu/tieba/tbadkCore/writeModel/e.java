@@ -36,13 +36,13 @@ public class e {
     }
 
     public static void d(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(n.g.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(n.f.experience_score);
-        TextView textView = (TextView) inflate.findViewById(n.f.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(n.f.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(n.f.color_msg);
+        View inflate = LayoutInflater.from(context).inflate(n.h.post_write_or_reply_lay, (ViewGroup) null);
+        View findViewById = inflate.findViewById(n.g.experience_score);
+        TextView textView = (TextView) inflate.findViewById(n.g.success_text);
+        TextView textView2 = (TextView) inflate.findViewById(n.g.pre_msg);
+        TextView textView3 = (TextView) inflate.findViewById(n.g.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(n.i.send_success);
+            str = context.getString(n.j.send_success);
         }
         textView.setText(str);
         if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
@@ -61,10 +61,10 @@ public class e {
                 abVar.o("lat", String.valueOf(y.getLatitude()));
                 abVar.o("lng", String.valueOf(y.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aDJ().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aFW().getLocationData();
             if (locationData != null) {
-                abVar.o("name", locationData.aDF());
-                abVar.o("sn", locationData.aDH());
+                abVar.o("name", locationData.aFS());
+                abVar.o("sn", locationData.aFU());
             }
         }
     }

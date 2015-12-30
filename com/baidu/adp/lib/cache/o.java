@@ -10,9 +10,9 @@ public interface o<T> {
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public T sm;
-        public long tf;
-        public long tw;
+        public T sq;
+        public long th;
+        public long ty;
     }
 
     /* loaded from: classes.dex */

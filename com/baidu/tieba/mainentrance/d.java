@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
-    private SquareSearchActivity ckU;
-    private a ckV;
-    private List<c> ckW;
+    private SquareSearchActivity coY;
+    private a coZ;
+    private List<c> cpa;
     private f mHotSearchInfo;
     private List<g> mTopicInfoList;
 
@@ -14,20 +14,20 @@ public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
     public interface a {
         void a(List<c> list, List<g> list2, f fVar);
 
-        void jr(String str);
+        void jF(String str);
     }
 
     public d(SquareSearchActivity squareSearchActivity, a aVar) {
         super(squareSearchActivity.getPageContext());
-        this.ckU = squareSearchActivity;
-        this.ckV = aVar;
+        this.coY = squareSearchActivity;
+        this.coZ = aVar;
     }
 
-    public void aeZ() {
+    public void agi() {
         sendMessage(new HotForumNetMessage());
     }
 
-    public void afa() {
+    public void agj() {
         registerListener(new e(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
     }
 

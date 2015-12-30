@@ -1,13 +1,10 @@
 package com.baidu.tieba.frs.b;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsActivityStatic;
@@ -16,24 +13,24 @@ import com.baidu.tieba.frs.ez;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView.a {
-    private final View.OnClickListener aZT;
-    private FrsActivity bhN;
-    private SlidingMenu bjj;
-    private ez bjk;
-    private final SlidingMenu.OnClosedListener bjl;
+    private final View.OnClickListener bdQ;
+    private FrsActivity blE;
+    private SlidingMenu bna;
+    private ez bnb;
+    private final SlidingMenu.OnClosedListener bnc;
 
     public l(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.bjj = null;
-        this.bjk = null;
-        this.aZT = new m(this);
-        this.bjl = new n(this);
-        this.bhN = frsActivity;
+        this.bna = null;
+        this.bnb = null;
+        this.bdQ = new m(this);
+        this.bnc = new n(this);
+        this.blE = frsActivity;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.bjk != null) {
-            this.bjk.changeSkinType(i);
+        if (this.bnb != null) {
+            this.bnb.changeSkinType(i);
             return true;
         }
         return true;
@@ -41,17 +38,17 @@ public class l extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
-        if (this.bjk != null) {
-            this.bjk.destroy();
+        if (this.bnb != null) {
+            this.bnb.destroy();
         }
     }
 
     public boolean onBackPressed() {
-        if (PM().isMenuShowing()) {
-            PM().toggle(true);
-            if (PL().Om()) {
-                PL().cw(false);
-                this.bhN.refresh();
+        if (Qe().isMenuShowing()) {
+            Qe().toggle(true);
+            if (Qd().OE()) {
+                Qd().cx(false);
+                this.blE.refresh();
                 return true;
             }
             return true;
@@ -59,61 +56,61 @@ public class l extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView
         return false;
     }
 
-    public void PK() {
-        if (PM().isMenuShowing()) {
-            PM().toggle(true);
+    public void Qc() {
+        if (Qe().isMenuShowing()) {
+            Qe().toggle(true);
         }
     }
 
-    public ez PL() {
-        if (this.bjk == null) {
-            this.bjk = new ez(this.bhN.getPageContext());
-            PM().setMenu(this.bjk.getView());
-            this.bjk.setCommonClickListener(this.aZT);
-            this.bjk.init();
-            this.bjk.Ol().setOnSwitchStateChangeListener(this);
+    public ez Qd() {
+        if (this.bnb == null) {
+            this.bnb = new ez(this.blE.getPageContext());
+            Qe().setMenu(this.bnb.getView());
+            this.bnb.setCommonClickListener(this.bdQ);
+            this.bnb.init();
+            this.bnb.OD().setOnSwitchStateChangeListener(this);
         }
-        this.bjk.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        return this.bjk;
+        this.bnb.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        return this.bnb;
     }
 
-    public SlidingMenu PM() {
-        if (this.bjj == null) {
-            this.bjj = new SlidingMenu(getPageContext().getPageActivity());
-            this.bjj.setBackgroundColor(getPageContext().getResources().getColor(17170444));
-            this.bjj.setMode(1);
-            this.bjj.setTouchModeAbove(1);
-            this.bjj.setBehindOffset((int) (com.baidu.adp.lib.util.k.K(getPageContext().getPageActivity()) * 0.3d));
-            this.bjj.setBehindScrollScale(0.5f);
-            this.bjj.setFadeDegree(0.35f);
-            this.bjj.attachToActivity(getPageContext().getPageActivity(), 1, true);
-            this.bjj.setOnClosedListener(this.bjl);
+    public SlidingMenu Qe() {
+        if (this.bna == null) {
+            this.bna = new SlidingMenu(getPageContext().getPageActivity());
+            this.bna.setBackgroundColor(getPageContext().getResources().getColor(17170444));
+            this.bna.setMode(1);
+            this.bna.setTouchModeAbove(1);
+            this.bna.setBehindOffset((int) (com.baidu.adp.lib.util.k.K(getPageContext().getPageActivity()) * 0.3d));
+            this.bna.setBehindScrollScale(0.5f);
+            this.bna.setFadeDegree(0.35f);
+            this.bna.attachToActivity(getPageContext().getPageActivity(), 1, true);
+            this.bna.setOnClosedListener(this.bnc);
         }
-        return this.bjj;
+        return this.bna;
     }
 
     public void showMenu(boolean z) {
-        PM().showMenu(z);
+        Qe().showMenu(z);
     }
 
-    public void cA(boolean z) {
-        PL().cv(z);
+    public void cB(boolean z) {
+        Qd().cw(z);
     }
 
     public void setIsManager(boolean z) {
-        PL().setIsManager(z);
+        Qd().setIsManager(z);
     }
 
     public void a(dw dwVar) {
-        if (this.bjk != null) {
-            PL().a(dwVar, FrsActivityStatic.baz);
+        if (this.bnb != null) {
+            Qd().a(dwVar, FrsActivityStatic.bey);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         int i = 1;
-        if (view == PL().Ol()) {
+        if (view == Qd().OD()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkCoreApplication.m411getInst().getSkinType() != 1) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);
@@ -128,9 +125,8 @@ public class l extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView
             } else {
                 return;
             }
-            this.bhN.onChangeSkinType(i);
+            this.blE.onChangeSkinType(i);
             com.baidu.tbadk.core.util.c.iy();
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
         }
     }
 }

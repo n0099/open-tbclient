@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class eg {
-    private static eg beL = new eg();
-    private final SparseArray<String> beK = new SparseArray<>();
+    private static eg biF = new eg();
+    private final SparseArray<String> biE = new SparseArray<>();
 
     private eg() {
     }
 
-    public static eg Of() {
-        return beL;
+    public static eg Oy() {
+        return biF;
     }
 
-    public void gl(int i) {
-        this.beK.put(i, "1");
+    public void ge(int i) {
+        this.biE.put(i, "1");
     }
 
-    public boolean gm(int i) {
+    public boolean gf(int i) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.beK.get(i));
+        return !TextUtils.isEmpty(this.biE.get(i));
     }
 }

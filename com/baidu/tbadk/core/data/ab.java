@@ -14,7 +14,7 @@ public class ab {
         return this.title;
     }
 
-    public String to() {
+    public String sY() {
         return this.title_link;
     }
 

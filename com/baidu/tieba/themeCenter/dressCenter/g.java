@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements AdapterView.OnItemClickListener {
-    final /* synthetic */ f dGd;
+    final /* synthetic */ f dNE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.dGd = fVar;
+        this.dNE = fVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v15, resolved type: com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity */
@@ -32,33 +32,33 @@ public class g implements AdapterView.OnItemClickListener {
         DressupCenterActivity dressupCenterActivity2;
         DressupCenterActivity dressupCenterActivity3;
         DressupCenterActivity dressupCenterActivity4;
-        cVar = this.dGd.dGc;
+        cVar = this.dNE.dND;
         j item = cVar.getItem(i);
         if (item != null) {
-            com.baidu.tbadk.core.sharedPref.b.tZ().putLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), System.currentTimeMillis() / 1000);
-            cVar2 = this.dGd.dGc;
+            com.baidu.tbadk.core.sharedPref.b.tJ().putLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), System.currentTimeMillis() / 1000);
+            cVar2 = this.dNE.dND;
             cVar2.notifyDataSetChanged();
             if (!StringUtils.isNull(item.getType())) {
                 String type = item.getType();
                 switch (com.baidu.adp.lib.h.b.g(type, 0)) {
                     case 1:
                         TiebaStatic.log("c10263");
-                        dressupCenterActivity3 = this.dGd.dGa;
+                        dressupCenterActivity3 = this.dNE.dNC;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopThemeListActivityConfig(dressupCenterActivity3.getActivity())));
                         return;
                     case 2:
                         TiebaStatic.log("c10264");
-                        dressupCenterActivity2 = this.dGd.dGa;
+                        dressupCenterActivity2 = this.dNE.dNC;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(dressupCenterActivity2.getActivity())));
                         return;
                     case 3:
-                        dressupCenterActivity = this.dGd.dGa;
+                        dressupCenterActivity = this.dNE.dNC;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleGroupActivityConfig(dressupCenterActivity.getActivity())));
                         return;
                     default:
-                        bf vD = bf.vD();
-                        dressupCenterActivity4 = this.dGd.dGa;
-                        vD.b(dressupCenterActivity4.getPageContext(), new String[]{type});
+                        bf vn = bf.vn();
+                        dressupCenterActivity4 = this.dNE.dNC;
+                        vn.b(dressupCenterActivity4.getPageContext(), new String[]{type});
                         return;
                 }
             }

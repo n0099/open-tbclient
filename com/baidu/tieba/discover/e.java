@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ a aOb;
+    final /* synthetic */ a aRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.aOb = aVar;
+        this.aRT = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         TbadkApplication.getInst().setLocationShared(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_NEIGHBORS, new IntentConfig(this.aOb.getPageContext().getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_NEIGHBORS, new IntentConfig(this.aRT.getPageContext().getPageActivity())));
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "location");
         httpMessage.addParam("val", String.valueOf(1));
-        this.aOb.sendMessage(httpMessage);
+        this.aRT.sendMessage(httpMessage);
     }
 }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ w dDs;
+public class x implements FragmentTabHost.b {
+    final /* synthetic */ w dKW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.dDs = wVar;
+        this.dKW = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
+    public void c(int i, boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
     }
 }

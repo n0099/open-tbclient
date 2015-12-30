@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ e dFQ;
+    final /* synthetic */ e dNs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.dFQ = eVar;
+        this.dNs = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,16 +30,16 @@ public class g extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
             BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
             if (bubbleSetResponseMessage.getError() != 0) {
-                bubbleListActivity = this.dFQ.dFM;
+                bubbleListActivity = this.dNs.dNo;
                 bubbleListActivity.showToast(bubbleSetResponseMessage.getErrorString());
                 return;
             }
-            this.dFQ.mW(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-            aVar = this.dFQ.dFP;
+            this.dNs.ny(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+            aVar = this.dNs.dNr;
             int error = httpResponsedMessage.getError();
             String errorString = httpResponsedMessage.getErrorString();
-            kVar = this.dFQ.mRecommand;
-            list = this.dFQ.dFO;
+            kVar = this.dNs.mRecommand;
+            list = this.dNs.dNq;
             aVar.a(error, errorString, kVar, list);
         }
     }

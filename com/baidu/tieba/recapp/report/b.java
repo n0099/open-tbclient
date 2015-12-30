@@ -5,35 +5,35 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private static b dhV;
-    private CustomMessageListener dhX = new c(this, 2000994);
-    private d dhW = new f();
+    private static b dnC;
+    private CustomMessageListener dnE = new c(this, 2000994);
+    private d dnD = new f();
 
-    public static b avU() {
-        if (dhV == null) {
+    public static b axN() {
+        if (dnC == null) {
             synchronized (b.class) {
-                if (dhV == null) {
-                    dhV = new b();
+                if (dnC == null) {
+                    dnC = new b();
                 }
             }
         }
-        return dhV;
+        return dnC;
     }
 
-    private boolean avV() {
+    private boolean axO() {
         return com.baidu.adp.lib.c.e.gw().aj("ad_log_open") == 1;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.dhX);
+        MessageManager.getInstance().registerListener(this.dnE);
     }
 
     public void a(a aVar) {
-        if (avV() && aVar != null && this.dhW != null) {
-            if (i.iP()) {
-                this.dhW.b(aVar);
+        if (axO() && aVar != null && this.dnD != null) {
+            if (i.iQ()) {
+                this.dnD.b(aVar);
             } else {
-                this.dhW.c(aVar);
+                this.dnD.c(aVar);
             }
         }
     }

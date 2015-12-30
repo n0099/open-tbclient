@@ -5,11 +5,11 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UserMuteListActivity doY;
+    final /* synthetic */ UserMuteListActivity dwl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UserMuteListActivity userMuteListActivity) {
-        this.doY = userMuteListActivity;
+        this.dwl = userMuteListActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
@@ -18,14 +18,14 @@ public class f implements DialogInterface.OnCancelListener {
         UserMuteAddAndDelModel userMuteAddAndDelModel;
         UserMuteAddAndDelModel userMuteAddAndDelModel2;
         m mVar2;
-        mVar = this.doY.doS;
+        mVar = this.dwl.dwf;
         if (mVar != null) {
-            mVar2 = this.doY.doS;
+            mVar2 = this.dwl.dwf;
             mVar2.cancelLoadData();
         }
-        userMuteAddAndDelModel = this.doY.cBJ;
+        userMuteAddAndDelModel = this.dwl.cFo;
         if (userMuteAddAndDelModel != null) {
-            userMuteAddAndDelModel2 = this.doY.cBJ;
+            userMuteAddAndDelModel2 = this.dwl.cFo;
             userMuteAddAndDelModel2.cancelLoadData();
         }
     }

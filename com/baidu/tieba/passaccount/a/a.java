@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a cws = null;
-    private InterfaceC0077a cwt = null;
-    private final a.InterfaceC0041a cwu = new b(this);
-    private final f.a cwv = new d(this);
+    private static a czW = null;
+    private InterfaceC0071a czX = null;
+    private final a.InterfaceC0041a czY = new b(this);
+    private final f.a czZ = new d(this);
 
     /* renamed from: com.baidu.tieba.passaccount.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0077a {
-        void ci(String str);
+    public interface InterfaceC0071a {
+        void ck(String str);
 
         void onSuccess();
     }
@@ -24,15 +24,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aiN() {
-        if (cws == null) {
-            cws = new a();
+    public static a ajT() {
+        if (czW == null) {
+            czW = new a();
         }
-        return cws;
+        return czW;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b ch(String str) {
+    public a.b cj(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -41,9 +41,9 @@ public class a extends com.baidu.tbadk.core.a.a {
                 if (split != null && split.length >= 1) {
                     bVar = new a.b();
                     try {
-                        bVar.wy = split[0];
+                        bVar.wA = split[0];
                         if (split.length >= 2) {
-                            bVar.TV = split[1];
+                            bVar.Uv = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -62,11 +62,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void rq() {
+    public void qZ() {
         AccountData currentAccountObj;
-        a.b ch;
-        if (i.iP() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ch = ch(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.a.a(currentAccountObj.getAccount(), ch.wy, ch.TV, this.cwu);
+        a.b cj;
+        if (i.iQ() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cj = cj(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.a.a(currentAccountObj.getAccount(), cj.wA, cj.Uv, this.czY);
         }
     }
 

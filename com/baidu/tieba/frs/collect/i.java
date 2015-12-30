@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.t;
 import com.baidu.tbadk.core.data.z;
 /* loaded from: classes.dex */
 class i implements w {
-    final /* synthetic */ MyCollectFrsActivity bgk;
+    final /* synthetic */ MyCollectFrsActivity bkc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(MyCollectFrsActivity myCollectFrsActivity) {
-        this.bgk = myCollectFrsActivity;
+        this.bkc = myCollectFrsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
@@ -28,30 +28,30 @@ class i implements w {
             return false;
         }
         if (uVar instanceof z) {
-            this.bgk.bgi = (z) uVar;
-            zVar = this.bgk.bgi;
+            this.bkc.bka = (z) uVar;
+            zVar = this.bkc.bka;
             if (zVar.isPhotoLiveThread()) {
                 return true;
             }
-            zVar2 = this.bgk.bgi;
+            zVar2 = this.bkc.bka;
             if (zVar2 instanceof t) {
                 return true;
             }
-            MyCollectFrsActivity myCollectFrsActivity = this.bgk;
-            zVar3 = this.bgk.bgi;
-            myCollectFrsActivity.bgd = zVar3.getId();
-            zVar4 = this.bgk.bgi;
-            String sN = zVar4.sN();
-            if (sN == null || sN.equals("")) {
-                this.bgk.bgj = false;
+            MyCollectFrsActivity myCollectFrsActivity = this.bkc;
+            zVar3 = this.bkc.bka;
+            myCollectFrsActivity.bjV = zVar3.getId();
+            zVar4 = this.bkc.bka;
+            String sx = zVar4.sx();
+            if (sx == null || sx.equals("")) {
+                this.bkc.bkb = false;
             } else {
-                this.bgk.bgj = true;
+                this.bkc.bkb = true;
             }
-            MyCollectFrsActivity myCollectFrsActivity2 = this.bgk;
-            zVar5 = this.bgk.bgi;
-            myCollectFrsActivity2.a(zVar5);
-            lVar = this.bgk.bgf;
-            lVar.NA();
+            MyCollectFrsActivity myCollectFrsActivity2 = this.bkc;
+            zVar5 = this.bkc.bka;
+            myCollectFrsActivity2.c(zVar5);
+            lVar = this.bkc.bjX;
+            lVar.NT();
             return true;
         }
         return true;

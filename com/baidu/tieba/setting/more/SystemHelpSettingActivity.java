@@ -14,82 +14,82 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.a {
-    private ax doE = null;
-    private com.baidu.tieba.setting.model.j doF = null;
-    private com.baidu.tbadk.core.dialog.a doG;
+    private ay dvR = null;
+    private com.baidu.tieba.setting.model.j dvS = null;
+    private com.baidu.tbadk.core.dialog.a dvT;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.doE = new ax(this);
-        this.doF = new com.baidu.tieba.setting.model.j(this);
+        this.dvR = new ay(this);
+        this.dvS = new com.baidu.tieba.setting.model.j(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.doE.azj().mG();
+            this.dvR.aBp().me();
         } else {
-            this.doE.azj().mH();
+            this.dvR.aBp().mf();
         }
-        this.doE.azk().setTip(getPageContext().getString(n.i.calc_cache_size));
-        this.doE.azk().displayTip();
-        this.doF.a(new ar(this, this));
-        registerListener(new as(this, CmdConfigCustom.IM_CLEAR_MSG));
+        this.dvR.aBq().setTip(getPageContext().getString(n.j.calc_cache_size));
+        this.dvR.aBq().displayTip();
+        this.dvS.a(new as(this, this));
+        registerListener(new at(this, CmdConfigCustom.IM_CLEAR_MSG));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.doF != null) {
-            this.doF.axt();
+        if (this.dvS != null) {
+            this.dvS.azz();
         }
-        axv();
+        azB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.doE.onChangeSkinType(i);
+        this.dvR.onChangeSkinType(i);
     }
 
-    private void axv() {
-        this.doE.azn().refresh();
+    private void azB() {
+        this.dvR.aBt().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.doE != null) {
-            if (view == this.doE.azk()) {
-                if (this.doF != null) {
-                    if (TextUtils.isEmpty(this.doE.azk().getTip())) {
-                        showToast(n.i.no_cache_delete);
+        if (this.dvR != null) {
+            if (view == this.dvR.aBq()) {
+                if (this.dvS != null) {
+                    if (TextUtils.isEmpty(this.dvR.aBq().getTip())) {
+                        showToast(n.j.no_cache_delete);
                     } else {
-                        this.doG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bN(n.i.alert_clear_all_cache).a(n.i.alert_yes_button, new at(this)).b(n.i.alert_no_button, new au(this)).b(getPageContext()).tv();
+                        this.dvT = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bG(n.j.alert_clear_all_cache).a(n.j.alert_yes_button, new au(this)).b(n.j.alert_no_button, new av(this)).b(getPageContext()).tf();
                     }
                 }
-            } else if (view == this.doE.azl()) {
-                if (this.doF != null) {
-                    this.doG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bN(n.i.alert_clear_cache).a(n.i.alert_yes_button, new av(this)).b(n.i.alert_no_button, new aw(this)).b(getPageContext()).tv();
+            } else if (view == this.dvR.aBr()) {
+                if (this.dvS != null) {
+                    this.dvT = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bG(n.j.alert_clear_cache).a(n.j.alert_yes_button, new aw(this)).b(n.j.alert_no_button, new ax(this)).b(getPageContext()).tf();
                 }
-            } else if (view == this.doE.azn()) {
+            } else if (view == this.dvR.aBt()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.doE.azm()) {
-                azi();
+            } else if (view == this.dvR.aBs()) {
+                aBo();
             }
         }
     }
 
-    private void azi() {
+    private void aBo() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_MY_WALLET, new IntentConfig(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.doE.azj())) {
+        if (view != null && view.equals(this.dvR.aBp())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.doF.setHeadsetModeOn(true);
+                this.dvS.setHeadsetModeOn(true);
             } else {
-                this.doF.setHeadsetModeOn(false);
+                this.dvS.setHeadsetModeOn(false);
             }
         }
     }
@@ -97,8 +97,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.doG != null && this.doG.isShowing()) {
-            this.doG.dismiss();
+        if (this.dvT != null && this.dvT.isShowing()) {
+            this.dvT.dismiss();
         }
         super.onDestroy();
     }

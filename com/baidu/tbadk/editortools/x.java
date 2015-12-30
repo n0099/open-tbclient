@@ -6,7 +6,7 @@ import com.baidu.tieba.n;
 public class x extends y {
     public x(Context context) {
         super((String) null, 23, 0);
-        this.launcherIcon = n.e.selector_editor_btn_more;
+        this.launcherIcon = n.f.selector_editor_btn_more;
         this.toolLaunchAction = new int[]{32};
     }
 }

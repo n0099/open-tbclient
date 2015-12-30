@@ -2,13 +2,13 @@ package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class PerformanceSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        com.baidu.adp.lib.c.e.gw().f(PerformanceSwitchStatic.class);
+        com.baidu.adp.lib.c.e.gw().e(PerformanceSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
-        y.ES().bC(1 == i);
+        y.EH().bC(1 == i);
     }
 
     @Override // com.baidu.adp.lib.c.a

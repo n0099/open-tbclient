@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class v extends com.baidu.adp.base.g {
-    final /* synthetic */ RelateTopicForumActivity bDu;
+    final /* synthetic */ RelateTopicForumActivity bGY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(RelateTopicForumActivity relateTopicForumActivity) {
-        this.bDu = relateTopicForumActivity;
+        this.bGY = relateTopicForumActivity;
     }
 
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
-        if (AntiHelper.mC(this.bDu.bDm.getErrorCode())) {
-            AntiHelper.Q(this.bDu.getActivity(), this.bDu.bDm.getErrorString());
-        } else if (!StringUtils.isNull(this.bDu.bDm.getErrorString())) {
-            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bDu.bDm.getErrorString());
+        if (AntiHelper.ne(this.bGY.bGQ.getErrorCode())) {
+            AntiHelper.Q(this.bGY.getActivity(), this.bGY.bGQ.getErrorString());
+        } else if (!StringUtils.isNull(this.bGY.bGQ.getErrorString())) {
+            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bGY.bGQ.getErrorString());
         }
     }
 }

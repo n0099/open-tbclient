@@ -15,6 +15,6 @@ public class r extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.this$0.X(intent);
+        this.this$0.W(intent);
     }
 }

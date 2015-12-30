@@ -8,7 +8,7 @@ public class o {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int ge(String str) {
+    public static int gi(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -24,7 +24,7 @@ public class o {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eR(int i) {
+    public static String eL(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }
@@ -34,11 +34,11 @@ public class o {
         return new StringBuilder().append(i).toString();
     }
 
-    public static String w(String str, int i) {
+    public static String x(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (ge(str) > i) {
+        if (gi(str) > i) {
             return String.valueOf(e(str, 0, i - 2)) + "...";
         }
         return str;

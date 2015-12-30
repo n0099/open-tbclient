@@ -1,38 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-public class bz implements TbRichTextView.e {
-    final /* synthetic */ by cCR;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(by byVar) {
-        this.cCR = byVar;
+public class bz extends ce<com.baidu.tieba.tbadkCore.data.q, PbRecBaseViewHolder> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bz(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
-    public void b(View view, String str) {
-        long j;
-        long j2;
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        com.baidu.tieba.pb.a.c cVar3;
-        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bf.vD().b(this.cCR.cCy.getPageContext(), new String[]{str})) {
-            j = this.cCR.cCQ;
-            if (j != 0) {
-                j2 = this.cCR.cCQ;
-                cVar = this.cCR.cAm;
-                String id = cVar.ajy().getId();
-                cVar2 = this.cCR.cAm;
-                String name = cVar2.ajy().getName();
-                cVar3 = this.cCR.cAm;
-                com.baidu.tieba.pb.a.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, cVar3.ajz().getTid());
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: Y */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.axH().l(this.mContext, 2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.ce, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.q qVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) qVar, (com.baidu.tieba.tbadkCore.data.q) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        com.baidu.tieba.tbadkCore.data.q qVar2 = (com.baidu.tieba.tbadkCore.data.q) au(i);
+        this.cGj.getLayoutMode().ac(this.mSkinType == 1);
+        this.cGj.getLayoutMode().k(view);
+        pbRecBaseViewHolder.update(qVar2, i, this.mIsFromCDN);
+        return view;
     }
 }

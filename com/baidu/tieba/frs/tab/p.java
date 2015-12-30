@@ -12,11 +12,11 @@ import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p implements f {
-    private TabMenuPopView.a bfW = new q(this);
-    private i biI;
-    private i.a biL;
-    private List<fc> biM;
-    private TabMenuPopView biN;
+    private TabMenuPopView.a bjO = new q(this);
+    private i.a bmC;
+    private List<fc> bmD;
+    private TabMenuPopView bmE;
+    private i bmz;
     private View mContentView;
     private Context mContext;
 
@@ -24,24 +24,24 @@ public class p implements f {
     public void a(Context context, i iVar) {
         if (context != null && iVar != null) {
             this.mContext = context;
-            this.biI = iVar;
-            this.biL = iVar.Pk();
-            this.mContentView = LayoutInflater.from(this.mContext).inflate(n.g.tab_menu_multline_view, (ViewGroup) null);
-            this.biN = (TabMenuPopView) this.mContentView.findViewById(n.f.categorycontainer);
-            this.biN.setOnItemClickCallBack(this.bfW);
+            this.bmz = iVar;
+            this.bmC = iVar.PC();
+            this.mContentView = LayoutInflater.from(this.mContext).inflate(n.h.tab_menu_multline_view, (ViewGroup) null);
+            this.bmE = (TabMenuPopView) this.mContentView.findViewById(n.g.categorycontainer);
+            this.bmE.setOnItemClickCallBack(this.bjO);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public void setData(List<fc> list) {
         if (list != null) {
-            this.biM = list;
+            this.bmD = list;
             fc fcVar = new fc();
-            fcVar.beF = 0;
-            fcVar.name = this.mContext.getResources().getString(n.i.forum_list_menu_all);
+            fcVar.biz = 0;
+            fcVar.name = this.mContext.getResources().getString(n.j.forum_list_menu_all);
             fcVar.isSelected = false;
-            as.j(this.mContentView, n.c.cp_bg_line_d);
-            this.biN.a(this.biM, fcVar);
+            as.j(this.mContentView, n.d.cp_bg_line_d);
+            this.bmE.a(this.bmD, fcVar);
         }
     }
 
@@ -51,17 +51,17 @@ public class p implements f {
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void wh() {
+    public void vR() {
         if (this.mContentView != null) {
-            as.j(this.mContentView, n.c.cp_bg_line_d);
+            as.j(this.mContentView, n.d.cp_bg_line_d);
         }
-        if (this.biN != null) {
-            this.biN.wh();
+        if (this.bmE != null) {
+            this.bmE.vR();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int Pi() {
+    public int PA() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

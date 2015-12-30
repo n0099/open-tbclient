@@ -1,32 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aoe;
-    private final /* synthetic */ int bIP;
-    final /* synthetic */ w dDs;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ w dKW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(w wVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.dDs = wVar;
-        this.aoe = aVar;
-        this.bIP = i;
+    public ab(w wVar) {
+        this.dKW = wVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        this.aoe.dismiss();
-        if (this.bIP == 0) {
-            mainTabActivity2 = this.dDs.dDj;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.bIP == 1) {
-            mainTabActivity = this.dDs.dDj;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
     }
 }

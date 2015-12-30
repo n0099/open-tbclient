@@ -89,7 +89,7 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0038a {
+    public static class C0039a {
         private static final String a = "MD5";
         private static final String b = "AES";
         private static final String c = "UTF-8";

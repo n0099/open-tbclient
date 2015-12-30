@@ -5,11 +5,11 @@ import com.baidu.tieba.themeCenter.theme.top.d;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements d.a {
-    final /* synthetic */ AllThemeListActivity dGi;
+    final /* synthetic */ AllThemeListActivity dNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AllThemeListActivity allThemeListActivity) {
-        this.dGi = allThemeListActivity;
+        this.dNJ = allThemeListActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.theme.top.d.a
@@ -17,14 +17,14 @@ class a implements d.a {
         h hVar;
         h hVar2;
         d dVar;
-        AllThemeListActivity allThemeListActivity = this.dGi;
-        hVar = this.dGi.dGf;
+        AllThemeListActivity allThemeListActivity = this.dNJ;
+        hVar = this.dNJ.dNG;
         allThemeListActivity.hideLoadingView(hVar.getRootView());
-        hVar2 = this.dGi.dGf;
-        dVar = this.dGi.dGe;
-        hVar2.a(kVar, list, dVar.azO());
+        hVar2 = this.dNJ.dNG;
+        dVar = this.dNJ.dNF;
+        hVar2.a(kVar, list, dVar.aBV());
         if (i != 0) {
-            this.dGi.showToast(str);
+            this.dNJ.showToast(str);
         }
     }
 }

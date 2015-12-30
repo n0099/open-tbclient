@@ -15,7 +15,7 @@ public class f {
     public interface a {
         void a(AccountData accountData);
 
-        void ko(String str);
+        void kk(String str);
     }
 
     public static void a(String str, String str2, a aVar) {
@@ -26,14 +26,14 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<Object, Object, AccountData> {
-        private final a cwB;
+        private final a cAf;
         private final String mAccount;
         private final String mPassword;
 
         public b(String str, String str2, a aVar) {
             this.mAccount = str;
             this.mPassword = str2;
-            this.cwB = aVar;
+            this.cAf = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: l */
         public AccountData doInBackground(Object... objArr) {
-            return f.aW(this.mAccount, this.mPassword);
+            return f.aR(this.mAccount, this.mPassword);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,20 +50,20 @@ public class f {
         /* renamed from: m */
         public void onPostExecute(AccountData accountData) {
             super.onPostExecute(accountData);
-            if (this.cwB != null) {
+            if (this.cAf != null) {
                 if (accountData != null) {
-                    this.cwB.a(accountData);
+                    this.cAf.a(accountData);
                 } else {
-                    this.cwB.ko(this.mAccount);
+                    this.cAf.kk(this.mAccount);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData aW(String str, String str2) {
+    public static AccountData aR(String str, String str2) {
         ab abVar;
-        String ul;
+        String tV;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -73,16 +73,16 @@ public class f {
             abVar.o("isphone", "0");
             abVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             abVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            abVar.uM().vF().vI().adj = true;
-            abVar.uM().vF().mIsNeedAddCommenParam = false;
-            abVar.uM().vF().mIsUseCurrentBDUSS = false;
-            ul = abVar.ul();
+            abVar.uw().vp().vs().adN = true;
+            abVar.uw().vp().mIsNeedAddCommenParam = false;
+            abVar.uw().vp().mIsUseCurrentBDUSS = false;
+            tV = abVar.tV();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (abVar.uM().vG().rf() && ul != null) {
+        if (abVar.uw().vq().qO() && tV != null) {
             n nVar = new n();
-            nVar.parserJson(ul);
+            nVar.parserJson(tV);
             String userId = nVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
@@ -98,19 +98,19 @@ public class f {
             accountData.setBDUSS(nVar.getUser().getBDUSS());
             accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (nVar.rZ() != null) {
-                accountData.setTbs(nVar.rZ().getTbs());
+            if (nVar.rI() != null) {
+                accountData.setTbs(nVar.rI().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (abVar.uP()) {
-            switch (abVar.uQ()) {
+        if (abVar.uz()) {
+            switch (abVar.uA()) {
                 case 1:
                 case 2:
                 case 5:
                     abVar.gL();
-                    ReloginManager.tU().e(null);
+                    ReloginManager.tE().e(null);
                     break;
             }
             return null;

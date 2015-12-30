@@ -4,11 +4,11 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 class n extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ m DY;
+    final /* synthetic */ m Eq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.DY = mVar;
+        this.Eq = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ class n extends BdAsyncTask<Void, Void, Void> {
             ((ThreadLocal) c).set(Looper.getMainLooper());
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            pluginPackageManager = this.DY.this$0;
-            pluginPackageManager.lX();
+            pluginPackageManager = this.Eq.this$0;
+            pluginPackageManager.lv();
             return null;
         }
-        com.baidu.adp.plugin.b.a.lI().bl("plugin_asyncinit_fail");
+        com.baidu.adp.plugin.b.a.lf().bo("plugin_asyncinit_fail");
         com.baidu.adp.lib.h.h.hj().post(new o(this));
         return null;
     }

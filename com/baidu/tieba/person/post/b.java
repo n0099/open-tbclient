@@ -27,7 +27,7 @@ class b extends CustomMessageListener {
                     Bundle bundle = new Bundle();
                     bundle.putString("key_uid", currentAccount);
                     bundle.putString("thread_type_key", "photolive");
-                    fragmentTabStructure.avR.setArguments(bundle);
+                    fragmentTabStructure.axv.setArguments(bundle);
                 }
             }
         }

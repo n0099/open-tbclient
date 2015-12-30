@@ -378,7 +378,7 @@ public class ax implements a0, n {
                     contentValues.put("next_active_time", (Integer) 0);
                     contentValues.put("next_exit_active_time", (Integer) 0);
                     writableDatabase.insert("geofence", null, contentValues);
-                    for (String str2 : str.split(iD)) {
+                    for (String str2 : str.split(";")) {
                         ContentValues contentValues2 = new ContentValues();
                         contentValues2.put("geofence_id", geofenceId);
                         contentValues2.put("ap_backup", str2);

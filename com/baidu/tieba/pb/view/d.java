@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.bj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView cIB;
+    final /* synthetic */ PbGiftListView cME;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbGiftListView pbGiftListView) {
-        this.cIB = pbGiftListView;
+        this.cME = pbGiftListView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,17 +30,17 @@ public class d implements View.OnClickListener {
         String str2;
         long j2;
         long j3;
-        context = this.cIB.mContext;
+        context = this.cME.mContext;
         TbPageContext tbPageContext = (TbPageContext) l.C(context);
         if (tbPageContext != null) {
             if (TbadkCoreApplication.isLogin()) {
-                str = this.cIB.toUserName;
+                str = this.cME.toUserName;
                 if (!StringUtils.isNull(str)) {
                     Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.cIB.toUserId;
-                    str2 = this.cIB.toUserName;
-                    j2 = this.cIB.threadId;
-                    j3 = this.cIB.postId;
+                    j = this.cME.toUserId;
+                    str2 = this.cME.toUserName;
+                    j2 = this.cME.threadId;
+                    j3 = this.cME.postId;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
                     return;
                 }

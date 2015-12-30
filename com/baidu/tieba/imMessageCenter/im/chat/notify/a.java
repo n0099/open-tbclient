@@ -10,7 +10,7 @@ public class a {
         if (TbadkCoreApplication.m411getInst().appResponseToCmd(i)) {
             return true;
         }
-        b(baseFragmentActivity);
+        c(baseFragmentActivity);
         return false;
     }
 
@@ -18,16 +18,16 @@ public class a {
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(cls)) {
             return true;
         }
-        b(baseFragmentActivity);
+        c(baseFragmentActivity);
         return false;
     }
 
-    private static void b(BaseFragmentActivity baseFragmentActivity) {
+    private static void c(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
-                baseFragmentActivity.showToast(n.i.plugin_not_exit_for_2_3);
+                baseFragmentActivity.showToast(n.j.plugin_not_exit_for_2_3);
             } else {
-                baseFragmentActivity.showToast(n.i.plugin_not_exit);
+                baseFragmentActivity.showToast(n.j.plugin_not_exit);
             }
         }
     }

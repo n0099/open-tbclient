@@ -13,41 +13,41 @@ import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private ArrayList<i> aAl;
-    private int aAo;
-    private int aAp;
+    private ArrayList<i> aBS;
+    private int aBV;
+    private int aBW;
     private TbPageContext<?> mContext;
     private int padding;
-    private int aAd = -1;
+    private int aBK = -1;
     private int rowSize = 0;
-    private int aAm = as.getColor(n.c.black_alpha10);
-    private int aAn = as.getColor(n.c.cp_link_tip_a);
+    private int aBT = as.getColor(n.d.black_alpha10);
+    private int aBU = as.getColor(n.d.cp_link_tip_a);
 
     public h(TbPageContext<?> tbPageContext) {
-        this.aAl = null;
+        this.aBS = null;
         this.mContext = null;
         this.padding = 0;
         this.mContext = tbPageContext;
-        this.aAl = new ArrayList<>();
-        this.aAo = k.d(tbPageContext.getPageActivity(), n.d.ds1);
-        this.aAp = k.d(this.mContext.getPageActivity(), n.d.ds4);
-        this.padding = k.d(this.mContext.getPageActivity(), n.d.ds36);
+        this.aBS = new ArrayList<>();
+        this.aBV = k.d(tbPageContext.getPageActivity(), n.e.ds1);
+        this.aBW = k.d(this.mContext.getPageActivity(), n.e.ds4);
+        this.padding = k.d(this.mContext.getPageActivity(), n.e.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aAl != null) {
-            return this.aAl.size();
+        if (this.aBS != null) {
+            return this.aBS.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aAl == null || i >= this.aAl.size()) {
+        if (this.aBS == null || i >= this.aBS.size()) {
             return null;
         }
-        return this.aAl.get(i);
+        return this.aBS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,37 +60,37 @@ public class h extends BaseAdapter {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.recommend_system_photo_item, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.recommend_system_photo_item, viewGroup, false);
             aVar = new a(this, null);
-            aVar.container = (LinearLayout) view.findViewById(n.f.photo_container);
-            aVar.aAq = (TbImageView) view.findViewById(n.f.photo);
+            aVar.container = (LinearLayout) view.findViewById(n.g.photo_container);
+            aVar.aBX = (TbImageView) view.findViewById(n.g.photo);
         } else {
             aVar = (a) view.getTag();
         }
-        if (eO(i) == 1) {
+        if (eI(i) == 1) {
             aVar.container.setPadding(0, this.padding, 0, 0);
-        } else if (eO(i) == 2) {
+        } else if (eI(i) == 2) {
             aVar.container.setPadding(0, 0, 0, this.padding);
         } else {
             aVar.container.setPadding(0, 0, 0, 0);
         }
-        aVar.aAq.setDrawerType(0);
-        aVar.aAq.setBorderSurroundContent(true);
-        aVar.aAq.setDrawBorder(true);
+        aVar.aBX.setDrawerType(0);
+        aVar.aBX.setBorderSurroundContent(true);
+        aVar.aBX.setDrawBorder(true);
         if (itemViewType == 0) {
-            aVar.aAq.setBorderColor(this.aAm);
-            aVar.aAq.setBorderWidth(this.aAo);
+            aVar.aBX.setBorderColor(this.aBT);
+            aVar.aBX.setBorderWidth(this.aBV);
         } else {
-            aVar.aAq.setBorderColor(this.aAn);
-            aVar.aAq.setBorderWidth(this.aAp);
+            aVar.aBX.setBorderColor(this.aBU);
+            aVar.aBX.setBorderWidth(this.aBW);
         }
-        aVar.aAq.setDefaultResource(n.e.icon_default_avatar100);
-        aVar.aAq.d(this.aAl.get(i).getUrl(), 10, false);
+        aVar.aBX.setDefaultResource(n.f.icon_default_avatar100);
+        aVar.aBX.d(this.aBS.get(i).getUrl(), 10, false);
         view.setTag(aVar);
         return view;
     }
 
-    public int eO(int i) {
+    public int eI(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -102,7 +102,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.aAd ? 1 : 0;
+        return i == this.aBK ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -111,7 +111,7 @@ public class h extends BaseAdapter {
     }
 
     public void t(ArrayList<i> arrayList) {
-        this.aAl = arrayList;
+        this.aBS = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -121,13 +121,13 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void eP(int i) {
-        this.aAd = i;
+    public void eJ(int i) {
+        this.aBK = i;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TbImageView aAq;
+        TbImageView aBX;
         LinearLayout container;
 
         private a() {

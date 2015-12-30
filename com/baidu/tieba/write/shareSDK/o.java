@@ -26,139 +26,139 @@ import com.baidu.tieba.write.write.cf;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o {
-    private WriteData dBW;
-    private TextView dNA;
-    private TextView dNB;
-    private WriteShareActivity dNC;
-    private com.baidu.tbadk.img.b dND;
-    private View dNp;
-    private TextView dNt;
-    private cf dNu;
-    private ImageView dNv;
-    private View dNw;
-    private LinearLayout dNx;
-    private LinearLayout dNy;
-    private ShareSDKImageView dNz;
+    private WriteData dJy;
+    private View dUO;
+    private TextView dUS;
+    private cf dUT;
+    private ImageView dUU;
+    private View dUV;
+    private LinearLayout dUW;
+    private LinearLayout dUX;
+    private ShareSDKImageView dUY;
+    private TextView dUZ;
+    private TextView dVa;
+    private WriteShareActivity dVb;
+    private com.baidu.tbadk.img.b dVc;
     private PostPrefixData mPrefixData;
     private NavigationBar mNavigationBar = null;
     private View mBack = null;
-    private EditText dNn = null;
-    private View dNo = null;
-    private LinearLayout dNq = null;
-    private EditText dNr = null;
-    private TextView dNs = null;
-    private RelativeLayout bGY = null;
-    private boolean dNE = false;
+    private EditText dUM = null;
+    private View dUN = null;
+    private LinearLayout dUP = null;
+    private EditText dUQ = null;
+    private TextView dUR = null;
+    private RelativeLayout bKF = null;
+    private boolean dVd = false;
     private int width = 0;
     private int height = 0;
 
     public o(WriteShareActivity writeShareActivity) {
-        this.dBW = null;
-        this.dNC = writeShareActivity;
-        this.dBW = writeShareActivity.aEl();
-        if (this.dND == null) {
-            this.dND = new com.baidu.tbadk.img.b();
+        this.dJy = null;
+        this.dVb = writeShareActivity;
+        this.dJy = writeShareActivity.aGz();
+        if (this.dVc == null) {
+            this.dVc = new com.baidu.tbadk.img.b();
         }
         initUI();
     }
 
     private void initUI() {
-        this.mNavigationBar = (NavigationBar) this.dNC.findViewById(n.f.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.dVb.findViewById(n.g.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.dNC.getPageContext().getString(n.i.share_navigationbar_title));
-        this.dNs = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.dNC.getPageContext().getString(n.i.send_post));
-        this.bGY = (RelativeLayout) this.dNC.findViewById(n.f.parent);
-        this.dNo = this.dNC.findViewById(n.f.interval_view);
-        this.dNp = this.dNC.findViewById(n.f.prefix_interval_view);
-        this.dNx = (LinearLayout) this.dNC.findViewById(n.f.post_share_layout);
-        this.dNy = (LinearLayout) this.dNC.findViewById(n.f.post_share_content_layout);
-        this.dNz = (ShareSDKImageView) this.dNC.findViewById(n.f.post_share_image);
-        this.dNA = (TextView) this.dNC.findViewById(n.f.post_share_title);
-        this.dNB = (TextView) this.dNC.findViewById(n.f.post_share_content);
-        aIr();
-        aIt();
-        this.dNq = (LinearLayout) this.dNC.findViewById(n.f.post_content_container);
-        this.dNq.setDrawingCacheEnabled(false);
-        this.dNn.setVisibility(0);
-        this.dNr.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        aIs();
+        this.mNavigationBar.setTitleText(this.dVb.getPageContext().getString(n.j.share_navigationbar_title));
+        this.dUR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.dVb.getPageContext().getString(n.j.send_post));
+        this.bKF = (RelativeLayout) this.dVb.findViewById(n.g.parent);
+        this.dUN = this.dVb.findViewById(n.g.interval_view);
+        this.dUO = this.dVb.findViewById(n.g.prefix_interval_view);
+        this.dUW = (LinearLayout) this.dVb.findViewById(n.g.post_share_layout);
+        this.dUX = (LinearLayout) this.dVb.findViewById(n.g.post_share_content_layout);
+        this.dUY = (ShareSDKImageView) this.dVb.findViewById(n.g.post_share_image);
+        this.dUZ = (TextView) this.dVb.findViewById(n.g.post_share_title);
+        this.dVa = (TextView) this.dVb.findViewById(n.g.post_share_content);
+        aKM();
+        aKO();
+        this.dUP = (LinearLayout) this.dVb.findViewById(n.g.post_content_container);
+        this.dUP.setDrawingCacheEnabled(false);
+        this.dUM.setVisibility(0);
+        this.dUQ.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        aKN();
     }
 
-    public void aIp() {
-        this.dNx = (LinearLayout) this.dNC.findViewById(n.f.post_share_layout);
-        this.dNz = (ShareSDKImageView) this.dNC.findViewById(n.f.post_share_image);
-        this.dNz.setIsRound(false);
-        this.dNz.setDrawBorder(false);
-        this.dNz.setAutoChangeStyle(true);
-        this.dNz.setRadius(0);
-        this.dNA = (TextView) this.dNC.findViewById(n.f.post_share_title);
-        this.dNB = (TextView) this.dNC.findViewById(n.f.post_share_content);
-        if (this.dBW != null) {
-            if (this.dBW.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
-                this.dNz.setEvent(new p(this));
+    public void aKK() {
+        this.dUW = (LinearLayout) this.dVb.findViewById(n.g.post_share_layout);
+        this.dUY = (ShareSDKImageView) this.dVb.findViewById(n.g.post_share_image);
+        this.dUY.setIsRound(false);
+        this.dUY.setDrawBorder(false);
+        this.dUY.setAutoChangeStyle(true);
+        this.dUY.setRadius(0);
+        this.dUZ = (TextView) this.dVb.findViewById(n.g.post_share_title);
+        this.dVa = (TextView) this.dVb.findViewById(n.g.post_share_content);
+        if (this.dJy != null) {
+            if (this.dJy.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
+                this.dUY.setEvent(new p(this));
             }
-            if (this.dBW.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
-                if (this.dBW.getShareSummaryImg() != null && this.dBW.getShareSummaryImg().trim().length() > 0) {
-                    this.dNz.d(this.dBW.getShareSummaryImg(), 10, true);
+            if (this.dJy.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
+                if (this.dJy.getShareSummaryImg() != null && this.dJy.getShareSummaryImg().trim().length() > 0) {
+                    this.dUY.d(this.dJy.getShareSummaryImg(), 10, true);
                 } else {
-                    this.dNE = true;
-                    aIs();
+                    this.dVd = true;
+                    aKN();
                 }
             } else {
-                Bitmap N = com.baidu.tbadk.core.util.c.N(this.dBW.getShareLocalImageData());
+                Bitmap N = com.baidu.tbadk.core.util.c.N(this.dJy.getShareLocalImageData());
                 if (N != null) {
-                    this.dNz.setImageBitmap(N);
+                    this.dUY.setImageBitmap(N);
                 } else {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    if (!TextUtils.isEmpty(this.dBW.getShareLocalImageUri())) {
-                        imageFileInfo.setFilePath(com.baidu.tbadk.core.util.n.a(TbadkCoreApplication.m411getInst().getApp(), Uri.parse(this.dBW.getShareLocalImageUri())));
+                    if (!TextUtils.isEmpty(this.dJy.getShareLocalImageUri())) {
+                        imageFileInfo.setFilePath(com.baidu.tbadk.core.util.n.a(TbadkCoreApplication.m411getInst().getApp(), Uri.parse(this.dJy.getShareLocalImageUri())));
                     }
                     imageFileInfo.clearAllActions();
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(ay.vq().vw(), ay.vq().vw()));
-                    this.dNz.setTag(imageFileInfo.toCachedKey(true));
-                    if (this.dND.a(imageFileInfo, new q(this), true) != null) {
-                        this.dNz.invalidate();
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.K(ay.va().vg(), ay.va().vg()));
+                    this.dUY.setTag(imageFileInfo.toCachedKey(true));
+                    if (this.dVc.a(imageFileInfo, new q(this), true) != null) {
+                        this.dUY.invalidate();
                     }
                 }
-                this.dNE = true;
-                aIs();
+                this.dVd = true;
+                aKN();
             }
-            this.dBW.setShareSummaryImgType(com.baidu.adp.lib.util.e.aL(this.dBW.getShareSummaryImg()));
-            this.dNA.setText(this.dBW.getShareSummaryTitle());
-            this.dNB.setText(this.dBW.getShareSummaryContent());
+            this.dJy.setShareSummaryImgType(com.baidu.adp.lib.util.e.aL(this.dJy.getShareSummaryImg()));
+            this.dUZ.setText(this.dJy.getShareSummaryTitle());
+            this.dVa.setText(this.dJy.getShareSummaryContent());
         }
     }
 
-    private void aIq() {
-        this.dNw = this.dNC.findViewById(n.f.post_prefix_layout);
-        this.dNt = (TextView) this.dNC.findViewById(n.f.post_prefix);
-        this.dNv = (ImageView) this.dNC.findViewById(n.f.prefix_icon);
+    private void aKL() {
+        this.dUV = this.dVb.findViewById(n.g.post_prefix_layout);
+        this.dUS = (TextView) this.dVb.findViewById(n.g.post_prefix);
+        this.dUU = (ImageView) this.dVb.findViewById(n.g.prefix_icon);
         if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-            this.dNw.setVisibility(0);
+            this.dUV.setVisibility(0);
             ArrayList<String> prefixs = this.mPrefixData.getPrefixs();
             int size = prefixs.size();
-            this.dNt.setText(prefixs.get(0));
-            this.dNC.nr(0);
-            this.dNw.setOnClickListener(new r(this));
-            this.dNv = (ImageView) this.dNC.findViewById(n.f.prefix_icon);
+            this.dUS.setText(prefixs.get(0));
+            this.dVb.oj(0);
+            this.dUV.setOnClickListener(new r(this));
+            this.dUU = (ImageView) this.dVb.findViewById(n.g.prefix_icon);
             if (size > 1) {
-                this.dNv.setVisibility(0);
-                this.dNt.setOnClickListener(new s(this));
+                this.dUU.setVisibility(0);
+                this.dUS.setOnClickListener(new s(this));
             }
-            this.dNu = new cf(this.dNC.getPageContext().getContext());
-            this.dNu.setMaxHeight(com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), 225.0f));
-            this.dNu.setOutsideTouchable(true);
-            this.dNu.setFocusable(true);
-            this.dNu.setBackgroundDrawable(as.getDrawable(n.c.cp_bg_line_b));
-            this.dNu.a(new t(this));
-            this.dNu.setOnDismissListener(new u(this));
-            int color = as.getColor(n.c.write_text);
-            as.i((View) this.dNt, n.e.write_prefix_item_selector);
-            as.c(this.dNv, n.e.icon_title_down);
-            this.dNt.setTextColor(color);
+            this.dUT = new cf(this.dVb.getPageContext().getContext());
+            this.dUT.setMaxHeight(com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), 225.0f));
+            this.dUT.setOutsideTouchable(true);
+            this.dUT.setFocusable(true);
+            this.dUT.setBackgroundDrawable(as.getDrawable(n.d.cp_bg_line_b));
+            this.dUT.a(new t(this));
+            this.dUT.setOnDismissListener(new u(this));
+            int color = as.getColor(n.d.write_text);
+            as.i((View) this.dUS, n.f.write_prefix_item_selector);
+            as.c(this.dUU, n.f.icon_title_down);
+            this.dUS.setTextColor(color);
             for (int i = 0; i < size; i++) {
-                TextView textView = new TextView(this.dNC.getPageContext().getContext());
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), 45.0f));
+                TextView textView = new TextView(this.dVb.getPageContext().getContext());
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), 45.0f));
                 textView.setLayoutParams(layoutParams);
                 textView.setText(prefixs.get(i));
                 textView.setGravity(19);
@@ -166,80 +166,80 @@ public class o {
                 textView.setEllipsize(TextUtils.TruncateAt.MIDDLE);
                 textView.setTextSize(1, 16.0f);
                 textView.setTextColor(color);
-                as.i((View) textView, n.e.write_prefix_item_selector);
-                textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), this.dNC.getResources().getDimension(n.d.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), this.dNC.getResources().getDimension(n.d.ds22)), 0);
-                this.dNu.addView(textView);
+                as.i((View) textView, n.f.write_prefix_item_selector);
+                textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), this.dVb.getResources().getDimension(n.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), this.dVb.getResources().getDimension(n.e.ds22)), 0);
+                this.dUT.addView(textView);
                 if (i != size - 1) {
-                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), 1.0f);
+                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), 1.0f);
                     textView.setGravity(19);
-                    textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), this.dNC.getResources().getDimension(n.d.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.dNC.getPageContext().getContext(), this.dNC.getResources().getDimension(n.d.ds22)), 0);
+                    textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), this.dVb.getResources().getDimension(n.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.dVb.getPageContext().getContext(), this.dVb.getResources().getDimension(n.e.ds22)), 0);
                 }
             }
-            this.dNu.nl(0);
+            this.dUT.od(0);
             return;
         }
-        this.dNw.setVisibility(8);
+        this.dUV.setVisibility(8);
     }
 
-    protected void aIr() {
-        this.dNn = (EditText) this.dNC.findViewById(n.f.post_title);
-        if (this.dBW.getType() == 3) {
-            if (this.dBW.getTitle() != null && this.dBW.getTitle().trim().length() > 0) {
-                this.dNn.setText(this.dBW.getTitle());
-                this.dNn.setSelection(this.dBW.getTitle().length());
+    protected void aKM() {
+        this.dUM = (EditText) this.dVb.findViewById(n.g.post_title);
+        if (this.dJy.getType() == 3) {
+            if (this.dJy.getTitle() != null && this.dJy.getTitle().trim().length() > 0) {
+                this.dUM.setText(this.dJy.getTitle());
+                this.dUM.setSelection(this.dJy.getTitle().length());
             } else {
-                String str = String.valueOf(this.dNC.getPageContext().getString(n.i.share_transfer_thread)) + this.dBW.getShareSummaryTitle();
-                this.dNn.setText(str);
+                String str = String.valueOf(this.dVb.getPageContext().getString(n.j.share_transfer_thread)) + this.dJy.getShareSummaryTitle();
+                this.dUM.setText(str);
                 if (str.length() < 20) {
-                    this.dNn.setSelection(str.length());
+                    this.dUM.setSelection(str.length());
                 } else {
-                    this.dNn.setSelection(20);
+                    this.dUM.setSelection(20);
                 }
             }
         }
-        this.dNn.addTextChangedListener(new v(this));
+        this.dUM.addTextChangedListener(new v(this));
     }
 
-    public void aIs() {
+    public void aKN() {
         String str = null;
-        if (this.dBW.getType() == 3) {
-            String trim = this.dNn.getText().toString().trim();
+        if (this.dJy.getType() == 3) {
+            String trim = this.dUM.getText().toString().trim();
             if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-                if (this.dNC.aIm() == this.mPrefixData.getPrefixs().size() - 1) {
+                if (this.dVb.aKH() == this.mPrefixData.getPrefixs().size() - 1) {
                     if (TextUtils.isEmpty(trim)) {
-                        this.dBW.setIsNoTitle(true);
+                        this.dJy.setIsNoTitle(true);
                     } else {
-                        this.dBW.setIsNoTitle(false);
+                        this.dJy.setIsNoTitle(false);
                         str = "1";
                     }
                 } else {
-                    this.dBW.setIsNoTitle(false);
+                    this.dJy.setIsNoTitle(false);
                     str = "1";
                 }
             } else if (TextUtils.isEmpty(trim)) {
-                this.dBW.setIsNoTitle(true);
+                this.dJy.setIsNoTitle(true);
             } else {
-                this.dBW.setIsNoTitle(false);
+                this.dJy.setIsNoTitle(false);
                 str = "1";
             }
         }
-        if (str == null || str.length() <= 0 || !this.dNE) {
-            this.dNs.setEnabled(false);
+        if (str == null || str.length() <= 0 || !this.dVd) {
+            this.dUR.setEnabled(false);
         } else {
-            this.dNs.setEnabled(true);
+            this.dUR.setEnabled(true);
         }
     }
 
-    protected void aIt() {
-        this.dNr = (EditText) this.dNC.findViewById(n.f.post_content);
-        this.dNr.setDrawingCacheEnabled(false);
-        if (this.dBW.getContent() != null && this.dBW.getContent().length() > 0) {
-            SpannableString G = TbFaceManager.CW().G(this.dNC.getPageContext().getContext(), this.dBW.getContent());
-            this.dNr.setText(G);
-            this.dNr.setSelection(G.length());
+    protected void aKO() {
+        this.dUQ = (EditText) this.dVb.findViewById(n.g.post_content);
+        this.dUQ.setDrawingCacheEnabled(false);
+        if (this.dJy.getContent() != null && this.dJy.getContent().length() > 0) {
+            SpannableString G = TbFaceManager.CL().G(this.dVb.getPageContext().getContext(), this.dJy.getContent());
+            this.dUQ.setText(G);
+            this.dUQ.setSelection(G.length());
         }
-        this.dNr.setOnTouchListener(new w(this));
-        this.dNr.addTextChangedListener(new x(this));
+        this.dUQ.setOnTouchListener(new w(this));
+        this.dUQ.addTextChangedListener(new x(this));
     }
 
     private void a(EditText editText, int i) {
@@ -252,40 +252,40 @@ public class o {
         editText.setSelection(selectionStart, selectionEnd);
     }
 
-    public EditText aIu() {
-        return this.dNn;
+    public EditText aKP() {
+        return this.dUM;
     }
 
-    public EditText asU() {
-        return this.dNr;
+    public EditText auG() {
+        return this.dUQ;
     }
 
     public void a(PostPrefixData postPrefixData) {
         this.mPrefixData = postPrefixData;
-        aIq();
+        aKL();
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
-        this.dNn.setOnFocusChangeListener(onFocusChangeListener);
-        this.dNr.setOnFocusChangeListener(onFocusChangeListener);
+        this.dUM.setOnFocusChangeListener(onFocusChangeListener);
+        this.dUQ.setOnFocusChangeListener(onFocusChangeListener);
         this.mBack.setOnFocusChangeListener(onFocusChangeListener);
-        this.dNs.setOnFocusChangeListener(onFocusChangeListener);
+        this.dUR.setOnFocusChangeListener(onFocusChangeListener);
     }
 
-    public cf aIv() {
-        return this.dNu;
+    public cf aKQ() {
+        return this.dUT;
     }
 
-    public View aIw() {
+    public View aKR() {
         return this.mBack;
     }
 
-    public TextView aIx() {
-        return this.dNs;
+    public TextView aKS() {
+        return this.dUR;
     }
 
-    public TextView aIy() {
-        return this.dNt;
+    public TextView aKT() {
+        return this.dUS;
     }
 
     public void O(View.OnClickListener onClickListener) {
@@ -293,36 +293,36 @@ public class o {
     }
 
     public void P(View.OnClickListener onClickListener) {
-        this.dNs.setOnClickListener(onClickListener);
+        this.dUR.setOnClickListener(onClickListener);
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        this.dNq.setOnClickListener(onClickListener);
+        this.dUP.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dNC != null) {
-            this.dNC.getLayoutMode().af(i == 1);
-            this.dNC.getLayoutMode().k(this.bGY);
-            this.mNavigationBar.onChangeSkinType(this.dNC.getPageContext(), i);
-            as.g(this.dNs, i);
-            as.j(this.dNo, n.c.cp_bg_line_c);
-            as.j(this.dNp, n.c.cp_bg_line_c);
-            as.j((View) this.dNn, n.c.cp_cont_g);
-            as.j(this.dNy, n.c.cp_bg_line_e);
-            int color = as.getColor(n.c.cp_cont_b);
-            int color2 = as.getColor(n.c.cp_cont_e);
-            this.dNn.setTextColor(color);
-            this.dNr.setTextColor(color);
-            this.dNA.setTextColor(as.getColor(n.c.cp_cont_b));
-            this.dNB.setTextColor(as.getColor(n.c.cp_cont_d));
-            a(this.dNn, color2);
-            a(this.dNr, color2);
-            aIs();
+        if (this.dVb != null) {
+            this.dVb.getLayoutMode().ac(i == 1);
+            this.dVb.getLayoutMode().k(this.bKF);
+            this.mNavigationBar.onChangeSkinType(this.dVb.getPageContext(), i);
+            as.g(this.dUR, i);
+            as.j(this.dUN, n.d.cp_bg_line_c);
+            as.j(this.dUO, n.d.cp_bg_line_c);
+            as.j((View) this.dUM, n.d.cp_cont_g);
+            as.j(this.dUX, n.d.cp_bg_line_e);
+            int color = as.getColor(n.d.cp_cont_b);
+            int color2 = as.getColor(n.d.cp_cont_e);
+            this.dUM.setTextColor(color);
+            this.dUQ.setTextColor(color);
+            this.dUZ.setTextColor(as.getColor(n.d.cp_cont_b));
+            this.dVa.setTextColor(as.getColor(n.d.cp_cont_d));
+            a(this.dUM, color2);
+            a(this.dUQ, color2);
+            aKN();
         }
     }
 
-    public ShareSDKImageView aIz() {
-        return this.dNz;
+    public ShareSDKImageView aKU() {
+        return this.dUY;
     }
 }

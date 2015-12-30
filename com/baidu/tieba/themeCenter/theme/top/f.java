@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d dHo;
+    final /* synthetic */ d dOP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.dHo = dVar;
+        this.dOP = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,23 +28,23 @@ public class f extends CustomMessageListener {
         k kVar;
         List<a> list4;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            this.dHo.dGp = (List) customResponsedMessage.getData();
-            list = this.dHo.mThemeList;
+            this.dOP.dNQ = (List) customResponsedMessage.getData();
+            list = this.dOP.mThemeList;
             if (list != null) {
-                list2 = this.dHo.mThemeList;
+                list2 = this.dOP.mThemeList;
                 if (list2.size() > 0) {
-                    list3 = this.dHo.dGp;
+                    list3 = this.dOP.dNQ;
                     if (list3 != null) {
-                        aVar = this.dHo.dGt;
+                        aVar = this.dOP.dNU;
                         if (aVar == null) {
                             return;
                         }
-                        this.dHo.aFy();
-                        aVar2 = this.dHo.dGt;
+                        this.dOP.aHN();
+                        aVar2 = this.dOP.dNU;
                         int error = customResponsedMessage.getError();
                         String errorString = customResponsedMessage.getErrorString();
-                        kVar = this.dHo.mRecommand;
-                        list4 = this.dHo.mThemeList;
+                        kVar = this.dOP.mRecommand;
+                        list4 = this.dOP.mThemeList;
                         aVar2.a(error, errorString, kVar, list4);
                     }
                 }

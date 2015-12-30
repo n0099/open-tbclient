@@ -16,20 +16,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class g {
-    private static g yc = null;
+    private static g ye = null;
 
     public static g iC() {
         g gVar;
-        if (yc == null) {
+        if (ye == null) {
             synchronized (g.class) {
-                if (yc == null) {
-                    yc = new g();
+                if (ye == null) {
+                    ye = new g();
                 }
-                gVar = yc;
+                gVar = ye;
             }
             return gVar;
         }
-        return yc;
+        return ye;
     }
 
     public boolean a(String str, int i, h hVar) {
@@ -242,25 +242,25 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
-        String yd;
-        String ye;
-        StringBuilder yf;
-        h yg;
-        boolean yh = false;
+        String yf;
+        String yg;
+        StringBuilder yh;
+        h yi;
+        boolean yj = false;
 
         public a(String str, String str2, StringBuilder sb, h hVar) {
-            this.yd = str;
-            this.ye = str2;
-            this.yf = sb;
-            this.yg = hVar;
+            this.yf = str;
+            this.yg = str2;
+            this.yh = sb;
+            this.yi = hVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            this.yh = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.yd, this.yf);
-            if (!this.yh) {
-                g.this.a(this.ye, "".getBytes(), this.yf);
+            this.yj = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.yf, this.yh);
+            if (!this.yj) {
+                g.this.a(this.yg, "".getBytes(), this.yh);
                 return null;
             }
             return null;
@@ -270,11 +270,11 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.yf.length() > 0) {
-                com.baidu.adp.lib.stats.a.hl().a("so", "load_" + this.yd + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.yf.toString(), new Object[0]);
+            if (this.yh.length() > 0) {
+                com.baidu.adp.lib.stats.a.hl().a("so", "load_" + this.yf + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.yh.toString(), new Object[0]);
             }
-            if (this.yg != null) {
-                this.yg.l(this.yh);
+            if (this.yi != null) {
+                this.yi.l(this.yj);
             }
         }
     }

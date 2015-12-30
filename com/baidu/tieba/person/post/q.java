@@ -4,11 +4,11 @@ import com.baidu.tieba.tbadkCore.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.base.g {
-    final /* synthetic */ p cRd;
+    final /* synthetic */ p cVF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.cRd = pVar;
+        this.cVF = pVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -16,17 +16,17 @@ public class q extends com.baidu.adp.base.g {
         com.baidu.tieba.tbadkCore.f.a aVar;
         com.baidu.tieba.tbadkCore.f.a aVar2;
         if (obj != null) {
-            aVar2 = this.cRd.cBI;
+            aVar2 = this.cVF.cFn;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
-                    this.cRd.a((a.b) obj);
+                    this.cVF.a((a.b) obj);
                     return;
                 default:
                     return;
             }
         }
-        p pVar = this.cRd;
-        aVar = this.cRd.cBI;
+        p pVar = this.cVF;
+        aVar = this.cVF.cFn;
         pVar.a(aVar.getLoadDataMode(), false, null, false);
     }
 }

@@ -1,88 +1,59 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.personInfo.PersonInfoPostList;
-import com.baidu.tieba.personInfo.PersonTainInfo;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class l extends a {
-    public static final BdUniqueId cNC = BdUniqueId.gen();
-    private boolean bwJ = true;
-    private List<PersonInfoPostList> cME = new ArrayList();
-    private PersonTainInfo cNx;
+public class l implements u {
+    public static final BdUniqueId cSf = BdUniqueId.gen();
+    private boolean bAA;
+    private String mContent;
+    private String mLink;
     private UserData mUserData;
+    private String mVipIcon;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return cNC;
-    }
-
-    public String getPortrait() {
-        if (this.mUserData != null) {
-            return this.mUserData.getPortrait();
-        }
-        return null;
-    }
-
-    public int getPostNum() {
-        if (this.mUserData != null) {
-            return this.mUserData.getPosts_num();
-        }
-        return 0;
-    }
-
-    public void d(List<PersonInfoPostList> list) {
-        this.cME = list;
-    }
-
-    public List<PersonInfoPostList> aom() {
-        return this.cME;
+    public UserData getUserData() {
+        return this.mUserData;
     }
 
     public void f(UserData userData) {
         this.mUserData = userData;
     }
 
-    public UserData getUserData() {
-        return this.mUserData;
+    public boolean getIsSelf() {
+        return this.bAA;
     }
 
     public void setIsSelf(boolean z) {
-        this.bwJ = z;
+        this.bAA = z;
     }
 
-    public boolean getIsSelf() {
-        return this.bwJ;
+    public void setVipIcon(String str) {
+        this.mVipIcon = str;
     }
 
-    public int getSex() {
-        if (this.mUserData != null) {
-            return this.mUserData.getSex();
-        }
-        return 0;
+    public String getVipIcon() {
+        return this.mVipIcon;
     }
 
-    public void a(PersonTainInfo personTainInfo) {
-        this.cNx = personTainInfo;
+    public void setVipLink(String str) {
+        this.mLink = str;
     }
 
-    public PersonTainInfo aoj() {
-        return this.cNx;
+    public String getVipLink() {
+        return this.mLink;
     }
 
-    public com.baidu.tbadk.data.f aok() {
-        if (this.mUserData != null) {
-            return this.mUserData.getPersonPrivate();
-        }
-        return null;
+    public void setVipContent(String str) {
+        this.mContent = str;
     }
 
-    public String getUserId() {
-        if (this.mUserData != null) {
-            return this.mUserData.getUserId();
-        }
-        return null;
+    public String getVipContent() {
+        return this.mContent;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return cSf;
     }
 }

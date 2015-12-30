@@ -1,30 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.tbadkCore.ab;
+import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements ab.a {
-    final /* synthetic */ cd bdg;
+public class ci implements BannerView.a {
+    final /* synthetic */ cg bhg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(cd cdVar) {
-        this.bdg = cdVar;
+    public ci(cg cgVar) {
+        this.bhg = cgVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void NW() {
-        this.bdg.baC.MS();
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void zu() {
+        this.bhg.NM();
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void NX() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bdg.bcG;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.bdg.bcG;
-            bdTypeListView2.setSelection(0);
-        }
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void zv() {
+        this.bhg.Oa();
     }
 }

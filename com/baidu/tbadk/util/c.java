@@ -5,34 +5,34 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c aAv = new c();
-    private b aAw;
-    private a aAx;
+    private static c aCc = new c();
+    private b aCd;
+    private a aCe;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ai(boolean z);
+        void af(boolean z);
     }
 
     private c() {
     }
 
-    public static c Fo() {
-        return aAv;
+    public static c Fc() {
+        return aCc;
     }
 
     public void a(a aVar) {
-        this.aAx = aVar;
-        if (this.aAw != null) {
-            this.aAw.cancel();
+        this.aCe = aVar;
+        if (this.aCd != null) {
+            this.aCd.cancel();
         }
-        this.aAw = new b(this, null);
-        this.aAw.setPriority(4);
-        this.aAw.execute(new String[0]);
+        this.aCd = new b(this, null);
+        this.aCd.setPriority(4);
+        this.aCd.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Fp() {
+    public boolean Fd() {
         int i;
         long j = 0;
         byte[] aJ = com.baidu.adp.lib.util.e.aJ("crash_hour_record.log");
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Fp());
+            return Boolean.valueOf(c.this.Fd());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.aAx != null && bool != null) {
-                c.this.aAx.ai(bool.booleanValue());
+            if (c.this.aCe != null && bool != null) {
+                c.this.aCe.af(bool.booleanValue());
             }
         }
     }

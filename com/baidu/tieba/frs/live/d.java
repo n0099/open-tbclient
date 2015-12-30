@@ -12,13 +12,13 @@ import com.baidu.tieba.tbadkCore.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bhq;
-    private final /* synthetic */ k bhr;
+    final /* synthetic */ a blh;
+    private final /* synthetic */ k bli;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, k kVar) {
-        this.bhq = aVar;
-        this.bhr = kVar;
+        this.blh = aVar;
+        this.bli = kVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,16 +28,16 @@ public class d implements View.OnClickListener {
         p pVar2;
         p pVar3;
         String str = "";
-        pVar = this.bhq.aZs;
+        pVar = this.blh.bdo;
         if (pVar != null) {
-            pVar2 = this.bhq.aZs;
-            if (pVar2.ajy() != null) {
-                pVar3 = this.bhq.aZs;
-                str = pVar3.ajy().getName();
+            pVar2 = this.blh.bdo;
+            if (pVar2.akG() != null) {
+                pVar3 = this.blh.bdo;
+                str = pVar3.akG().getName();
             }
         }
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.bhq.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bhr.getAuthor().getUserId(), this.bhr.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        context = this.blh.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bli.getAuthor().getUserId(), this.bli.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

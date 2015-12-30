@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ aa dFq;
+    final /* synthetic */ aa dMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(aa aaVar, int i, int i2) {
         super(i, i2);
-        this.dFq = aaVar;
+        this.dMS = aaVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,22 +27,22 @@ public class ac extends com.baidu.adp.framework.listener.a {
             if ((responsedMessage instanceof BackgroundSetHttpResponseMessage) || (responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
                     if (responsedMessage.getError() != 2270014) {
-                        backgroundPreviewActivity = this.dFq.dFe;
+                        backgroundPreviewActivity = this.dMS.dMG;
                         backgroundPreviewActivity.showToast(responsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 av avVar = new av("c10286");
-                dressItemData = this.dFq.dEF;
+                dressItemData = this.dMS.dMi;
                 av r = avVar.r("obj_id", dressItemData.getPropsId());
-                dressItemData2 = this.dFq.dEF;
+                dressItemData2 = this.dMS.dMi;
                 TiebaStatic.log(r.r("obj_type", dressItemData2.getFreeUserLevel()));
-                dressItemData3 = this.dFq.dEF;
+                dressItemData3 = this.dMS.dMi;
                 dressItemData3.setInUse(true);
-                this.dFq.aFv();
-                dressItemData4 = this.dFq.dEF;
-                com.baidu.tbadk.core.sharedPref.b.tZ().putInt("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), dressItemData4.getPropsId());
+                this.dMS.aHK();
+                dressItemData4 = this.dMS.dMi;
+                com.baidu.tbadk.core.sharedPref.b.tJ().putInt("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), dressItemData4.getPropsId());
             }
         }
     }

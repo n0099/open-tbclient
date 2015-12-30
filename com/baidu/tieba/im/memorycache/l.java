@@ -1,46 +1,41 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryGetFromDBMessage;
-import java.util.LinkedList;
+import com.baidu.tieba.im.memorycache.a;
+import com.baidu.tieba.im.util.MessageUtils;
+import java.util.Iterator;
+import java.util.List;
+import protobuf.NewpushRepair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ b bTj;
+public class l implements a.InterfaceC0062a {
+    final /* synthetic */ b bWT;
+    private final /* synthetic */ List bWZ;
+    private final /* synthetic */ NewpushRepair.Builder bXa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(b bVar) {
-        this.bTj = bVar;
+    public l(b bVar, List list, NewpushRepair.Builder builder) {
+        this.bWT = bVar;
+        this.bWZ = list;
+        this.bXa = builder;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        String data = customMessage.getData();
-        LinkedList<ImMessageCenterPojo> Xn = com.baidu.tieba.im.db.i.Xl().Xn();
-        long hN = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.Vz().hN(11);
-        long hN2 = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.Vz().hN(12);
-        if (Xn == null) {
-            Xn = new LinkedList<>();
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0062a
+    public void a(Iterator<ImMessageCenterPojo> it) {
+        while (it.hasNext()) {
+            ImMessageCenterPojo next = it.next();
+            long c = com.baidu.adp.lib.h.b.c(next.getGid(), 0L);
+            long sid = next.getSid();
+            if (sid > 0) {
+                BdLog.e("gid " + c + ", userType " + next.getUserType() + ", startSid " + sid);
+                this.bWZ.add(MessageUtils.makeNewpushGroupRepair(c, next.getUserType(), sid, 0L, com.baidu.tieba.im.util.g.bd(next.getPulled_msgId())));
+            }
         }
-        if (hN != -1) {
-            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            Xn.add(imMessageCenterPojo);
-            imMessageCenterPojo.setCustomGroupType(7);
-            imMessageCenterPojo.setGid(String.valueOf(11));
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.aX(hN));
-            imMessageCenterPojo.setIs_hidden(1);
+        if (this.bWZ.size() <= 10) {
+            this.bXa.groups = this.bWZ;
+            return;
         }
-        if (hN2 != -1) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            Xn.add(imMessageCenterPojo2);
-            imMessageCenterPojo2.setCustomGroupType(8);
-            imMessageCenterPojo2.setGid(String.valueOf(12));
-            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.aX(hN2));
-            imMessageCenterPojo2.setIs_hidden(1);
-        }
-        return new MemoryGetFromDBMessage(Xn, data);
+        this.bXa.followType = "0";
     }
 }

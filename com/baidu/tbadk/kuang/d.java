@@ -9,7 +9,7 @@ public class d implements k.a {
     @Override // com.baidu.tbadk.coreExtra.view.k.a
     public void i(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(null);
-        com.baidu.tbadk.core.a.b.rr();
+        com.baidu.tbadk.core.a.b.ra();
         TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.m411getInst().getApp());
     }
 }

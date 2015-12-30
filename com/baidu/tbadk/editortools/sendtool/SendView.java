@@ -10,30 +10,30 @@ import com.baidu.tbadk.editortools.z;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements z {
-    private int KR;
-    private k KS;
-    private int afY;
-    private boolean[] atg;
-    private int[] ath;
+    private int Lh;
+    private k Li;
+    private int ahf;
+    private boolean[] auK;
+    private int[] auL;
     private int mType;
-    public static int ati = 1;
+    public static int auM = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.atg = new boolean[5];
-        this.ath = new int[2];
-        this.afY = 0;
+        this.auK = new boolean[5];
+        this.auL = new int[2];
+        this.ahf = 0;
         this.mType = ALL;
-        setWidth(context.getResources().getDimensionPixelSize(n.d.ds100));
-        setHeight(context.getResources().getDimensionPixelSize(n.d.ds88));
+        setWidth(context.getResources().getDimensionPixelSize(n.e.ds100));
+        setHeight(context.getResources().getDimensionPixelSize(n.e.ds88));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
-        setTextSize(0, context.getResources().getDimensionPixelSize(n.d.fontsize28));
-        setTextColor(getContext().getResources().getColor(n.c.black_alpha40));
-        setText(n.i.send_post);
-        setBackgroundResource(n.e.btn_pb_editor_post_btn);
+        setTextSize(0, context.getResources().getDimensionPixelSize(n.e.fontsize28));
+        setTextColor(getContext().getResources().getColor(n.d.black_alpha40));
+        setText(n.j.send_post);
+        setBackgroundResource(n.f.btn_pb_editor_post_btn);
         setOnClickListener(new b(this));
     }
 
@@ -43,113 +43,113 @@ public class SendView extends TextView implements z {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.atg[0] = false;
+                        this.auK[0] = false;
                         break;
                     } else {
-                        this.atg[0] = true;
+                        this.auK[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.atg[0] = false;
-                    this.atg[1] = false;
-                    this.atg[2] = false;
-                    this.atg[3] = false;
-                    this.atg[4] = false;
-                    this.ath[0] = 0;
-                    this.ath[1] = 0;
+                    this.auK[0] = false;
+                    this.auK[1] = false;
+                    this.auK[2] = false;
+                    this.auK[3] = false;
+                    this.auK[4] = false;
+                    this.auL[0] = 0;
+                    this.auL[1] = 0;
                     break;
                 case 10:
-                    this.atg[2] = true;
+                    this.auK[2] = true;
                     break;
                 case 11:
-                    this.atg[2] = false;
+                    this.auK[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.arD != null) {
-                            if (aVar2.arD.getChosedFiles() != null) {
-                                this.ath[0] = aVar2.arD.getChosedFiles().size();
+                        if (aVar2.ath != null) {
+                            if (aVar2.ath.getChosedFiles() != null) {
+                                this.auL[0] = aVar2.ath.getChosedFiles().size();
                             } else {
-                                this.ath[0] = 0;
+                                this.auL[0] = 0;
                             }
                         }
-                        if (this.ath[0] > 0) {
-                            this.atg[1] = true;
+                        if (this.auL[0] > 0) {
+                            this.auK[1] = true;
                             break;
                         } else {
-                            this.atg[1] = false;
+                            this.auK[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.ath;
+                    int[] iArr = this.auL;
                     iArr[0] = iArr[0] - 1;
-                    if (this.ath[0] > 0) {
-                        this.atg[1] = true;
+                    if (this.auL[0] > 0) {
+                        this.auK[1] = true;
                         break;
                     } else {
-                        this.atg[1] = false;
+                        this.auK[1] = false;
                         break;
                     }
                 case 22:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar3 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar3.arD != null) {
-                            if (aVar3.arD.getChosedFiles() != null) {
-                                this.ath[1] = aVar3.arD.getChosedFiles().size();
+                        if (aVar3.ath != null) {
+                            if (aVar3.ath.getChosedFiles() != null) {
+                                this.auL[1] = aVar3.ath.getChosedFiles().size();
                             } else {
-                                this.ath[1] = 0;
+                                this.auL[1] = 0;
                             }
                         }
-                        if (this.ath[1] > 0) {
-                            this.atg[3] = true;
+                        if (this.auL[1] > 0) {
+                            this.auK[3] = true;
                             break;
                         } else {
-                            this.atg[3] = false;
+                            this.auK[3] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 23:
-                    this.atg[3] = false;
+                    this.auK[3] = false;
                     break;
                 case 28:
                 case 39:
-                    this.atg[4] = true;
+                    this.auK[4] = true;
                     break;
                 case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
-                    this.atg[4] = false;
+                    this.auK[4] = false;
                     break;
             }
-            et(this.mType);
+            en(this.mType);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.z
     public void setEditorTools(k kVar) {
-        this.KS = kVar;
+        this.Li = kVar;
     }
 
     @Override // com.baidu.tbadk.editortools.z
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.KS != null) {
-            this.KS.b(aVar);
+        if (this.Li != null) {
+            this.Li.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.z
     public void setToolId(int i) {
-        this.KR = i;
+        this.Lh = i;
     }
 
     @Override // com.baidu.tbadk.editortools.z
     public int getToolId() {
-        return this.KR;
+        return this.Lh;
     }
 
     @Override // com.baidu.tbadk.editortools.z
@@ -158,7 +158,7 @@ public class SendView extends TextView implements z {
     }
 
     @Override // com.baidu.tbadk.editortools.z
-    public void oD() {
+    public void ob() {
         setVisibility(0);
     }
 
@@ -169,36 +169,36 @@ public class SendView extends TextView implements z {
 
     @Override // com.baidu.tbadk.editortools.z
     public void onChangeSkinType(int i) {
-        this.afY = i;
+        this.ahf = i;
         if (isEnabled()) {
-            as.a(this, n.c.cp_cont_f, 1, i);
+            as.a(this, n.d.cp_cont_f, 1, i);
         } else {
-            as.a(this, n.c.black_alpha40, 1, i);
+            as.a(this, n.d.black_alpha40, 1, i);
         }
-        as.c(this, n.e.btn_pb_editor_post_btn, i);
+        as.c(this, n.f.btn_pb_editor_post_btn, i);
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void et(int i) {
+    public void en(int i) {
         if (i == ALL) {
-            if (this.atg[0] || this.atg[1] || this.atg[2] || this.atg[3] || this.atg[4]) {
+            if (this.auK[0] || this.auK[1] || this.auK[2] || this.auK[3] || this.auK[4]) {
                 setEnabled(true);
-                as.a(this, n.c.cp_cont_f, 1, this.afY);
+                as.a(this, n.d.cp_cont_f, 1, this.ahf);
                 return;
             }
             setEnabled(false);
-            as.a(this, n.c.black_alpha40, 1, this.afY);
-        } else if (i == ati) {
-            if (this.atg[1]) {
+            as.a(this, n.d.black_alpha40, 1, this.ahf);
+        } else if (i == auM) {
+            if (this.auK[1]) {
                 setEnabled(true);
-                as.a(this, n.c.cp_cont_f, 1, this.afY);
+                as.a(this, n.d.cp_cont_f, 1, this.ahf);
                 return;
             }
             setEnabled(false);
-            as.a(this, n.c.black_alpha40, 1, this.afY);
+            as.a(this, n.d.black_alpha40, 1, this.ahf);
         }
     }
 }

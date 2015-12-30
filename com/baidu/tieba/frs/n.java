@@ -1,35 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-class n implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bag;
+class n implements AdapterView.OnItemClickListener {
+    final /* synthetic */ FrsActivity bed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.bag = frsActivity;
+        this.bed = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aA(boolean z) {
-        com.baidu.tieba.tbadkCore.p pVar;
-        boolean z2;
-        com.baidu.tieba.tbadkCore.p pVar2;
-        if (z && !this.bag.aZq.MU()) {
-            pVar = this.bag.aZs;
-            if (pVar != null) {
-                pVar2 = this.bag.aZs;
-                if (pVar2.getThreadList().size() != 0) {
-                    return;
-                }
-            }
-            this.bag.hideNetRefreshView(this.bag.aZq.getRootView());
-            z2 = this.bag.aZd;
-            if (!z2) {
-                this.bag.showLoadingView(this.bag.aZq.getRootView(), true);
-                this.bag.aZq.NL();
-            }
-            this.bag.refresh();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        com.baidu.tieba.frs.b.a aVar;
+        if (i >= 0) {
+            aVar = this.bed.bdB;
+            aVar.fW(i);
+            this.bed.Nr().gj(((com.baidu.tbadk.core.data.m) ((GridView) adapterView).getAdapter().getItem(i)).rH());
         }
     }
 }

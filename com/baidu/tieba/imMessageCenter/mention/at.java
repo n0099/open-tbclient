@@ -1,42 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at extends com.baidu.tbadk.mvc.model.d<au, av, bc> {
-    public at(TbPageContext<bc> tbPageContext, au auVar) {
-        super(tbPageContext, auVar);
+public class at extends CustomMessageListener {
+    final /* synthetic */ as ciX;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at(as asVar, int i) {
+        super(i);
+        this.ciX = asVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> pd() {
-        return ReplyMeHttpResponseMessage.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> pc() {
-        return ReplyMeSocketResponseMessage.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oZ() {
-        return CmdConfigHttp.REPLYME_HTTP_CMD;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String pa() {
-        return "c/u/feed/replyme";
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<av> getResponseDataClass() {
-        return av.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int pb() {
-        return 303007;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bd bdVar;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            bdVar = this.ciX.cih;
+            bdVar.aeL().aeu();
+        }
     }
 }

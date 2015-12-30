@@ -14,25 +14,25 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class j implements g {
-    private List<BasicNameValuePair> zF;
-    private String[] zG;
-    protected Handler zM;
-    protected volatile o zN;
-    protected volatile q zO;
-    protected e.a zP;
-    private URI zQ;
-    private String zR;
-    private String zS;
-    private int zT;
+    private boolean Aa = false;
+    private boolean Ab = false;
+    private volatile boolean Ac = false;
+    private long Ae = 0;
+    private c Af = null;
+    private List<BasicNameValuePair> zH;
+    private String[] zI;
+    protected Handler zO;
+    protected volatile o zP;
+    protected volatile q zQ;
+    protected e.a zR;
+    private URI zS;
+    private String zT;
     private String zU;
-    private String zV;
-    private g.a zW;
-    protected n zX;
-    private boolean zY = false;
-    private boolean zZ = false;
-    private volatile boolean Aa = false;
-    private long Ab = 0;
-    private c Ac = null;
+    private int zV;
+    private String zW;
+    private String zX;
+    private g.a zY;
+    protected n zZ;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -50,20 +50,20 @@ public class j implements g {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 e eVar = new e();
-                j.this.zP = eVar.a(j.this.zS, j.this.zT, j.this.zX, false);
-                if (!j.this.Aa) {
+                j.this.zR = eVar.a(j.this.zU, j.this.zV, j.this.zZ, false);
+                if (!j.this.Ac) {
                     try {
-                        if (j.this.zP.isConnected()) {
-                            j.this.Ab = System.currentTimeMillis() - currentTimeMillis;
+                        if (j.this.zR.isConnected()) {
+                            j.this.Ae = System.currentTimeMillis() - currentTimeMillis;
+                            j.this.jM();
                             j.this.jL();
-                            j.this.jK();
-                            m.b bVar = new m.b(String.valueOf(j.this.zS) + ":" + j.this.zT);
-                            bVar.mPath = j.this.zU;
-                            bVar.Ah = j.this.zV;
-                            bVar.Aj = j.this.zG;
-                            bVar.Ak = j.this.zF;
-                            j.this.zO.r(bVar);
-                            if (j.this.Aa) {
+                            m.b bVar = new m.b(String.valueOf(j.this.zU) + ":" + j.this.zV);
+                            bVar.mPath = j.this.zW;
+                            bVar.Aj = j.this.zX;
+                            bVar.Al = j.this.zI;
+                            bVar.Am = j.this.zH;
+                            j.this.zQ.r(bVar);
+                            if (j.this.Ac) {
                                 j.this.o(new m.c());
                             }
                         } else {
@@ -86,14 +86,14 @@ public class j implements g {
     }
 
     public j() {
-        jJ();
+        jK();
     }
 
     public boolean sendMessage(c cVar) {
         if (cVar == null) {
             return false;
         }
-        if (this.Ac != null || !isOpen()) {
+        if (this.Af != null || !isOpen()) {
             isDebug();
             if (cVar != null) {
                 cVar.z(1);
@@ -101,41 +101,41 @@ public class j implements g {
             }
             return false;
         }
-        this.Ac = cVar;
-        return d(this.Ac);
+        this.Af = cVar;
+        return d(this.Af);
     }
 
     private boolean d(c cVar) {
-        if (this.zO == null) {
+        if (this.zQ == null) {
             o(new m.f(new Exception("mWriter = null")));
             return false;
         }
-        return this.zO.r(new m.i(cVar));
+        return this.zQ.r(new m.i(cVar));
     }
 
     public void close(int i, String str) {
-        this.zY = false;
-        this.Aa = true;
-        if (this.zN != null) {
-            this.zN.quit();
-            this.zN = null;
-        }
-        if (this.zO != null) {
-            this.zO.quit();
-            this.zO = null;
-        }
+        this.Aa = false;
+        this.Ac = true;
         if (this.zP != null) {
+            this.zP.quit();
+            this.zP = null;
+        }
+        if (this.zQ != null) {
+            this.zQ.quit();
+            this.zQ = null;
+        }
+        if (this.zR != null) {
             try {
-                this.zP.close();
+                this.zR.close();
             } catch (Throwable th) {
                 if (isDebug()) {
                     th.printStackTrace();
                 }
             }
-            this.zP = null;
+            this.zR = null;
         }
-        g.a aVar = this.zW;
-        this.zW = null;
+        g.a aVar = this.zY;
+        this.zY = null;
         if (aVar != null) {
             try {
                 aVar.l(i, str);
@@ -148,46 +148,46 @@ public class j implements g {
     }
 
     public void a(String str, String[] strArr, g.a aVar, n nVar, List<BasicNameValuePair> list) {
-        this.zZ = true;
-        if (this.zP != null && this.zP.isConnected()) {
+        this.Ab = true;
+        if (this.zR != null && this.zR.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.zQ = new URI(str);
-            if (!this.zQ.getScheme().equals("ws") && !this.zQ.getScheme().equals("wss")) {
+            this.zS = new URI(str);
+            if (!this.zS.getScheme().equals("ws") && !this.zS.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.zQ.getScheme().equals("wss")) {
+            if (this.zS.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.zR = this.zQ.getScheme();
-            if (this.zQ.getPort() == -1) {
-                if (this.zR.equals("ws")) {
-                    this.zT = 80;
+            this.zT = this.zS.getScheme();
+            if (this.zS.getPort() == -1) {
+                if (this.zT.equals("ws")) {
+                    this.zV = 80;
                 } else {
-                    this.zT = 443;
+                    this.zV = 443;
                 }
             } else {
-                this.zT = this.zQ.getPort();
+                this.zV = this.zS.getPort();
             }
-            if (this.zQ.getHost() == null) {
+            if (this.zS.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.zS = this.zQ.getHost();
-            if (this.zQ.getPath() == null || this.zQ.getPath().equals("")) {
-                this.zU = "/";
+            this.zU = this.zS.getHost();
+            if (this.zS.getPath() == null || this.zS.getPath().equals("")) {
+                this.zW = "/";
             } else {
-                this.zU = this.zQ.getPath();
+                this.zW = this.zS.getPath();
             }
-            if (this.zQ.getQuery() == null || this.zQ.getQuery().equals("")) {
-                this.zV = null;
+            if (this.zS.getQuery() == null || this.zS.getQuery().equals("")) {
+                this.zX = null;
             } else {
-                this.zV = this.zQ.getQuery();
+                this.zX = this.zS.getQuery();
             }
-            this.zG = strArr;
-            this.zF = list;
-            this.zW = aVar;
-            this.zX = new n(nVar);
+            this.zI = strArr;
+            this.zH = list;
+            this.zY = aVar;
+            this.zZ = new n(nVar);
             new a(this, null).start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -196,40 +196,40 @@ public class j implements g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(Object obj) {
-        Message obtainMessage = this.zM.obtainMessage();
+        Message obtainMessage = this.zO.obtainMessage();
         obtainMessage.obj = obj;
-        this.zM.sendMessage(obtainMessage);
+        this.zO.sendMessage(obtainMessage);
     }
 
-    protected void jJ() {
-        this.zM = new k(this);
+    protected void jK() {
+        this.zO = new k(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void p(Object obj) {
     }
 
-    protected void jK() {
+    protected void jL() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
-        this.zO = new q(handlerThread.getLooper(), this.zM, this.zP, this.zX);
+        this.zQ = new q(handlerThread.getLooper(), this.zO, this.zR, this.zZ);
     }
 
-    protected void jL() {
-        this.zN = new o(this.zM, this.zP, this.zX, "WebSocketReader");
-        this.zN.start();
+    protected void jM() {
+        this.zP = new o(this.zO, this.zR, this.zZ, "WebSocketReader");
+        this.zP.start();
     }
 
-    public boolean jM() {
-        return this.Ac != null;
+    public boolean jN() {
+        return this.Af != null;
     }
 
-    public boolean jF() {
-        return this.zZ;
+    public boolean jG() {
+        return this.Ab;
     }
 
     public boolean isOpen() {
-        return this.zY;
+        return this.Aa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -237,60 +237,60 @@ public class j implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void jG() {
-        if (this.zO != null) {
-            this.zO.jG();
+    public void jH() {
+        if (this.zQ != null) {
+            this.zQ.jH();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.zO != null) {
-            return this.zO.getUpFlowSize();
+        if (this.zQ != null) {
+            return this.zQ.getUpFlowSize();
         }
         return 0L;
     }
 
-    public void jH() {
-        if (this.zN != null) {
-            this.zN.jH();
+    public void jI() {
+        if (this.zP != null) {
+            this.zP.jI();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.zN != null) {
-            return this.zN.getDownFlowSize();
+        if (this.zP != null) {
+            return this.zP.getDownFlowSize();
         }
         return 0L;
     }
 
-    public long jN() {
-        if (this.zP != null) {
-            return this.zP.jy();
+    public long jO() {
+        if (this.zR != null) {
+            return this.zR.jz();
         }
         return 0L;
     }
 
-    public String jO() {
-        if (this.zP != null) {
-            return this.zP.jx();
+    public String jP() {
+        if (this.zR != null) {
+            return this.zR.jy();
         }
         return null;
     }
 
-    public long jP() {
-        return this.Ab;
-    }
-
-    public String jh() {
-        if (this.zP != null) {
-            return this.zP.jh();
-        }
-        return null;
+    public long jQ() {
+        return this.Ae;
     }
 
     public String ji() {
-        if (this.zP != null) {
-            return this.zP.ji();
+        if (this.zR != null) {
+            return this.zR.ji();
+        }
+        return null;
+    }
+
+    public String jj() {
+        if (this.zR != null) {
+            return this.zR.jj();
         }
         return null;
     }

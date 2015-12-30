@@ -250,7 +250,7 @@ public final class a {
                     a2.c(sapiAccount);
                     a2.d(sapiAccount);
                     if (SapiAccountManager.getSilentShareListener() != null) {
-                        new Handler(Looper.getMainLooper()).post(new RunnableC0028a(a2));
+                        new Handler(Looper.getMainLooper()).post(new RunnableC0029a(a2));
                     }
                     for (SapiAccount sapiAccount2 : shareModel.a()) {
                         if (a(context, sapiAccount2)) {
@@ -275,10 +275,10 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class RunnableC0028a implements Runnable {
+    public final class RunnableC0029a implements Runnable {
         final /* synthetic */ com.baidu.sapi2.d a;
 
-        RunnableC0028a(com.baidu.sapi2.d dVar) {
+        RunnableC0029a(com.baidu.sapi2.d dVar) {
             this.a = dVar;
         }
 

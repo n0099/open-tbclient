@@ -17,30 +17,30 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.e.d {
-    private static c ckv;
-    private LocationManager ckx;
+    private static c coz;
+    private LocationManager coB;
     private int errorCode;
     private Context mContext;
-    private a ckw = null;
-    private a.b ckp = null;
-    private Address cky = null;
-    private long ux = 0;
+    private a coA = null;
+    private a.b cot = null;
+    private Address coC = null;
+    private long uz = 0;
     private Handler mHandler = null;
-    private boolean ckt = false;
-    private Runnable ckz = null;
-    private Runnable ckA = null;
-    private final LocationListener ckB = new d(this);
-    private final LocationListener ckC = new e(this);
+    private boolean cox = false;
+    private Runnable coD = null;
+    private Runnable coE = null;
+    private final LocationListener coF = new d(this);
+    private final LocationListener coG = new e(this);
 
-    public static c aeW() {
-        if (ckv == null) {
+    public static c agf() {
+        if (coz == null) {
             synchronized (c.class) {
-                if (ckv == null) {
-                    ckv = new c();
+                if (coz == null) {
+                    coz = new c();
                 }
             }
         }
-        return ckv;
+        return coz;
     }
 
     private c() {
@@ -49,14 +49,14 @@ public class c implements com.baidu.adp.lib.e.d {
     @Override // com.baidu.adp.lib.e.d
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.m411getInst().getContext();
-        this.ckp = bVar;
+        this.cot = bVar;
         try {
-            this.ckx = (LocationManager) this.mContext.getSystemService("location");
+            this.coB = (LocationManager) this.mContext.getSystemService("location");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        this.ckz = new f(this);
-        this.ckA = new g(this);
+        this.coD = new f(this);
+        this.coE = new g(this);
         gE();
     }
 
@@ -67,27 +67,27 @@ public class c implements com.baidu.adp.lib.e.d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
     @Override // com.baidu.adp.lib.e.d
     public void A(boolean z) {
-        if (this.ckp == null) {
+        if (this.cot == null) {
             return;
         }
         try {
-            if (this.ckx != null) {
-                this.ckx.removeUpdates(this.ckB);
+            if (this.coB != null) {
+                this.coB.removeUpdates(this.coF);
                 this.errorCode = 4;
-                this.ckt = z;
-                if (!this.ckx.isProviderEnabled("gps") && !this.ckx.isProviderEnabled("network")) {
+                this.cox = z;
+                if (!this.coB.isProviderEnabled("gps") && !this.coB.isProviderEnabled("network")) {
                     this.errorCode = 3;
                     this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.e.a.gD().gF());
                     return;
                 }
-                if (this.ckx.isProviderEnabled("gps")) {
-                    this.mHandler.post(this.ckA);
+                if (this.coB.isProviderEnabled("gps")) {
+                    this.mHandler.post(this.coE);
                 } else {
                     this.errorCode = 1;
                 }
                 if (!z) {
-                    if (this.ckx.isProviderEnabled("network")) {
-                        this.mHandler.post(this.ckz);
+                    if (this.coB.isProviderEnabled("network")) {
+                        this.mHandler.post(this.coD);
                     } else {
                         this.errorCode = 2;
                     }
@@ -107,19 +107,19 @@ public class c implements com.baidu.adp.lib.e.d {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.ckA);
-        this.mHandler.removeCallbacks(this.ckz);
-        if (this.ckx != null) {
+        this.mHandler.removeCallbacks(this.coE);
+        this.mHandler.removeCallbacks(this.coD);
+        if (this.coB != null) {
             try {
-                this.ckx.removeUpdates(this.ckB);
-                this.ckx.removeUpdates(this.ckC);
+                this.coB.removeUpdates(this.coF);
+                this.coB.removeUpdates(this.coG);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.ckw != null) {
-            this.ckw.cancel();
-            this.ckw = null;
+        if (this.coA != null) {
+            this.coA.cancel();
+            this.coA = null;
         }
     }
 
@@ -172,12 +172,12 @@ public class c implements com.baidu.adp.lib.e.d {
         /* renamed from: a */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            c.this.ckw = null;
+            c.this.coA = null;
             if (address != null) {
                 c.this.gH();
-                c.this.ux = System.currentTimeMillis();
-                c.this.cky = address;
-                c.this.ckp.a(0, "", c.this.cky, c.this.ux, c.this.ckt);
+                c.this.uz = System.currentTimeMillis();
+                c.this.coC = address;
+                c.this.cot.a(0, "", c.this.coC, c.this.uz, c.this.cox);
             }
         }
 
@@ -185,7 +185,7 @@ public class c implements com.baidu.adp.lib.e.d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            c.this.ckw = null;
+            c.this.coA = null;
         }
     }
 
@@ -194,19 +194,19 @@ public class c implements com.baidu.adp.lib.e.d {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.ckA);
-        this.mHandler.removeCallbacks(this.ckz);
-        if (this.ckx != null) {
+        this.mHandler.removeCallbacks(this.coE);
+        this.mHandler.removeCallbacks(this.coD);
+        if (this.coB != null) {
             try {
-                this.ckx.removeUpdates(this.ckB);
-                this.ckx.removeUpdates(this.ckC);
+                this.coB.removeUpdates(this.coF);
+                this.coB.removeUpdates(this.coG);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.ckw != null) {
-            this.ckw.cancel();
-            this.ckw = null;
+        if (this.coA != null) {
+            this.coA.cancel();
+            this.coA = null;
         }
     }
 }

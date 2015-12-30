@@ -1,56 +1,55 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.a;
-import com.baidu.tieba.recommendfrs.control.a.b;
+import com.baidu.adp.widget.ListView.u;
+import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.card.a.t;
+import java.util.HashMap;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0054a<com.baidu.tieba.recommendfrs.data.c> {
-    final /* synthetic */ b diG;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.diG = bVar;
+public class c {
+    public static void a(DataRes.Builder builder, List<u> list) {
+        bG(list);
+        b(builder, list);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
-    public void a(ReadCacheRespMsg<List<com.baidu.tieba.recommendfrs.data.c>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.recommendfrs.data.c> readCacheMessage) {
-        long j;
-        b.a aVar;
-        b.a aVar2;
-        b.a aVar3;
-        b.a aVar4;
-        if (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof com.baidu.tieba.recommendfrs.data.b)) {
-            j = -1;
-        } else {
-            j = ((com.baidu.tieba.recommendfrs.data.b) readCacheMessage.getRequestData()).awj();
-        }
-        if (j < 0 && readCacheMessage != null && readCacheRespMsg != null) {
-            com.baidu.tbadk.core.log.b.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
-        }
-        if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-            aVar = this.diG.diF;
-            if (aVar != null) {
-                aVar2 = this.diG.diF;
-                aVar2.a(false, null, false, j);
-            }
-        } else {
-            com.baidu.tieba.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-            aVar3 = this.diG.diF;
-            if (aVar3 != null) {
-                aVar4 = this.diG.diF;
-                aVar4.a(false, cVar, false, j);
+    private static void bG(List<u> list) {
+        if (list != null) {
+            for (int i = 0; i < y.l(list); i++) {
+                u uVar = (u) y.b(list, i);
+                u uVar2 = (u) y.b(list, i + 1);
+                if ((uVar instanceof t) && (uVar2 instanceof t)) {
+                    t tVar = (t) uVar2;
+                    if (((t) uVar).IM()) {
+                        tVar.bO(false);
+                    }
+                }
             }
         }
-        this.diG.c(1, j, 0L);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
-    public void a(WriteCacheRespMsg<List<com.baidu.tieba.recommendfrs.data.c>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.recommendfrs.data.c> writeCacheMessage) {
+    private static void b(DataRes.Builder builder, List<u> list) {
+        com.baidu.tieba.card.a.c cVar;
+        z Iv;
+        ThreadPersonalized threadPersonalized;
+        if (builder != null && list != null) {
+            HashMap hashMap = new HashMap();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    hashMap.put(threadPersonalized2.tid, threadPersonalized2);
+                }
+            }
+            int l = y.l(list);
+            for (int i = 0; i < l; i++) {
+                u uVar = (u) y.b(list, i);
+                if ((uVar instanceof com.baidu.tieba.card.a.c) && (Iv = (cVar = (com.baidu.tieba.card.a.c) uVar).Iv()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Iv.getTid(), 0L)))) != null) {
+                    cVar.setSource(threadPersonalized.source);
+                    cVar.setWeight(threadPersonalized.weight);
+                    cVar.gL(threadPersonalized.abtest_tag);
+                }
+            }
+        }
     }
 }

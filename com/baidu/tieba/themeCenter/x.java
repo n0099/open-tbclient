@@ -11,6 +11,6 @@ class x implements CustomMessageTask.CustomRunnable<Integer> {
         if (customMessage == null || !(customMessage.getData() instanceof Integer)) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SKIN_FROM_DB, n.aFl().mS(customMessage.getData().intValue()));
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SKIN_FROM_DB, n.aHA().nu(customMessage.getData().intValue()));
     }
 }

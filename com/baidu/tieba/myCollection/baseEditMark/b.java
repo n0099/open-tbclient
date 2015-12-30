@@ -5,50 +5,50 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private c cuJ;
+    private c cyJ;
 
     public b(BaseActivity baseActivity) {
-        this.cuJ = null;
-        this.cuJ = new c(baseActivity);
+        this.cyJ = null;
+        this.cyJ = new c(baseActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ab(boolean z) {
-        this.cuJ.ab(z);
+    public void Y(boolean z) {
+        this.cyJ.Y(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String qo() {
-        return this.cuJ.qo();
+    public String pM() {
+        return this.cyJ.pM();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(a.InterfaceC0040a interfaceC0040a) {
-        this.cuJ.a(interfaceC0040a);
+        this.cyJ.a(interfaceC0040a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void qq() {
-        this.cuJ.qq();
+    public void pO() {
+        this.cyJ.pO();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void qr() {
-        this.cuJ.qr();
+    public void pP() {
+        this.cyJ.pP();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData qs() {
-        return this.cuJ.qs();
+    public MarkData pQ() {
+        return this.cyJ.pQ();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.cuJ.a(markData);
+        this.cyJ.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean qp() {
-        return this.cuJ.qp();
+    public boolean pN() {
+        return this.cyJ.pN();
     }
 }

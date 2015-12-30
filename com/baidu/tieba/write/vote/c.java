@@ -13,41 +13,41 @@ import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<com.baidu.tbadk.core.dialog.g> dOr;
-    private WriteVoteActivity dOu;
-    private a dOw;
-    private int dOo = 7;
-    private boolean dOp = false;
-    private com.baidu.tbadk.core.dialog.e dOq = null;
-    private com.baidu.tbadk.core.dialog.a dOs = null;
-    private EditText dOt = null;
-    private final AdapterView.OnItemClickListener bny = new d(this);
-    private LayoutInflater dOv = LayoutInflater.from(getActivity());
+    private ArrayList<com.baidu.tbadk.core.dialog.g> dVQ;
+    private WriteVoteActivity dVT;
+    private a dVV;
+    private int dVN = 7;
+    private boolean dVO = false;
+    private com.baidu.tbadk.core.dialog.e dVP = null;
+    private com.baidu.tbadk.core.dialog.a dVR = null;
+    private EditText dVS = null;
+    private final AdapterView.OnItemClickListener bro = new d(this);
+    private LayoutInflater dVU = LayoutInflater.from(getActivity());
 
     /* loaded from: classes.dex */
     public interface a {
-        void Q(int i, String str);
+        void R(int i, String str);
     }
 
     public void a(a aVar) {
-        this.dOw = aVar;
+        this.dVV = aVar;
     }
 
     public c(WriteVoteActivity writeVoteActivity) {
-        this.dOu = writeVoteActivity;
+        this.dVT = writeVoteActivity;
     }
 
     public void showDialog() {
-        this.dOq = new com.baidu.tbadk.core.dialog.e(this.dOu.getPageContext());
-        this.dOr = new ArrayList<>();
-        this.dOr.add(new com.baidu.tbadk.core.dialog.g(getString(n.i.one_day), null, this.dOo == 1));
-        this.dOr.add(new com.baidu.tbadk.core.dialog.g(getString(n.i.one_week), null, this.dOo == 7));
-        this.dOr.add(new com.baidu.tbadk.core.dialog.g(getString(n.i.one_month), null, this.dOo == 30));
-        this.dOr.add(new com.baidu.tbadk.core.dialog.g(getString(n.i.custom_time), null, this.dOp));
-        this.dOq.bV(n.i.endtime_dialog_title);
-        this.dOq.a(this.dOr, this.bny);
-        this.dOq.tA();
-        this.dOq.tB();
+        this.dVP = new com.baidu.tbadk.core.dialog.e(this.dVT.getPageContext());
+        this.dVQ = new ArrayList<>();
+        this.dVQ.add(new com.baidu.tbadk.core.dialog.g(getString(n.j.one_day), null, this.dVN == 1));
+        this.dVQ.add(new com.baidu.tbadk.core.dialog.g(getString(n.j.one_week), null, this.dVN == 7));
+        this.dVQ.add(new com.baidu.tbadk.core.dialog.g(getString(n.j.one_month), null, this.dVN == 30));
+        this.dVQ.add(new com.baidu.tbadk.core.dialog.g(getString(n.j.custom_time), null, this.dVO));
+        this.dVP.bO(n.j.endtime_dialog_title);
+        this.dVP.a(this.dVQ, this.bro);
+        this.dVP.tk();
+        this.dVP.tl();
     }
 
     private String getString(int i) {
@@ -55,42 +55,42 @@ public class c {
     }
 
     private Activity getActivity() {
-        return this.dOu.getPageContext().getPageActivity();
+        return this.dVT.getPageContext().getPageActivity();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nB(int i) {
+    public void ot(int i) {
         String string;
-        if (this.dOw != null) {
+        if (this.dVV != null) {
             if (i == 1) {
-                string = getString(n.i.one_day);
+                string = getString(n.j.one_day);
             } else if (i == 7) {
-                string = getString(n.i.one_week);
+                string = getString(n.j.one_week);
             } else if (i == 30) {
-                string = getString(n.i.one_month);
+                string = getString(n.j.one_month);
             } else {
-                string = getActivity().getString(n.i.num_day, new Object[]{Integer.valueOf(i)});
+                string = getActivity().getString(n.j.num_day, new Object[]{Integer.valueOf(i)});
             }
-            this.dOw.Q(i, string);
-            com.baidu.adp.lib.util.k.c(this.dOu.getPageContext().getPageActivity(), this.dOt);
+            this.dVV.R(i, string);
+            com.baidu.adp.lib.util.k.c(this.dVT.getPageContext().getPageActivity(), this.dVS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIK() {
-        this.dOs = new com.baidu.tbadk.core.dialog.a(getActivity());
-        View inflate = this.dOv.inflate(n.g.select_day_item, (ViewGroup) null);
-        this.dOt = (EditText) inflate.findViewById(n.f.select_date_edittext);
-        this.dOs.m(inflate);
-        this.dOs.b(n.i.alert_no_button, new e(this));
-        this.dOs.a(n.i.alert_yes_button, new f(this));
-        this.dOs.b(this.dOu.getPageContext());
-        this.dOt.setText(new StringBuilder(String.valueOf(this.dOo)).toString());
-        Editable text = this.dOt.getText();
+    public void aLf() {
+        this.dVR = new com.baidu.tbadk.core.dialog.a(getActivity());
+        View inflate = this.dVU.inflate(n.h.select_day_item, (ViewGroup) null);
+        this.dVS = (EditText) inflate.findViewById(n.g.select_date_edittext);
+        this.dVR.m(inflate);
+        this.dVR.b(n.j.alert_no_button, new e(this));
+        this.dVR.a(n.j.alert_yes_button, new f(this));
+        this.dVR.b(this.dVT.getPageContext());
+        this.dVS.setText(new StringBuilder(String.valueOf(this.dVN)).toString());
+        Editable text = this.dVS.getText();
         if (text != null) {
             Selection.setSelection(text, text.length());
         }
-        this.dOs.tv();
-        this.dOu.ShowSoftKeyPadDelay(this.dOt, 150);
+        this.dVR.tf();
+        this.dVT.ShowSoftKeyPadDelay(this.dVS, 150);
     }
 }

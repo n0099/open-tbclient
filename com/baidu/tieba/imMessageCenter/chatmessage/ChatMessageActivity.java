@@ -19,9 +19,9 @@ import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private CustomMessageListener TI = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
-    private ImageView bYM;
-    private FragmentTransaction bYN;
+    private CustomMessageListener Uk = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
+    private ImageView ccM;
+    private FragmentTransaction ccN;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -92,7 +92,7 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.TI);
+        registerListener(this.Uk);
         InvokeNewImMessageCenterFragmentConfig.currentPageType = 2;
         sendMessage(new CustomMessage(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 1));
@@ -100,6 +100,7 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onCreate(getPageContext());
         }
+        adjustResizeForSoftInput();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -107,15 +108,15 @@ public class ChatMessageActivity extends BaseFragmentActivity implements VoiceMa
     public void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        as.i(this.mRootView, n.c.cp_bg_line_d);
-        as.a(this.bYM, n.e.icon_write_news_bg_s, n.e.icon_write_news_bg);
+        as.i(this.mRootView, n.d.cp_bg_line_d);
+        as.a(this.ccM, n.f.icon_write_news_bg_s, n.f.icon_write_news_bg);
     }
 
     private void initUI() {
-        setContentView(n.g.chat_message_activity);
-        this.mRootView = findViewById(n.f.container);
-        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
-        this.mNavigationBar.setTitleText(n.i.my_message);
+        setContentView(n.h.chat_message_activity);
+        this.mRootView = findViewById(n.g.container);
+        this.mNavigationBar = (NavigationBar) findViewById(n.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(n.j.my_message);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 

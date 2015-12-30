@@ -14,78 +14,78 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-    private TextView anI;
-    private ImageView anM;
+    private TextView api;
+    private ImageView apm;
     private LinearLayout container;
-    private HeadImageView doD;
+    private HeadImageView dvQ;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        Ai();
+        zU();
         c(attributeSet);
-        dU(TbadkCoreApplication.m411getInst().getSkinType());
+        dO(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        Ai();
-        dU(TbadkCoreApplication.m411getInst().getSkinType());
+        zU();
+        dO(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void dU(int i) {
-        com.baidu.tbadk.core.util.as.b(this.anI, n.c.about_tip_color, 1);
-        com.baidu.tbadk.core.util.as.c(this.anM, n.e.icon_arrow_right);
-        this.doD.invalidate();
+    public void dO(int i) {
+        com.baidu.tbadk.core.util.as.b(this.api, n.d.about_tip_color, 1);
+        com.baidu.tbadk.core.util.as.c(this.apm, n.f.icon_arrow_right);
+        this.dvQ.invalidate();
     }
 
-    public void azg() {
-        if (this.doD != null) {
-            this.doD.setVisibility(8);
+    public void aBm() {
+        if (this.dvQ != null) {
+            this.dvQ.setVisibility(8);
         }
     }
 
-    public void azh() {
-        if (this.doD != null) {
-            this.doD.setVisibility(0);
+    public void aBn() {
+        if (this.dvQ != null) {
+            this.dvQ.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.anI.setText(str);
+        this.api.setText(str);
     }
 
-    public void I(String str, boolean z) {
+    public void H(String str, boolean z) {
         if (z) {
-            this.doD.d(str, 26, false);
+            this.dvQ.d(str, 26, false);
         } else {
-            this.doD.d(str, 12, false);
+            this.dvQ.d(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void Ai() {
-        LayoutInflater.from(this.mContext).inflate(n.g.setting_text_image_view, (ViewGroup) this, true);
-        this.container = (LinearLayout) findViewById(n.f.container);
-        this.anI = (TextView) findViewById(n.f.text);
-        this.doD = (HeadImageView) findViewById(n.f.icon);
-        this.anM = (ImageView) findViewById(n.f.arrow);
+    private void zU() {
+        LayoutInflater.from(this.mContext).inflate(n.h.setting_text_image_view, (ViewGroup) this, true);
+        this.container = (LinearLayout) findViewById(n.g.container);
+        this.api = (TextView) findViewById(n.g.text);
+        this.dvQ = (HeadImageView) findViewById(n.g.icon);
+        this.apm = (ImageView) findViewById(n.g.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, n.k.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, n.l.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.anI.setText(string);
+            this.api.setText(string);
         }
         if (color > -1) {
-            this.anI.setTextColor(color);
+            this.api.setTextColor(color);
         }
         this.container.setClickable(false);
         this.container.setFocusable(false);

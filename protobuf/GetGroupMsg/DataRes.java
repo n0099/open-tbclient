@@ -10,6 +10,8 @@ public final class DataRes extends Message {
     public final Integer allowEggs;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<GroupMsg> groupMsg;
+    @ProtoField(tag = 3)
+    public final UserMsgs userMsg;
     public static final List<GroupMsg> DEFAULT_GROUPMSG = Collections.emptyList();
     public static final Integer DEFAULT_ALLOWEGGS = 0;
 
@@ -27,20 +29,22 @@ public final class DataRes extends Message {
             }
             if (builder.allowEggs == null) {
                 this.allowEggs = DEFAULT_ALLOWEGGS;
-                return;
             } else {
                 this.allowEggs = builder.allowEggs;
-                return;
             }
+            this.userMsg = builder.userMsg;
+            return;
         }
         this.groupMsg = immutableCopyOf(builder.groupMsg);
         this.allowEggs = builder.allowEggs;
+        this.userMsg = builder.userMsg;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer allowEggs;
         public List<GroupMsg> groupMsg;
+        public UserMsgs userMsg;
 
         public Builder() {
         }
@@ -50,6 +54,7 @@ public final class DataRes extends Message {
             if (dataRes != null) {
                 this.groupMsg = DataRes.copyOf(dataRes.groupMsg);
                 this.allowEggs = dataRes.allowEggs;
+                this.userMsg = dataRes.userMsg;
             }
         }
 

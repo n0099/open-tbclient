@@ -1,42 +1,38 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Profile.ProfileResIdl;
 /* loaded from: classes.dex */
-public class bd implements AbsListView.OnScrollListener {
-    final /* synthetic */ az cTD;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(az azVar) {
-        this.cTD = azVar;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.cTD.line;
-            if (view3 != null) {
-                view4 = this.cTD.line;
-                view4.setVisibility(0);
-                return;
+public class bd implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        ProfileResIdl profileResIdl;
+        if (customMessage instanceof RequestPersonInfoMessage) {
+            byte[] bArr = com.baidu.tbadk.core.b.a.tc().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key");
+            ResponsePersonInfoMessage responsePersonInfoMessage = new ResponsePersonInfoMessage();
+            if (bArr == null) {
+                return responsePersonInfoMessage;
             }
-            return;
+            try {
+                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+                profileResIdl = null;
+            }
+            if (profileResIdl != null) {
+                responsePersonInfoMessage.setUser(profileResIdl.data.user);
+                responsePersonInfoMessage.setAnti_stat(profileResIdl.data.anti_stat);
+                responsePersonInfoMessage.setTainfo(profileResIdl.data.tainfo);
+                responsePersonInfoMessage.setPost_list(profileResIdl.data.post_list);
+                responsePersonInfoMessage.setUserGodInfo(profileResIdl.data.user_god_info);
+            }
+            return responsePersonInfoMessage;
         }
-        view = this.cTD.line;
-        if (view != null) {
-            view2 = this.cTD.line;
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.cTD.apx();
-        this.cTD.apy();
+        return null;
     }
 }

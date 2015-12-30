@@ -6,14 +6,14 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String ra = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String rb = String.valueOf(this.ra) + "/baidu/";
-    private String rc;
+    private final String rb = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String rc = String.valueOf(this.rb) + "/baidu/";
+    private String rd;
 
     public b() {
-        this.rc = null;
+        this.rd = null;
         try {
-            this.rc = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.rd = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -21,7 +21,7 @@ public class b {
 
     public void L(String str) {
         if (str != null) {
-            this.rb = String.valueOf(this.ra) + "/" + str + "/";
+            this.rc = String.valueOf(this.rb) + "/" + str + "/";
         }
     }
 
@@ -36,17 +36,17 @@ public class b {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.rb) + str + "/";
-            } else {
-                str2 = this.rb;
-            }
-        } else if (this.rc == null) {
-            return null;
-        } else {
-            if (str != null) {
                 str2 = String.valueOf(this.rc) + str + "/";
             } else {
                 str2 = this.rc;
+            }
+        } else if (this.rd == null) {
+            return null;
+        } else {
+            if (str != null) {
+                str2 = String.valueOf(this.rd) + str + "/";
+            } else {
+                str2 = this.rd;
             }
         }
         File file = new File(str2);

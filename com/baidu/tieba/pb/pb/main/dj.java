@@ -1,41 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
-public class dj implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ da cGh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dj(da daVar) {
-        this.cGh = daVar;
+public class dj {
+    public static Intent L(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.b.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.cGh.cFn = (String) compoundButton.getTag();
-            list = this.cGh.cEn;
-            if (list != null) {
-                list2 = this.cGh.cEn;
-                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.cGh.cFn;
-                        if (str != null) {
-                            str2 = this.cGh.cFn;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    public static boolean e(com.baidu.tieba.tbadkCore.data.r rVar) {
+        if (rVar == null || rVar.aFA() == null) {
+            return false;
         }
+        com.baidu.tieba.tbadkCore.data.h aFA = rVar.aFA();
+        if (aFA.dGJ) {
+            int aET = aFA.aET();
+            return aET == 2 || aET == 1;
+        }
+        return false;
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tieba.recommendfrs.indicator.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ h djm;
+    final /* synthetic */ h dpQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.djm = hVar;
+        this.dpQ = hVar;
     }
 
     @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
@@ -20,14 +20,14 @@ public class j extends com.baidu.adp.lib.h.d {
         ViewGroup viewGroup;
         View view;
         h.a aVar2;
-        this.djm.asq = false;
-        aVar = this.djm.djk;
+        this.dpQ.atU = false;
+        aVar = this.dpQ.dpO;
         if (aVar != null) {
-            aVar2 = this.djm.djk;
-            aVar2.awA();
+            aVar2 = this.dpQ.dpO;
+            aVar2.ayG();
         }
-        viewGroup = this.djm.djj;
-        view = this.djm.rootView;
+        viewGroup = this.dpQ.dpN;
+        view = this.dpQ.rootView;
         viewGroup.removeView(view);
     }
 }

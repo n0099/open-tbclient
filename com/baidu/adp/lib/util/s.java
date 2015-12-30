@@ -26,9 +26,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tw = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.tf = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sm = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.ty = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.th = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.sq = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -47,7 +47,7 @@ public class s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<o.b<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -64,9 +64,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tw = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.tf = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sm = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.ty = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.th = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.sq = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -109,10 +109,10 @@ public class s {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(o.b<?> bVar, o.b<?> bVar2) {
-            if (bVar.tw == bVar2.tw) {
+            if (bVar.ty == bVar2.ty) {
                 return 0;
             }
-            return bVar.tw > bVar2.tw ? -1 : 1;
+            return bVar.ty > bVar2.ty ? -1 : 1;
         }
     }
 }

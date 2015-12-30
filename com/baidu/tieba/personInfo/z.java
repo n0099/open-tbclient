@@ -1,31 +1,41 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tieba.n;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ d cSn;
+public class z extends CustomMessageListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(d dVar) {
-        this.cSn = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(d dVar, int i) {
+        super(i);
+        this.cWV = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        List list;
-        List list2;
-        List list3;
-        if (view != null) {
-            list = this.cSn.cRP;
-            if (list != null && (view.getTag(n.f.tag_person_photo_item_position) instanceof Integer)) {
-                int intValue = ((Integer) view.getTag(n.f.tag_person_photo_item_position)).intValue();
-                list2 = this.cSn.cRP;
-                d dVar = this.cSn;
-                list3 = this.cSn.cRP;
-                dVar.a((com.baidu.tbadk.data.g) list2.get(intValue), list3, intValue);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        bb bbVar;
+        bb bbVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            z = this.cWV.cBJ;
+            if (z) {
+                if (intValue == 0) {
+                    bbVar2 = this.cWV.cRx;
+                    if (bbVar2.cXE) {
+                        this.cWV.aqf();
+                        return;
+                    }
+                }
+                bbVar = this.cWV.cRx;
+                if (bbVar.cXE) {
+                    return;
+                }
+                this.cWV.aqf();
             }
         }
     }

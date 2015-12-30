@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnLongClickListener {
-    final /* synthetic */ h cbR;
+    final /* synthetic */ h cfR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.cbR = hVar;
+        this.cfR = hVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -24,21 +24,21 @@ public class j implements View.OnLongClickListener {
         TextView textView;
         RelativeLayout relativeLayout3;
         int[] iArr = new int[2];
-        relativeLayout = this.cbR.cbJ;
+        relativeLayout = this.cfR.cfJ;
         relativeLayout.getLocationOnScreen(iArr);
         int i2 = iArr[0];
-        relativeLayout2 = this.cbR.cbJ;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b abE = com.baidu.tieba.imMessageCenter.im.floatwindow.b.abE();
-        headImageView = this.cbR.aJP;
+        relativeLayout2 = this.cfR.cfJ;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b acN = com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN();
+        headImageView = this.cfR.aLn;
         String url = headImageView.getUrl();
-        i = this.cbR.cbN;
-        abE.a(i2 + relativeLayout2.getMeasuredWidth(), iArr[1] - 25, url, i);
-        this.cbR.cbO = true;
-        headImageView2 = this.cbR.aJP;
+        i = this.cfR.cfN;
+        acN.a(i2 + relativeLayout2.getMeasuredWidth(), iArr[1] - 25, url, i);
+        this.cfR.cfO = true;
+        headImageView2 = this.cfR.aLn;
         headImageView2.setVisibility(4);
-        textView = this.cbR.caK;
+        textView = this.cfR.ceL;
         textView.setVisibility(4);
-        relativeLayout3 = this.cbR.cbJ;
+        relativeLayout3 = this.cfR.cfJ;
         relativeLayout3.clearFocus();
         return false;
     }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.personInfo;
 
 import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements UserMuteAddAndDelModel.b {
-    final /* synthetic */ d cSn;
+public class n implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(d dVar) {
-        this.cSn = dVar;
+        this.cWV = dVar;
     }
 
-    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.b
-    public void a(UserMuteDelResponseMessage userMuteDelResponseMessage) {
-        this.cSn.cRR = 0;
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        this.cWV.cWu = 1;
     }
 }

@@ -6,30 +6,30 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.b {
-    final /* synthetic */ PluginCenterActivity ddw;
-    private final /* synthetic */ PluginConfigWrapper ddx;
+    final /* synthetic */ PluginCenterActivity djc;
+    private final /* synthetic */ PluginConfigWrapper djd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
-        this.ddw = pluginCenterActivity;
-        this.ddx = pluginConfigWrapper;
+        this.djc = pluginCenterActivity;
+        this.djd = pluginConfigWrapper;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.adp.plugin.packageManager.e eVar;
         com.baidu.tbadk.mvc.g.b bVar;
-        if (com.baidu.adp.lib.util.k.jg()) {
-            PluginPackageManager lU = PluginPackageManager.lU();
-            PluginConfigWrapper pluginConfigWrapper = this.ddx;
-            eVar = this.ddw.DO;
-            lU.a(pluginConfigWrapper, eVar);
-            this.ddx.setDownLoadPercent(0.0f);
-            this.ddx.setDownLoadStatus(3);
-            bVar = this.ddw.ddt;
-            bVar.A(this.ddx);
+        if (com.baidu.adp.lib.util.k.jh()) {
+            PluginPackageManager ls = PluginPackageManager.ls();
+            PluginConfigWrapper pluginConfigWrapper = this.djd;
+            eVar = this.djc.Eh;
+            ls.a(pluginConfigWrapper, eVar);
+            this.djd.setDownLoadPercent(0.0f);
+            this.djd.setDownLoadStatus(3);
+            bVar = this.djc.dja;
+            bVar.A(this.djd);
         } else {
-            this.ddw.showToast(n.i.neterror);
+            this.djc.showToast(n.j.neterror);
         }
         aVar.dismiss();
     }

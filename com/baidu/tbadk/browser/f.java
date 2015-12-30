@@ -24,7 +24,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String P(String str, String str2) {
+    public static String O(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -43,7 +43,7 @@ public class f {
 
     public static void b(Context context, boolean z, String str) {
         String appendVersionCode;
-        qy();
+        qf();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -63,7 +63,7 @@ public class f {
 
     public static void a(Context context, boolean z, String str, String str2) {
         String appendVersionCode;
-        qy();
+        qf();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -82,7 +82,7 @@ public class f {
     }
 
     public static void f(Context context, String str, String str2) {
-        qy();
+        qf();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -96,7 +96,7 @@ public class f {
     }
 
     public static void c(Context context, String str, String str2, boolean z) {
-        qy();
+        qf();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -114,7 +114,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        qy();
+        qf();
         try {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode(appendCuidParam(str2)), z, z2, z3)));
         } catch (Exception e) {
@@ -163,13 +163,13 @@ public class f {
     }
 
     public static void W(Context context) {
-        a.b ch = com.baidu.tbadk.core.a.a.rp().ch(TbadkCoreApplication.getCurrentBduss());
+        a.b cj = com.baidu.tbadk.core.a.a.qY().cj(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (ch != null) {
+        if (cj != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + ch.wy + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + ch.TV + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + cj.wA + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + cj.Uv + "; domain=.baidu.com;");
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {
@@ -189,7 +189,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void qy() {
+    private static void qf() {
         new ap("open_webview", true).start();
     }
 }

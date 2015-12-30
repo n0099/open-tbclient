@@ -5,7 +5,7 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 /* loaded from: classes.dex */
-public class RecommendFrsHttpResponsedMessage extends MvcProtobufHttpResponsedMessage<c, ExcFrsPageResIdl> {
+public class RecommendFrsHttpResponsedMessage extends MvcProtobufHttpResponsedMessage<h, ExcFrsPageResIdl> {
     public RecommendFrsHttpResponsedMessage(int i) {
         super(i);
     }
@@ -17,13 +17,13 @@ public class RecommendFrsHttpResponsedMessage extends MvcProtobufHttpResponsedMe
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> cy;
+        o<byte[]> cB;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if (mvcNetMessage.getRequestData() instanceof d) {
-                d dVar = (d) mvcNetMessage.getRequestData();
-                if (dVar.awn() == 0 && (cy = com.baidu.tbadk.core.b.a.ts().cy("RecommendFrsCache")) != null) {
-                    cy.f(new StringBuilder(String.valueOf(dVar.awm())).toString(), bArr);
+            if (mvcNetMessage.getRequestData() instanceof i) {
+                i iVar = (i) mvcNetMessage.getRequestData();
+                if (iVar.ayr() == 0 && (cB = com.baidu.tbadk.core.b.a.tc().cB("RecommendFrsCache")) != null) {
+                    cB.f(new StringBuilder(String.valueOf(iVar.getTagCode())).toString(), bArr);
                 }
             }
         }

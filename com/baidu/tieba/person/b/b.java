@@ -8,20 +8,20 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class b extends x.a {
-    public int afY;
-    public RelativeLayout cNN;
-    public TextView cNO;
-    public TextView cNP;
-    public TextView cNQ;
-    public ImageView cNR;
+    public int ahf;
+    public RelativeLayout cSt;
+    public TextView cSu;
+    public TextView cSv;
+    public TextView cSw;
+    public ImageView cSx;
 
     public b(View view) {
         super(view);
-        this.afY = 3;
-        this.cNN = (RelativeLayout) view;
-        this.cNO = (TextView) view.findViewById(n.f.attention_title);
-        this.cNP = (TextView) view.findViewById(n.f.attention_num);
-        this.cNQ = (TextView) view.findViewById(n.f.attention_none_msg);
-        this.cNR = (ImageView) view.findViewById(n.f.bar_head_arrow);
+        this.ahf = 3;
+        this.cSt = (RelativeLayout) view;
+        this.cSu = (TextView) view.findViewById(n.g.attention_title);
+        this.cSv = (TextView) view.findViewById(n.g.attention_num);
+        this.cSw = (TextView) view.findViewById(n.g.attention_none_msg);
+        this.cSx = (ImageView) view.findViewById(n.g.bar_head_arrow);
     }
 }

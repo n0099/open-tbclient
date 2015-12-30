@@ -12,13 +12,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class PbGiftListView extends FrameLayout {
-    private View bwP;
-    private TextView cIA;
-    private TbImageView cIv;
-    private TbImageView cIw;
-    private TbImageView cIx;
-    private TbImageView cIy;
-    private TextView cIz;
+    private View bAG;
+    private TbImageView cMA;
+    private TbImageView cMB;
+    private TextView cMC;
+    private TextView cMD;
+    private TbImageView cMy;
+    private TbImageView cMz;
     private Context mContext;
     private long postId;
     private long threadId;
@@ -42,22 +42,22 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.bwP = View.inflate(this.mContext, n.g.pb_gift_list_item, this);
-        this.cIv = (TbImageView) this.bwP.findViewById(n.f.pb_gift_view1);
-        this.cIw = (TbImageView) this.bwP.findViewById(n.f.pb_gift_view2);
-        this.cIx = (TbImageView) this.bwP.findViewById(n.f.pb_gift_view3);
-        this.cIy = (TbImageView) this.bwP.findViewById(n.f.pb_gift_view4);
-        this.cIv.setDefaultBgResource(n.e.transparent_bg);
-        this.cIw.setDefaultBgResource(n.e.transparent_bg);
-        this.cIx.setDefaultBgResource(n.e.transparent_bg);
-        this.cIy.setDefaultBgResource(n.e.transparent_bg);
-        this.cIv.setDefaultResource(n.e.icon_gift_moren);
-        this.cIw.setDefaultResource(n.e.icon_gift_moren);
-        this.cIx.setDefaultResource(n.e.icon_gift_moren);
-        this.cIy.setDefaultResource(n.e.icon_gift_moren);
-        this.cIz = (TextView) this.bwP.findViewById(n.f.pb_gift_number_view);
-        this.cIA = (TextView) this.bwP.findViewById(n.f.pb_gift_send_view);
-        this.cIA.setOnClickListener(new d(this));
+        this.bAG = View.inflate(this.mContext, n.h.pb_gift_list_item, this);
+        this.cMy = (TbImageView) this.bAG.findViewById(n.g.pb_gift_view1);
+        this.cMz = (TbImageView) this.bAG.findViewById(n.g.pb_gift_view2);
+        this.cMA = (TbImageView) this.bAG.findViewById(n.g.pb_gift_view3);
+        this.cMB = (TbImageView) this.bAG.findViewById(n.g.pb_gift_view4);
+        this.cMy.setDefaultBgResource(n.f.transparent_bg);
+        this.cMz.setDefaultBgResource(n.f.transparent_bg);
+        this.cMA.setDefaultBgResource(n.f.transparent_bg);
+        this.cMB.setDefaultBgResource(n.f.transparent_bg);
+        this.cMy.setDefaultResource(n.f.icon_gift_moren);
+        this.cMz.setDefaultResource(n.f.icon_gift_moren);
+        this.cMA.setDefaultResource(n.f.icon_gift_moren);
+        this.cMB.setDefaultResource(n.f.icon_gift_moren);
+        this.cMC = (TextView) this.bAG.findViewById(n.g.pb_gift_number_view);
+        this.cMD = (TextView) this.bAG.findViewById(n.g.pb_gift_send_view);
+        this.cMD.setOnClickListener(new d(this));
     }
 
     public void a(r rVar, String str, long j, long j2, long j3) {
@@ -65,70 +65,70 @@ public class PbGiftListView extends FrameLayout {
         this.toUserName = str;
         this.postId = j3;
         this.threadId = j2;
-        if (rVar == null || rVar.si() == null || rVar.si().size() <= 0) {
+        if (rVar == null || rVar.rR() == null || rVar.rR().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (rVar.si().size() > 4 ? 4 : rVar.si().size()) {
+        switch (rVar.rR().size() > 4 ? 4 : rVar.rR().size()) {
             case 1:
-                this.cIv.d(rVar.si().get(0).thumbnailUrl, 10, false);
-                this.cIv.setVisibility(0);
-                this.cIw.setVisibility(8);
-                this.cIx.setVisibility(8);
-                this.cIy.setVisibility(8);
+                this.cMy.d(rVar.rR().get(0).thumbnailUrl, 10, false);
+                this.cMy.setVisibility(0);
+                this.cMz.setVisibility(8);
+                this.cMA.setVisibility(8);
+                this.cMB.setVisibility(8);
                 break;
             case 2:
-                this.cIv.d(rVar.si().get(0).thumbnailUrl, 10, false);
-                this.cIw.d(rVar.si().get(1).thumbnailUrl, 10, false);
-                this.cIv.setVisibility(0);
-                this.cIw.setVisibility(0);
-                this.cIx.setVisibility(8);
-                this.cIy.setVisibility(8);
+                this.cMy.d(rVar.rR().get(0).thumbnailUrl, 10, false);
+                this.cMz.d(rVar.rR().get(1).thumbnailUrl, 10, false);
+                this.cMy.setVisibility(0);
+                this.cMz.setVisibility(0);
+                this.cMA.setVisibility(8);
+                this.cMB.setVisibility(8);
                 break;
             case 3:
-                this.cIv.d(rVar.si().get(0).thumbnailUrl, 10, false);
-                this.cIw.d(rVar.si().get(1).thumbnailUrl, 10, false);
-                this.cIx.d(rVar.si().get(2).thumbnailUrl, 10, false);
-                this.cIv.setVisibility(0);
-                this.cIw.setVisibility(0);
-                this.cIx.setVisibility(0);
-                this.cIy.setVisibility(8);
+                this.cMy.d(rVar.rR().get(0).thumbnailUrl, 10, false);
+                this.cMz.d(rVar.rR().get(1).thumbnailUrl, 10, false);
+                this.cMA.d(rVar.rR().get(2).thumbnailUrl, 10, false);
+                this.cMy.setVisibility(0);
+                this.cMz.setVisibility(0);
+                this.cMA.setVisibility(0);
+                this.cMB.setVisibility(8);
                 break;
             case 4:
-                this.cIv.d(rVar.si().get(0).thumbnailUrl, 10, false);
-                this.cIw.d(rVar.si().get(1).thumbnailUrl, 10, false);
-                this.cIx.d(rVar.si().get(2).thumbnailUrl, 10, false);
-                this.cIy.d(rVar.si().get(3).thumbnailUrl, 10, false);
-                this.cIv.setVisibility(0);
-                this.cIw.setVisibility(0);
-                this.cIx.setVisibility(0);
-                this.cIy.setVisibility(0);
+                this.cMy.d(rVar.rR().get(0).thumbnailUrl, 10, false);
+                this.cMz.d(rVar.rR().get(1).thumbnailUrl, 10, false);
+                this.cMA.d(rVar.rR().get(2).thumbnailUrl, 10, false);
+                this.cMB.d(rVar.rR().get(3).thumbnailUrl, 10, false);
+                this.cMy.setVisibility(0);
+                this.cMz.setVisibility(0);
+                this.cMA.setVisibility(0);
+                this.cMB.setVisibility(0);
                 break;
         }
-        if (rVar.sh() > 0) {
-            this.cIz.setText(String.format(this.mContext.getResources().getString(n.i.gift_counts), Integer.valueOf(rVar.sh())));
-            this.cIz.setVisibility(0);
+        if (rVar.rQ() > 0) {
+            this.cMC.setText(String.format(this.mContext.getResources().getString(n.j.gift_counts), Integer.valueOf(rVar.rQ())));
+            this.cMC.setVisibility(0);
         } else {
-            this.cIz.setVisibility(8);
+            this.cMC.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.cIA.setVisibility(8);
+            this.cMD.setVisibility(8);
         } else {
-            this.cIA.setVisibility(0);
+            this.cMD.setVisibility(0);
         }
     }
 
-    public void fB(boolean z) {
+    public void fA(boolean z) {
         if (z) {
-            this.cIA.setVisibility(0);
+            this.cMD.setVisibility(0);
         } else {
-            this.cIA.setVisibility(8);
+            this.cMD.setVisibility(8);
         }
     }
 
-    public void tH() {
-        as.b(this.cIz, n.c.cp_cont_d, 1);
-        as.b(this.cIA, n.c.cp_link_tip_c, 1);
+    public void tr() {
+        as.b(this.cMC, n.d.cp_cont_d, 1);
+        as.b(this.cMD, n.d.cp_link_tip_c, 1);
     }
 
     public long getThreadId() {

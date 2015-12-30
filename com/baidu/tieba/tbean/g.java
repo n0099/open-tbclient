@@ -10,13 +10,13 @@ import tbclient.GetIconList.UserInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ e dCv;
+    final /* synthetic */ e dJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.dCv = eVar;
+        this.dJX = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,36 +33,36 @@ public class g extends HttpMessageListener {
         BuyTBeanActivity buyTBeanActivity3;
         e.a aVar5;
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-            aVar = this.dCv.dCu;
-            buyTBeanActivity = this.dCv.dCt;
-            aVar.hh(buyTBeanActivity.getPageContext().getString(n.i.neterror));
+            aVar = this.dJX.dJW;
+            buyTBeanActivity = this.dJX.dJV;
+            aVar.hs(buyTBeanActivity.getPageContext().getString(n.j.neterror));
             return;
         }
         GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
         if (getYinJiHttpResponseMessage.getError() != 0) {
             if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                aVar5 = this.dCv.dCu;
-                aVar5.hh(getYinJiHttpResponseMessage.getErrorString());
+                aVar5 = this.dJX.dJW;
+                aVar5.hs(getYinJiHttpResponseMessage.getErrorString());
                 return;
             }
-            aVar4 = this.dCv.dCu;
-            buyTBeanActivity3 = this.dCv.dCt;
-            aVar4.hh(buyTBeanActivity3.getPageContext().getString(n.i.neterror));
+            aVar4 = this.dJX.dJW;
+            buyTBeanActivity3 = this.dJX.dJV;
+            aVar4.hs(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
             return;
         }
-        this.dCv.userInfo = getYinJiHttpResponseMessage.getUserInfo();
-        this.dCv.iconInfoList = getYinJiHttpResponseMessage.getIconInfoList();
-        userInfo = this.dCv.userInfo;
+        this.dJX.userInfo = getYinJiHttpResponseMessage.getUserInfo();
+        this.dJX.iconInfoList = getYinJiHttpResponseMessage.getIconInfoList();
+        userInfo = this.dJX.userInfo;
         if (userInfo != null) {
-            list = this.dCv.iconInfoList;
+            list = this.dJX.iconInfoList;
             if (list != null) {
-                aVar3 = this.dCv.dCu;
+                aVar3 = this.dJX.dJW;
                 aVar3.onSuccess();
                 return;
             }
         }
-        aVar2 = this.dCv.dCu;
-        buyTBeanActivity2 = this.dCv.dCt;
-        aVar2.hh(buyTBeanActivity2.getPageContext().getString(n.i.no_data_tip));
+        aVar2 = this.dJX.dJW;
+        buyTBeanActivity2 = this.dJX.dJV;
+        aVar2.hs(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
     }
 }

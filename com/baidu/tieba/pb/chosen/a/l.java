@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class l {
-    private TextView bAN;
-    private RelativeLayout czb;
-    private TextView czc;
-    private ImageView czd;
+    private TextView bIC;
+    private RelativeLayout cCH;
+    private TextView cCI;
+    private ImageView cCJ;
     private View rootView;
 
     public l(View view) {
         this.rootView = view;
-        this.czb = (RelativeLayout) view.findViewById(n.f.chosen_pb_reply_text);
-        this.bAN = (TextView) view.findViewById(n.f.chosen_pb_reply_comment);
-        this.czc = (TextView) view.findViewById(n.f.chosen_pb_reply_number);
-        this.czd = (ImageView) view.findViewById(n.f.chosen_pb_reply_share);
+        this.cCH = (RelativeLayout) view.findViewById(n.g.chosen_pb_reply_text);
+        this.bIC = (TextView) view.findViewById(n.g.chosen_pb_reply_comment);
+        this.cCI = (TextView) view.findViewById(n.g.chosen_pb_reply_number);
+        this.cCJ = (ImageView) view.findViewById(n.g.chosen_pb_reply_share);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.czb.setOnClickListener(onClickListener);
+        this.cCH.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class l {
     }
 
     public void A(View.OnClickListener onClickListener) {
-        this.czd.setOnClickListener(onClickListener);
+        this.cCJ.setOnClickListener(onClickListener);
     }
 
-    public void kw(String str) {
-        this.czc.setText(str);
+    public void ks(String str) {
+        this.cCI.setText(str);
     }
 
-    public void tH() {
-        as.i(this.rootView, n.e.bg_rec_lick);
-        as.i(this.czb, n.e.bg_rec_comment);
-        as.b(this.bAN, n.c.cp_cont_c, 1);
-        as.b(this.czc, n.c.cp_cont_e, 1);
-        as.c(this.czd, n.e.recommend_pb_share_selector);
+    public void tr() {
+        as.i(this.rootView, n.f.bg_rec_lick);
+        as.i(this.cCH, n.f.bg_rec_comment);
+        as.b(this.bIC, n.d.cp_cont_c, 1);
+        as.b(this.cCI, n.d.cp_cont_e, 1);
+        as.c(this.cCJ, n.f.recommend_pb_share_selector);
     }
 }

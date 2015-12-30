@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.memorycache.bw;
+import com.baidu.tieba.im.memorycache.bz;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.message.ResponseUnLoginMessage;
@@ -37,7 +37,7 @@ public class j extends com.baidu.adp.framework.a.j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.ZU().aab();
+                b.aba().abh();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -64,10 +64,10 @@ public class j extends com.baidu.adp.framework.a.j {
                 return false;
             }
             SparseArray<Long> sparseArray = new SparseArray<>();
-            SparseArray<Long> ZD = com.baidu.tieba.im.memorycache.b.Zt().ZD();
+            SparseArray<Long> aaI = com.baidu.tieba.im.memorycache.b.aay().aaI();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
-                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && bw.im(groupMsgData.getGroupInfo().getCustomType()) && (l = ZD.get((int) groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
+                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && bz.iL(groupMsgData.getGroupInfo().getCustomType()) && (l = aaI.get((int) groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
                     boolean z2 = l.longValue() > l2.longValue() ? true : z;
                     if (groupMsgData.hasMore()) {
                         sparseArray.put((int) groupMsgData.getGroupInfo().getGroupId(), l);
@@ -78,7 +78,7 @@ public class j extends com.baidu.adp.framework.a.j {
             if (!z || sparseArray.size() <= 0) {
                 return false;
             }
-            b.ZU().c(sparseArray);
+            b.aba().c(sparseArray);
             return true;
         }
         return false;

@@ -1,61 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tieba.person.listview.BdPersonListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements BdPersonListView.a {
-    final /* synthetic */ d cSn;
+public class x extends CustomMessageListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(d dVar) {
-        this.cSn = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(d dVar, int i) {
+        super(i);
+        this.cWV = dVar;
     }
 
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void nu() {
-        az azVar;
-        aw awVar;
-        az azVar2;
-        boolean z;
-        az azVar3;
-        if (!com.baidu.adp.lib.util.i.iP()) {
-            azVar = this.cSn.cRH;
-            azVar.hideProgress();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null) {
             return;
         }
-        awVar = this.cSn.cMT;
-        awVar.aph();
-        azVar2 = this.cSn.cRH;
-        if (azVar2.apz() != null) {
-            azVar3 = this.cSn.cRH;
-            azVar3.apz().ns();
-        }
-        z = this.cSn.mIsHost;
-        if (z) {
-            return;
-        }
-        this.cSn.aoF();
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void nt() {
-        az azVar;
-        az azVar2;
-        azVar = this.cSn.cRH;
-        if (azVar.apz() != null) {
-            azVar2 = this.cSn.cRH;
-            azVar2.apz().hideProgress();
-        }
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void k(float f) {
-        az azVar;
-        az azVar2;
-        azVar = this.cSn.cRH;
-        if (azVar.apz() != null) {
-            azVar2 = this.cSn.cRH;
-            azVar2.apz().j(f);
-        }
+        this.cWV.aqf();
     }
 }

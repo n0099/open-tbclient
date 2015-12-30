@@ -1,81 +1,43 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
+import com.baidu.tieba.setting.model.MoreModel;
 /* loaded from: classes.dex */
-public class t implements s {
+class t extends com.baidu.adp.framework.listener.a {
     final /* synthetic */ MoreActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(MoreActivity moreActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(MoreActivity moreActivity, int i, int i2) {
+        super(i, i2);
         this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.tieba.setting.more.s
-    public void lV(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i == 5) {
-                                            this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SystemHelpSettingActivityConfig(this.this$0.getPageContext().getPageActivity())));
-                                            return;
-                                        } else if (i != 9) {
-                                            if (i == 10) {
-                                                this.this$0.dnk.ayl();
-                                                return;
-                                            } else if (i == 12) {
-                                                com.baidu.adp.lib.h.h.hj().postDelayed(new u(this), 1000L);
-                                                this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NotLoginGuideActivityConfig(this.this$0.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
-                                                return;
-                                            } else if (i == 11) {
-                                                TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                                                BdSocketLinkService.close("exit app");
-                                                com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 12, false);
-                                                return;
-                                            } else if (i != 13) {
-                                                return;
-                                            } else {
-                                                this.this$0.ayb();
-                                                TiebaStatic.log("c10017");
-                                                return;
-                                            }
-                                        } else {
-                                            this.this$0.ayi();
-                                            return;
-                                        }
-                                    }
-                                    this.this$0.aya();
-                                    return;
-                                }
-                                this.this$0.goToFeedBack();
-                                return;
-                            }
-                            this.this$0.ayc();
-                            return;
-                        }
-                        this.this$0.ayh();
-                        return;
-                    }
-                    this.this$0.ayd();
-                    return;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        MoreModel moreModel;
+        if (responsedMessage != null && responsedMessage.getError() == 0) {
+            if ((responsedMessage instanceof GetUserInfoHttpResponseMessage) || (responsedMessage instanceof GetUserInfoSocketResponseMessage)) {
+                com.baidu.tbadk.getUserInfo.a aVar = null;
+                if (responsedMessage instanceof GetUserInfoHttpResponseMessage) {
+                    aVar = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
+                } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
+                    aVar = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                 }
-                this.this$0.aye();
-                return;
+                if (aVar != null && aVar.CD() != null) {
+                    String portrait = aVar.CD().getPortrait();
+                    this.this$0.duw.G(com.baidu.tbadk.core.util.r.dm(portrait), false);
+                    moreModel = this.this$0.dux;
+                    PersonChangeData personChangeData = moreModel.getPersonChangeData();
+                    if (personChangeData != null) {
+                        personChangeData.setPhotoChanged(true);
+                        personChangeData.setPortrait(portrait);
+                    }
+                }
             }
-            this.this$0.ayf();
-            return;
         }
-        this.this$0.ayg();
     }
 }

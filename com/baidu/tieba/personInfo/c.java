@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ PersonInfoDelegateStatic cRF;
+    final /* synthetic */ PersonInfoDelegateStatic cWg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonInfoDelegateStatic personInfoDelegateStatic, int i) {
         super(i);
-        this.cRF = personInfoDelegateStatic;
+        this.cWg = personInfoDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ class c extends CustomMessageListener {
         ImageView imageView;
         Boolean bool;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            this.cRF.aOf = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).avE);
-            imageView = this.cRF.aOe;
-            bool = this.cRF.aOf;
+            this.cWg.aRX = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).axi);
+            imageView = this.cWg.aRW;
+            bool = this.cWg.aRX;
             imageView.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }

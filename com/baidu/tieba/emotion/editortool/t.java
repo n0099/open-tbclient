@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class t {
-    private int aPA;
-    private int aPB;
-    private int aPC;
-    private com.baidu.tbadk.editortools.emotiontool.c aPD;
-    private int aPE;
-    private int aPF;
-    private EmotionGroupType aPy;
-    private int aPz;
+    private EmotionGroupType aTq;
+    private int aTr;
+    private int aTs;
+    private int aTt;
+    private int aTu;
+    private com.baidu.tbadk.editortools.emotiontool.c aTv;
+    private int aTw;
+    private int aTx;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.aPD = cVar;
+        this.aTv = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c Jl() {
-        return this.aPD;
+    public com.baidu.tbadk.editortools.emotiontool.c JC() {
+        return this.aTv;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.aPy = emotionGroupType;
+        this.aTq = emotionGroupType;
     }
 
-    public EmotionGroupType Jm() {
-        return this.aPy;
+    public EmotionGroupType JD() {
+        return this.aTq;
     }
 
-    public void ev(int i) {
+    public void ep(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class t {
         return this.row;
     }
 
-    public void eu(int i) {
+    public void eo(int i) {
         this.column = i;
     }
 
-    public int Jn() {
+    public int JE() {
         return this.column;
     }
 
-    public void fm(int i) {
-        this.aPF = i;
+    public void fh(int i) {
+        this.aTx = i;
     }
 
-    public int Jo() {
-        return this.aPF;
+    public int JF() {
+        return this.aTx;
     }
 
-    public void fn(int i) {
-        this.aPE = i;
+    public void fi(int i) {
+        this.aTw = i;
     }
 
-    public int Jp() {
-        return this.aPE;
+    public int JG() {
+        return this.aTw;
     }
 
-    public void fo(int i) {
-        this.aPz = i;
+    public void fj(int i) {
+        this.aTr = i;
     }
 
-    public int Jq() {
-        return this.aPz;
+    public int JH() {
+        return this.aTr;
     }
 
-    public void fp(int i) {
-        this.aPB = i;
+    public void fk(int i) {
+        this.aTt = i;
     }
 
-    public int Jr() {
-        return this.aPB;
+    public int JI() {
+        return this.aTt;
     }
 
     public void setEndIndex(int i) {
-        this.aPC = i;
+        this.aTu = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class t {
         return this.index;
     }
 
-    public void fq(int i) {
-        this.aPA = i;
+    public void fl(int i) {
+        this.aTs = i;
     }
 
-    public int Js() {
-        return this.aPA;
+    public int JJ() {
+        return this.aTs;
     }
 }

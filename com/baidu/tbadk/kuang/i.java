@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    private final /* synthetic */ CustomResponsedMessage avs;
+    private final /* synthetic */ CustomResponsedMessage awW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(CustomResponsedMessage customResponsedMessage) {
-        this.avs = customResponsedMessage;
+        this.awW = customResponsedMessage;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(this.avs);
+        MessageManager.getInstance().dispatchResponsedMessage(this.awW);
     }
 }

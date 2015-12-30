@@ -1,11 +1,24 @@
 package com.baidu.tieba.im.memorycache;
+
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class bw {
-    public static boolean im(int i) {
-        return i == 1 || i == 9 || i == 5 || i == -1 || i == -9 || i == 3 || i == -2 || i == 8 || i == 7 || i == 6;
+class bw implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ String bYg;
+    final /* synthetic */ bv bYi;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bw(bv bvVar, String str) {
+        this.bYi = bvVar;
+        this.bYg = str;
     }
 
-    public static boolean in(int i) {
-        return i == 8 || i == 7;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && (customMessage instanceof CustomMessage)) {
+            com.baidu.tieba.im.db.c.Yi().ip(this.bYg);
+        }
+        return null;
     }
 }

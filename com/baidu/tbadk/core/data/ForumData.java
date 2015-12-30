@@ -31,6 +31,7 @@ public class ForumData implements aj, Serializable {
     private static final long serialVersionUID = -5446966999595522426L;
     private String accelerate_cotent;
     private AnchorPower anchorPower;
+    private boolean canAddPhotoLivePost;
     private int cur_score;
     private int favo_type;
     private String image_url;
@@ -84,6 +85,7 @@ public class ForumData implements aj, Serializable {
         this.mRecommendLikeUser = new u();
         this.top_code = new aa();
         this.news_info = new ad();
+        this.canAddPhotoLivePost = false;
     }
 
     public AnchorPower getAnchorPower() {
@@ -92,6 +94,17 @@ public class ForumData implements aj, Serializable {
 
     public void setAnchorPower(AnchorPower anchorPower) {
         this.anchorPower = anchorPower;
+        if (anchorPower != null) {
+            this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
+        }
+    }
+
+    public void setCanAddPhotoLivePost(boolean z) {
+        this.canAddPhotoLivePost = z;
+    }
+
+    public boolean getCanAddPhotoLivePost() {
+        return this.canAddPhotoLivePost;
     }
 
     public void setId(String str) {
@@ -274,9 +287,9 @@ public class ForumData implements aj, Serializable {
         return this.accelerate_cotent;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0055: IGET  (r3v10 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0066: IGET  (r0v76 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r2v0 java.lang.Long A[REMOVE]) = (r6v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0056: IGET  (r4v12 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v83 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
             try {
@@ -331,6 +344,7 @@ public class ForumData implements aj, Serializable {
                         this.mSignData.setIsSigned(signUser.is_sign_in.intValue());
                         this.mSignData.setUserSignRank(signUser.user_sign_rank.intValue());
                         this.mSignData.setCountSignNum(signUser.cont_sign_num.intValue());
+                        this.mSignData.setMissSignNum(signUser.miss_sign_num.intValue());
                     }
                     SignForum signForum = signInfo.forum_info;
                     if (signForum != null) {
@@ -366,6 +380,9 @@ public class ForumData implements aj, Serializable {
                 this.mRecommendLikeUser.a(forumInfo.recommend_user_info);
                 this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
                 this.anchorPower = forumInfo.anchor_power;
+                if (this.anchorPower != null) {
+                    this.canAddPhotoLivePost = this.anchorPower.can_add_live_post.intValue() == 1;
+                }
                 this.top_code.a(forumInfo.top_code);
                 this.news_info.a(forumInfo.news_info);
             } catch (Exception e) {
@@ -450,6 +467,7 @@ public class ForumData implements aj, Serializable {
                         this.mSignData.setIsSigned(optJSONObject4.optInt("is_sign_in"));
                         this.mSignData.setUserSignRank(optJSONObject4.optInt("user_sign_rank"));
                         this.mSignData.setCountSignNum(optJSONObject4.optInt("cont_sign_num"));
+                        this.mSignData.setMissSignNum(optJSONObject4.optInt("miss_sign_num", 0));
                     }
                     JSONObject optJSONObject5 = optJSONObject3.optJSONObject("forum_info");
                     if (optJSONObject5 != null) {
@@ -602,8 +620,8 @@ public class ForumData implements aj, Serializable {
     public ArrayList<ai> getImages() {
         ArrayList<ai> arrayList = new ArrayList<>();
         ai aiVar = new ai();
-        aiVar.WN = this.image_url;
-        aiVar.abp = 10;
+        aiVar.Xp = this.image_url;
+        aiVar.abU = 10;
         arrayList.add(aiVar);
         return arrayList;
     }

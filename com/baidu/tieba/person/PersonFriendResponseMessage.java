@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private com.baidu.tieba.person.data.n data;
+    private com.baidu.tieba.person.data.p data;
     private int errCode;
     private String resultString;
 
@@ -24,14 +24,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new com.baidu.tieba.person.data.n();
+        this.data = new com.baidu.tieba.person.data.p();
     }
 
-    public void setPersonListData(com.baidu.tieba.person.data.n nVar) {
-        this.data = nVar;
+    public void setPersonListData(com.baidu.tieba.person.data.p pVar) {
+        this.data = pVar;
     }
 
-    public com.baidu.tieba.person.data.n getPersonListData() {
+    public com.baidu.tieba.person.data.p getPersonListData() {
         return this.data;
     }
 
@@ -57,7 +57,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<String> cz;
+        com.baidu.adp.lib.cache.o<String> cC;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -67,8 +67,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (cz = com.baidu.tbadk.core.b.a.ts().cz("tb.my_pages")) != null) {
-                        cz.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                    if (parseToString != null && (cC = com.baidu.tbadk.core.b.a.tc().cC("tb.my_pages")) != null) {
+                        cC.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

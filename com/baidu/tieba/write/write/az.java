@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -19,9 +19,9 @@ public class az implements View.OnTouchListener {
         EditText editText;
         if (motionEvent.getAction() == 1) {
             view.requestFocus();
-            kVar = this.dRf.aqK;
+            kVar = this.dYD.aso;
             kVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-            editText = this.dRf.dNr;
+            editText = this.dYD.dUQ;
             editText.requestFocus();
             return false;
         }

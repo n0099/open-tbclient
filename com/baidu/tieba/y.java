@@ -21,14 +21,14 @@ public class y {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m411getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.tZ().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.tJ().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.tZ().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.tJ().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.tZ().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.tJ().putString("version_name", versionName);
                     String d = az.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.tZ().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.tJ().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -72,7 +72,7 @@ public class y {
         bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.h.b.c(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
-        bundle.putString("sname", context.getString(n.i.app_name));
+        bundle.putString("sname", context.getString(n.j.app_name));
         bundle.putString("packagename", TbadkCoreApplication.m411getInst().getContext().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
@@ -80,7 +80,7 @@ public class y {
         bundle.putString("updatetime", ax.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
-        bundle.putString("tj", String.valueOf(str) + context.getString(n.i.app_name));
+        bundle.putString("tj", String.valueOf(str) + context.getString(n.j.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);
         context.startActivity(intent);
     }

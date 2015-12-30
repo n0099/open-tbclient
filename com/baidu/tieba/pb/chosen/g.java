@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity cyo;
+    final /* synthetic */ PbChosenActivity cBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PbChosenActivity pbChosenActivity, int i) {
         super(i);
-        this.cyo = pbChosenActivity;
+        this.cBV = pbChosenActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,21 +20,21 @@ class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.pb.chosen.net.b bVar;
         com.baidu.tieba.pb.chosen.net.b bVar2;
-        if ((customResponsedMessage instanceof ReadChosenPbCacheResponse) && this.cyo.getIntent() != null) {
-            long longExtra = this.cyo.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-            long longExtra2 = this.cyo.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
-            long longExtra3 = this.cyo.getIntent().getLongExtra("thread_id", 0L);
+        if ((customResponsedMessage instanceof ReadChosenPbCacheResponse) && this.cBV.getIntent() != null) {
+            long longExtra = this.cBV.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
+            long longExtra2 = this.cBV.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
+            long longExtra3 = this.cBV.getIntent().getLongExtra("thread_id", 0L);
             com.baidu.tieba.pb.chosen.net.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
             if (chosenData != null && chosenData.getThreadInfo() != null && chosenData.getThreadInfo().excid != null && longExtra == chosenData.getThreadInfo().excid.longValue()) {
-                this.cyo.cyc = true;
-                this.cyo.a(chosenData);
+                this.cBV.cBJ = true;
+                this.cBV.a(chosenData);
             }
-            bVar = this.cyo.cxZ;
+            bVar = this.cBV.cBG;
             if (bVar == null) {
-                this.cyo.cxZ = new com.baidu.tieba.pb.chosen.net.b();
+                this.cBV.cBG = new com.baidu.tieba.pb.chosen.net.b();
             }
-            bVar2 = this.cyo.cxZ;
-            bVar2.a(this.cyo, longExtra, longExtra2, longExtra3);
+            bVar2 = this.cBV.cBG;
+            bVar2.a(this.cBV, longExtra, longExtra2, longExtra3);
         }
     }
 }

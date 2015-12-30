@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.theme.top.d;
 /* loaded from: classes.dex */
 public class TopThemeListActivity extends BaseActivity<TopThemeListActivity> {
-    private com.baidu.tieba.themeCenter.d dGg;
-    private d.a dGh = new b(this);
-    private d dHk;
-    private h dHl;
+    private com.baidu.tieba.themeCenter.d dNH;
+    private d.a dNI = new b(this);
+    private d dOL;
+    private h dOM;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
-        this.dGg = new com.baidu.tieba.themeCenter.d(getPageContext());
-        this.dHl = new h(this, this.dGg.aFj());
-        this.dHk = new d(this);
-        this.dHk.a(this.dGh);
-        showLoadingView(this.dHl.getRootView());
-        this.dHk.LoadData();
+        this.dNH = new com.baidu.tieba.themeCenter.d(getPageContext());
+        this.dOM = new h(this, this.dNH.aHy());
+        this.dOL = new d(this);
+        this.dOL.a(this.dNI);
+        showLoadingView(this.dOM.getRootView());
+        this.dOL.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,8 +30,8 @@ public class TopThemeListActivity extends BaseActivity<TopThemeListActivity> {
         super.onResume();
         if (TbadkCoreApplication.m411getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.dHl.getRootView());
-            this.dHk.LoadData();
+            showLoadingView(this.dOM.getRootView());
+            this.dOL.LoadData();
         }
     }
 
@@ -39,8 +39,8 @@ public class TopThemeListActivity extends BaseActivity<TopThemeListActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dHl != null) {
-            this.dHl.oV();
+        if (this.dOM != null) {
+            this.dOM.ot();
         }
     }
 
@@ -48,16 +48,16 @@ public class TopThemeListActivity extends BaseActivity<TopThemeListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dHk != null) {
-            this.dHk.destroy();
+        if (this.dOL != null) {
+            this.dOL.destroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dHk != null && this.dHl != null) {
-            showLoadingView(this.dHl.getRootView());
-            this.dHk.LoadData();
+        if (this.dOL != null && this.dOM != null) {
+            showLoadingView(this.dOM.getRootView());
+            this.dOL.LoadData();
         }
     }
 }

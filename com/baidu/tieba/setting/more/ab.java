@@ -1,81 +1,114 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.setting.model.g;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements g.a {
-    final /* synthetic */ MsgRemindActivity dnM;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ y duW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(MsgRemindActivity msgRemindActivity) {
-        this.dnM = msgRemindActivity;
+    public ab(y yVar) {
+        this.duW = yVar;
     }
 
-    @Override // com.baidu.tieba.setting.model.g.a
-    public void a(int i, boolean z, boolean z2) {
-        if (i == 14) {
-            BdSwitchView ayF = MsgRemindActivity.a(this.dnM).ayF();
-            if (z) {
-                if (z2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.yg().ds(300);
-                    MsgRemindActivity.a(this.dnM).gU(true);
-                    SettingStatic.s(0, true);
-                } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.yg().ds(0);
-                    MsgRemindActivity.a(this.dnM).gU(false);
-                    SettingStatic.s(0, false);
-                }
-                if (ayF != null) {
-                    com.baidu.adp.lib.h.h.hj().postDelayed(new ac(this, z2, ayF), 500L);
-                }
-            } else if (ayF != null) {
-                com.baidu.adp.lib.h.h.hj().postDelayed(new ad(this, z2, ayF), 500L);
-            }
-        } else if (i == 2) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aP(z2);
-            }
-            MsgRemindActivity.a(this.dnM).ayY();
-        } else if (i == 3) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aQ(z2);
-            }
-            MsgRemindActivity.a(this.dnM).ayZ();
-        } else if (i == 4) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aF(z2);
-                if (!z2) {
-                    TiebaStatic.eventStat(this.dnM.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
-                }
-            }
-            MsgRemindActivity.a(this.dnM).azb();
-        } else if (i == 5) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aE(z2);
-                SettingStatic.s(1, z2);
-            }
-            MsgRemindActivity.a(this.dnM).aza();
-        } else if (i == 1) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aO(z2);
-            }
-            MsgRemindActivity.a(this.dnM).ayW();
-        } else if (i == 13) {
-            if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.yg().aG(z2);
-            }
-            MsgRemindActivity.a(this.dnM).ayX();
-        } else if (i == 6) {
-            if (z) {
-                TbadkCoreApplication.m411getInst().setPromotedMessage(z2);
-                return;
-            }
-            BdSwitchView ayD = MsgRemindActivity.a(this.dnM).ayD();
-            if (ayD != null) {
-                com.baidu.adp.lib.h.h.hj().postDelayed(new ae(this, z2, ayD), 500L);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        SettingTextImageView settingTextImageView;
+        TbSettingTextTipView tbSettingTextTipView;
+        TbSettingTextTipView tbSettingTextTipView2;
+        TbSettingTextTipView tbSettingTextTipView3;
+        TbSettingTextTipView tbSettingTextTipView4;
+        SettingTextVersionView settingTextVersionView;
+        TbSettingTextTipView tbSettingTextTipView5;
+        TbSettingTextTipView tbSettingTextTipView6;
+        TbSettingTextNewDotView tbSettingTextNewDotView;
+        TextView textView;
+        TbSettingTextTipView tbSettingTextTipView7;
+        s sVar;
+        s sVar2;
+        s sVar3;
+        s sVar4;
+        s sVar5;
+        s sVar6;
+        s sVar7;
+        s sVar8;
+        s sVar9;
+        s sVar10;
+        s sVar11;
+        s sVar12;
+        view2 = this.duW.duV;
+        if (view == view2) {
+            sVar12 = this.duW.duF;
+            sVar12.mw(0);
+            return;
+        }
+        settingTextImageView = this.duW.duJ;
+        if (view == settingTextImageView) {
+            sVar11 = this.duW.duF;
+            sVar11.mw(1);
+            return;
+        }
+        tbSettingTextTipView = this.duW.duK;
+        if (view == tbSettingTextTipView) {
+            sVar10 = this.duW.duF;
+            sVar10.mw(2);
+            return;
+        }
+        tbSettingTextTipView2 = this.duW.duL;
+        if (view == tbSettingTextTipView2) {
+            sVar9 = this.duW.duF;
+            sVar9.mw(3);
+            return;
+        }
+        tbSettingTextTipView3 = this.duW.duM;
+        if (view == tbSettingTextTipView3) {
+            sVar8 = this.duW.duF;
+            sVar8.mw(4);
+            return;
+        }
+        tbSettingTextTipView4 = this.duW.duN;
+        if (view == tbSettingTextTipView4) {
+            sVar7 = this.duW.duF;
+            sVar7.mw(9);
+            return;
+        }
+        settingTextVersionView = this.duW.duO;
+        if (view == settingTextVersionView) {
+            sVar6 = this.duW.duF;
+            sVar6.mw(6);
+            return;
+        }
+        tbSettingTextTipView5 = this.duW.duP;
+        if (view == tbSettingTextTipView5) {
+            sVar5 = this.duW.duF;
+            sVar5.mw(7);
+            return;
+        }
+        tbSettingTextTipView6 = this.duW.duQ;
+        if (view == tbSettingTextTipView6) {
+            sVar4 = this.duW.duF;
+            sVar4.mw(8);
+            return;
+        }
+        tbSettingTextNewDotView = this.duW.duS;
+        if (view == tbSettingTextNewDotView) {
+            sVar3 = this.duW.duF;
+            sVar3.mw(5);
+            return;
+        }
+        textView = this.duW.duT;
+        if (view == textView) {
+            sVar2 = this.duW.duF;
+            sVar2.mw(10);
+            return;
+        }
+        tbSettingTextTipView7 = this.duW.duI;
+        if (view == tbSettingTextTipView7) {
+            sVar = this.duW.duF;
+            sVar.mw(13);
         }
     }
 }

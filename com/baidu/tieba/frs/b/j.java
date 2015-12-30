@@ -11,31 +11,31 @@ import com.baidu.tieba.tbadkCore.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements aj.a {
-    final /* synthetic */ a bji;
+    final /* synthetic */ a bmZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.bji = aVar;
+        this.bmZ = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aj.a
     public void g(String str, long j) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.bji.bhN;
-        com.baidu.tieba.tbadkCore.p MT = frsActivity.MT();
-        if (MT != null && MT.ajy() != null) {
-            com.baidu.tieba.tbadkCore.d.aBA().J(MT.ajy().getName(), false);
-            MT.ajy().setLike(0);
-            this.bji.gD(0);
-            frsActivity2 = this.bji.bhN;
-            frsActivity2.bae.d(true);
+        frsActivity = this.bmZ.blE;
+        com.baidu.tieba.tbadkCore.p Nn = frsActivity.Nn();
+        if (Nn != null && Nn.akG() != null) {
+            com.baidu.tieba.tbadkCore.d.aDI().I(Nn.akG().getName(), false);
+            Nn.akG().setLike(0);
+            this.bmZ.gw(0);
+            frsActivity2 = this.bmZ.blE;
+            frsActivity2.beb.d(true);
             TbadkCoreApplication.m411getInst().delLikeForum(str);
-            this.bji.e(false, new StringBuilder(String.valueOf(j)).toString());
+            this.bmZ.e(false, new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
             y yVar = new y();
             yVar.setLike(0);
-            yVar.mr(new StringBuilder(String.valueOf(j)).toString());
+            yVar.mo(new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
         }
     }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private com.baidu.adp.framework.listener.a aWh = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
-    private boolean dEw;
-    private a dFY;
+    private com.baidu.adp.framework.listener.a bah = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
+    private boolean dMa;
+    private a dNA;
     private k mRecommand;
     private List<b> mThemeCarouselList;
     private List<j> mThemeList;
@@ -20,12 +20,12 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d(DressupCenterActivity dressupCenterActivity) {
-        this.dEw = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        CQ();
-        registerListener(this.aWh);
+        this.dMa = dressupCenterActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        CF();
+        registerListener(this.bah);
     }
 
-    private void CQ() {
+    private void CF() {
         com.baidu.tieba.tbadkCore.a.a.a(309001, DressupCenterSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
     }
@@ -42,14 +42,14 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void a(a aVar) {
-        this.dFY = aVar;
+        this.dNA = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aWh);
+        MessageManager.getInstance().unRegisterListener(this.bah);
     }
 
-    public boolean azO() {
-        return this.dEw;
+    public boolean aBV() {
+        return this.dMa;
     }
 }

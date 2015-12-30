@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    private final /* synthetic */ int cAB;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.o cAC;
-    final /* synthetic */ n cAx;
+    final /* synthetic */ n cEc;
+    private final /* synthetic */ int cEg;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cEh;
     private final /* synthetic */ int val$count;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(n nVar, int i, int i2, com.baidu.tieba.tbadkCore.data.o oVar) {
-        this.cAx = nVar;
-        this.cAB = i;
+    public q(n nVar, int i, int i2, com.baidu.tieba.tbadkCore.data.r rVar) {
+        this.cEc = nVar;
+        this.cEg = i;
         this.val$count = i2;
-        this.cAC = oVar;
+        this.cEh = rVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cAC.mx(Math.min(this.cAB + 5, this.val$count));
-        this.cAx.notifyDataSetChanged();
+        this.cEh.mZ(Math.min(this.cEg + 5, this.val$count));
+        this.cEc.notifyDataSetChanged();
     }
 }

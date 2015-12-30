@@ -7,7 +7,7 @@ import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class ad {
     BdListView mBdListView;
-    com.baidu.tbadk.core.view.n mNoDataView = null;
+    com.baidu.tbadk.core.view.o mNoDataView = null;
 
     public BdListView getBdListView() {
         return this.mBdListView;
@@ -15,6 +15,6 @@ public class ad {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(Context context, View view) {
-        this.mBdListView = (BdListView) view.findViewById(n.f.list);
+        this.mBdListView = (BdListView) view.findViewById(n.g.list);
     }
 }

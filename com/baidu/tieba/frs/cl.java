@@ -1,24 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.tbadkCore.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements c.b {
-    final /* synthetic */ cd bdg;
+public class cl implements ab.a {
+    final /* synthetic */ cg bhg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(cd cdVar) {
-        this.bdg = cdVar;
+    public cl(cg cgVar) {
+        this.bhg = cgVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (i == 0) {
-            com.baidu.tbadk.core.util.ar.c(this.bdg.baC.getPageContext());
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.ar.p(this.bdg.baC.getPageContext().getPageActivity());
+    @Override // com.baidu.tieba.tbadkCore.ab.a
+    public void Op() {
+        this.bhg.beB.Nm();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ab.a
+    public void Oq() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.bhg.bgG;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.bhg.bgG;
+            bdTypeListView2.setSelection(0);
         }
     }
 }

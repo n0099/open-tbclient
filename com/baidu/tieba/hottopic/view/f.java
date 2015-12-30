@@ -8,11 +8,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AbsListView.OnScrollListener {
-    final /* synthetic */ a bFE;
+    final /* synthetic */ a bJl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bFE = aVar;
+        this.bJl = aVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -40,49 +40,49 @@ public class f implements AbsListView.OnScrollListener {
         LinearLayout linearLayout8;
         Animation animation8;
         AnimationDrawable animationDrawable2;
-        this.bFE.index = i;
-        imageView = this.bFE.bFt;
+        this.bJl.index = i;
+        imageView = this.bJl.bJa;
         if (imageView.getDrawable() instanceof AnimationDrawable) {
             if (i <= 1) {
-                linearLayout7 = this.bFE.bFu;
+                linearLayout7 = this.bJl.bJb;
                 Animation animation9 = linearLayout7.getAnimation();
-                animation7 = this.bFE.bFB;
+                animation7 = this.bJl.bJi;
                 if (animation9 != animation7) {
-                    linearLayout8 = this.bFE.bFu;
-                    animation8 = this.bFE.bFB;
+                    linearLayout8 = this.bJl.bJb;
+                    animation8 = this.bJl.bJi;
                     linearLayout8.startAnimation(animation8);
-                    animationDrawable2 = this.bFE.bFx;
+                    animationDrawable2 = this.bJl.bJe;
                     animationDrawable2.start();
                     return;
                 }
                 return;
             }
-            linearLayout5 = this.bFE.bFu;
+            linearLayout5 = this.bJl.bJb;
             Animation animation10 = linearLayout5.getAnimation();
-            animation5 = this.bFE.bFA;
+            animation5 = this.bJl.bJh;
             if (animation10 != animation5) {
-                linearLayout6 = this.bFE.bFu;
-                animation6 = this.bFE.bFA;
+                linearLayout6 = this.bJl.bJb;
+                animation6 = this.bJl.bJh;
                 linearLayout6.startAnimation(animation6);
-                animationDrawable = this.bFE.bFx;
+                animationDrawable = this.bJl.bJe;
                 animationDrawable.stop();
             }
         } else if (i >= 2) {
-            linearLayout3 = this.bFE.bFu;
+            linearLayout3 = this.bJl.bJb;
             Animation animation11 = linearLayout3.getAnimation();
-            animation3 = this.bFE.bFy;
+            animation3 = this.bJl.bJf;
             if (animation11 != animation3) {
-                linearLayout4 = this.bFE.bFu;
-                animation4 = this.bFE.bFy;
+                linearLayout4 = this.bJl.bJb;
+                animation4 = this.bJl.bJf;
                 linearLayout4.startAnimation(animation4);
             }
         } else {
-            linearLayout = this.bFE.bFu;
+            linearLayout = this.bJl.bJb;
             Animation animation12 = linearLayout.getAnimation();
-            animation = this.bFE.bFy;
+            animation = this.bJl.bJf;
             if (animation12 == animation) {
-                linearLayout2 = this.bFE.bFu;
-                animation2 = this.bFE.bFz;
+                linearLayout2 = this.bJl.bJb;
+                animation2 = this.bJl.bJg;
                 linearLayout2.startAnimation(animation2);
             }
         }

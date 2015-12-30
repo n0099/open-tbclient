@@ -1,59 +1,71 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.data.MyGroup;
+import com.baidu.tieba.personInfo.PersonTainInfo;
+import java.util.List;
 /* loaded from: classes.dex */
-public class j implements u {
-    public static final BdUniqueId cNz = BdUniqueId.gen();
-    private boolean bwJ;
-    private String mContent;
-    private String mLink;
+public class j extends a {
+    public static final BdUniqueId cSc = BdUniqueId.gen();
+    private boolean bAA = true;
+    private PersonTainInfo cSd;
     private UserData mUserData;
-    private String mVipIcon;
 
-    public UserData getUserData() {
-        return this.mUserData;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return cSc;
+    }
+
+    public List<MyGroup> aps() {
+        if (this.mUserData != null) {
+            return this.mUserData.getGroup();
+        }
+        return null;
     }
 
     public void f(UserData userData) {
         this.mUserData = userData;
     }
 
-    public boolean getIsSelf() {
-        return this.bwJ;
+    public UserData getUserData() {
+        return this.mUserData;
     }
 
     public void setIsSelf(boolean z) {
-        this.bwJ = z;
+        this.bAA = z;
     }
 
-    public void setVipIcon(String str) {
-        this.mVipIcon = str;
+    public boolean getIsSelf() {
+        return this.bAA;
     }
 
-    public String getVipIcon() {
-        return this.mVipIcon;
+    public int getSex() {
+        if (this.mUserData != null) {
+            return this.mUserData.getSex();
+        }
+        return 0;
     }
 
-    public void setVipLink(String str) {
-        this.mLink = str;
+    public void a(PersonTainInfo personTainInfo) {
+        this.cSd = personTainInfo;
     }
 
-    public String getVipLink() {
-        return this.mLink;
+    public PersonTainInfo apt() {
+        return this.cSd;
     }
 
-    public void setVipContent(String str) {
-        this.mContent = str;
+    public com.baidu.tbadk.data.f apu() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPersonPrivate();
+        }
+        return null;
     }
 
-    public String getVipContent() {
-        return this.mContent;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return cNz;
+    public String getUserId() {
+        if (this.mUserData != null) {
+            return this.mUserData.getUserId();
+        }
+        return null;
     }
 }

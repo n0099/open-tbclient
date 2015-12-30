@@ -15,8 +15,8 @@ import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends RelativeLayout implements BdBaseViewPager.a {
-    private c aga;
-    private d agb;
+    private c ahh;
+    private d ahi;
 
     public b(Context context) {
         super(context);
@@ -24,88 +24,88 @@ public class b extends RelativeLayout implements BdBaseViewPager.a {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.aga = new c(LayoutInflater.from(context).inflate(n.g.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.aga);
-        this.agb = new d(context, this.aga.agh, this.aga.agf, this.aga.age, 4, false, true);
+        this.ahh = new c(LayoutInflater.from(context).inflate(n.h.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.ahh);
+        this.ahi = new d(context, this.ahh.aho, this.ahh.ahm, this.ahh.ahl, 4, false, true);
     }
 
     private void a(c cVar) {
         if (cVar != null) {
-            as.j(cVar.getView(), n.c.cp_bg_line_d);
-            as.b(cVar.agd, n.c.cp_cont_c, 1);
-            as.j(cVar.agg, n.c.cp_bg_line_b);
-            as.b(cVar.age, n.c.cp_cont_d, 1);
-            as.j((View) cVar.age, n.c.cp_bg_line_d);
-            cVar.age.setText(TbadkCoreApplication.m411getInst().getString(n.i.recommend_frs_hot_thread_more));
-            cVar.agf.setSelector(as.getDrawable(n.e.icon_choose_dot_s));
-            cVar.agf.setDrawable(as.getDrawable(n.e.icon_choose_dot_n));
+            as.j(cVar.getView(), n.d.cp_bg_line_d);
+            as.b(cVar.ahk, n.d.cp_cont_c, 1);
+            as.j(cVar.ahn, n.d.cp_bg_line_b);
+            as.b(cVar.ahl, n.d.cp_cont_d, 1);
+            as.j((View) cVar.ahl, n.d.cp_bg_line_d);
+            cVar.ahl.setText(TbadkCoreApplication.m411getInst().getString(n.j.recommend_frs_hot_thread_more));
+            cVar.ahm.setSelector(as.getDrawable(n.f.icon_choose_dot_s));
+            cVar.ahm.setDrawable(as.getDrawable(n.f.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.aga.getView();
+        return this.ahh.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.aga.agh;
+        return this.ahh.aho;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.aga.agf;
+        return this.ahh.ahm;
     }
 
     public TextView getMoreView() {
-        return this.aga.age;
+        return this.ahh.ahl;
     }
 
     public c getViewHolder() {
-        return this.aga;
+        return this.ahh;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.agb.setMaxScrollCountLimit(i);
+        this.ahi.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.agb.setIsMaxScrollEnabled(z);
+        this.ahi.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.agb.aC(z);
+        this.ahi.az(z);
     }
 
     public void setDatas(List<u> list) {
-        this.agb.setDatas(list);
+        this.ahi.setDatas(list);
     }
 
     public void notifyDataSetChanged() {
-        this.agb.notifyDataSetChanged();
+        this.ahi.notifyDataSetChanged();
     }
 
     public void a(Context context, g<?, ?> gVar) {
-        this.agb.a(context, gVar);
+        this.ahi.a(context, gVar);
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager.a
-    public void wp() {
-        this.agb.wp();
+    public void wa() {
+        this.ahi.wa();
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager.a
-    public void wq() {
-        this.agb.wq();
+    public void wb() {
+        this.ahi.wb();
     }
 
-    public void cZ(int i) {
-        if (i != this.aga.afY) {
-            a(this.aga);
-            this.agb.cZ(i);
-            this.aga.afY = i;
+    public void cK(int i) {
+        if (i != this.ahh.ahf) {
+            a(this.ahh);
+            this.ahi.cK(i);
+            this.ahh.ahf = i;
         }
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.agb.setAutoScrollIntervalTime(j);
+        this.ahi.setAutoScrollIntervalTime(j);
     }
 }

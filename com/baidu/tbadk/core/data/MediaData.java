@@ -7,6 +7,7 @@ import tbclient.Media;
 /* loaded from: classes.dex */
 public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     public static final int EXT_TYPE_XIAOYING = 12;
+    private long postId;
     private int e_type = -1;
     private int type = -1;
     private String pic_url = null;
@@ -14,6 +15,11 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
     private String src_pic = null;
     private String original_url = null;
     private long original_size = 0;
+
+    public MediaData() {
+        this.postId = -1L;
+        this.postId = -1L;
+    }
 
     public boolean isXiaoying() {
         return this.type == 5 && this.e_type == 12;
@@ -71,6 +77,10 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
         this.original_size = j;
     }
 
+    public long getPostId() {
+        return this.postId;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -84,6 +94,7 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
                 }
                 this.original_url = jSONObject.optString("original_url");
                 this.original_size = jSONObject.optLong("original_size");
+                this.postId = jSONObject.optLong("post_id");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -103,6 +114,7 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
             }
             this.original_url = media.origin_pic;
             this.original_size = media.origin_size.intValue();
+            this.postId = media.post_id.longValue();
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity bZg;
+    final /* synthetic */ PersonalChatActivity cdg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.bZg = personalChatActivity;
+        this.cdg = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,18 +24,18 @@ class a extends CustomMessageListener {
         PersonalChatView personalChatView2;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
             com.baidu.tieba.im.data.b data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
-            personalMsglistModel = this.bZg.bYZ;
-            PersonalMsglistModel.CardStatus j = personalMsglistModel.j(data);
-            personalMsglistModel2 = this.bZg.bYZ;
-            personalMsglistModel2.a(j);
-            if (j == PersonalMsglistModel.CardStatus.AGREE) {
+            personalMsglistModel = this.cdg.ccZ;
+            PersonalMsglistModel.CardStatus k = personalMsglistModel.k(data);
+            personalMsglistModel2 = this.cdg.ccZ;
+            personalMsglistModel2.a(k);
+            if (k == PersonalMsglistModel.CardStatus.AGREE) {
                 String content = data.getContent();
-                personalChatView2 = this.bZg.bZa;
-                personalChatView2.a(j, false, content);
+                personalChatView2 = this.cdg.cda;
+                personalChatView2.a(k, false, content);
                 return;
             }
-            personalChatView = this.bZg.bZa;
-            personalChatView.a(j, false, new String[0]);
+            personalChatView = this.cdg.cda;
+            personalChatView.a(k, false, new String[0]);
         }
     }
 }

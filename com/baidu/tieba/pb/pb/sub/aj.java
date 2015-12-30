@@ -7,35 +7,31 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements View.OnClickListener {
-    private final /* synthetic */ boolean cCo;
-    final /* synthetic */ w cHA;
+    final /* synthetic */ w cLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(w wVar, boolean z) {
-        this.cHA = wVar;
-        this.cCo = z;
+    public aj(w wVar) {
+        this.cLC = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        NewSubPbActivity newSubPbActivity;
         Dialog dialog2;
         Dialog dialog3;
-        NewSubPbActivity newSubPbActivity2;
-        dialog = this.cHA.cEV;
+        NewSubPbActivity newSubPbActivity;
+        dialog = this.cLC.cIU;
         if (dialog != null) {
-            dialog2 = this.cHA.cEV;
+            dialog2 = this.cLC.cIU;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.cHA.cEV;
-                newSubPbActivity2 = this.cHA.cHi;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity2.getPageContext());
+                dialog3 = this.cLC.cIU;
+                newSubPbActivity = this.cLC.cLg;
+                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            newSubPbActivity = this.cHA.cHi;
-            newSubPbActivity.a(this.cCo, (String) sparseArray.get(n.f.tag_user_mute_mute_userid), sparseArray);
+            this.cLC.a(((Integer) sparseArray.get(n.g.tag_del_post_type)).intValue(), (String) sparseArray.get(n.g.tag_del_post_id), ((Integer) sparseArray.get(n.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(n.g.tag_del_post_is_self)).booleanValue());
         }
     }
 }

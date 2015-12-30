@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes.dex */
 public class r {
-    public static int cK(String str) {
+    public static int cN(String str) {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
@@ -30,14 +30,14 @@ public class r {
         }
     }
 
-    private static Bitmap eS(int i) {
+    private static Bitmap eM(int i) {
         Exception e;
         try {
-            int cK = cK(com.baidu.tbadk.core.util.n.cQ("camera.jpg"));
+            int cN = cN(com.baidu.tbadk.core.util.n.cT("camera.jpg"));
             Bitmap p = com.baidu.tbadk.core.util.c.p("camera.jpg", i);
-            if (cK != 0 && p != null) {
+            if (cN != 0 && p != null) {
                 try {
-                    return com.baidu.tbadk.core.util.c.i(p, cK);
+                    return com.baidu.tbadk.core.util.c.i(p, cN);
                 } catch (Exception e2) {
                     e = e2;
                     BdLog.e(e.getMessage());
@@ -70,7 +70,7 @@ public class r {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return eS(i2);
+            return eM(i2);
         }
         if (!TextUtils.isEmpty(str)) {
             return b(context, str, i2);

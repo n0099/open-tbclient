@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class bc implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ax cLg;
+    final /* synthetic */ ax cPw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(ax axVar) {
-        this.cLg = axVar;
+        this.cPw = axVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,17 +20,17 @@ class bc implements AdapterView.OnItemClickListener {
         bf bfVar;
         bf bfVar2;
         bf bfVar3;
-        PersonFriendActivity anL;
-        bfVar = this.cLg.cKY;
+        PersonFriendActivity aoW;
+        bfVar = this.cPw.cPo;
         if (bfVar != null) {
-            bfVar2 = this.cLg.cKY;
+            bfVar2 = this.cPw.cPo;
             if (bfVar2.getItemViewType(i) == 0) {
-                bfVar3 = this.cLg.cKY;
+                bfVar3 = this.cPw.cPo;
                 UserData userData = (UserData) bfVar3.getItem(i);
                 if (userData != null && userData.getUserId() != null) {
-                    ax axVar = this.cLg;
-                    anL = this.cLg.anL();
-                    axVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(anL.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+                    ax axVar = this.cPw;
+                    aoW = this.cPw.aoW();
+                    axVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aoW.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
             }
         }

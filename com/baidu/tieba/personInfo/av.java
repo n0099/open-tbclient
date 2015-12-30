@@ -1,28 +1,22 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements View.OnClickListener {
-    final /* synthetic */ at cSS;
+public class av extends CustomMessageListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(at atVar) {
-        this.cSS = atVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av(d dVar, int i) {
+        super(i);
+        this.cWV = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10606"));
-        MessageManager messageManager = MessageManager.getInstance();
-        baseFragmentActivity = this.cSS.mActivity;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), 0L)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.cWV.aUv = true;
     }
 }

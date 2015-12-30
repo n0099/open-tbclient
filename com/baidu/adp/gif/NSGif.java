@@ -6,11 +6,11 @@ import com.baidu.adp.lib.h.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean qU = g.iC().a("nsgif_jni", 2, new c());
+    public static boolean qV = g.iC().a("nsgif_jni", 2, new c());
     private final int mHeight;
     private final int mWidth;
-    private int qV;
-    private final int qW;
+    private int qW;
+    private final int qX;
 
     private static native int nativeCreate(byte[] bArr, int i, int i2);
 
@@ -30,10 +30,10 @@ public class NSGif implements b {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.qV = i;
+        this.qW = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.qW = nativeGetFrameCount(i);
+        this.qX = nativeGetFrameCount(i);
     }
 
     public static NSGif f(byte[] bArr, int i, int i2) {
@@ -46,9 +46,9 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public void close() {
-        if (this.qV != 0) {
-            int i = this.qV;
-            this.qV = 0;
+        if (this.qW != 0) {
+            int i = this.qW;
+            this.qW = 0;
             k.hk().b(new d(this, i));
         }
     }
@@ -73,12 +73,12 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public int ff() {
-        return this.qW;
+        return this.qX;
     }
 
     @Override // com.baidu.adp.gif.b
     public int H(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.qV, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.qW, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -87,7 +87,7 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public boolean G(int i) {
-        return nativeDecodeFrame(this.qV, i);
+        return nativeDecodeFrame(this.qW, i);
     }
 
     @Override // com.baidu.adp.gif.b
@@ -95,6 +95,6 @@ public class NSGif implements b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.qV, bitmap);
+        return nativeWriteTo(this.qW, bitmap);
     }
 }

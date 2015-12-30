@@ -4,20 +4,20 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ ScrollFragmentTabHost djb;
+    final /* synthetic */ ScrollFragmentTabHost dpF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.djb = scrollFragmentTabHost;
+        this.dpF = scrollFragmentTabHost;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.djb.aww()) {
-            this.djb.awy();
+        if (this.dpF.ayB()) {
+            this.dpF.ayD();
             return;
         }
-        this.djb.awx();
+        this.dpF.ayC();
         TiebaStatic.log("c10510");
     }
 }

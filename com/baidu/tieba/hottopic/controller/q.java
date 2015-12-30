@@ -11,31 +11,31 @@ import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements a.b {
-    final /* synthetic */ k bDq;
-    private final /* synthetic */ com.baidu.tieba.hottopic.view.j bDr;
-    private final /* synthetic */ ShareFromTopicMsgData bDs;
-    private final /* synthetic */ long bao;
-    private final /* synthetic */ String bap;
+    final /* synthetic */ k bGU;
+    private final /* synthetic */ com.baidu.tieba.hottopic.view.j bGV;
+    private final /* synthetic */ ShareFromTopicMsgData bGW;
+    private final /* synthetic */ long ben;
+    private final /* synthetic */ String beo;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(k kVar, com.baidu.tieba.hottopic.view.j jVar, long j, String str, String str2, ShareFromTopicMsgData shareFromTopicMsgData) {
-        this.bDq = kVar;
-        this.bDr = jVar;
-        this.bao = j;
+        this.bGU = kVar;
+        this.bGV = jVar;
+        this.ben = j;
         this.val$name = str;
-        this.bap = str2;
-        this.bDs = shareFromTopicMsgData;
+        this.beo = str2;
+        this.bGW = shareFromTopicMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
-        tbPageContext = this.bDq.context;
-        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bDr.getChatMsgView().getWindowToken(), 2);
-        tbPageContext2 = this.bDq.context;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(((HotTopicActivity) tbPageContext2.getOrignalPage()).getPageContext().getPageActivity(), this.bao, this.val$name, this.bap, 0, this.bDr.getLeaveMsg(), this.bDs.toChatMessageContent())));
+        tbPageContext = this.bGU.context;
+        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bGV.getChatMsgView().getWindowToken(), 2);
+        tbPageContext2 = this.bGU.context;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(((HotTopicActivity) tbPageContext2.getOrignalPage()).getPageContext().getPageActivity(), this.ben, this.val$name, this.beo, 0, this.bGV.getLeaveMsg(), this.bGW.toChatMessageContent())));
         aVar.dismiss();
     }
 }

@@ -11,38 +11,38 @@ import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private List<List<DressItemData>> dEm;
-    com.baidu.tieba.themeCenter.bubble.all.a dFt;
+    private List<List<DressItemData>> dLQ;
+    com.baidu.tieba.themeCenter.bubble.all.a dMV;
     private TbPageContext<?> mContext;
 
     /* loaded from: classes.dex */
     public static class a {
-        public BubbleItemView dFA;
-        public BubbleItemView dFB;
+        public BubbleItemView dNc;
+        public BubbleItemView dNd;
         public View mEmptyView;
     }
 
     public d(TbPageContext<?> tbPageContext, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
         this.mContext = tbPageContext;
-        this.dFt = aVar;
+        this.dMV = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dEm != null) {
-            return this.dEm.size();
+        if (this.dLQ != null) {
+            return this.dLQ.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mV */
+    /* renamed from: nx */
     public List<DressItemData> getItem(int i) {
-        if (this.dEm == null || this.dEm.size() <= 0 || i < 0 || i >= this.dEm.size()) {
+        if (this.dLQ == null || this.dLQ.size() <= 0 || i < 0 || i >= this.dLQ.size()) {
             return null;
         }
-        return this.dEm.get(i);
+        return this.dLQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,11 +57,11 @@ public class d extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.bubble_row, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.bubble_row, viewGroup, false);
             aVar = new a();
-            aVar.mEmptyView = view.findViewById(n.f.top_white_line);
-            aVar.dFA = (BubbleItemView) view.findViewById(n.f.bg_view1);
-            aVar.dFB = (BubbleItemView) view.findViewById(n.f.bg_view2);
+            aVar.mEmptyView = view.findViewById(n.g.top_white_line);
+            aVar.dNc = (BubbleItemView) view.findViewById(n.g.bg_view1);
+            aVar.dNd = (BubbleItemView) view.findViewById(n.g.bg_view2);
             view.setTag(aVar);
         }
         if (item != null) {
@@ -70,13 +70,13 @@ public class d extends BaseAdapter {
             } else {
                 aVar.mEmptyView.setVisibility(8);
             }
-            aVar.dFA.c(item.get(0));
-            aVar.dFA.setController(this.dFt);
+            aVar.dNc.c(item.get(0));
+            aVar.dNc.setController(this.dMV);
             if (item.size() > 1) {
-                aVar.dFB.c(item.get(1));
-                aVar.dFB.setController(this.dFt);
+                aVar.dNd.c(item.get(1));
+                aVar.dNd.setController(this.dMV);
             } else {
-                aVar.dFB.hide();
+                aVar.dNd.hide();
             }
         }
         this.mContext.getLayoutMode().k(view);
@@ -84,6 +84,6 @@ public class d extends BaseAdapter {
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.dEm = list;
+        this.dLQ = list;
     }
 }

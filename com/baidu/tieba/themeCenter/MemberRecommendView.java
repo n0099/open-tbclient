@@ -13,10 +13,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class MemberRecommendView extends FrameLayout {
-    private TextView XE;
-    private TextView btu;
-    private TbImageView dDy;
-    private com.baidu.tieba.themeCenter.dressCenter.k dDz;
+    private TextView Yh;
+    private TextView bxl;
+    private TbImageView dLc;
+    private com.baidu.tieba.themeCenter.dressCenter.k dLd;
     private int fromType;
     private Context mContext;
     private View mRootView;
@@ -40,33 +40,33 @@ public class MemberRecommendView extends FrameLayout {
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(n.g.member_extend_view, this);
-        this.dDy = (TbImageView) this.mRootView.findViewById(n.f.vip_icon);
-        this.dDy.setDefaultResource(n.e.icon_vip_orange);
-        this.dDy.setDefaultBgResource(n.e.transparent_bg);
-        this.XE = (TextView) this.mRootView.findViewById(n.f.title_view);
-        this.btu = (TextView) this.mRootView.findViewById(n.f.jump_button);
-        this.btu.setOnClickListener(new a(this));
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(n.h.member_extend_view, this);
+        this.dLc = (TbImageView) this.mRootView.findViewById(n.g.vip_icon);
+        this.dLc.setDefaultResource(n.f.icon_vip_orange);
+        this.dLc.setDefaultBgResource(n.f.transparent_bg);
+        this.Yh = (TextView) this.mRootView.findViewById(n.g.title_view);
+        this.bxl = (TextView) this.mRootView.findViewById(n.g.jump_button);
+        this.bxl.setOnClickListener(new a(this));
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.k kVar) {
         if (kVar != null) {
-            this.dDz = kVar;
-            this.dDy.d(this.dDz.getIconUrl(), 10, false);
-            this.XE.setText(this.dDz.aFw());
-            if (StringUtils.isNull(this.dDz.XF())) {
-                this.btu.setVisibility(8);
+            this.dLd = kVar;
+            this.dLc.d(this.dLd.getIconUrl(), 10, false);
+            this.Yh.setText(this.dLd.aHL());
+            if (StringUtils.isNull(this.dLd.YK())) {
+                this.bxl.setVisibility(8);
                 return;
             }
-            this.btu.setVisibility(0);
-            this.btu.setText(this.dDz.XF());
+            this.bxl.setVisibility(0);
+            this.bxl.setText(this.dLd.YK());
         }
     }
 
-    public void wh() {
+    public void vR() {
         TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.C(this.mContext);
         if (tbPageContext != null) {
-            tbPageContext.getLayoutMode().af(TbadkApplication.getInst().getSkinType() == 1);
+            tbPageContext.getLayoutMode().ac(TbadkApplication.getInst().getSkinType() == 1);
             tbPageContext.getLayoutMode().k(this.mRootView);
         }
     }

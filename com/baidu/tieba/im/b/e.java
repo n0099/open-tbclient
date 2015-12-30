@@ -3,22 +3,22 @@ package com.baidu.tieba.im.b;
 import java.util.Map;
 /* loaded from: classes.dex */
 class e implements com.baidu.adp.framework.client.socket.link.e {
-    final /* synthetic */ b bVf;
+    final /* synthetic */ b bYR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.bVf = bVar;
+        this.bYR = bVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
     public boolean k(int i, String str) {
-        this.bVf.stop();
+        this.bYR.stop();
         return false;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
     public void b(Map<String, String> map) {
-        this.bVf.start();
+        this.bYR.start();
         com.baidu.adp.framework.client.socket.g.et().a(map);
     }
 

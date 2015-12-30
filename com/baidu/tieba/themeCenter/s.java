@@ -12,8 +12,8 @@ class s implements CustomMessageTask.CustomRunnable<b> {
         if (customMessage == null || !(customMessage.getData() instanceof b)) {
             return null;
         }
-        if (n.aFl().h(customMessage.getData())) {
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, n.aFl().aFn());
+        if (n.aHA().h(customMessage.getData())) {
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, n.aHA().aHC());
         }
         return null;
     }

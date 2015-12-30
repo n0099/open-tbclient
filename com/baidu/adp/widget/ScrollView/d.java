@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ Timer IO;
-    final /* synthetic */ c IP;
-    private final /* synthetic */ View yM;
+    private final /* synthetic */ Timer Jf;
+    final /* synthetic */ c Jg;
+    private final /* synthetic */ View yO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.IP = cVar;
-        this.yM = view;
-        this.IO = timer;
+        this.Jg = cVar;
+        this.yO = view;
+        this.Jf = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yM.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yO.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.IP.IN;
-        i = bVar.Iv;
+        bVar = this.Jg.Je;
+        i = bVar.IM;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.IP.IN;
-        i2 = bVar2.IL;
+        bVar2 = this.Jg.Je;
+        i2 = bVar2.Jc;
         if (i5 <= i2) {
-            bVar6 = this.IP.IN;
-            i3 = bVar6.IL;
+            bVar6 = this.Jg.Je;
+            i3 = bVar6.Jc;
             layoutParams.bottomMargin = i3;
-            this.IO.cancel();
-            bVar7 = this.IP.IN;
-            bVar7.IM = true;
+            this.Jf.cancel();
+            bVar7 = this.Jg.Je;
+            bVar7.Jd = true;
         }
-        this.yM.setLayoutParams(layoutParams);
-        bVar3 = this.IP.IN;
-        z = bVar3.IM;
+        this.yO.setLayoutParams(layoutParams);
+        bVar3 = this.Jg.Je;
+        z = bVar3.Jd;
         if (z) {
-            bVar4 = this.IP.IN;
-            gVar = bVar4.Ix;
+            bVar4 = this.Jg.Je;
+            gVar = bVar4.IO;
             if (gVar != null) {
-                bVar5 = this.IP.IN;
-                gVar2 = bVar5.Ix;
-                gVar2.nH();
+                bVar5 = this.Jg.Je;
+                gVar2 = bVar5.IO;
+                gVar2.nf();
             }
         }
     }

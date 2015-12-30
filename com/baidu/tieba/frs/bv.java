@@ -1,38 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.dialog.a;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends bm<com.baidu.tieba.tbadkCore.i, bw> {
-    protected bo bbY;
+public class bv implements a.b {
+    final /* synthetic */ br bfQ;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bv(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bv(br brVar) {
+        this.bfQ = brVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: n */
-    public bw a(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(n.g.frs_feed_item_layout, (ViewGroup) null);
-        this.bbY = new bo(this.aXA.getPageContext(), inflate, 2);
-        return new bw(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.i iVar, bw bwVar) {
-        super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.tbadkCore.i) bwVar);
-        if (iVar != null) {
-            this.bbY.e(iVar.getForumId(), iVar.aBB());
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        List list;
+        List list2;
+        list = this.bfQ.bfO;
+        if (list != null) {
+            list2 = this.bfQ.bfO;
+            list2.clear();
         }
-        return view;
+        this.bfQ.hide();
+        aVar.dismiss();
     }
 }

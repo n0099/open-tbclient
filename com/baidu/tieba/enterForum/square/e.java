@@ -1,7 +1,6 @@
 package com.baidu.tieba.enterForum.square;
 
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e<BaseFragmentActivity> {
     public e(BaseFragmentActivity baseFragmentActivity) {
@@ -18,12 +17,11 @@ public class e extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    private ForumClassRequestNetMessage Ks() {
+    private ForumClassRequestNetMessage KL() {
         return new ForumClassRequestNetMessage();
     }
 
     public void sendMessage() {
-        sendMessage(Ks());
-        TiebaStatic.log("c10406");
+        sendMessage(KL());
     }
 }

@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class h {
-    private View aWS;
-    private View ckY;
-    private TextView ckZ;
+    private View aOM;
+    private View cpc;
+    private TextView cpd;
 
     public void hide() {
-        this.ckZ.setVisibility(8);
-        this.aWS.setVisibility(8);
+        this.cpd.setVisibility(8);
+        this.aOM.setVisibility(8);
     }
 
     public void show() {
-        this.ckZ.setVisibility(0);
-        this.aWS.setVisibility(0);
+        this.cpd.setVisibility(0);
+        this.aOM.setVisibility(0);
     }
 
     public View getView() {
-        return this.ckY;
+        return this.cpc;
     }
 
     public h(TbPageContext<?> tbPageContext) {
-        this.ckY = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(n.g.square_search_recommand_fourm_header, (ViewGroup) null);
-        this.ckZ = (TextView) this.ckY.findViewById(n.f.square_search_fourm_header_text);
-        this.aWS = this.ckY.findViewById(n.f.titleDivider);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aWS.getLayoutParams();
-        layoutParams.bottomMargin = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelOffset(n.d.ds10);
-        this.aWS.setLayoutParams(layoutParams);
-        this.ckZ.setText(tbPageContext.getResources().getText(n.i.hot_forum_title));
+        this.cpc = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(n.h.square_search_recommand_fourm_header, (ViewGroup) null);
+        this.cpd = (TextView) this.cpc.findViewById(n.g.square_search_fourm_header_text);
+        this.aOM = this.cpc.findViewById(n.g.titleDivider);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aOM.getLayoutParams();
+        layoutParams.bottomMargin = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelOffset(n.e.ds10);
+        this.aOM.setLayoutParams(layoutParams);
+        this.cpd.setText(tbPageContext.getResources().getText(n.j.hot_forum_title));
         hide();
     }
 }

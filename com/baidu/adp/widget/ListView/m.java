@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AbsListView.OnScrollListener {
-    final /* synthetic */ BdListView In;
+    final /* synthetic */ BdListView IE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdListView bdListView) {
-        this.In = bdListView;
+        this.IE = bdListView;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,52 +29,52 @@ public class m implements AbsListView.OnScrollListener {
         Runnable runnable3;
         Runnable runnable4;
         Runnable runnable5;
-        com.baidu.adp.base.k A = com.baidu.adp.base.l.A(this.In.getContext());
+        com.baidu.adp.base.k A = com.baidu.adp.base.l.A(this.IE.getContext());
         if (A != null) {
             if (i == 2) {
-                BdListView bdListView = this.In;
-                runnable5 = this.In.Ih;
+                BdListView bdListView = this.IE;
+                runnable5 = this.IE.Ix;
                 bdListView.removeCallbacks(runnable5);
                 A.setIsScroll(true);
             } else if (A.isScroll()) {
                 A.setIsScroll(false);
-                BdListView bdListView2 = this.In;
-                runnable3 = this.In.Ih;
+                BdListView bdListView2 = this.IE;
+                runnable3 = this.IE.Ix;
                 bdListView2.removeCallbacks(runnable3);
-                BdListView bdListView3 = this.In;
-                runnable4 = this.In.Ih;
+                BdListView bdListView3 = this.IE;
+                runnable4 = this.IE.Ix;
                 bdListView3.postDelayed(runnable4, 100L);
             } else if (i == 0) {
-                BdListView bdListView4 = this.In;
-                runnable = this.In.preLoadRunnable;
+                BdListView bdListView4 = this.IE;
+                runnable = this.IE.preLoadRunnable;
                 bdListView4.removeCallbacks(runnable);
-                BdListView bdListView5 = this.In;
-                runnable2 = this.In.preLoadRunnable;
+                BdListView bdListView5 = this.IE;
+                runnable2 = this.IE.preLoadRunnable;
                 bdListView5.postDelayed(runnable2, 100L);
             }
         }
-        onScrollListener = this.In.HU;
+        onScrollListener = this.IE.Ik;
         if (onScrollListener != null) {
-            onScrollListener2 = this.In.HU;
+            onScrollListener2 = this.IE.Ik;
             onScrollListener2.onScrollStateChanged(absListView, i);
         }
         if (i == 0) {
-            eVar = this.In.Ia;
+            eVar = this.IE.Iq;
             if (eVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                eVar2 = this.In.Ia;
+                eVar2 = this.IE.Iq;
                 eVar2.onScrollToBottom();
             }
-            fVar = this.In.Ib;
+            fVar = this.IE.Ir;
             if (fVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                fVar2 = this.In.Ib;
-                fVar2.s(this.In);
+                fVar2 = this.IE.Ir;
+                fVar2.s(this.IE);
             }
-            hVar = this.In.HY;
+            hVar = this.IE.Io;
             if (hVar != null) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                i2 = this.In.HZ;
+                i2 = this.IE.Ip;
                 if (firstVisiblePosition <= i2) {
-                    hVar2 = this.In.HY;
+                    hVar2 = this.IE.Io;
                     hVar2.onScrollToTop();
                 }
             }
@@ -90,22 +90,22 @@ public class m implements AbsListView.OnScrollListener {
         Runnable runnable2;
         long j2;
         AbsListView.OnScrollListener onScrollListener2;
-        this.In.If = i;
-        onScrollListener = this.In.HU;
+        this.IE.Iv = i;
+        onScrollListener = this.IE.Ik;
         if (onScrollListener != null) {
-            onScrollListener2 = this.In.HU;
+            onScrollListener2 = this.IE.Ik;
             onScrollListener2.onScroll(absListView, i, i2, i3);
         }
-        dVar = this.In.HV;
+        dVar = this.IE.Il;
         if (dVar != null) {
-            j = this.In.HX;
+            j = this.IE.In;
             if (j > 0) {
-                Handler handler = this.In.getHandler();
-                runnable = this.In.Ig;
+                Handler handler = this.IE.getHandler();
+                runnable = this.IE.Iw;
                 handler.removeCallbacks(runnable);
-                Handler handler2 = this.In.getHandler();
-                runnable2 = this.In.Ig;
-                j2 = this.In.HX;
+                Handler handler2 = this.IE.getHandler();
+                runnable2 = this.IE.Iw;
+                j2 = this.IE.In;
                 handler2.postDelayed(runnable2, j2);
             }
         }

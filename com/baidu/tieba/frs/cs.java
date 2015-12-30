@@ -1,40 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.FeedForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.n;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs extends bm<ct, cu> {
-    private final int bdn;
+public class cs implements View.OnClickListener {
+    final /* synthetic */ cr bhk;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cs(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.bdn = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.d.ds90);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cs(cr crVar) {
+        this.bhk = crVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: o */
-    public cu a(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(n.g.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bdn));
-        return new cu(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ct ctVar, cu cuVar) {
-        super.a(i, view, viewGroup, (ViewGroup) ctVar, (ct) cuVar);
-        this.aXA.getLayoutMode().af(this.mSkinType == 1);
-        this.aXA.getLayoutMode().k(view);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        FeedForumData feedForumData;
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        com.baidu.tieba.tbadkCore.x xVar;
+        bx bxVar = (bx) view.getTag();
+        if (bxVar != null && (feedForumData = (FeedForumData) this.bhk.getItem(bxVar.position)) != null) {
+            if (view.getId() == n.g.frs_feed_forum_attention) {
+                tbPageContext3 = this.bhk.mContext;
+                if (((FrsMoreFeedForumsActivity) tbPageContext3.getOrignalPage()).checkUpIsLogin()) {
+                    xVar = this.bhk.MB;
+                    xVar.bc(feedForumData.getForumName(), feedForumData.getForumId());
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10048").aa(ImageViewerConfig.FORUM_ID, feedForumData.getForumId()));
+                }
+            } else if (view.getId() == n.g.frs_like_feed_forum_item) {
+                tbPageContext = this.bhk.mContext;
+                tbPageContext2 = this.bhk.mContext;
+                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext2.getPageActivity()).createNormalCfg(feedForumData.getForumName(), "")));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10050").aa(ImageViewerConfig.FORUM_ID, feedForumData.getForumId()));
+            }
+        }
     }
 }

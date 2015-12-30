@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a afw;
+    private a agj;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        wh();
+        vR();
     }
 
     public TbCheckBox(Context context) {
@@ -37,28 +37,28 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new p(this));
-        wh();
+        setOnClickListener(new q(this));
+        vR();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.afw = aVar;
+        this.agj = aVar;
     }
 
-    public void wh() {
-        if (wi()) {
-            as.c(this, n.e.icon_set_list_ok_s);
+    public void vR() {
+        if (vS()) {
+            as.c(this, n.f.icon_set_list_ok_s);
         } else {
-            as.c(this, n.e.icon_set_list_ok_n);
+            as.c(this, n.f.icon_set_list_ok_n);
         }
     }
 
     public boolean isChecked() {
-        return wi();
+        return vS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wi() {
+    public boolean vS() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -71,9 +71,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        wh();
-        if (this.afw != null) {
-            this.afw.handler(this, z, getTag());
+        vR();
+        if (this.agj != null) {
+            this.agj.handler(this, z, getTag());
         }
     }
 }

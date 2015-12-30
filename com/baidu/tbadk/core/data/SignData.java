@@ -16,6 +16,7 @@ public class SignData implements Serializable {
     private int forum_rank = 0;
     private int sign_bonus_point = 3;
     private int sign_count = 0;
+    private int miss_sign_num = 0;
     private int errorCode = 0;
     private String errorMsg = "";
 
@@ -120,18 +121,23 @@ public class SignData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.is_signed = optJSONObject.getInt("is_sign_in");
-                this.user_sign_rank = optJSONObject.getInt("user_sign_rank");
-                this.count_sign_num = optJSONObject.getInt("cont_sign_num");
-                this.count_total_sign_num = optJSONObject.getInt("cout_total_sing_num");
-                this.sign_bonus_point = optJSONObject.getInt("sign_bonus_point");
-                this.levelup_score = optJSONObject.getInt("levelup_score");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+        if (optJSONObject != null) {
+            this.is_signed = optJSONObject.optInt("is_sign_in");
+            this.user_sign_rank = optJSONObject.optInt("user_sign_rank");
+            this.count_sign_num = optJSONObject.optInt("cont_sign_num");
+            this.count_total_sign_num = optJSONObject.optInt("cout_total_sing_num");
+            this.sign_bonus_point = optJSONObject.optInt("sign_bonus_point");
+            this.levelup_score = optJSONObject.optInt("levelup_score");
+            this.miss_sign_num = optJSONObject.optInt("miss_sign_num");
         }
+    }
+
+    public int getMissSignNum() {
+        return this.miss_sign_num;
+    }
+
+    public void setMissSignNum(int i) {
+        this.miss_sign_num = i;
     }
 }

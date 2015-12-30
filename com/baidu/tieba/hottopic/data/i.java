@@ -6,13 +6,13 @@ import tbclient.Hottopic.CommonThread;
 import tbclient.Hottopic.GoodThread;
 /* loaded from: classes.dex */
 public class i implements u {
-    public static final BdUniqueId bEs = BdUniqueId.gen();
-    public long Wg;
-    public long bAH;
-    public String bDw;
-    private boolean bEf = false;
-    public long bEt;
-    public String bEu;
+    public static final BdUniqueId bHV = BdUniqueId.gen();
+    public long WH;
+    private boolean bHI = false;
+    public long bHW;
+    public long bHX;
+    public String bHY;
+    public String bHa;
     public String fname;
     public long postId;
     public String summary;
@@ -21,32 +21,32 @@ public class i implements u {
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return bEs;
+        return bHV;
     }
 
-    public boolean UA() {
-        return this.bEf;
+    public boolean VD() {
+        return this.bHI;
     }
 
     public void a(CommonThread commonThread) {
         if (commonThread != null) {
-            this.bEf = true;
-            this.bDw = commonThread.module_name;
+            this.bHI = true;
+            this.bHa = commonThread.module_name;
         }
     }
 
     public void a(GoodThread goodThread) {
         if (goodThread != null) {
-            this.bEf = false;
+            this.bHI = false;
             this.tid = String.valueOf(goodThread.tid);
             this.title = goodThread.title;
-            this.bEt = goodThread.reply_num.longValue();
+            this.bHW = goodThread.reply_num.longValue();
             this.summary = goodThread._abstract;
-            this.bAH = goodThread.zan_num.longValue();
+            this.bHX = goodThread.zan_num.longValue();
             this.fname = goodThread.fname;
-            this.Wg = goodThread.fid.longValue();
+            this.WH = goodThread.fid.longValue();
             this.postId = goodThread.post_id.longValue();
-            this.bEu = goodThread.head_pic;
+            this.bHY = goodThread.head_pic;
         }
     }
 }

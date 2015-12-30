@@ -1,21 +1,27 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ d cSn;
+public class ah implements c.b {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(d dVar) {
-        this.cSn = dVar;
+        this.cWV = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.eventStat(this.cSn.getActivity(), "notlogin_10", "click", 1, new Object[0]);
-        bj.af(this.cSn.getActivity());
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        this.cWV.cWt = false;
+        if (i != 0) {
+            if (i == 1) {
+                this.cWV.apS();
+            }
+        } else {
+            this.cWV.apR();
+        }
+        cVar.dismiss();
     }
 }

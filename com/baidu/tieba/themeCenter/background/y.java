@@ -5,10 +5,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.e<y> {
-    private com.baidu.adp.framework.listener.a aWh = new z(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
-    private int dED;
-    private int dEY;
-    private a dFl;
+    private com.baidu.adp.framework.listener.a bah = new z(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+    private int dMA;
+    private a dMN;
+    private int dMg;
     private DressItemData mBgItem;
 
     /* loaded from: classes.dex */
@@ -17,13 +17,13 @@ public class y extends com.baidu.adp.base.e<y> {
     }
 
     public y(int i, int i2) {
-        this.dED = i;
-        this.dEY = i2;
-        CQ();
-        registerListener(this.aWh);
+        this.dMg = i;
+        this.dMA = i2;
+        CF();
+        registerListener(this.bah);
     }
 
-    private void CQ() {
+    private void CF() {
         com.baidu.tieba.tbadkCore.a.a.a(309023, BackgroundGetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
     }
@@ -31,7 +31,7 @@ public class y extends com.baidu.adp.base.e<y> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.dED);
+        backgroundGetRequestMessage.setPropId(this.dMg);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -42,10 +42,10 @@ public class y extends com.baidu.adp.base.e<y> {
     }
 
     public void a(a aVar) {
-        this.dFl = aVar;
+        this.dMN = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aWh);
+        MessageManager.getInstance().unRegisterListener(this.bah);
     }
 }

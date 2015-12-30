@@ -1,35 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bag;
+class o implements NoNetworkView.a {
+    final /* synthetic */ FrsActivity bed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bag = frsActivity;
+    public o(FrsActivity frsActivity) {
+        this.bed = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001124) {
-                if (customResponsedMessage.getCmd() != 2001122) {
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ax(boolean z) {
+        com.baidu.tieba.tbadkCore.p pVar;
+        boolean z2;
+        com.baidu.tieba.tbadkCore.p pVar2;
+        if (z && !this.bed.bdm.No()) {
+            pVar = this.bed.bdo;
+            if (pVar != null) {
+                pVar2 = this.bed.bdo;
+                if (pVar2.getThreadList().size() != 0) {
                     return;
                 }
-                this.bag.f(customResponsedMessage);
-                return;
             }
-            this.bag.e(customResponsedMessage);
+            this.bed.hideNetRefreshView(this.bed.bdm.getRootView());
+            z2 = this.bed.bcZ;
+            if (!z2) {
+                this.bed.showLoadingView(this.bed.bdm.getRootView(), true);
+                this.bed.bdm.Oe();
+            }
+            this.bed.refresh();
         }
     }
 }

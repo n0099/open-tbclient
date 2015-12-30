@@ -7,56 +7,56 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    public static int Sj = 0;
-    public static int Sk = 1;
-    public static int Sl = 2;
-    private AlarmManager Sg;
-    private PendingIntent Sh;
-    private long Si;
+    private AlarmManager Sw;
+    private PendingIntent Sx;
+    private long Sy;
     private Context mContext;
+    public static int Sz = 0;
+    public static int SA = 1;
+    public static int SB = 2;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.Sh = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.Sg = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.Sx = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.Sw = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.Sg != null) {
-            this.Si = j2;
-            if (i == Sj) {
-                this.Sg.set(i2, j, this.Sh);
-            } else if (i == Sk) {
-                this.Sg.setRepeating(i2, j, j2, this.Sh);
-            } else if (i == Sl) {
-                this.Sg.setInexactRepeating(i2, j, j2, this.Sh);
+        if (this.Sw != null) {
+            this.Sy = j2;
+            if (i == Sz) {
+                this.Sw.set(i2, j, this.Sx);
+            } else if (i == SA) {
+                this.Sw.setRepeating(i2, j, j2, this.Sx);
+            } else if (i == SB) {
+                this.Sw.setInexactRepeating(i2, j, j2, this.Sx);
             } else {
-                this.Sg.set(i2, j, this.Sh);
+                this.Sw.set(i2, j, this.Sx);
             }
         }
     }
 
     public void cancel() {
-        if (this.Sg != null && this.Sh != null) {
-            this.Sg.cancel(this.Sh);
+        if (this.Sw != null && this.Sx != null) {
+            this.Sw.cancel(this.Sx);
         }
     }
 
-    public void qm() {
-        if (this.Sg != null && this.Sh != null) {
-            if (this.Si <= 0) {
-                this.Si = 3600000L;
+    public void pK() {
+        if (this.Sw != null && this.Sx != null) {
+            if (this.Sy <= 0) {
+                this.Sy = 3600000L;
             }
-            a(Sk, 1, System.currentTimeMillis() + this.Si, this.Si);
+            a(SA, 1, System.currentTimeMillis() + this.Sy, this.Sy);
         }
     }
 
-    public long qn() {
-        if (this.Si <= 0) {
-            this.Si = 3600000L;
+    public long pL() {
+        if (this.Sy <= 0) {
+            this.Sy = 3600000L;
         }
-        return this.Si;
+        return this.Sy;
     }
 }

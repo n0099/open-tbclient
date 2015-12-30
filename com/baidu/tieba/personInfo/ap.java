@@ -1,22 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap extends CustomMessageListener {
-    final /* synthetic */ d cSn;
+public class ap implements View.OnClickListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ap(d dVar, int i) {
-        super(i);
-        this.cSn = dVar;
+    public ap(d dVar) {
+        this.cWV = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.cSn.aQE = true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        baseFragmentActivity = this.cWV.aJl;
+        TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        baseFragmentActivity2 = this.cWV.aJl;
+        com.baidu.tbadk.core.util.bj.af(baseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private x aOw;
+    private x aSo;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public b(Context context) {
@@ -25,7 +25,7 @@ public class b extends LinearLayout {
     }
 
     public void setOnHeaderItemClickListener(x xVar) {
-        this.aOw = xVar;
+        this.aSo = xVar;
     }
 
     public void u(String str, boolean z) {
@@ -33,10 +33,10 @@ public class b extends LinearLayout {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.IZ())) {
-                    cVar.bU(z);
+                if (cVar != null && str.equals(cVar.Jq())) {
+                    cVar.bV(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
-                        ((a) getChildAt(i)).bW(z);
+                        ((a) getChildAt(i)).bX(z);
                         return;
                     }
                 }
@@ -58,15 +58,15 @@ public class b extends LinearLayout {
     private void a(com.baidu.tieba.discover.data.c cVar, int i, int i2) {
         if (cVar != null) {
             a aVar = new a(getContext());
-            aVar.ar(cVar.getIcon_url(), cVar.IZ());
+            aVar.ap(cVar.getIcon_url(), cVar.Jq());
             aVar.setTitle(cVar.getTitle());
-            aVar.bW(cVar.Jb());
+            aVar.bX(cVar.Js());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {
-                    aVar.setPadding(k.d(TbadkApplication.getInst(), n.d.ds30), 0, 0, 0);
+                    aVar.setPadding(k.d(TbadkApplication.getInst(), n.e.ds30), 0, 0, 0);
                 } else if (i == i2 - 1) {
-                    aVar.setPadding(0, 0, k.d(TbadkApplication.getInst(), n.d.ds30), 0);
+                    aVar.setPadding(0, 0, k.d(TbadkApplication.getInst(), n.e.ds30), 0);
                 } else {
                     aVar.setPadding(0, 0, 0, 0);
                 }

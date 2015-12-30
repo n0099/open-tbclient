@@ -7,13 +7,13 @@ import com.baidu.adp.lib.cache.f;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.a.b sO;
-    protected String sP;
-    protected f.b sQ;
-    protected f.a sR;
-    protected int sS;
-    protected LinkedList<String> sT = new LinkedList<>();
-    private Object sU = new Object();
+    protected final com.baidu.adp.base.a.b sQ;
+    protected String sR;
+    protected f.b sS;
+    protected f.a sT;
+    protected int sU;
+    protected LinkedList<String> sV = new LinkedList<>();
+    private Object sW = new Object();
 
     public abstract String N(String str);
 
@@ -30,24 +30,24 @@ public abstract class c<T> {
     public abstract int fX();
 
     public c(com.baidu.adp.base.a.b bVar) {
-        this.sO = bVar;
+        this.sQ = bVar;
     }
 
     public void a(f fVar, String str) {
-        this.sP = str;
+        this.sR = str;
         if (fVar instanceof f.b) {
-            this.sQ = (f.b) fVar;
+            this.sS = (f.b) fVar;
         }
         if (fVar instanceof f.a) {
-            this.sR = (f.a) fVar;
+            this.sT = (f.a) fVar;
         }
     }
 
     public h<T> P(String str) {
         try {
-            return c(this.sO.dL(), str);
+            return c(this.sQ.dL(), str);
         } catch (Throwable th) {
-            this.sO.d(th, "get");
+            this.sQ.d(th, "get");
             return null;
         }
     }
@@ -55,30 +55,30 @@ public abstract class c<T> {
     public void b(h<T> hVar) {
         String e;
         try {
-            synchronized (this.sU) {
-                this.sT.remove(hVar.tb);
+            synchronized (this.sW) {
+                this.sV.remove(hVar.td);
             }
             ContentValues a = a(hVar);
-            SQLiteDatabase dL = this.sO.dL();
-            if (dL.update(this.sP, a, "m_key = ?", new String[]{hVar.tb}) == 0) {
-                dL.insert(this.sP, null, a);
-                if (this.sR != null) {
+            SQLiteDatabase dL = this.sQ.dL();
+            if (dL.update(this.sR, a, "m_key = ?", new String[]{hVar.td}) == 0) {
+                dL.insert(this.sR, null, a);
+                if (this.sT != null) {
                     fY();
                 }
             }
-            if (this.sQ != null && (e = this.sQ.e(hVar)) != null) {
+            if (this.sS != null && (e = this.sS.e(hVar)) != null) {
                 Q(e);
             }
         } catch (Throwable th) {
-            this.sO.d(th, "addOrUpdateTextCacheItem");
+            this.sQ.d(th, "addOrUpdateTextCacheItem");
         }
     }
 
     protected void fY() {
-        if (this.sR != null) {
-            this.sS++;
-            if (this.sS >= ((int) Math.min(this.sR.getMaxSize() * 0.2d, 5.0d))) {
-                this.sS = 0;
+        if (this.sT != null) {
+            this.sU++;
+            if (this.sU >= ((int) Math.min(this.sT.getMaxSize() * 0.2d, 5.0d))) {
+                this.sU = 0;
                 com.baidu.adp.lib.h.k.hk().c(new d(this));
             }
         }
@@ -86,17 +86,17 @@ public abstract class c<T> {
 
     public int Q(String str) {
         try {
-            return this.sO.dL().delete(this.sP, "m_key = ?", new String[]{str});
+            return this.sQ.dL().delete(this.sR, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.sO.d(th, "deleteCacheItem");
+            this.sQ.d(th, "deleteCacheItem");
             return 0;
         }
     }
 
     public void R(String str) {
-        this.sS = 0;
-        synchronized (this.sU) {
-            this.sT.clear();
+        this.sU = 0;
+        synchronized (this.sW) {
+            this.sV.clear();
         }
         if (O(str)) {
             BdCacheService.gk().gl().ad(str);
@@ -104,9 +104,9 @@ public abstract class c<T> {
     }
 
     public synchronized void c(String str, boolean z) {
-        synchronized (this.sU) {
-            if (!this.sT.contains(str)) {
-                this.sT.addLast(str);
+        synchronized (this.sW) {
+            if (!this.sV.contains(str)) {
+                this.sV.addLast(str);
                 if (z) {
                     fY();
                 }
@@ -115,18 +115,18 @@ public abstract class c<T> {
     }
 
     public void S(String str) {
-        if (this.sR != null) {
+        if (this.sT != null) {
             Cursor cursor = null;
             try {
-                this.sR.ge();
-                cursor = d(this.sO.dL(), str);
+                this.sT.ge();
+                cursor = d(this.sQ.dL(), str);
                 while (cursor.moveToNext()) {
                     h<?> hVar = new h<>();
-                    hVar.tb = cursor.getString(cursor.getColumnIndex("m_key"));
-                    hVar.td = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    hVar.te = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    hVar.tf = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String d = this.sR.d(hVar);
+                    hVar.td = cursor.getString(cursor.getColumnIndex("m_key"));
+                    hVar.tf = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    hVar.tg = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    hVar.th = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String d = this.sT.d(hVar);
                     if (d != null) {
                         c(d, false);
                     }
@@ -134,28 +134,28 @@ public abstract class c<T> {
                 fZ();
             } catch (Throwable th) {
                 try {
-                    this.sO.d(th, "performEvict");
+                    this.sQ.d(th, "performEvict");
                 } finally {
                     com.baidu.adp.lib.h.a.b(cursor);
-                    this.sR.gf();
+                    this.sT.gf();
                 }
             }
         }
     }
 
     public void T(String str) {
-        if (this.sQ != null) {
+        if (this.sS != null) {
             Cursor cursor = null;
             try {
-                this.sQ.gg();
-                cursor = d(this.sO.dL(), str);
+                this.sS.gg();
+                cursor = d(this.sQ.dL(), str);
                 while (cursor.moveToNext()) {
                     h<?> hVar = new h<>();
-                    hVar.tb = cursor.getString(cursor.getColumnIndex("m_key"));
-                    hVar.td = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    hVar.te = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    hVar.tf = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String f = this.sQ.f(hVar);
+                    hVar.td = cursor.getString(cursor.getColumnIndex("m_key"));
+                    hVar.tf = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    hVar.tg = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    hVar.th = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String f = this.sS.f(hVar);
                     if (f != null) {
                         c(f, false);
                     }
@@ -163,10 +163,10 @@ public abstract class c<T> {
                 fZ();
             } catch (Throwable th) {
                 try {
-                    this.sO.d(th, "performPump");
+                    this.sQ.d(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.h.a.b(cursor);
-                    this.sQ.gh();
+                    this.sS.gh();
                 }
             }
         }
@@ -175,24 +175,24 @@ public abstract class c<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void fZ() {
         String removeFirst;
-        if (!this.sT.isEmpty()) {
-            SQLiteDatabase dL = this.sO.dL();
+        if (!this.sV.isEmpty()) {
+            SQLiteDatabase dL = this.sQ.dL();
             dL.beginTransaction();
             while (true) {
                 try {
-                    synchronized (this.sU) {
-                        if (!this.sT.isEmpty()) {
-                            removeFirst = this.sT.removeFirst();
+                    synchronized (this.sW) {
+                        if (!this.sV.isEmpty()) {
+                            removeFirst = this.sV.removeFirst();
                         } else {
                             dL.setTransactionSuccessful();
-                            this.sS = 0;
+                            this.sU = 0;
                             return;
                         }
                     }
-                    dL.delete(this.sP, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                    dL.delete(this.sR, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.sO.d(th, "performCleanup");
+                        this.sQ.d(th, "performCleanup");
                         return;
                     } finally {
                         dL.endTransaction();
@@ -203,6 +203,6 @@ public abstract class c<T> {
     }
 
     public com.baidu.adp.base.a.b ga() {
-        return this.sO;
+        return this.sQ;
     }
 }

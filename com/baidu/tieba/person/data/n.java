@@ -1,76 +1,88 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.q;
+import com.baidu.tieba.personInfo.PersonInfoPostList;
+import com.baidu.tieba.personInfo.PersonTainInfo;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes.dex */
-public class n {
-    private ArrayList<UserData> cNF = new ArrayList<>();
-    private ArrayList<UserData> cNG = new ArrayList<>();
-    private q mPage = new q();
-    private int friendNum = 0;
-    private int cNH = 0;
+public class n extends a {
+    public static final BdUniqueId cSi = BdUniqueId.gen();
+    private boolean bAA = true;
+    private List<PersonInfoPostList> cQY = new ArrayList();
+    private PersonTainInfo cSd;
+    private UserData mUserData;
 
-    public void b(q qVar) {
-        this.mPage = qVar;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return cSi;
     }
 
-    public q getPage() {
-        return this.mPage;
-    }
-
-    public ArrayList<UserData> aop() {
-        return this.cNF;
-    }
-
-    public ArrayList<UserData> aoq() {
-        return this.cNG;
-    }
-
-    public int getFriendNum() {
-        return this.friendNum;
-    }
-
-    public int aor() {
-        return this.cNH;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public String getPortrait() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPortrait();
         }
+        return null;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.cNF.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.cNG.add(userData2);
-                    }
-                }
-                this.mPage.parserJson(jSONObject.optJSONObject("page"));
-                this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.cNH = jSONObject.optInt("commonfriendnum", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    public int getPostNum() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPosts_num();
         }
+        return 0;
+    }
+
+    public void d(List<PersonInfoPostList> list) {
+        this.cQY = list;
+    }
+
+    public List<PersonInfoPostList> apw() {
+        return this.cQY;
+    }
+
+    public void f(UserData userData) {
+        this.mUserData = userData;
+    }
+
+    public UserData getUserData() {
+        return this.mUserData;
+    }
+
+    public void setIsSelf(boolean z) {
+        this.bAA = z;
+    }
+
+    public boolean getIsSelf() {
+        return this.bAA;
+    }
+
+    public int getSex() {
+        if (this.mUserData != null) {
+            return this.mUserData.getSex();
+        }
+        return 0;
+    }
+
+    public void a(PersonTainInfo personTainInfo) {
+        this.cSd = personTainInfo;
+    }
+
+    public PersonTainInfo apt() {
+        return this.cSd;
+    }
+
+    public com.baidu.tbadk.data.f apu() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPersonPrivate();
+        }
+        return null;
+    }
+
+    public String getUserId() {
+        if (this.mUserData != null) {
+            return this.mUserData.getUserId();
+        }
+        return null;
     }
 }

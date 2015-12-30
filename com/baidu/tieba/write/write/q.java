@@ -19,61 +19,61 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d.a {
-    private int atv;
-    private WriteMultiImgsActivity dPE;
-    private ImageFileInfo[] dPF;
-    private a dPG;
-    private b[] dPH;
-    private com.baidu.tbadk.coreExtra.view.d[] dPI;
-    private int dPJ;
-    private int dPK;
+    private int auZ;
+    private WriteMultiImgsActivity dXc;
+    private ImageFileInfo[] dXd;
+    private a dXe;
+    private b[] dXf;
+    private com.baidu.tbadk.coreExtra.view.d[] dXg;
+    private int dXh;
+    private int dXi;
     private ViewPager mViewPager;
-    private int wH;
+    private int wJ;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(com.baidu.tbadk.coreExtra.view.d dVar, int i);
 
-        void aJl();
+        void aLG();
 
-        void aJm();
+        void aLH();
 
-        void aJn();
+        void aLI();
     }
 
     public q(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar) {
         int i2 = 0;
-        this.dPE = null;
-        this.dPF = null;
+        this.dXc = null;
+        this.dXd = null;
         this.mViewPager = null;
-        this.dPG = null;
-        this.wH = 0;
-        this.atv = 0;
-        this.dPH = null;
-        this.dPI = null;
-        this.dPJ = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
-        this.dPK = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
-        this.dPE = writeMultiImgsActivity;
-        this.dPJ = (int) writeMultiImgsActivity.getResources().getDimension(n.d.motu_image_size_width);
-        this.dPK = (int) writeMultiImgsActivity.getResources().getDimension(n.d.motu_image_size_height);
+        this.dXe = null;
+        this.wJ = 0;
+        this.auZ = 0;
+        this.dXf = null;
+        this.dXg = null;
+        this.dXh = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
+        this.dXi = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
+        this.dXc = writeMultiImgsActivity;
+        this.dXh = (int) writeMultiImgsActivity.getResources().getDimension(n.e.motu_image_size_width);
+        this.dXi = (int) writeMultiImgsActivity.getResources().getDimension(n.e.motu_image_size_height);
         if (linkedList != null) {
-            this.wH = linkedList.size();
+            this.wJ = linkedList.size();
         }
-        this.dPF = new ImageFileInfo[this.wH];
-        this.dPH = new b[this.wH];
-        this.dPI = new com.baidu.tbadk.coreExtra.view.d[this.wH];
+        this.dXd = new ImageFileInfo[this.wJ];
+        this.dXf = new b[this.wJ];
+        this.dXg = new com.baidu.tbadk.coreExtra.view.d[this.wJ];
         while (true) {
             int i3 = i2;
-            if (i3 < this.wH) {
+            if (i3 < this.wJ) {
                 a(linkedList.get(i3), i3);
-                this.dPF[i3] = linkedList.get(i3).cloneWithoutFilterAction(true);
-                this.dPF[i3].addPageAction(com.baidu.tbadk.img.effect.d.K(this.dPJ, this.dPK));
-                linkedList.set(i3, this.dPF[i3]);
+                this.dXd[i3] = linkedList.get(i3).cloneWithoutFilterAction(true);
+                this.dXd[i3].addPageAction(com.baidu.tbadk.img.effect.d.K(this.dXh, this.dXi));
+                linkedList.set(i3, this.dXd[i3]);
                 i2 = i3 + 1;
             } else {
-                this.atv = i;
+                this.auZ = i;
                 this.mViewPager = viewPager;
-                this.dPG = aVar;
+                this.dXe = aVar;
                 this.mViewPager.setOffscreenPageLimit(1);
                 this.mViewPager.setOnPageChangeListener(this);
                 return;
@@ -82,89 +82,89 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void nJ(int i) {
-        if (this.dPH[this.atv].aJo()) {
-            this.dPF[this.atv].addPageAction(com.baidu.tbadk.img.effect.e.eA(i));
-            this.dPE.aJX();
-            if (this.dPI[this.atv] != null) {
-                String selectedFilter = this.dPI[this.atv].getSelectedFilter();
+    public void oB(int i) {
+        if (this.dXf[this.auZ].aLJ()) {
+            this.dXd[this.auZ].addPageAction(com.baidu.tbadk.img.effect.e.eu(i));
+            this.dXc.aMs();
+            if (this.dXg[this.auZ] != null) {
+                String selectedFilter = this.dXg[this.auZ].getSelectedFilter();
                 if (selectedFilter != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                    ImageFileInfo cloneWithoutFilterAction = this.dPF[this.atv].cloneWithoutFilterAction(false);
-                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fG(selectedFilter));
-                    this.dPH[this.atv].i(cloneWithoutFilterAction);
+                    ImageFileInfo cloneWithoutFilterAction = this.dXd[this.auZ].cloneWithoutFilterAction(false);
+                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fK(selectedFilter));
+                    this.dXf[this.auZ].i(cloneWithoutFilterAction);
                     return;
                 }
-                this.dPH[this.atv].i(this.dPF[this.atv]);
+                this.dXf[this.auZ].i(this.dXd[this.auZ]);
                 return;
             }
-            this.dPH[this.atv].i(this.dPF[this.atv]);
+            this.dXf[this.auZ].i(this.dXd[this.auZ]);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.d.a
-    public void eB(String str) {
+    public void eE(String str) {
         if (str != null && !str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-            this.dPE.aJX();
-            ImageFileInfo cloneWithoutFilterAction = this.dPF[this.atv].cloneWithoutFilterAction(false);
-            cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fG(str));
-            this.dPH[this.atv].i(cloneWithoutFilterAction);
+            this.dXc.aMs();
+            ImageFileInfo cloneWithoutFilterAction = this.dXd[this.auZ].cloneWithoutFilterAction(false);
+            cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fK(str));
+            this.dXf[this.auZ].i(cloneWithoutFilterAction);
             return;
         }
-        this.dPE.aJY();
-        this.dPH[this.atv].i(this.dPF[this.atv]);
+        this.dXc.aMt();
+        this.dXf[this.auZ].i(this.dXd[this.auZ]);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.dPH[i] == null) {
-            this.dPH[i] = new b(i);
+        if (this.dXf[i] == null) {
+            this.dXf[i] = new b(i);
         }
-        this.mViewPager.addView(this.dPH[i].getView());
-        return this.dPH[i].getView();
+        this.mViewPager.addView(this.dXf[i].getView());
+        return this.dXf[i].getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        this.mViewPager.removeView(this.dPH[i].getView());
+        this.mViewPager.removeView(this.dXf[i].getView());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.atv = i;
-        aJj();
-        if (this.dPG != null) {
-            this.dPG.a(this.dPI[i], i);
+        this.auZ = i;
+        aLE();
+        if (this.dXe != null) {
+            this.dXe.a(this.dXg[i], i);
         }
     }
 
-    private void aJj() {
-        if (this.atv >= 0) {
-            if (this.dPH != null) {
-                for (int i = 0; i < this.dPH.length; i++) {
-                    if (this.dPH[i] != null) {
-                        this.dPH[i].aEo();
+    private void aLE() {
+        if (this.auZ >= 0) {
+            if (this.dXf != null) {
+                for (int i = 0; i < this.dXf.length; i++) {
+                    if (this.dXf[i] != null) {
+                        this.dXf[i].aGC();
                     }
                 }
-                if (this.dPH[this.atv] == null) {
-                    this.dPH[this.atv] = new b(this.atv);
+                if (this.dXf[this.auZ] == null) {
+                    this.dXf[this.auZ] = new b(this.auZ);
                 }
             }
-            String selectedFilter = this.dPI[this.atv].getSelectedFilter();
+            String selectedFilter = this.dXg[this.auZ].getSelectedFilter();
             if (selectedFilter != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                ImageFileInfo cloneWithoutFilterAction = this.dPF[this.atv].cloneWithoutFilterAction(false);
-                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fG(selectedFilter));
-                if (this.dPH != null) {
-                    this.dPH[this.atv].i(cloneWithoutFilterAction);
+                ImageFileInfo cloneWithoutFilterAction = this.dXd[this.auZ].cloneWithoutFilterAction(false);
+                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fK(selectedFilter));
+                if (this.dXf != null) {
+                    this.dXf[this.auZ].i(cloneWithoutFilterAction);
                 }
-            } else if (this.dPH != null) {
-                this.dPH[this.atv].i(this.dPF[this.atv]);
+            } else if (this.dXf != null) {
+                this.dXf[this.auZ].i(this.dXd[this.auZ]);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getCurrentIndex() {
-        return this.atv;
+        return this.auZ;
     }
 
     private void a(ImageFileInfo imageFileInfo, int i) {
@@ -180,12 +180,12 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
             }
         }
         str = null;
-        this.dPI[i] = new com.baidu.tbadk.coreExtra.view.d(this.dPE, this, str);
+        this.dXg[i] = new com.baidu.tbadk.coreExtra.view.d(this.dXc, this, str);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.wH;
+        return this.wJ;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -194,12 +194,12 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aJk() {
+    public void aLF() {
         String selectedFilter;
-        for (int i = 0; i < this.dPF.length; i++) {
-            this.dPF[i].applayRotatePageActionToPersistAction();
-            if (this.dPI[i] != null && (selectedFilter = this.dPI[i].getSelectedFilter()) != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                this.dPF[i].addPersistAction(com.baidu.tbadk.img.effect.a.fG(selectedFilter));
+        for (int i = 0; i < this.dXd.length; i++) {
+            this.dXd[i].applayRotatePageActionToPersistAction();
+            if (this.dXg[i] != null && (selectedFilter = this.dXg[i].getSelectedFilter()) != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
+                this.dXd[i].addPersistAction(com.baidu.tbadk.img.effect.a.fK(selectedFilter));
             }
         }
     }
@@ -207,74 +207,74 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private TbImageView aEB;
-        private ProgressBar cVN;
-        private FrameLayout dPL;
-        private com.baidu.tbadk.img.b dPM;
+        private TbImageView aGb;
+        private FrameLayout dXj;
+        private com.baidu.tbadk.img.b dXk;
+        private ProgressBar daK;
         private int index;
 
         public b(int i) {
-            this.cVN = null;
+            this.daK = null;
             this.index = -1;
             this.index = i;
-            this.dPL = (FrameLayout) LayoutInflater.from(q.this.dPE.getPageContext().getContext()).inflate(n.g.progress_tb_imageview, (ViewGroup) null);
-            this.aEB = (TbImageView) this.dPL.findViewById(n.f.progress_tb_imageview);
-            this.aEB.setClickable(true);
-            this.aEB.setDefaultResource(0);
-            this.aEB.setDefaultBgResource(0);
-            this.aEB.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.dPM = new com.baidu.tbadk.img.b();
-            this.aEB.setOnClickListener(new r(this));
-            this.cVN = (ProgressBar) this.dPL.findViewById(n.f.progress_tb_imageview_progress);
-            this.cVN.setVisibility(8);
+            this.dXj = (FrameLayout) LayoutInflater.from(q.this.dXc.getPageContext().getContext()).inflate(n.h.progress_tb_imageview, (ViewGroup) null);
+            this.aGb = (TbImageView) this.dXj.findViewById(n.g.progress_tb_imageview);
+            this.aGb.setClickable(true);
+            this.aGb.setDefaultResource(0);
+            this.aGb.setDefaultBgResource(0);
+            this.aGb.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            this.dXk = new com.baidu.tbadk.img.b();
+            this.aGb.setOnClickListener(new r(this));
+            this.daK = (ProgressBar) this.dXj.findViewById(n.g.progress_tb_imageview_progress);
+            this.daK.setVisibility(8);
         }
 
         public View getView() {
-            return this.dPL;
+            return this.dXj;
         }
 
         public void i(ImageFileInfo imageFileInfo) {
-            aEo();
-            this.aEB.setDefaultResource(0);
-            this.aEB.setDefaultBgResource(0);
-            com.baidu.adp.widget.a.a a = this.dPM.a(imageFileInfo, false);
+            aGC();
+            this.aGb.setDefaultResource(0);
+            this.aGb.setDefaultBgResource(0);
+            com.baidu.adp.widget.a.a a = this.dXk.a(imageFileInfo, false);
             if (a != null) {
-                a.a(this.aEB);
+                a.a(this.aGb);
                 return;
             }
-            hL(false);
-            this.dPM.a(imageFileInfo, new s(this), false);
+            hU(false);
+            this.dXk.a(imageFileInfo, new s(this), false);
         }
 
-        public void aEo() {
-            if (this.dPM != null) {
-                this.dPM.Dd();
+        public void aGC() {
+            if (this.dXk != null) {
+                this.dXk.CS();
             }
-            if (this.aEB != null) {
-                this.aEB.setImageDrawable(null);
+            if (this.aGb != null) {
+                this.aGb.setImageDrawable(null);
             }
         }
 
-        public boolean aJo() {
-            return this.cVN.getVisibility() != 0;
+        public boolean aLJ() {
+            return this.daK.getVisibility() != 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void hL(boolean z) {
+        public void hU(boolean z) {
             if (z) {
-                if (this.cVN.getVisibility() != 8) {
-                    if (q.this.dPG != null) {
-                        q.this.dPG.aJn();
+                if (this.daK.getVisibility() != 8) {
+                    if (q.this.dXe != null) {
+                        q.this.dXe.aLI();
                     }
-                    this.cVN.setVisibility(8);
-                    q.this.dPI[this.index].setCanbeClick(true);
+                    this.daK.setVisibility(8);
+                    q.this.dXg[this.index].setCanbeClick(true);
                 }
-            } else if (this.cVN.getVisibility() != 0) {
-                if (q.this.dPG != null) {
-                    q.this.dPG.aJm();
+            } else if (this.daK.getVisibility() != 0) {
+                if (q.this.dXe != null) {
+                    q.this.dXe.aLH();
                 }
-                this.cVN.setVisibility(0);
-                q.this.dPI[this.index].setCanbeClick(false);
+                this.daK.setVisibility(0);
+                q.this.dXg[this.index].setCanbeClick(false);
             }
         }
     }

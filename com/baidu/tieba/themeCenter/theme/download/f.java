@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d dHf;
+    final /* synthetic */ d dOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.dHf = dVar;
+        this.dOG = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,28 +33,28 @@ public class f extends CustomMessageListener {
         List list2;
         ArrayList arrayList5;
         if (customResponsedMessage != null) {
-            arrayList = this.dHf.dHc;
+            arrayList = this.dOG.dOD;
             if (arrayList == null) {
-                this.dHf.dHc = new ArrayList();
+                this.dOG.dOD = new ArrayList();
             }
-            arrayList2 = this.dHf.dHc;
+            arrayList2 = this.dOG.dOD;
             arrayList2.clear();
-            arrayList3 = this.dHf.dHc;
-            bVar = this.dHf.dHb;
+            arrayList3 = this.dOG.dOD;
+            bVar = this.dOG.dOC;
             arrayList3.add(bVar);
-            arrayList4 = this.dHf.dHc;
-            bVar2 = this.dHf.dGs;
+            arrayList4 = this.dOG.dOD;
+            bVar2 = this.dOG.dNT;
             arrayList4.add(bVar2);
             if (customResponsedMessage.getData() != null && (list2 = (List) customResponsedMessage.getData()) != null) {
-                arrayList5 = this.dHf.dHc;
+                arrayList5 = this.dOG.dOD;
                 arrayList5.addAll(list2);
             }
-            this.dHf.aFy();
-            aVar = this.dHf.dHd;
+            this.dOG.aHN();
+            aVar = this.dOG.dOE;
             if (aVar != null) {
-                aVar2 = this.dHf.dHd;
-                z = this.dHf.dHe;
-                list = this.dHf.mThemeList;
+                aVar2 = this.dOG.dOE;
+                z = this.dOG.dOF;
+                list = this.dOG.mThemeList;
                 aVar2.a(z, list);
             }
         }

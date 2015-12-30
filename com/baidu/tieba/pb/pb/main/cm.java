@@ -1,45 +1,122 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class cm extends cb<com.baidu.tbadk.core.data.ad, cl> {
-    private View.OnClickListener ccv;
+public class cm extends com.baidu.tbadk.core.dialog.c {
+    private View.OnClickListener bbv;
+    private TextView cHA;
+    private TextView cHB;
+    private TextView cHC;
+    private TextView cHD;
+    private TextView cHE;
+    private boolean cHF;
+    private TbPageContext<?> mContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cm(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+    public cm(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity());
+        this.mContext = tbPageContext;
+        this.bbv = onClickListener;
+        createDialog();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: af */
-    public cl a(ViewGroup viewGroup) {
-        return new cl(LayoutInflater.from(this.mContext).inflate(n.g.pb_u9_news_layout, viewGroup, false));
+    public TextView amf() {
+        return this.cHA;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.cb, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ad adVar, cl clVar) {
-        super.a(i, view, viewGroup, (ViewGroup) adVar, (com.baidu.tbadk.core.data.ad) clVar);
-        if (adVar != null) {
-            clVar.cDW.setOnClickListener(this.ccv);
-            clVar.cDW.setText(adVar.getSummary());
-            clVar.cDW.setTag(adVar);
-            com.baidu.tbadk.core.util.as.j(clVar.cDX, n.c.cp_bg_line_b);
-            com.baidu.tbadk.core.util.as.b(clVar.cDW, n.c.cp_cont_b, 1);
-            clVar.cDW.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(n.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    public TextView amg() {
+        return this.cHB;
+    }
+
+    public TextView amh() {
+        return this.cHC;
+    }
+
+    public TextView ami() {
+        return this.cHD;
+    }
+
+    public TextView amj() {
+        return this.cHE;
+    }
+
+    private void createDialog() {
+        a(new CharSequence[]{this.mContext.getString(n.j.no_interesting), this.mContext.getString(n.j.mark), this.mContext.getString(n.j.mute), this.mContext.getString(n.j.pb_user_report_text), this.mContext.getString(n.j.delete)}, new cn(this));
+        d(this.mContext);
+        this.cHE = am(bN(0));
+        this.cHA = am(bN(1));
+        this.cHB = am(bN(2));
+        this.cHC = am(bN(3));
+        this.cHD = am(bN(4));
+    }
+
+    public void showDialog() {
+        tj();
+    }
+
+    private TextView am(View view) {
+        return (TextView) view.findViewById(n.g.dialog_item_btn);
+    }
+
+    private View an(View view) {
+        if (view == null) {
+            return null;
         }
-        return view;
+        return view.findViewById(n.g.line);
     }
 
-    public void r(View.OnClickListener onClickListener) {
-        this.ccv = onClickListener;
+    public void fg(boolean z) {
+        this.cHC.setVisibility(z ? 0 : 8);
+    }
+
+    public void fh(boolean z) {
+        this.cHF = z;
+    }
+
+    public void NI() {
+        View bN;
+        TextView am;
+        int itemCount = getItemCount();
+        boolean z = true;
+        int i = 0;
+        for (int i2 = itemCount - 1; i2 >= 0; i2--) {
+            View bN2 = bN(i2);
+            if (bN2 != null) {
+                TextView am2 = am(bN(i2));
+                View an = an(bN(i2));
+                if (am2 != null) {
+                    if (am2.getVisibility() == 8) {
+                        an.setVisibility(8);
+                    } else {
+                        i++;
+                        if (z) {
+                            an.setVisibility(8);
+                            com.baidu.tbadk.core.util.as.i(bN2, n.f.dialog_single_button_bg_selector);
+                            z = false;
+                        } else {
+                            an.setVisibility(0);
+                        }
+                    }
+                }
+            }
+        }
+        int i3 = 0;
+        while (true) {
+            if (i3 >= itemCount) {
+                break;
+            }
+            View bN3 = bN(i3);
+            if (bN3 == null || (am = am(bN(i3))) == null || am.getVisibility() != 0) {
+                i3++;
+            } else {
+                com.baidu.tbadk.core.util.as.i(bN3, n.f.dialog_single_button_first_bg_selector);
+                break;
+            }
+        }
+        if (i == 1 && (bN = bN(0)) != null) {
+            com.baidu.tbadk.core.util.as.i(bN, n.f.dialog_single_button_only_one_bg_selector);
+        }
     }
 }

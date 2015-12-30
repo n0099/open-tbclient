@@ -1,32 +1,28 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class a extends Handler {
-    final /* synthetic */ AccountActivity aGn;
+class a extends CustomMessageListener {
+    final /* synthetic */ AccountActivity aHO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(AccountActivity accountActivity) {
-        this.aGn = accountActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(AccountActivity accountActivity, int i) {
+        super(i);
+        this.aHO = accountActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                this.aGn.GT();
-                return;
-            case 2:
-                if (message.obj instanceof AccountData) {
-                    this.aGn.k((AccountData) message.obj);
-                    return;
-                }
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || this.aHO.aHG == null) {
+            return;
+        }
+        this.aHO.GG();
+        if (this.aHO.aHH != null) {
+            this.aHO.aHH.setData(this.aHO.aHG);
+            this.aHO.aHH.notifyDataSetChanged();
         }
     }
 }

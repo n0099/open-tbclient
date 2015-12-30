@@ -5,35 +5,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.d;
 /* loaded from: classes.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
-    private f dFT;
-    private d dFU;
-    private d.a dFV = new a(this);
+    private f dNv;
+    private d dNw;
+    private d.a dNx = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dFU = new d(this);
-        this.dFU.a(this.dFV);
-        this.dFT = new f(this);
-        showLoadingView(this.dFT.getRootView());
-        this.dFU.LoadData();
+        this.dNw = new d(this);
+        this.dNw.a(this.dNx);
+        this.dNv = new f(this);
+        showLoadingView(this.dNv.getRootView());
+        this.dNw.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dFT != null) {
-            this.dFT.oV();
+        if (this.dNv != null) {
+            this.dNv.ot();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dFU != null && this.dFT != null) {
-            showLoadingView(this.dFT.getRootView());
-            this.dFU.LoadData();
+        if (this.dNw != null && this.dNv != null) {
+            showLoadingView(this.dNv.getRootView());
+            this.dNw.LoadData();
         }
     }
 
@@ -41,8 +41,8 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dFU != null) {
-            this.dFU.destroy();
+        if (this.dNw != null) {
+            this.dNw.destroy();
         }
     }
 }

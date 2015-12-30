@@ -8,7 +8,7 @@ import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c implements b {
-    private a dBM;
+    private a dJp;
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public VideoFinishResult c(String str, File file) {
@@ -16,26 +16,26 @@ public class c implements b {
         if (f != null && f.length() > 0) {
             f = f.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.c mI = com.baidu.tieba.tbadkCore.videoupload.b.mI(f);
-        if (mI == null) {
-            mI = new com.baidu.tbadk.coreExtra.data.c();
-            mI.dT(f);
-            mI.dj(0);
-            mI.F(file.length());
+        com.baidu.tbadk.coreExtra.data.c mF = com.baidu.tieba.tbadkCore.videoupload.b.mF(f);
+        if (mF == null) {
+            mF = new com.baidu.tbadk.coreExtra.data.c();
+            mF.dW(f);
+            mF.dc(0);
+            mF.G(file.length());
         }
-        this.dBM = new a();
-        com.baidu.tieba.tbadkCore.videoupload.c b = this.dBM.b(str, mI);
+        this.dJp = new a();
+        com.baidu.tieba.tbadkCore.videoupload.c b = this.dJp.b(str, mF);
         VideoFinishResult videoFinishResult = new VideoFinishResult();
         if (b.isSuccess()) {
             ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VIDEO_FINISH_ADDRESS);
-            abVar.o("total_num", String.valueOf(b.aEf()));
+            abVar.o("total_num", String.valueOf(b.aGt()));
             abVar.o("video_md5", f);
-            String ul = abVar.ul();
-            if (abVar.uM().vG().rf()) {
-                videoFinishResult.parseJson(ul);
+            String tV = abVar.tV();
+            if (abVar.uw().vq().qO()) {
+                videoFinishResult.parseJson(tV);
                 boolean isSuccess = videoFinishResult.isSuccess();
                 if (isSuccess || videoFinishResult.getErrorNo() == 320033) {
-                    com.baidu.tieba.tbadkCore.videoupload.b.mH(f);
+                    com.baidu.tieba.tbadkCore.videoupload.b.mE(f);
                 }
                 videoFinishResult.setSuccess(isSuccess);
                 if (!isSuccess) {
@@ -43,7 +43,7 @@ public class c implements b {
                     videoFinishResult.setUserMessage(videoFinishResult.getUserMessage());
                 }
             } else {
-                videoFinishResult.setErrorNo(abVar.uQ());
+                videoFinishResult.setErrorNo(abVar.uA());
                 videoFinishResult.setUserMessage(abVar.getErrorString());
                 videoFinishResult.setSuccess(false);
             }
@@ -57,8 +57,8 @@ public class c implements b {
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
-        if (this.dBM != null) {
-            this.dBM.cancel();
+        if (this.dJp != null) {
+            this.dJp.cancel();
         }
     }
 }

@@ -1,21 +1,24 @@
 package com.baidu.tieba.im;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.util.d<Integer> {
-    final /* synthetic */ b bGh;
+class d extends m<Integer> {
+    final /* synthetic */ c bJO;
+    private final /* synthetic */ boolean bJP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar) {
-        this.bGh = bVar;
+    public d(c cVar, boolean z) {
+        this.bJO = cVar;
+        this.bJP = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.d
-    /* renamed from: c */
-    public void onReturnDataInUI(Integer num) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_FOR_IM, null));
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tbadk.util.m
+    public Integer doInBackground() {
+        if (!this.bJP) {
+            com.baidu.tieba.im.db.b.Yg().Yh();
+        }
+        return 0;
     }
 }

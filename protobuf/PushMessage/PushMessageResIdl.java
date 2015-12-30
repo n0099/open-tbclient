@@ -2,16 +2,13 @@ package protobuf.PushMessage;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-import java.util.Collections;
-import java.util.List;
+import protobuf.Error;
 /* loaded from: classes.dex */
 public final class PushMessageResIdl extends Message {
-    @ProtoField(label = Message.Label.REPEATED, tag = 2)
-    public final List<PushMsg> multiMsg;
-    @ProtoField(tag = 1, type = Message.Datatype.INT64)
-    public final Long pushTime;
-    public static final Long DEFAULT_PUSHTIME = 0L;
-    public static final List<PushMsg> DEFAULT_MULTIMSG = Collections.emptyList();
+    @ProtoField(tag = 2)
+    public final DataRes data;
+    @ProtoField(tag = 1)
+    public final Error error;
 
     /* synthetic */ PushMessageResIdl(Builder builder, boolean z, PushMessageResIdl pushMessageResIdl) {
         this(builder, z);
@@ -20,27 +17,18 @@ public final class PushMessageResIdl extends Message {
     private PushMessageResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            if (builder.pushTime == null) {
-                this.pushTime = DEFAULT_PUSHTIME;
-            } else {
-                this.pushTime = builder.pushTime;
-            }
-            if (builder.multiMsg == null) {
-                this.multiMsg = DEFAULT_MULTIMSG;
-                return;
-            } else {
-                this.multiMsg = immutableCopyOf(builder.multiMsg);
-                return;
-            }
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
         }
-        this.pushTime = builder.pushTime;
-        this.multiMsg = immutableCopyOf(builder.multiMsg);
+        this.error = builder.error;
+        this.data = builder.data;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<PushMessageResIdl> {
-        public List<PushMsg> multiMsg;
-        public Long pushTime;
+        public DataRes data;
+        public Error error;
 
         public Builder() {
         }
@@ -48,8 +36,8 @@ public final class PushMessageResIdl extends Message {
         public Builder(PushMessageResIdl pushMessageResIdl) {
             super(pushMessageResIdl);
             if (pushMessageResIdl != null) {
-                this.pushTime = pushMessageResIdl.pushTime;
-                this.multiMsg = PushMessageResIdl.copyOf(pushMessageResIdl.multiMsg);
+                this.error = pushMessageResIdl.error;
+                this.data = pushMessageResIdl.data;
             }
         }
 

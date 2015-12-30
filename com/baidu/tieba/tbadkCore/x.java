@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.base.e {
-    private String dxX;
-    private a dxY;
-    private String dxZ;
+    private String dFA;
+    private String dFy;
+    private a dFz;
     private String from;
     private String mForumId;
     private String mForumName;
@@ -24,8 +24,8 @@ public class x extends com.baidu.adp.base.e {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.dxX = null;
-        this.dxY = null;
+        this.dFy = null;
+        this.dFz = null;
     }
 
     public void setFrom(String str) {
@@ -42,43 +42,43 @@ public class x extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Op() {
-        if (this.dxY != null) {
-            this.dxY.cancel();
-            this.dxY = null;
+    public void OH() {
+        if (this.dFz != null) {
+            this.dFz.cancel();
+            this.dFz = null;
         }
     }
 
-    public void u(String str, String str2, String str3) {
-        bg(str, str2);
-        this.dxX = str3;
+    public void x(String str, String str2, String str3) {
+        bc(str, str2);
+        this.dFy = str3;
     }
 
-    public void bg(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.dxY == null) {
+    public void bc(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.dFz == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.dxY = new a(this, null);
-            this.dxY.setPriority(2);
-            this.dxY.execute(new Object[0]);
+            this.dFz = new a(this, null);
+            this.dFz.setPriority(2);
+            this.dFz.execute(new Object[0]);
         }
     }
 
-    public boolean aCq() {
-        return this.dxY != null;
+    public boolean aEy() {
+        return this.dFz != null;
     }
 
-    public void mq(String str) {
-        this.dxZ = str;
+    public void mn(String str) {
+        this.dFA = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, y> {
-        private volatile com.baidu.tbadk.core.util.ab agS;
+        private volatile com.baidu.tbadk.core.util.ab ahV;
 
         private a() {
-            this.agS = null;
+            this.ahV = null;
         }
 
         /* synthetic */ a(x xVar, a aVar) {
@@ -91,32 +91,32 @@ public class x extends com.baidu.adp.base.e {
         /* renamed from: D */
         public y doInBackground(Object... objArr) {
             try {
-                this.agS = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-                this.agS.o("kw", x.this.mForumName);
-                this.agS.o(ImageViewerConfig.FORUM_ID, x.this.mForumId);
-                this.agS.o("st_type", x.this.from);
-                if (!StringUtils.isNull(x.this.dxZ)) {
-                    this.agS.o("dev_id", x.this.dxZ);
+                this.ahV = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+                this.ahV.o("kw", x.this.mForumName);
+                this.ahV.o(ImageViewerConfig.FORUM_ID, x.this.mForumId);
+                this.ahV.o("st_type", x.this.from);
+                if (!StringUtils.isNull(x.this.dFA)) {
+                    this.ahV.o("dev_id", x.this.dFA);
                 }
-                if (!TextUtils.isEmpty(x.this.dxX)) {
-                    this.agS.o("pagefrom", x.this.dxX);
+                if (!TextUtils.isEmpty(x.this.dFy)) {
+                    this.ahV.o("pagefrom", x.this.dFy);
                 }
-                this.agS.o("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.agS.o("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.agS.o("forum_name", x.this.mForumName);
-                this.agS.uM().vF().mIsNeedTbs = true;
-                String ul = this.agS.ul();
-                if (!this.agS.uM().vG().uP()) {
-                    x.this.setErrorCode(this.agS.uR());
-                    x.this.setErrorString(this.agS.uS());
+                this.ahV.o("user_name", TbadkCoreApplication.getCurrentAccountName());
+                this.ahV.o("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.ahV.o("forum_name", x.this.mForumName);
+                this.ahV.uw().vp().mIsNeedTbs = true;
+                String tV = this.ahV.tV();
+                if (!this.ahV.uw().vq().uz()) {
+                    x.this.setErrorCode(this.ahV.uB());
+                    x.this.setErrorString(this.ahV.uC());
                 } else {
-                    x.this.setErrorCode(this.agS.uQ());
-                    x.this.setErrorString(this.agS.getErrorString());
+                    x.this.setErrorCode(this.ahV.uA());
+                    x.this.setErrorString(this.ahV.getErrorString());
                 }
-                if (this.agS.uM().vG().rf() && ul != null) {
+                if (this.ahV.uw().vq().qO() && tV != null) {
                     y yVar = new y();
-                    yVar.parserJson(ul);
-                    yVar.mr(x.this.mForumId);
+                    yVar.parserJson(tV);
+                    yVar.mo(x.this.mForumId);
                     return yVar;
                 }
             } catch (Exception e) {
@@ -124,7 +124,7 @@ public class x extends com.baidu.adp.base.e {
             }
             y yVar2 = new y();
             yVar2.setLike(0);
-            yVar2.mr(x.this.mForumId);
+            yVar2.mo(x.this.mForumId);
             return yVar2;
         }
 
@@ -133,8 +133,8 @@ public class x extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(y yVar) {
-            x.this.dxY = null;
-            if (this.agS != null && this.agS.uM().vG().rf() && yVar != null) {
+            x.this.dFz = null;
+            if (this.ahV != null && this.ahV.uw().vq().qO() && yVar != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(yVar.getFid(), 0L))));
                 TbadkCoreApplication.m411getInst().addLikeForum(x.this.mForumName);
             }
@@ -145,11 +145,11 @@ public class x extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.agS != null) {
-                this.agS.gL();
-                this.agS = null;
+            if (this.ahV != null) {
+                this.ahV.gL();
+                this.ahV = null;
             }
-            x.this.dxY = null;
+            x.this.dFz = null;
             super.cancel(true);
             x.this.mLoadDataCallBack.d(null);
         }

@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ BdExpandListView HB;
+    final /* synthetic */ BdExpandListView HR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdExpandListView bdExpandListView) {
-        this.HB = bdExpandListView;
+        this.HR = bdExpandListView;
     }
 
     @Override // java.lang.Runnable
@@ -16,11 +16,11 @@ class b implements Runnable {
         View view;
         View view2;
         int i;
-        view = this.HB.Hq;
-        view2 = this.HB.Hq;
+        view = this.HR.HG;
+        view2 = this.HR.HG;
         int width = view2.getWidth();
-        i = this.HB.Hr;
+        i = this.HR.HH;
         view.setLayoutParams(new AbsListView.LayoutParams(width, i));
-        this.HB.invalidate();
+        this.HR.invalidate();
     }
 }

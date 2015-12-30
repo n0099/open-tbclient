@@ -19,7 +19,7 @@ import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Static {
-    private static CustomMessageTask axM = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    private static CustomMessageTask azq = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             boolean z;
@@ -27,31 +27,31 @@ public class Static {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.cgJ == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.ckO == null) {
                         return null;
                     }
                     String str = "";
-                    if (data.cgH == null) {
-                        if (data.pos < data.ipListData.cgJ.size()) {
-                            ArrayList<String> arrayList = data.ipListData.cgJ.get(data.pos);
+                    if (data.ckM == null) {
+                        if (data.pos < data.ipListData.ckO.size()) {
+                            ArrayList<String> arrayList = data.ipListData.ckO.get(data.pos);
                             if (arrayList.size() > 0) {
                                 z = false;
                                 str = arrayList.get(0);
                             }
                         }
                         z = false;
-                    } else if (data.cgH.length() <= 0) {
+                    } else if (data.ckM.length() <= 0) {
                         return null;
                     } else {
-                        str = data.cgH;
+                        str = data.ckM;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.cgL, data.ipListData.cgI, data.isNormal);
-                        data.GJ = System.currentTimeMillis() - currentTimeMillis;
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.ckQ, data.ipListData.ckN, data.isNormal);
+                        data.Ha = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.cgH = str;
+                            data.ckM = str;
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
@@ -81,8 +81,8 @@ public class Static {
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        axM.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        axM.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
-        MessageManager.getInstance().registerTask(axM);
+        azq.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        azq.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        MessageManager.getInstance().registerTask(azq);
     }
 }

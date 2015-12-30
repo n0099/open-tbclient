@@ -1,33 +1,33 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 /* loaded from: classes.dex */
-class bd implements q.a {
-    final /* synthetic */ ax cLg;
+class bd implements r.a {
+    final /* synthetic */ ax cPw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(ax axVar) {
-        this.cLg = axVar;
+        this.cPw = axVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.q.a
+    @Override // com.baidu.tbadk.core.view.r.a
     public void onListPullRefresh(boolean z) {
-        PersonFriendActivity anL;
+        PersonFriendActivity aoW;
         bg bgVar;
         boolean z2;
-        PersonFriendActivity anL2;
+        PersonFriendActivity aoW2;
         int i;
         int i2;
-        anL = this.cLg.anL();
-        if (anL != null) {
-            this.cLg.pageNum = 0;
-            this.cLg.cLb = true;
-            bgVar = this.cLg.cKX;
-            z2 = this.cLg.mIsHost;
-            anL2 = this.cLg.anL();
-            String uid = anL2.getUid();
-            i = this.cLg.pageNum;
-            i2 = this.cLg.cLd;
+        aoW = this.cPw.aoW();
+        if (aoW != null) {
+            this.cPw.pageNum = 0;
+            this.cPw.cPr = true;
+            bgVar = this.cPw.cPn;
+            z2 = this.cPw.mIsHost;
+            aoW2 = this.cPw.aoW();
+            String uid = aoW2.getUid();
+            i = this.cPw.pageNum;
+            i2 = this.cPw.cPt;
             bgVar.a(z2, uid, i, i2);
         }
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.squareup.wire.Wire;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
@@ -58,7 +57,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        PbPageResIdl pbPageResIdl = (PbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, PbPageResIdl.class);
+        PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0) {
@@ -73,10 +72,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bx.akA().a(this.cacheKey, this.isFromMark, bArr);
+                ca.alH().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bx.akA().m(this.cacheKey, bArr);
+                ca.alH().m(this.cacheKey, bArr);
                 return;
             default:
                 return;

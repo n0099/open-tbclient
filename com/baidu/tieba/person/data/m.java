@@ -2,42 +2,41 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.personInfo.PersonUserGodInfo;
-import java.util.List;
-import tbclient.Profile.ForumGodDetailInfo;
-import tbclient.Profile.GodDetailInfo;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personInfo.PersonTainInfo;
 /* loaded from: classes.dex */
 public class m implements u {
-    public static final BdUniqueId cND = BdUniqueId.gen();
-    private PersonUserGodInfo cNE;
-    private List<ForumGodDetailInfo> forumGodList;
-    private GodDetailInfo godDetailInfo;
+    public static final BdUniqueId cSg = BdUniqueId.gen();
+    private boolean bAA;
+    private PersonTainInfo cSh;
+    private UserData mUserData;
+
+    public UserData getUserData() {
+        return this.mUserData;
+    }
+
+    public void f(UserData userData) {
+        this.mUserData = userData;
+    }
+
+    public boolean getIsSelf() {
+        return this.bAA;
+    }
+
+    public void setIsSelf(boolean z) {
+        this.bAA = z;
+    }
+
+    public void b(PersonTainInfo personTainInfo) {
+        this.cSh = personTainInfo;
+    }
+
+    public PersonTainInfo apv() {
+        return this.cSh;
+    }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cND;
-    }
-
-    public void a(PersonUserGodInfo personUserGodInfo) {
-        if (personUserGodInfo != null) {
-            this.cNE = personUserGodInfo;
-            this.godDetailInfo = personUserGodInfo.getgodDetailInfo();
-            this.forumGodList = personUserGodInfo.getForumGodList();
-        }
-    }
-
-    public int aon() {
-        if (this.cNE == null) {
-            return -1;
-        }
-        return this.cNE.getGodType();
-    }
-
-    public GodDetailInfo aoo() {
-        return this.godDetailInfo;
-    }
-
-    public List<ForumGodDetailInfo> getForumGodList() {
-        return this.forumGodList;
+        return cSg;
     }
 }

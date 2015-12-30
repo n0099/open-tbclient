@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bTj;
+    final /* synthetic */ b bWT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bTj = bVar;
+        this.bWT = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,32 +31,32 @@ public class c extends CustomMessageListener {
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                        if (imMessageCenterPojo != null && bw.in(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bTj.e(imMessageCenterPojo);
+                        if (imMessageCenterPojo != null && bz.iM(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                            this.bWT.e(imMessageCenterPojo);
                         }
                     }
                 }
-                this.bTj.bTd.set(true);
-                this.bTj.Zx();
+                this.bWT.bWM.set(true);
+                this.bWT.aaC();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    l = this.bTj.l(imMessageCenterPojo2);
+                    l = this.bWT.l(imMessageCenterPojo2);
                     if (!l || imMessageCenterPojo2.getPulled_msgId() > 0) {
-                        this.bTj.e(imMessageCenterPojo2);
+                        this.bWT.e(imMessageCenterPojo2);
                     }
                 }
-                this.bTj.dE(false);
-                this.bTj.dF(false);
-                this.bTj.Zu();
-                this.bTj.Zv();
-                this.bTj.Zw();
+                this.bWT.dE(false);
+                this.bWT.dF(false);
+                this.bWT.aaz();
+                this.bWT.aaA();
+                this.bWT.aaB();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.bTj.bTd.set(true);
-            this.bTj.Zx();
+            this.bWT.bWM.set(true);
+            this.bWT.aaC();
         }
     }
 }

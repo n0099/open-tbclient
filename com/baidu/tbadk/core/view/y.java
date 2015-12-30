@@ -1,49 +1,43 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class y implements com.baidu.adp.lib.f.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class y extends ImageSpan {
+    private WeakReference<Drawable> FL;
+    private int offset;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(Context context) {
-        this.val$context = context;
+    public y(Drawable drawable) {
+        super(drawable);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wj */
-    public TbImageView hc() {
-        return new TbImageView(this.val$context);
+    public void setOffset(int i) {
+        this.offset = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void l(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable mh = mh();
+        canvas.save();
+        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - mh.getBounds().height()) / 2) + this.offset);
+        mh.draw(canvas);
+        canvas.restore();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public TbImageView m(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public TbImageView n(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    private Drawable mh() {
+        WeakReference<Drawable> weakReference = this.FL;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
+        }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.FL = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

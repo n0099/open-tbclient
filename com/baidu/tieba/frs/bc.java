@@ -1,7 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public interface bc {
-    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.z zVar);
+class bc implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

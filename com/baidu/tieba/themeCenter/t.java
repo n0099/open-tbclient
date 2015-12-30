@@ -12,6 +12,6 @@ class t implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, ThemeStatic.bR(n.aFl().aFn()));
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, ThemeStatic.bU(n.aHA().aHC()));
     }
 }

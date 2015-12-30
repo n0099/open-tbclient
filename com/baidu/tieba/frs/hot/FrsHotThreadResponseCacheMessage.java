@@ -50,7 +50,7 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                         z zVar = new z();
                         zVar.setUserMap(hashMap);
                         zVar.a(list2.get(i3));
-                        zVar.bJ(0);
+                        zVar.bC(0);
                         zVar.parser_title();
                         this.mThreadList.add(zVar);
                     }

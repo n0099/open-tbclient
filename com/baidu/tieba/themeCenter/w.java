@@ -11,21 +11,21 @@ import java.util.List;
 class w implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<Object> run(CustomMessage<Object> customMessage) {
-        ArrayList<String> aFm;
-        if (customMessage != null && (aFm = n.aFl().aFm()) != null && aFm.size() > 0) {
+        ArrayList<String> aHB;
+        if (customMessage != null && (aHB = n.aHA().aHB()) != null && aHB.size() > 0) {
             TbadkCoreApplication.m411getInst().setSkinType(0);
-            Iterator<String> it = aFm.iterator();
+            Iterator<String> it = aHB.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                List<b> mT = n.aFl().mT(next);
-                if (mT != null && mT.size() > 0) {
-                    for (b bVar : mT) {
+                List<b> mQ = n.aHA().mQ(next);
+                if (mQ != null && mQ.size() > 0) {
+                    for (b bVar : mQ) {
                         if (bVar != null) {
-                            com.baidu.tbadk.core.util.n.cZ(String.valueOf(bVar.getId()) + ".apk");
+                            com.baidu.tbadk.core.util.n.dc(String.valueOf(bVar.getId()) + ".apk");
                         }
                     }
-                    n.aFl().mS(next);
-                    n.aFl().mR(next);
+                    n.aHA().mP(next);
+                    n.aHA().mO(next);
                 }
             }
         }

@@ -4,35 +4,35 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements Runnable {
-    final /* synthetic */ ak abB;
-    private final /* synthetic */ String abC;
-    private final /* synthetic */ int abD;
-    private final /* synthetic */ String abE;
+    final /* synthetic */ ak acf;
+    private final /* synthetic */ String acg;
+    private final /* synthetic */ int ach;
+    private final /* synthetic */ String aci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ak akVar, String str, int i, String str2) {
-        this.abB = akVar;
-        this.abC = str;
-        this.abD = i;
-        this.abE = str2;
+        this.acf = akVar;
+        this.acg = str;
+        this.ach = i;
+        this.aci = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File vd;
+        File uN;
         boolean c;
-        boolean cA;
-        vd = this.abB.vd();
-        c = this.abB.c(vd, this.abC);
+        boolean ct;
+        uN = this.acf.uN();
+        c = this.acf.c(uN, this.acg);
         if (c) {
-            this.abB.s(vd);
-            cA = this.abB.cA(this.abD);
-            if (cA) {
-                this.abB.vb();
+            this.acf.s(uN);
+            ct = this.acf.ct(this.ach);
+            if (ct) {
+                this.acf.uL();
                 return;
             }
         }
-        this.abB.vf();
-        this.abB.d(this.abE, this.abC, this.abD);
+        this.acf.uP();
+        this.acf.d(this.aci, this.acg, this.ach);
     }
 }

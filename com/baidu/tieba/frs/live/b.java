@@ -9,21 +9,21 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.f.c<dy> {
-    final /* synthetic */ a bhq;
+    final /* synthetic */ a blh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bhq = aVar;
+        this.blh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: OR */
+    /* renamed from: Pj */
     public dy hc() {
         Context context;
-        context = this.bhq.mContext;
-        dy dyVar = new dy(LayoutInflater.from(context).inflate(n.g.frs_item_single_photolivecard, (ViewGroup) null));
-        ((LinearLayout.LayoutParams) dyVar.beA.getLayoutParams()).topMargin = 0;
+        context = this.blh.mContext;
+        dy dyVar = new dy(LayoutInflater.from(context).inflate(n.h.frs_item_single_photolivecard, (ViewGroup) null));
+        ((LinearLayout.LayoutParams) dyVar.biu.getLayoutParams()).topMargin = 0;
         return dyVar;
     }
 

@@ -9,7 +9,7 @@ class v implements CustomMessageTask.CustomRunnable<b> {
     public CustomResponsedMessage<Object> run(CustomMessage<b> customMessage) {
         if (customMessage != null && (customMessage.getData() instanceof b)) {
             b data = customMessage.getData();
-            com.baidu.tbadk.core.util.n.cZ(String.valueOf(data.getId()) + "_" + data.getTitle() + ".tmp");
+            com.baidu.tbadk.core.util.n.dc(String.valueOf(data.getId()) + "_" + data.getTitle() + ".tmp");
         }
         return null;
     }

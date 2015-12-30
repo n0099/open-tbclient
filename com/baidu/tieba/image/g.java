@@ -3,11 +3,11 @@ package com.baidu.tieba.image;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class g implements a.b {
-    final /* synthetic */ a cfw;
+    final /* synthetic */ a cjA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.cfw = aVar;
+        this.cjA = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

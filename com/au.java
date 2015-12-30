@@ -8,17 +8,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au implements IBaiduListener {
-    final /* synthetic */ SocialOAuthActivity dWf;
+    final /* synthetic */ SocialOAuthActivity edD;
 
     public au(SocialOAuthActivity socialOAuthActivity) {
-        this.dWf = socialOAuthActivity;
+        this.edD = socialOAuthActivity;
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.dWf.finish();
+        this.edD.finish();
         iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
             iBaiduListener2 = SocialOAuthActivity.a;
@@ -30,7 +30,7 @@ public class au implements IBaiduListener {
     public void onComplete() {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.dWf.finish();
+        this.edD.finish();
         iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
             iBaiduListener2 = SocialOAuthActivity.a;
@@ -42,7 +42,7 @@ public class au implements IBaiduListener {
     public void onComplete(JSONArray jSONArray) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.dWf.finish();
+        this.edD.finish();
         iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
             iBaiduListener2 = SocialOAuthActivity.a;
@@ -54,11 +54,11 @@ public class au implements IBaiduListener {
     public void onComplete(JSONObject jSONObject) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        if (!SessionManager.getInstance(this.dWf).save(jSONObject)) {
+        if (!SessionManager.getInstance(this.edD).save(jSONObject)) {
             onError(new BaiduException("failed to save social session, it may be an error content"));
             return;
         }
-        this.dWf.finish();
+        this.edD.finish();
         iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
             iBaiduListener2 = SocialOAuthActivity.a;
@@ -70,7 +70,7 @@ public class au implements IBaiduListener {
     public void onError(BaiduException baiduException) {
         IBaiduListener iBaiduListener;
         IBaiduListener iBaiduListener2;
-        this.dWf.finish();
+        this.edD.finish();
         iBaiduListener = SocialOAuthActivity.a;
         if (iBaiduListener != null) {
             iBaiduListener2 = SocialOAuthActivity.a;

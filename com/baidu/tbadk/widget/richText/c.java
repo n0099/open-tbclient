@@ -6,52 +6,52 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.b.a.a.i {
-    private SpannableStringBuilder aCU;
-    private f aCV;
-    private ArrayList<e> aCW;
-    private v aCX;
-    private a aCY;
-    private d aCZ;
-    private m aDa;
-    private k aDb;
-    private j aDc;
-    private int aDd;
+    private k aEA;
+    private j aEB;
+    private int aEC;
+    private SpannableStringBuilder aEt;
+    private f aEu;
+    private ArrayList<e> aEv;
+    private v aEw;
+    private a aEx;
+    private d aEy;
+    private m aEz;
     private int mType;
 
     public c() {
         this.mType = 0;
-        this.aCU = null;
-        this.aCV = null;
-        this.aCW = null;
-        this.aCX = null;
-        this.aCY = null;
+        this.aEt = null;
+        this.aEu = null;
+        this.aEv = null;
+        this.aEw = null;
+        this.aEx = null;
     }
 
     public c(int i) {
         this.mType = 0;
-        this.aCU = null;
-        this.aCV = null;
-        this.aCW = null;
-        this.aCX = null;
-        this.aCY = null;
+        this.aEt = null;
+        this.aEu = null;
+        this.aEv = null;
+        this.aEw = null;
+        this.aEx = null;
         this.mType = i;
-        this.aCY = new a();
+        this.aEx = new a();
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public ArrayList<e> FP() {
-        if (this.aCW == null) {
-            this.aCW = new ArrayList<>();
+    public ArrayList<e> FE() {
+        if (this.aEv == null) {
+            this.aEv = new ArrayList<>();
         }
-        return this.aCW;
+        return this.aEv;
     }
 
     public void O(int i, int i2) {
-        if (this.aCW != null) {
-            Iterator<e> it = this.aCW.iterator();
+        if (this.aEv != null) {
+            Iterator<e> it = this.aEv.iterator();
             while (it.hasNext()) {
                 e next = it.next();
                 Rect bounds = next.getBounds();
@@ -63,8 +63,8 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public void P(int i, int i2) {
-        if (this.aCW != null) {
-            Iterator<e> it = this.aCW.iterator();
+        if (this.aEv != null) {
+            Iterator<e> it = this.aEv.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -73,130 +73,137 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.aCU == null) {
-                this.aCU = new SpannableStringBuilder("");
+            if (this.aEt == null) {
+                this.aEt = new SpannableStringBuilder("");
             }
-            this.aCU.append(charSequence);
-            this.aCY.aDe = this.aCU.length();
+            this.aEt.append(charSequence);
+            this.aEx.aED = this.aEt.length();
         }
     }
 
     public void setVideoUrl(String str) {
         if (this.mType == 32 && str != null) {
-            this.aCU = new SpannableStringBuilder(str);
+            this.aEt = new SpannableStringBuilder(str);
         }
     }
 
-    public f FQ() {
+    public f FF() {
         if (this.mType != 8) {
             return null;
         }
-        return this.aCV;
+        return this.aEu;
     }
 
     public void a(f fVar) {
         if (this.mType == 8) {
-            this.aCV = fVar;
+            this.aEu = fVar;
         }
     }
 
-    public SpannableStringBuilder FR() {
-        return this.aCU;
+    public SpannableStringBuilder FG() {
+        return this.aEt;
     }
 
-    public v FS() {
+    public void b(SpannableStringBuilder spannableStringBuilder) {
+        if (this.aEt != null) {
+            this.aEt.clear();
+            this.aEt.append((CharSequence) spannableStringBuilder);
+        }
+    }
+
+    public v FH() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aCX;
+            return this.aEw;
         }
         return null;
     }
 
     public void a(v vVar) {
         if (this.mType == 512 || this.mType == 768) {
-            this.aCX = vVar;
+            this.aEw = vVar;
         }
     }
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.aCU != null) {
-                return this.aCU.toString();
+            if (this.aEt != null) {
+                return this.aEt.toString();
             }
         } else if (this.mType == 8) {
-            if (this.aCV != null) {
-                return this.aCV.Gb();
+            if (this.aEu != null) {
+                return this.aEu.FQ();
             }
-        } else if (this.mType == 17 && this.aCZ != null) {
-            return this.aCZ.auv.atV;
+        } else if (this.mType == 17 && this.aEy != null) {
+            return this.aEy.avZ.avz;
         }
         return "";
     }
 
     /* loaded from: classes.dex */
     public class a extends com.baidu.adp.lib.a.b.a.a.i {
-        public int aDe = 0;
-        public int aDf = 0;
-        public int aDg = 0;
-        public boolean aDh;
+        public int aED = 0;
+        public int aEE = 0;
+        public int aEF = 0;
+        public boolean aEG;
 
         public a() {
         }
     }
 
-    public a FT() {
+    public a FI() {
         if (this.mType != 1) {
             return null;
         }
-        return this.aCY;
+        return this.aEx;
     }
 
     public void a(m mVar) {
         if (this.mType == 32) {
-            this.aDa = mVar;
+            this.aEz = mVar;
         }
     }
 
-    public m FU() {
+    public m FJ() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aDa;
+        return this.aEz;
     }
 
     public void a(d dVar) {
         if (this.mType == 17) {
-            this.aCZ = dVar;
+            this.aEy = dVar;
         }
     }
 
-    public d FV() {
-        return this.aCZ;
+    public d FK() {
+        return this.aEy;
     }
 
-    public int FW() {
-        return this.aDd;
+    public int FL() {
+        return this.aEC;
     }
 
-    public void eV(int i) {
-        this.aDd = i;
+    public void eP(int i) {
+        this.aEC = i;
     }
 
-    public k FX() {
+    public k FM() {
         if (this.mType != 1280) {
             return null;
         }
-        return this.aDb;
+        return this.aEA;
     }
 
     public void a(k kVar) {
-        this.aDb = kVar;
+        this.aEA = kVar;
     }
 
-    public j FY() {
-        return this.aDc;
+    public j FN() {
+        return this.aEB;
     }
 
     public void a(j jVar) {
-        this.aDc = jVar;
+        this.aEB = jVar;
     }
 }

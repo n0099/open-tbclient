@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c avi = new c();
-    private final HashMap<String, Class<? extends b>> avj = new HashMap<>();
+    private static c awM = new c();
+    private final HashMap<String, Class<? extends b>> awN = new HashMap<>();
 
-    public static c De() {
-        return avi;
+    public static c CT() {
+        return awM;
     }
 
     private c() {
-        i(d.class);
-        i(f.class);
-        i(a.class);
-        i(e.class);
+        h(d.class);
+        h(f.class);
+        h(a.class);
+        h(e.class);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap fI = dVar != null ? dVar.fI(str) : null;
+        Bitmap fM = dVar != null ? dVar.fM(str) : null;
         if (list == null) {
-            return fI;
+            return fM;
         }
         while (true) {
-            Bitmap bitmap = fI;
+            Bitmap bitmap = fM;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    fI = bitmap;
+                    fM = bitmap;
                 } else if (bitmap == null) {
-                    fI = a.fI(str);
+                    fM = a.fM(str);
                 } else {
-                    fI = a.b(bitmap, true);
+                    fM = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -122,23 +122,23 @@ public class c {
     }
 
     protected b a(ImageOperation imageOperation) {
-        b j;
-        Class<? extends b> cls = this.avj.get(imageOperation.actionName);
-        if (cls != null && (j = j(cls)) != null) {
-            j.fH(imageOperation.actionParam);
-            return j;
+        b i;
+        Class<? extends b> cls = this.awN.get(imageOperation.actionName);
+        if (cls != null && (i = i(cls)) != null) {
+            i.fL(imageOperation.actionParam);
+            return i;
         }
         return null;
     }
 
-    private void i(Class<? extends b> cls) {
-        b j = j(cls);
-        if (j != null) {
-            this.avj.put(j.getActionName(), cls);
+    private void h(Class<? extends b> cls) {
+        b i = i(cls);
+        if (i != null) {
+            this.awN.put(i.getActionName(), cls);
         }
     }
 
-    private b j(Class<? extends b> cls) {
+    private b i(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

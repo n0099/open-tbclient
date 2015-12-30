@@ -7,17 +7,17 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Animation.AnimationListener {
-    private final /* synthetic */ String bHr;
-    final /* synthetic */ PersonalChatView bZt;
-    private final /* synthetic */ Animation bZu;
-    private final /* synthetic */ String bZv;
+    private final /* synthetic */ String bKY;
+    final /* synthetic */ PersonalChatView cdt;
+    private final /* synthetic */ Animation cdu;
+    private final /* synthetic */ String cdv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.bZt = personalChatView;
-        this.bHr = str;
-        this.bZv = str2;
-        this.bZu = animation;
+        this.cdt = personalChatView;
+        this.bKY = str;
+        this.cdv = str2;
+        this.cdu = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class s implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.bZt.bZm;
+        linearLayout = this.cdt.cdm;
         linearLayout.clearAnimation();
-        textView = this.bZt.bZn;
-        personalChatActivity = this.bZt.bZk;
-        textView.setText(personalChatActivity.getResources().getString(n.i.add_friend_agree_title, this.bHr));
-        textView2 = this.bZt.bZo;
-        textView2.setText(this.bZv);
-        linearLayout2 = this.bZt.bZm;
-        linearLayout2.setAnimation(this.bZu);
+        textView = this.cdt.cdn;
+        personalChatActivity = this.cdt.cdk;
+        textView.setText(personalChatActivity.getResources().getString(n.j.add_friend_agree_title, this.bKY));
+        textView2 = this.cdt.cdo;
+        textView2.setText(this.cdv);
+        linearLayout2 = this.cdt.cdm;
+        linearLayout2.setAnimation(this.cdu);
     }
 }

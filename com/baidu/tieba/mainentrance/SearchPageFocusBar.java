@@ -16,9 +16,9 @@ import com.baidu.tieba.n;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout clb;
-    private TextView clc;
-    private TextView cld;
+    private RelativeLayout cpf;
+    private TextView cpg;
+    private TextView cph;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -39,49 +39,49 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(n.g.home_search_focusbar, this);
-        this.clb = (RelativeLayout) findViewById(n.f.focusbar_container);
-        this.cld = (TextView) findViewById(n.f.focusbar_hint);
-        com.baidu.tbadk.core.util.as.b(this.cld, n.c.cp_cont_c, 1);
-        this.cld.setVisibility(8);
-        this.clc = (TextView) findViewById(n.f.focusbar_show);
-        com.baidu.tbadk.core.util.as.b(this.clc, n.c.cp_link_tip_a, 1);
-        this.clc.setVisibility(8);
+        LayoutInflater.from(context).inflate(n.h.home_search_focusbar, this);
+        this.cpf = (RelativeLayout) findViewById(n.g.focusbar_container);
+        this.cph = (TextView) findViewById(n.g.focusbar_hint);
+        com.baidu.tbadk.core.util.as.b(this.cph, n.d.cp_cont_c, 1);
+        this.cph.setVisibility(8);
+        this.cpg = (TextView) findViewById(n.g.focusbar_show);
+        com.baidu.tbadk.core.util.as.b(this.cpg, n.d.cp_link_tip_a, 1);
+        this.cpg.setVisibility(8);
     }
 
     public void c(List<String> list, TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.clb.removeAllViews();
+        this.cpf.removeAllViews();
         if (list != null && list.size() > 0) {
-            this.cld.setVisibility(0);
+            this.cph.setVisibility(0);
             for (int i = 0; i < list.size() && i <= 5; i++) {
                 Z(list.get(i), i);
             }
         }
         if (list != null && list.size() >= 7) {
-            this.clc.setVisibility(0);
-            this.clc.setOnClickListener(new j(this, tbPageContext));
+            this.cpg.setVisibility(0);
+            this.cpg.setOnClickListener(new j(this, tbPageContext));
         }
     }
 
     private void Z(String str, int i) {
         int i2;
         if (i % 2 > 0) {
-            i2 = (int) getResources().getDimension(n.d.ds330);
+            i2 = (int) getResources().getDimension(n.e.ds330);
         } else {
             i2 = 0;
         }
-        TextView textView = (TextView) LayoutInflater.from(this.mContext).inflate(n.g.home_search_focusbar_item, (ViewGroup) null);
-        int dimension = (i / 2) * ((int) getResources().getDimension(n.d.ds110));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(n.d.ds321), (int) getResources().getDimension(n.d.ds96));
+        TextView textView = (TextView) LayoutInflater.from(this.mContext).inflate(n.h.home_search_focusbar_item, (ViewGroup) null);
+        int dimension = (i / 2) * ((int) getResources().getDimension(n.e.ds110));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(n.e.ds321), (int) getResources().getDimension(n.e.ds96));
         layoutParams.leftMargin = i2;
         layoutParams.topMargin = dimension;
         textView.setLayoutParams(layoutParams);
         textView.setText(str);
         textView.setOnClickListener(this);
-        com.baidu.tbadk.core.util.as.i((View) textView, n.e.home_like_item_bg);
-        com.baidu.tbadk.core.util.as.b(textView, n.c.cp_cont_b, 1);
-        this.clb.addView(textView);
+        com.baidu.tbadk.core.util.as.i((View) textView, n.f.home_like_item_bg);
+        com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_b, 1);
+        this.cpf.addView(textView);
     }
 
     @Override // android.view.View.OnClickListener

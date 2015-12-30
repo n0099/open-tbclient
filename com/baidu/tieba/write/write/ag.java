@@ -5,20 +5,20 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dRf;
+    final /* synthetic */ WriteActivity dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.dRf = writeActivity;
+        this.dYD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         com.baidu.tbadk.editortools.k kVar;
-        editText = this.dRf.dNr;
+        editText = this.dYD.dUQ;
         editText.requestFocus();
-        kVar = this.dRf.aqK;
-        kVar.zY();
+        kVar = this.dYD.aso;
+        kVar.zK();
     }
 }

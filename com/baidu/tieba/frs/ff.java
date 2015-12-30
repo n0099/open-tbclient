@@ -5,18 +5,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class ff implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ TabMenuPopView bfY;
+    final /* synthetic */ TabMenuPopView bjQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ff(TabMenuPopView tabMenuPopView) {
-        this.bfY = tabMenuPopView;
+        this.bjQ = tabMenuPopView;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
     public void onChildViewRemoved(View view, View view2) {
         com.baidu.adp.lib.f.b bVar;
         if (view2 instanceof TextView) {
-            bVar = this.bfY.aDy;
+            bVar = this.bjQ.aEX;
             bVar.k((TextView) view2);
         }
     }

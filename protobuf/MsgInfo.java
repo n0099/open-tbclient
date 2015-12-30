@@ -25,6 +25,8 @@ public final class MsgInfo extends Message {
     public final Integer msgType;
     @ProtoField(tag = 9, type = Message.Datatype.INT64)
     public final Long recordId;
+    @ProtoField(tag = 17, type = Message.Datatype.INT64)
+    public final Long sid;
     @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String stat;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
@@ -50,6 +52,7 @@ public final class MsgInfo extends Message {
     public static final Long DEFAULT_TOUID = 0L;
     public static final Long DEFAULT_TASKID = 0L;
     public static final Integer DEFAULT_ISFRIEND = 0;
+    public static final Long DEFAULT_SID = 0L;
 
     /* synthetic */ MsgInfo(Builder builder, boolean z, MsgInfo msgInfo) {
         this(builder, z);
@@ -127,9 +130,14 @@ public final class MsgInfo extends Message {
             }
             if (builder.isFriend == null) {
                 this.isFriend = DEFAULT_ISFRIEND;
-                return;
             } else {
                 this.isFriend = builder.isFriend;
+            }
+            if (builder.sid == null) {
+                this.sid = DEFAULT_SID;
+                return;
+            } else {
+                this.sid = builder.sid;
                 return;
             }
         }
@@ -149,6 +157,7 @@ public final class MsgInfo extends Message {
         this.stat = builder.stat;
         this.taskId = builder.taskId;
         this.isFriend = builder.isFriend;
+        this.sid = builder.sid;
     }
 
     /* loaded from: classes.dex */
@@ -162,6 +171,7 @@ public final class MsgInfo extends Message {
         public Long msgId;
         public Integer msgType;
         public Long recordId;
+        public Long sid;
         public String stat;
         public Integer status;
         public Long taskId;
@@ -192,6 +202,7 @@ public final class MsgInfo extends Message {
                 this.stat = msgInfo.stat;
                 this.taskId = msgInfo.taskId;
                 this.isFriend = msgInfo.isFriend;
+                this.sid = msgInfo.sid;
             }
         }
 

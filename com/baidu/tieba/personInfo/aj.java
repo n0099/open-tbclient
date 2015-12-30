@@ -1,26 +1,29 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.person.a;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
-    final /* synthetic */ d cSn;
+public class aj implements a.b {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(d dVar) {
-        this.cSn = dVar;
+        this.cWV = dVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        baseFragmentActivity = this.cSn.aHN;
-        TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        baseFragmentActivity2 = this.cSn.aHN;
-        bj.af(baseFragmentActivity2.getPageContext().getPageActivity());
+    @Override // com.baidu.tieba.person.a.b
+    public void a(int i, String str, ImageUploadResult imageUploadResult) {
+        List list;
+        if (i == 0 && imageUploadResult != null) {
+            String str2 = null;
+            if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
+                str2 = imageUploadResult.picInfo.bigPic.picUrl;
+            }
+            d dVar = this.cWV;
+            list = this.cWV.cWs;
+            dVar.g(str2, list);
+        }
     }
 }

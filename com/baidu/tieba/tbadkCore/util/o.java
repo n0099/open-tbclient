@@ -1,37 +1,43 @@
 package com.baidu.tieba.tbadkCore.util;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class o extends p {
-    private volatile HashMap<String, Long> dBH;
+public class o extends q {
+    private volatile HashMap<String, Long> dJk;
+
+    static {
+        MessageManager.getInstance().registerListener(new p(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
+    }
 
     public o(int i) {
         super(i);
-        this.dBH = new HashMap<>();
+        this.dJk = new HashMap<>();
     }
 
-    public void bj(String str, String str2) {
+    public void bf(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.dBH.size() >= this.dgl) {
-                    arI();
+                if (this.dJk.size() >= this.dlR) {
+                    atf();
                 }
-                this.dBH.put(str, valueOf);
+                this.dJk.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long mD(String str) {
+    public long mA(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.dBH.get(str) != null ? this.dBH.get(str).longValue() : 0L;
+                longValue = this.dJk.get(str) != null ? this.dJk.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -40,19 +46,27 @@ public class o extends p {
         }
     }
 
-    public void bk(String str, String str2) {
+    public void bg(String str, String str2) {
         String key;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.dBH.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.dJk.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.dBH.remove(key);
+                    this.dJk.remove(key);
                 }
-                this.dBH.put(str, valueOf);
+                this.dJk.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.util.q
+    public void aGq() {
+        synchronized (this) {
+            this.dJm.clear();
+            this.dJk.clear();
         }
     }
 }

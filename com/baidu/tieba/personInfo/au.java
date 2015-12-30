@@ -1,36 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandImageView;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ at cSS;
+public class au extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar) {
-        this.cSS = atVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public au(d dVar, int i, int i2) {
+        super(i, i2);
+        this.cWV = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        BdExpandImageView bdExpandImageView;
-        if (aVar != null) {
-            bdExpandImageView = this.cSS.cSr;
-            aVar.a(bdExpandImageView);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        if (responsedMessage != null && responsedMessage.getError() == 0) {
+            z = this.cWV.mIsHost;
+            if (z) {
+                this.cWV.cWl = true;
+            }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void an(String str) {
-        super.an(str);
     }
 }

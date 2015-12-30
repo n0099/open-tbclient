@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private c ctK;
-    final CustomMessageListener ctL = new a(this, CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT);
-    private CustomMessageListener ctM = new b(this, CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE);
+    private c cxM;
+    final CustomMessageListener cxN = new a(this, CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT);
+    private CustomMessageListener cxO = new b(this, CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(n.g.collect_tab_activity);
-        this.ctK = new c(this);
-        this.ctL.setPriority(100);
-        registerListener(this.ctL);
-        registerListener(this.ctM);
-        ahO();
+        setContentView(n.h.collect_tab_activity);
+        this.cxM = new c(this);
+        this.cxN.setPriority(100);
+        registerListener(this.cxN);
+        registerListener(this.cxO);
+        aiY();
     }
 
-    protected void ahO() {
+    protected void aiY() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT, new com.baidu.tbadk.c.a(getPageContext().getPageActivity())));
     }
 
@@ -37,13 +37,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.ctK.onChangeSkinType(i);
+        this.cxM.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ctK.ahR()) {
-            this.ctK.ex(!this.ctK.ahS());
+        if (view == this.cxM.ajb()) {
+            this.cxM.ex(!this.cxM.ajc());
         }
     }
 
@@ -51,8 +51,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        e.ahT().ez(true);
-        e.ahT().eA(false);
+        e.ajd().ez(true);
+        e.ajd().eA(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -60,16 +60,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        e.ahT().ez(false);
+        e.ajd().ez(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment ahQ = this.ctK.ahQ();
-        if (ahQ != null) {
-            ahQ.onActivityResult(i, i2, intent);
+        Fragment aja = this.cxM.aja();
+        if (aja != null) {
+            aja.onActivityResult(i, i2, intent);
         }
     }
 

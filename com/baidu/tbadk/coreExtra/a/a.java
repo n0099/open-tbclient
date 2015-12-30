@@ -9,43 +9,43 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean ahx = true;
-    public static c ahy = null;
+    private static boolean aiA = true;
+    public static c aiB = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (ahy == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            ahy = (c) runTask.getData();
+        if (aiB == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            aiB = (c) runTask.getData();
         }
     }
 
-    public static c wP() {
-        return ahy;
+    public static c wy() {
+        return aiB;
     }
 
-    public static boolean wQ() {
-        return ahx;
+    public static boolean wz() {
+        return aiA;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            ahx = true;
+            aiA = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.m411getInst().isLowVersionPassV6ShouldOpen()) {
-                ahx = false;
+                aiA = false;
             } else {
-                ahx = true;
+                aiA = true;
             }
         } else if (TbadkCoreApplication.m411getInst().isPassportV6ShouldOpen()) {
-            ahx = false;
+            aiA = false;
         } else {
-            ahx = true;
+            aiA = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !ahx && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m411getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !aiA && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m411getInst().getContext())) {
             TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
-            ahx = true;
+            aiA = true;
         }
     }
 }

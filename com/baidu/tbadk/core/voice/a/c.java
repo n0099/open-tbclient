@@ -28,7 +28,7 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.vy = dVar;
+            aVar.vA = dVar;
         }
         diskFileOperate.fk();
         if (!diskFileOperate.isSuccess()) {
@@ -54,38 +54,38 @@ public class c implements e<a> {
         a aVar2 = new a();
         j jVar = new j();
         if (aVar != null) {
-            aVar.vy = jVar;
+            aVar.vA = jVar;
         }
-        byte[] dG = jVar.dG(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!jVar.vP()) {
+        byte[] dJ = jVar.dJ(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!jVar.vz()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = l.getString(n.i.neterror);
+            aVar2.error_msg = l.getString(n.j.neterror);
             return aVar2;
-        } else if (dG == null || dG.length == 0) {
+        } else if (dJ == null || dJ.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = l.getString(n.i.voice_cache_error_no_file);
+            aVar2.error_msg = l.getString(n.j.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dG == null || dG.length == 0) {
+            } else if (dJ == null || dJ.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.o(false);
-                diskFileOperate.setData(dG);
+                diskFileOperate.setData(dJ);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.vy = dVar;
+                    aVar.vA = dVar;
                 }
                 diskFileOperate.fk();
                 if (diskFileOperate.isSuccess() && diskFileOperate.fy() != null) {
                     str5 = diskFileOperate.fy().getAbsolutePath();
                     i3 = 0;
-                } else if (com.baidu.tbadk.core.util.n.uj() < dG.length) {
+                } else if (com.baidu.tbadk.core.util.n.tT() < dJ.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -96,7 +96,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.df(i3);
+                aVar2.error_msg = a.cY(i3);
             }
             return aVar2;
         }

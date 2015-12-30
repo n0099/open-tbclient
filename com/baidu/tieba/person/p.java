@@ -2,14 +2,13 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.person.EditHeadActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements a.b {
-    final /* synthetic */ EditHeadActivity.a cJx;
+class p implements a.b {
+    final /* synthetic */ EditHeadActivity.a cNN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(EditHeadActivity.a aVar) {
-        this.cJx = aVar;
+        this.cNN = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

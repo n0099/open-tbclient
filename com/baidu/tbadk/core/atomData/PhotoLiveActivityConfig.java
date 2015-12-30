@@ -12,10 +12,13 @@ public class PhotoLiveActivityConfig extends IntentConfig {
     public static final String KEY_FROM_MESSAGE = "from_message";
     public static final String KEY_FROM_MY_OR_HIS_THREAD = "from_my_or_his_thread";
     public static final String KEY_FROM_WRITE = "from_write";
+    public static final String KEY_FROM_WRITE_TARGET = "from_write_target";
+    public static final String KEY_LOCATE = "locate";
     public static final String KEY_POST_ID = "post_id";
     public static final String KEY_ST_TYPE = "st_type";
     public static final String KEY_THREAD_ID = "thread_id";
     private String from;
+    private String locate;
     private final Context mContext;
     private String postID;
     private int requestCode;
@@ -38,6 +41,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
         this.postID = aVar.postID;
         this.stType = aVar.stType;
         this.from = aVar.from;
+        this.locate = aVar.locate;
         this.requestCode = aVar.requestCode;
         createNormalCfg(this.threadID, this.postID, this.stType, this.from, this.requestCode);
     }
@@ -62,9 +66,14 @@ public class PhotoLiveActivityConfig extends IntentConfig {
                 intent.putExtra(KEY_FROM_MY_OR_HIS_THREAD, true);
             } else if (KEY_FROM_MESSAGE.equals(str4)) {
                 intent.putExtra(KEY_FROM_MESSAGE, true);
+            } else if (KEY_FROM_WRITE_TARGET.equals(str4)) {
+                intent.putExtra(KEY_FROM_WRITE_TARGET, true);
             }
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
+            }
+            if (this.locate != null) {
+                intent.putExtra("locate", this.locate);
             }
         }
         return this;
@@ -74,6 +83,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
     public static final class a {
         private final Context context;
         private String from;
+        private String locate;
         private String postID;
         private int requestCode;
         private String stType;
@@ -84,27 +94,32 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             this.context = context;
         }
 
-        public a cl(String str) {
+        public a cn(String str) {
             this.postID = str;
             return this;
         }
 
-        public a cm(String str) {
+        public a co(String str) {
             this.stType = str;
             return this;
         }
 
-        public a cn(String str) {
+        public a cp(String str) {
             this.from = str;
             return this;
         }
 
-        public a bv(int i) {
+        public a cq(String str) {
+            this.locate = str;
+            return this;
+        }
+
+        public a bo(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig rw() {
+        public PhotoLiveActivityConfig rf() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

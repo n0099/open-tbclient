@@ -10,12 +10,14 @@ import android.database.sqlite.SQLiteDoneException;
 import android.database.sqlite.SQLiteFullException;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
+import java.util.List;
 /* loaded from: classes.dex */
 public class TiebaStatic {
     public static final String ALL_COST = "all_cost";
@@ -41,15 +43,15 @@ public class TiebaStatic {
     public static void init(Context context, boolean z) {
         try {
             com.baidu.adp.lib.stats.f fVar = new com.baidu.adp.lib.stats.f();
-            fVar.wq = PRODUCTNAME;
-            fVar.wr = SUB_PRODUCT;
-            fVar.wg = TbConfig.getVersion();
-            fVar.ws = TbConfig.getFrom();
+            fVar.ws = PRODUCTNAME;
+            fVar.wt = SUB_PRODUCT;
+            fVar.wi = TbConfig.getVersion();
+            fVar.wu = TbConfig.getFrom();
             fVar.mClientId = TbadkCoreApplication.getClientId();
             fVar.mCuid = TbadkCoreApplication.m411getInst().getCuid();
-            fVar.wt = TbadkCoreApplication.m411getInst().getImei();
-            fVar.wu = TbConfig.getSubappType();
-            com.baidu.adp.lib.stats.a.hl().a(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_UPLOAD_URL, fVar, b.uc());
+            fVar.wv = TbadkCoreApplication.m411getInst().getImei();
+            fVar.ww = TbConfig.getSubappType();
+            com.baidu.adp.lib.stats.a.hl().a(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_UPLOAD_URL, fVar, b.tM());
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -64,22 +66,22 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.vH().acR.uV <= 180000) {
+        if (aVar != null && aVar.vr().adw.uX <= 180000) {
             try {
-                if (aVar.vH().acR.uV >= 0 && aVar.vH().acR.uS >= 0 && aVar.vH().acR.uT >= 0) {
-                    int i = aVar.vG().acP;
-                    if (!aVar.vG().uP()) {
-                        i = aVar.vG().acO;
+                if (aVar.vr().adw.uX >= 0 && aVar.vr().adw.uU >= 0 && aVar.vr().adw.uV >= 0) {
+                    int i = aVar.vq().adu;
+                    if (!aVar.vq().uz()) {
+                        i = aVar.vq().adt;
                     }
                     String str = null;
-                    String vB = bd.vB();
+                    String vl = bd.vl();
                     if (i != 0) {
-                        str = aVar.vG().mErrorString;
+                        str = aVar.vq().mErrorString;
                     }
-                    if (aVar.vF().acM) {
-                        com.baidu.adp.lib.stats.a.hl().a(i == 0 ? null : aVar.vF().vJ(), vB, aVar.vH().acR.uR, aVar.vH().acR.uQ, aVar.vH().acR.uV, aVar.vH().acR.uS, aVar.vH().acR.uT, aVar.vH().acR.uU, i, str, new Object[0]);
+                    if (aVar.vp().adr) {
+                        com.baidu.adp.lib.stats.a.hl().a(i == 0 ? null : aVar.vp().vt(), vl, aVar.vr().adw.uT, aVar.vr().adw.uS, aVar.vr().adw.uX, aVar.vr().adw.uU, aVar.vr().adw.uV, aVar.vr().adw.uW, i, str, new Object[0]);
                     } else {
-                        com.baidu.adp.lib.stats.a.hl().b(aVar.vF().vJ(), vB, aVar.vH().acR.uR, aVar.vH().acR.uQ, aVar.vH().acR.uV, aVar.vH().acR.uS, aVar.vH().acR.uT, aVar.vH().acR.uU, i, str, new Object[0]);
+                        com.baidu.adp.lib.stats.a.hl().b(aVar.vp().vt(), vl, aVar.vr().adw.uT, aVar.vr().adw.uS, aVar.vr().adw.uX, aVar.vr().adw.uU, aVar.vr().adw.uV, aVar.vr().adw.uW, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -96,12 +98,12 @@ public class TiebaStatic {
         synchronized (lock) {
             long currentTimeMillis = System.currentTimeMillis();
             if (0 == lastLogOperateMsgTime) {
-                lastLogOperateMsgTime = com.baidu.tbadk.core.sharedPref.b.tZ().getLong("operate_msg_arrive_click_date", 0L);
-                operateMsgUploadCount = com.baidu.tbadk.core.sharedPref.b.tZ().getInt("operate_msg_arrive_click_count", 0);
+                lastLogOperateMsgTime = com.baidu.tbadk.core.sharedPref.b.tJ().getLong("operate_msg_arrive_click_date", 0L);
+                operateMsgUploadCount = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("operate_msg_arrive_click_count", 0);
             }
             if (lastLogOperateMsgTime > 0) {
                 if (currentTimeMillis - lastLogOperateMsgTime >= 86400000 || operateMsgUploadCount <= 3) {
-                    com.baidu.tbadk.core.sharedPref.b.tZ().putLong("operate_msg_arrive_click_date", currentTimeMillis);
+                    com.baidu.tbadk.core.sharedPref.b.tJ().putLong("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
@@ -111,7 +113,7 @@ public class TiebaStatic {
             }
             lastLogOperateMsgTime = currentTimeMillis;
             operateMsgUploadCount++;
-            com.baidu.tbadk.core.sharedPref.b.tZ().putInt("operate_msg_arrive_click_count", operateMsgUploadCount);
+            com.baidu.tbadk.core.sharedPref.b.tJ().putInt("operate_msg_arrive_click_count", operateMsgUploadCount);
             com.baidu.adp.lib.stats.a.hl().ap(AddFriendActivityConfig.MSG);
         }
     }
@@ -146,7 +148,7 @@ public class TiebaStatic {
 
     public static void printDBExceptionLog(String str, int i, String str2, Object... objArr) {
         try {
-            com.baidu.adp.lib.stats.a.hl().b(str, bd.vB(), i, str2, objArr);
+            com.baidu.adp.lib.stats.a.hl().b(str, bd.vl(), i, str2, objArr);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -173,8 +175,8 @@ public class TiebaStatic {
 
     public static void liveStreamError(int i, String str, String str2) {
         try {
-            com.baidu.adp.lib.stats.a.hl().d("op_live", bd.vB(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tZ().getBoolean("live_is_host", false) ? 1 : 0), "stream_id", com.baidu.tbadk.core.sharedPref.b.tZ().getString("live_stream_id", ""), "err_int", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tZ().getInt("live_no_error_time", 0)));
-            com.baidu.tbadk.core.sharedPref.b.tZ().putInt("live_no_error_time", 0);
+            com.baidu.adp.lib.stats.a.hl().d("op_live", bd.vl(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean("live_is_host", false) ? 1 : 0), "stream_id", com.baidu.tbadk.core.sharedPref.b.tJ().getString("live_stream_id", ""), "err_int", Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tJ().getInt("live_no_error_time", 0)));
+            com.baidu.tbadk.core.sharedPref.b.tJ().putInt("live_no_error_time", 0);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -182,7 +184,7 @@ public class TiebaStatic {
 
     public static void liveError(int i, String str, String str2) {
         try {
-            com.baidu.adp.lib.stats.a.hl().d("op_live", bd.vB(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tZ().getBoolean("live_is_host", false) ? 1 : 0), "stream_id", com.baidu.tbadk.core.sharedPref.b.tZ().getString("live_stream_id", ""));
+            com.baidu.adp.lib.stats.a.hl().d("op_live", bd.vl(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean("live_is_host", false) ? 1 : 0), "stream_id", com.baidu.tbadk.core.sharedPref.b.tJ().getString("live_stream_id", ""));
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -190,7 +192,7 @@ public class TiebaStatic {
 
     public static void aladinPortError(int i, String str, String str2) {
         try {
-            com.baidu.adp.lib.stats.a.hl().e("op_aladin_port_error", bd.vB(), i, str, "live_inf", str2);
+            com.baidu.adp.lib.stats.a.hl().e("op_aladin_port_error", bd.vl(), i, str, "live_inf", str2);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -210,7 +212,7 @@ public class TiebaStatic {
 
     public static void voiceError(int i, String str, String str2) {
         try {
-            com.baidu.adp.lib.stats.a.hl().c("op_voice", bd.vB(), i, str, "voice_inf", str2);
+            com.baidu.adp.lib.stats.a.hl().c("op_voice", bd.vl(), i, str, "voice_inf", str2);
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
@@ -245,12 +247,12 @@ public class TiebaStatic {
     }
 
     public static void file(String str, String str2) {
-        String vB = bd.vB();
+        String vl = bd.vl();
         try {
             if (n.fi()) {
-                com.baidu.adp.lib.stats.a.hl().a(str2, vB, -27, str, "sd_state", getSdState(), "sd_size", Long.valueOf(n.uj()));
+                com.baidu.adp.lib.stats.a.hl().a(str2, vl, -27, str, "sd_state", getSdState(), "sd_size", Long.valueOf(n.tT()));
             } else {
-                com.baidu.adp.lib.stats.a.hl().a(str2, vB, -23, str, "sd_state", getSdState());
+                com.baidu.adp.lib.stats.a.hl().a(str2, vl, -23, str, "sd_state", getSdState());
             }
         } catch (Exception e) {
             BdLog.e(e.toString());
@@ -259,11 +261,11 @@ public class TiebaStatic {
 
     public static void save() {
         try {
-            com.baidu.adp.plugin.b.a.lI().lJ();
-            v.up();
-            v.uq();
-            v.ur();
-            com.baidu.tbadk.performanceLog.u.EQ();
+            com.baidu.adp.plugin.b.a.lf().lg();
+            v.tZ();
+            v.ua();
+            v.ub();
+            com.baidu.tbadk.performanceLog.u.EF();
             com.baidu.adp.lib.g.d.hf();
             com.baidu.adp.lib.stats.a.hl().save();
             sendMultiProcessBroadcast();
@@ -297,16 +299,16 @@ public class TiebaStatic {
     public static synchronized void netImg(String str, com.baidu.adp.lib.network.http.d dVar) {
         synchronized (TiebaStatic.class) {
             if (dVar != null) {
-                if (dVar.uV <= 180000) {
+                if (dVar.uX <= 180000) {
                     try {
-                        if (dVar.uV >= 0 && dVar.uS >= 0 && dVar.uT >= 0) {
-                            int i = dVar.uY;
+                        if (dVar.uX >= 0 && dVar.uU >= 0 && dVar.uV >= 0) {
+                            int i = dVar.va;
                             String str2 = null;
-                            String vB = bd.vB();
+                            String vl = bd.vl();
                             if (i != 0 && i != 200) {
-                                str2 = dVar.uX;
+                                str2 = dVar.uZ;
                             }
-                            com.baidu.adp.lib.stats.a.hl().a(str, vB, dVar.uR, dVar.uQ, dVar.uV, dVar.uS, dVar.uT, dVar.uU, i, str2, new Object[0]);
+                            com.baidu.adp.lib.stats.a.hl().a(str, vl, dVar.uT, dVar.uS, dVar.uX, dVar.uU, dVar.uV, dVar.uW, i, str2, new Object[0]);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.toString());
@@ -331,10 +333,10 @@ public class TiebaStatic {
     public static synchronized void netJson(String str, String str2, com.baidu.adp.lib.network.http.d dVar, int i, String str3) {
         synchronized (TiebaStatic.class) {
             if (dVar != null) {
-                if (dVar.uV <= 180000) {
+                if (dVar.uX <= 180000) {
                     try {
-                        if (dVar.uV >= 0 && dVar.uS >= 0 && dVar.uT >= 0) {
-                            int i2 = dVar.uY;
+                        if (dVar.uX >= 0 && dVar.uU >= 0 && dVar.uV >= 0) {
+                            int i2 = dVar.va;
                             if (i2 == 200 || i2 / 100 == 3) {
                                 i2 = 0;
                                 if (i != 0) {
@@ -342,14 +344,14 @@ public class TiebaStatic {
                                 }
                             }
                             String str4 = new String();
-                            String vB = bd.vB();
+                            String vl = bd.vl();
                             if (i2 != 0) {
-                                str4 = String.valueOf(str4) + dVar.uX;
+                                str4 = String.valueOf(str4) + dVar.uZ;
                                 if (!TextUtils.isEmpty(str3)) {
                                     str4 = String.valueOf(str4) + str3;
                                 }
                             }
-                            com.baidu.adp.lib.stats.a.hl().a(getApiName(str2), str, vB, dVar.uR, dVar.uQ, dVar.uV, dVar.uS, dVar.uT, dVar.uU, i2, str4, new Object[0]);
+                            com.baidu.adp.lib.stats.a.hl().a(getApiName(str2), str, vl, dVar.uT, dVar.uS, dVar.uX, dVar.uU, dVar.uV, dVar.uW, i2, str4, new Object[0]);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.toString());
@@ -406,16 +408,55 @@ public class TiebaStatic {
     public static void log(String str) {
         try {
             com.baidu.adp.lib.stats.a.hl().eventStat(null, str, "", 1, new Object[0]);
+            if (isDebugMode()) {
+                BdLog.d("RD_STAT_LOG: key=" + str);
+            }
         } catch (Exception e) {
             BdLog.e(e.toString());
         }
     }
 
     public static void log(av avVar) {
-        try {
-            com.baidu.adp.lib.stats.a.hl().eventStat(null, avVar.getKey(), "", 1, avVar.vj().toArray());
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        if (avVar != null) {
+            try {
+                com.baidu.adp.lib.stats.a.hl().eventStat(null, avVar.getKey(), "", 1, avVar.uT().toArray());
+                if (isDebugMode()) {
+                    BdLog.d(getStatLog(avVar));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
+    }
+
+    private static String getStatLog(av avVar) {
+        int size;
+        StringBuffer stringBuffer = new StringBuffer();
+        if (avVar == null) {
+            return "";
+        }
+        stringBuffer.append("RD_STAT_LOG: ");
+        stringBuffer.append("key=");
+        stringBuffer.append(avVar.getKey());
+        stringBuffer.append(", ");
+        List<Object> uT = avVar.uT();
+        if (uT != null && (size = uT.size()) > 0) {
+            for (int i = 0; i < size; i++) {
+                stringBuffer.append(uT.get(i));
+                if (i % 2 == 0) {
+                    stringBuffer.append("=");
+                } else if (i != size - 1) {
+                    stringBuffer.append(",");
+                }
+            }
+        }
+        return stringBuffer.toString();
+    }
+
+    private static boolean isDebugMode() {
+        if (BdBaseApplication.getInst() == null) {
+            return false;
+        }
+        return BdBaseApplication.getInst().isDebugMode();
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class i {
-    private int dED;
+    private int dMg;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
@@ -26,9 +26,9 @@ public class i {
         String string;
         if (dressItemData != null) {
             if (com.baidu.tieba.themeCenter.i.a(dressItemData)) {
-                this.dED = dressItemData.getPropsId();
+                this.dMg = dressItemData.getPropsId();
                 BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-                backgroundSetRequestMessage.setPropId(this.dED);
+                backgroundSetRequestMessage.setPropId(this.dMg);
                 MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
             } else if (dressItemData.getFreeUserLevel() == 100) {
                 if (dressItemData.getActivityFinish() == 0) {
@@ -41,11 +41,11 @@ public class i {
                 }
             } else {
                 if (dressItemData.getFreeUserLevel() == 101) {
-                    string = this.mPageContext.getString(n.i.become_annual_can_use_bg);
+                    string = this.mPageContext.getString(n.j.become_annual_can_use_bg);
                 } else if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.mPageContext.getString(n.i.become_vip_can_use_bg), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                    string = String.format(this.mPageContext.getString(n.j.become_vip_can_use_bg), Integer.valueOf(dressItemData.getFreeUserLevel()));
                 } else {
-                    string = this.mPageContext.getString(n.i.become_member_can_use_bg);
+                    string = this.mPageContext.getString(n.j.become_member_can_use_bg);
                 }
                 com.baidu.tieba.themeCenter.i.a(this.mPageContext, z ? 4 : 2, string);
             }
@@ -53,6 +53,6 @@ public class i {
     }
 
     public int getPropId() {
-        return this.dED;
+        return this.dMg;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.adp.base;
 
 import android.app.Activity;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,17 +10,17 @@ import java.util.Iterator;
 public final class a {
     private static ArrayList<SoftReference<Activity>> np;
     private static a nq;
-    private InterfaceC0000a nr;
+    private InterfaceC0001a nr;
     private int ns = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0000a {
+    public interface InterfaceC0001a {
         void onActivityClosed();
     }
 
-    public void a(InterfaceC0000a interfaceC0000a) {
-        this.nr = interfaceC0000a;
+    public void a(InterfaceC0001a interfaceC0001a) {
+        this.nr = interfaceC0001a;
     }
 
     private a() {
@@ -157,7 +158,7 @@ public final class a {
                     str = activity.getClass().getSimpleName();
                 }
                 if (!StringUtils.isNull(str)) {
-                    sb.append(String.valueOf(str) + ";");
+                    sb.append(String.valueOf(str) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 }
             }
         }

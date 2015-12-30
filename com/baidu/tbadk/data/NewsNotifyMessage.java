@@ -8,15 +8,15 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
 
     /* loaded from: classes.dex */
     public class a {
-        private int aiC = 0;
-        private int aiD = 0;
-        private int aiE = 0;
-        private int aiG = 0;
-        private int aiF = 0;
-        private int aiH = 0;
-        private int apu = 0;
-        private int apv = 0;
-        private int aiI = 0;
+        private int ajI = 0;
+        private int ajJ = 0;
+        private int ajK = 0;
+        private int ajM = 0;
+        private int ajL = 0;
+        private int ajN = 0;
+        private int aqX = 0;
+        private int aqY = 0;
+        private int ajO = 0;
 
         public a() {
         }
@@ -30,83 +30,83 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6) {
         super(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         this.mData = new a();
-        this.mData.aiC = i;
-        this.mData.aiD = i2;
-        this.mData.aiE = i3;
-        this.mData.aiF = i4;
-        this.mData.aiH = i5;
-        this.mData.apu = i6;
+        this.mData.ajI = i;
+        this.mData.ajJ = i2;
+        this.mData.ajK = i3;
+        this.mData.ajL = i4;
+        this.mData.ajN = i5;
+        this.mData.aqX = i6;
     }
 
     public int getMsgReplyme() {
-        return this.mData.aiC;
+        return this.mData.ajI;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.aiC = i;
+        this.mData.ajI = i;
     }
 
     public int getMsgAtme() {
-        return this.mData.aiD;
+        return this.mData.ajJ;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.aiD = i;
+        this.mData.ajJ = i;
     }
 
     public int getMsgChat() {
-        return this.mData.aiE;
+        return this.mData.ajK;
     }
 
     public void setMsgChat(int i) {
-        this.mData.aiE = i;
+        this.mData.ajK = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.aiG = i;
+        this.mData.ajM = i;
     }
 
     public int getMsgFans() {
-        return this.mData.aiG;
+        return this.mData.ajM;
     }
 
     public int getMsgBookmark() {
-        return this.mData.aiF;
+        return this.mData.ajL;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.aiF = i;
+        this.mData.ajL = i;
     }
 
     public int getMsgGiftNum() {
-        return this.mData.aiH;
+        return this.mData.ajN;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.aiH = i;
+        this.mData.ajN = i;
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.apu = i;
+        this.mData.aqX = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.apu;
+        return this.mData.aqX;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.apv = i;
+        this.mData.aqY = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.apv;
+        return this.mData.aqY;
     }
 
     public void setMsgLiveVip(int i) {
-        this.mData.aiI = i;
+        this.mData.ajO = i;
     }
 
     public int getMsgLiveVip() {
-        return this.mData.aiI;
+        return this.mData.ajO;
     }
 }

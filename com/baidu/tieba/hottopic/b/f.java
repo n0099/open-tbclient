@@ -8,34 +8,34 @@ import com.baidu.tbadk.core.view.viewpager.a;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class f extends a.C0043a {
-    public int afY;
-    public TextView bAL;
-    private View bFf;
-    public LinearLayout bFg;
-    public BarImageView bFh;
-    public LinearLayout bFi;
-    public LinearLayout bFj;
-    public TextView bFk;
-    public TextView bFl;
-    public TextView bFm;
-    public TextView bFn;
+    public int ahf;
+    private View bIL;
+    public LinearLayout bIM;
+    public BarImageView bIN;
+    public LinearLayout bIO;
+    public TextView bIP;
+    public LinearLayout bIQ;
+    public TextView bIR;
+    public TextView bIS;
+    public TextView bIT;
+    public TextView bIU;
 
     public f(View view) {
         super(view);
-        this.afY = 3;
-        this.bFf = view;
+        this.ahf = 3;
+        this.bIL = view;
         initView();
     }
 
     private void initView() {
-        this.bFg = (LinearLayout) this.bFf.findViewById(n.f.forum_info_card_root);
-        this.bFh = (BarImageView) this.bFf.findViewById(n.f.forum_avatar);
-        this.bFi = (LinearLayout) this.bFf.findViewById(n.f.forum_text_info);
-        this.bAL = (TextView) this.bFf.findViewById(n.f.forum_name);
-        this.bFj = (LinearLayout) this.bFf.findViewById(n.f.forum_info_text_center);
-        this.bFk = (TextView) this.bFf.findViewById(n.f.forum_follows_count);
-        this.bFl = (TextView) this.bFf.findViewById(n.f.forum_thread_count);
-        this.bFm = (TextView) this.bFf.findViewById(n.f.forum_intro);
-        this.bFn = (TextView) this.bFf.findViewById(n.f.forum_add_love);
+        this.bIM = (LinearLayout) this.bIL.findViewById(n.g.forum_info_card_root);
+        this.bIN = (BarImageView) this.bIL.findViewById(n.g.forum_avatar);
+        this.bIO = (LinearLayout) this.bIL.findViewById(n.g.forum_text_info);
+        this.bIP = (TextView) this.bIL.findViewById(n.g.forum_name);
+        this.bIQ = (LinearLayout) this.bIL.findViewById(n.g.forum_info_text_center);
+        this.bIR = (TextView) this.bIL.findViewById(n.g.forum_follows_count);
+        this.bIS = (TextView) this.bIL.findViewById(n.g.forum_thread_count);
+        this.bIT = (TextView) this.bIL.findViewById(n.g.forum_intro);
+        this.bIU = (TextView) this.bIL.findViewById(n.g.forum_add_love);
     }
 }

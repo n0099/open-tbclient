@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.eg;
 /* loaded from: classes.dex */
 public class FrsHotThreadStatic {
     static {
-        eg.Of().gl(2);
+        eg.Oy().ge(2);
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_FRS_ADD_MODEL));
     }
 }

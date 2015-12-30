@@ -3,87 +3,92 @@ package com.baidu.tieba.enterForum.square;
 import android.view.View;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.enterForum.square.a.h;
 import com.baidu.tieba.n;
 import tbclient.GetForumClassList.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private BaseFragmentActivity aHN;
-    private com.baidu.tieba.enterForum.home.e aQt;
-    private e aRv;
-    private a aRw;
-    private int mSkinType = 3;
-    public h aRx = null;
-    private boolean aRy = false;
-    private final com.baidu.adp.framework.listener.a aRz = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
+    private BaseFragmentActivity aJl;
+    private com.baidu.tieba.enterForum.home.e aUk;
+    private String aUo;
+    private e aVl;
+    private a aVm;
+    public h aVn = null;
+    private boolean aVo = false;
+    private final com.baidu.adp.framework.listener.a aVp = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
 
     public View getView() {
-        return this.aRw.getView();
+        return this.aVm.getView();
     }
 
     public b(com.baidu.tieba.enterForum.home.e eVar) {
-        this.aQt = eVar;
-        this.aHN = eVar.getBaseFragmentActivity();
-        this.aRv = new e(this.aHN);
+        this.aUk = eVar;
+        this.aJl = eVar.getBaseFragmentActivity();
+        this.aVl = new e(this.aJl);
         initUI();
         initListener();
     }
 
     private void initListener() {
-        this.aHN.registerListener(this.aRz);
+        this.aUk.registerListener(this.aVp);
     }
 
     private void initUI() {
-        this.aRw = new a(this.aQt);
-        this.aRw.mPullView.a(new d(this));
-        this.aRx = new h(this.aQt.getPageContext(), this.aRw.aRs);
+        this.aVm = new a(this.aUk);
+        this.aVm.mPullView.a(new d(this));
+        this.aVn = new h(this.aUk.getPageContext(), this.aVm.aVi, this.aUk.getUniqueId());
     }
 
-    public void bZ(boolean z) {
-        if (this.aRw != null && this.aQt != null) {
+    public void ca(boolean z) {
+        if (this.aVm != null && this.aUk != null) {
             if (z) {
-                if (Eg() && this.aQt.isPrimary() && this.aQt.isResumed()) {
-                    JU();
+                if (DV() && this.aUk.isPrimary() && this.aUk.isResumed()) {
+                    Kn();
                     return;
                 }
-                fB(n.i.no_data_text);
-                this.aRw.Kr();
+                fw(n.j.no_data_text);
+                this.aVm.KK();
                 return;
             }
-            fB(n.i.neterror);
-            this.aRw.Kr();
+            fw(n.j.neterror);
+            this.aVm.KK();
         }
     }
 
-    public void JU() {
-        this.aRw.nD();
+    public void Kn() {
+        String str = this.aUo;
+        this.aUo = TbadkCoreApplication.getCurrentAccount();
+        if (DV() || (this.aUo != null && !this.aUo.equals(str))) {
+            this.aVm.nb();
+        }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aRw != null) {
-            this.aRw.onChangeSkinType(i);
+        if (this.aVm != null) {
+            this.aVm.onChangeSkinType(i);
         }
-        if (this.aRx != null) {
-            this.aRx.cZ(i);
+        if (this.aVn != null) {
+            this.aVn.cK(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fB(int i) {
-        if (Eg()) {
-            this.aRw.fA(i);
+    public void fw(int i) {
+        if (DV()) {
+            this.aVm.fv(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        if (dataRes == null || this.aRx == null) {
-            fB(n.i.no_data_text);
+        if (dataRes == null || this.aVn == null) {
+            fw(n.j.no_data_text);
             return;
         }
-        this.aRw.hideNoDataView();
-        this.aRx.b(dataRes);
+        this.aVm.hideNoDataView();
+        this.aVn.b(dataRes);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,27 +97,27 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.aRx != null) {
-            this.aRx.onDestroy();
+        if (this.aVn != null) {
+            this.aVn.onDestroy();
         }
     }
 
     public void onPause() {
-        if (this.aRx != null) {
-            this.aRx.onPause();
+        if (this.aVn != null) {
+            this.aVn.onPause();
         }
     }
 
     public void onResume() {
-        if (this.aRx != null) {
-            this.aRx.onResume();
+        if (this.aVn != null) {
+            this.aVn.onResume();
         }
     }
 
-    public boolean Eg() {
-        if (this.aRx == null || this.aRx.getData() == null) {
+    public boolean DV() {
+        if (this.aVn == null || this.aVn.getData() == null) {
             return true;
         }
-        return this.aRx.getData().isEmpty();
+        return this.aVn.getData().isEmpty();
     }
 }

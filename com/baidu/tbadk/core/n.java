@@ -13,38 +13,38 @@ import com.baidu.tbadk.core.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Handler.Callback {
-    final /* synthetic */ TbadkCoreApplication TP;
+    final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TbadkCoreApplication tbadkCoreApplication) {
-        this.TP = tbadkCoreApplication;
+        this.this$0 = tbadkCoreApplication;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                TbadkCoreApplication.setCurrentAccount(null, this.TP.getContext());
+                TbadkCoreApplication.setCurrentAccount(null, this.this$0.getContext());
                 if (message.getData().getString(LoginActivityConfig.ACCOUNT) == null) {
                 }
-                NotLoginGuideActivityConfig notLoginGuideActivityConfig = new NotLoginGuideActivityConfig(this.TP.getContext(), NotLoginGuideActivityConfig.FROM_ACCOUNT);
+                NotLoginGuideActivityConfig notLoginGuideActivityConfig = new NotLoginGuideActivityConfig(this.this$0.getContext(), NotLoginGuideActivityConfig.FROM_ACCOUNT);
                 notLoginGuideActivityConfig.getIntent().setFlags(268435456);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, notLoginGuideActivityConfig));
                 break;
             case 4:
-                long nanoTime = (((System.nanoTime() - this.TP.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
+                long nanoTime = (((System.nanoTime() - this.this$0.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
                 if (nanoTime > 0) {
                     new ap(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
                     TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
                 }
-                this.TP.mStartTime = 0L;
+                this.this$0.mStartTime = 0L;
                 break;
             case 5:
                 if (Boolean.TRUE.equals(message.obj)) {
-                    this.TP.notifyAppEnterBackground();
+                    this.this$0.notifyAppEnterBackground();
                     break;
                 } else {
-                    this.TP.notifyAppEnterForehead();
+                    this.this$0.notifyAppEnterForehead();
                     break;
                 }
         }

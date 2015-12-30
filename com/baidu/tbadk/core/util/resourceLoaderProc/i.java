@@ -21,28 +21,28 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vS() {
+    public boolean vC() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vT() {
+    public boolean vD() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         String str3 = String.valueOf(str) + (TbadkCoreApplication.m411getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a fF = com.baidu.tbadk.imageManager.c.CX().fF(str3);
-        if (fF == null) {
-            Bitmap cE = as.cE(com.baidu.adp.lib.h.b.g(str2, 0));
-            if (cE == null) {
+        com.baidu.adp.widget.a.a fJ = com.baidu.tbadk.imageManager.c.CM().fJ(str3);
+        if (fJ == null) {
+            Bitmap cx = as.cx(com.baidu.adp.lib.h.b.g(str2, 0));
+            if (cx == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cE, false, str2);
-            com.baidu.tbadk.imageManager.c.CX().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cx, false, str2);
+            com.baidu.tbadk.imageManager.c.CM().c(str3, aVar);
             return aVar;
         }
-        return fF;
+        return fJ;
     }
 }

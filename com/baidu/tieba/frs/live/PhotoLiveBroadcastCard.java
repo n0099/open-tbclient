@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class PhotoLiveBroadcastCard extends FrameLayout {
-    private ViewGroup bhA;
-    private TextView bhB;
-    private TextView bhC;
-    private TextView bhD;
-    private TextView bhE;
-    private TextView bhF;
-    private Context bhy;
-    private GroupImageView bhz;
+    private Context blp;
+    private GroupImageView blq;
+    private ViewGroup blr;
+    private TextView bls;
+    private TextView blt;
+    private TextView blu;
+    private TextView blv;
+    private TextView blw;
 
     public PhotoLiveBroadcastCard(Context context) {
         super(context);
@@ -43,63 +43,63 @@ public class PhotoLiveBroadcastCard extends FrameLayout {
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        this.bhy = context;
-        View inflate = LayoutInflater.from(context).inflate(n.g.frs_photolive_broadcast_view, this);
-        this.bhA = (ViewGroup) inflate.findViewById(n.f.photolive_broadcast);
-        this.bhz = (GroupImageView) inflate.findViewById(n.f.photolive_card_portrait);
-        this.bhz.setDrawBorder(true);
-        this.bhz.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.bhB = (TextView) inflate.findViewById(n.f.card_title);
-        this.bhC = (TextView) inflate.findViewById(n.f.card_updatetime);
-        this.bhD = (TextView) inflate.findViewById(n.f.card_forum);
-        this.bhE = (TextView) inflate.findViewById(n.f.tv_praise_num);
-        this.bhF = (TextView) inflate.findViewById(n.f.tv_reply_num);
-        as.b(this.bhB, n.c.cp_cont_b, 1);
-        as.b(this.bhC, n.c.cp_cont_c, 1);
-        as.b(this.bhD, n.c.cp_cont_d, 1);
-        as.b(this.bhE, n.c.cp_cont_d, 1);
-        as.b(this.bhF, n.c.cp_cont_d, 1);
-        this.bhE.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_hand_normal), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.bhF.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.e.icon_comment_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.blp = context;
+        View inflate = LayoutInflater.from(context).inflate(n.h.frs_photolive_broadcast_view, this);
+        this.blr = (ViewGroup) inflate.findViewById(n.g.photolive_broadcast);
+        this.blq = (GroupImageView) inflate.findViewById(n.g.photolive_card_portrait);
+        this.blq.setDrawBorder(true);
+        this.blq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bls = (TextView) inflate.findViewById(n.g.card_title);
+        this.blt = (TextView) inflate.findViewById(n.g.card_updatetime);
+        this.blu = (TextView) inflate.findViewById(n.g.card_forum);
+        this.blv = (TextView) inflate.findViewById(n.g.tv_praise_num);
+        this.blw = (TextView) inflate.findViewById(n.g.tv_reply_num);
+        as.b(this.bls, n.d.cp_cont_b, 1);
+        as.b(this.blt, n.d.cp_cont_c, 1);
+        as.b(this.blu, n.d.cp_cont_d, 1);
+        as.b(this.blv, n.d.cp_cont_d, 1);
+        as.b(this.blw, n.d.cp_cont_d, 1);
+        this.blv.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_hand_normal), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.blw.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(n.f.icon_comment_n), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     public void setData(LiveCardData liveCardData) {
         String str;
         if (liveCardData != null) {
             if (!TextUtils.isEmpty(liveCardData.getPortrait())) {
-                this.bhz.d(liveCardData.getPortrait(), 10, false);
+                this.blq.d(liveCardData.getPortrait(), 10, false);
             } else if (!TextUtils.isEmpty(liveCardData.getPublisherPortrait())) {
-                this.bhz.d(liveCardData.getPublisherPortrait(), 12, false);
+                this.blq.d(liveCardData.getPublisherPortrait(), 12, false);
             } else {
-                this.bhz.d(null, 10, false);
-                this.bhz.d(null, 12, false);
+                this.blq.d(null, 10, false);
+                this.blq.d(null, 12, false);
             }
             if (!TextUtils.isEmpty(liveCardData.getTitle())) {
-                this.bhB.setText(liveCardData.getTitle());
+                this.bls.setText(liveCardData.getTitle());
             }
             if (liveCardData.getPostNum() > 0 && liveCardData.getLastModifiedTime() > 0) {
-                this.bhC.setText(this.bhy.getResources().getString(n.i.pl_update_info, ax.s(liveCardData.getLastModifiedTime() * 1000), ax.w(liveCardData.getPostNum())));
+                this.blt.setText(this.blp.getResources().getString(n.j.pl_update_info, ax.s(liveCardData.getLastModifiedTime() * 1000), ax.x(liveCardData.getPostNum())));
             }
             if (!(StringUtils.isNull(liveCardData.getForumName()) ? false : true)) {
                 str = "";
             } else {
-                str = String.valueOf(liveCardData.getForumName()) + this.bhy.getString(n.i.bar);
+                str = String.valueOf(liveCardData.getForumName()) + this.blp.getString(n.j.bar);
             }
-            this.bhD.setText(str);
+            this.blu.setText(str);
             int zanNum = liveCardData.getZanNum();
             if (zanNum > 0) {
-                this.bhE.setVisibility(0);
-                this.bhE.setText(ax.w(zanNum));
+                this.blv.setVisibility(0);
+                this.blv.setText(ax.x(zanNum));
             } else {
-                this.bhE.setVisibility(8);
+                this.blv.setVisibility(8);
             }
             int replyNum = liveCardData.getReplyNum();
             if (replyNum > 0) {
-                this.bhF.setVisibility(0);
-                this.bhF.setText(ax.w(replyNum));
+                this.blw.setVisibility(0);
+                this.blw.setText(ax.x(replyNum));
                 return;
             }
-            this.bhF.setVisibility(8);
+            this.blw.setVisibility(8);
         }
     }
 }

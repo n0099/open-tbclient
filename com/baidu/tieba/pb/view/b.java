@@ -10,8 +10,8 @@ import com.baidu.tieba.n;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.c {
-    private TextView cIs;
-    private View.OnClickListener cIt = new c(this);
+    private TextView cMv;
+    private View.OnClickListener cMw = new c(this);
     private TbPageContext<PbActivity> mPageContext;
     private View mRootView;
 
@@ -20,11 +20,11 @@ public class b extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View nv() {
-        this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(n.g.login_see_more_layout, (ViewGroup) null);
-        this.cIs = (TextView) this.mRootView.findViewById(n.f.login_button);
-        this.cIs.setOnClickListener(this.cIt);
-        cV(TbadkCoreApplication.m411getInst().getSkinType());
+    public View mT() {
+        this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(n.h.login_see_more_layout, (ViewGroup) null);
+        this.cMv = (TextView) this.mRootView.findViewById(n.g.login_button);
+        this.cMv.setOnClickListener(this.cMw);
+        cP(TbadkCoreApplication.m411getInst().getSkinType());
         return this.mRootView;
     }
 
@@ -32,7 +32,7 @@ public class b extends com.baidu.adp.widget.ListView.c {
     public void onClick() {
     }
 
-    public void cV(int i) {
+    public void cP(int i) {
         com.baidu.tbadk.i.a.a(this.mPageContext, this.mRootView);
     }
 }

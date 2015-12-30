@@ -11,6 +11,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -206,7 +207,7 @@ public class au implements a0, n {
                         stringBuffer.append("|");
                     }
                     stringBuffer.append(((ScanResult) this.f74for.get(i6)).BSSID);
-                    stringBuffer.append(";");
+                    stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                     stringBuffer.append(((ScanResult) this.f74for.get(i6)).SSID);
                     i4++;
                 }
@@ -256,7 +257,7 @@ public class au implements a0, n {
                     stringBuffer.append(String.format(Locale.CHINA, ";%d;", Integer.valueOf(((ScanResult) this.f74for.get(i)).level)));
                     z = false;
                 } else {
-                    stringBuffer.append(";");
+                    stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                     stringBuffer.append(((ScanResult) this.f74for.get(i)).BSSID.replace(":", ""));
                     stringBuffer.append(String.format(Locale.CHINA, ",%d;", Integer.valueOf(((ScanResult) this.f74for.get(i)).level)));
                     z = z2;

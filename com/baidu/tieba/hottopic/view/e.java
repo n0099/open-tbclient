@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ d bFF;
+    final /* synthetic */ d bJm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bFF = dVar;
+        this.bJm = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,19 +23,19 @@ class e implements Runnable {
         LinearLayout linearLayout2;
         a aVar5;
         Animation animation2;
-        aVar = this.bFF.bFE;
+        aVar = this.bJm.bJl;
         i = aVar.index;
         if (i > 1) {
-            aVar2 = this.bFF.bFE;
-            linearLayout = aVar2.bFu;
+            aVar2 = this.bJm.bJl;
+            linearLayout = aVar2.bJb;
             Animation animation3 = linearLayout.getAnimation();
-            aVar3 = this.bFF.bFE;
-            animation = aVar3.bFA;
+            aVar3 = this.bJm.bJl;
+            animation = aVar3.bJh;
             if (animation3 != animation) {
-                aVar4 = this.bFF.bFE;
-                linearLayout2 = aVar4.bFu;
-                aVar5 = this.bFF.bFE;
-                animation2 = aVar5.bFA;
+                aVar4 = this.bJm.bJl;
+                linearLayout2 = aVar4.bJb;
+                aVar5 = this.bJm.bJl;
+                animation2 = aVar5.bJh;
                 linearLayout2.startAnimation(animation2);
             }
         }

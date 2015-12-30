@@ -3,15 +3,16 @@ package com.baidu.tbadk.coreExtra.b;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.Disk.ops.d;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a ahB = null;
-    private boolean ahA;
-    private int ahC;
+    private static volatile a aiE = null;
+    private boolean aiD;
+    private int aiF;
 
     private a() {
-        this.ahA = false;
-        this.ahC = 0;
+        this.aiD = false;
+        this.aiF = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.q(true);
@@ -19,10 +20,10 @@ public class a {
             if (dVar.fk()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.ahC = Integer.parseInt(content);
+                    this.aiF = Integer.parseInt(content);
                 }
-                if (this.ahC == 1 || this.ahC == 2) {
-                    this.ahA = true;
+                if (this.aiF == 1 || this.aiF == 2) {
+                    this.aiD = true;
                 }
             }
         } catch (Throwable th) {
@@ -30,26 +31,26 @@ public class a {
         }
     }
 
-    public static a wT() {
-        if (ahB == null) {
+    public static a wC() {
+        if (aiE == null) {
             synchronized (a.class) {
-                if (ahB == null) {
-                    ahB = new a();
+                if (aiE == null) {
+                    aiE = new a();
                 }
             }
         }
-        return ahB;
+        return aiE;
     }
 
-    public boolean wU() {
-        return this.ahA;
+    public boolean wD() {
+        return this.aiD;
     }
 
-    public int wV() {
-        return this.ahC;
+    public int wE() {
+        return this.aiF;
     }
 
-    public String wW() {
-        return this.ahA ? "pub_env=" + this.ahC + ";" : "";
+    public String wF() {
+        return this.aiD ? "pub_env=" + this.aiF + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

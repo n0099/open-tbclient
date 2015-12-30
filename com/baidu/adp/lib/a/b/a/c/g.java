@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> sb;
-    private Message se;
+    private Set<String> sd;
+    private Message sg;
 
     public g(Message message) {
-        this.se = message;
-        List<Field> e = com.baidu.adp.lib.a.a.a.e(message.getClass());
-        this.sb = new HashSet();
-        if (e != null && e.size() > 0) {
-            for (Field field : e) {
+        this.sg = message;
+        List<Field> d = com.baidu.adp.lib.a.a.a.d(message.getClass());
+        this.sd = new HashSet();
+        if (d != null && d.size() > 0) {
+            for (Field field : d) {
                 if (field != null) {
-                    this.sb.add(field.getName());
+                    this.sd.add(field.getName());
                 }
             }
         }
@@ -26,16 +26,16 @@ public class g implements c {
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public Set<String> fJ() {
-        return this.sb;
+        return this.sd;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.a.a.a.c(this.se, str);
+        return com.baidu.adp.lib.a.a.a.c(this.sg, str);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public void e(String str, Object obj) {
-        com.baidu.adp.lib.a.a.a.a(this.se, str, obj);
+        com.baidu.adp.lib.a.a.a.a(this.sg, str, obj);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c

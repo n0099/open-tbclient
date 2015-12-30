@@ -3,6 +3,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
+    public static final int COPY_TW_ZHIBO_TAG = 3;
     public static final int ERROR_ANTI_USER = 340016;
     public static final int ERROR_DISABLE_AT = 230278;
     public static final int ERROR_DISABLE_REPLY = 230277;
@@ -11,6 +12,7 @@ public class PostWriteCallBackData implements Serializable {
     private String colorMsg;
     private int errorCode;
     private String errorString;
+    private int isCopyTWZhibo;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
@@ -71,5 +73,13 @@ public class PostWriteCallBackData implements Serializable {
 
     public void setPostId(String str) {
         this.postId = str;
+    }
+
+    public void setIsCopyTWZhibo(int i) {
+        this.isCopyTWZhibo = i;
+    }
+
+    public int getIsCopyTWZhibo() {
+        return this.isCopyTWZhibo;
     }
 }

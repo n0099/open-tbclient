@@ -6,62 +6,62 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static BdAsyncTaskParallel adM = null;
-    private String adL;
-    private boolean adN;
-    private boolean adO;
+    private static BdAsyncTaskParallel aer = null;
+    private String aeq;
+    private boolean aes;
+    private boolean aet;
     private int size;
 
     public l(boolean z, boolean z2, boolean z3) {
-        this.adL = null;
+        this.aeq = null;
         this.size = 0;
-        this.adN = false;
-        this.adO = false;
+        this.aes = false;
+        this.aet = false;
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        this.adN = z;
-        this.adO = z3;
+        this.aes = z;
+        this.aet = z3;
         if (f < 2.0f) {
-            this.adL = TbConfig.getPhotoSmallAddress();
+            this.aeq = TbConfig.getPhotoSmallAddress();
             this.size = 80;
         } else {
-            this.adL = TbConfig.getBigPhotoAdress();
+            this.aeq = TbConfig.getBigPhotoAdress();
             this.size = 110;
         }
         if (z2) {
-            this.adL = TbConfig.getBigPhotoAdress();
+            this.aeq = TbConfig.getBigPhotoAdress();
             this.size = 110;
             return;
         }
-        this.adL = TbConfig.getPhotoSmallAddress();
+        this.aeq = TbConfig.getPhotoSmallAddress();
         this.size = 80;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
     public boolean hg() {
-        if (this.adO) {
-            return com.baidu.tbadk.core.m.rh().rj();
+        if (this.aet) {
+            return com.baidu.tbadk.core.m.qQ().qS();
         }
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
-        if (this.adN) {
+        if (this.aes) {
             return null;
         }
-        com.baidu.adp.widget.a.a fE = com.baidu.tbadk.imageManager.c.CX().fE(str);
-        if (fE != null) {
-            fE.GG.GI = "memory";
-            fE.GG.GJ = 0L;
-            fE.GG.GK = true;
-            return fE;
+        com.baidu.adp.widget.a.a fI = com.baidu.tbadk.imageManager.c.CM().fI(str);
+        if (fI != null) {
+            fI.GX.GZ = "memory";
+            fI.GX.Ha = 0L;
+            fI.GX.Hb = true;
+            return fI;
         }
-        return fE;
+        return fI;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
-        if (this.adN) {
+        if (this.aes) {
             return null;
         }
         return super.a(str, str2, aVar, objArr);
@@ -69,14 +69,14 @@ public class l extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     protected String d(String str, int i, int i2) {
-        return String.valueOf(this.adL) + str;
+        return String.valueOf(this.aeq) + str;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
     public void a(String str, Object obj, Object... objArr) {
-        com.baidu.tbadk.imageManager.c CX = com.baidu.tbadk.imageManager.c.CX();
+        com.baidu.tbadk.imageManager.c CM = com.baidu.tbadk.imageManager.c.CM();
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            CX.b(str, (com.baidu.adp.widget.a.a) obj);
+            CM.b(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -96,20 +96,20 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vS() {
+    public boolean vC() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vT() {
+    public boolean vD() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
     public BdAsyncTaskParallel hh() {
-        if (adM == null) {
-            adM = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
+        if (aer == null) {
+            aer = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, BdUniqueId.gen());
         }
-        return adM;
+        return aer;
     }
 }

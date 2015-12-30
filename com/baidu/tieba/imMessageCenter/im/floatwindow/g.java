@@ -8,65 +8,65 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int aUR;
-    private long caF;
-    private Point caL;
-    protected final int caM;
-    private i caN;
-    private boolean caO;
+    private int aYR;
+    private long ceG;
+    private Point ceM;
+    protected final int ceN;
+    private i ceO;
+    private boolean ceP;
 
     public g(View view) {
         super(view);
-        this.caO = true;
-        this.aUR = 0;
-        this.caM = k.K(TbadkCoreApplication.m411getInst());
-        this.caL = new Point();
-        this.caQ.setOnTouchListener(new h(this));
-        this.aUR = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
-        if (this.aUR == 0) {
-            this.aUR = 25;
+        this.ceP = true;
+        this.aYR = 0;
+        this.ceN = k.K(TbadkCoreApplication.m411getInst());
+        this.ceM = new Point();
+        this.ceR.setOnTouchListener(new h(this));
+        this.aYR = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
+        if (this.aYR == 0) {
+            this.aYR = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.caO = z;
+        this.ceP = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ap(int i, int i2) {
-        this.caF = SystemClock.elapsedRealtime();
-        this.caL.x = i;
-        this.caL.y = i2;
-        if (this.caN != null) {
-            this.caN.ap(i, i2);
+    public void aB(int i, int i2) {
+        this.ceG = SystemClock.elapsedRealtime();
+        this.ceM.x = i;
+        this.ceM.y = i2;
+        if (this.ceO != null) {
+            this.ceO.aB(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ao(int i, int i2) {
-        as(this.caL.x + i, (i2 - this.caL.y) - this.aUR);
-        if (this.caN != null) {
-            this.caN.ao(i, i2);
+    public void aA(int i, int i2) {
+        aE(this.ceM.x + i, (i2 - this.ceM.y) - this.aYR);
+        if (this.ceO != null) {
+            this.ceO.aA(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abO() {
-        if (this.caN != null) {
-            if (SystemClock.elapsedRealtime() - this.caF > 200) {
-                this.caN.abO();
+    public void acX() {
+        if (this.ceO != null) {
+            if (SystemClock.elapsedRealtime() - this.ceG > 200) {
+                this.ceO.acX();
             } else {
-                this.caN.abP();
+                this.ceO.acY();
             }
         }
     }
 
     public void a(i iVar) {
-        this.caN = iVar;
+        this.ceO = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams abS() {
+    public WindowManager.LayoutParams adb() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;
@@ -77,29 +77,29 @@ public class g extends j {
         return layoutParams;
     }
 
-    public void ar(int i, int i2) {
-        if (this.caS != null) {
+    public void aD(int i, int i2) {
+        if (this.ceT != null) {
             if (i >= 0) {
-                this.caS.x = i;
+                this.ceT.x = i;
             }
             if (i2 >= 0) {
-                this.caS.y = i2;
+                this.ceT.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void as(int i, int i2) {
-        if (this.caS != null) {
-            int i3 = this.caM - i;
+    public void aE(int i, int i2) {
+        if (this.ceT != null) {
+            int i3 = this.ceN - i;
             if (i3 >= 0) {
-                this.caS.x = i3;
+                this.ceT.x = i3;
             }
             if (i2 >= 0) {
-                this.caS.y = i2;
+                this.ceT.y = i2;
             }
-            if (this.caR != null && this.caQ.getParent() != null) {
-                this.caR.updateViewLayout(this.caQ, this.caS);
+            if (this.ceS != null && this.ceR.getParent() != null) {
+                this.ceS.updateViewLayout(this.ceR, this.ceT);
             }
         }
     }

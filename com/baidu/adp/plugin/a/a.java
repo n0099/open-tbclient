@@ -30,228 +30,228 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-import com.baidu.adp.plugin.pluginBase.c;
+import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 /* loaded from: classes.dex */
 public interface a {
-    void E(Intent intent);
-
-    boolean F(Intent intent);
-
-    boolean H(boolean z);
-
-    void I(boolean z);
-
-    void J(boolean z);
-
-    void K(boolean z);
-
-    PendingIntent a(int i, Intent intent, int i2);
-
-    void a(int i, int i2, Intent intent);
-
-    void a(int i, Dialog dialog);
-
-    void a(Activity activity, int i);
-
-    void a(Activity activity, Intent intent, int i);
-
-    void a(Activity activity, CharSequence charSequence);
-
-    void a(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4);
-
-    void a(IntentSender intentSender, Intent intent, int i, int i2, int i3);
-
-    void a(Resources.Theme theme, int i, boolean z);
-
-    void a(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
-
-    void a(Menu menu);
-
-    void a(View view, ViewGroup.LayoutParams layoutParams);
-
-    void a(WindowManager.LayoutParams layoutParams);
-
-    void a(String str, boolean z, Bundle bundle, boolean z2);
-
-    boolean a(int i, int i2, KeyEvent keyEvent);
-
-    boolean a(int i, KeyEvent keyEvent);
-
-    boolean a(int i, Menu menu);
-
-    boolean a(int i, MenuItem menuItem);
-
-    boolean a(int i, View view, Menu menu);
-
-    boolean a(MenuItem menuItem);
-
-    boolean a(AccessibilityEvent accessibilityEvent);
-
-    View ao(int i);
-
-    void ap(int i);
-
-    SharedPreferences aq(int i);
-
-    void ar(int i);
-
-    void as(int i);
-
-    void at(int i);
-
-    void au(int i);
-
-    void b(Intent intent, int i);
-
-    void b(Bundle bundle);
-
-    void b(Menu menu);
-
-    void b(View view, ViewGroup.LayoutParams layoutParams);
-
-    void b(CharSequence charSequence);
-
-    void b(CharSequence charSequence, int i);
-
-    boolean b(int i, KeyEvent keyEvent);
-
-    boolean b(int i, Menu menu);
-
-    boolean b(Bitmap bitmap, Canvas canvas);
-
-    boolean b(KeyEvent keyEvent);
-
-    boolean b(MenuItem menuItem);
-
-    boolean b(MotionEvent motionEvent);
-
-    Object be(String str);
-
-    void c(int i, Menu menu);
-
-    void c(Cursor cursor);
-
-    void c(Bundle bundle);
-
-    boolean c(int i, KeyEvent keyEvent);
-
-    boolean c(Intent intent, int i);
-
-    boolean c(Menu menu);
-
-    boolean c(MotionEvent motionEvent);
-
-    void d(Cursor cursor);
-
-    void d(Bundle bundle);
-
-    boolean d(MotionEvent motionEvent);
-
-    void e(int i, int i2);
-
-    void e(Bundle bundle);
-
-    boolean e(MotionEvent motionEvent);
-
     Activity getActivity();
 
-    c kG();
+    PluginBaseActivity getTarget();
 
-    void kH();
-
-    void kI();
-
-    void kJ();
-
-    Context kK();
-
-    ComponentName kL();
-
-    String kM();
-
-    int kN();
-
-    View kO();
-
-    Intent kP();
-
-    LayoutInflater kQ();
-
-    String kR();
-
-    MenuInflater kS();
-
-    int kT();
-
-    int kU();
-
-    int kV();
-
-    int kW();
-
-    Window kX();
-
-    WindowManager kY();
-
-    boolean kZ();
-
-    boolean la();
-
-    boolean lb();
-
-    void lc();
-
-    void ld();
-
-    void le();
-
-    void lf();
-
-    void lg();
-
-    void lh();
-
-    void li();
-
-    void lj();
-
-    Object lk();
-
-    boolean ll();
-
-    void lm();
-
-    void ln();
-
-    void lo();
-
-    void lp();
-
-    void m(Activity activity);
+    void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams);
 
     boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 
+    void proxyCloseContextMenu();
+
+    void proxyCloseOptionsMenu();
+
+    PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2);
+
+    boolean proxyDispatchKeyEvent(KeyEvent keyEvent);
+
+    boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent);
+
+    boolean proxyDispatchTouchEvent(MotionEvent motionEvent);
+
+    boolean proxyDispatchTrackballEvent(MotionEvent motionEvent);
+
+    View proxyFindViewById(int i);
+
+    void proxyFinish();
+
+    void proxyFinishActivity(int i);
+
+    void proxyFinishActivityFromChild(Activity activity, int i);
+
+    void proxyFinishFromChild(Activity activity);
+
+    Context proxyGetApplicationContext();
+
+    ComponentName proxyGetCallingActivity();
+
+    String proxyGetCallingPackage();
+
+    int proxyGetChangingConfigurations();
+
+    View proxyGetCurrentFocus();
+
+    Intent proxyGetIntent();
+
+    LayoutInflater proxyGetLayoutInflater();
+
+    String proxyGetLocalClassName();
+
+    MenuInflater proxyGetMenuInflater();
+
     PackageManager proxyGetPackageManager();
+
+    SharedPreferences proxyGetPreferences(int i);
+
+    int proxyGetRequestedOrientation();
 
     SharedPreferences proxyGetSharedPreferences(String str, int i);
 
+    Object proxyGetSystemService(String str);
+
+    int proxyGetTaskId();
+
+    int proxyGetWallpaperDesiredMinimumHeight();
+
+    int proxyGetWallpaperDesiredMinimumWidth();
+
+    Window proxyGetWindow();
+
+    WindowManager proxyGetWindowManager();
+
+    boolean proxyHasWindowFocus();
+
+    boolean proxyIsFinishing();
+
+    boolean proxyIsTaskRoot();
+
+    boolean proxyMoveTaskToBack(boolean z);
+
+    void proxyOnActivityResult(int i, int i2, Intent intent);
+
+    void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z);
+
+    void proxyOnAttachedToWindow();
+
+    void proxyOnBackPressed();
+
+    void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence);
+
     void proxyOnConfigurationChanged(Configuration configuration);
+
+    void proxyOnContentChanged();
+
+    boolean proxyOnContextItemSelected(MenuItem menuItem);
+
+    void proxyOnContextMenuClosed(Menu menu);
+
+    void proxyOnCreate(Bundle bundle);
+
+    void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
+
+    boolean proxyOnCreatePanelMenu(int i, Menu menu);
+
+    boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas);
 
     void proxyOnDestroy();
 
+    void proxyOnDetachedFromWindow();
+
+    boolean proxyOnKeyDown(int i, KeyEvent keyEvent);
+
+    boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent);
+
+    boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent);
+
+    boolean proxyOnKeyUp(int i, KeyEvent keyEvent);
+
     void proxyOnLowMemory();
+
+    boolean proxyOnMenuItemSelected(int i, MenuItem menuItem);
+
+    boolean proxyOnMenuOpened(int i, Menu menu);
+
+    boolean proxyOnOptionsItemSelected(MenuItem menuItem);
+
+    void proxyOnOptionsMenuClosed(Menu menu);
+
+    void proxyOnPanelClosed(int i, Menu menu);
+
+    void proxyOnPause();
+
+    void proxyOnPostCreate(Bundle bundle);
+
+    void proxyOnPostResume();
+
+    void proxyOnPrepareDialog(int i, Dialog dialog);
+
+    boolean proxyOnPrepareOptionsMenu(Menu menu);
+
+    boolean proxyOnPreparePanel(int i, View view, Menu menu);
+
+    void proxyOnRestart();
+
+    void proxyOnRestoreInstanceState(Bundle bundle);
+
+    void proxyOnResume();
+
+    Object proxyOnRetainNonConfigurationInstance();
+
+    void proxyOnSaveInstanceState(Bundle bundle);
+
+    boolean proxyOnSearchRequested();
+
+    void proxyOnStart();
+
+    void proxyOnStop();
+
+    void proxyOnTitleChanged(CharSequence charSequence, int i);
+
+    boolean proxyOnTouchEvent(MotionEvent motionEvent);
+
+    boolean proxyOnTrackballEvent(MotionEvent motionEvent);
+
+    void proxyOnUserInteraction();
+
+    void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams);
+
+    void proxyOnWindowFocusChanged(boolean z);
 
     void proxyOpenContextMenu(View view);
 
+    void proxyOpenOptionsMenu();
+
+    void proxyOverridePendingTransition(int i, int i2);
+
     void proxyRegisterForContextMenu(View view);
+
+    void proxySetContentView(int i);
 
     void proxySetContentView(View view);
 
+    void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams);
+
+    void proxySetIntent(Intent intent);
+
+    void proxySetRequestedOrientation(int i);
+
+    void proxySetTitle(int i);
+
+    void proxySetTitle(CharSequence charSequence);
+
+    void proxySetTitleColor(int i);
+
+    void proxySetVisible(boolean z);
+
     void proxyStartActivity(Intent intent);
+
+    void proxyStartActivityForResult(Intent intent, int i);
+
+    void proxyStartActivityFromChild(Activity activity, Intent intent, int i);
+
+    boolean proxyStartActivityIfNeeded(Intent intent, int i);
+
+    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3);
+
+    void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4);
+
+    void proxyStartManagingCursor(Cursor cursor);
+
+    boolean proxyStartNextMatchingActivity(Intent intent);
+
+    void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2);
 
     ComponentName proxyStartService(Intent intent);
 
+    void proxyStopManagingCursor(Cursor cursor);
+
     boolean proxyStopService(Intent intent);
+
+    void proxyTakeKeyEvents(boolean z);
 
     void proxyUnregisterForContextMenu(View view);
 

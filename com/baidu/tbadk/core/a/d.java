@@ -17,19 +17,19 @@ public class d {
     }
 
     public static void b(Context context, SapiWebView sapiWebView) {
-        View inflate = LayoutInflater.from(context).inflate(n.g.layout_sapi_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(n.f.btn_network_settings).setOnClickListener(new e(context));
+        View inflate = LayoutInflater.from(context).inflate(n.h.layout_sapi_network_unavailable, (ViewGroup) null);
+        inflate.findViewById(n.g.btn_network_settings).setOnClickListener(new e(context));
         sapiWebView.setNoNetworkView(inflate);
     }
 
     public static void c(Context context, SapiWebView sapiWebView) {
-        View inflate = LayoutInflater.from(context).inflate(n.g.layout_sapi_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(n.f.btn_retry).setOnClickListener(new f(sapiWebView, inflate));
+        View inflate = LayoutInflater.from(context).inflate(n.h.layout_sapi_loading_timeout, (ViewGroup) null);
+        inflate.findViewById(n.g.btn_retry).setOnClickListener(new f(sapiWebView, inflate));
         sapiWebView.setTimeoutView(inflate);
     }
 
     public static void d(Context context, SapiWebView sapiWebView) {
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(n.d.ds8);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(n.e.ds8);
         ProgressBar progressBar = new ProgressBar(context, null, 16842872);
         progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));
         sapiWebView.setProgressBar(progressBar);

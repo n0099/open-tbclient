@@ -3,6 +3,7 @@ package com.baidu.location;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -81,6 +82,6 @@ class w {
     /* renamed from: if  reason: not valid java name */
     public static String m362if(Context context) {
         String packageName = context.getPackageName();
-        return a(context, packageName) + ";" + packageName;
+        return a(context, packageName) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
     }
 }

@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends c {
-    private a BX;
-    protected Path BV = new Path();
-    protected Paint BW = null;
-    protected boolean BY = false;
+    private a BZ;
+    protected Path BX = new Path();
+    protected Paint BY = null;
+    protected boolean Ca = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class j extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.BX != null && (a2 = this.BX.a(ke())) != null) {
-            this.BV.set(a2);
-            if (this.BW == null) {
-                this.BW = new Paint();
-                this.BW.setStyle(Paint.Style.STROKE);
-                this.BW.setAntiAlias(true);
-                this.BW.setColor(637534208);
-                this.BW.setDither(true);
-                this.BW.setStrokeWidth(2.0f);
+        if (this.BZ != null && (a2 = this.BZ.a(kf())) != null) {
+            this.BX.set(a2);
+            if (this.BY == null) {
+                this.BY = new Paint();
+                this.BY.setStyle(Paint.Style.STROKE);
+                this.BY.setAntiAlias(true);
+                this.BY.setColor(637534208);
+                this.BY.setDither(true);
+                this.BY.setStrokeWidth(2.0f);
             }
-            km();
+            kn();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.BY) {
-            canvas.drawPath(this.BV, this.BW);
-            if (this.BX != null) {
-                this.BX.c(canvas);
+        if (this.Ca) {
+            canvas.drawPath(this.BX, this.BY);
+            if (this.BZ != null) {
+                this.BZ.c(canvas);
             }
         }
-    }
-
-    public void km() {
     }
 
     public void kn() {
     }
 
+    public void ko() {
+    }
+
     public void a(a aVar) {
-        this.BX = aVar;
+        this.BZ = aVar;
     }
 
     public void G(boolean z) {
-        this.BY = z;
+        this.Ca = z;
     }
 }

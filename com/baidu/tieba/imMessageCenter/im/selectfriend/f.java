@@ -7,33 +7,33 @@ import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class f implements a.b {
-    private final /* synthetic */ ShareFromGameCenterMsgData bVu;
-    private final /* synthetic */ com.baidu.tieba.im.widget.b bVv;
-    private final /* synthetic */ long bao;
-    private final /* synthetic */ String bap;
-    final /* synthetic */ SelectFriendActivity cdx;
+    private final /* synthetic */ ShareFromGameCenterMsgData bZg;
+    private final /* synthetic */ com.baidu.tieba.im.widget.b bZh;
+    private final /* synthetic */ long ben;
+    private final /* synthetic */ String beo;
+    final /* synthetic */ SelectFriendActivity chx;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SelectFriendActivity selectFriendActivity, long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, String str, String str2, com.baidu.tieba.im.widget.b bVar) {
-        this.cdx = selectFriendActivity;
-        this.bao = j;
-        this.bVu = shareFromGameCenterMsgData;
+        this.chx = selectFriendActivity;
+        this.ben = j;
+        this.bZg = shareFromGameCenterMsgData;
         this.val$name = str;
-        this.bap = str2;
-        this.bVv = bVar;
+        this.beo = str2;
+        this.bZh = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        long T = com.baidu.tieba.im.memorycache.b.Zt().T(String.valueOf(this.bao), 2);
-        MessageUtils.createPersonalChatMessage(T, 9, this.bVu.toChatMessageContent(), this.bao, this.val$name, this.bap);
-        MessageUtils.createPersonalChatMessage(T + 1, 1, this.bVv.getLeaveMsg(), this.bao, this.val$name, this.bap);
+        long T = com.baidu.tieba.im.memorycache.b.aay().T(String.valueOf(this.ben), 2);
+        MessageUtils.createPersonalChatMessage(T, 9, this.bZg.toChatMessageContent(), this.ben, this.val$name, this.beo);
+        MessageUtils.createPersonalChatMessage(T + 1, 1, this.bZh.getLeaveMsg(), this.ben, this.val$name, this.beo);
         aVar.dismiss();
-        this.cdx.setResult(-1);
-        if (!i.iP()) {
-            this.cdx.showToast(this.cdx.getPageContext().getString(n.i.no_network_guide));
+        this.chx.setResult(-1);
+        if (!i.iQ()) {
+            this.chx.showToast(this.chx.getPageContext().getString(n.j.no_network_guide));
         }
-        this.cdx.finish();
+        this.chx.finish();
     }
 }

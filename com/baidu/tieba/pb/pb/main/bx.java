@@ -1,108 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.cache.o;
-import com.baidu.location.BDLocationStatusCodes;
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-public class bx {
-    private static bx cCK;
-    private com.baidu.adp.lib.cache.o<byte[]> cCL = null;
-    private com.baidu.adp.lib.cache.o<byte[]> cCM = null;
-    private long cCN = 0;
-    private long cCO = 0;
-
-    public static synchronized bx akA() {
-        bx bxVar;
-        synchronized (bx.class) {
-            if (cCK == null) {
-                cCK = new bx();
-            }
-            bxVar = cCK;
-        }
-        return bxVar;
+public class bx extends ce<com.baidu.tieba.tbadkCore.data.q, PbRecBaseViewHolder> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bx(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    private bx() {
-        LW();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: Y */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.axH().l(this.mContext, 1);
     }
 
-    private void LW() {
-        if (this.cCL == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.cCL = com.baidu.tbadk.core.b.a.ts().cy("tb.pb_mark");
-            this.cCO = System.currentTimeMillis() - currentTimeMillis;
-        }
-        if (this.cCM == null) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.cCM = com.baidu.tbadk.core.b.a.ts().cy("tb.pb_normal");
-            this.cCN = System.currentTimeMillis() - currentTimeMillis2;
-        }
-    }
-
-    public void B(String str, boolean z) {
-        if (z) {
-            if (this.cCL != null && str != null) {
-                this.cCL.b(str, new byte[0], 0L);
-            }
-        } else if (this.cCM != null && str != null) {
-            this.cCM.b(str, new byte[0], 0L);
-        }
-    }
-
-    public byte[] C(String str, boolean z) {
-        o.b<byte[]> aa;
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = 0;
-        if (z) {
-            if (this.cCL != null && str != null) {
-                aa = this.cCL.aa(str);
-                j = this.cCO;
-            }
-            aa = null;
-        } else {
-            if (this.cCM != null && str != null) {
-                aa = this.cCM.aa(str);
-                j = this.cCN;
-            }
-            aa = null;
-        }
-        if (aa == null || aa.sm == null) {
-            return null;
-        }
-        com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-        tVar.eL(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        tVar.ayu = (System.currentTimeMillis() - currentTimeMillis) + j;
-        tVar.EO();
-        return aa.sm;
-    }
-
-    public void a(String str, boolean z, byte[] bArr) {
-        if (str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            LW();
-            if (z) {
-                this.cCL.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                this.cCM.a(str, bArr, 86400000L);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.eL(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.ayv = currentTimeMillis2;
-            tVar.EP();
-        }
-    }
-
-    public void m(String str, byte[] bArr) {
-        if (bArr != null && str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            LW();
-            this.cCL.a(str, bArr, 2592000000L);
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.eL(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.ayv = currentTimeMillis2;
-            tVar.EP();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.ce, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.q qVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) qVar, (com.baidu.tieba.tbadkCore.data.q) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        com.baidu.tieba.tbadkCore.data.q qVar2 = (com.baidu.tieba.tbadkCore.data.q) au(i);
+        this.cGj.getLayoutMode().ac(this.mSkinType == 1);
+        this.cGj.getLayoutMode().k(view);
+        pbRecBaseViewHolder.update(qVar2, i, this.mIsFromCDN);
+        return view;
     }
 }

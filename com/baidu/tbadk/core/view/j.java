@@ -1,87 +1,38 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.graphics.Rect;
+import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class j {
-    private View aeF;
-    private int aeG;
-    private ViewGroup.LayoutParams aeH;
-    private Runnable aeI;
-    private int mScreenHeight;
+public class j extends LinearLayout {
+    private a afm;
 
-    public static void r(Activity activity) {
-        new j(activity);
+    /* loaded from: classes.dex */
+    public interface a {
+        void qp();
+
+        void qq();
     }
 
-    public static void a(Activity activity, boolean z) {
-        new j(activity, z);
+    public j(Context context, View view, a aVar) {
+        super(context);
+        this.afm = null;
+        setFocusableInTouchMode(true);
+        this.afm = aVar;
+        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        addView(view);
     }
 
-    private j(Activity activity) {
-        b(activity, true);
-    }
-
-    private j(Activity activity, boolean z) {
-        b(activity, z);
-    }
-
-    private void b(Activity activity, boolean z) {
-        FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
-        if (z) {
-            as.j(frameLayout, n.c.usual_page_bg);
-        } else {
-            as.d(frameLayout, n.c.usual_page_bg, 0);
-        }
-        this.aeF = frameLayout.getChildAt(0);
-        this.aeF.getViewTreeObserver().addOnGlobalLayoutListener(new k(this));
-        this.aeH = this.aeF.getLayoutParams();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void vZ() {
-        int height = this.aeF.getHeight();
-        if (height > this.mScreenHeight) {
-            this.mScreenHeight = height;
-        }
-        int wa = wa();
-        if (wa != this.aeG) {
-            int i = this.mScreenHeight;
-            int i2 = i - wa;
-            if (i2 > i / 4) {
-                this.aeH.height = i - i2;
-                cR(200);
-            } else {
-                this.aeH.height = i;
-                wb();
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
+            if (this.afm != null) {
+                this.afm.qp();
             }
-            this.aeG = wa;
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.afm != null) {
+            this.afm.qq();
         }
-    }
-
-    private int wa() {
-        Rect rect = new Rect();
-        this.aeF.getWindowVisibleDisplayFrame(rect);
-        return rect.bottom;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void wb() {
-        this.aeF.requestLayout();
-    }
-
-    private void cR(int i) {
-        if (this.aeI != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.aeI);
-            this.aeI = null;
-        }
-        this.aeI = new l(this);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.aeI, i);
+        return super.dispatchKeyEvent(keyEvent);
     }
 }

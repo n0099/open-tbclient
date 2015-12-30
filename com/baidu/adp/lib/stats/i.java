@@ -6,13 +6,13 @@ import android.os.Message;
 import com.baidu.adp.lib.stats.h;
 /* loaded from: classes.dex */
 class i extends Handler {
-    final /* synthetic */ h wE;
+    final /* synthetic */ h wG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, Looper looper) {
         super(looper);
-        this.wE = hVar;
+        this.wG = hVar;
     }
 
     @Override // android.os.Handler

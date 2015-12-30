@@ -81,8 +81,8 @@ public final class StatService {
 
         /* renamed from: com.baidu.sapi2.utils.StatService$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        class HandlerC0037a extends HttpResponseHandler {
-            HandlerC0037a() {
+        class HandlerC0038a extends HttpResponseHandler {
+            HandlerC0038a() {
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -94,7 +94,7 @@ public final class StatService {
 
         @Override // java.lang.Runnable
         public void run() {
-            new AsyncHttpClient().get(this.a.context, StatService.a, new RequestParams(this.b), new HandlerC0037a());
+            new AsyncHttpClient().get(this.a.context, StatService.a, new RequestParams(this.b), new HandlerC0038a());
         }
     }
 

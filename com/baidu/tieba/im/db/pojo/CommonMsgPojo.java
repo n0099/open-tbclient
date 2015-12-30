@@ -36,6 +36,8 @@ public class CommonMsgPojo extends i implements Serializable {
     private int msg_type;
     private int read_flag;
     private long rid;
+    private long sid;
+    private String taskId;
     private String toUid;
     private String to_user_info;
     private UserData to_user_info_data;
@@ -79,9 +81,9 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.bWy);
+                this.gid = String.valueOf(a.cax);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.bWz);
+                this.gid = String.valueOf(a.cay);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -99,6 +101,8 @@ public class CommonMsgPojo extends i implements Serializable {
                 this.msg_status = chatMessage.getLocalData().getStatus().shortValue();
             }
             this.content = chatMessage.getContent();
+            this.sid = chatMessage.getSid();
+            this.taskId = String.valueOf(chatMessage.getTaskId());
             this.is_delete = 0;
             this.rid = chatMessage.getRecordId();
             checkRidAndSelf();
@@ -141,6 +145,22 @@ public class CommonMsgPojo extends i implements Serializable {
 
     public void setRid(long j) {
         this.rid = j;
+    }
+
+    public long getSid() {
+        return this.sid;
+    }
+
+    public void setSid(long j) {
+        this.sid = j;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String str) {
+        this.taskId = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */

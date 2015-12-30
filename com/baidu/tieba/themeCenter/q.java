@@ -14,7 +14,7 @@ class q extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            n.aFl().mR("theme_" + TbadkCoreApplication.getCurrentAccount());
+            n.aHA().mO("theme_" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

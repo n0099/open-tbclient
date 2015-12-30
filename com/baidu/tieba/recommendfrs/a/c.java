@@ -1,30 +1,41 @@
 package com.baidu.tieba.recommendfrs.a;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.LineCountNotifyTextView;
+import com.baidu.tieba.recommendfrs.data.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
-    final /* synthetic */ b djC;
-    private final /* synthetic */ com.baidu.tieba.recommendfrs.data.e djD;
+public class c implements LineCountNotifyTextView.a {
+    final /* synthetic */ b dqK;
+    private final /* synthetic */ j dqL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar, com.baidu.tieba.recommendfrs.data.e eVar) {
-        this.djC = bVar;
-        this.djD = eVar;
+    public c(b bVar, j jVar) {
+        this.dqK = bVar;
+        this.dqL = jVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String forumName = this.djD.getForumName();
-        if (ax.aR(forumName)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.djC.getActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-            TiebaStatic.log(new av("c10509").ab("obj_name", this.djD.diR).ab("obj_source", this.djD.diS).ab("abtest", this.djD.abtest));
+    @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
+    public void Fx() {
+        LineCountNotifyTextView lineCountNotifyTextView;
+        int i;
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        lineCountNotifyTextView = this.dqK.dqI;
+        int lineCount = lineCountNotifyTextView.getLineCount();
+        i = this.dqK.dqH;
+        if (i != lineCount) {
+            if (lineCount == 1) {
+                textView3 = this.dqK.dqJ;
+                textView3.setMaxLines(2);
+            } else {
+                textView2 = this.dqK.dqJ;
+                textView2.setMaxLines(1);
+            }
         }
+        this.dqK.dqH = lineCount;
+        textView = this.dqK.dqJ;
+        textView.setText(this.dqL.getDesc());
     }
 }

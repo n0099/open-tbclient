@@ -10,23 +10,23 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity cLD;
+    final /* synthetic */ PersonListActivity cPT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PersonListActivity personListActivity) {
-        this.cLD = personListActivity;
+        this.cPT = personListActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.person.PersonListActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cLD.cKZ = ((Integer) view.getTag()).intValue();
+        this.cPT.cPp = ((Integer) view.getTag()).intValue();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(this.cLD.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cLD.getPageContext().getPageActivity(), this.cLD.getPageContext().getString(n.i.login_to_chat), true, 11028)));
+            TbadkCoreApplication.m411getInst().login(this.cPT.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cPT.getPageContext().getPageActivity(), this.cPT.getPageContext().getString(n.j.login_to_chat), true, 11028)));
         } else {
-            this.cLD.anN();
+            this.cPT.aoY();
         }
     }
 }

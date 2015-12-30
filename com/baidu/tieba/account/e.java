@@ -1,37 +1,46 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity aGn;
+public class e implements View.OnClickListener {
+    final /* synthetic */ AccountActivity aHO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aGn = accountActivity;
+        this.aHO = accountActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        AccountData accountData;
-        if (this.aGn.aGh.getItemId(i) >= 0) {
-            if (!this.aGn.aGh.GV() && (accountData = (AccountData) this.aGn.aGh.getItem(i)) != null && accountData.getIsActive() != 1) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
-                this.aGn.j(accountData);
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        TextView textView4;
+        TextView textView5;
+        if (!this.aHO.aHH.GK()) {
+            this.aHO.aHH.setEditState(true);
+            textView3 = this.aHO.aHJ;
+            textView3.setText(n.j.done);
+            if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
+                textView5 = this.aHO.aHJ;
+                as.b(textView5, n.d.navi_op_text, 1);
+            } else {
+                textView4 = this.aHO.aHJ;
+                as.b(textView4, n.d.cp_link_tip_a, 1);
             }
+            this.aHO.aHH.notifyDataSetChanged();
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.aGn.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.aGn.getPageContext().getPageActivity())));
+        this.aHO.aHH.setEditState(false);
+        textView = this.aHO.aHJ;
+        textView.setText(n.j.edit);
+        textView2 = this.aHO.aHJ;
+        as.b(textView2, n.d.navi_op_text, 1);
+        this.aHO.aHH.notifyDataSetChanged();
     }
 }

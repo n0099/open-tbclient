@@ -1,21 +1,23 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.bj;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ UserIconBox afR;
+class v extends CustomMessageListener {
+    final /* synthetic */ t agw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(UserIconBox userIconBox) {
-        this.afR = userIconBox;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(t tVar, int i) {
+        super(i);
+        this.agw = tVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str != null) {
-            bj.a((ViewGroup) this.afR, false, (bj.a) new w(this, str));
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.agw.agm.setBackgroundColor(ak.uJ().cs(TbadkCoreApplication.m411getInst().getSkinType()));
     }
 }

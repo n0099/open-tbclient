@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.util.bc;
 public class f {
     public static void initial() {
         try {
-            if (bc.kC()) {
+            if (bc.kE()) {
                 BdLog.i("loadStaticClasses success");
             } else {
-                u.jp();
+                u.jq();
             }
         } catch (Exception e) {
             e.printStackTrace();

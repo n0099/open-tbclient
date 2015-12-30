@@ -10,122 +10,122 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends r {
-    private ArrayList<String> axC;
-    private ArrayList<String> axD;
-    private ArrayList<String> aye;
-    private boolean ayf;
+    public static int azJ = 0;
+    public static int azK = 1;
+    public static int azL = 2;
+    private static CustomMessageTask azq = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
+    private ArrayList<String> azH;
+    private boolean azI;
+    private ArrayList<String> azg;
+    private ArrayList<String> azh;
     private CustomMessageListener customNormalListener = new q(this, CmdConfigCustom.CMD_PERF_LIVE_SAMPLE);
-    public static int ayg = 0;
-    public static int ayh = 1;
-    public static int ayi = 2;
-    private static CustomMessageTask axM = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
 
     static {
-        axM.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(axM);
+        azq.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(azq);
     }
 
     public o() {
-        Ew();
+        El();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean EG() {
-        return this.ayf;
+    public boolean Ev() {
+        return this.azI;
     }
 
     public void bB(boolean z) {
-        this.ayf = z;
+        this.azI = z;
     }
 
-    public void Ev() {
-        Ex();
+    public void Ek() {
+        Em();
     }
 
     public void L(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(ayg, 6);
-            sparseArray.put(ayh, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(ayi, Integer.valueOf(i));
+            sparseArray.put(azJ, 6);
+            sparseArray.put(azK, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(azL, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(ayg, 6);
-            sparseArray2.put(ayh, Integer.valueOf((int) a0.t));
-            sparseArray2.put(ayi, Integer.valueOf(i2));
+            sparseArray2.put(azJ, 6);
+            sparseArray2.put(azK, Integer.valueOf((int) a0.t));
+            sparseArray2.put(azL, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray2));
         }
     }
 
-    public void EH() {
-        EJ();
-        if (this.axD != null) {
-            this.axD.clear();
+    public void Ew() {
+        Ey();
+        if (this.azh != null) {
+            this.azh.clear();
         }
-        if (this.axC != null) {
-            this.axC.clear();
+        if (this.azg != null) {
+            this.azg.clear();
         }
-        if (this.aye != null) {
-            this.aye.clear();
+        if (this.azH != null) {
+            this.azH.clear();
         }
     }
 
-    private void Ew() {
+    private void El() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Ex() {
+    private void Em() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fR(String str) {
-        if (this.axC == null) {
-            this.axC = new ArrayList<>();
+    public void fV(String str) {
+        if (this.azg == null) {
+            this.azg = new ArrayList<>();
         }
         if (str != null) {
-            this.axC.add(str);
+            this.azg.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fS(String str) {
-        if (this.aye == null) {
-            this.aye = new ArrayList<>();
+    public void fW(String str) {
+        if (this.azH == null) {
+            this.azH = new ArrayList<>();
         }
         if (str != null) {
-            this.aye.add(str);
+            this.azH.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eK(int i) {
+    public void eE(int i) {
         String valueOf = String.valueOf(i);
-        if (this.axD == null) {
-            this.axD = new ArrayList<>();
+        if (this.azh == null) {
+            this.azh = new ArrayList<>();
         }
-        this.axD.add(valueOf);
+        this.azh.add(valueOf);
     }
 
-    public String EI() {
-        return s(this.aye);
+    public String Ex() {
+        return s(this.azH);
     }
 
-    public String EA() {
-        return s(this.axC);
+    public String Ep() {
+        return s(this.azg);
     }
 
     public String getCpuString() {
-        return s(this.axD);
+        return s(this.azh);
     }
 
     private String s(ArrayList<String> arrayList) {
@@ -147,18 +147,18 @@ public class o extends r {
         return stringBuffer.toString();
     }
 
-    private void EJ() {
+    private void Ey() {
         w wVar;
-        if (this.axC != null && this.axC.size() > 0 && this.axD != null && this.axD.size() > 0 && this.aye != null && this.aye.size() > 0 && (wVar = (w) y.ES().eN(this.mSubType)) != null) {
+        if (this.azg != null && this.azg.size() > 0 && this.azh != null && this.azh.size() > 0 && this.azH != null && this.azH.size() > 0 && (wVar = (w) y.EH().eH(this.mSubType)) != null) {
             wVar.b(this);
         }
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String axO;
-        public int axP;
-        public String ayk;
+        public String azN;
+        public String azs;
+        public int azt;
 
         public a() {
         }

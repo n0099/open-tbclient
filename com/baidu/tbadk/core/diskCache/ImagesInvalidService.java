@@ -15,7 +15,7 @@ public class ImagesInvalidService extends BdBaseService {
     private DiskFileOperate mDiskFileOperate = null;
 
     public static void setSuccess(boolean z) {
-        ImagesInvalidServiceStatic.as(z);
+        ImagesInvalidServiceStatic.ap(z);
     }
 
     @Override // android.app.Service

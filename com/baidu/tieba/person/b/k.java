@@ -1,50 +1,127 @@
 package com.baidu.tieba.person.b;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.view.HorizontalListView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.n;
-import com.baidu.tieba.person.a.aa;
 /* loaded from: classes.dex */
 public class k extends x.a {
-    public TextView aNy;
-    public int afY;
-    public View cQc;
-    public HorizontalListView cQd;
-    public l cQe;
-    public View rootView;
+    public int ahf;
+    public View cSR;
+    public View cSS;
+    public LinearLayout cSU;
+    public RelativeLayout cTN;
+    public TextView cTO;
+    public ImageView cTP;
+    public TextView cTQ;
+    public RelativeLayout cTR;
+    public TextView cTS;
+    public TextView cTT;
+    public ImageView cTU;
+    public RelativeLayout cTV;
+    public TbImageView cTW;
+    public TextView cTX;
+    public TextView cTY;
+    public TextView cTZ;
+    public View cTb;
+    public RelativeLayout cUa;
+    public TbImageView cUb;
+    public TextView cUc;
+    public TextView cUd;
+    public TextView cUe;
+    public RelativeLayout cUf;
+    public TextView cUg;
+    public TextView cUh;
+    public TextView cUi;
+    public RelativeLayout cUj;
+    public TextView cUk;
+    public TextView cUl;
+    public TextView cUm;
+    public TbImageView cUn;
+    public TbImageView cUo;
+    public TbImageView cUp;
+    public TbImageView cUq;
+    public TbImageView cUr;
+    public TbImageView cUs;
 
-    public k(View view, Context context) {
+    public k(View view) {
         super(view);
-        this.afY = 3;
-        this.rootView = view;
-        this.cQc = view.findViewById(n.f.divider_view_under_photo_album);
-        this.aNy = (TextView) view.findViewById(n.f.text_view_photo_album);
-        this.cQd = (HorizontalListView) view.findViewById(n.f.listview_photo_album);
-        this.cQe = new l(context);
-        this.cQd.setAdapter((ListAdapter) this.cQe);
-        this.cQd.setDisableParentEvent(false);
-    }
-
-    public void a(aa aaVar) {
-        if (aaVar != null) {
-            this.cQe.setData(aaVar.getPhotoAlbum());
-            this.cQe.notifyDataSetChanged();
-        }
-    }
-
-    public void aos() {
-        if (this.afY != TbadkCoreApplication.m411getInst().getSkinType()) {
-            this.afY = TbadkCoreApplication.m411getInst().getSkinType();
-            as.j(this.rootView, n.c.cp_bg_line_d);
-            as.j(this.cQc, n.c.cp_bg_line_c);
-            as.b(this.aNy, n.c.cp_cont_f, 1);
-            this.cQe.notifyDataSetChanged();
-        }
+        this.cTb = null;
+        this.cTN = null;
+        this.cTO = null;
+        this.cTP = null;
+        this.cTQ = null;
+        this.cSR = null;
+        this.cSS = null;
+        this.cTR = null;
+        this.cTS = null;
+        this.cTT = null;
+        this.cTU = null;
+        this.cTV = null;
+        this.cTW = null;
+        this.cTX = null;
+        this.cTY = null;
+        this.cTZ = null;
+        this.cUa = null;
+        this.cUb = null;
+        this.cUc = null;
+        this.cUd = null;
+        this.cUe = null;
+        this.cUf = null;
+        this.cUg = null;
+        this.cUh = null;
+        this.cUi = null;
+        this.cUj = null;
+        this.cUk = null;
+        this.cUl = null;
+        this.cUm = null;
+        this.cUn = null;
+        this.cUo = null;
+        this.cUp = null;
+        this.cUq = null;
+        this.cUr = null;
+        this.cUs = null;
+        this.ahf = 3;
+        this.cSU = (LinearLayout) view.findViewById(n.g.container);
+        this.cTb = view.findViewById(n.g.top_divider);
+        this.cSR = view.findViewById(n.g.head_divider);
+        this.cSS = view.findViewById(n.g.mid_divider);
+        this.cTN = (RelativeLayout) view.findViewById(n.g.thread_head);
+        this.cTO = (TextView) this.cTN.findViewById(n.g.thread_head_title);
+        this.cTP = (ImageView) this.cTN.findViewById(n.g.thread_head_arrow);
+        this.cTQ = (TextView) this.cTN.findViewById(n.g.thread_head_msg);
+        this.cTR = (RelativeLayout) view.findViewById(n.g.thread_none);
+        this.cTS = (TextView) this.cTR.findViewById(n.g.thread_none_title);
+        this.cTT = (TextView) this.cTR.findViewById(n.g.thread_none_msg);
+        this.cTU = (ImageView) this.cTR.findViewById(n.g.thread_none_lock);
+        this.cTV = (RelativeLayout) view.findViewById(n.g.pic_thread_item);
+        this.cTW = (TbImageView) this.cTV.findViewById(n.g.pic_thread_item_img);
+        this.cTX = (TextView) this.cTV.findViewById(n.g.pic_thread_item_title);
+        this.cTY = (TextView) this.cTV.findViewById(n.g.pic_thread_item_content);
+        this.cTZ = (TextView) this.cTV.findViewById(n.g.pic_thread_item_forum_name);
+        this.cUn = (TbImageView) this.cTV.findViewById(n.g.pic_thread_item_play_video_icon);
+        this.cUp = (TbImageView) this.cTV.findViewById(n.g.pic_thread_item_play_video_icon);
+        this.cUp = (TbImageView) this.cTV.findViewById(n.g.pic_thread_item_zhibo_icon);
+        this.cUa = (RelativeLayout) view.findViewById(n.g.pic_thread_item1);
+        this.cUb = (TbImageView) this.cUa.findViewById(n.g.pic_thread_item_img1);
+        this.cUc = (TextView) this.cUa.findViewById(n.g.pic_thread_item_title1);
+        this.cUd = (TextView) this.cUa.findViewById(n.g.pic_thread_item_content1);
+        this.cUe = (TextView) this.cUa.findViewById(n.g.pic_thread_item_forum_name1);
+        this.cUo = (TbImageView) this.cUa.findViewById(n.g.pic_thread_item_play_video_icon1);
+        this.cUq = (TbImageView) this.cUa.findViewById(n.g.pic_thread_item_zhibo_icon1);
+        this.cUf = (RelativeLayout) view.findViewById(n.g.text_thread_item1);
+        this.cUg = (TextView) this.cUf.findViewById(n.g.text_thread_item_title1);
+        this.cUh = (TextView) this.cUf.findViewById(n.g.text_thread_item_content1);
+        this.cUi = (TextView) this.cUf.findViewById(n.g.text_thread_item_forum_name1);
+        this.cUr = (TbImageView) this.cUf.findViewById(n.g.text_thread_item_zhibo_icon1);
+        this.cUj = (RelativeLayout) view.findViewById(n.g.text_thread_item2);
+        this.cUk = (TextView) this.cUj.findViewById(n.g.text_thread_item_title2);
+        this.cUl = (TextView) this.cUj.findViewById(n.g.text_thread_item_content2);
+        this.cUm = (TextView) this.cUj.findViewById(n.g.text_thread_item_forum_name2);
+        this.cUs = (TbImageView) this.cUj.findViewById(n.g.text_thread_item_zhibo_icon2);
     }
 }

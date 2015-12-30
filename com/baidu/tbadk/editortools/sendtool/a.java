@@ -14,10 +14,10 @@ public class a extends y {
         this.toolPosition = 2;
         this.toolLaunchAction = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 39, 9};
         this.toolView = new SendView(context);
-        w.a aVar = new w.a(context.getResources().getDimensionPixelSize(n.d.ds100), context.getResources().getDimensionPixelSize(n.d.ds78));
+        w.a aVar = new w.a(context.getResources().getDimensionPixelSize(n.e.ds100), context.getResources().getDimensionPixelSize(n.e.ds78));
         aVar.gravity = 16;
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(n.d.ds10);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(n.e.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(n.e.ds10);
         ((View) this.toolView).setLayoutParams(aVar);
     }
 
@@ -33,9 +33,9 @@ public class a extends y {
         }
     }
 
-    public void et(int i) {
+    public void en(int i) {
         if (this.toolView != null) {
-            ((SendView) this.toolView).et(i);
+            ((SendView) this.toolView).en(i);
         }
     }
 }

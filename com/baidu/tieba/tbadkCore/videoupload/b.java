@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void aEe() {
+    public static void aGs() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.E("CREATE TABLE IF NOT EXISTS video_chunk_upload_data('md5' text,'total_length' long ,'chunk_no' integer,'account' text,'time' long)");
         }
     }
 
-    public static void mH(String str) {
+    public static void mE(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -32,11 +32,11 @@ public class b {
             return false;
         }
         Date date = new Date();
-        mainDBDatabaseManager.a("delete from video_chunk_upload_data where md5=? and account=?", new String[]{cVar.xb(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.a("Insert into video_chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.xb(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.xc()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.a("delete from video_chunk_upload_data where md5=? and account=?", new String[]{cVar.wK(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.a("Insert into video_chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.wK(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.wL()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.c mI(String str) {
+    public static com.baidu.tbadk.coreExtra.data.c mF(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.c cVar;
@@ -51,9 +51,9 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new com.baidu.tbadk.coreExtra.data.c();
                         try {
-                            cVar.dT(str);
-                            cVar.dj(cursor.getInt(cursor.getColumnIndex("chunk_no")));
-                            cVar.F(cursor.getLong(cursor.getColumnIndex("total_length")));
+                            cVar.dW(str);
+                            cVar.dc(cursor.getInt(cursor.getColumnIndex("chunk_no")));
+                            cVar.G(cursor.getLong(cursor.getColumnIndex("total_length")));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.d(e, "getChunkUploadDataByMd5");

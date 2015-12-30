@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.widget.richText.g;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity cHd;
+    final /* synthetic */ NewSubPbActivity cLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.cHd = newSubPbActivity;
+        this.cLc = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ class q extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
             g.a aVar = (g.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.g.a(this.cHd.getPageContext(), aVar.type, aVar.url, aVar.subType);
+            com.baidu.tbadk.widget.richText.g.a(this.cLc.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
     }
 }

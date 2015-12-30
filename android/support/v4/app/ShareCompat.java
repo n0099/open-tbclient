@@ -14,6 +14,7 @@ import android.text.Spanned;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareCompat {
@@ -57,7 +58,7 @@ public class ShareCompat {
                 } else if (charAt == '&') {
                     sb.append("&amp;");
                 } else if (charAt > '~' || charAt < ' ') {
-                    sb.append("&#" + ((int) charAt) + ";");
+                    sb.append("&#" + ((int) charAt) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 } else if (charAt == ' ') {
                     while (i3 + 1 < i2 && charSequence.charAt(i3 + 1) == ' ') {
                         sb.append("&nbsp;");

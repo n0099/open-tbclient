@@ -1,47 +1,28 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ h aQN;
+public class v extends CustomMessageListener {
+    final /* synthetic */ i aUE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(h hVar, int i, int i2) {
-        super(i, i2);
-        this.aQN = hVar;
+    public v(i iVar, int i) {
+        super(i);
+        this.aUE = iVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        com.baidu.tieba.enterForum.c.c cVar2;
-        com.baidu.tieba.enterForum.c.c cVar3;
-        String errorString;
-        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = this.aQN.aQv;
-            if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.aQN.aQu.Kr();
-                if (responsedMessage.hasError()) {
-                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = this.aQN.aHN.getResources().getString(n.i.neterror);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    this.aQN.aHN.showToast(errorString);
-                    return;
-                }
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    cVar3 = this.aQN.aQv;
-                    cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    cVar2 = this.aQN.aQv;
-                    cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016313 && this.aUE.aJl != null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                bf.vn().a((TbPageContext<?>) this.aUE.aJl.getPageContext(), new String[]{(String) data}, true);
             }
         }
     }

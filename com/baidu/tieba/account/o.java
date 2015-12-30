@@ -1,74 +1,50 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
+import android.os.Handler;
+import android.widget.TextView;
 import com.baidu.tieba.account.ActivationActivity;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aGV;
+class o implements Runnable {
+    final /* synthetic */ ActivationActivity aIw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ActivationActivity activationActivity) {
-        this.aGV = activationActivity;
+        this.aIw = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        ImageView imageView;
-        ActivationActivity.b bVar;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        TextView textView;
+        Handler handler;
+        Runnable runnable;
+        TextView textView2;
         ActivationActivity.a aVar;
-        ActivationActivity.b bVar2;
-        ActivationActivity.b bVar3;
-        ActivationActivity.a aVar2;
-        ActivationActivity.b bVar4;
-        ActivationActivity.a aVar3;
-        ActivationActivity.a aVar4;
-        view2 = this.aGV.mBack;
-        if (view != view2) {
-            if (view != this.aGV.aGI) {
-                if (view != this.aGV.aGJ) {
-                    imageView = this.aGV.aGD;
-                    if (view == imageView) {
-                        this.aGV.aGH.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                } else if (this.aGV.aGM) {
-                    bVar = this.aGV.aGK;
-                    if (bVar == null) {
-                        aVar = this.aGV.aGL;
-                        if (aVar == null) {
-                            this.aGV.aGK = new ActivationActivity.b(this.aGV, null);
-                            bVar2 = this.aGV.aGK;
-                            bVar2.setPriority(3);
-                            bVar3 = this.aGV.aGK;
-                            bVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
-                }
-            }
-            aVar2 = this.aGV.aGL;
-            if (aVar2 == null) {
-                bVar4 = this.aGV.aGK;
-                if (bVar4 == null) {
-                    this.aGV.aGL = new ActivationActivity.a(this.aGV, null);
-                    aVar3 = this.aGV.aGL;
-                    aVar3.setPriority(3);
-                    aVar4 = this.aGV.aGL;
-                    aVar4.execute(new String[0]);
-                    return;
-                }
+        ActivationActivity activationActivity = this.aIw;
+        i = activationActivity.Fp;
+        activationActivity.Fp = i - 1;
+        i2 = this.aIw.Fp;
+        if (i2 <= 0) {
+            this.aIw.aIn = true;
+            textView2 = this.aIw.aIh;
+            textView2.setText(this.aIw.getPageContext().getString(n.j.resend_code));
+            aVar = this.aIw.aIm;
+            if (aVar == null) {
+                this.aIw.aIk.setEnabled(true);
                 return;
             }
             return;
         }
-        this.aGV.setResult(0);
-        this.aGV.finish();
+        String string = this.aIw.getPageContext().getString(n.j.resend_code_second);
+        i3 = this.aIw.Fp;
+        String format = String.format(string, Integer.valueOf(i3));
+        textView = this.aIw.aIh;
+        textView.setText(format);
+        handler = this.aIw.mHandler;
+        runnable = this.aIw.mRunnable;
+        handler.postDelayed(runnable, 1000L);
     }
 }

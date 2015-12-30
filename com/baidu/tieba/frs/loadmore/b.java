@@ -7,13 +7,13 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a bhG;
+    final /* synthetic */ a blx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.bhG = aVar;
+        this.blx = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,29 +25,29 @@ public class b extends com.baidu.adp.framework.listener.a {
         FrsActivity frsActivity5;
         FrsActivity frsActivity6;
         FrsActivity frsActivity7;
-        this.bhG.awu = false;
+        this.blx.axY = false;
         if (responsedMessage == null) {
-            frsActivity6 = this.bhG.baC;
-            frsActivity7 = this.bhG.baC;
-            frsActivity6.hh(frsActivity7.getPageContext().getString(n.i.neterror));
+            frsActivity6 = this.blx.beB;
+            frsActivity7 = this.blx.beB;
+            frsActivity6.hs(frsActivity7.getPageContext().getString(n.j.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsActivity5 = this.bhG.baC;
-                frsActivity5.hh(responsedMessage.getErrorString());
+                frsActivity5 = this.blx.beB;
+                frsActivity5.hs(responsedMessage.getErrorString());
                 return;
             }
-            frsActivity3 = this.bhG.baC;
-            frsActivity4 = this.bhG.baC;
-            frsActivity3.hh(frsActivity4.getPageContext().getString(n.i.neterror));
+            frsActivity3 = this.blx.beB;
+            frsActivity4 = this.blx.beB;
+            frsActivity3.hs(frsActivity4.getPageContext().getString(n.j.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsActivity2 = this.bhG.baC;
-                frsActivity2.E(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
+                frsActivity2 = this.blx.beB;
+                frsActivity2.C(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsActivity = this.bhG.baC;
-                frsActivity.E(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
+                frsActivity = this.blx.beB;
+                frsActivity.C(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
             }
-            this.bhG.bgC++;
+            this.blx.bkt++;
         }
     }
 }

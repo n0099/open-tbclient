@@ -16,8 +16,8 @@ public class a implements c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            b.Bm().i(downloadData);
-            b.Bm().h(downloadData);
+            b.Bb().i(downloadData);
+            b.Bb().h(downloadData);
         }
     }
 
@@ -49,7 +49,7 @@ public class a implements c {
                 TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId());
-            b.Bm().h(downloadData);
+            b.Bb().h(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
             }
@@ -58,7 +58,7 @@ public class a implements c {
 
     @Override // com.baidu.tbadk.download.c
     public void a(DownloadData downloadData, int i, String str) {
-        b.Bm().j(downloadData);
-        b.Bm().h(downloadData);
+        b.Bb().j(downloadData);
+        b.Bb().h(downloadData);
     }
 }

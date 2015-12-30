@@ -1,24 +1,29 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
-public class ad extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class ad implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterPojo bWW;
+    final /* synthetic */ ac bXP;
+    private final /* synthetic */ ImMessageCenterPojo bXQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public ad(ac acVar, ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterPojo imMessageCenterPojo2) {
+        this.bXP = acVar;
+        this.bWW = imMessageCenterPojo;
+        this.bXQ = imMessageCenterPojo2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008016) {
-            b.Zt().reset();
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        com.baidu.tieba.im.db.i.Yr().a(this.bWW, 2);
+        if (this.bXQ != null) {
+            com.baidu.tieba.im.db.i.Yr().a(this.bXQ, 2);
+            return null;
         }
+        return null;
     }
 }

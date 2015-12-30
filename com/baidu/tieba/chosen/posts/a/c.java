@@ -11,27 +11,27 @@ import com.baidu.tieba.n;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private LinearLayout aNA;
-    private TextView aNt;
-    private TextView aNu;
-    private TextView aNy;
-    private TextView aNz;
-    private TextView avB;
+    private TextView aOS;
+    private TextView aRm;
+    private TextView aRn;
+    private TextView aRr;
+    private LinearLayout aRs;
+    private TextView axf;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aNy = (TextView) view.findViewById(n.f.chosen_no_picture_title);
-        this.aNt = (TextView) view.findViewById(n.f.chosen_no_picture_praise);
-        this.aNu = (TextView) view.findViewById(n.f.chosen_no_picture_comment);
-        this.aNz = (TextView) view.findViewById(n.f.chosen_no_picture_head);
-        this.avB = (TextView) view.findViewById(n.f.chosen_no_picture_sub);
-        this.aNA = (LinearLayout) view.findViewById(n.f.chosen_no_picture_comment_line);
+        this.aOS = (TextView) view.findViewById(n.g.chosen_no_picture_title);
+        this.aRm = (TextView) view.findViewById(n.g.chosen_no_picture_praise);
+        this.aRn = (TextView) view.findViewById(n.g.chosen_no_picture_comment);
+        this.aRr = (TextView) view.findViewById(n.g.chosen_no_picture_head);
+        this.axf = (TextView) view.findViewById(n.g.chosen_no_picture_sub);
+        this.aRs = (LinearLayout) view.findViewById(n.g.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.core.c layoutMode = getPageContext().getLayoutMode();
-        layoutMode.af(i == 1);
+        layoutMode.ac(i == 1);
         layoutMode.k(getRootView());
         return true;
     }
@@ -44,36 +44,36 @@ public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void B(tinfo tinfoVar) {
         super.B(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.aNz.setVisibility(8);
+            this.aRr.setVisibility(8);
         } else {
-            this.aNz.setVisibility(0);
-            this.aNz.setText(tinfoVar.title);
+            this.aRr.setVisibility(0);
+            this.aRr.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.aNA.setVisibility(8);
+            this.aRs.setVisibility(8);
         } else {
-            this.aNA.setVisibility(0);
-            this.aNy.setVisibility(0);
-            this.aNy.setText(UtilHelper.getFixedText(getContext().getString(n.i.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.aNy.setOnClickListener(new d(this, tinfoVar));
+            this.aRs.setVisibility(0);
+            this.aOS.setVisibility(0);
+            this.aOS.setText(UtilHelper.getFixedText(getContext().getString(n.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.aOS.setOnClickListener(new d(this, tinfoVar));
             if (tinfoVar.zan_num == null) {
-                this.aNt.setVisibility(8);
+                this.aRm.setVisibility(8);
             } else {
-                this.aNt.setVisibility(0);
-                this.aNt.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
+                this.aRm.setVisibility(0);
+                this.aRm.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
             }
             if (tinfoVar.reply_num == null) {
-                this.aNu.setVisibility(8);
+                this.aRn.setVisibility(8);
             } else {
-                this.aNu.setVisibility(0);
-                this.aNu.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
+                this.aRn.setVisibility(0);
+                this.aRn.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.avB.setVisibility(8);
+            this.axf.setVisibility(8);
             return;
         }
-        this.avB.setVisibility(0);
-        this.avB.setText(tinfoVar._abstract);
+        this.axf.setVisibility(0);
+        this.axf.setText(tinfoVar._abstract);
     }
 }

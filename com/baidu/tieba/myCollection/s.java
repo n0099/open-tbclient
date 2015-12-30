@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
 import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdListView.e, q.a {
-    private ArrayList<MarkData> cub;
-    private com.baidu.tieba.myCollection.baseEditMark.a ctY = null;
-    private x cuw = null;
-    private int cua = -1;
+public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdListView.e, r.a {
+    private ArrayList<MarkData> cyd;
+    private com.baidu.tieba.myCollection.baseEditMark.a cya = null;
+    private x cyw = null;
+    private int cyc = -1;
     private final CustomMessageListener mNetworkChangedMessageListener = new t(this, 2000994);
 
-    public static final s aid() {
+    public static final s ajq() {
         return new s();
     }
 
@@ -40,49 +40,53 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(n.g.edit_mark_activity, (ViewGroup) null);
-        this.ctY = new com.baidu.tieba.myCollection.baseEditMark.a();
-        this.cuw = new x(this, inflate);
-        this.cuw.b(new u(this));
-        this.ctY.a(new v(this));
+        View inflate = layoutInflater.inflate(n.h.edit_mark_activity, (ViewGroup) null);
+        this.cya = new com.baidu.tieba.myCollection.baseEditMark.a();
+        this.cyw = new x(this, inflate);
+        this.cyw.b(new u(this));
+        this.cya.a(new v(this));
         refresh();
         return inflate;
     }
 
     private void refresh() {
-        if (this.ctY.getCount() == 0 || this.ctY.aij() < 0) {
-            this.cuw.jC(this.ctY.getOffset());
+        if (this.cya.getCount() == 0 || this.cya.ajw() < 0) {
+            this.cyw.ka(this.cya.getOffset());
             return;
         }
-        this.cuw.startSync();
-        this.ctY.startSync();
+        this.cyw.startSync();
+        this.cya.startSync();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cuw.onChangeSkinType(i);
+        if (this.cyw != null) {
+            this.cyw.onChangeSkinType(i);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.cuw.S(this.cub);
-        this.mIsEnableEdit = (this.cub == null || this.cub.isEmpty()) ? false : true;
-        sendEditEnableMessage(1);
+        if (this.cyw != null) {
+            this.cyw.R(this.cyd);
+            this.mIsEnableEdit = (this.cyd == null || this.cyd.isEmpty()) ? false : true;
+            sendEditEnableMessage(1);
+        }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.c.b, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.cuw.aie();
+        this.cyw.ajr();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.cuw.onDestroy();
-        this.ctY.onDestroy();
+        this.cyw.onDestroy();
+        this.cya.onDestroy();
     }
 
     private void registerNavigationBarEditStateListener() {
@@ -91,11 +95,11 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.cuw.ahY()) {
+        if (view.getId() == this.cyw.ajl()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.cuw.KX();
-            if (!this.ctY.jE(intValue)) {
-                this.cuw.OM();
+            this.cyw.Lq();
+            if (!this.cya.kc(intValue)) {
+                this.cyw.Pe();
             }
         }
         super.onClick(view);
@@ -103,30 +107,30 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.ctY.aig().size()) {
-            this.cua = i;
-            MarkData markData = this.ctY.aig().get(i);
-            MarkData markData2 = this.cub.get(i);
-            int aif = this.ctY.aif();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xJ().getMsgBookmark();
+        if (i >= 0 && i < this.cya.ajt().size()) {
+            this.cyc = i;
+            MarkData markData = this.cya.ajt().get(i);
+            MarkData markData2 = this.cyd.get(i);
+            int ajs = this.cya.ajs();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xv().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_content", "is_redpoint", markData2.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData2.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgBookmark(0);
                 }
-                if (aif > 0) {
-                    this.ctY.jD(aif - 1);
+                if (ajs > 0) {
+                    this.cya.kb(ajs - 1);
                 } else {
-                    this.ctY.jD(0);
+                    this.cya.kb(0);
                 }
             }
             markData2.setNewCounts(0);
             if (markData != null) {
                 if (markData.isPhotoLiveThread()) {
                     TiebaStatic.log("c10252");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), markData.getThreadId()).bv(17001).cl(markData.getPostId()).cn("from_mark").rw()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), markData.getThreadId()).bo(17001).cn(markData.getPostId()).cp("from_mark").rf()));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
                 }
@@ -142,11 +146,11 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
             switch (i) {
                 case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra(PbActivityConfig.KEY_MARK);
-                    if (markData != null && this.ctY.aig().size() > this.cua && this.cua >= 0) {
-                        this.ctY.aig().get(this.cua).setPostId(markData.getPostId());
-                        this.ctY.aig().get(this.cua).setHostMode(markData.getHostMode());
-                        this.ctY.aig().get(this.cua).setSequence(markData.getSequence());
-                        this.cuw.aia();
+                    if (this.cya != null && markData != null && this.cyw != null && com.baidu.tbadk.core.util.y.l(this.cya.ajt()) > this.cyc && this.cyc >= 0) {
+                        this.cya.ajt().get(this.cyc).setPostId(markData.getPostId());
+                        this.cya.ajt().get(this.cyc).setHostMode(markData.getHostMode());
+                        this.cya.ajt().get(this.cyc).setSequence(markData.getSequence());
+                        this.cyw.ajn();
                         return;
                     }
                     return;
@@ -156,9 +160,9 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.ctY.aig().size() > this.cua && this.cua >= 0) {
-                        this.ctY.aig().remove(this.cua);
-                        this.cuw.aia();
+                    if (this.cya != null && this.cyw != null && com.baidu.tbadk.core.util.y.l(this.cya.ajt()) > this.cyc && this.cyc >= 0) {
+                        this.cya.ajt().remove(this.cyc);
+                        this.cyw.ajn();
                         return;
                     }
                     return;
@@ -168,25 +172,30 @@ public class s extends com.baidu.tbadk.c.b implements View.OnClickListener, BdLi
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.q.a
+    @Override // com.baidu.tbadk.core.view.r.a
     public void onListPullRefresh(boolean z) {
-        if (this.ctY != null && this.cuw != null) {
-            this.ctY.reset();
-            this.cuw.bu(true);
-            this.ctY.f(false);
+        if (this.cya != null && this.cyw != null) {
+            this.cya.reset();
+            this.cyw.bu(true);
+            this.cya.f(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.cuw != null && this.ctY != null && this.ctY.hasMore()) {
-            this.cuw.jC(this.ctY.getOffset());
-            this.ctY.f(false);
+        if (this.cyw != null && this.cya != null && this.cya.hasMore()) {
+            this.cyw.ka(this.cya.getOffset());
+            this.cya.f(false);
         }
     }
 
     @Override // com.baidu.tbadk.c.b
     public int getType() {
         return 1;
+    }
+
+    @Override // com.baidu.tbadk.c.b
+    public boolean isEmptyData() {
+        return this.cyd == null || this.cyd.isEmpty();
     }
 }

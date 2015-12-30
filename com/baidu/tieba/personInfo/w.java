@@ -1,38 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements NoNetworkView.a {
-    final /* synthetic */ d cSn;
+public class w extends CustomMessageListener {
+    final /* synthetic */ d cWV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(d dVar) {
-        this.cSn = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(d dVar, int i) {
+        super(i);
+        this.cWV = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aA(boolean z) {
-        aw awVar;
-        aw awVar2;
-        com.baidu.tbadk.f.f fVar;
-        aw awVar3;
-        com.baidu.tbadk.f.h hVar;
-        if (z) {
-            awVar = this.cSn.cMT;
-            if (awVar != null) {
-                awVar2 = this.cSn.cMT;
-                if (!awVar2.getIsSelf()) {
-                    fVar = this.cSn.cRU;
-                    if (fVar == null) {
-                        hVar = this.cSn.refreshView;
-                        if (hVar == null) {
-                            return;
-                        }
-                    }
-                    awVar3 = this.cSn.cMT;
-                    awVar3.aph();
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null) {
+            return;
         }
+        this.cWV.aqf();
     }
 }

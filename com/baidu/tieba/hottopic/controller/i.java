@@ -9,10 +9,10 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private BaseActivity<?> aXA;
-    private com.baidu.adp.framework.listener.a bDa;
-    private com.baidu.tieba.hottopic.data.c bDi;
-    private a bDo;
+    private com.baidu.adp.framework.listener.a bGE;
+    private com.baidu.tieba.hottopic.data.c bGM;
+    private a bGS;
+    private BaseActivity<?> bbA;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,19 +21,19 @@ public class i extends com.baidu.adp.base.e<BaseActivity<?>> {
 
     public i(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.bDi = null;
-        this.bDo = null;
-        this.bDa = new j(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.aXA = baseActivity;
-        registerListener(this.bDa);
-        this.bDi = new com.baidu.tieba.hottopic.data.c();
+        this.bGM = null;
+        this.bGS = null;
+        this.bGE = new j(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
+        this.bbA = baseActivity;
+        registerListener(this.bGE);
+        this.bGM = new com.baidu.tieba.hottopic.data.c();
     }
 
     public com.baidu.tieba.hottopic.data.c getHotTopicData() {
-        return this.bDi;
+        return this.bGM;
     }
 
-    public void aG(String str, String str2) {
+    public void aA(String str, String str2) {
         f(com.baidu.adp.lib.h.b.c(str, 0L), str2);
     }
 
@@ -46,7 +46,7 @@ public class i extends com.baidu.adp.base.e<BaseActivity<?>> {
         requestHotTopicMessage.setScrH(Integer.valueOf(L));
         requestHotTopicMessage.setScrW(Integer.valueOf(K));
         requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
-        requestHotTopicMessage.setQType(Integer.valueOf(com.baidu.tbadk.core.m.rh().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(com.baidu.tbadk.core.m.qQ().getViewImageQuality()));
         sendMessage(requestHotTopicMessage);
     }
 
@@ -60,12 +60,12 @@ public class i extends com.baidu.adp.base.e<BaseActivity<?>> {
             if ((responsedMessage instanceof ResponseSocketHotTopicMessage) && ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData() != null) {
                 cVar = ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData();
             }
-            this.bDo.a(!responsedMessage.hasError(), cVar);
+            this.bGS.a(!responsedMessage.hasError(), cVar);
         }
     }
 
     public void a(a aVar) {
-        this.bDo = aVar;
+        this.bGS = aVar;
     }
 
     @Override // com.baidu.adp.base.e

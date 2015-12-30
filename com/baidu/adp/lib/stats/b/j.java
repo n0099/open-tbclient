@@ -22,7 +22,7 @@ public class j extends Handler {
         ConcurrentHashMap concurrentHashMap;
         switch (message.what) {
             case 6:
-                concurrentHashMap = this.this$0.xE;
+                concurrentHashMap = this.this$0.xG;
                 for (Map.Entry entry : concurrentHashMap.entrySet()) {
                     com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                     if (aVar.hU() > 0) {

@@ -1,25 +1,28 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bg extends CustomMessageListener {
+public class bg implements CustomMessageTask.CustomRunnable<Boolean> {
+    final /* synthetic */ bd cjr;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(int i) {
-        super(i);
+    public bg(bd bdVar) {
+        this.cjr = bdVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            if (TbadkCoreApplication.isLogin()) {
-                af.adw().start();
-            } else {
-                af.adw().destroy();
-            }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+        ax axVar;
+        ax axVar2;
+        axVar = this.cjr.cjk;
+        if (axVar != null) {
+            axVar2 = this.cjr.cjk;
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(axVar2.onBackPressed()));
         }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

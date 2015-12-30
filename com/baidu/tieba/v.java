@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 class v implements Runnable {
-    final /* synthetic */ u aGf;
+    final /* synthetic */ u aHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.aGf = uVar;
+        this.aHF = uVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         UpdateDialog updateDialog;
         UpdateDialog updateDialog2;
-        updateDialog = this.aGf.this$0;
-        if (updateDialog.aGb.forceUpdate()) {
-            updateDialog2 = this.aGf.this$0;
+        updateDialog = this.aHF.this$0;
+        if (updateDialog.aHB.forceUpdate()) {
+            updateDialog2 = this.aHF.this$0;
             com.baidu.tbadk.core.c.b.e(updateDialog2.getPageContext().getPageActivity(), 200);
         }
     }

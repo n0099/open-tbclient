@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class TiebaRuningTaskStatic {
     static {
-        MessageManager.getInstance().registerListener(new bg(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
-        MessageManager.getInstance().registerListener(new bh(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
+        MessageManager.getInstance().registerListener(new bh(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
+        MessageManager.getInstance().registerListener(new bi(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

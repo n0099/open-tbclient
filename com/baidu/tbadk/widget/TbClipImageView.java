@@ -8,7 +8,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class TbClipImageView extends TbImageView {
-    private boolean aBL;
+    private boolean aDt;
 
     public TbClipImageView(Context context) {
         this(context, null, 0);
@@ -16,7 +16,7 @@ public class TbClipImageView extends TbImageView {
 
     public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBL = false;
+        this.aDt = false;
         a(context, attributeSet, i);
     }
 
@@ -75,9 +75,9 @@ public class TbClipImageView extends TbImageView {
             }
         }
         if (z2 || z) {
-            this.aBL = false;
+            this.aDt = false;
         } else {
-            this.aBL = true;
+            this.aDt = true;
         }
     }
 
@@ -86,7 +86,7 @@ public class TbClipImageView extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.aBL ? 4 : 5);
+            super.setDrawerType(this.aDt ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }

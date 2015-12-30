@@ -15,13 +15,13 @@ import com.baidu.tbadk.data.MyLikeForum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ i cMn;
-    private final /* synthetic */ MyLikeForum cMo;
+    final /* synthetic */ i cQF;
+    private final /* synthetic */ MyLikeForum cQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar, MyLikeForum myLikeForum) {
-        this.cMn = iVar;
-        this.cMo = myLikeForum;
+        this.cQF = iVar;
+        this.cQG = myLikeForum;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,27 +32,27 @@ public class l implements View.OnClickListener {
         String str2;
         Context context2;
         Context context3;
-        context = this.cMn.mContext;
+        context = this.cQF.mContext;
         if (bj.ah(context)) {
-            String forumName = this.cMo.getForumName();
-            String.valueOf(this.cMo.getForumId());
+            String forumName = this.cQG.getForumName();
+            String.valueOf(this.cQG.getForumId());
             if (ax.aR(forumName)) {
-                z = this.cMn.isSelf;
+                z = this.cQF.isSelf;
                 if (!z) {
-                    str = this.cMn.userId;
+                    str = this.cQF.userId;
                     if (str != null) {
                         av r = new av("c10619").r("obj_type", 2);
-                        str2 = this.cMn.userId;
-                        TiebaStatic.log(r.ab("obj_id", str2));
+                        str2 = this.cQF.userId;
+                        TiebaStatic.log(r.aa("obj_id", str2));
                     }
                 } else {
                     TiebaStatic.log(new av("c10593").r("obj_type", 2));
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                context2 = this.cMn.mContext;
+                context2 = this.cQF.mContext;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context2.getApplicationContext()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                 if (!TbadkCoreApplication.isLogin()) {
-                    context3 = this.cMn.mContext;
+                    context3 = this.cQF.mContext;
                     TiebaStatic.eventStat(context3.getApplicationContext(), "notlogin_5", "click", 1, new Object[0]);
                 }
             }

@@ -13,29 +13,29 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b EJ;
-    private final LinkedHashMap<String, a> EK = new LinkedHashMap<>(10);
+    private static b Fb;
+    private final LinkedHashMap<String, a> Fc = new LinkedHashMap<>(10);
 
     private b() {
     }
 
-    public static b mx() {
-        if (EJ == null) {
+    public static b lV() {
+        if (Fb == null) {
             synchronized (b.class) {
-                if (EJ == null) {
-                    EJ = new b();
+                if (Fb == null) {
+                    Fb = new b();
                 }
             }
         }
-        return EJ;
+        return Fb;
     }
 
-    public void bJ(String str) {
-        a bL = mx().bL(str);
-        if (bL != null) {
-            bL.EG = PluginPackageManager.PluginStatus.NROMAL;
+    public void bM(String str) {
+        a bO = lV().bO(str);
+        if (bO != null) {
+            bO.EY = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bL));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bO));
     }
 
     public void j(String str, String str2, String str3) {
@@ -76,37 +76,37 @@ public class b {
         } else {
             return;
         }
-        a bL = bL(str);
-        if (bL == null) {
-            bL = new a();
+        a bO = bO(str);
+        if (bO == null) {
+            bO = new a();
         }
-        bL.EG = PluginPackageManager.PluginStatus.ERROR;
-        bL.errorMsg = string;
-        bL.EH = string2;
-        bL.errorCode = i;
-        bL.EI = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bL));
+        bO.EY = PluginPackageManager.PluginStatus.ERROR;
+        bO.errorMsg = string;
+        bO.EZ = string2;
+        bO.errorCode = i;
+        bO.Fa = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bO));
     }
 
-    public void bK(String str) {
-        a bL = bL(str);
-        if (bL == null) {
-            bL = new a();
+    public void bN(String str) {
+        a bO = bO(str);
+        if (bO == null) {
+            bO = new a();
         }
-        bL.EG = PluginPackageManager.PluginStatus.ERROR;
-        bL.errorCode = 100;
-        bL.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bL.EH = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bL));
+        bO.EY = PluginPackageManager.PluginStatus.ERROR;
+        bO.errorCode = 100;
+        bO.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bO.EZ = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bO));
     }
 
-    public List<a> my() {
+    public List<a> lW() {
         ArrayList arrayList;
         a value;
-        synchronized (this.EK) {
-            arrayList = new ArrayList(this.EK.size());
-            for (Map.Entry<String, a> entry : this.EK.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.EG == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.Fc) {
+            arrayList = new ArrayList(this.Fc.size());
+            for (Map.Entry<String, a> entry : this.Fc.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.EY == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -114,17 +114,17 @@ public class b {
         return arrayList;
     }
 
-    public a bL(String str) {
+    public a bO(String str) {
         a aVar;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.EK) {
-            aVar = this.EK.get(str);
+        synchronized (this.Fc) {
+            aVar = this.Fc.get(str);
             if (aVar == null) {
                 aVar = new a();
                 aVar.pkgName = str;
-                this.EK.put(str, aVar);
+                this.Fc.put(str, aVar);
             }
         }
         return aVar;

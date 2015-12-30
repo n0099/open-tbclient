@@ -42,19 +42,11 @@ import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class q {
-    public static boolean d(TbPageContext tbPageContext, String str) {
-        if (str != null && str.toLowerCase().startsWith("tieba://focusforum")) {
-            TbadkCoreApplication.m411getInst().setLikeBarChanged(true);
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean e(TbPageContext tbPageContext, String str) {
+    public static int d(TbPageContext tbPageContext, String str) {
         String lowerCase;
         int i;
         if (str == null) {
-            return false;
+            return 2;
         }
         try {
             lowerCase = str.toLowerCase();
@@ -65,7 +57,7 @@ public class q {
                 String substring = lowerCase.substring(4);
                 String str2 = "";
                 if (lowerCase.contains("body=")) {
-                    str2 = an(lowerCase, "body=");
+                    str2 = am(lowerCase, "body=");
                     substring = substring.substring(0, substring.indexOf("?") - 1);
                 }
                 UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str2);
@@ -75,118 +67,114 @@ public class q {
         }
         if (lowerCase != null && lowerCase.contains("jump=outer") && tbPageContext != null) {
             com.baidu.tbadk.browser.f.D(tbPageContext.getPageActivity(), lowerCase);
-            return true;
-        } else if (lowerCase != null && lowerCase.contains("jump=finish_this_page") && tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            tbPageContext.getPageActivity().finish();
-            return true;
-        } else {
+            return 0;
+        } else if (lowerCase == null || !lowerCase.contains("jump=finish_this_page") || tbPageContext == null || tbPageContext.getPageActivity() == null) {
             if (lowerCase != null && lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && tbPageContext != null) {
                 if (lowerCase.contains("jumptoapp_browser=classic_everyday")) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_DAILY_CLASSICLA, new DailyClassicalActivityConfig(tbPageContext.getPageActivity())));
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("jump_personalCenter=1") && lowerCase.contains("userid=") && lowerCase.contains("un=")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), an(lowerCase, "userid="), an(lowerCase, "un="))));
-                    return true;
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), am(lowerCase, "userid="), am(lowerCase, "un="))));
+                    return 0;
                 } else if (lowerCase.contains("jump_chat=1")) {
-                    String an = an(lowerCase, "userid=");
-                    String an2 = an(lowerCase, "username=");
-                    String an3 = an(lowerCase, "portrait=");
-                    if (an != null && an.length() > 0) {
+                    String am = am(lowerCase, "userid=");
+                    String am2 = am(lowerCase, "username=");
+                    String am3 = am(lowerCase, "portrait=");
+                    if (am != null && am.length() > 0) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(an), an2, an3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(am), am2, am3, 0)));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.IM_MESSAGE_CENTER_ACTIVITY_START));
                     }
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("jump_official_chat=1")) {
-                    String an4 = an(lowerCase, "barid=");
-                    String an5 = an(lowerCase, "barname=");
-                    String an6 = an(lowerCase, "portrait=");
-                    if (an4 != null && an4.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.h.b.c(an4, 0L), an5, an6, 0)));
+                    String am4 = am(lowerCase, "barid=");
+                    String am5 = am(lowerCase, "barname=");
+                    String am6 = am(lowerCase, "portrait=");
+                    if (am4 != null && am4.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.h.b.c(am4, 0L), am5, am6, 0)));
                     }
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("kz=")) {
-                    String an7 = an(lowerCase, "kz=");
-                    if (an7 != null && an7.length() >= 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(an7, null, "allthread")));
+                    String am7 = am(lowerCase, "kz=");
+                    if (am7 != null && am7.length() >= 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(am7, null, "allthread")));
                     }
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("kw=")) {
-                    String an8 = an(lowerCase, "kw=");
-                    if (an8 != null && an8.length() >= 0 && tbPageContext != null) {
-                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(an8, "allthread")));
+                    String am8 = am(lowerCase, "kw=");
+                    if (am8 != null && am8.length() >= 0 && tbPageContext != null) {
+                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(am8, "allthread")));
                     }
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("jumptologin=1") && (tbPageContext instanceof Activity)) {
                     TbadkCoreApplication.m411getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) ((Activity) tbPageContext), "", true, 0)));
-                    return true;
+                    return 0;
                 } else if (lowerCase.contains("jumptobubble_list") && (tbPageContext instanceof Activity)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleChooseActivityConfig(tbPageContext.getPageActivity())));
-                    return true;
+                    return 0;
                 } else {
                     if (lowerCase.contains("pay=1") && (tbPageContext instanceof Activity)) {
-                        UtilHelper.showToast(tbPageContext.getPageActivity(), n.i.buy_sucess);
-                        ((Activity) tbPageContext).finish();
+                        UtilHelper.showToast(tbPageContext.getPageActivity(), n.j.buy_sucess);
                     }
                     if (lowerCase.contains("jump_tail_edit=1") && tbPageContext != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailManagementActivityConfig(tbPageContext.getPageActivity())));
-                        return true;
+                        return 0;
                     } else if (lowerCase.contains("jumpstartgame=1")) {
-                        String an9 = an(lowerCase, "gameid=");
-                        String an10 = an(lowerCase, "packagename=");
-                        String an11 = an(lowerCase, "launcheractivity=");
-                        if (!TextUtils.isEmpty(an9) && !TextUtils.isEmpty(an10) && !TextUtils.isEmpty(an11)) {
-                            if (UtilHelper.isInstallApk(tbPageContext.getPageActivity(), an10) && UtilHelper.startApk(tbPageContext.getPageActivity(), an10, an11)) {
-                                ((Activity) tbPageContext).finish();
-                                return true;
+                        String am9 = am(lowerCase, "gameid=");
+                        String am10 = am(lowerCase, "packagename=");
+                        String am11 = am(lowerCase, "launcheractivity=");
+                        if (!TextUtils.isEmpty(am9) && !TextUtils.isEmpty(am10) && !TextUtils.isEmpty(am11)) {
+                            if (UtilHelper.isInstallApk(tbPageContext.getPageActivity(), am10) && UtilHelper.startApk(tbPageContext.getPageActivity(), am10, am11)) {
+                                return 1;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(tbPageContext.getPageActivity(), an9)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(tbPageContext.getPageActivity(), am9)));
                         }
-                        ((Activity) tbPageContext).finish();
-                        return true;
+                        return 1;
                     } else if (lowerCase.contains("jump_enter_forum=1")) {
                         com.baidu.tbadk.core.c.b.a(tbPageContext.getPageActivity(), 1, true);
-                        return true;
+                        return 0;
                     } else if (lowerCase.contains("jump_chosen_post=1")) {
                         com.baidu.tbadk.core.c.b.a(tbPageContext.getPageActivity(), 2, true);
-                        return true;
+                        return 0;
                     } else if (lowerCase.contains("bunding_phone=1")) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, an(lowerCase, "bindid=")));
-                        tbPageContext.getPageActivity().finish();
-                        return true;
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, am(lowerCase, "bindid=")));
+                        return 0;
                     } else if (lowerCase.contains("gamecenter=1")) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(tbPageContext.getPageActivity())));
-                        ((Activity) tbPageContext).finish();
-                        return true;
+                        return 1;
                     } else {
-                        Bundle gf = gf(lowerCase);
-                        if (gf != null) {
-                            if ("/payWithNative".equalsIgnoreCase(gf.getString("path")) || !StringUtils.isNull(gf.getString(MemberPayActivityConfig.FROM_SCENE))) {
+                        Bundle gj = gj(lowerCase);
+                        if (gj != null) {
+                            if ("/payWithNative".equalsIgnoreCase(gj.getString("path")) || !StringUtils.isNull(gj.getString(MemberPayActivityConfig.FROM_SCENE))) {
                                 AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                                 int vipStatus = (currentAccountInfo == null || currentAccountInfo.getVipInfo() == null) ? 0 : currentAccountInfo.getVipInfo().getVipStatus();
-                                String string = gf.getString("fromtype");
+                                String string = gj.getString("fromtype");
                                 if (!StringUtils.isNull(string)) {
                                     if (string.equals("c10061")) {
                                         i = 6;
                                     } else if (string.equals("c10383")) {
                                         i = 7;
                                     }
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, com.baidu.adp.lib.h.b.g(gf.getString(MemberPayActivityConfig.FROM_SCENE), 0))));
-                                    return true;
+                                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, com.baidu.adp.lib.h.b.g(gj.getString(MemberPayActivityConfig.FROM_SCENE), 0));
+                                    memberPayActivityConfig.setStType(string);
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
+                                    return 1;
                                 }
                                 i = 0;
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, com.baidu.adp.lib.h.b.g(gf.getString(MemberPayActivityConfig.FROM_SCENE), 0))));
-                                return true;
-                            } else if ("/buyTBeans".equalsIgnoreCase(gf.getString("path"))) {
+                                MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, com.baidu.adp.lib.h.b.g(gj.getString(MemberPayActivityConfig.FROM_SCENE), 0));
+                                memberPayActivityConfig2.setStType(string);
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig2));
+                                return 1;
+                            } else if ("/buyTBeans".equalsIgnoreCase(gj.getString("path"))) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(tbPageContext.getPageActivity(), 0L)));
-                                return true;
-                            } else if ("/changeYinjiSuccess".equalsIgnoreCase(gf.getString("path"))) {
+                                return 1;
+                            } else if ("/changeYinjiSuccess".equalsIgnoreCase(gj.getString("path"))) {
                                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
-                                return true;
+                                return 1;
                             }
                         }
                     }
@@ -198,39 +186,39 @@ public class q {
                 intent.setData(Uri.parse(lowerCase));
                 intent.setFlags(268435456);
                 tbPageContext.getPageActivity().startActivity(intent);
-                return true;
+                return 1;
             } else if (lowerCase.contains("onekeysign:")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new SignAllForumActivityConfig(tbPageContext.getPageActivity())));
-                ((Activity) tbPageContext).finish();
-                return true;
+                return 1;
             } else if (lowerCase.contains("dressupcenter:")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(tbPageContext.getPageActivity())));
-                ((Activity) tbPageContext).finish();
-                return true;
+                return 1;
             } else if (lowerCase.contains("themeskin:")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopThemeListActivityConfig(tbPageContext.getPageActivity())));
-                ((Activity) tbPageContext).finish();
-                return true;
+                return 1;
             } else if (lowerCase.contains("postbubble:")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleGroupActivityConfig(tbPageContext.getPageActivity())));
-                ((Activity) tbPageContext).finish();
-                return true;
+                return 1;
+            } else if (lowerCase.contains("personalbg:")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(tbPageContext.getPageActivity())));
+                return 1;
             } else {
-                if (lowerCase.contains("personalbg:")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(tbPageContext.getPageActivity())));
-                    ((Activity) tbPageContext).finish();
-                    return true;
+                if (lowerCase.startsWith("tieba://focusforum")) {
+                    TbadkCoreApplication.m411getInst().setLikeBarChanged(true);
+                    return 1;
                 }
-                return false;
+                return 2;
             }
+        } else {
+            return 0;
         }
     }
 
-    public static boolean a(TbPageContextSupport tbPageContextSupport, String str) {
-        return e(tbPageContextSupport == null ? null : tbPageContextSupport.getPageContext(), str);
+    public static int a(TbPageContextSupport tbPageContextSupport, String str) {
+        return d(tbPageContextSupport == null ? null : tbPageContextSupport.getPageContext(), str);
     }
 
-    public static String an(String str, String str2) {
+    public static String am(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -243,7 +231,7 @@ public class q {
         return "";
     }
 
-    public static Bundle gf(String str) {
+    public static Bundle gj(String str) {
         URL url;
         String query;
         String[] split;
@@ -273,17 +261,17 @@ public class q {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aAM;
+        public String aCt;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aAM = "";
+            this.aCt = "";
             this.BDUSS = str;
-            this.aAM = str2;
+            this.aCt = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aAM != null ? this.aAM.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aCt != null ? this.aCt.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -299,7 +287,7 @@ public class q {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aAM == null ? aVar.aAM == null : this.aAM.equals(aVar.aAM);
+                return this.aCt == null ? aVar.aCt == null : this.aCt.equals(aVar.aCt);
             }
             return false;
         }

@@ -20,62 +20,62 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private Context mContext;
-    private String wc;
-    private String wd;
     private String we;
-    private boolean wf;
+    private String wf;
     private String wg;
-    private e wi;
-    private C0005a wj;
-    private static a wb = null;
+    private boolean wh;
+    private String wi;
+    private e wk;
+    private C0006a wl;
+    private static a wd = null;
     private static final Handler mHandler = new b();
-    private boolean wh = false;
-    private a.InterfaceC0006a wk = new c(this);
+    private boolean wj = false;
+    private a.InterfaceC0007a wm = new c(this);
 
     public static synchronized a hl() {
         a aVar;
         synchronized (a.class) {
-            if (wb == null) {
+            if (wd == null) {
                 synchronized (a.class) {
-                    if (wb == null) {
-                        wb = new a();
+                    if (wd == null) {
+                        wd = new a();
                     }
                 }
             }
-            aVar = wb;
+            aVar = wd;
         }
         return aVar;
     }
 
     public e hm() {
-        return this.wi;
+        return this.wk;
     }
 
     public void a(Context context, boolean z, String str, String str2, String str3, String str4, f fVar, e eVar) {
         this.mContext = context;
-        this.wd = str3;
-        this.we = String.valueOf(this.wd) + "/notUpload";
-        this.wf = z;
-        this.wi = eVar;
+        this.wf = str3;
+        this.wg = String.valueOf(this.wf) + "/notUpload";
+        this.wh = z;
+        this.wk = eVar;
         com.baidu.adp.lib.Disk.d.fj().M(str2);
-        com.baidu.adp.lib.stats.switchs.a.ih().a(z, str, this.mContext, this.wk);
+        com.baidu.adp.lib.stats.switchs.a.ih().a(z, str, this.mContext, this.wm);
         com.baidu.adp.lib.stats.upload.b.in().a(fVar, str4);
         com.baidu.adp.lib.stats.b.i.ip().init();
         if (fVar != null) {
-            this.wg = fVar.wg;
+            this.wi = fVar.wi;
         }
-        if (TextUtils.isEmpty(this.wc)) {
-            this.wc = ho();
-            if (z && this.wc == null) {
-                this.wc = "44f94582";
+        if (TextUtils.isEmpty(this.we)) {
+            this.we = ho();
+            if (z && this.we == null) {
+                this.we = "44f94582";
             }
         }
         try {
-            if (this.wj == null && this.mContext != null) {
-                this.wj = new C0005a(this, null);
+            if (this.wl == null && this.mContext != null) {
+                this.wl = new C0006a(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.multiproceess.uploadallfile");
-                this.mContext.registerReceiver(this.wj, intentFilter);
+                this.mContext.registerReceiver(this.wl, intentFilter);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -123,15 +123,15 @@ public class a {
     }
 
     public String hp() {
-        return this.wd;
+        return this.wf;
     }
 
     public String hq() {
-        return this.we;
+        return this.wg;
     }
 
     public String hr() {
-        return this.wc;
+        return this.we;
     }
 
     public void f(String str, String str2, String str3) {
@@ -143,7 +143,7 @@ public class a {
     }
 
     public boolean hs() {
-        return this.wf;
+        return this.wh;
     }
 
     public void a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
@@ -155,17 +155,17 @@ public class a {
 
     /* renamed from: com.baidu.adp.lib.stats.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0005a extends BroadcastReceiver {
-        private C0005a() {
+    private class C0006a extends BroadcastReceiver {
+        private C0006a() {
         }
 
-        /* synthetic */ C0005a(a aVar, C0005a c0005a) {
+        /* synthetic */ C0006a(a aVar, C0006a c0006a) {
             this();
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && intent.getIntExtra("intent_data_multiprocess_type", 0) == 4 && !a.this.wf) {
+            if (intent != null && intent.getIntExtra("intent_data_multiprocess_type", 0) == 4 && !a.this.wh) {
                 com.baidu.adp.lib.stats.b.i.ip().it();
             }
         }
@@ -181,7 +181,7 @@ public class a {
 
     public void hu() {
         com.baidu.adp.lib.stats.b.i.ip().it();
-        if (this.wf) {
+        if (this.wh) {
             Intent intent = new Intent();
             intent.setAction("adp.bdstatisticsmanager.multiproceess.uploadallfile");
             intent.putExtra("intent_data_multiprocess_type", 4);

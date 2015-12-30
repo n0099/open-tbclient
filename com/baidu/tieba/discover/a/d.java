@@ -14,25 +14,25 @@ import com.baidu.tieba.discover.t;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView MW;
-    private TextView aEp;
-    private View aOA;
-    private View aOB;
-    private View aOC;
-    private ImageView aOv;
-    private ImageView aOz;
-    private TextView agd;
+    private TbImageView Nm;
+    private TextView aFP;
+    private ImageView aSn;
+    private ImageView aSr;
+    private View aSs;
+    private View aSt;
+    private View aSu;
+    private TextView ahk;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aOC = view.findViewById(n.f.root_view);
-        this.MW = (TbImageView) view.findViewById(n.f.icon);
-        this.agd = (TextView) view.findViewById(n.f.title);
-        this.aEp = (TextView) view.findViewById(n.f.desc);
-        this.aOv = (ImageView) view.findViewById(n.f.red_tip);
-        this.aOz = (ImageView) view.findViewById(n.f.red_new_tip);
-        this.aOA = view.findViewById(n.f.top_divider);
-        this.aOB = view.findViewById(n.f.bottom_divider);
+        this.aSu = view.findViewById(n.g.root_view);
+        this.Nm = (TbImageView) view.findViewById(n.g.icon);
+        this.ahk = (TextView) view.findViewById(n.g.title);
+        this.aFP = (TextView) view.findViewById(n.g.desc);
+        this.aSn = (ImageView) view.findViewById(n.g.red_tip);
+        this.aSr = (ImageView) view.findViewById(n.g.red_new_tip);
+        this.aSs = view.findViewById(n.g.top_divider);
+        this.aSt = view.findViewById(n.g.bottom_divider);
         a(tbPageContext, TbadkApplication.getInst().getSkinType());
     }
 
@@ -42,38 +42,38 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     public void B(com.baidu.tieba.discover.data.c cVar) {
         super.B(cVar);
         if (cVar != null) {
-            this.MW.setDefaultResource(t.gG(cVar.IZ()));
+            this.Nm.setDefaultResource(t.gQ(cVar.Jq()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
-                this.MW.d(cVar.getIcon_url(), 10, false);
+                this.Nm.d(cVar.getIcon_url(), 10, false);
             }
-            this.agd.setText(o.e(cVar.getTitle(), 0, 16));
-            this.aEp.setText(cVar.IY());
-            if (cVar.Ja()) {
-                this.aOz.setVisibility(0);
+            this.ahk.setText(o.e(cVar.getTitle(), 0, 16));
+            this.aFP.setText(cVar.Jp());
+            if (cVar.Jr()) {
+                this.aSr.setVisibility(0);
             } else {
-                this.aOz.setVisibility(8);
+                this.aSr.setVisibility(8);
             }
-            if (cVar.Jb()) {
-                this.aOv.setVisibility(0);
+            if (cVar.Js()) {
+                this.aSn.setVisibility(0);
             } else {
-                this.aOv.setVisibility(8);
+                this.aSn.setVisibility(8);
             }
-            switch (cVar.Jc()) {
+            switch (cVar.Jt()) {
                 case 1:
-                    this.aOA.setVisibility(0);
-                    this.aOB.setVisibility(0);
+                    this.aSs.setVisibility(0);
+                    this.aSt.setVisibility(0);
                     return;
                 case 2:
-                    this.aOA.setVisibility(8);
-                    this.aOB.setVisibility(8);
+                    this.aSs.setVisibility(8);
+                    this.aSt.setVisibility(8);
                     return;
                 case 3:
-                    this.aOA.setVisibility(0);
-                    this.aOB.setVisibility(8);
+                    this.aSs.setVisibility(0);
+                    this.aSt.setVisibility(8);
                     return;
                 default:
-                    this.aOA.setVisibility(8);
-                    this.aOB.setVisibility(0);
+                    this.aSs.setVisibility(8);
+                    this.aSt.setVisibility(0);
                     return;
             }
         }
@@ -82,8 +82,8 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        as.i(this.aOC, n.e.addresslist_item_bg);
-        this.MW.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        as.i(this.aSu, n.f.addresslist_item_bg);
+        this.Nm.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
         return true;
     }
 }

@@ -19,38 +19,38 @@ import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.e {
-    private a dlQ;
-    private b dlR;
-    private BaseActivity.LoadDataCallBack dlS;
+    private a dsX;
+    private b dsY;
+    private BaseActivity.LoadDataCallBack dsZ;
     private Context mContext;
 
     public j(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.dlQ = null;
-        this.dlR = null;
+        this.dsX = null;
+        this.dsY = null;
         this.mContext = null;
-        this.dlS = null;
+        this.dsZ = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void axr() {
-        if (this.dlQ == null) {
-            this.dlQ = new a(this, null);
-            this.dlQ.execute(new String[0]);
+    public void azx() {
+        if (this.dsX == null) {
+            this.dsX = new a(this, null);
+            this.dsX.execute(new String[0]);
         }
     }
 
-    public void axs() {
+    public void azy() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void axt() {
-        if (this.dlR == null) {
-            this.dlR = new b(this, null);
-            this.dlR.execute(new String[0]);
+    public void azz() {
+        if (this.dsY == null) {
+            this.dsY = new b(this, null);
+            this.dsY.execute(new String[0]);
         }
     }
 
@@ -72,11 +72,11 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            j.this.dlQ = null;
-            if (j.this.dlS == null) {
+            j.this.dsX = null;
+            if (j.this.dsZ == null) {
                 return;
             }
-            j.this.dlS.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            j.this.dsZ.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,10 +84,10 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().dN();
-            com.baidu.tbadk.core.voice.a.b.wB();
+            com.baidu.tbadk.core.voice.a.b.wk();
             try {
-                aw.vk().vl();
-                aw.vk().vm();
+                aw.uU().uV();
+                aw.uU().uW();
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_CLEARIMAGE, ""));
                 return null;
             } catch (Exception e) {
@@ -111,13 +111,13 @@ public class j extends com.baidu.adp.base.e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            String ui = n.ui();
-            long l = n.l(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.l(String.valueOf(ui) + TbConfig.TMP_PIC_DIR_NAME, false) + n.l(String.valueOf(ui) + "voice", false) + n.da(String.valueOf(ui) + TbConfig.TMP_DATABASE_NAME);
+            String tS = n.tS();
+            long l = n.l(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.l(String.valueOf(tS) + TbConfig.TMP_PIC_DIR_NAME, false) + n.l(String.valueOf(tS) + "voice", false) + n.dd(String.valueOf(tS) + TbConfig.TMP_DATABASE_NAME);
             float f = 0.0f + ((float) l);
             if (l < 10485.76d) {
                 return "";
             }
-            return String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))) + j.this.mContext.getString(n.i.mebibyte);
+            return String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))) + j.this.mContext.getString(n.j.mebibyte);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,11 +125,11 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            j.this.dlR = null;
-            if (j.this.dlS == null) {
+            j.this.dsY = null;
+            if (j.this.dsZ == null) {
                 return;
             }
-            j.this.dlS.callback(MoreModel.TaskType.GET_SIZE, str);
+            j.this.dsZ.callback(MoreModel.TaskType.GET_SIZE, str);
         }
     }
 
@@ -144,6 +144,6 @@ public class j extends com.baidu.adp.base.e {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.dlS = loadDataCallBack;
+        this.dsZ = loadDataCallBack;
     }
 }

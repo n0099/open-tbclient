@@ -6,34 +6,34 @@ import com.baidu.tieba.im.message.RequestGetLivableForumList;
 import com.baidu.tieba.person.post.u;
 /* loaded from: classes.dex */
 class u implements BdListView.e {
-    final /* synthetic */ s cKg;
+    final /* synthetic */ s cOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(s sVar) {
-        this.cKg = sVar;
+        this.cOw = sVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         String str;
-        PersonBarActivity anx;
-        if (this.cKg.hasMore) {
-            this.cKg.cJQ.LP();
-            anx = this.cKg.anx();
-            if (anx.getRequestCode() == 23011) {
+        PersonBarActivity aoI;
+        if (this.cOw.hasMore) {
+            this.cOw.cOg.Mi();
+            aoI = this.cOw.aoI();
+            if (aoI.getRequestCode() == 23011) {
                 RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                 requestGetLivableForumList.setGetLikeForum(1);
-                requestGetLivableForumList.setPageNo(this.cKg.cJU);
-                requestGetLivableForumList.setPageSize(this.cKg.pageSize);
+                requestGetLivableForumList.setPageNo(this.cOw.cOk);
+                requestGetLivableForumList.setPageSize(this.cOw.pageSize);
                 requestGetLivableForumList.setUserId(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                this.cKg.sendMessage(requestGetLivableForumList);
+                this.cOw.sendMessage(requestGetLivableForumList);
                 return;
             }
-            this.cKg.hW(this.cKg.cJU);
+            this.cOw.iw(this.cOw.cOk);
             return;
         }
-        u.a aVar = this.cKg.cJQ;
-        str = this.cKg.cJX;
-        aVar.kW(str);
+        u.a aVar = this.cOw.cOg;
+        str = this.cOw.cOn;
+        aVar.kT(str);
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.b {
-    final /* synthetic */ q bkX;
+    final /* synthetic */ q boO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(q qVar) {
-        this.bkX = qVar;
+        this.boO = qVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        TiebaStatic.eventStat(this.bkX.baC.getPageContext().getPageActivity(), "consume_8", "click");
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.bkX.mContext.getPageActivity(), this.bkX.mMemberType, "exp_acce", 2)));
+        TiebaStatic.eventStat(this.boO.beB.getPageContext().getPageActivity(), "c10752", "click");
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.boO.mContext.getPageActivity(), this.boO.mMemberType, "exp_acce", 2)));
         aVar.dismiss();
     }
 }

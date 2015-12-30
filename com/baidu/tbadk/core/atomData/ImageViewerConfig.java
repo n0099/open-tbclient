@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static final String ASSIST_URLS = "assist_urls";
@@ -43,19 +43,18 @@ public class ImageViewerConfig extends IntentConfig {
         super(context);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, false);
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, false);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, z3, false, false);
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, false);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3, boolean z4, boolean z5) {
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
-            cutAssistUrls(hashMap);
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra(INDEX, i);
@@ -67,7 +66,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);
-            intent.putExtra(ASSIST_URLS, hashMap);
+            intent.putExtra(ASSIST_URLS, concurrentHashMap);
             intent.putExtra(IS_SHOW_AD, z3);
             intent.putExtra(NEED_BROADCAST, z4);
             intent.putExtra(SEE_HOST, z5);
@@ -85,10 +84,10 @@ public class ImageViewerConfig extends IntentConfig {
         return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null);
     }
 
-    private void cutAssistUrls(HashMap<String, ImageUrlData> hashMap) {
-        if (hashMap != null && hashMap.size() > 20) {
+    private void cutAssistUrls(Map<String, ImageUrlData> map) {
+        if (map != null && map.size() > 20) {
             int i = 0;
-            Iterator<Map.Entry<String, ImageUrlData>> it = hashMap.entrySet().iterator();
+            Iterator<Map.Entry<String, ImageUrlData>> it = map.entrySet().iterator();
             while (it.hasNext()) {
                 it.next();
                 i++;

@@ -12,7 +12,7 @@ public class q extends com.baidu.adp.framework.a.j {
     @Override // com.baidu.adp.framework.a.g
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
             BdSocketLinkService.startService(true, "be server kicked off");
         }
         return socketResponsedMessage;

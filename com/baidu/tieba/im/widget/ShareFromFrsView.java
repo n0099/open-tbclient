@@ -11,13 +11,13 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private TextView aER;
-    private TextView bYm;
-    private TextView bYn;
-    private TextView bYo;
-    private TextView bYp;
-    private HeadImageView bkS;
-    private ShareFromFrsMsgData bkV;
+    private TextView aGr;
+    private HeadImageView boJ;
+    private ShareFromFrsMsgData boM;
+    private TextView ccm;
+    private TextView ccn;
+    private TextView cco;
+    private TextView ccp;
     private Context context;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -33,46 +33,46 @@ public class ShareFromFrsView extends LinearLayout {
     }
 
     private void initUI() {
-        LayoutInflater.from(getContext()).inflate(n.g.share_from_frs_view, this);
-        this.aER = (TextView) findViewById(n.f.frs_name);
-        this.bkS = (HeadImageView) findViewById(n.f.frs_img);
-        this.bYn = (TextView) findViewById(n.f.frs_member_num);
-        this.bYp = (TextView) findViewById(n.f.frs_post_num);
-        this.bYm = (TextView) findViewById(n.f.frs_member_num_label);
-        this.bYo = (TextView) findViewById(n.f.frs_post_num_label);
+        LayoutInflater.from(getContext()).inflate(n.h.share_from_frs_view, this);
+        this.aGr = (TextView) findViewById(n.g.frs_name);
+        this.boJ = (HeadImageView) findViewById(n.g.frs_img);
+        this.ccn = (TextView) findViewById(n.g.frs_member_num);
+        this.ccp = (TextView) findViewById(n.g.frs_post_num);
+        this.ccm = (TextView) findViewById(n.g.frs_member_num_label);
+        this.cco = (TextView) findViewById(n.g.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.aER.setTextColor(getContext().getResources().getColor(n.c.cp_cont_b));
-            this.bYn.setTextColor(getContext().getResources().getColor(n.c.cp_cont_f));
-            this.bYp.setTextColor(getContext().getResources().getColor(n.c.cp_cont_f));
-            this.bYm.setTextColor(getContext().getResources().getColor(n.c.cp_cont_f));
-            this.bYo.setTextColor(getContext().getResources().getColor(n.c.cp_cont_f));
+            this.aGr.setTextColor(getContext().getResources().getColor(n.d.cp_cont_b));
+            this.ccn.setTextColor(getContext().getResources().getColor(n.d.cp_cont_f));
+            this.ccp.setTextColor(getContext().getResources().getColor(n.d.cp_cont_f));
+            this.ccm.setTextColor(getContext().getResources().getColor(n.d.cp_cont_f));
+            this.cco.setTextColor(getContext().getResources().getColor(n.d.cp_cont_f));
             return;
         }
-        this.aER.setTextColor(getContext().getResources().getColor(n.c.cp_cont_g));
-        this.bYn.setTextColor(getContext().getResources().getColor(n.c.cp_cont_g));
-        this.bYp.setTextColor(getContext().getResources().getColor(n.c.cp_cont_g));
-        this.bYm.setTextColor(getContext().getResources().getColor(n.c.cp_cont_g));
-        this.bYo.setTextColor(getContext().getResources().getColor(n.c.cp_cont_g));
+        this.aGr.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
+        this.ccn.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
+        this.ccp.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
+        this.ccm.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
+        this.cco.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bkV = shareFromFrsMsgData;
-        wd();
+        this.boM = shareFromFrsMsgData;
+        vN();
     }
 
-    private void wd() {
-        this.aER.setText(dA(this.bkV.getName()));
-        this.bkS.setDefaultResource(n.e.icon_default_ba_120);
-        this.bkS.setAutoChangeStyle(false);
-        this.bkS.d(this.bkV.getImageUrl(), 10, false);
-        this.bYn.setText(ax.w(this.bkV.getMemberNum()));
-        this.bYp.setText(ax.w(this.bkV.getPostNum()));
+    private void vN() {
+        this.aGr.setText(dD(this.boM.getName()));
+        this.boJ.setDefaultResource(n.f.icon_default_ba_120);
+        this.boJ.setAutoChangeStyle(false);
+        this.boJ.d(this.boM.getImageUrl(), 10, false);
+        this.ccn.setText(ax.x(this.boM.getMemberNum()));
+        this.ccp.setText(ax.x(this.boM.getPostNum()));
     }
 
-    private String dA(String str) {
-        return String.valueOf(ax.i(str, 8)) + this.context.getString(n.i.forum);
+    private String dD(String str) {
+        return String.valueOf(ax.i(str, 8)) + this.context.getString(n.j.forum);
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessag
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b bDb;
+    final /* synthetic */ b bGF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i, int i2) {
         super(i, i2);
-        this.bDb = bVar;
+        this.bGF = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -23,17 +23,17 @@ public class c extends com.baidu.adp.framework.listener.a {
         b.a aVar;
         BaseActivity baseActivity;
         if (responsedMessage != null) {
-            if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bDb.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bGF.getUniqueId()) {
                 if (responsedMessage.hasError()) {
                     if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        baseActivity = this.bDb.aXA;
+                        baseActivity = this.bGF.bbA;
                         baseActivity.showToast(responsedMessage.getErrorString());
                     }
-                    aVar = this.bDb.bCZ;
+                    aVar = this.bGF.bGD;
                     aVar.a(false, null);
                     return;
                 }
-                this.bDb.h(responsedMessage);
+                this.bGF.h(responsedMessage);
             }
         }
     }

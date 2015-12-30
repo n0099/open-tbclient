@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
-    private com.baidu.adp.framework.listener.a cRZ;
-    private com.baidu.adp.framework.listener.a cok;
-    private BackgroundGroupActivity dEt;
-    private List<c> dEu;
-    private a dEv;
-    private boolean dEw;
+    private com.baidu.adp.framework.listener.a cWE;
+    private com.baidu.adp.framework.listener.a csn;
+    private BackgroundGroupActivity dLX;
+    private List<c> dLY;
+    private a dLZ;
+    private boolean dMa;
     private com.baidu.tieba.themeCenter.dressCenter.k mRecommand;
 
     /* loaded from: classes.dex */
@@ -21,22 +21,22 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
 
     public d(BackgroundGroupActivity backgroundGroupActivity) {
         super(backgroundGroupActivity.getPageContext());
-        this.cok = new e(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
-        this.cRZ = new f(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.dEt = backgroundGroupActivity;
-        this.dEw = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        afV();
-        registerListener(this.cok);
-        aFo();
-        registerListener(this.cRZ);
+        this.csn = new e(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
+        this.cWE = new f(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+        this.dLX = backgroundGroupActivity;
+        this.dMa = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        ahe();
+        registerListener(this.csn);
+        aHD();
+        registerListener(this.cWE);
     }
 
-    private void afV() {
+    private void ahe() {
         com.baidu.tieba.tbadkCore.a.a.a(309020, BackgroundGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void aFo() {
+    private void aHD() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -53,17 +53,17 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
     }
 
     public void a(a aVar) {
-        this.dEv = aVar;
+        this.dLZ = aVar;
     }
 
-    public boolean azO() {
-        return this.dEw;
+    public boolean aBV() {
+        return this.dMa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mT(int i) {
-        if (this.dEu != null && this.dEu.size() > 0) {
-            for (c cVar : this.dEu) {
+    public void nv(int i) {
+        if (this.dLY != null && this.dLY.size() > 0) {
+            for (c cVar : this.dLY) {
                 if (cVar != null && cVar.getBackgroundList() != null) {
                     for (DressItemData dressItemData : cVar.getBackgroundList()) {
                         if (dressItemData != null) {
@@ -80,11 +80,11 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DressItemData mU(int i) {
-        if (this.dEu == null || this.dEu.size() <= 0) {
+    public DressItemData nw(int i) {
+        if (this.dLY == null || this.dLY.size() <= 0) {
             return null;
         }
-        for (c cVar : this.dEu) {
+        for (c cVar : this.dLY) {
             if (cVar != null && cVar.getBackgroundList() != null) {
                 for (DressItemData dressItemData : cVar.getBackgroundList()) {
                     if (dressItemData != null && dressItemData.getPropsId() == i) {

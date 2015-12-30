@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushNotify.PushNotifyResIdl;
@@ -21,6 +22,7 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
+        BdLog.e("cmd is " + i);
         PushNotifyResIdl pushNotifyResIdl = (PushNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, PushNotifyResIdl.class);
         int size = pushNotifyResIdl.multiMsg == null ? 0 : pushNotifyResIdl.multiMsg.size();
         this.mMsgList = new LinkedList<>();

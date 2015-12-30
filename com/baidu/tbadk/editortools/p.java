@@ -5,6 +5,6 @@ import com.baidu.tieba.n;
 public class p extends y {
     public p() {
         super((String) null, 1, 0);
-        this.launcherIcon = n.e.selector_msgsend_btn_softkey;
+        this.launcherIcon = n.f.selector_msgsend_btn_softkey;
     }
 }

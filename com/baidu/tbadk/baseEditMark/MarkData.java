@@ -3,6 +3,7 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -191,7 +192,7 @@ public class MarkData implements Serializable {
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
-            this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
+            this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt(PbActivityConfig.KEY_THREAD_TYPE)));
             int optInt = jSONObject.optInt("mark_status");
             if (optInt == 0) {
                 this.mSequence = true;

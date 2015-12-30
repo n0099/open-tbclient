@@ -16,12 +16,12 @@ import com.baidu.tieba.n;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bj {
-    public static au acD;
-    public static au acE;
-    private static int acz = -1;
-    private static int acA = -1;
-    private static boolean acB = false;
-    private static com.baidu.adp.lib.f.a<Integer, Integer> acC = new com.baidu.adp.lib.f.a<>(500);
+    public static au adi;
+    public static au adj;
+    private static int ade = -1;
+    private static int adf = -1;
+    private static boolean adg = false;
+    private static com.baidu.adp.lib.f.a<Integer, Integer> adh = new com.baidu.adp.lib.f.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,27 +31,27 @@ public class bj {
 
     public static void ae(Context context) {
         mAppContext = context;
-        acB = true;
+        adg = true;
     }
 
-    private static void vE() {
+    private static void vo() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            acA = mAppContext.getResources().getColor(n.c.more_color);
-            acz = mAppContext.getResources().getColor(n.c.skin_1_common_color);
+            adf = mAppContext.getResources().getColor(n.d.more_color);
+            ade = mAppContext.getResources().getColor(n.d.skin_1_common_color);
         }
     }
 
-    private static int cI(int i) {
-        return aw(i == 1);
+    private static int cB(int i) {
+        return at(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int aw(boolean z) {
-        if (acB) {
-            acB = false;
-            vE();
+    public static int at(boolean z) {
+        if (adg) {
+            adg = false;
+            vo();
         }
-        return z ? acz : acA;
+        return z ? ade : adf;
     }
 
     public static void p(View view) {
@@ -62,16 +62,16 @@ public class bj {
 
     public static void q(View view) {
         if (view != null) {
-            acC.remove(Integer.valueOf(System.identityHashCode(view)));
+            adh.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = acC.get(Integer.valueOf(identityHashCode));
+        Integer num = adh.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            acC.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            adh.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -115,8 +115,8 @@ public class bj {
 
     public static void af(Context context) {
         if (context != null) {
-            if (acD != null) {
-                acD.ad(context);
+            if (adi != null) {
+                adi.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -126,8 +126,8 @@ public class bj {
 
     public static void ag(Context context) {
         if (context != null) {
-            if (acE != null) {
-                acE.ad(context);
+            if (adj != null) {
+                adj.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
@@ -155,13 +155,13 @@ public class bj {
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cI(i));
+            textView.setTextColor(cB(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cI(i));
+            checkBox.setTextColor(cB(i));
         }
     }
 
@@ -178,18 +178,6 @@ public class bj {
                     view3.setBackgroundResource(i);
                 }
                 linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
-            }
-        }
-    }
-
-    public static void r(View view) {
-        if (view != null && view.getParent() != null) {
-            View view2 = (View) view.getParent().getParent();
-            if (view2 instanceof LinearLayout) {
-                LinearLayout linearLayout = (LinearLayout) view2;
-                if (linearLayout.getChildCount() >= 2) {
-                    linearLayout.removeViewAt(0);
-                }
             }
         }
     }

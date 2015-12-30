@@ -7,29 +7,29 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    final /* synthetic */ s cKg;
+    final /* synthetic */ s cOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(s sVar) {
-        this.cKg = sVar;
+        this.cOw = sVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ad adVar;
         ad adVar2;
-        PersonBarActivity anx;
-        PersonBarActivity anx2;
+        PersonBarActivity aoI;
+        PersonBarActivity aoI2;
         int intValue = ((Integer) view.getTag()).intValue();
         if (intValue >= 0) {
-            adVar = this.cKg.cJR;
+            adVar = this.cOw.cOh;
             if (intValue < adVar.getCount()) {
-                adVar2 = this.cKg.cJR;
+                adVar2 = this.cOw.cOh;
                 ForumData forumData = (ForumData) adVar2.getItem(intValue);
-                anx = this.cKg.anx();
-                if (anx != null) {
-                    anx2 = this.cKg.anx();
-                    this.cKg.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(anx2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                aoI = this.cOw.aoI();
+                if (aoI != null) {
+                    aoI2 = this.cOw.aoI();
+                    this.cOw.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aoI2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }

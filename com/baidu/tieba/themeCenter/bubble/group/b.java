@@ -12,37 +12,37 @@ import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<Object> dEm;
-    com.baidu.tieba.themeCenter.bubble.all.a dFt;
+    private List<Object> dLQ;
+    com.baidu.tieba.themeCenter.bubble.all.a dMV;
     private TbPageContext<?> mContext;
 
     /* loaded from: classes.dex */
     public static class a {
-        public View coX;
-        public TextView dEo;
-        public BubbleItemView dFA;
-        public BubbleItemView dFB;
+        public View cta;
+        public TextView dLS;
+        public BubbleItemView dNc;
+        public BubbleItemView dNd;
     }
 
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
         this.mContext = tbPageContext;
-        this.dFt = aVar;
+        this.dMV = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dEm != null) {
-            return this.dEm.size();
+        if (this.dLQ != null) {
+            return this.dLQ.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dEm == null || this.dEm.size() <= 0 || i < 0 || i >= this.dEm.size()) {
+        if (this.dLQ == null || this.dLQ.size() <= 0 || i < 0 || i >= this.dLQ.size()) {
             return null;
         }
-        return this.dEm.get(i);
+        return this.dLQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,35 +73,35 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else if (getItemViewType(i) == 0) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.background_group_header, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.background_group_header, viewGroup, false);
             aVar = new a();
-            aVar.dEo = (TextView) view.findViewById(n.f.group_name);
+            aVar.dLS = (TextView) view.findViewById(n.g.group_name);
             view.setTag(aVar);
         } else {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.bubble_row, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.bubble_row, viewGroup, false);
             aVar = new a();
-            aVar.dFA = (BubbleItemView) view.findViewById(n.f.bg_view1);
-            aVar.dFB = (BubbleItemView) view.findViewById(n.f.bg_view2);
-            aVar.coX = view.findViewById(n.f.divider_line);
+            aVar.dNc = (BubbleItemView) view.findViewById(n.g.bg_view1);
+            aVar.dNd = (BubbleItemView) view.findViewById(n.g.bg_view2);
+            aVar.cta = view.findViewById(n.g.divider_line);
             view.setTag(aVar);
         }
         if (item != null) {
             if (getItemViewType(i) == 0) {
-                aVar.dEo.setText(item.toString());
+                aVar.dLS.setText(item.toString());
             } else {
                 List list = (List) item;
-                aVar.dFA.c((DressItemData) list.get(0));
-                aVar.dFA.setController(this.dFt);
+                aVar.dNc.c((DressItemData) list.get(0));
+                aVar.dNc.setController(this.dMV);
                 if (list.size() > 1) {
-                    aVar.dFB.c((DressItemData) list.get(1));
-                    aVar.dFB.setController(this.dFt);
+                    aVar.dNd.c((DressItemData) list.get(1));
+                    aVar.dNd.setController(this.dMV);
                 } else {
-                    aVar.dFB.hide();
+                    aVar.dNd.hide();
                 }
                 if (getItem(i + 1) instanceof List) {
-                    aVar.coX.setVisibility(8);
+                    aVar.cta.setVisibility(8);
                 } else {
-                    aVar.coX.setVisibility(0);
+                    aVar.cta.setVisibility(0);
                 }
             }
         }
@@ -110,6 +110,6 @@ public class b extends BaseAdapter {
     }
 
     public void setData(List<Object> list) {
-        this.dEm = list;
+        this.dLQ = list;
     }
 }

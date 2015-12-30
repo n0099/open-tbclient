@@ -7,53 +7,53 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class w extends z {
-    public static final BdUniqueId VX = BdUniqueId.gen();
-    private PhotoLiveCardData VY;
+    public static final BdUniqueId Wx = BdUniqueId.gen();
+    private PhotoLiveCardData Wy;
 
     public PhotoLiveCardData a(z zVar, int i) {
-        if (this.VY == null) {
+        if (this.Wy == null) {
             if (zVar == null) {
                 return null;
             }
-            this.VY = new PhotoLiveCardData();
+            this.Wy = new PhotoLiveCardData();
             MetaData author = zVar.getAuthor();
             if (author != null) {
-                this.VY.setAuthorName(author.getUserName());
-                this.VY.setAuthorPortrait(author.getPortrait());
-                this.VY.setFansNum(author.getFansNum());
-                this.VY.setNickName(author.getFansNickName());
-                this.VY.setAuthorId(author.getUserId());
-                this.VY.setGodInfo(author.getGodInfo());
+                this.Wy.setAuthorName(author.getUserName());
+                this.Wy.setAuthorPortrait(author.getPortrait());
+                this.Wy.setFansNum(author.getFansNum());
+                this.Wy.setNickName(author.getFansNickName());
+                this.Wy.setAuthorId(author.getUserId());
+                this.Wy.setGodInfo(author.getGodInfo());
             }
             PraiseData praise = zVar.getPraise();
             if (praise != null) {
-                this.VY.setPraiseNum((int) praise.getNum());
+                this.Wy.setPraiseNum((int) praise.getNum());
             }
-            this.VY.setDiscussNum(zVar.getReply_num());
-            this.VY.setPostNum(zVar.getPost_num());
-            this.VY.setTitle(zVar.getTitle());
-            this.VY.setLastModifiedTime(zVar.getLast_time_int());
-            this.VY.setPhotoLiveCover(zVar.getPhotoLiveCover());
-            this.VY.setContent(zVar.sO());
-            this.VY.setThreadId(com.baidu.adp.lib.h.b.c(zVar.getTid(), 0L));
-            this.VY.setHeadlive(zVar.isHeadLive());
-            this.VY.setExpressionDatas(zVar.sV());
-            if (this.VY.getShowStyle() < 0) {
-                this.VY.setShowStyle(this.VY.getRandom(3, i));
+            this.Wy.setDiscussNum(zVar.getReply_num());
+            this.Wy.setPostNum(zVar.getPost_num());
+            this.Wy.setTitle(zVar.getTitle());
+            this.Wy.setLastModifiedTime(zVar.getLast_time_int());
+            this.Wy.setPhotoLiveCover(zVar.getPhotoLiveCover());
+            this.Wy.setContent(zVar.sy());
+            this.Wy.setThreadId(com.baidu.adp.lib.h.b.c(zVar.getTid(), 0L));
+            this.Wy.setHeadlive(zVar.isHeadLive());
+            this.Wy.setExpressionDatas(zVar.sF());
+            if (this.Wy.getShowStyle() < 0) {
+                this.Wy.setShowStyle(this.Wy.getRandom(3, i));
             }
-            this.VY.setShowExpressionViewIndexList(this.VY.getExpressionDatas());
+            this.Wy.setShowExpressionViewIndexList(this.Wy.getExpressionDatas());
         }
-        cu(zVar.getTid());
+        cx(zVar.getTid());
         setId(zVar.getId());
         setThreadType(zVar.getThreadType());
-        cv(zVar.sL());
-        return this.VY;
+        cy(zVar.sv());
+        return this.Wy;
     }
 
     public void a(ZhiBoInfoTW zhiBoInfoTW, int i) {
         if (zhiBoInfoTW != null) {
-            this.VY = new PhotoLiveCardData();
-            PhotoLiveCardData photoLiveCardData = this.VY;
+            this.Wy = new PhotoLiveCardData();
+            PhotoLiveCardData photoLiveCardData = this.Wy;
             if (zhiBoInfoTW.user != null) {
                 photoLiveCardData.setAuthorId(String.valueOf(zhiBoInfoTW.user.id));
                 photoLiveCardData.setAuthorName(zhiBoInfoTW.user.name);
@@ -74,10 +74,10 @@ public class w extends z {
             photoLiveCardData.setHeadlive(zhiBoInfoTW.is_headline.intValue() == 1);
             photoLiveCardData.setShowStyle(photoLiveCardData.getRandom(3, i));
             photoLiveCardData.setShowExpressionViewIndexList(photoLiveCardData.getExpressionDatas());
-            cu(String.valueOf(zhiBoInfoTW.thread_id));
+            cx(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
-            cv(zhiBoInfoTW.forum_name);
+            cy(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -91,7 +91,7 @@ public class w extends z {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.o oVar = new com.baidu.tbadk.coreExtra.view.o();
-                oVar.dS(labelInfo.labelHot.intValue());
+                oVar.dM(labelInfo.labelHot.intValue());
                 oVar.setLabelId(labelInfo.labelId);
                 oVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(oVar);
@@ -100,12 +100,12 @@ public class w extends z {
         return arrayList;
     }
 
-    public PhotoLiveCardData sy() {
-        return this.VY;
+    public PhotoLiveCardData sh() {
+        return this.Wy;
     }
 
     @Override // com.baidu.tbadk.core.data.z, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return VX;
+        return Wx;
     }
 }

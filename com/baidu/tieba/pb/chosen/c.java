@@ -4,11 +4,11 @@ import android.app.Activity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.g {
-    final /* synthetic */ b cyp;
+    final /* synthetic */ b cBW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cyp = bVar;
+        this.cBW = bVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -18,13 +18,13 @@ class c extends com.baidu.adp.base.g {
         PbChosenActivity pbChosenActivity2;
         PbChosenActivity pbChosenActivity3;
         com.baidu.tieba.tbadkCore.x xVar2;
-        pbChosenActivity = this.cyp.cyo;
-        xVar = pbChosenActivity.cxX;
-        if (AntiHelper.mC(xVar.getErrorCode())) {
-            pbChosenActivity2 = this.cyp.cyo;
+        pbChosenActivity = this.cBW.cBV;
+        xVar = pbChosenActivity.cBE;
+        if (AntiHelper.ne(xVar.getErrorCode())) {
+            pbChosenActivity2 = this.cBW.cBV;
             Activity activity = pbChosenActivity2.getActivity();
-            pbChosenActivity3 = this.cyp.cyo;
-            xVar2 = pbChosenActivity3.cxX;
+            pbChosenActivity3 = this.cBW.cBV;
+            xVar2 = pbChosenActivity3.cBE;
             AntiHelper.Q(activity, xVar2.getErrorString());
         }
     }

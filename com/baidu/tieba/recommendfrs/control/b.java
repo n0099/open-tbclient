@@ -3,17 +3,17 @@ package com.baidu.tieba.recommendfrs.control;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
-import tbclient.ExcFrsPage.ExcellentTagInfo;
+import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a diB;
+    final /* synthetic */ a doN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.diB = aVar;
+        this.doN = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,15 +24,15 @@ public class b extends CustomMessageListener {
         ScrollFragmentTabHost scrollFragmentTabHost3;
         if (customResponsedMessage != null) {
             Object data = customResponsedMessage.getData();
-            if (data instanceof ExcellentTagInfo) {
-                ExcellentTagInfo excellentTagInfo = (ExcellentTagInfo) data;
-                scrollFragmentTabHost = this.diB.div;
+            if (data instanceof TagInfo) {
+                TagInfo tagInfo = (TagInfo) data;
+                scrollFragmentTabHost = this.doN.doG;
                 if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.diB.div;
-                    int bA = scrollFragmentTabHost2.bA(excellentTagInfo.tag_code.longValue());
-                    if (bA >= 0) {
-                        scrollFragmentTabHost3 = this.diB.div;
-                        scrollFragmentTabHost3.setCurrentTab(bA);
+                    scrollFragmentTabHost2 = this.doN.doG;
+                    int bJ = scrollFragmentTabHost2.bJ(tagInfo.tag_code.longValue());
+                    if (bJ >= 0) {
+                        scrollFragmentTabHost3 = this.doN.doG;
+                        scrollFragmentTabHost3.setCurrentTab(bJ);
                     }
                 }
             }

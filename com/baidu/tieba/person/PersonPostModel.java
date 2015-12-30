@@ -18,8 +18,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int cLR = 0;
-    private static String cLS = "";
+    private static int cQh = 0;
+    private static String cQi = "";
     public int hide_post;
     private int mLastChooseStyle;
     public List<PostInfoList> post_list;
@@ -57,19 +57,19 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i) {
-        if (z || !str.equals(cLS)) {
-            cLR = 1;
-            cLS = str;
+        if (z || !str.equals(cQi)) {
+            cQh = 1;
+            cQi = str;
         } else {
-            cLR++;
+            cQh++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(cLS);
-        userPostPageRequestMessage.setPn(cLR);
+        userPostPageRequestMessage.setUid(cQi);
+        userPostPageRequestMessage.setPn(cQh);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
@@ -77,7 +77,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.ay.vq().vs() ? 2 : 1;
+        int i2 = com.baidu.tbadk.core.util.ay.va().vc() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(K);
         userPostPageRequestMessage.set_scr_h(L);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -210,8 +210,8 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
             for (Media media : this.media) {
                 if (media.big_pic != null) {
                     com.baidu.tbadk.core.util.ai aiVar = new com.baidu.tbadk.core.util.ai();
-                    aiVar.WN = media.big_pic;
-                    aiVar.abp = 10;
+                    aiVar.Xp = media.big_pic;
+                    aiVar.abU = 10;
                     arrayList.add(aiVar);
                 }
             }

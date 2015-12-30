@@ -10,8 +10,9 @@ import tbclient.ExcPbPage.ExcContent;
 public class e implements aj, d {
     private String big_cdn_src;
     private String big_src;
-    private long cIm;
-    private ArrayList<ai> cIn;
+    private long cMo;
+    private ArrayList<ai> cMp;
+    public String cMq;
     private String cdn_src;
     private int height;
     private String src;
@@ -19,15 +20,15 @@ public class e implements aj, d {
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 3) {
-            this.cIn = new ArrayList<>(1);
+            this.cMp = new ArrayList<>(1);
             this.src = excContent.src;
             this.big_src = excContent.big_src;
             this.big_cdn_src = excContent.big_cdn_src;
-            this.cIm = excContent.type.longValue();
-            String str = excContent.bsize;
-            if (str != null) {
+            this.cMo = excContent.type.longValue();
+            this.cMq = excContent.bsize;
+            if (this.cMq != null) {
                 try {
-                    String[] split = str.split(",");
+                    String[] split = this.cMq.split(",");
                     this.width = Integer.valueOf(split[0]).intValue();
                     this.height = Integer.valueOf(split[1]).intValue();
                 } catch (Exception e) {
@@ -42,15 +43,15 @@ public class e implements aj, d {
             }
             this.cdn_src = excContent.cdn_src;
             ai aiVar = new ai();
-            aiVar.abp = 17;
+            aiVar.abU = 17;
             aiVar.height = this.height;
             aiVar.width = this.width;
             if (StringUtils.isNull(this.cdn_src)) {
-                aiVar.WN = this.src;
+                aiVar.Xp = this.src;
             } else {
-                aiVar.WN = this.cdn_src;
+                aiVar.Xp = this.cdn_src;
             }
-            this.cIn.add(aiVar);
+            this.cMp.add(aiVar);
         }
     }
 
@@ -58,7 +59,7 @@ public class e implements aj, d {
         return this.src;
     }
 
-    public int kh(int i) {
+    public int kE(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -72,6 +73,6 @@ public class e implements aj, d {
 
     @Override // com.baidu.tbadk.core.util.aj
     public ArrayList<ai> getImages() {
-        return this.cIn;
+        return this.cMp;
     }
 }

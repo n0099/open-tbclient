@@ -7,6 +7,7 @@ public class CmdConfigHttp {
     public static final int BUYPROPS_CMD = 1001504;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_ADD_MSG_RECORD = 1003071;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_VOTE = 1003043;
     public static final int CMD_AD_UPLOAD = 1003062;
@@ -62,6 +63,8 @@ public class CmdConfigHttp {
     public static final int CMD_PERSONAL_BACKGROUND_SET = 1003036;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_RECOMMEND_FRS = 1003011;
+    public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
+    public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_USER_PICS = 1003064;
@@ -119,6 +122,7 @@ public class CmdConfigHttp {
     public static final int MSG_GAME_SINGLE_CMD = 1002931;
     public static final int MSG_GET_MYGMAE_LIST = 1002505;
     public static final int MSG_REMINDER_CMD = 1002500;
+    public static final int PB_HIDE_CHUDIAN_HTTP_CMD = 1001803;
     public static final int PB_HTTP_CMD = 1001800;
     public static final int PB_LOTTERY_HTTP_CMD = 1001802;
     public static final int PB_PAGE_HTTP_CMD = 1001801;

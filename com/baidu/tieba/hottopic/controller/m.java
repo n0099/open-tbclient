@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ k bDq;
+    final /* synthetic */ k bGU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.bDq = kVar;
+        this.bGU = kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
-        tbPageContext = this.bDq.context;
+        tbPageContext = this.bGU.context;
         tbPageContext.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        tbPageContext2 = this.bDq.context;
+        tbPageContext2 = this.bGU.context;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(((HotTopicActivity) tbPageContext2.getOrignalPage()).getPageContext().getPageActivity(), 23007)));
     }
 }

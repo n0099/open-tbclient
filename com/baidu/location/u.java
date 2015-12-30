@@ -8,6 +8,7 @@ import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -144,7 +145,7 @@ public class u implements a0, n {
                         if (i >= 8) {
                             break;
                         }
-                        str = neighboringCellInfo2.getLac() != this.a ? str2 + ";" + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str2 + ";|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
+                        str = neighboringCellInfo2.getLac() != this.a ? str2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                     } else {
                         str = neighboringCellInfo2.getLac() != this.a ? str2 + neighboringCellInfo2.getLac() + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi() : str2 + "|" + neighboringCellInfo2.getCid() + "|" + neighboringCellInfo2.getRssi();
                     }
@@ -217,7 +218,7 @@ public class u implements a0, n {
                     } else {
                         stringBuffer.append((System.currentTimeMillis() - aVar.f112if) / 1000);
                     }
-                    stringBuffer.append(";");
+                    stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 }
             }
             if (u.this.ed > 100) {

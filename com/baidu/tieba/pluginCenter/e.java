@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class e implements com.baidu.adp.plugin.packageManager.e {
-    final /* synthetic */ PluginDetailActivity ddE;
+    final /* synthetic */ PluginDetailActivity djj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginDetailActivity pluginDetailActivity) {
-        this.ddE = pluginDetailActivity;
+        this.djj = pluginDetailActivity;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.e
@@ -23,15 +23,15 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView3;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ddE.ddC;
+            pluginConfig = this.djj.dji;
             if (id.equals(pluginConfig.package_name)) {
-                z = this.ddE.ddD;
+                z = this.djj.bFR;
                 if (!z) {
-                    textView = this.ddE.ddB;
-                    as.b(textView, n.c.cp_cont_d, 1);
-                    textView2 = this.ddE.ddB;
-                    textView2.setText(this.ddE.getPageContext().getResources().getString(n.i.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    textView3 = this.ddE.ddB;
+                    textView = this.djj.djh;
+                    as.b(textView, n.d.cp_cont_d, 1);
+                    textView2 = this.djj.djh;
+                    textView2.setText(this.djj.getPageContext().getResources().getString(n.j.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                    textView3 = this.djj.djh;
                     textView3.setEnabled(false);
                 }
             }
@@ -45,13 +45,13 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ddE.ddC;
+            pluginConfig = this.djj.dji;
             if (id.equals(pluginConfig.package_name)) {
-                textView = this.ddE.ddB;
-                textView.setText(this.ddE.getPageContext().getString(n.i.plugin_download_finished));
-                textView2 = this.ddE.ddB;
+                textView = this.djj.djh;
+                textView.setText(this.djj.getPageContext().getString(n.j.plugin_download_finished));
+                textView2 = this.djj.djh;
                 textView2.setEnabled(false);
-                this.ddE.ddD = true;
+                this.djj.bFR = true;
             }
         }
     }
@@ -61,11 +61,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ddE.ddC;
+            pluginConfig = this.djj.dji;
             if (id.equals(pluginConfig.package_name)) {
-                this.ddE.showToast(bdFileDownloadData.getStatusMsg());
-                this.ddE.aup();
-                this.ddE.ddD = true;
+                this.djj.showToast(bdFileDownloadData.getStatusMsg());
+                this.djj.awi();
+                this.djj.bFR = true;
             }
         }
     }
@@ -73,11 +73,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
     @Override // com.baidu.adp.plugin.packageManager.e
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
-            this.ddE.showToast(this.ddE.getPageContext().getString(n.i.plugin_installation_finished));
-            this.ddE.aup();
+            this.djj.showToast(this.djj.getPageContext().getString(n.j.plugin_installation_finished));
+            this.djj.awi();
             return;
         }
-        this.ddE.showToast(String.valueOf(this.ddE.getPageContext().getString(n.i.plugin_installation_failed)) + str);
-        this.ddE.aup();
+        this.djj.showToast(String.valueOf(this.djj.getPageContext().getString(n.j.plugin_installation_failed)) + str);
+        this.djj.awi();
     }
 }

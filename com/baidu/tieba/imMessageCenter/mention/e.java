@@ -18,79 +18,83 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tbadk.mvc.model.a;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.InterfaceC0054a<i> {
-    private com.baidu.tbadk.mvc.d.a aNd;
-    private bc ceg;
-    private h ceh;
-    private g cei;
-    private a cej;
-    private FeedData cek;
-    private ad cel;
+public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.InterfaceC0054a<i> {
+    private com.baidu.tbadk.mvc.d.a aQW;
+    private bd cih;
+    private h cii;
+    private g cij;
+    private a cik;
+    private FeedData cil;
+    private ae cim;
     final CustomMessageListener mNetworkChangedMessageListener;
 
-    public e(bc bcVar) {
-        super(com.baidu.adp.base.l.C(bcVar.getPageContext().getPageActivity()));
+    public e(bd bdVar) {
+        super(com.baidu.adp.base.l.C(bdVar.getPageContext().getPageActivity()));
         this.mNetworkChangedMessageListener = new f(this, 2000994);
-        this.ceg = bcVar;
+        this.cih = bdVar;
     }
 
-    public void f(Bundle bundle) {
-        this.ceh = new h();
-        this.cei = new g((TbPageContext) com.baidu.adp.base.l.C(this.ceg.getPageContext().getPageActivity()), this.ceh);
-        this.cei.a(this);
-        this.cei.setUniqueId(getUniqueId());
-        this.cei.registerListener(this.mNetworkChangedMessageListener);
-        this.cej = new a((TbPageContext) com.baidu.adp.base.l.C(this.ceg.getPageContext().getPageActivity()));
-        this.cej.a(this);
-        this.cej.setUniqueId(getUniqueId());
-        this.cel = new ad();
-        this.aNd = new com.baidu.tbadk.mvc.d.a();
+    public void b(Bundle bundle) {
+        this.cii = new h();
+        this.cij = new g((TbPageContext) com.baidu.adp.base.l.C(this.cih.getPageContext().getPageActivity()), this.cii);
+        this.cij.a(this);
+        if (this.cih != null) {
+            this.cij.setUniqueId(this.cih.getUniqueId());
+        }
+        this.cij.registerListener(this.mNetworkChangedMessageListener);
+        this.cik = new a((TbPageContext) com.baidu.adp.base.l.C(this.cih.getPageContext().getPageActivity()));
+        this.cik.a(this);
+        if (this.cih != null) {
+            this.cik.setUniqueId(this.cih.getUniqueId());
+        }
+        this.cim = new ae();
+        this.aQW = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Iz() {
-        if (!this.cei.isLoading() && this.aNd.DT() && adj()) {
-            this.aNd.bv(true);
-            this.aNd.bx(true);
-            this.ceh.b(this.cek);
-            this.cei.setNeedCache(false);
-            this.cei.DJ();
-            this.ceg.adE().d(this.aNd);
+    public boolean IR() {
+        if (!this.cij.isLoading() && this.aQW.DI() && aes()) {
+            this.aQW.bv(true);
+            this.aQW.bx(true);
+            this.cii.b(this.cil);
+            this.cij.setNeedCache(false);
+            this.cij.Dy();
+            this.cih.aeM().d(this.aQW);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bO(boolean z) {
-        if (this.cei.isLoading() || !adj()) {
+    public boolean bP(boolean z) {
+        if (this.cij.isLoading() || !aes()) {
             return false;
         }
-        this.cek = null;
-        this.ceh.reset();
-        this.cei.setNeedCache(true);
-        this.cei.DJ();
+        this.cil = null;
+        this.cii.reset();
+        this.cij.setNeedCache(true);
+        this.cij.Dy();
         return true;
     }
 
-    protected boolean adj() {
+    protected boolean aes() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.cel != null && this.cel.ceH != null) {
-            this.cel.ceH.clear();
+        if (this.cim != null && this.cim.ciJ != null) {
+            this.cim.ciJ.clear();
         }
-        this.ceg.adE().adl();
-        this.ceg.adE().a(this.cel);
+        this.cih.aeM().aeu();
+        this.cih.aeM().a(this.cim);
         return false;
     }
 
-    public boolean oY() {
-        if (adj()) {
-            if (this.ceg != null && this.ceg.adE() != null) {
-                this.ceg.adE().adk();
+    public boolean ow() {
+        if (aes()) {
+            if (this.cih != null && this.cih.aeM() != null) {
+                this.cih.aeM().aet();
             }
-            this.cej.a((com.baidu.tbadk.mvc.b.e) this.ceh);
+            this.cik.a((com.baidu.tbadk.mvc.b.e) this.cii);
             return true;
         }
         return true;
@@ -98,47 +102,47 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
 
     protected boolean a(h hVar, i iVar) {
         if (hVar.getUpdateType() != 4) {
-            this.cel.adz().clear();
+            this.cim.aeH().clear();
         }
-        this.cel.a(iVar);
-        if (iVar != null && iVar.adz() != null && iVar.adz().size() > 0) {
-            this.cek = iVar.adz().get(iVar.adz().size() - 1);
-            if (this.cel.getPage() != null) {
-                this.aNd.bw(this.cel.getPage().sf() == 1);
+        this.cim.a(iVar);
+        if (iVar != null && iVar.aeH() != null && iVar.aeH().size() > 0) {
+            this.cil = iVar.aeH().get(iVar.aeH().size() - 1);
+            if (this.cim.getPage() != null) {
+                this.aQW.bw(this.cim.getPage().rO() == 1);
             } else {
-                this.aNd.bw(true);
+                this.aQW.bw(true);
             }
             if (hVar != null) {
                 hVar.toNextPage();
             }
-            this.aNd.bx(true);
+            this.aQW.bx(true);
         } else {
-            this.cek = null;
-            this.aNd.bw(false);
-            this.aNd.bx(false);
+            this.cil = null;
+            this.aQW.bw(false);
+            this.aQW.bx(false);
         }
-        this.aNd.bv(false);
-        this.aNd.bu(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.xJ().xZ();
-        this.ceg.adI().n(2, true);
+        this.aQW.bv(false);
+        this.aQW.bu(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.xv().xL();
+        this.cih.aeQ().o(2, true);
         if (!TbadkCoreApplication.isLogin()) {
-            this.cel.adz().clear();
+            this.cim.aeH().clear();
         } else {
-            this.ceg.adE().d(this.aNd);
+            this.cih.aeM().d(this.aQW);
         }
-        this.ceg.adE().a(this.cel);
+        this.cih.aeM().a(this.cim);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
     public void a(ReadCacheRespMsg<List<i>> readCacheRespMsg, ReadCacheMessage<i> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.ceh, readCacheRespMsg.getData().get(0));
+            a(this.cii, readCacheRespMsg.getData().get(0));
         }
-        this.cek = null;
-        this.ceh.reset();
-        this.cei.setNeedCache(true);
-        this.cei.DJ();
+        this.cil = null;
+        this.cii.reset();
+        this.cij.setNeedCache(true);
+        this.cij.Dy();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
@@ -148,7 +152,7 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<i> mvcHttpResponsedMessage, MvcHttpMessage<h, i> mvcHttpMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.ceg.adE().adl();
+        this.cih.aeM().aeu();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             iVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -156,7 +160,7 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -167,15 +171,15 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.ceg.a(errorData);
-            this.ceg.adE().a(errorData);
+            this.cih.a(errorData);
+            this.cih.aeM().a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<i, ?> mvcSocketResponsedMessage, MvcSocketMessage<h, i> mvcSocketMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.ceg.adE().adl();
+        this.cih.aeM().aeu();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             iVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -183,7 +187,7 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -194,8 +198,8 @@ public class e extends com.baidu.adp.base.e<bc> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.ceg.a(errorData);
-            this.ceg.adE().a(errorData);
+            this.cih.a(errorData);
+            this.cih.aeM().a(errorData);
         }
     }
 

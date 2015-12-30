@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean Ii;
-    private boolean aBJ;
-    private a aBK;
+    private boolean Iy;
+    private boolean aDq;
+    private a aDr;
     private int mHeight;
 
     /* loaded from: classes.dex */
@@ -17,45 +17,45 @@ public class KeyboardLayout extends RelativeLayout {
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBJ = false;
+        this.aDq = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBJ = false;
+        this.aDq = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.aBJ = false;
+        this.aDq = false;
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.aBK = aVar;
+        this.aDr = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.aBJ) {
-            this.aBJ = true;
+        if (!this.aDq) {
+            this.aDq = true;
             this.mHeight = i4;
-            if (this.aBK != null) {
-                this.aBK.onKeyBoardStateChange(-1);
+            if (this.aDr != null) {
+                this.aDr.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
-        if (this.aBJ && this.mHeight > i4) {
-            this.Ii = true;
-            if (this.aBK != null) {
-                this.aBK.onKeyBoardStateChange(-3);
+        if (this.aDq && this.mHeight > i4) {
+            this.Iy = true;
+            if (this.aDr != null) {
+                this.aDr.onKeyBoardStateChange(-3);
             }
         }
-        if (this.aBJ && this.Ii && this.mHeight == i4) {
-            this.Ii = false;
-            if (this.aBK != null) {
-                this.aBK.onKeyBoardStateChange(-2);
+        if (this.aDq && this.Iy && this.mHeight == i4) {
+            this.Iy = false;
+            if (this.aDr != null) {
+                this.aDr.onKeyBoardStateChange(-2);
             }
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class h implements com.baidu.adp.widget.ListView.w {
-    final /* synthetic */ FrsGoodActivity bgy;
+    final /* synthetic */ FrsGoodActivity bkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsGoodActivity frsGoodActivity) {
-        this.bgy = frsGoodActivity;
+        this.bkp = frsGoodActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
@@ -23,43 +23,43 @@ class h implements com.baidu.adp.widget.ListView.w {
         if (bdUniqueId == null) {
             return false;
         }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.Uf.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.Ug.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.Uh.getId()) {
-            this.bgy.aZu = (com.baidu.tbadk.core.data.z) uVar;
-            zVar = this.bgy.aZu;
+        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.UF.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.UG.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.UH.getId()) {
+            this.bkp.bdq = (com.baidu.tbadk.core.data.z) uVar;
+            zVar = this.bkp.bdq;
             if (zVar instanceof com.baidu.tbadk.core.data.b) {
-                zVar2 = this.bgy.aZu;
+                zVar2 = this.bkp.bdq;
                 com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) zVar2;
-                if (bVar.rD()) {
+                if (bVar.rm()) {
                     return false;
                 }
-                if (bVar.Ul == 0) {
-                    this.bgy.a(bVar, i);
+                if (bVar.UL == 0) {
+                    this.bkp.a(bVar, i, true);
                 }
-                TiebaStatic.eventStat(this.bgy.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.bkp.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
-        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.b.Ui.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.Uj.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.Uk.getId()) {
-            this.bgy.aZu = (com.baidu.tbadk.core.data.z) uVar;
-            FrsGoodActivity frsGoodActivity = this.bgy;
-            zVar3 = this.bgy.aZu;
+        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.b.UI.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.UJ.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.UK.getId()) {
+            this.bkp.bdq = (com.baidu.tbadk.core.data.z) uVar;
+            FrsGoodActivity frsGoodActivity = this.bkp;
+            zVar3 = this.bkp.bdq;
             frsGoodActivity.mThreadId = zVar3.getId();
-            zVar4 = this.bgy.aZu;
-            String sN = zVar4.sN();
-            if (sN == null || sN.equals("")) {
-                this.bgy.aZo = false;
+            zVar4 = this.bkp.bdq;
+            String sx = zVar4.sx();
+            if (sx == null || sx.equals("")) {
+                this.bkp.bdk = false;
             } else {
-                this.bgy.aZo = true;
+                this.bkp.bdk = true;
             }
-            FrsGoodActivity frsGoodActivity2 = this.bgy;
-            zVar5 = this.bgy.aZu;
-            frsGoodActivity2.a(zVar5);
-            this.bgy.bgr.NA();
+            FrsGoodActivity frsGoodActivity2 = this.bkp;
+            zVar5 = this.bkp.bdq;
+            frsGoodActivity2.c(zVar5);
+            this.bkp.bkj.NT();
         } else if (uVar instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar2 = (com.baidu.tbadk.core.data.b) uVar;
-            if (bVar2.rC()) {
-                if (bVar2.Ul == 0) {
-                    this.bgy.a(bVar2, i);
+            if (bVar2.rl()) {
+                if (bVar2.UL == 0) {
+                    this.bkp.a(bVar2, i, true);
                 }
-                TiebaStatic.eventStat(this.bgy.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.bkp.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
         }
         return true;

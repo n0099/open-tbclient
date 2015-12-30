@@ -8,20 +8,20 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AbsListView.RecyclerListener {
-    final /* synthetic */ AbsMsglistView bGC;
+    final /* synthetic */ AbsMsglistView bKj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(AbsMsglistView absMsglistView) {
-        this.bGC = absMsglistView;
+        this.bKj = absMsglistView;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(n.f.lay_msgitem_voice);
+        View findViewById = view.findViewById(n.g.lay_msgitem_voice);
         if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
             ((ChatVoiceView) findViewById).reset();
         }
-        View findViewById2 = view.findViewById(n.f.emotion_msgitem_image);
+        View findViewById2 = view.findViewById(n.g.emotion_msgitem_image);
         if (findViewById2 != null && (findViewById2 instanceof GifView)) {
             ((GifView) findViewById2).stop();
         }

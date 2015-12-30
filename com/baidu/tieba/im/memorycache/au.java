@@ -1,43 +1,32 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponsedPersonalMsgReadMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+class au implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ long aJS;
+    final /* synthetic */ as bXZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
-        super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public au(as asVar, long j) {
+        this.bXZ = asVar;
+        this.aJS = j;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
-            ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
-            if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.c.a.bWy && responsedPersonalMsgReadMessage.getToUserType() == 0) {
-                ImMessageCenterPojo O = b.Zt().O(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
-                if (O != null) {
-                    long aX = com.baidu.tieba.im.util.g.aX(responsedPersonalMsgReadMessage.getHasSentMsgId());
-                    if (aX > O.getSent_msgId()) {
-                        O.setSent_msgId(aX);
-                        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new av(this, O));
-                        customMessageTask.setParallel(TiebaIMConfig.getParallel());
-                        customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-                        customMessageTask.setPriority(4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2001000), customMessageTask);
-                    }
-                }
-            }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        try {
+            com.baidu.tieba.im.db.g.Ym().Yn();
+            com.baidu.tieba.im.db.i.Yr().J(String.valueOf(this.aJS), 2);
+            com.baidu.tieba.im.db.l.Yx().ip(String.valueOf(this.aJS));
+            return null;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        } finally {
+            com.baidu.tieba.im.db.g.Ym().endTransaction();
         }
     }
 }

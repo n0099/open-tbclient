@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.themeCenter.SkinItemView;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ SkinItemView dDS;
+    final /* synthetic */ SkinItemView dLw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SkinItemView skinItemView) {
-        this.dDS = skinItemView;
+        this.dLw = skinItemView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,32 +28,32 @@ class c implements View.OnClickListener {
         SkinProgressView skinProgressView2;
         b bVar4;
         if (view != null) {
-            bVar = this.dDS.mSkinData;
+            bVar = this.dLw.mSkinData;
             if (bVar != null) {
-                aVar = this.dDS.dDR;
+                aVar = this.dLw.dLv;
                 if (aVar != null) {
-                    skinProgressView = this.dDS.dDQ;
+                    skinProgressView = this.dLw.dLu;
                     if (view != skinProgressView) {
-                        tbImageView = this.dDS.dDL;
+                        tbImageView = this.dLw.dLp;
                         if (view != tbImageView) {
-                            imageView = this.dDS.dDO;
+                            imageView = this.dLw.dLs;
                             if (view == imageView) {
-                                aVar2 = this.dDS.dDR;
-                                bVar2 = this.dDS.mSkinData;
+                                aVar2 = this.dLw.dLv;
+                                bVar2 = this.dLw.mSkinData;
                                 aVar2.a(view, bVar2);
                                 return;
                             }
                             return;
                         }
-                        aVar3 = this.dDS.dDR;
-                        SkinItemView skinItemView = this.dDS;
-                        bVar3 = this.dDS.mSkinData;
+                        aVar3 = this.dLw.dLv;
+                        SkinItemView skinItemView = this.dLw;
+                        bVar3 = this.dLw.mSkinData;
                         aVar3.a(skinItemView, bVar3);
                         return;
                     }
-                    aVar4 = this.dDS.dDR;
-                    skinProgressView2 = this.dDS.dDQ;
-                    bVar4 = this.dDS.mSkinData;
+                    aVar4 = this.dLw.dLv;
+                    skinProgressView2 = this.dLw.dLu;
+                    bVar4 = this.dLw.mSkinData;
                     aVar4.a(skinProgressView2, bVar4);
                 }
             }

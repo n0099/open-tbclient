@@ -9,18 +9,18 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bCx;
+    final /* synthetic */ a bGb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bCx = aVar;
+        this.bGb = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         HotTopicActivity hotTopicActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        hotTopicActivity = this.bCx.bCu;
+        hotTopicActivity = this.bGb.bFY;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(hotTopicActivity.getPageContext().getPageActivity())));
     }
 }

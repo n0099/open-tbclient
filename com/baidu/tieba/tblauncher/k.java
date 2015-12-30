@@ -22,15 +22,18 @@ class k extends CustomMessageListener {
         w wVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if ((intValue == 3 || intValue == 1 || intValue == 0) && TbadkCoreApplication.m411getInst().getOldSkinType() == 2) {
-                wVar3 = this.this$0.dCW;
-                wVar3.aEU().cj(1);
-            } else if (TbadkCoreApplication.m411getInst().isThemeIconCover()) {
-                wVar2 = this.this$0.dCW;
-                wVar2.aEU().cj(2);
-            } else {
-                wVar = this.this$0.dCW;
-                wVar.aEU().cj(1);
+            int oldSkinType = TbadkCoreApplication.m411getInst().getOldSkinType();
+            if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
+                if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+                    wVar3 = this.this$0.dKy;
+                    wVar3.aHi().cc(1);
+                } else if (TbadkCoreApplication.m411getInst().isThemeIconCover()) {
+                    wVar2 = this.this$0.dKy;
+                    wVar2.aHi().cc(2);
+                } else {
+                    wVar = this.this$0.dKy;
+                    wVar.aHi().cc(1);
+                }
             }
         }
     }

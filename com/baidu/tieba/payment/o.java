@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.b {
-    final /* synthetic */ PaymentConfirmActivity cxe;
-    private final /* synthetic */ String tA;
+    final /* synthetic */ PaymentConfirmActivity cAI;
+    private final /* synthetic */ String tC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PaymentConfirmActivity paymentConfirmActivity, String str) {
-        this.cxe = paymentConfirmActivity;
-        this.tA = str;
+        this.cAI = paymentConfirmActivity;
+        this.tC = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         s sVar;
         aVar.dismiss();
-        sVar = this.cxe.cwU;
-        String aji = sVar.aji();
-        if (StringUtils.isNull(aji)) {
+        sVar = this.cAI.cAy;
+        String ako = sVar.ako();
+        if (StringUtils.isNull(ako)) {
             return;
         }
-        this.cxe.a(this.tA, aji, null, null, null, false);
+        this.cAI.a(this.tC, ako, null, null, null, false);
     }
 }

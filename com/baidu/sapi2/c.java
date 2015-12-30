@@ -134,27 +134,27 @@ final class c {
     /* loaded from: classes.dex */
     public static class a {
         private static final String a = ".BD_SAPI_CACHE";
-        private List<C0025a> c = new ArrayList();
+        private List<C0026a> c = new ArrayList();
         private boolean b = true;
 
         public boolean a() {
             return this.b;
         }
 
-        public List<C0025a> b() {
+        public List<C0026a> b() {
             return this.c;
         }
 
         /* renamed from: com.baidu.sapi2.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0025a {
+        public static class C0026a {
             public String a;
             public String b;
-            public C0026a c = new C0026a();
+            public C0027a c = new C0027a();
 
             /* renamed from: com.baidu.sapi2.c$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public static class C0026a {
+            public static class C0027a {
                 public String a;
                 public long b = 0;
                 public String c;
@@ -171,14 +171,14 @@ final class c {
                     }
                 }
 
-                public static C0026a a(JSONObject jSONObject) {
-                    C0026a c0026a = new C0026a();
+                public static C0027a a(JSONObject jSONObject) {
+                    C0027a c0027a = new C0027a();
                     if (jSONObject != null) {
-                        c0026a.a = jSONObject.optString(c.m);
-                        c0026a.b = jSONObject.optLong(c.n);
-                        c0026a.c = jSONObject.optString(c.o);
+                        c0027a.a = jSONObject.optString(c.m);
+                        c0027a.b = jSONObject.optLong(c.n);
+                        c0027a.c = jSONObject.optString(c.o);
                     }
-                    return c0026a;
+                    return c0027a;
                 }
             }
 
@@ -194,12 +194,12 @@ final class c {
                 }
             }
 
-            static C0025a a(JSONObject jSONObject) {
-                C0025a c0025a = new C0025a();
-                c0025a.a = jSONObject.optString("id");
-                c0025a.b = jSONObject.optString(c.l);
-                c0025a.c = C0026a.a(jSONObject.optJSONObject(c.k));
-                return c0025a;
+            static C0026a a(JSONObject jSONObject) {
+                C0026a c0026a = new C0026a();
+                c0026a.a = jSONObject.optString("id");
+                c0026a.b = jSONObject.optString(c.l);
+                c0026a.c = C0027a.a(jSONObject.optJSONObject(c.k));
+                return c0026a;
             }
 
             public static String a(String str) {
@@ -221,7 +221,7 @@ final class c {
                 if (obj == null || getClass() != obj.getClass()) {
                     return false;
                 }
-                return this.a.equals(((C0025a) obj).a);
+                return this.a.equals(((C0026a) obj).a);
             }
 
             public int hashCode() {
@@ -234,8 +234,8 @@ final class c {
             try {
                 jSONObject.put(c.h, this.b);
                 JSONArray jSONArray = new JSONArray();
-                for (C0025a c0025a : b()) {
-                    jSONArray.put(c0025a.a());
+                for (C0026a c0026a : b()) {
+                    jSONArray.put(c0026a.a());
                 }
                 jSONObject.put(c.i, jSONArray);
                 return jSONObject;
@@ -251,7 +251,7 @@ final class c {
                     aVar.b = jSONObject.optBoolean(c.h, true);
                     JSONArray optJSONArray = jSONObject.optJSONArray(c.i);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.b().add(C0025a.a(optJSONArray.getJSONObject(i)));
+                        aVar.b().add(C0026a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }

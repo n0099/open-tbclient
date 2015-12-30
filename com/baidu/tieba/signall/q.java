@@ -1,52 +1,43 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.n;
+import com.baidu.tieba.signall.p;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q {
-    private a dpN = new a();
-    private int dqO;
-    private int dqP;
-    private int dqQ;
-    private int dqR;
-    private int forumId;
-    private String forumName;
-    private int signed;
+public class q implements View.OnClickListener {
+    final /* synthetic */ p dxJ;
+    private final /* synthetic */ e dxK;
+    private final /* synthetic */ p.b dxL;
 
-    public int getForumId() {
-        return this.forumId;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar, e eVar, p.b bVar) {
+        this.dxJ = pVar;
+        this.dxK = eVar;
+        this.dxL = bVar;
     }
 
-    public int getSigned() {
-        return this.signed;
-    }
-
-    public int azW() {
-        return this.dqQ;
-    }
-
-    public int getCurScore() {
-        return this.dqR;
-    }
-
-    public a azv() {
-        return this.dpN;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dpN.parserJson(jSONObject.optJSONObject("error"));
-                this.forumId = jSONObject.optInt("forum_id");
-                this.forumName = jSONObject.optString("forum_name");
-                this.signed = jSONObject.optInt("signed");
-                this.dqO = jSONObject.optInt("is_on");
-                this.dqP = jSONObject.optInt("is_filter");
-                this.dqQ = jSONObject.optInt("sign_day_count");
-                this.dqR = jSONObject.optInt("cur_score");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SignAllForumActivity signAllForumActivity;
+        HashMap hashMap;
+        if (!this.dxK.aBS()) {
+            this.dxL.dxW.setVisibility(4);
+            this.dxL.dxX.setVisibility(0);
+            this.dxL.dxY.setText(n.j.signallforum_resigning);
+            this.dxK.hj(true);
+            signAllForumActivity = this.dxJ.dxH;
+            ag agVar = new ag(signAllForumActivity);
+            agVar.a(this.dxJ);
+            String sb = new StringBuilder(String.valueOf(this.dxK.getForumId())).toString();
+            synchronized (this.dxJ) {
+                hashMap = this.dxJ.dxI;
+                hashMap.put(sb, agVar);
             }
+            agVar.au(this.dxK.getForumName(), sb);
+            TiebaStatic.log("signall_resign_click");
         }
     }
 }

@@ -52,8 +52,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.ajy() != null) {
-            d.aBA().a(d.aBA().ai(this.responseData.ajy().getName(), this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.akG() != null) {
+            d.aDI().a(d.aDI().aj(this.responseData.akG().getName(), this.mCategoryId), bArr, true);
         }
     }
 

@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aCa;
+    final /* synthetic */ TbImageView aDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbImageView tbImageView) {
-        this.aCa = tbImageView;
+        this.aDI = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,32 +20,32 @@ public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         TbImageView.a aVar2;
         long j;
         TbImageView.a aVar3;
-        this.aCa.stopLoading();
+        this.aDI.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        aVar2 = this.aCa.aBM;
+        aVar2 = this.aDI.aDu;
         if (aVar2 != null) {
             if (aVar != null) {
-                this.aCa.aBY = aVar.getWidth();
-                this.aCa.aBZ = aVar.getHeight();
+                this.aDI.aDG = aVar.getWidth();
+                this.aDI.aDH = aVar.getHeight();
             }
-            aVar3 = this.aCa.aBM;
+            aVar3 = this.aDI.aDu;
             aVar3.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.GG != null) {
-                this.aCa.aBV.GI = aVar.GG.GI;
-                this.aCa.aBV.isSuccess = aVar.GG.GK;
-                this.aCa.aBV.GJ = aVar.GG.GJ;
+            if (aVar.GX != null) {
+                this.aDI.aDD.GZ = aVar.GX.GZ;
+                this.aDI.aDD.isSuccess = aVar.GX.Hb;
+                this.aDI.aDD.Ha = aVar.GX.Ha;
             }
         } else {
-            this.aCa.aBV.GI = "net";
-            this.aCa.aBV.isSuccess = false;
-            s sVar = this.aCa.aBV;
+            this.aDI.aDD.GZ = "net";
+            this.aDI.aDD.isSuccess = false;
+            s sVar = this.aDI.aDD;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.aCa.aBX;
-            sVar.GJ = currentTimeMillis - j;
+            j = this.aDI.aDF;
+            sVar.Ha = currentTimeMillis - j;
         }
-        this.aCa.vY();
+        this.aDI.vI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,10 +60,10 @@ public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         TbImageView.a aVar;
         TbImageView.a aVar2;
         super.an(str);
-        this.aCa.stopLoading();
-        aVar = this.aCa.aBM;
+        this.aDI.stopLoading();
+        aVar = this.aDI.aDu;
         if (aVar != null) {
-            aVar2 = this.aCa.aBM;
+            aVar2 = this.aDI.aDu;
             aVar2.onCancel();
         }
     }

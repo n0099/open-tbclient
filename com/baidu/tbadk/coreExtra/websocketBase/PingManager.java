@@ -14,22 +14,22 @@ import com.baidu.tbadk.coreExtra.message.PingMessage;
 import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
 /* loaded from: classes.dex */
 public class PingManager extends Handler implements com.baidu.adp.framework.client.socket.b {
-    private static PingManager aoE = null;
-    private long aoF = 0;
-    private int aoG = 180000;
-    private int aoH = 900000;
-    private int aoI = this.aoH;
-    private PingMessage aoJ = null;
+    private static PingManager aqi = null;
+    private long aqj = 0;
+    private int aqk = 180000;
+    private int aql = 900000;
+    private int aqm = this.aql;
+    private PingMessage aqn = null;
 
-    public static PingManager AD() {
-        if (aoE == null) {
+    public static PingManager At() {
+        if (aqi == null) {
             synchronized (PingManager.class) {
-                if (aoE == null) {
-                    aoE = new PingManager();
+                if (aqi == null) {
+                    aqi = new PingManager();
                 }
             }
         }
-        return aoE;
+        return aqi;
     }
 
     @Override // android.os.Handler
@@ -55,10 +55,10 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
 
     @Override // com.baidu.adp.framework.client.socket.b
     public boolean b(boolean z, String str) {
-        if ((z || System.currentTimeMillis() - this.aoF >= 180000) && BdSocketLinkService.isOpen()) {
-            this.aoF = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.aoJ);
-            com.baidu.adp.framework.client.socket.k.a("PingManager", this.aoJ.getCmd(), 0, "send_ping", 0, String.valueOf(str) + "-" + (this.aoI == this.aoH ? "back" : "fore"));
+        if ((z || System.currentTimeMillis() - this.aqj >= 180000) && BdSocketLinkService.isOpen()) {
+            this.aqj = System.currentTimeMillis();
+            MessageManager.getInstance().sendMessage(this.aqn);
+            com.baidu.adp.framework.client.socket.k.a("PingManager", this.aqn.getCmd(), 0, "send_ping", 0, String.valueOf(str) + "-" + (this.aqm == this.aql ? "back" : "fore"));
             return true;
         }
         return false;
@@ -72,8 +72,8 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     @Override // com.baidu.adp.framework.client.socket.b
     public void dX() {
         removeMessages(1);
-        sendMessageDelayed(obtainMessage(1), this.aoI);
-        this.aoF = System.currentTimeMillis();
+        sendMessageDelayed(obtainMessage(1), this.aqm);
+        this.aqj = System.currentTimeMillis();
     }
 
     public void initial() {
@@ -84,8 +84,8 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         bVar.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
         bVar.k(false);
         MessageManager.getInstance().registerTask(bVar);
-        this.aoJ = new PingMessage();
-        AE();
+        this.aqn = new PingMessage();
+        Au();
         f fVar = new f(this, 1003);
         MessageManager.getInstance().registerListener(new g(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH));
         MessageManager.getInstance().registerListener(fVar);
@@ -95,11 +95,11 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     public void c(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null) {
             if (responsedMessage.getError() == 0) {
-                com.baidu.adp.framework.client.socket.k.a("PingManager", this.aoJ.getCmd(), 0, "ping_succ", com.baidu.tbadk.core.k.TF, (String) null);
+                com.baidu.adp.framework.client.socket.k.a("PingManager", this.aqn.getCmd(), 0, "ping_succ", com.baidu.tbadk.core.k.Uh, (String) null);
                 return;
             }
             BdSocketLinkService.close(7, "ping error");
-            com.baidu.adp.framework.client.socket.k.a("PingManager", this.aoJ.getCmd(), 0, "ping_err", com.baidu.tbadk.core.k.TE, (String) null);
+            com.baidu.adp.framework.client.socket.k.a("PingManager", this.aqn.getCmd(), 0, "ping_err", com.baidu.tbadk.core.k.Ug, (String) null);
         }
     }
 
@@ -107,30 +107,30 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     public void a(BackgroundSwitchMessage backgroundSwitchMessage) {
         if (backgroundSwitchMessage != null) {
             if (backgroundSwitchMessage.getData().booleanValue()) {
-                this.aoI = this.aoH;
+                this.aqm = this.aql;
                 return;
             }
-            this.aoI = this.aoG;
+            this.aqm = this.aqk;
             H("switchToForeground");
         }
     }
 
-    public void AE() {
+    public void Au() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.m411getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
-            this.aoG = socketHeartBeatStratgy[0] * 1000;
-            this.aoH = socketHeartBeatStratgy[1] * 1000;
-            if (this.aoG < 180000) {
-                this.aoG = 180000;
+            this.aqk = socketHeartBeatStratgy[0] * 1000;
+            this.aql = socketHeartBeatStratgy[1] * 1000;
+            if (this.aqk < 180000) {
+                this.aqk = 180000;
             }
-            if (this.aoH < 180000) {
-                this.aoH = 180000;
+            if (this.aql < 180000) {
+                this.aql = 180000;
             }
         }
     }
 
-    public int AF() {
-        return this.aoG;
+    public int Av() {
+        return this.aqk;
     }
 
     @Override // com.baidu.adp.framework.client.socket.b

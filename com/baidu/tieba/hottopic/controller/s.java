@@ -22,7 +22,7 @@ class s implements bf.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(substring, null, null)));
             return true;
         } else if (z) {
-            tbPageContext.showToast(n.i.page_not_found);
+            tbPageContext.showToast(n.j.page_not_found);
             return true;
         } else {
             return false;

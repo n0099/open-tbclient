@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView dxj;
+    final /* synthetic */ FrsPraiseView dEK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsPraiseView frsPraiseView) {
-        this.dxj = frsPraiseView;
+        this.dEK = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,15 +23,15 @@ public class j implements View.OnClickListener {
         boolean z;
         PraiseData praiseData2;
         String str3 = "";
-        praiseData = this.dxj.dxi;
+        praiseData = this.dEK.dEJ;
         if (praiseData != null) {
-            praiseData2 = this.dxj.dxi;
+            praiseData2 = this.dEK.dEJ;
             str3 = praiseData2.getTitle();
         }
-        context = this.dxj.mContext;
-        str = this.dxj.mThreadId;
-        str2 = this.dxj.mPostId;
-        z = this.dxj.cHT;
+        context = this.dEK.mContext;
+        str = this.dEK.mThreadId;
+        str2 = this.dEK.mPostId;
+        z = this.dEK.cLV;
         com.baidu.tbadk.util.h.c(new PraiseListActivityConfig(context, str, str2, str3, z));
     }
 }

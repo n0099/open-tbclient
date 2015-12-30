@@ -2,13 +2,14 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements View.OnTouchListener {
-    final /* synthetic */ o dNF;
+public class w implements View.OnTouchListener {
+    final /* synthetic */ o dVe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(o oVar) {
-        this.dNF = oVar;
+        this.dVe = oVar;
     }
 
     @Override // android.view.View.OnTouchListener

@@ -1,38 +1,24 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.Toast;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends LinearLayout {
-    private a aeE;
+public class i implements Runnable {
+    final /* synthetic */ h afl;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void qG();
-
-        void qH();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(h hVar) {
+        this.afl = hVar;
     }
 
-    public i(Context context, View view, a aVar) {
-        super(context);
-        this.aeE = null;
-        setFocusableInTouchMode(true);
-        this.aeE = aVar;
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(view);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            if (this.aeE != null) {
-                this.aeE.qG();
-            }
-        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.aeE != null) {
-            this.aeE.qH();
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        Toast toast2;
+        toast = this.afl.yL;
+        if (toast != null) {
+            toast2 = this.afl.yL;
+            toast2.cancel();
         }
-        return super.dispatchKeyEvent(keyEvent);
     }
 }

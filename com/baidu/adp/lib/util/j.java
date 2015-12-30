@@ -5,20 +5,18 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class j {
-    protected static SimpleDateFormat yv = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat yw = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat yx = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat yy = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat yz = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat yA = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat yB = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat yC = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat yD = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat yE = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat yx = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat yy = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat yz = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat yA = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat yB = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat yC = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat yD = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat yE = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat yF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat yG = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -29,32 +27,32 @@ public class j {
 
     public static String a(Date date) {
         String format;
-        synchronized (yz) {
-            format = yz.format(date);
+        synchronized (yB) {
+            format = yB.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (yx) {
-            format = yx.format(date);
+        synchronized (yz) {
+            format = yz.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (yy) {
-            format = yy.format(date);
+        synchronized (yA) {
+            format = yA.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (yA) {
-            format = yA.format(date);
+        synchronized (yC) {
+            format = yC.format(date);
         }
         return format;
     }
@@ -86,39 +84,6 @@ public class j {
             e.printStackTrace();
             return "";
         }
-    }
-
-    public static Map<String, String> B(String str, String str2) {
-        String[] split;
-        HashMap hashMap = new HashMap();
-        if (str != null && str2 != null) {
-            for (String str3 : str.split(str2)) {
-                int indexOf = str3.indexOf("=");
-                if (indexOf != -1) {
-                    String trim = str3.substring(0, indexOf).trim();
-                    String trim2 = str3.substring(indexOf + 1).trim();
-                    if (!trim.isEmpty() && !trim2.isEmpty()) {
-                        hashMap.put(trim.trim(), trim2.trim());
-                    }
-                }
-            }
-        }
-        return hashMap;
-    }
-
-    public static String b(String str, Map<?, ?> map) {
-        StringBuilder sb = new StringBuilder();
-        if (str != null && map != null) {
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                Object key = entry.getKey();
-                Object value = entry.getValue();
-                sb.append(key == null ? "null" : key.toString());
-                sb.append('=');
-                sb.append(value == null ? "null" : value.toString());
-                sb.append(';');
-            }
-        }
-        return sb.toString();
     }
 
     public static String aU(String str) {

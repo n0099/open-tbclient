@@ -1,83 +1,34 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Cq;
-    protected ArrayList<FeedData> ceH = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.q ceI = new com.baidu.tbadk.core.data.q();
-    protected ae ceJ = new ae();
+public class ai extends Handler {
+    final /* synthetic */ ag ciI;
 
-    public ArrayList<FeedData> adz() {
-        return this.ceH;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ag agVar) {
+        this.ciI = agVar;
     }
 
-    public com.baidu.tbadk.core.data.q getPage() {
-        return this.ceI;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void g(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    FeedData feedData = new FeedData();
-                    feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    if (feedData.getThread_Type() == 33) {
-                        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.ceH.add(feedData);
-                        }
-                    } else {
-                        this.ceH.add(feedData);
-                    }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        boolean iQ;
+        if (message.what == 1) {
+            this.ciI.ciH = System.currentTimeMillis();
+            if (!MessageManager.getInstance().getSocketClient().isValid()) {
+                iQ = this.ciI.iQ();
+                if (iQ) {
+                    this.ciI.aeF();
                 }
             }
-            this.ceJ.parserJson(jSONObject.optJSONObject("message"));
-            this.ceI.parserJson(jSONObject.optJSONObject("page"));
-            this.Cq = true;
-        } catch (Exception e) {
-            this.Cq = false;
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        if (message instanceof ReplyMeResIdl) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        if (feedData.getThread_Type() == 33) {
-                            if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.ceH.add(feedData);
-                            }
-                        } else {
-                            this.ceH.add(feedData);
-                        }
-                    }
-                }
-                this.ceI.a(dataRes.page);
-                this.Cq = true;
-            } catch (Exception e) {
-                this.Cq = false;
-                BdLog.e(e.getMessage());
-            }
+            handler = this.ciI.mHandler;
+            handler2 = this.ciI.mHandler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }
 }

@@ -4,19 +4,19 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.q;
-import com.baidu.tieba.frs.eu;
+import com.baidu.tieba.frs.ev;
 import com.baidu.tieba.frs.ey;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d bhn;
+    final /* synthetic */ d ble;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.bhn = dVar;
+        this.ble = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,10 +33,10 @@ public class f extends CustomMessageListener {
         ey eyVar3;
         ey eyVar4;
         ArrayList arrayList;
-        eu euVar;
+        ev evVar;
         boolean z;
         boolean z2;
-        eu euVar2;
+        ev evVar2;
         ey eyVar5;
         ArrayList<u> arrayList2;
         ArrayList arrayList3;
@@ -46,42 +46,42 @@ public class f extends CustomMessageListener {
             FrsHotThreadResponseCacheMessage frsHotThreadResponseCacheMessage = (FrsHotThreadResponseCacheMessage) customResponsedMessage;
             ArrayList<u> threadList = frsHotThreadResponseCacheMessage.getThreadList();
             q page = frsHotThreadResponseCacheMessage.getPage();
-            eyVar = this.bhn.bhk;
+            eyVar = this.ble.blb;
             eyVar.errCode = frsHotThreadResponseCacheMessage.getError();
-            eyVar2 = this.bhn.bhk;
+            eyVar2 = this.ble.blb;
             eyVar2.errMsg = frsHotThreadResponseCacheMessage.getErrorString();
-            eyVar3 = this.bhn.bhk;
-            eyVar3.pn = page.sd();
-            this.bhn.bhi = page.sd();
+            eyVar3 = this.ble.blb;
+            eyVar3.pn = page.rM();
+            this.ble.bkZ = page.rM();
             if (threadList == null || threadList.size() == 0) {
-                eyVar4 = this.bhn.bhk;
-                eyVar4.bfs = false;
+                eyVar4 = this.ble.blb;
+                eyVar4.bjk = false;
             } else {
-                eyVar6 = this.bhn.bhk;
-                eyVar6.bfs = true;
+                eyVar6 = this.ble.blb;
+                eyVar6.bjk = true;
             }
-            arrayList = this.bhn.bhl;
+            arrayList = this.ble.blc;
             if (arrayList.size() == 0 && threadList != null && threadList.size() != 0) {
-                arrayList3 = this.bhn.bhl;
+                arrayList3 = this.ble.blc;
                 arrayList3.addAll(threadList);
             }
-            euVar = this.bhn.bhj;
-            if (euVar != null) {
+            evVar = this.ble.bla;
+            if (evVar != null) {
                 if (threadList == null || threadList.size() == 0) {
-                    z2 = this.bhn.aWG;
+                    z2 = this.ble.baH;
                 }
-                euVar2 = this.bhn.bhj;
-                eyVar5 = this.bhn.bhk;
-                arrayList2 = this.bhn.bhl;
-                euVar2.a(2, 0, eyVar5, arrayList2);
+                evVar2 = this.ble.bla;
+                eyVar5 = this.ble.blb;
+                arrayList2 = this.ble.blc;
+                evVar2.a(2, 0, eyVar5, arrayList2);
             }
             FrsHotThreadRequestCacheMessage frsHotThreadRequestCacheMessage = (FrsHotThreadRequestCacheMessage) frsHotThreadResponseCacheMessage.getOrginalMessage();
-            z = this.bhn.aWG;
+            z = this.ble.baH;
             if (z) {
                 if (threadList == null || threadList.size() == 0) {
                     z3 = true;
                 }
-                this.bhn.c(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
+                this.ble.c(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
             }
         }
     }

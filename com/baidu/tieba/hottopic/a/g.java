@@ -7,51 +7,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private List<com.baidu.adp.widget.ListView.a> aRI = new ArrayList();
-    private BdTypeListView aRs;
-    private n bCA;
-    private j bCB;
-    private s bCC;
-    private a bCD;
-    private h bCy;
-    private k bCz;
+    private List<com.baidu.adp.widget.ListView.a> aVK = new ArrayList();
+    private BdTypeListView aVi;
+    private h bGc;
+    private k bGd;
+    private n bGe;
+    private j bGf;
+    private s bGg;
+    private a bGh;
 
     public g(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.bCy = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.d.bDP);
-        this.bCz = new k(hotTopicActivity, com.baidu.tieba.hottopic.data.g.bEe);
-        this.bCA = new n(hotTopicActivity, com.baidu.tieba.hottopic.data.i.bEs);
-        this.bCB = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.e.bDT);
-        this.bCC = new s(hotTopicActivity, com.baidu.tieba.hottopic.data.j.bEv);
-        this.bCD = new a(hotTopicActivity, z.Wc);
-        this.aRI.add(this.bCy);
-        this.aRI.add(this.bCz);
-        this.aRI.add(this.bCA);
-        this.aRI.add(this.bCB);
-        this.aRI.add(this.bCC);
-        this.aRI.add(this.bCD);
-        this.aRs = bdTypeListView;
-        this.aRs.g(this.aRI);
+        this.bGc = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.d.aQD);
+        this.bGd = new k(hotTopicActivity, com.baidu.tieba.hottopic.data.g.bHH);
+        this.bGe = new n(hotTopicActivity, com.baidu.tieba.hottopic.data.i.bHV);
+        this.bGf = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.e.bHw);
+        this.bGg = new s(hotTopicActivity, com.baidu.tieba.hottopic.data.j.bHZ);
+        this.bGh = new a(hotTopicActivity, z.WC);
+        this.aVK.add(this.bGc);
+        this.aVK.add(this.bGd);
+        this.aVK.add(this.bGe);
+        this.aVK.add(this.bGf);
+        this.aVK.add(this.bGg);
+        this.aVK.add(this.bGh);
+        this.aVi = bdTypeListView;
+        this.aVi.g(this.aVK);
     }
 
     public void a(com.baidu.tieba.hottopic.data.c cVar) {
         ArrayList<com.baidu.adp.widget.ListView.u> arrayList;
-        if (cVar.Ux() != null) {
-            arrayList = cVar.Ux();
+        if (cVar.VA() != null) {
+            arrayList = cVar.VA();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.aRs != null) {
-            this.aRs.setData(arrayList);
+        if (this.aVi != null) {
+            this.aVi.setData(arrayList);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.aRs.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aRs.getAdapter()).notifyDataSetChanged();
+        if (this.aVi.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aVi.getAdapter()).notifyDataSetChanged();
         }
     }
 }

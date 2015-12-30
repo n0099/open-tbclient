@@ -1,9 +1,9 @@
 package com.baidu.tieba.hottopic.data;
 /* loaded from: classes.dex */
 public class h {
-    public String bBb;
-    public String bDj;
-    public int bEp;
-    public boolean bEq;
-    public int bEr;
+    public String aQB;
+    public String bGN;
+    public int bHS;
+    public boolean bHT;
+    public int bHU;
 }

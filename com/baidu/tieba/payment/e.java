@@ -5,15 +5,15 @@ import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ PaymentConfirmActivity cxe;
+    final /* synthetic */ PaymentConfirmActivity cAI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PaymentConfirmActivity paymentConfirmActivity) {
-        this.cxe = paymentConfirmActivity;
+        this.cAI = paymentConfirmActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cxe.L(2270066, this.cxe.getResources().getString(n.i.payment_input_password_find));
+        this.cAI.L(2270066, this.cAI.getResources().getString(n.j.payment_input_password_find));
     }
 }

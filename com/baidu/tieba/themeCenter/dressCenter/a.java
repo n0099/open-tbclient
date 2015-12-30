@@ -4,11 +4,11 @@ import com.baidu.tieba.themeCenter.dressCenter.d;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements d.a {
-    final /* synthetic */ DressupCenterActivity dFW;
+    final /* synthetic */ DressupCenterActivity dNy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(DressupCenterActivity dressupCenterActivity) {
-        this.dFW = dressupCenterActivity;
+        this.dNy = dressupCenterActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.dressCenter.d.a
@@ -17,17 +17,17 @@ class a implements d.a {
         f fVar2;
         d dVar;
         f fVar3;
-        DressupCenterActivity dressupCenterActivity = this.dFW;
-        fVar = this.dFW.dFT;
+        DressupCenterActivity dressupCenterActivity = this.dNy;
+        fVar = this.dNy.dNv;
         dressupCenterActivity.hideLoadingView(fVar.getRootView());
         if (i == 0) {
-            fVar2 = this.dFW.dFT;
-            dVar = this.dFW.dFU;
-            fVar2.a(list, kVar, list2, dVar.azO());
+            fVar2 = this.dNy.dNv;
+            dVar = this.dNy.dNw;
+            fVar2.a(list, kVar, list2, dVar.aBV());
             return;
         }
-        this.dFW.showToast(str);
-        fVar3 = this.dFW.dFT;
-        fVar3.LY();
+        this.dNy.showToast(str);
+        fVar3 = this.dNy.dNv;
+        fVar3.Mr();
     }
 }

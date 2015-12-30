@@ -1,46 +1,42 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aGn;
+class d implements c.b {
+    final /* synthetic */ c aHP;
+    private final /* synthetic */ View aHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(AccountActivity accountActivity) {
-        this.aGn = accountActivity;
+    public d(c cVar, View view) {
+        this.aHP = cVar;
+        this.aHQ = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        TextView textView4;
-        TextView textView5;
-        if (!this.aGn.aGh.GV()) {
-            this.aGn.aGh.setEditState(true);
-            textView3 = this.aGn.aGj;
-            textView3.setText(n.i.done);
-            if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView5 = this.aGn.aGj;
-                as.b(textView5, n.c.navi_op_text, 1);
-            } else {
-                textView4 = this.aGn.aGj;
-                as.b(textView4, n.c.cp_link_tip_a, 1);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        AccountActivity accountActivity;
+        AccountActivity accountActivity2;
+        if (this.aHQ != null) {
+            AccountData accountData = (AccountData) this.aHQ.getTag();
+            switch (i) {
+                case 0:
+                    if (accountData != null) {
+                        accountActivity2 = this.aHP.aHO;
+                        accountActivity2.a(false, accountData);
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (accountData != null) {
+                        accountActivity = this.aHP.aHO;
+                        accountActivity.a(true, accountData);
+                        break;
+                    }
+                    break;
             }
-            this.aGn.aGh.notifyDataSetChanged();
-            return;
+            cVar.dismiss();
         }
-        this.aGn.aGh.setEditState(false);
-        textView = this.aGn.aGj;
-        textView.setText(n.i.edit);
-        textView2 = this.aGn.aGj;
-        as.b(textView2, n.c.navi_op_text, 1);
-        this.aGn.aGh.notifyDataSetChanged();
     }
 }

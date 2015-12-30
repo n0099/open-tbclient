@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class bg extends com.baidu.adp.base.e {
-    private static final String aJe = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask aJf = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aJe);
-    private com.baidu.tieba.person.data.n mData;
+    private static final String aKC = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
+    private static TbHttpMessageTask aKD = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aKC);
+    private com.baidu.tieba.person.data.p mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aJf.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(aJf);
+        aKD.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(aKD);
     }
 
     public bg(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.mData = new com.baidu.tieba.person.data.n();
+        this.mData = new com.baidu.tieba.person.data.p();
         this.mIsHost = z;
     }
 
@@ -38,15 +38,15 @@ public class bg extends com.baidu.adp.base.e {
         this.mSex = i;
     }
 
-    public void setData(com.baidu.tieba.person.data.n nVar) {
-        this.mData = nVar;
+    public void setData(com.baidu.tieba.person.data.p pVar) {
+        this.mData = pVar;
     }
 
-    public com.baidu.tieba.person.data.n getData() {
+    public com.baidu.tieba.person.data.p getData() {
         return this.mData;
     }
 
-    public void IR() {
+    public void Ji() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

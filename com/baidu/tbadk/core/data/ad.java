@@ -7,13 +7,13 @@ import tbclient.FrsPage.TopNews;
 import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ad implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId WX = BdUniqueId.gen();
-    private String WY;
+    public static final BdUniqueId Xz = BdUniqueId.gen();
+    private String XA;
     private int position = 0;
     private String summary;
 
-    public String tr() {
-        return this.WY;
+    public String tb() {
+        return this.XA;
     }
 
     public String getSummary() {
@@ -22,14 +22,14 @@ public class ad implements com.baidu.adp.widget.ListView.u {
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.WY = topNews.news_link;
+            this.XA = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
 
     public void a(NewsInfo newsInfo) {
         if (newsInfo != null) {
-            this.WY = newsInfo.news_link;
+            this.XA = newsInfo.news_link;
             this.summary = newsInfo.summary;
             this.position = newsInfo.position.intValue();
         }
@@ -38,7 +38,7 @@ public class ad implements com.baidu.adp.widget.ListView.u {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.WY = jSONObject.optString("news_link");
+                this.XA = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
                 this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
@@ -49,6 +49,6 @@ public class ad implements com.baidu.adp.widget.ListView.u {
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return WX;
+        return Xz;
     }
 }
