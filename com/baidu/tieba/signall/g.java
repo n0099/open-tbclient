@@ -36,7 +36,7 @@ public class g extends HttpMessageListener {
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 aVar5 = this.dxt.dxn;
-                aVar5.iz(errorString);
+                aVar5.iA(errorString);
             } else if (error == 0) {
                 this.dxt.dxm = ((GetForumResponsed) httpResponsedMessage).listData;
                 aVar2 = this.dxt.dxn;
@@ -53,11 +53,11 @@ public class g extends HttpMessageListener {
                     errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(n.j.neterror);
                 }
                 aVar3 = this.dxt.dxn;
-                aVar3.iz(errorString2);
+                aVar3.iA(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
                 aVar = this.dxt.dxn;
-                aVar.iz(errorString3);
+                aVar.iA(errorString3);
             }
             this.dxt.dxo = null;
         }

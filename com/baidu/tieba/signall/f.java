@@ -28,7 +28,7 @@ public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
     public interface a {
         void a(c cVar);
 
-        void iz(String str);
+        void iA(String str);
     }
 
     public f(SignAllForumActivity signAllForumActivity) {

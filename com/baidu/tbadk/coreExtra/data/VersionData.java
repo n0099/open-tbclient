@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
@@ -24,6 +25,8 @@ public class VersionData implements Serializable {
     private int newVersionCode = -1;
     private String tiebaIconUrl = null;
     private String asDownloadUrl = null;
+    private String apkMD5RSA = null;
+    private String asApkMD5RSA = null;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -44,6 +47,8 @@ public class VersionData implements Serializable {
                 this.newVersionCode = jSONObject.optInt("new_version_code", -1);
                 this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
                 this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
+                this.apkMD5RSA = jSONObject.optString("apk_MD5_RSA", null);
+                this.asApkMD5RSA = jSONObject.optString("as_apk_MD5_RSA", null);
                 if (wZ()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
@@ -55,7 +60,7 @@ public class VersionData implements Serializable {
     }
 
     private boolean wZ() {
-        return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isHttpUrl(this.url) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
+        return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 
     public String getNewVersionDesc() {
@@ -112,5 +117,13 @@ public class VersionData implements Serializable {
 
     public String getTiebaIconUrl() {
         return this.tiebaIconUrl;
+    }
+
+    public String getApkMD5RSA() {
+        return this.apkMD5RSA;
+    }
+
+    public String getAsApkMD5RSA() {
+        return this.asApkMD5RSA;
     }
 }

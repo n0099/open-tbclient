@@ -34,7 +34,7 @@ public class d implements eu {
             if (this.baH) {
                 this.blb.forumId = exVar.forumId;
                 this.blb.pn = exVar.pn;
-                hn(exVar.forumId);
+                ho(exVar.forumId);
             } else if (exVar.pn == this.bkZ && !this.bkY) {
                 Pg();
             } else {
@@ -59,7 +59,7 @@ public class d implements eu {
         unRegisterListener();
     }
 
-    private void hn(String str) {
+    private void ho(String str) {
         MessageManager.getInstance().sendMessage(new FrsHotThreadRequestCacheMessage(str));
     }
 

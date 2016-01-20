@@ -154,7 +154,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.cgH.aeh();
             if (view.getId() == this.cgH.aea()) {
                 adL();
-                this.cgI.js(this.cgH.aec());
+                this.cgI.jt(this.cgH.aec());
             }
         }
     }

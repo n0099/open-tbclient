@@ -21,11 +21,11 @@ public class c implements com.baidu.tbadk.clientConfig.c {
             if (dataRes.local_dialog != null) {
                 String c = a.c(dataRes);
                 if (!TextUtils.isEmpty(c)) {
-                    TbadkSettings.getInst().saveString(this.dLb.mJ("remind_recommend_info"), c);
-                    TbadkSettings.getInst().saveInt(this.dLb.mJ("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.dLb.mJ("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    TbadkSettings.getInst().saveString(this.dLb.mK("remind_recommend_info"), c);
+                    TbadkSettings.getInst().saveInt(this.dLb.mK("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.dLb.mK("remind_recommend_dialog_time"), dataRes.local_dialog.time);
                     this.dLb.hC(true);
-                    TbadkSettings.getInst().saveLong(this.dLb.mJ("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveLong(this.dLb.mK("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }

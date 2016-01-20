@@ -14,7 +14,7 @@ public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
     public interface a {
         void a(List<c> list, List<g> list2, f fVar);
 
-        void jF(String str);
+        void jG(String str);
     }
 
     public d(SquareSearchActivity squareSearchActivity, a aVar) {

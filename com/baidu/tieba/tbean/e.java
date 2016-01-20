@@ -16,7 +16,7 @@ public class e extends com.baidu.adp.base.e<BuyTBeanActivity> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void hs(String str);
+        void ht(String str);
 
         void onSuccess();
     }

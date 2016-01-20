@@ -49,17 +49,17 @@ public class b {
         return bVar;
     }
 
-    public boolean ji(String str) {
+    public boolean jj(String str) {
         return this.cey.contains(str);
     }
 
-    public void jj(String str) {
+    public void jk(String str) {
         if (!StringUtils.isNull(str) && !this.cey.contains(str)) {
             this.cey.add(str);
         }
     }
 
-    public void jk(String str) {
+    public void jl(String str) {
         if (!StringUtils.isNull(str)) {
             this.cey.remove(str);
         }
@@ -96,15 +96,15 @@ public class b {
         return (StringUtils.isNull(topActivityClassName) || "com.baidu.tieba.LogoActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.guide.NewUserGuideActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.topRec.TopRecActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(topActivityClassName)) ? false : true;
     }
 
-    public void jl(String str) {
+    public void jm(String str) {
         if (!StringUtils.isNull(str)) {
-            this.cex.jf(str);
+            this.cex.jg(str);
             acS().J(this.cex.acJ());
         }
     }
 
-    public void jm(String str) {
-        this.cex.jg(str);
+    public void jn(String str) {
+        this.cex.jh(str);
         if (!this.cex.acM()) {
             dZ(false);
         } else {

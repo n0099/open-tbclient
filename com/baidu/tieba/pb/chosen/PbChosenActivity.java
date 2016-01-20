@@ -125,7 +125,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (this.cBB != null && threadInfo.post_num != null) {
                 String x = ax.x(threadInfo.post_num.longValue());
                 this.cBB.setText(getResources().getString(n.j.chosen_pb_reply_number_text, x));
-                this.cBA.ks(getResources().getString(n.j.chosen_pb_reply_count_text, x));
+                this.cBA.kt(getResources().getString(n.j.chosen_pb_reply_count_text, x));
             }
             this.cBy.a(threadInfo);
             this.cBx.a(getPageContext().getPageActivity(), threadInfo);

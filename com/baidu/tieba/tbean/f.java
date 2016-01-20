@@ -34,19 +34,19 @@ public class f extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
             aVar = this.dJX.dJW;
             buyTBeanActivity = this.dJX.dJV;
-            aVar.hs(buyTBeanActivity.getPageContext().getString(n.j.neterror));
+            aVar.ht(buyTBeanActivity.getPageContext().getString(n.j.neterror));
             return;
         }
         GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
         if (getYinJiResponseMessage.getError() != 0) {
             if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
                 aVar5 = this.dJX.dJW;
-                aVar5.hs(getYinJiResponseMessage.getErrorString());
+                aVar5.ht(getYinJiResponseMessage.getErrorString());
                 return;
             }
             aVar4 = this.dJX.dJW;
             buyTBeanActivity3 = this.dJX.dJV;
-            aVar4.hs(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
+            aVar4.ht(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
             return;
         }
         this.dJX.userInfo = getYinJiResponseMessage.getUserInfo();
@@ -62,6 +62,6 @@ public class f extends com.baidu.adp.framework.listener.e {
         }
         aVar2 = this.dJX.dJW;
         buyTBeanActivity2 = this.dJX.dJV;
-        aVar2.hs(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
+        aVar2.ht(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
     }
 }

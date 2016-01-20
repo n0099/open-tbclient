@@ -336,7 +336,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         return null;
     }
 
-    public void nq(String str) {
+    public void nr(String str) {
         if (this.dWu != null) {
             this.dWu.setText(str);
         }

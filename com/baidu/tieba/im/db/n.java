@@ -17,7 +17,7 @@ class n extends com.baidu.tbadk.util.m<Void> {
     /* renamed from: Ha */
     public Void doInBackground() {
         if (this.bQl.getData() instanceof String) {
-            f.ix((String) this.bQl.getData());
+            f.iy((String) this.bQl.getData());
             return null;
         }
         return null;

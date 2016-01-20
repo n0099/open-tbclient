@@ -448,7 +448,7 @@ public class dk {
         }
     }
 
-    public void kG(String str) {
+    public void kH(String str) {
         if (this.cJu != null) {
             if (TextUtils.isEmpty(str)) {
                 str = "0";
@@ -894,9 +894,9 @@ public class dk {
         this.cIM.a(cVar);
         this.cIM.notifyDataSetChanged();
         if (cVar == null) {
-            kG("");
+            kH("");
         } else {
-            kG(com.baidu.tbadk.core.util.ax.x(cVar.akH().getReply_num()));
+            kH(com.baidu.tbadk.core.util.ax.x(cVar.akH().getReply_num()));
         }
         amS();
     }
@@ -1161,9 +1161,9 @@ public class dk {
                 this.mForumName = cVar.akG().getName();
                 this.mForumId = cVar.getForumId();
             }
-            this.cIl.kJ(this.mForumName);
+            this.cIl.kK(this.mForumName);
             if (cVar.akH() != null) {
-                kG(com.baidu.tbadk.core.util.ax.x(cVar.akH().getReply_num()));
+                kH(com.baidu.tbadk.core.util.ax.x(cVar.akH().getReply_num()));
                 if (cVar.akH().getPraise() != null) {
                     if (cVar.akH().getPraise().getNum() < 1) {
                         sb = this.cGj.getResources().getString(n.j.frs_item_praise_text);
@@ -1468,7 +1468,7 @@ public class dk {
         return this.ayL;
     }
 
-    public void kH(String str) {
+    public void kI(String str) {
         if (this.cIR != null && !StringUtils.isNull(str)) {
             this.cIR.setText(str);
         }
@@ -2007,7 +2007,7 @@ public class dk {
         return this.cJH;
     }
 
-    public void kI(String str) {
+    public void kJ(String str) {
         if (str.contains("_")) {
             str = str.replace("_", "\n");
         }

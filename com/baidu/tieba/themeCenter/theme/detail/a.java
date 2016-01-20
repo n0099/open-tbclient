@@ -40,10 +40,10 @@ class a implements e.a {
                 bVar5.nr(i3);
                 bVar6 = this.dOk.mSkinData;
                 str2 = this.dOk.dOg;
-                bVar6.mK(str2);
+                bVar6.mL(str2);
                 bVar7 = this.dOk.mSkinData;
                 str3 = this.dOk.dOh;
-                bVar7.mM(str3);
+                bVar7.mN(str3);
             }
             gVar2 = this.dOk.dOe;
             bVar3 = this.dOk.mSkinData;

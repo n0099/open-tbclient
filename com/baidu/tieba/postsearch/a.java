@@ -38,7 +38,7 @@ public class a {
         com.baidu.adp.lib.h.h.hj().postDelayed(this.djI, 500L);
     }
 
-    public void lG(String str) {
+    public void lH(String str) {
         this.cpr.setText(str);
     }
 

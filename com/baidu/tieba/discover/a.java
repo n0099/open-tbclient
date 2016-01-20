@@ -87,20 +87,20 @@ public class a extends BaseFragment {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void gN(String str) {
+    private void gO(String str) {
         if (!TbadkCoreApplication.isLogin()) {
             o(str, "", "");
             return;
         }
         String string = com.baidu.tbadk.core.sharedPref.b.tJ().getString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), "");
         if (TextUtils.isEmpty(string)) {
-            gO(str);
+            gP(str);
             return;
         }
         OpenUserInfo openUserInfo = new OpenUserInfo();
         openUserInfo.parseLocalJson(string);
         if (TextUtils.isEmpty(openUserInfo.getOpenID()) || TextUtils.isEmpty(openUserInfo.getUserName())) {
-            gO(str);
+            gP(str);
         } else {
             o(str, openUserInfo.getOpenID(), openUserInfo.getUserName());
         }
@@ -151,7 +151,7 @@ public class a extends BaseFragment {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void gO(String str) {
+    private void gP(String str) {
         getPageContext().getOrignalPage().showLoadingDialog(getResources().getString(n.j.loading), null);
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_OPEN_USERINFO);
         httpMessage.setExtra(str);
@@ -266,7 +266,7 @@ public class a extends BaseFragment {
                     bf.vn().a(getPageContext(), title, new String[]{Jo, "1000501"});
                 } else if (Jo.startsWith("http://m.xiu8.com")) {
                     TiebaStatic.log("c10104");
-                    gN(Jo);
+                    gO(Jo);
                 } else if (Jo.startsWith("live:detail:TBCLiveID=")) {
                     int g = com.baidu.adp.lib.h.b.g(Jo.replace("live:detail:TBCLiveID=", ""), -1);
                     if (g != -1) {
@@ -379,8 +379,8 @@ public class a extends BaseFragment {
             if (!StringUtils.isNull(str) && PluginPackageManager.ls().bw(str) && !PluginPackageManager.ls().bx(str) && (pluginConfig = PluginPackageManager.ls().getPluginConfig(str)) != null) {
                 com.baidu.tieba.discover.data.c cVar = new com.baidu.tieba.discover.data.c();
                 cVar.setTitle(pluginConfig.display_name);
-                cVar.gS(pluginConfig.icon);
-                cVar.gT(this.aRB.gR(str));
+                cVar.gT(pluginConfig.icon);
+                cVar.gU(this.aRB.gS(str));
                 cVar.bV(PluginPackageManager.ls().by(str));
                 cVar.bW(true);
                 arrayList.add(cVar);
@@ -415,7 +415,7 @@ public class a extends BaseFragment {
                             c(cVar2);
                         }
                         dVar2.Jv().add(cVar2);
-                        gP(cVar2.Jo());
+                        gQ(cVar2.Jo());
                     }
                 }
             }
@@ -456,15 +456,15 @@ public class a extends BaseFragment {
         }
     }
 
-    private void gP(String str) {
+    private void gQ(String str) {
         if (str != null) {
             if (str.startsWith("gamecenter:")) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "discover_game_center_show", null);
             } else if (str.startsWith("game:detail:")) {
-                String mz = com.baidu.tieba.tbadkCore.util.n.mz(str);
-                if (!StringUtils.isNull(mz)) {
-                    this.aRM.add(mz);
-                    TiebaStatic.eventStat(getPageContext().getPageActivity(), "game_show", "show", 1, "dev_id", mz, "ref_id", "1000501");
+                String mA = com.baidu.tieba.tbadkCore.util.n.mA(str);
+                if (!StringUtils.isNull(mA)) {
+                    this.aRM.add(mA);
+                    TiebaStatic.eventStat(getPageContext().getPageActivity(), "game_show", "show", 1, "dev_id", mA, "ref_id", "1000501");
                 }
             }
         }

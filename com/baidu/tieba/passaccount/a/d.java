@@ -27,7 +27,7 @@ public class d implements f.a {
     }
 
     @Override // com.baidu.tieba.passaccount.a.f.a
-    public void kk(String str) {
+    public void kl(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tbadk.core.a.b.cl(str);
         }

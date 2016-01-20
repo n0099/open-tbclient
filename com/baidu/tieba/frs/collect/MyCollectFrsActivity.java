@@ -266,9 +266,9 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hu(String str) {
+    public void hv(String str) {
         if (this.bjW.qs().isEmpty() && this.bjX != null) {
-            this.bjX.hv(str);
+            this.bjX.hw(str);
         }
     }
 

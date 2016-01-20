@@ -30,14 +30,14 @@ class t implements View.OnClickListener {
                 if (TextUtils.equals(str, userData.getUserId())) {
                     floatingPersonalChatView = this.cfW.cfU;
                     str2 = this.cfW.aCb;
-                    int jp = floatingPersonalChatView.jp(str2);
-                    if (jp == 0) {
+                    int jq = floatingPersonalChatView.jq(str2);
+                    if (jq == 0) {
                         MessageManager messageManager = MessageManager.getInstance();
                         Context context = this.cfW.getPageContext().getContext();
                         str4 = this.cfW.aCb;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(str4), userData.getUserName(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
                         return;
-                    } else if (jp == 4) {
+                    } else if (jq == 4) {
                         com.baidu.tbadk.newFriends.a DX = com.baidu.tbadk.newFriends.a.DX();
                         str3 = this.cfW.aCb;
                         DX.b(com.baidu.adp.lib.h.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);

@@ -18,7 +18,7 @@ public class bp implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean nw;
+        boolean nx;
         z = this.this$0.cHa;
         if (!z) {
             i = this.this$0.requestCode;
@@ -28,8 +28,8 @@ public class bp implements View.OnClickListener {
                     z2 = this.this$0.cNE;
                     if (z2 && this.this$0.cNx != null && !this.this$0.cNx.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        nw = this.this$0.nw(str);
-                        if (nw) {
+                        nx = this.this$0.nx(str);
+                        if (nx) {
                             intent.putExtra("change", true);
                             intent.putExtra("file_name", str);
                         } else {

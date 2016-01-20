@@ -23,7 +23,7 @@ public class c implements View.OnClickListener {
             aVar = this.cCi.cBM;
             if (aVar != null) {
                 aVar2 = this.cCi.cBM;
-                aVar2.kq(String.valueOf(this.cCj.id));
+                aVar2.kr(String.valueOf(this.cCj.id));
             }
         }
     }

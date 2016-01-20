@@ -125,7 +125,7 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
                     if (lM != null) {
                         str4 = lM.getContainerVersion();
                     }
-                    String str5 = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER + "_" + str4 + "_" + str;
+                    String str5 = String.valueOf(TbConfig.getVersion()) + ".31_" + str4 + "_" + str;
                     if (!z) {
                         String b = b(a, str);
                         pluginNetConfigInfos = PluginNetConfigInfos.parse(b);
@@ -159,7 +159,7 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             lM = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
             if (lM != null) {
             }
-            String str52 = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER + "_" + str42 + "_" + str;
+            String str52 = String.valueOf(TbConfig.getVersion()) + ".31_" + str42 + "_" + str;
             if (!z) {
             }
             publishProgress(pluginNetConfigInfos);

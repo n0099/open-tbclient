@@ -54,7 +54,7 @@ class c extends com.baidu.adp.framework.listener.a {
             lVar9 = this.bkc.bjX;
             lVar9.Om();
             this.bkc.showToast(string);
-            this.bkc.hu(string);
+            this.bkc.hv(string);
             return;
         }
         com.baidu.tieba.tbadkCore.n nVar = null;
@@ -105,7 +105,7 @@ class c extends com.baidu.adp.framework.listener.a {
                         aVar5.OK();
                         return;
                     }
-                    this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
+                    this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
                     return;
                 }
                 aVar3 = this.bkc.bjW;
@@ -130,9 +130,9 @@ class c extends com.baidu.adp.framework.listener.a {
                 this.bkc.Ns();
                 return;
             }
-            this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
+            this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
             return;
         }
-        this.bkc.hu(this.bkc.getResources().getString(n.j.no_data_text));
+        this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
     }
 }

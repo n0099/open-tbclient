@@ -27,7 +27,7 @@ public class d {
         return dVar;
     }
 
-    public boolean mf(String str) {
+    public boolean mg(String str) {
         if (this.bae != null && str != null) {
             byte[] bArr = this.bae.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
             if (bArr != null && bArr.length > 0) {

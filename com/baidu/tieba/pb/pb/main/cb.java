@@ -509,7 +509,7 @@ public class cb extends ce<com.baidu.tieba.tbadkCore.data.r, cd> implements View
         this.cDs = z;
     }
 
-    public void ku(String str) {
+    public void kv(String str) {
         this.cDX = str;
     }
 

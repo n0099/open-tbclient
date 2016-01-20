@@ -21,7 +21,7 @@ public class ae {
             }
             return;
         }
-        new b(mr(str), aVar).execute(new String[0]);
+        new b(ms(str), aVar).execute(new String[0]);
     }
 
     public static void b(String str, a aVar) {
@@ -32,7 +32,7 @@ public class ae {
             }
             return;
         }
-        new b(mq(str), aVar).execute(new String[0]);
+        new b(mr(str), aVar).execute(new String[0]);
     }
 
     public static void c(String str, a aVar) {
@@ -43,7 +43,7 @@ public class ae {
             }
             return;
         }
-        new b(ms(str), aVar).execute(new String[0]);
+        new b(mt(str), aVar).execute(new String[0]);
     }
 
     public static void a(int i, a aVar) {
@@ -63,6 +63,17 @@ public class ae {
         if (!ax.isEmpty(str)) {
             com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tc().cC("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
+                cC.b(mt(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                cC.ab(mt(str));
+            }
+        }
+    }
+
+    public static void c(String str, WriteData writeData) {
+        if (!ax.isEmpty(str)) {
+            com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tc().cC("tb.pb_editor");
+            if (writeData != null && writeData.hasContentToSave()) {
                 cC.b(ms(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
                 cC.ab(ms(str));
@@ -70,7 +81,7 @@ public class ae {
         }
     }
 
-    public static void c(String str, WriteData writeData) {
+    public static void d(String str, WriteData writeData) {
         if (!ax.isEmpty(str)) {
             com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tc().cC("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
@@ -81,26 +92,15 @@ public class ae {
         }
     }
 
-    public static void d(String str, WriteData writeData) {
-        if (!ax.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tc().cC("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                cC.b(mq(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                cC.ab(mq(str));
-            }
-        }
-    }
-
-    protected static String mq(String str) {
+    protected static String mr(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@subpb" + str;
     }
 
-    protected static String mr(String str) {
+    protected static String ms(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
     }
 
-    protected static String ms(String str) {
+    protected static String mt(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
     }
 

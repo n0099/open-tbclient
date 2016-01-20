@@ -47,7 +47,7 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         p.aKd().a(this);
         this.dTw = new h(this.dSj.getPageContext().getPageActivity());
         this.dTz = new com.baidu.tieba.write.view.a(this.dSj);
-        this.dRW.nj("-1");
+        this.dRW.nk("-1");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -97,7 +97,7 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         }
         if (this.dRW != null && this.dRW.aKa() == null) {
             setData(aKj(), true);
-            nl("-1");
+            nm("-1");
         }
     }
 
@@ -112,7 +112,7 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         return arrayList;
     }
 
-    private void nl(String str) {
+    private void nm(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.dTw.a(str, new am(this, str));
         }

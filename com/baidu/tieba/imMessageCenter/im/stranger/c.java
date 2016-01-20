@@ -29,7 +29,7 @@ public class c {
         public int type;
     }
 
-    public static a jv(String str) {
+    public static a jw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

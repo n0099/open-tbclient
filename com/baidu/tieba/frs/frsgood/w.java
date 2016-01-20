@@ -30,16 +30,16 @@ public class w extends com.baidu.adp.framework.listener.a {
         if (responsedMessage == null) {
             frsGoodActivity6 = this.bkx.bgr;
             frsGoodActivity7 = this.bkx.bgr;
-            frsGoodActivity6.hs(frsGoodActivity7.getPageContext().getString(n.j.neterror));
+            frsGoodActivity6.ht(frsGoodActivity7.getPageContext().getString(n.j.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                 frsGoodActivity5 = this.bkx.bgr;
-                frsGoodActivity5.hs(responsedMessage.getErrorString());
+                frsGoodActivity5.ht(responsedMessage.getErrorString());
                 return;
             }
             frsGoodActivity3 = this.bkx.bgr;
             frsGoodActivity4 = this.bkx.bgr;
-            frsGoodActivity3.hs(frsGoodActivity4.getPageContext().getString(n.j.neterror));
+            frsGoodActivity3.ht(frsGoodActivity4.getPageContext().getString(n.j.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
                 frsGoodActivity2 = this.bkx.bgr;

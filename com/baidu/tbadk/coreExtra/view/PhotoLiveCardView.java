@@ -319,7 +319,7 @@ public class PhotoLiveCardView extends FrameLayout {
     private void a(TextView textView, long j) {
         if (textView != null && this.aoP) {
             com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.mC(String.valueOf(j))) {
+            if (readThreadHistory != null && readThreadHistory.mD(String.valueOf(j))) {
                 as.b(textView, n.d.cp_cont_c, 1);
             } else {
                 as.b(textView, n.d.cp_cont_b, 1);

@@ -18,7 +18,7 @@ class i extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-            this.bWI.iM(this.bWI.aal());
+            this.bWI.iN(this.bWI.aal());
         }
     }
 }

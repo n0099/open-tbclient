@@ -410,12 +410,12 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 i++;
                 i2 = i3;
             }
-            kP(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+            kQ(WriteImageActivityConfig.FILTER_NAME_NORMAL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kP(String str) {
+    public void kQ(String str) {
         ImageView imageView;
         if (str != null) {
             if (this.cNG == null) {

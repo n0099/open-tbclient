@@ -14,8 +14,8 @@ class m implements w.a {
     }
 
     @Override // com.baidu.tieba.signall.w.a
-    public void iz(String str) {
-        this.dxE.lX(str);
+    public void iA(String str) {
+        this.dxE.lY(str);
     }
 
     @Override // com.baidu.tieba.signall.w.a
@@ -54,7 +54,7 @@ class m implements w.a {
                         this.dxE.showToast(n.j.signallforum_error);
                     }
                 } else {
-                    this.dxE.lY(uVar.aBA());
+                    this.dxE.lZ(uVar.aBA());
                     aVar = this.dxE.Md;
                     aVar.tf();
                 }
@@ -63,6 +63,6 @@ class m implements w.a {
             this.dxE.b(aCn);
             return;
         }
-        this.dxE.lX(aBC.getUserMsg());
+        this.dxE.lY(aBC.getUserMsg());
     }
 }

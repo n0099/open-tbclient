@@ -73,7 +73,7 @@ public class ah extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.p> {
     private void Io() {
         if (this.aOJ != null && this.aOJ.aQp != null) {
             TiebaStatic.log(this.aOJ.IB());
-            x.gH(this.aOJ.aQp.getId());
+            x.gI(this.aOJ.aQp.getId());
             this.mContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext.getPageActivity()).createFromThreadCfg(this.aOJ.aQp, this.aOJ.aQp.sv(), x.In(), 18003, true, false, false).addLocateParam(this.aOJ.It())));
             refreshView();
         }
@@ -124,7 +124,7 @@ public class ah extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.p> {
         this.aOI.aOQ.setYuelaouLocate("feed#" + this.aOJ.Is());
         this.aOI.aOQ.setForumAfterClickListener(this.agD);
         onChangeSkinType(this.mContext, TbadkCoreApplication.m411getInst().getSkinType());
-        if (x.gI(this.aOJ.aQp.getId())) {
+        if (x.gJ(this.aOJ.aQp.getId())) {
             as.b(this.aOI.mTextTitle, n.d.cp_cont_d, 1);
         } else {
             as.b(this.aOI.mTextTitle, n.d.cp_cont_b, 1);

@@ -9,12 +9,12 @@ public class e {
         this.cdQ.put(str, aVar);
     }
 
-    public boolean jd(String str) {
+    public boolean je(String str) {
         a aVar;
         return (this.cdQ == null || (aVar = this.cdQ.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.Jl()) >= 300000) ? false : true;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b je(String str) {
+    public com.baidu.tbadk.coreExtra.relationship.b jf(String str) {
         if (this.cdQ.get(str) != null) {
             return this.cdQ.get(str).acz();
         }

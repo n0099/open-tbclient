@@ -167,7 +167,7 @@ public class c {
         return null;
     }
 
-    public void kt(String str) {
+    public void ku(String str) {
         if (this.aQp != null) {
             this.aQp.cz(str);
         }

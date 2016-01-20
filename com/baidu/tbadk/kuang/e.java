@@ -7,9 +7,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0041a {
+class e implements a.InterfaceC0041a {
     private final /* synthetic */ boolean awS;
 
     /* JADX INFO: Access modifiers changed from: package-private */

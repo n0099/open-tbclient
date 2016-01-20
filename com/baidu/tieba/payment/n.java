@@ -19,11 +19,11 @@ public class n implements View.OnClickListener {
         if (!z) {
             z2 = this.cAI.cAB;
             if (z2) {
-                t.kn("c10292");
+                t.ko("c10292");
                 this.cAI.akh();
                 return;
             }
-            t.kn("c10293");
+            t.ko("c10293");
             this.cAI.akg();
             return;
         }

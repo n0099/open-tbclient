@@ -22,7 +22,7 @@ class ak implements CustomMessageTask.CustomRunnable<String> {
             try {
                 com.baidu.tieba.im.db.g.Ym().Yn();
                 com.baidu.tieba.im.db.i.Yr().c(this.bXL);
-                com.baidu.tieba.im.db.c.Yi().is(this.bXL.getGid());
+                com.baidu.tieba.im.db.c.Yi().it(this.bXL.getGid());
                 com.baidu.tieba.im.db.g.Ym().endTransaction();
                 return null;
             } catch (Exception e) {

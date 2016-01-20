@@ -17,7 +17,7 @@ class o implements d.a {
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.d.a
-    public void kq(String str) {
+    public void kr(String str) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;

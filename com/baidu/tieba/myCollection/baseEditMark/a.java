@@ -139,7 +139,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void kf(String str) {
+    public void kg(String str) {
         try {
             paserJson(new JSONObject(str));
         } catch (Exception e) {
@@ -148,7 +148,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> kg(String str) {
+    public ArrayList<MarkData> kh(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -257,7 +257,7 @@ public class a {
             this.data = this.Ua.tV();
             this.cyG.parserJson(this.data);
             if (this.Ua.uw().vq().qO()) {
-                aVar.kf(this.data);
+                aVar.kg(this.data);
                 if (this.offset == 0) {
                     if (a.this.cyC == null) {
                         a.this.cyC = new ArrayList();
@@ -266,14 +266,14 @@ public class a {
                     }
                     a.this.cyD = 0;
                     if (this.cyI.booleanValue()) {
-                        hh(this.data);
+                        hi(this.data);
                     }
                 }
             }
             return aVar;
         }
 
-        private void hh(String str) {
+        private void hi(String str) {
             com.baidu.adp.lib.cache.o<String> cC;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && (cC = com.baidu.tbadk.core.b.a.tc().cC("tb.my_bookmarks")) != null) {
@@ -290,11 +290,11 @@ public class a {
             String str = strArr[0];
             ArrayList<MarkData> arrayList = new ArrayList<>();
             if (str != null) {
-                ArrayList<MarkData> kg = a.this.kg(str);
+                ArrayList<MarkData> kh = a.this.kh(str);
                 if (this.cyI.booleanValue()) {
-                    a.this.S(kg);
+                    a.this.S(kh);
                 } else {
-                    a.this.T(kg);
+                    a.this.T(kh);
                 }
             } else {
                 a.this.S(arrayList);

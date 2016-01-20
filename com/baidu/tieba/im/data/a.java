@@ -34,7 +34,7 @@ public class a extends com.baidu.tbadk.core.util.a {
         return this.bPM;
     }
 
-    public void il(String str) {
+    public void im(String str) {
         this.bPM = str;
     }
 }

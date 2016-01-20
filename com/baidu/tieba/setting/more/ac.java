@@ -4,8 +4,9 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.setting.model.g;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements g.a {
+public class ac implements g.a {
     final /* synthetic */ MsgRemindActivity duZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */

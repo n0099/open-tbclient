@@ -114,7 +114,7 @@ public class cf extends com.baidu.tbadk.editortools.d.a {
         return this.cHm;
     }
 
-    public void kC(String str) {
+    public void kD(String str) {
         this.cHm = str;
     }
 
@@ -314,7 +314,7 @@ public class cf extends com.baidu.tbadk.editortools.d.a {
         return this.cGO;
     }
 
-    public void kD(String str) {
+    public void kE(String str) {
         this.cGO = str;
     }
 
@@ -965,7 +965,7 @@ public class cf extends com.baidu.tbadk.editortools.d.a {
         return false;
     }
 
-    public boolean kE(String str) {
+    public boolean kF(String str) {
         this.cGP = !this.cGP;
         this.cGO = str;
         ku(6);
@@ -1100,7 +1100,7 @@ public class cf extends com.baidu.tbadk.editortools.d.a {
         this.cHf = cVar;
     }
 
-    public void ki(String str) {
+    public void kj(String str) {
         this.postID = str;
     }
 
@@ -1114,7 +1114,7 @@ public class cf extends com.baidu.tbadk.editortools.d.a {
         return Dy();
     }
 
-    public boolean kF(String str) {
+    public boolean kG(String str) {
         if (getPbData() == null || getPbData().akH() == null || getPbData().akH().getAuthor() == null || StringUtils.isNull(str)) {
             return false;
         }

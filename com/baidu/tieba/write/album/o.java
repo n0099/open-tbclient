@@ -79,7 +79,7 @@ public class o {
         return this.dSC;
     }
 
-    public void nj(String str) {
+    public void nk(String str) {
         this.dSC = str;
     }
 
@@ -126,7 +126,7 @@ public class o {
         return this.dSK;
     }
 
-    public void nk(String str) {
+    public void nl(String str) {
         this.dSK = str;
     }
 

@@ -16,7 +16,7 @@ public class e extends com.baidu.tbadk.mvc.g.a<String, com.baidu.tbadk.mvc.d.b> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
-    /* renamed from: lF */
+    /* renamed from: lG */
     public void B(String str) {
         super.B(str);
         this.byJ.setText(str);

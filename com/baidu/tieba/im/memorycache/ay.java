@@ -24,7 +24,7 @@ public class ay implements CustomMessageTask.CustomRunnable<String> {
             com.baidu.tieba.im.db.g.Ym().Yn();
             com.baidu.tieba.im.db.i.Yr().c(this.bXL);
             if (this.bXL.getCustomGroupType() == 1) {
-                com.baidu.tieba.im.db.c.Yi().is(this.bXL.getGid());
+                com.baidu.tieba.im.db.c.Yi().it(this.bXL.getGid());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

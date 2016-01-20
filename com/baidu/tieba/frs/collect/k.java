@@ -48,8 +48,8 @@ public class k implements c.b {
                 break;
         }
         q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.beh != null && !readThreadHistory.mC(this.beh.getId())) {
-            readThreadHistory.mB(this.beh.getId());
+        if (readThreadHistory != null && this.beh != null && !readThreadHistory.mD(this.beh.getId())) {
+            readThreadHistory.mC(this.beh.getId());
         }
         lVar = this.bkc.bjX;
         lVar.NW();

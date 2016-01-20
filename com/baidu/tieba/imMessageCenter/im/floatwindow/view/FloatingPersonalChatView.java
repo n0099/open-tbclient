@@ -64,7 +64,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
     public void adC() {
         UserData userData;
         if (this.mUserDataList != null && !this.mUserDataList.isEmpty() && (userData = this.mUserDataList.get(this.currentIndex)) != null) {
-            this.cgi.jn(userData.getUserName());
+            this.cgi.jo(userData.getUserName());
             this.cgi.jk(userData.getIsFriend());
         }
     }
@@ -74,7 +74,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         if (i < this.mUserDataList.size() && i >= 0) {
             this.currentIndex = i;
             if (this.mUserDataList.get(i) != null) {
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().jl(this.mUserDataList.get(i).getUserId());
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().jm(this.mUserDataList.get(i).getUserId());
                 this.mUserDataList.get(i).setConcern_num(0);
             }
             this.cfY.jl(i);
@@ -141,7 +141,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
             if (this.currentIndex >= 0 && this.currentIndex < size) {
                 userData = this.mUserDataList.get(this.currentIndex);
                 if (userData != null) {
-                    this.cgi.jn(userData.getUserName());
+                    this.cgi.jo(userData.getUserName());
                     this.cgi.jk(this.cgj.c(userData));
                 }
                 adI();
@@ -152,8 +152,8 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
                     this.bjq.addView(createStateBarFillView(), 0);
                 }
                 if (userData == null) {
-                    boolean jo = this.cgj.jo(userData.getUserId());
-                    if (!adF() && !jo && this.mTool != null) {
+                    boolean jp = this.cgj.jp(userData.getUserId());
+                    if (!adF() && !jp && this.mTool != null) {
                         b(this.mTool.ea(6));
                         b(this.mTool.ea(2));
                         return;
@@ -201,8 +201,8 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         return this.mUserDataList == null || this.mUserDataList.isEmpty() || this.currentIndex < 0 || this.currentIndex >= this.mUserDataList.size() || this.mUserDataList.get(this.currentIndex) == null;
     }
 
-    public boolean jo(String str) {
-        return this.cgj.jo(str);
+    public boolean jp(String str) {
+        return this.cgj.jp(str);
     }
 
     public void adG() {
@@ -223,7 +223,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
 
     public void d(long j, int i) {
         this.cgj.W(String.valueOf(j), i);
-        this.cgi.jk(this.cgj.jq(String.valueOf(j)));
+        this.cgi.jk(this.cgj.jr(String.valueOf(j)));
     }
 
     public void a(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
@@ -234,8 +234,8 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         this.cgi.p(onClickListener);
     }
 
-    public int jp(String str) {
-        return this.cgj.jq(str);
+    public int jq(String str) {
+        return this.cgj.jr(str);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -254,7 +254,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         if (customResponsedMessage instanceof MemoryChangedMessage) {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
-            if (data.getCustomGroupType() == 2 && !com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().ji(data.getGid())) {
+            if (data.getCustomGroupType() == 2 && !com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().jj(data.getGid())) {
                 if (memoryChangedMessage.getType() == 1) {
                     c(data);
                 }
@@ -287,7 +287,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
             while (this.mUserDataList.size() > 4) {
                 UserData remove = this.mUserDataList.remove(i);
                 if (remove != null) {
-                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().jm(remove.getUserId());
+                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.acN().jn(remove.getUserId());
                     Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
                     while (true) {
                         if (!it.hasNext()) {

@@ -22,8 +22,8 @@ public class bu implements View.OnClickListener {
             String str2 = this.cNJ;
             str = this.this$0.cNC;
             if (!str2.equals(str)) {
-                this.this$0.nv(this.cNJ);
-                this.this$0.kP(this.cNJ);
+                this.this$0.nw(this.cNJ);
+                this.this$0.kQ(this.cNJ);
                 this.this$0.cNA = this.val$id;
             }
         }

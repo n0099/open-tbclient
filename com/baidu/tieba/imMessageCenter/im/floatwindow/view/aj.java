@@ -46,15 +46,15 @@ public class aj {
         if (userData == null) {
             return 0;
         }
-        return jq(userData.getUserId());
+        return jr(userData.getUserId());
     }
 
-    public boolean jo(String str) {
-        int jq = jq(str);
-        return jq == 1 || jq == 3;
+    public boolean jp(String str) {
+        int jr = jr(str);
+        return jr == 1 || jr == 3;
     }
 
-    public int jq(String str) {
+    public int jr(String str) {
         if (!StringUtils.isNull(str) && this.cgm.containsKey(str)) {
             return this.cgm.get(str).intValue();
         }

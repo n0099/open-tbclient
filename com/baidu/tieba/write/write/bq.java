@@ -19,9 +19,9 @@ public class bq implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean nw;
+        boolean nx;
         boolean z3;
-        boolean nw2;
+        boolean nx2;
         z = this.this$0.cHa;
         if (!z) {
             i = this.this$0.requestCode;
@@ -35,8 +35,8 @@ public class bq implements View.OnClickListener {
                 if (z2) {
                     if (this.this$0.cNx != null && !this.this$0.cNx.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        nw = this.this$0.nw(str);
-                        if (nw) {
+                        nx = this.this$0.nx(str);
+                        if (nx) {
                             intent2.putExtra("change", true);
                             intent2.putExtra("file_name", str);
                         } else {
@@ -58,8 +58,8 @@ public class bq implements View.OnClickListener {
         z3 = this.this$0.cNE;
         if (z3 && this.this$0.cNx != null && !this.this$0.cNx.isRecycled()) {
             String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-            nw2 = this.this$0.nw(str2);
-            if (nw2) {
+            nx2 = this.this$0.nx(str2);
+            if (nx2) {
                 intent3.putExtra("filename", str2);
             }
         }

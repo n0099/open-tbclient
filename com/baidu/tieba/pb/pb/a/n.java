@@ -725,7 +725,7 @@ public class n extends ce<com.baidu.tieba.tbadkCore.data.r, r> implements View.O
         this.cDs = z;
     }
 
-    public void ku(String str) {
+    public void kv(String str) {
         this.cDX = str;
     }
 

@@ -53,18 +53,18 @@ public class a {
 
     private void r(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            jf(imMessageCenterPojo.getGid());
+            jg(imMessageCenterPojo.getGid());
         }
     }
 
-    public void jf(String str) {
+    public void jg(String str) {
         if (!StringUtils.isNull(str)) {
             this.ceo.remove(str);
             this.ceo.add(str);
         }
     }
 
-    public void jg(String str) {
+    public void jh(String str) {
         if (!StringUtils.isNull(str)) {
             this.ceo.remove(str);
             this.ceq.remove(str);
@@ -131,7 +131,7 @@ public class a {
             return 0;
         }
         if (imMessageCenterPojo.getIs_hidden() == 1) {
-            jg(imMessageCenterPojo.getGid());
+            jh(imMessageCenterPojo.getGid());
             return 5;
         } else if (imMessageCenterPojo.getUnread_count() > 0) {
             if (s(imMessageCenterPojo)) {
@@ -148,7 +148,7 @@ public class a {
                 return 0;
             }
         } else {
-            jh(imMessageCenterPojo.getGid());
+            ji(imMessageCenterPojo.getGid());
             return 3;
         }
     }
@@ -160,7 +160,7 @@ public class a {
         return ((imMessageCenterPojo.getIs_hidden() == 1) && acL()) ? 6 : 0;
     }
 
-    private void jh(String str) {
+    private void ji(String str) {
         if (!StringUtils.isNull(str) && this.ceq.containsKey(str)) {
             this.ceq.put(str, 0);
         }

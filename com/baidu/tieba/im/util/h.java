@@ -126,7 +126,7 @@ public class h {
         }
     }
 
-    private static final String iW(String str) {
+    private static final String iX(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,7 +155,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String iX(String str) {
+    private static final String iY(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -187,19 +187,19 @@ public class h {
             return null;
         }
         if (i == 1) {
-            String iW = (str.length() <= 1 || str.charAt(0) != '[') ? null : iW(str);
-            if (TextUtils.isEmpty(iW)) {
-                iW = str;
+            String iX = (str.length() <= 1 || str.charAt(0) != '[') ? null : iX(str);
+            if (TextUtils.isEmpty(iX)) {
+                iX = str;
             }
-            if (iW == null) {
+            if (iX == null) {
                 return null;
             }
-            Matcher matcher = acZ.matcher(iW);
+            Matcher matcher = acZ.matcher(iX);
             while (matcher.find()) {
                 String group = matcher.group();
-                iW = iW.replace(group, group.replace("#(", "[").replace(")", "]"));
+                iX = iX.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return iW;
+            return iX;
         } else if (i == 2) {
             return TbadkCoreApplication.m411getInst().getApp().getString(n.j.last_msg_pic);
         } else {
@@ -207,7 +207,7 @@ public class h {
                 return TbadkCoreApplication.m411getInst().getApp().getString(n.j.last_msg_voice);
             }
             if (i == 11) {
-                return iY(str);
+                return iZ(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m411getInst().getApp().getString(n.j.last_msg_reply_card);
@@ -296,7 +296,7 @@ public class h {
                         return TbadkCoreApplication.m411getInst().getApp().getString(n.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return iX(str);
+                    return iY(str);
                 } else {
                     return null;
                 }
@@ -328,7 +328,7 @@ public class h {
         return w(chatMessage);
     }
 
-    private static String iY(String str) {
+    private static String iZ(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -448,19 +448,19 @@ public class h {
 
     public static e a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return iZ(commonMsgPojo.getContent());
+            return ja(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static e iZ(String str) {
+    public static e ja(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return ja(jSONArray.getJSONObject(0).optString("msg_src"));
+                return jb(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -469,7 +469,7 @@ public class h {
         }
     }
 
-    public static e ja(String str) {
+    public static e jb(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;

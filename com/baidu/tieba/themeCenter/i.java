@@ -127,7 +127,7 @@ public class i {
             } else if (themeSkinUpdateInfo.props_version.intValue() <= bVar.getVersionCode()) {
                 return !z ? 4 : 0;
             } else {
-                bVar.mL(themeSkinUpdateInfo.package_url);
+                bVar.mM(themeSkinUpdateInfo.package_url);
                 bVar.ns(themeSkinUpdateInfo.props_version.intValue());
                 return 5;
             }

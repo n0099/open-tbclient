@@ -213,7 +213,7 @@ public class ao extends com.baidu.tbadk.editortools.d.a {
         return true;
     }
 
-    public void kN(String str) {
+    public void kO(String str) {
         if (!TextUtils.isEmpty(str) && this.cLA != null && this.cLA.akW() != null) {
             ArrayList<com.baidu.tieba.tbadkCore.data.r> akW = this.cLA.akW();
             int size = akW.size();
@@ -409,7 +409,7 @@ public class ao extends com.baidu.tbadk.editortools.d.a {
         return this.cLZ;
     }
 
-    public void kO(String str) {
+    public void kP(String str) {
         this.cLZ = str;
     }
 

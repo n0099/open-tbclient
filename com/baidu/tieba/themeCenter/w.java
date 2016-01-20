@@ -17,15 +17,15 @@ class w implements CustomMessageTask.CustomRunnable<Object> {
             Iterator<String> it = aHB.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                List<b> mQ = n.aHA().mQ(next);
-                if (mQ != null && mQ.size() > 0) {
-                    for (b bVar : mQ) {
+                List<b> mR = n.aHA().mR(next);
+                if (mR != null && mR.size() > 0) {
+                    for (b bVar : mR) {
                         if (bVar != null) {
                             com.baidu.tbadk.core.util.n.dc(String.valueOf(bVar.getId()) + ".apk");
                         }
                     }
+                    n.aHA().mQ(next);
                     n.aHA().mP(next);
-                    n.aHA().mO(next);
                 }
             }
         }

@@ -40,11 +40,11 @@ public class am implements ap {
             ArrayList arrayList2 = new ArrayList();
             arrayList2.addAll(list);
             d dVar = new d();
-            dVar.ng("-1");
+            dVar.nh("-1");
             albumActivity = this.dTB.dSj;
             String string = albumActivity.getPageContext().getString(n.j.write_album_all);
             dVar.setName(string);
-            dVar.nh(String.valueOf(arrayList.size()));
+            dVar.ni(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.d((ImageFileInfo) arrayList.get(0));
             }

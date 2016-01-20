@@ -212,7 +212,7 @@ public class p extends n implements com.baidu.tbadk.mvc.b.l {
             if (this.dEN || z) {
                 aa aaVar = new aa();
                 aaVar.hs(this.dEN);
-                aaVar.mp(this.dEO);
+                aaVar.mq(this.dEO);
                 aaVar.b(this.dEP);
                 aaVar.bC(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {
@@ -332,7 +332,7 @@ public class p extends n implements com.baidu.tbadk.mvc.b.l {
         }
     }
 
-    public com.baidu.tbadk.core.data.z ml(String str) {
+    public com.baidu.tbadk.core.data.z mm(String str) {
         if (this.threadList == null) {
             return null;
         }
@@ -357,10 +357,10 @@ public class p extends n implements com.baidu.tbadk.mvc.b.l {
         c(nVar.rI());
         a(nVar.aDQ());
         hq(nVar.aDM());
-        mh(nVar.aDN());
+        mi(nVar.aDN());
         c(nVar.akG());
         setGameName(nVar.getGameName());
-        mi(nVar.aDV());
+        mj(nVar.aDV());
         a(nVar.aDO());
         hr(nVar.aDR());
         jz(nVar.akM());
@@ -378,7 +378,7 @@ public class p extends n implements com.baidu.tbadk.mvc.b.l {
         b(nVar.aDL());
         bO(nVar.aDW());
         bR(nVar.aEc());
-        mk(nVar.aEd());
+        ml(nVar.aEd());
         a(nVar.aDZ());
         return true;
     }

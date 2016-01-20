@@ -127,7 +127,7 @@ public class y extends a<com.baidu.tieba.card.a.n> {
             nVar.aQo.WG = 0;
             nVar.aQo.parser_title();
             this.aOn.setText(nVar.aQo.getSpan_str());
-            a(x.gI(nVar.aQo.getId()), this.aOn, n.d.cp_cont_b, n.d.cp_cont_d);
+            a(x.gJ(nVar.aQo.getId()), this.aOn, n.d.cp_cont_b, n.d.cp_cont_d);
         }
         StringBuffer stringBuffer = new StringBuffer();
         if (nVar.aQo.sy() != null && !StringUtils.isNull(nVar.aQo.sy())) {
@@ -146,7 +146,7 @@ public class y extends a<com.baidu.tieba.card.a.n> {
             if (stringBuffer.length() > 0) {
                 this.aOp.setText(stringBuffer.toString());
                 this.aOp.setVisibility(0);
-                a(x.gI(nVar.aQo.getId()), this.aOp, n.d.cp_cont_j, n.d.cp_cont_d);
+                a(x.gJ(nVar.aQo.getId()), this.aOp, n.d.cp_cont_j, n.d.cp_cont_d);
             } else {
                 this.aOp.setVisibility(8);
             }

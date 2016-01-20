@@ -320,7 +320,7 @@ public class a extends e<FrsActivity> implements NetModel.b<m, n>, eu {
                 this.bkD = mVar;
                 this.mPn = this.bkD.getPn();
                 this.bde = this.bkD.getKw();
-                this.blE.hr(this.bde);
+                this.blE.hs(this.bde);
                 this.blE.setFrom(this.mFrom);
                 this.blE.setPn(this.mPn);
                 this.blE.setFlag(this.bdf);
@@ -598,7 +598,7 @@ public class a extends e<FrsActivity> implements NetModel.b<m, n>, eu {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            if (this.needCache && d.aDI().mf(this.blU)) {
+            if (this.needCache && d.aDI().mg(this.blU)) {
                 if (!d.aDI().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.blU)) {
                     d.aDI().getResponseData().akG().getSignData().setIsSigned(0);
                 }

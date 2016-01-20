@@ -51,7 +51,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aHn() {
-        if (!com.baidu.tieba.tblauncher.alarmRemind.a.bN(TbadkSettings.getInst().loadLong(mJ("remind_recommend_data_time"), 0L))) {
+        if (!com.baidu.tieba.tblauncher.alarmRemind.a.bN(TbadkSettings.getInst().loadLong(mK("remind_recommend_data_time"), 0L))) {
             aHp();
         }
     }
@@ -75,7 +75,7 @@ public class b {
         }
     }
 
-    public String mJ(String str) {
+    public String mK(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str;
     }
 

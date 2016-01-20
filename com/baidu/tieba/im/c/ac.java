@@ -3,7 +3,7 @@ package com.baidu.tieba.im.c;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ac {
-    public String iT(String str) {
+    public String iU(String str) {
         com.baidu.tbadk.coreExtra.data.c wM;
         if (str != null) {
             try {

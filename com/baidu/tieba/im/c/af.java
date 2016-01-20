@@ -54,7 +54,7 @@ public class af extends com.baidu.adp.base.e {
         /* renamed from: t */
         public String doInBackground(Object... objArr) {
             try {
-                return this.caV.iT(this.caT);
+                return this.caV.iU(this.caT);
             } catch (Exception e) {
                 return null;
             }

@@ -166,17 +166,17 @@ public class a {
             if (videoInfo != null) {
                 if (videoInfo.needUploadVideo()) {
                     this.dHL = new com.baidu.tieba.tbadkCore.videoupload.a();
-                    VideoFinishResult mD = this.dHL.mD(videoInfo.getVideoPath());
-                    if (mD == null) {
+                    VideoFinishResult mE = this.dHL.mE(videoInfo.getVideoPath());
+                    if (mE == null) {
                         this.dHJ.setError_code(-53);
                         this.dHJ.setError_msg(TbadkCoreApplication.m411getInst().getString(n.j.upload_error));
                         return null;
-                    } else if (mD.isSuccess()) {
-                        videoInfo.setVideoMd5(mD.getVideoMd5());
-                        videoInfo.setVideoUrl(mD.getVideoUrl());
+                    } else if (mE.isSuccess()) {
+                        videoInfo.setVideoMd5(mE.getVideoMd5());
+                        videoInfo.setVideoUrl(mE.getVideoUrl());
                     } else {
-                        this.dHJ.setError_code(mD.getErrorNo());
-                        this.dHJ.setError_msg(mD.getUserMessage());
+                        this.dHJ.setError_code(mE.getErrorNo());
+                        this.dHJ.setError_msg(mE.getUserMessage());
                         return null;
                     }
                 }

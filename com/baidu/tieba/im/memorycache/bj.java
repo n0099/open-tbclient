@@ -29,7 +29,7 @@ public class bj implements a.b {
         if (list != null && list.size() != 0) {
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
-                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.ia(commonMsgPojo.getContent());
+                    com.baidu.tieba.im.chat.receiveChatMsgHandler.a.ib(commonMsgPojo.getContent());
                 }
             }
         }

@@ -58,7 +58,7 @@ public class bm extends bp<com.baidu.tbadk.core.data.b, bo> {
         com.baidu.tbadk.core.util.as.b(boVar.bfD, n.d.cp_cont_f, 1);
     }
 
-    private String ht(String str) {
+    private String hu(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
@@ -96,7 +96,7 @@ public class bm extends bp<com.baidu.tbadk.core.data.b, bo> {
                 ((FrsActivity) this.bbA).a(bVar, "show");
                 ((FrsActivity) this.bbA).b(bVar, "show");
             }
-            boVar.bfl.setText(ht(bVar.Vb.userName));
+            boVar.bfl.setText(hu(bVar.Vb.userName));
             if (bVar.Vb == null) {
                 return null;
             }

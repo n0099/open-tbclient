@@ -88,7 +88,7 @@ public class d {
         return this.bZT;
     }
 
-    public void iQ(String str) {
+    public void iR(String str) {
         this.bZT = str;
     }
 }

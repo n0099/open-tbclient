@@ -42,17 +42,17 @@ public class t {
         }
         switch (i) {
             case 1:
-                return lH(str);
-            case 2:
                 return lI(str);
-            case 3:
+            case 2:
                 return lJ(str);
+            case 3:
+                return lK(str);
             default:
                 return false;
         }
     }
 
-    public boolean lH(String str) {
+    public boolean lI(String str) {
         if (this.dke) {
             return false;
         }
@@ -63,7 +63,7 @@ public class t {
         return true;
     }
 
-    public boolean lI(String str) {
+    public boolean lJ(String str) {
         if (this.dkf) {
             return false;
         }
@@ -74,7 +74,7 @@ public class t {
         return true;
     }
 
-    public boolean lJ(String str) {
+    public boolean lK(String str) {
         if (this.dkg) {
             return false;
         }

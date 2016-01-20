@@ -21,8 +21,9 @@ public class dd {
         MessageManager.getInstance().registerListener(new dh(CmdConfigCustom.CMD_UNLIKE_FORUM));
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class a {
+    public static class a {
         private static dd cId = new dd(null);
     }
 

@@ -130,7 +130,7 @@ public class cy extends bp<com.baidu.tbadk.core.data.z, de> implements View.OnCl
             deVar.aOn.setVisibility(0);
             zVar.parser_title();
             deVar.aOn.setText(zVar.getSpan_str());
-            if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+            if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                 com.baidu.tbadk.core.util.as.b(deVar.aOn, n.d.cp_cont_c, 1);
             } else {
                 com.baidu.tbadk.core.util.as.b(deVar.aOn, n.d.cp_cont_b, 1);
@@ -164,7 +164,7 @@ public class cy extends bp<com.baidu.tbadk.core.data.z, de> implements View.OnCl
                     deVar.bcy.setText(stringBuffer.toString());
                 }
                 deVar.bcy.setVisibility(0);
-                if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+                if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                     com.baidu.tbadk.core.util.as.b(deVar.bcy, n.d.cp_cont_c, 1);
                 } else {
                     com.baidu.tbadk.core.util.as.b(deVar.bcy, n.d.cp_cont_b, 1);

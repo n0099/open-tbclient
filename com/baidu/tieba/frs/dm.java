@@ -105,7 +105,7 @@ public class dm extends bp<com.baidu.tbadk.core.data.z, dq> implements View.OnCl
             dqVar.aOn.setVisibility(0);
             zVar.parser_title();
             dqVar.aOn.setText(zVar.getSpan_str());
-            if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+            if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                 com.baidu.tbadk.core.util.as.b(dqVar.aOn, n.d.cp_cont_c, 1);
             } else {
                 com.baidu.tbadk.core.util.as.b(dqVar.aOn, n.d.cp_cont_b, 1);
@@ -137,7 +137,7 @@ public class dm extends bp<com.baidu.tbadk.core.data.z, dq> implements View.OnCl
                     dqVar.bcy.setText(stringBuffer.toString());
                 }
                 dqVar.bcy.setVisibility(0);
-                if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+                if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                     com.baidu.tbadk.core.util.as.b(dqVar.bcy, n.d.cp_cont_c, 1);
                 } else {
                     com.baidu.tbadk.core.util.as.b(dqVar.bcy, n.d.cp_cont_b, 1);

@@ -270,7 +270,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return this.chl;
     }
 
-    public void jt(String str) {
+    public void ju(String str) {
         this.chl = str;
     }
 
@@ -329,7 +329,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return -1L;
     }
 
-    public void ju(String str) {
+    public void jv(String str) {
         n.b(new d(this), new e(this, str));
     }
 

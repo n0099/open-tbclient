@@ -15,7 +15,7 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
     public interface a {
         void b(u uVar);
 
-        void iz(String str);
+        void iA(String str);
     }
 
     public w(SignAllForumActivity signAllForumActivity) {
@@ -129,16 +129,16 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
                 }
                 this.dyq = new h();
                 if (com.baidu.adp.lib.util.i.iQ()) {
-                    lZ(sb.toString());
+                    ma(sb.toString());
                 }
             }
             return w.this.dyn;
         }
 
-        private u lZ(String str) {
-            String lW = this.dyq.lW(str);
+        private u ma(String str) {
+            String lX = this.dyq.lX(str);
             if (this.dyq.qO()) {
-                w.this.dyn.parserJson(lW);
+                w.this.dyn.parserJson(lX);
                 return w.this.dyn;
             }
             w.this.dyn = null;
@@ -165,7 +165,7 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
                 if (w.this.dyn != null) {
                     w.this.dyo.b(w.this.dyn);
                 } else {
-                    w.this.dyo.iz(this.dyq != null ? this.dyq.qP() : null);
+                    w.this.dyo.iA(this.dyq != null ? this.dyq.qP() : null);
                 }
             }
         }

@@ -33,7 +33,7 @@ public class y {
         return this.fid;
     }
 
-    public void mo(String str) {
+    public void mp(String str) {
         this.fid = str;
     }
 

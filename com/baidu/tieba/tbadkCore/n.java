@@ -329,7 +329,7 @@ public class n implements com.baidu.tbadk.mvc.b.c {
         return this.dEO;
     }
 
-    public void mh(String str) {
+    public void mi(String str) {
         this.dEO = str;
     }
 
@@ -421,7 +421,7 @@ public class n implements com.baidu.tbadk.mvc.b.c {
         return this.dEY;
     }
 
-    public void mi(String str) {
+    public void mj(String str) {
         this.dEY = str;
     }
 
@@ -473,7 +473,7 @@ public class n implements com.baidu.tbadk.mvc.b.c {
         this.dFd = list;
     }
 
-    public void mj(String str) {
+    public void mk(String str) {
         if (this.dFd != null && str != null) {
             for (FeedForumData feedForumData : this.dFd) {
                 if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(str)) {
@@ -492,7 +492,7 @@ public class n implements com.baidu.tbadk.mvc.b.c {
         this.dFe = list;
     }
 
-    public void mk(String str) {
+    public void ml(String str) {
         this.dFf = str;
     }
 

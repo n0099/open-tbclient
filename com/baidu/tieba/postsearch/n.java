@@ -21,8 +21,8 @@ public class n implements AdapterView.OnItemClickListener {
         bdListView = this.djT.djP;
         String str = (String) bdListView.getItemAtPosition(i);
         postSearchActivity = this.djT.djG;
-        postSearchActivity.lG(str);
+        postSearchActivity.lH(str);
         postSearchActivity2 = this.djT.djG;
-        postSearchActivity2.jH(str);
+        postSearchActivity2.jI(str);
     }
 }

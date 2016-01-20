@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.performanceLog.z;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.n;
 /* loaded from: classes.dex */
@@ -61,7 +60,7 @@ class c implements Runnable {
                     view3 = this.aGJ.aGz;
                     relativeLayout3.addView(view3);
                 }
-                z.EN().T(System.currentTimeMillis());
+                com.baidu.tbadk.performanceLog.z.EN().T(System.currentTimeMillis());
             }
         }
         com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();

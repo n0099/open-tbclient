@@ -161,7 +161,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private void aKC() {
         this.dUv.aKK();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        this.dUw.no(this.dJy.getForumName());
+        this.dUw.np(this.dJy.getForumName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

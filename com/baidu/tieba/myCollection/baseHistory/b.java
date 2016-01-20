@@ -126,7 +126,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void kh(String str) {
+    public void ki(String str) {
         this.threadName = str;
     }
 
@@ -138,7 +138,7 @@ public class b implements f {
         return this.postID;
     }
 
-    public void ki(String str) {
+    public void kj(String str) {
         this.postID = str;
     }
 

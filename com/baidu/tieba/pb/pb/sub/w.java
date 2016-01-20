@@ -783,7 +783,7 @@ public class w {
         a(NoDataViewFactory.d.C(i, n.j.refresh_view_title_text));
     }
 
-    public void hv(String str) {
+    public void hw(String str) {
         a(NoDataViewFactory.d.ac(str, this.cLg.getPageContext().getString(n.j.refresh_view_title_text)));
     }
 
@@ -988,10 +988,10 @@ public class w {
         return this.cLe;
     }
 
-    public void kL(String str) {
-        int kM = this.cLf.kM(str);
-        if (kM > -1) {
-            this.mListView.setSelection(kM + 1);
+    public void kM(String str) {
+        int kN = this.cLf.kN(str);
+        if (kN > -1) {
+            this.mListView.setSelection(kN + 1);
             this.mListView.invalidate();
         }
     }

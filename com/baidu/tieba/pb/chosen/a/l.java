@@ -34,7 +34,7 @@ public class l {
         this.cCJ.setOnClickListener(onClickListener);
     }
 
-    public void ks(String str) {
+    public void kt(String str) {
         this.cCI.setText(str);
     }
 

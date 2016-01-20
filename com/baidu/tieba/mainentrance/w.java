@@ -21,7 +21,7 @@ public class w implements TextView.OnEditorActionListener {
                     if (TextUtils.isEmpty(this.cqu.cpN) || this.cqu.cpN.trim().length() <= 0) {
                         return true;
                     }
-                    this.cqu.gA(this.cqu.cpN);
+                    this.cqu.gB(this.cqu.cpN);
                     return true;
                 }
                 this.cqu.I(1, this.cqu.cpN);

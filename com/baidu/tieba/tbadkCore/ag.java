@@ -37,7 +37,7 @@ public class ag extends HttpMessageListener {
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
                 aVar5 = this.dFS.dFR;
-                aVar5.gx(praiseResponseMessage.getErrMsg());
+                aVar5.gy(praiseResponseMessage.getErrMsg());
                 return;
             }
             aVar3 = this.dFS.dFR;

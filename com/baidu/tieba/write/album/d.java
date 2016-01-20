@@ -12,7 +12,7 @@ public class d {
         return this.albumId;
     }
 
-    public void ng(String str) {
+    public void nh(String str) {
         this.albumId = str;
     }
 
@@ -28,7 +28,7 @@ public class d {
         return this.count;
     }
 
-    public void nh(String str) {
+    public void ni(String str) {
         this.count = str;
     }
 

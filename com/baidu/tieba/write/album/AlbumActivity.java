@@ -145,7 +145,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString(AlbumActivityConfig.WRITE_IMAGES_INFO));
             this.dRW.setWriteImagesInfo(writeImagesInfo);
-            this.dRW.nk(bundle.getString(AlbumActivityConfig.CAMERA_PHOTO_NAME));
+            this.dRW.nl(bundle.getString(AlbumActivityConfig.CAMERA_PHOTO_NAME));
             this.dSe = bundle.getBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, false);
             return;
         }
@@ -154,7 +154,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
             writeImagesInfo2.parseJson(intent.getStringExtra(AlbumActivityConfig.WRITE_IMAGES_INFO));
             this.dRW.setWriteImagesInfo(writeImagesInfo2);
-            this.dRW.nk(intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME));
+            this.dRW.nl(intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME));
             this.dRZ = intent.getIntExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
             this.from = intent.getStringExtra("from");
             this.fid = intent.getStringExtra("forum_id");
@@ -407,12 +407,12 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12001) {
-            nf(this.dRW.aKb());
+            ng(this.dRW.aKb());
             v(1, false);
         }
     }
 
-    private void nf(String str) {
+    private void ng(String str) {
         String str2;
         boolean z;
         if (StringUtils.isNull(str, true)) {

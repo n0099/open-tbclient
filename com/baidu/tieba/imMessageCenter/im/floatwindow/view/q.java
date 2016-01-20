@@ -27,7 +27,7 @@ class q extends com.baidu.adp.framework.listener.e {
         FloatingPersonalChatView floatingPersonalChatView;
         com.baidu.tbadk.coreExtra.relationship.b bVar2;
         com.baidu.tbadk.coreExtra.relationship.b bVar3;
-        long jc;
+        long jd;
         long j;
         String str;
         com.baidu.tbadk.coreExtra.relationship.b bVar4;
@@ -55,8 +55,8 @@ class q extends com.baidu.adp.framework.listener.e {
                 FloatingPersonalChatActivity floatingPersonalChatActivity = this.cfW;
                 FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.cfW;
                 bVar3 = this.cfW.ccX;
-                jc = floatingPersonalChatActivity2.jc(ax.r(bVar3.getTime()));
-                floatingPersonalChatActivity.ccW = jc;
+                jd = floatingPersonalChatActivity2.jd(ax.r(bVar3.getTime()));
+                floatingPersonalChatActivity.ccW = jd;
                 j = this.cfW.ccW;
                 if (j != 0) {
                     handler = this.cfW.mHandler;

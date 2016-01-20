@@ -20,7 +20,7 @@ class au implements CustomMessageTask.CustomRunnable<String> {
         try {
             com.baidu.tieba.im.db.g.Ym().Yn();
             com.baidu.tieba.im.db.i.Yr().J(String.valueOf(this.aJS), 2);
-            com.baidu.tieba.im.db.l.Yx().ip(String.valueOf(this.aJS));
+            com.baidu.tieba.im.db.l.Yx().iq(String.valueOf(this.aJS));
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);

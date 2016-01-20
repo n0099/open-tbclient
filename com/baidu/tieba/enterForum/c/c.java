@@ -207,7 +207,7 @@ public class c extends com.baidu.adp.base.e {
                 this.aUQ = new com.baidu.tieba.enterForum.b.b();
                 this.aUQ.setTime(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
                 this.aUQ.fp(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
-                this.aUQ.gV(forumrecommendhttpresponsemessage.GetMsignText());
+                this.aUQ.gW(forumrecommendhttpresponsemessage.GetMsignText());
                 this.aUQ.fq(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
                 this.aUQ.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
                 this.aUQ.fo(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
@@ -238,7 +238,7 @@ public class c extends com.baidu.adp.base.e {
                 this.aUQ = new com.baidu.tieba.enterForum.b.b();
                 this.aUQ.setTime(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
                 this.aUQ.fp(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
-                this.aUQ.gV(forumrecommendsocketresponsemessage.GetMsignText());
+                this.aUQ.gW(forumrecommendsocketresponsemessage.GetMsignText());
                 this.aUQ.fq(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
                 this.aUQ.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
                 this.aUQ.fo(forumrecommendsocketresponsemessage.GetIsLogin().intValue());

@@ -21,7 +21,7 @@ public class l {
         this.aLt = (TextView) view.findViewById(n.g.floating_chat_add_friend);
     }
 
-    public void jn(String str) {
+    public void jo(String str) {
         this.aGr.setText(str);
     }
 

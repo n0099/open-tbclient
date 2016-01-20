@@ -3,6 +3,7 @@ package com.baidu.adp.lib.util;
 import com.baidu.android.common.security.RSAUtil;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
+import java.security.Key;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.SecureRandom;
@@ -23,6 +24,12 @@ public class v {
     public static byte[] a(PublicKey publicKey, byte[] bArr) {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] b(Key key, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(2, key);
         return cipher.doFinal(bArr);
     }
 

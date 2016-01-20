@@ -24,7 +24,7 @@ public class a {
         this.version = str;
     }
 
-    public void gE(String str) {
+    public void gF(String str) {
         this.aLJ = str;
     }
 

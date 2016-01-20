@@ -17,7 +17,7 @@ public class h implements DialogInterface.OnCancelListener {
     public void onCancel(DialogInterface dialogInterface) {
         this.aHO.destroyWaitingDialog();
         if (this.aHR) {
-            this.aHO.gn("account delete cancel");
+            this.aHO.go("account delete cancel");
         }
         this.aHO.aHM = null;
     }

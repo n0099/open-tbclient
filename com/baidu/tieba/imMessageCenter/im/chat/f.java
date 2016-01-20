@@ -48,7 +48,7 @@ class f extends com.baidu.adp.framework.listener.e {
                     PersonalChatActivity personalChatActivity = this.cdg;
                     PersonalChatActivity personalChatActivity2 = this.cdg;
                     bVar3 = this.cdg.ccX;
-                    personalChatActivity.ccW = personalChatActivity2.jc(ax.r(bVar3.getTime()));
+                    personalChatActivity.ccW = personalChatActivity2.jd(ax.r(bVar3.getTime()));
                     j = this.cdg.ccW;
                     if (j != 0) {
                         handler = this.cdg.mHandler;

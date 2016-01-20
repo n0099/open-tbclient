@@ -12,7 +12,7 @@ public class f {
         return this.dGH;
     }
 
-    public void mt(String str) {
+    public void mu(String str) {
         this.dGH = str;
     }
 }

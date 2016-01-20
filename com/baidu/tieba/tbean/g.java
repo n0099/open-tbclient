@@ -35,19 +35,19 @@ public class g extends HttpMessageListener {
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
             aVar = this.dJX.dJW;
             buyTBeanActivity = this.dJX.dJV;
-            aVar.hs(buyTBeanActivity.getPageContext().getString(n.j.neterror));
+            aVar.ht(buyTBeanActivity.getPageContext().getString(n.j.neterror));
             return;
         }
         GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
         if (getYinJiHttpResponseMessage.getError() != 0) {
             if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
                 aVar5 = this.dJX.dJW;
-                aVar5.hs(getYinJiHttpResponseMessage.getErrorString());
+                aVar5.ht(getYinJiHttpResponseMessage.getErrorString());
                 return;
             }
             aVar4 = this.dJX.dJW;
             buyTBeanActivity3 = this.dJX.dJV;
-            aVar4.hs(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
+            aVar4.ht(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
             return;
         }
         this.dJX.userInfo = getYinJiHttpResponseMessage.getUserInfo();
@@ -63,6 +63,6 @@ public class g extends HttpMessageListener {
         }
         aVar2 = this.dJX.dJW;
         buyTBeanActivity2 = this.dJX.dJV;
-        aVar2.hs(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
+        aVar2.ht(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
     }
 }

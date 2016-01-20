@@ -94,7 +94,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
         this.dQl.sendMessage(httpMessage);
     }
 
-    private void na(String str) {
+    private void nb(String str) {
         this.mUserId = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_USER_MUTE_DEL);
         httpMessage.addParam("mute_user", str);
@@ -150,7 +150,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
                     TiebaStatic.log("c10047");
                 }
                 adL();
-                na(str);
+                nb(str);
                 return;
             }
             if (from == From.PB) {

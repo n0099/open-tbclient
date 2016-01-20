@@ -137,7 +137,7 @@ public class a extends com.baidu.adp.widget.ListView.a<z, com.baidu.tieba.hottop
                 aVar.aOn.setVisibility(0);
                 zVar.parser_title();
                 aVar.aOn.setText(zVar.getSpan_str());
-                if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+                if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                     as.b(aVar.aOn, n.d.cp_cont_c, 1);
                 } else {
                     as.b(aVar.aOn, n.d.cp_cont_b, 1);
@@ -171,7 +171,7 @@ public class a extends com.baidu.adp.widget.ListView.a<z, com.baidu.tieba.hottop
                         aVar.bcy.setText(stringBuffer.toString());
                     }
                     aVar.bcy.setVisibility(0);
-                    if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+                    if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                         as.b(aVar.bcy, n.d.cp_cont_c, 1);
                     } else {
                         as.b(aVar.bcy, n.d.cp_cont_b, 1);

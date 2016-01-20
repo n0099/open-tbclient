@@ -34,6 +34,6 @@ class u implements BdListView.e {
         }
         u.a aVar = this.cOw.cOg;
         str = this.cOw.cOn;
-        aVar.kT(str);
+        aVar.kU(str);
     }
 }

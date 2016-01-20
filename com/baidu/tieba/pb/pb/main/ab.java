@@ -25,7 +25,7 @@ class ab implements cf.a {
         } else if (i != 0 && !TextUtils.isEmpty(str2)) {
             this.cFS.cFQ = str2;
             dkVar = this.cFS.cFq;
-            dkVar.kI(str);
+            dkVar.kJ(str);
         } else {
             this.cFS.showToast(str);
         }

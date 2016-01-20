@@ -20,7 +20,7 @@ public class e implements TextView.OnEditorActionListener {
             String charSequence = textView.getText().toString();
             if (!StringUtils.isNull(charSequence)) {
                 postSearchActivity = this.djJ.djG;
-                postSearchActivity.jH(charSequence);
+                postSearchActivity.jI(charSequence);
             }
             return true;
         }

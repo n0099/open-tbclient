@@ -36,7 +36,7 @@ public class b {
             return this.screatString;
         }
 
-        public void nn(String str) {
+        public void no(String str) {
             this.screatString = str;
         }
     }

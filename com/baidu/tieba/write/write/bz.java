@@ -15,6 +15,6 @@ class bz implements Runnable {
     public void run() {
         WriteImageActivity writeImageActivity;
         writeImageActivity = WriteImageActivity.this;
-        writeImageActivity.kP(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+        writeImageActivity.kQ(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

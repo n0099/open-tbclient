@@ -53,8 +53,8 @@ public class f implements com.baidu.adp.widget.ListView.v {
                     if (zVar.getAnchorInfoData() == null || zVar.getAnchorInfoData().getGroup_id() == 0 || this.bkp.checkUpIsLogin()) {
                         if ((zVar.sI() != 1 && zVar.sI() != 2) || this.bkp.checkUpIsLogin()) {
                             com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-                            if (readThreadHistory != null && !readThreadHistory.mC(zVar.getId())) {
-                                readThreadHistory.mB(zVar.getId());
+                            if (readThreadHistory != null && !readThreadHistory.mD(zVar.getId())) {
+                                readThreadHistory.mC(zVar.getId());
                             }
                             boolean z = false;
                             String sx = zVar.sx();

@@ -1,8 +1,9 @@
 package com.baidu.tieba.write.view;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
+public class c implements View.OnClickListener {
     final /* synthetic */ a dVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */

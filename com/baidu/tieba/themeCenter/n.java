@@ -26,11 +26,11 @@ public class n {
     private n() {
     }
 
-    public void mO(String str) {
+    public void mP(String str) {
         new o(TbadkCoreApplication.m411getInst().getApp()).f(this.dLK, str);
     }
 
-    public void mP(String str) {
+    public void mQ(String str) {
         new o(TbadkCoreApplication.m411getInst().getApp()).g(this.dLK, str);
     }
 
@@ -102,12 +102,12 @@ public class n {
                 bVar = new b();
                 bVar.setId(i);
                 bVar.setTitle(rawQuery.getString(rawQuery.getColumnIndex("title")));
-                bVar.mK(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
+                bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
                 bVar.setPackageSize(rawQuery.getString(rawQuery.getColumnIndex("packageSize")));
-                bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
+                bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
                 bVar.setVersionCode(rawQuery.getInt(rawQuery.getColumnIndex("versionCode")));
-                bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
-                bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
+                bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
+                bVar.mO(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
                 bVar.setActivityUrl(rawQuery.getString(rawQuery.getColumnIndex("activityUrl")));
                 bVar.nq(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
             }
@@ -116,7 +116,7 @@ public class n {
         return bVar;
     }
 
-    public List<b> mQ(String str) {
+    public List<b> mR(String str) {
         ArrayList arrayList = null;
         if (this.dLK != null && !StringUtils.isNull(str)) {
             this.dLK.beginTransaction();
@@ -127,12 +127,12 @@ public class n {
                     b bVar = new b();
                     bVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("id")));
                     bVar.setTitle(rawQuery.getString(rawQuery.getColumnIndex("title")));
-                    bVar.mK(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
+                    bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("picUrl")));
                     bVar.setPackageSize(rawQuery.getString(rawQuery.getColumnIndex("packageSize")));
-                    bVar.mL(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
+                    bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("packageUrl")));
                     bVar.setVersionCode(rawQuery.getInt(rawQuery.getColumnIndex("versionCode")));
-                    bVar.mM(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
-                    bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
+                    bVar.mN(rawQuery.getString(rawQuery.getColumnIndex("permissionIconUrl")));
+                    bVar.mO(rawQuery.getString(rawQuery.getColumnIndex("stateIconUrl")));
                     bVar.setActivityUrl(rawQuery.getString(rawQuery.getColumnIndex("activityUrl")));
                     bVar.nq(rawQuery.getInt(rawQuery.getColumnIndex("permissionType")));
                     arrayList.add(bVar);
@@ -146,6 +146,6 @@ public class n {
     }
 
     public List<b> aHC() {
-        return mQ("theme_" + TbadkCoreApplication.getCurrentAccount());
+        return mR("theme_" + TbadkCoreApplication.getCurrentAccount());
     }
 }

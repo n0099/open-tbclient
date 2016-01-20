@@ -46,7 +46,7 @@ class al implements a.InterfaceC0087a {
                 oVar3 = this.dTB.dRW;
                 oVar3.cb(list);
                 oVar4 = this.dTB.dRW;
-                oVar4.nj(albumId);
+                oVar4.nk(albumId);
                 this.dTB.setData(list, z);
                 textView = this.dTB.Mv;
                 textView.setText(name);

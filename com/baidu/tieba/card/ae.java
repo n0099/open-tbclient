@@ -91,7 +91,7 @@ public class ae extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.o> {
             this.aOx.aOF.setVisibility(0);
             this.aOx.aOF.d(this.aOw.aQp.getPhotoLiveCover(), 10, false);
         }
-        if (x.gI(this.aOw.aQp.getId())) {
+        if (x.gJ(this.aOw.aQp.getId())) {
             as.b(this.aOx.aOD, n.d.cp_cont_d, 1);
             as.b(this.aOx.aOE, n.d.cp_cont_d, 1);
             return;
@@ -109,7 +109,7 @@ public class ae extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.o> {
 
     private void Io() {
         if (this.aOw != null && this.aOw.aQp != null) {
-            x.gH(this.aOw.aQp.getId());
+            x.gI(this.aOw.aQp.getId());
             TiebaStatic.log(this.aOw.IH());
             if (!Ip()) {
                 UtilHelper.showToast(this.mPageContext.getPageActivity(), n.j.plugin_config_not_found);

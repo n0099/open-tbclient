@@ -26,7 +26,7 @@ class b implements e.b {
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.e.b
-    public void kp(String str) {
+    public void kq(String str) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;

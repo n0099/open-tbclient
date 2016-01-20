@@ -29,7 +29,7 @@ class l implements f.a {
     }
 
     @Override // com.baidu.tieba.signall.f.a
-    public void iz(String str) {
+    public void iA(String str) {
         ae aeVar;
         aeVar = this.dxE.dxw;
         aeVar.KK();

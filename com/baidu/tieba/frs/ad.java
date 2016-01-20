@@ -11,6 +11,6 @@ public class ad implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.tbadkCore.util.m.mx(this.bed.bde);
+        com.baidu.tieba.tbadkCore.util.m.my(this.bed.bde);
     }
 }

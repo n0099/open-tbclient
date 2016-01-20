@@ -154,8 +154,8 @@ public class h {
                             File file = new File(substring);
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String ni = ni(file2.getAbsolutePath());
-                                    if (ni != null && (matcher = compile.matcher(ni)) != null && matcher.matches()) {
+                                    String nj = nj(file2.getAbsolutePath());
+                                    if (nj != null && (matcher = compile.matcher(nj)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -163,8 +163,8 @@ public class h {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 d dVar = new d();
-                                dVar.ng(string);
-                                dVar.nh(sb);
+                                dVar.nh(string);
+                                dVar.ni(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 dVar.d(imageFileInfo);
@@ -203,7 +203,7 @@ public class h {
         }
     }
 
-    public String ni(String str) {
+    public String nj(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;
