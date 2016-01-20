@@ -21,7 +21,7 @@ class j extends CustomMessageListener {
             if (yVar.WA == 0) {
                 this.czQ.ajQ();
             } else {
-                this.czQ.kj(yVar.errorMsg);
+                this.czQ.kk(yVar.errorMsg);
             }
         }
     }

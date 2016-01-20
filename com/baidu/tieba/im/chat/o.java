@@ -173,7 +173,7 @@ public class o {
         return bKm.get(str);
     }
 
-    public static List<TbFaceManager.RichUnit> hX(String str) {
+    public static List<TbFaceManager.RichUnit> hY(String str) {
         String str2 = "";
         ArrayList arrayList = new ArrayList();
         int length = str.length();
@@ -196,7 +196,7 @@ public class o {
                     str2 = String.valueOf(str2) + str3;
                 } else {
                     if (!TextUtils.isEmpty(str2)) {
-                        arrayList.add(hY(str2));
+                        arrayList.add(hZ(str2));
                         str2 = "";
                     }
                     arrayList.add(aB(str3, name));
@@ -207,12 +207,12 @@ public class o {
             i++;
         }
         if (!TextUtils.isEmpty(str2)) {
-            arrayList.add(hY(str2));
+            arrayList.add(hZ(str2));
         }
         return arrayList;
     }
 
-    private static TbFaceManager.RichUnit hY(String str) {
+    private static TbFaceManager.RichUnit hZ(String str) {
         TbFaceManager.RichUnit richUnit = new TbFaceManager.RichUnit();
         richUnit.text = str;
         richUnit.type = 0;

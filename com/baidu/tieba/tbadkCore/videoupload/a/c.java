@@ -11,20 +11,20 @@ public class c implements b {
     private a dJp;
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
-    public VideoFinishResult c(String str, File file) {
+    public VideoFinishResult d(String str, File file) {
         String f = t.f(n.o(file));
         if (f != null && f.length() > 0) {
             f = f.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.c mF = com.baidu.tieba.tbadkCore.videoupload.b.mF(f);
-        if (mF == null) {
-            mF = new com.baidu.tbadk.coreExtra.data.c();
-            mF.dW(f);
-            mF.dc(0);
-            mF.G(file.length());
+        com.baidu.tbadk.coreExtra.data.c mG = com.baidu.tieba.tbadkCore.videoupload.b.mG(f);
+        if (mG == null) {
+            mG = new com.baidu.tbadk.coreExtra.data.c();
+            mG.dW(f);
+            mG.dc(0);
+            mG.G(file.length());
         }
         this.dJp = new a();
-        com.baidu.tieba.tbadkCore.videoupload.c b = this.dJp.b(str, mF);
+        com.baidu.tieba.tbadkCore.videoupload.c b = this.dJp.b(str, mG);
         VideoFinishResult videoFinishResult = new VideoFinishResult();
         if (b.isSuccess()) {
             ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VIDEO_FINISH_ADDRESS);
@@ -35,7 +35,7 @@ public class c implements b {
                 videoFinishResult.parseJson(tV);
                 boolean isSuccess = videoFinishResult.isSuccess();
                 if (isSuccess || videoFinishResult.getErrorNo() == 320033) {
-                    com.baidu.tieba.tbadkCore.videoupload.b.mE(f);
+                    com.baidu.tieba.tbadkCore.videoupload.b.mF(f);
                 }
                 videoFinishResult.setSuccess(isSuccess);
                 if (!isSuccess) {

@@ -83,7 +83,7 @@ public class bb extends com.baidu.adp.base.e<BaseFragmentActivity> {
     public void f(UserData userData) {
         if (userData != null) {
             setName(userData.getUserName());
-            kV(userData.getName_show());
+            kW(userData.getName_show());
         }
         this.mUserData = userData;
     }
@@ -135,7 +135,7 @@ public class bb extends com.baidu.adp.base.e<BaseFragmentActivity> {
         this.mName = str;
     }
 
-    public void kV(String str) {
+    public void kW(String str) {
         this.mNameShow = str;
     }
 
@@ -151,7 +151,7 @@ public class bb extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return this.cXD;
     }
 
-    public void kW(String str) {
+    public void kX(String str) {
         this.cXD = str;
     }
 

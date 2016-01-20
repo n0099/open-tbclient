@@ -14,7 +14,7 @@ public class g implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         this.aHO.destroyWaitingDialog();
-        this.aHO.gn("account changed");
+        this.aHO.go("account changed");
         this.aHO.aHL = null;
     }
 }

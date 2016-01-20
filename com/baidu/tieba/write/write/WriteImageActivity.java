@@ -274,7 +274,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nv(String str) {
+    public void nw(String str) {
         if (this.dYJ != null) {
             this.dYJ.cancel();
         }
@@ -375,7 +375,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean nw(String str) {
+    public boolean nx(String str) {
         try {
             com.baidu.tbadk.core.util.n.a(TbConfig.LOCAL_PIC_DIR, str, this.cNx, 90);
             this.aIx.setImageDrawable(null);
@@ -429,12 +429,12 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 i++;
                 i2 = i3;
             }
-            kP(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+            kQ(WriteImageActivityConfig.FILTER_NAME_NORMAL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kP(String str) {
+    public void kQ(String str) {
         ImageView imageView;
         if (str != null) {
             if (this.cNC != null && (imageView = this.cNG.get(this.cNC)) != null) {

@@ -314,7 +314,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         if (!this.cKR.anS()) {
             if (com.baidu.adp.lib.util.k.jh()) {
                 if (i == 4) {
-                    this.cKT.hv(String.valueOf(str) + "(4)");
+                    this.cKT.hw(String.valueOf(str) + "(4)");
                     return;
                 } else {
                     this.cKT.fv(n.j.no_data_text);
@@ -415,7 +415,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                 if (bVar.dIY == 1) {
                     finish();
                 } else if (bVar.dIY == 2) {
-                    this.cKR.kN(bVar.mPostId);
+                    this.cKR.kO(bVar.mPostId);
                     this.cKT.a(this.cKR.anR(), this.cKR.akL());
                 }
                 aq aqVar = new aq();
@@ -426,7 +426,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         }
     }
 
-    public void kv(String str) {
+    public void kw(String str) {
         if (!StringUtils.isNull(str) && this.cKR != null) {
             String threadID = this.cKR.getThreadID();
             String BJ = this.cKR.BJ();
@@ -672,12 +672,12 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
         return (VoiceManager.b) findViewWithTag;
     }
 
-    public boolean kw(String str) {
+    public boolean kx(String str) {
         Map<String, String> dE;
         if (!TextUtils.isEmpty(str) && (dE = bf.dE(bf.dF(str))) != null) {
             String str2 = dE.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return kw(com.baidu.adp.lib.util.j.aU(str2));
+                return kx(com.baidu.adp.lib.util.j.aU(str2));
             }
             String str3 = dE.get(cFg);
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -688,7 +688,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     @Override // com.baidu.tbadk.widget.richText.l
     public void onLinkClicked(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
-            if (kw(str)) {
+            if (kx(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(getApplicationContext(), null, str, null));
             } else {
                 bf.vn().b(getPageContext(), new String[]{str});
@@ -790,7 +790,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kK(String str) {
+    public void kL(String str) {
         String string;
         if (!StringUtils.isNull(str) && bj.ah(getPageContext().getPageActivity())) {
             if (!StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.tJ().getString("bubble_link", ""))) {

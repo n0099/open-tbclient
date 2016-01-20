@@ -56,7 +56,7 @@ public class b {
         this.aTP = i;
     }
 
-    public void gV(String str) {
+    public void gW(String str) {
         this.aTR = str;
     }
 
@@ -84,7 +84,7 @@ public class b {
                 fp(dataRes.msign_valid.intValue());
                 fq(dataRes.msign_level.intValue());
                 fo(dataRes.is_login.intValue());
-                gV(dataRes.msign_text);
+                gW(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
                 this.aTL.setLevel(this.aTP);

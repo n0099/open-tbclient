@@ -15,7 +15,7 @@ public class m {
     private static Boolean dJi = true;
     private static Boolean dJj = true;
 
-    public static void mw(String str) {
+    public static void mx(String str) {
         O(13, str);
     }
 
@@ -91,11 +91,11 @@ public class m {
         return arrayList;
     }
 
-    public static void mx(String str) {
+    public static void my(String str) {
         P(0, str);
     }
 
-    public static void my(String str) {
+    public static void mz(String str) {
         P(1, str);
     }
 

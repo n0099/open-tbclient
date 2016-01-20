@@ -2,8 +2,9 @@ package com.baidu.tieba.personInfo;
 
 import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bf implements View.OnTouchListener {
+public class bf implements View.OnTouchListener {
     final /* synthetic */ be cYp;
 
     /* JADX INFO: Access modifiers changed from: package-private */

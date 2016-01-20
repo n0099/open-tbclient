@@ -15,6 +15,6 @@ class e implements NoNetworkView.a {
         if (!z) {
             return;
         }
-        this.dWP.nr(null);
+        this.dWP.ns(null);
     }
 }

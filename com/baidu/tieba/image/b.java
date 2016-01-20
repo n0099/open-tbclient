@@ -57,7 +57,7 @@ public class b implements View.OnClickListener {
                     if (ah.a(pageActivity, bVar9, 0, str)) {
                         iVar3 = this.cjA.cjx;
                         bVar10 = this.cjA.cju;
-                        iVar3.jx(bVar10.US);
+                        iVar3.jy(bVar10.US);
                         return;
                     }
                     return;

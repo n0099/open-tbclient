@@ -16,11 +16,11 @@ public class a {
     private long dnA = System.currentTimeMillis() / 1000;
     private int dnz = i.iW();
 
-    public void lQ(String str) {
+    public void lR(String str) {
         this.extInfo = str;
     }
 
-    public void lR(String str) {
+    public void lS(String str) {
         this.dnx = str;
     }
 
@@ -32,7 +32,7 @@ public class a {
         this.pageNumber = i;
     }
 
-    public void lS(String str) {
+    public void lT(String str) {
         this.dnB = str;
     }
 

@@ -27,7 +27,7 @@ class y implements View.OnClickListener {
                 com.baidu.adp.lib.util.k.c(this.cqu.getPageContext().getPageActivity(), this.cqu.cpr);
                 if (!TextUtils.isEmpty(this.cqu.cpN) && this.cqu.cpN.trim().length() != 0) {
                     this.cqu.cpN = this.cqu.cpN.trim();
-                    this.cqu.gA(this.cqu.cpN);
+                    this.cqu.gB(this.cqu.cpN);
                     return;
                 }
                 return;

@@ -27,7 +27,7 @@ public class a {
         aKw();
     }
 
-    public void no(String str) {
+    public void np(String str) {
         if (this.bbA != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
             httpMessage.addParam(ImageViewerConfig.FORUM_NAME, str);

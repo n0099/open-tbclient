@@ -30,7 +30,7 @@ public abstract class c extends b implements aj {
         this.aPN = i;
     }
 
-    public void gL(String str) {
+    public void gM(String str) {
         this.aPO = str;
     }
 
@@ -62,7 +62,7 @@ public abstract class c extends b implements aj {
         return true;
     }
 
-    public av gM(String str) {
+    public av gN(String str) {
         z Iv = Iv();
         if (Iv == null) {
             return null;

@@ -171,7 +171,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             this.bkD = mVar;
             this.mPn = this.bkD.getPn();
             this.bde = this.bkD.getKw();
-            this.bkA.hr(this.bde);
+            this.bkA.hs(this.bde);
             this.bkA.setFrom(this.mFrom);
             this.bkA.setPn(this.mPn);
             this.bkA.setFlag(this.bdf);

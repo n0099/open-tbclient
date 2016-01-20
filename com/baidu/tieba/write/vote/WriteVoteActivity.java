@@ -177,7 +177,7 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         Nm();
         this.dVN = i;
         if (this.dWe != null) {
-            this.dWe.nq(str);
+            this.dWe.nr(str);
         }
     }
 
@@ -559,7 +559,7 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         }
     }
 
-    private void np(String str) {
+    private void nq(String str) {
         if (this.dWk == null) {
             this.dWk = BdToast.a(getApplicationContext(), 48, 0, 350);
         }
@@ -568,6 +568,6 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
     }
 
     private void ov(int i) {
-        np(getApplicationContext().getResources().getString(i));
+        nq(getApplicationContext().getResources().getString(i));
     }
 }

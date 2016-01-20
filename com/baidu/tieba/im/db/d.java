@@ -28,7 +28,7 @@ public class d {
         return bPZ;
     }
 
-    public void it(String str) {
+    public void iu(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
@@ -62,7 +62,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    public int iu(String str) {
+    public int iv(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
@@ -133,7 +133,7 @@ public class d {
                             if (convertToValidateItemData != null) {
                                 for (ValidateItemData validateItemData : linkedList2) {
                                     if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                        iw(validateItemData.getNotice_id());
+                                        ix(validateItemData.getNotice_id());
                                     }
                                 }
                             }
@@ -236,7 +236,7 @@ public class d {
         return linkedList2;
     }
 
-    public GroupNewsPojo iv(String str) {
+    public GroupNewsPojo iw(String str) {
         Cursor cursor;
         Throwable th;
         GroupNewsPojo groupNewsPojo;
@@ -288,7 +288,7 @@ public class d {
         return groupNewsPojo2;
     }
 
-    public boolean iw(String str) {
+    public boolean ix(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {

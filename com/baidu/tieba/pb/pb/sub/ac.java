@@ -16,7 +16,7 @@ public class ac implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.editortools.d.p pVar;
-        this.cLC.kL(this.cLE);
+        this.cLC.kM(this.cLE);
         pVar = this.cLC.cjc;
         pVar.fz(this.cLF);
     }

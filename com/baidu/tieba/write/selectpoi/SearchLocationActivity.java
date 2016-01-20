@@ -87,7 +87,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else {
                     b.a aVar = new b.a();
                     aVar.setName(c0083a2.getName());
-                    aVar.nn(c0083a2.aFU());
+                    aVar.no(c0083a2.aFU());
                     arrayList.add(aVar);
                 }
             }
@@ -95,12 +95,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (c0083a != null) {
             b.a aVar2 = new b.a();
             aVar2.setName(c0083a.getName());
-            aVar2.nn(c0083a.aFU());
+            aVar2.no(c0083a.aFU());
             arrayList.add(0, aVar2);
         } else {
             b.a aVar3 = new b.a();
             aVar3.setName(str);
-            aVar3.nn(str2);
+            aVar3.no(str2);
             arrayList.add(0, aVar3);
         }
         return arrayList;

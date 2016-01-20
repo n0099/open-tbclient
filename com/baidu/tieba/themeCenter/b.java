@@ -94,7 +94,7 @@ public class b {
         return this.picUrl;
     }
 
-    public void mK(String str) {
+    public void mL(String str) {
         this.picUrl = str;
     }
 
@@ -110,7 +110,7 @@ public class b {
         return this.dLg;
     }
 
-    public void mL(String str) {
+    public void mM(String str) {
         this.dLg = str;
     }
 
@@ -126,7 +126,7 @@ public class b {
         return this.dLh;
     }
 
-    public void mM(String str) {
+    public void mN(String str) {
         this.dLh = str;
     }
 
@@ -134,7 +134,7 @@ public class b {
         return this.dLi;
     }
 
-    public void mN(String str) {
+    public void mO(String str) {
         this.dLi = str;
     }
 

@@ -44,8 +44,8 @@ public class y implements c.b {
                 break;
         }
         com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.beh != null && !readThreadHistory.mC(this.beh.getId())) {
-            readThreadHistory.mB(this.beh.getId());
+        if (readThreadHistory != null && this.beh != null && !readThreadHistory.mD(this.beh.getId())) {
+            readThreadHistory.mC(this.beh.getId());
         }
         this.bed.bdm.NW();
     }

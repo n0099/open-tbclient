@@ -53,11 +53,11 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
-        jr(String.format(getPageContext().getString(n.j.black_list_ensure_toremove_text), aVar.getUserName()));
+        js(String.format(getPageContext().getString(n.j.black_list_ensure_toremove_text), aVar.getUserName()));
         this.Md.tf();
     }
 
-    private void jr(String str) {
+    private void js(String str) {
         this.Md = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         this.Md.cF(str);
         this.Md.a(n.j.confirm, new c(this));

@@ -355,7 +355,7 @@ public class d extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         cVar.tj();
     }
 
-    private String kU(String str) {
+    private String kV(String str) {
         return ((float) getResources().getDisplayMetrics().densityDpi) > 240.0f ? "http://himg.baidu.com/sys/portraith/item/" + str : "http://himg.baidu.com/sys/portraitl/item/" + str;
     }
 
@@ -366,7 +366,7 @@ public class d extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             for (com.baidu.tbadk.data.g gVar2 : list) {
                 if (gVar2 != null && !gVar2.isAdded()) {
                     if (gVar2.AR()) {
-                        arrayList.add(kU(gVar2.AQ()));
+                        arrayList.add(kV(gVar2.AQ()));
                     } else {
                         arrayList.add(gVar2.AQ());
                     }
@@ -625,7 +625,7 @@ public class d extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
 
     private void a(bb bbVar, Bundle bundle) {
         if (bundle != null) {
-            bbVar.kW(bundle.getString("from"));
+            bbVar.kX(bundle.getString("from"));
             bbVar.setIsSelf(bundle.getBoolean("self", true));
             bbVar.setId(bundle.getString("un"));
             bbVar.setName(bundle.getString("name"));
@@ -636,7 +636,7 @@ public class d extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         }
         Intent intent = getActivity().getIntent();
         if (intent != null && intent.getStringExtra("un") != null) {
-            bbVar.kW(intent.getStringExtra("from"));
+            bbVar.kX(intent.getStringExtra("from"));
             bbVar.setIsSelf(intent.getBooleanExtra("self", false));
             bbVar.setId(intent.getStringExtra("un"));
             bbVar.setName(intent.getStringExtra("name"));

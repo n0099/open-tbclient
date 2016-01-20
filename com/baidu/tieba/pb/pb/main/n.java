@@ -96,7 +96,7 @@ class n implements cf.c {
                 if (cVar.akI() != null && cVar.akI().size() >= 1 && cVar.akI().get(0) != null) {
                     String id = cVar.akI().get(0).getId();
                     cfVar8 = this.cFS.cFl;
-                    cfVar8.kC(id);
+                    cfVar8.kD(id);
                 }
                 eVar2 = this.cFS.cFx;
                 if (eVar2 != null) {
@@ -173,7 +173,7 @@ class n implements cf.c {
                     this.cFS.showToast(str);
                 }
                 dkVar5 = this.cFS.cFq;
-                dkVar5.kH(this.cFS.getResources().getString(n.j.list_no_more));
+                dkVar5.kI(this.cFS.getResources().getString(n.j.list_no_more));
                 dkVar6 = this.cFS.cFq;
                 dkVar6.vP();
             }

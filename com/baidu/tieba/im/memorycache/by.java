@@ -34,7 +34,7 @@ public class by implements CustomMessageTask.CustomRunnable<String> {
                         com.baidu.tieba.im.db.i.Yr().c(imMessageCenterPojo);
                     }
                     for (MemoryModifyVisibilityMessage.a aVar : this.bYl.datas) {
-                        com.baidu.tieba.im.db.l.Yx().iq(aVar.id);
+                        com.baidu.tieba.im.db.l.Yx().ir(aVar.id);
                     }
                     if (this.bYm.isAllClear()) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();

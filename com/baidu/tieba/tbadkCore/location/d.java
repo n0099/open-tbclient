@@ -117,15 +117,15 @@ public class d extends com.baidu.adp.base.e {
             }
             if (StringUtils.isNull(aVar.aFS())) {
                 if (aFT.size() >= 1) {
-                    aVar.mu(aFT.get(0).getName());
-                    aVar.mv(aFT.get(0).aFU());
+                    aVar.mv(aFT.get(0).getName());
+                    aVar.mw(aFT.get(0).aFU());
                     return;
                 }
                 return;
             }
             for (a.C0083a c0083a : aFT) {
                 if (aVar.aFS().equals(c0083a.getName())) {
-                    aVar.mv(c0083a.aFU());
+                    aVar.mw(c0083a.aFU());
                     return;
                 }
             }
@@ -149,8 +149,8 @@ public class d extends com.baidu.adp.base.e {
     public void be(String str, String str2) {
         com.baidu.tieba.tbadkCore.location.a locationData = c.aFW().getLocationData();
         if (locationData != null) {
-            locationData.mu(str);
-            locationData.mv(str2);
+            locationData.mv(str);
+            locationData.mw(str2);
         }
     }
 

@@ -13,6 +13,6 @@ public class j implements Runnable {
     public void run() {
         String str;
         str = this.bkp.bde;
-        com.baidu.tieba.tbadkCore.util.m.mx(str);
+        com.baidu.tieba.tbadkCore.util.m.my(str);
     }
 }

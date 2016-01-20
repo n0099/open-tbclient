@@ -39,26 +39,26 @@ public class n extends c {
     }
 
     public av IA() {
-        return Iz() ? gM(aQi) : gM(aQd);
+        return Iz() ? gN(aQi) : gN(aQd);
     }
 
     public av IB() {
-        return Iz() ? gM(aQj) : gM(aQe);
+        return Iz() ? gN(aQj) : gN(aQe);
     }
 
     public av IC() {
-        return Iz() ? gM(aQk) : gM(aQf);
+        return Iz() ? gN(aQk) : gN(aQf);
     }
 
     public av ID() {
-        return Iz() ? gM(aQl) : gM(aQg);
+        return Iz() ? gN(aQl) : gN(aQg);
     }
 
     public av IE() {
-        return Iz() ? gM(aQm) : gM(aQh);
+        return Iz() ? gN(aQm) : gN(aQh);
     }
 
     public av IF() {
-        return gM(aQn);
+        return gN(aQn);
     }
 }

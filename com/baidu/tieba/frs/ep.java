@@ -111,7 +111,7 @@ public class ep extends bp<com.baidu.tbadk.core.data.z, et> {
             etVar.aOn.setVisibility(0);
             zVar.parser_title();
             etVar.aOn.setText(zVar.getSpan_str());
-            if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+            if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                 com.baidu.tbadk.core.util.as.b(etVar.aOn, n.d.cp_cont_c, 1);
             } else {
                 com.baidu.tbadk.core.util.as.b(etVar.aOn, n.d.cp_cont_b, 1);

@@ -185,7 +185,7 @@ public class a extends bp<k, e> implements View.OnClickListener, PhotoLiveCardVi
                 deVar.aOn.setVisibility(0);
                 kVar.parser_title();
                 deVar.aOn.setText(kVar.getSpan_str());
-                if (readThreadHistory != null && readThreadHistory.mC(kVar.getId())) {
+                if (readThreadHistory != null && readThreadHistory.mD(kVar.getId())) {
                     as.b(deVar.aOn, n.d.cp_cont_c, 1);
                 } else {
                     as.b(deVar.aOn, n.d.cp_cont_b, 1);
@@ -213,7 +213,7 @@ public class a extends bp<k, e> implements View.OnClickListener, PhotoLiveCardVi
                         deVar.bcy.setText(stringBuffer.toString());
                     }
                     deVar.bcy.setVisibility(0);
-                    if (readThreadHistory != null && readThreadHistory.mC(kVar.getId())) {
+                    if (readThreadHistory != null && readThreadHistory.mD(kVar.getId())) {
                         as.b(deVar.bcy, n.d.cp_cont_c, 1);
                     } else {
                         as.b(deVar.bcy, n.d.cp_cont_b, 1);

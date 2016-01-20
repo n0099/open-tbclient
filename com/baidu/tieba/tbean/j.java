@@ -197,12 +197,12 @@ public class j extends com.baidu.adp.base.f<BuyTBeanActivity> implements TextWat
             this.dKp = a;
             String string = this.dJV.getPageContext().getPageActivity().getString(n.j.pay_money, new Object[]{String.valueOf(this.dKn)});
             this.dKh.setText(no(a));
-            this.dKi.setText(mG(string));
+            this.dKi.setText(mH(string));
             this.dKg.setTag(this.dKm);
         }
     }
 
-    private SpannableString mG(String str) {
+    private SpannableString mH(String str) {
         SpannableString spannableString = new SpannableString(str);
         q.setSpan(spannableString, str, "¥", new AbsoluteSizeSpan(com.baidu.adp.lib.util.k.d(this.dJV.getPageContext().getPageActivity(), n.e.fontsize28)));
         return spannableString;

@@ -29,16 +29,16 @@ public class b extends com.baidu.adp.framework.listener.a {
         if (responsedMessage == null) {
             frsActivity6 = this.blx.beB;
             frsActivity7 = this.blx.beB;
-            frsActivity6.hs(frsActivity7.getPageContext().getString(n.j.neterror));
+            frsActivity6.ht(frsActivity7.getPageContext().getString(n.j.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                 frsActivity5 = this.blx.beB;
-                frsActivity5.hs(responsedMessage.getErrorString());
+                frsActivity5.ht(responsedMessage.getErrorString());
                 return;
             }
             frsActivity3 = this.blx.beB;
             frsActivity4 = this.blx.beB;
-            frsActivity3.hs(frsActivity4.getPageContext().getString(n.j.neterror));
+            frsActivity3.ht(frsActivity4.getPageContext().getString(n.j.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
                 frsActivity2 = this.blx.beB;

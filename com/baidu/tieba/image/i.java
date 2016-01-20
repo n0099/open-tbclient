@@ -20,30 +20,30 @@ public class i {
     }
 
     public void afe() {
-        jy("area_click");
-        jz("click");
+        jz("area_click");
+        jA("click");
         com.baidu.tieba.recapp.report.b.axN().a(com.baidu.tieba.recapp.report.e.a(this.cju, "click", 0));
     }
 
     public void aff() {
-        jy("show");
         jz("show");
+        jA("show");
         com.baidu.tieba.recapp.report.b.axN().a(com.baidu.tieba.recapp.report.e.a(this.cju, "show", 0));
     }
 
     public void afg() {
-        jy("area_download");
-    }
-
-    public void jx(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+        jz("area_download");
     }
 
     public void jy(String str) {
-        com.baidu.tbadk.distribute.a.AV().a(this.mContext, this.cju, str, "pb", this.mForumId, com.baidu.adp.lib.h.b.c(this.mPostId, 0L));
+        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
     public void jz(String str) {
+        com.baidu.tbadk.distribute.a.AV().a(this.mContext, this.cju, str, "pb", this.mForumId, com.baidu.adp.lib.h.b.c(this.mPostId, 0L));
+    }
+
+    public void jA(String str) {
         com.baidu.tbadk.distribute.a.AV().a(this.cju, this.mForumId, com.baidu.adp.lib.h.b.c(this.mPostId, 0L), "PB", str, 1);
     }
 }

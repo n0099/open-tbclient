@@ -257,9 +257,9 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                     this.bnz.setVisibility(0);
                     if (!TextUtils.isEmpty(this.bnX.getGameName()) && !TextUtils.isEmpty(this.bnX.getGameName().trim())) {
                         this.bnA.setText(UtilHelper.getFixedText(this.bnX.getGameName(), 10));
-                        String mz = com.baidu.tieba.tbadkCore.util.n.mz(this.bnX.aDV());
-                        if (!StringUtils.isNull(mz)) {
-                            TiebaStatic.eventStat(this.mContext.getPageActivity(), "game_show", "show", 1, "dev_id", mz, "ref_id", "1000601", "ref_type", "603");
+                        String mA = com.baidu.tieba.tbadkCore.util.n.mA(this.bnX.aDV());
+                        if (!StringUtils.isNull(mA)) {
+                            TiebaStatic.eventStat(this.mContext.getPageActivity(), "game_show", "show", 1, "dev_id", mA, "ref_id", "1000601", "ref_type", "603");
                         }
                     } else {
                         this.bnA.setText(this.mContext.getResources().getString(n.j.frsgame_title));
@@ -279,7 +279,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                 this.bnE.removeAllViews();
                 for (int i2 = 0; i2 < i; i2++) {
                     com.baidu.tieba.tbadkCore.h hVar2 = aDS.get(i2);
-                    if (hVar2 != null && !hw(hVar2.getUrl())) {
+                    if (hVar2 != null && !hx(hVar2.getUrl())) {
                         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.frs_header_enter_lay, (ViewGroup) null);
                         TbImageView tbImageView = (TbImageView) linearLayout.findViewById(n.g.frs_header_enters_icon);
                         tbImageView.setGifIconSupport(false);

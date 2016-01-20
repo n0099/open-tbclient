@@ -79,7 +79,7 @@ public class ae extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void kR(String str) {
+    public void kS(String str) {
         if (this.cOk == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {

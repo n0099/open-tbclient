@@ -36,7 +36,7 @@ public class en extends bp<com.baidu.tbadk.core.data.z, eo> {
         }
         eoVar.aOn.setText(zVar.getTitle());
         com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+        if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
             com.baidu.tbadk.core.util.as.b(eoVar.aOn, n.d.cp_cont_c, 1);
         }
         if (zVar.getIs_top() == 1) {

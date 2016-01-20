@@ -17,6 +17,6 @@ class k extends com.baidu.tbadk.util.m<Boolean> {
         com.baidu.tieba.im.db.l Yx = com.baidu.tieba.im.db.l.Yx();
         personalTalkSettingActivity = this.cdW.cdU;
         j = personalTalkSettingActivity.userId;
-        return Boolean.valueOf(Yx.ir(String.valueOf(j)));
+        return Boolean.valueOf(Yx.is(String.valueOf(j)));
     }
 }

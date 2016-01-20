@@ -16,7 +16,7 @@ public class af extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void gx(String str);
+        void gy(String str);
 
         void y(int i, String str);
     }

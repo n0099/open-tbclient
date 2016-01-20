@@ -250,7 +250,7 @@ public class ad extends BaseAdapter {
         return super.isEnabled(i);
     }
 
-    public void kQ(String str) {
+    public void kR(String str) {
         this.cNb = str;
     }
 

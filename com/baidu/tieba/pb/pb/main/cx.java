@@ -754,7 +754,7 @@ public class cx extends ce<com.baidu.tieba.tbadkCore.data.r, dc> implements View
         this.cDs = z;
     }
 
-    public void ku(String str) {
+    public void kv(String str) {
         this.cDX = str;
     }
 

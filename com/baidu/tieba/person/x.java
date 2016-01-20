@@ -46,14 +46,14 @@ public class x extends HttpMessageListener {
                             aeVar = this.cOw.cNW;
                             aeVar.kJ(this.cOw.cOk);
                             aeVar2 = this.cOw.cNW;
-                            aeVar2.kR(personBarResponseMessage.getResultString());
+                            aeVar2.kS(personBarResponseMessage.getResultString());
                             this.cOw.a(personBarData, false);
                             return;
                         }
                         this.cOw.showToast(httpResponsedMessage.getErrorString());
                         u.a aVar = this.cOw.cOg;
                         str3 = this.cOw.cOn;
-                        aVar.kT(str3);
+                        aVar.kU(str3);
                         return;
                     }
                     this.cOw.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cOw.getResources().getString(n.j.neterror) : httpResponsedMessage.getErrorString());
@@ -61,17 +61,17 @@ public class x extends HttpMessageListener {
                     if (z) {
                         u.a aVar2 = this.cOw.cOg;
                         str2 = this.cOw.cOn;
-                        aVar2.kT(str2);
+                        aVar2.kU(str2);
                         return;
                     }
-                    this.cOw.cOg.kT("");
+                    this.cOw.cOg.kU("");
                     return;
                 }
                 return;
             }
             u.a aVar3 = this.cOw.cOg;
             str = this.cOw.cOn;
-            aVar3.kT(str);
+            aVar3.kU(str);
         }
     }
 }

@@ -34,8 +34,8 @@ public class g implements v {
         if (bdUniqueId != null && (uVar instanceof z) && !(uVar instanceof com.baidu.tbadk.core.data.b)) {
             z zVar = (z) uVar;
             q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.mC(zVar.getId())) {
-                readThreadHistory.mB(zVar.getId());
+            if (readThreadHistory != null && !readThreadHistory.mD(zVar.getId())) {
+                readThreadHistory.mC(zVar.getId());
             }
             boolean z = false;
             String sx = zVar.sx();

@@ -234,7 +234,7 @@ public class a extends b {
         return bArr;
     }
 
-    public static byte[] ny(String str) {
+    public static byte[] nz(String str) {
         return new a().decode(str);
     }
 

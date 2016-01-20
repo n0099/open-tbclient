@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.n;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
@@ -81,14 +82,32 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
         String substring = md5(md5(JSResultData.AUTH_KEY + str + j).substring(0, 16)).substring(8, 24);
         JSResultData jSResultData = new JSResultData();
-        if (TextUtils.isEmpty(str2) || !str2.equals(substring) || TextUtils.isEmpty(str)) {
-            return null;
+        if (!TextUtils.isEmpty(str2) && str2.equals(substring) && validateGameUrl(str)) {
+            startDownload(str);
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(jSResultData);
         }
-        startDownload(str);
-        jSResultData.setStatus(1);
-        jSResultData.setErrorCode("0");
-        jSResultData.setErrorMsg("");
-        return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(jSResultData);
+        return null;
+    }
+
+    private boolean validateGameUrl(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        try {
+            URL url = new URL(str);
+            String protocol = url.getProtocol();
+            String authority = url.getAuthority();
+            if (StringUtils.isNull(protocol) || StringUtils.isNULL(authority) || !protocol.equals("https")) {
+                return false;
+            }
+            return authority.endsWith("bdstatic.com");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private void startDownload(String str) {

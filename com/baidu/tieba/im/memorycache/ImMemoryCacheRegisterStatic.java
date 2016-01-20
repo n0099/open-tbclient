@@ -205,7 +205,7 @@ public class ImMemoryCacheRegisterStatic {
                         arrayList2 = arrayList4;
                     }
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -2) {
-                    com.baidu.tieba.im.pushNotify.d.abw().iQ(imMessageCenterPojo6.getGid());
+                    com.baidu.tieba.im.pushNotify.d.abw().iR(imMessageCenterPojo6.getGid());
                     imMessageCenterPojo3 = imMessageCenterPojo6;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -1) {
                     com.baidu.tieba.im.c.a.iX(com.baidu.adp.lib.h.b.g(imMessageCenterPojo6.getGid(), 0));
@@ -267,7 +267,7 @@ public class ImMemoryCacheRegisterStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iP(String str) {
+    public void iQ(String str) {
         HashMap<String, String> yP;
         if (!TextUtils.isEmpty(str)) {
             b.aay().P(str, 1);

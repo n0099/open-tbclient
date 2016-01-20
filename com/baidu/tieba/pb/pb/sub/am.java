@@ -39,7 +39,7 @@ public class am extends BaseAdapter {
         this.mIsFromCDN = z;
     }
 
-    public int kM(String str) {
+    public int kN(String str) {
         if (this.YA == null) {
             return -1;
         }

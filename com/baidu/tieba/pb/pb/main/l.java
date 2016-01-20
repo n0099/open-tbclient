@@ -318,7 +318,7 @@ class l implements View.OnClickListener {
                                         dkVar57.amJ();
                                         cfVar55 = this.cFS.cFl;
                                         aly = this.cFS.aly();
-                                        cfVar55.kE(aly);
+                                        cfVar55.kF(aly);
                                         TiebaStatic.eventStat(this.cFS.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
                                         return;
                                     }
@@ -437,7 +437,7 @@ class l implements View.OnClickListener {
                                                         if (cfVar43.getPbData().akI().size() > 0) {
                                                             PbActivity pbActivity = this.cFS;
                                                             cfVar44 = this.cFS.cFl;
-                                                            pbActivity.kv(cfVar44.getPbData().akI().get(0).getId());
+                                                            pbActivity.kw(cfVar44.getPbData().akI().get(0).getId());
                                                             return;
                                                         }
                                                         return;
@@ -487,7 +487,7 @@ class l implements View.OnClickListener {
                                             }
                                             return;
                                         }
-                                        this.cFS.kv((String) tag);
+                                        this.cFS.kw((String) tag);
                                         return;
                                     }
                                 }

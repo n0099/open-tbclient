@@ -53,7 +53,7 @@ public class t {
         aSa.put("discover_square_trend", Integer.valueOf(n.f.icon_find_myba));
     }
 
-    public static int gQ(String str) {
+    public static int gR(String str) {
         if (aSa == null) {
             Jj();
         }
@@ -91,7 +91,7 @@ public class t {
         return aVar;
     }
 
-    public String gR(String str) {
+    public String gS(String str) {
         if ("com.baidu.tieba.pluginNeighbors".equals(str)) {
             return "discover_nearby";
         }

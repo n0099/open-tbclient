@@ -6,8 +6,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements View.OnClickListener {
+public class bh implements View.OnClickListener {
     final /* synthetic */ be cYp;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
@@ -104,7 +104,7 @@ public class SyncLoginService extends BdBaseService {
                 this.Ua.o("package", packageName);
                 this.Ua.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
                 this.Ua.o("signmd5", az.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.Ua.o("md5", y.getTiebaApkMd5());
+                this.Ua.o("md5", z.getTiebaApkMd5());
                 String tV = this.Ua.tV();
                 if (this.Ua.uw().vq().qO()) {
                     eVar = new com.baidu.tieba.model.e();

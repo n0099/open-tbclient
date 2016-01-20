@@ -57,7 +57,7 @@ public class c {
         return this.mNavigationBar;
     }
 
-    public void kJ(String str) {
+    public void kK(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.cKt.setVisibility(0);
             this.cKt.setText(String.valueOf(str) + this.cGj.getPageContext().getString(n.j.bar));

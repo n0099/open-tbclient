@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     public void B(com.baidu.tieba.discover.data.c cVar) {
         super.B(cVar);
         if (cVar != null) {
-            this.Nm.setDefaultResource(t.gQ(cVar.Jq()));
+            this.Nm.setDefaultResource(t.gR(cVar.Jq()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
                 this.Nm.d(cVar.getIcon_url(), 10, false);
             }

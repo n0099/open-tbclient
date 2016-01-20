@@ -33,7 +33,7 @@ public class o extends q {
         }
     }
 
-    public long mA(String str) {
+    public long mB(String str) {
         long longValue;
         try {
             synchronized (this) {

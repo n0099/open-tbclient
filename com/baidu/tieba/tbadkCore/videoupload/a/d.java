@@ -15,7 +15,7 @@ public class d implements b {
     private ab dJq;
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
-    public VideoFinishResult c(String str, File file) {
+    public VideoFinishResult d(String str, File file) {
         int uA;
         boolean z = true;
         VideoFinishResult videoFinishResult = new VideoFinishResult();

@@ -15,7 +15,7 @@ class g implements af.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.af.a
-    public void gx(String str) {
+    public void gy(String str) {
         com.baidu.tieba.tbadkCore.af afVar;
         cf cfVar;
         this.cFS.bbT = false;

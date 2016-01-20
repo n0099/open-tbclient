@@ -100,7 +100,7 @@ public class t extends com.baidu.adp.framework.listener.e {
                 this.cOw.showToast(responseGetLivableForumList.getErrorString());
                 u.a aVar = this.cOw.cOg;
                 str = this.cOw.cOn;
-                aVar.kT(str);
+                aVar.kU(str);
             }
         }
     }

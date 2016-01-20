@@ -195,7 +195,7 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
                     return;
                 }
                 if (yVar.isLike() == 1) {
-                    this.bdo.mj(yVar.getFid());
+                    this.bdo.mk(yVar.getFid());
                     this.bdB.d(this.bdo);
                 }
                 if (this.bdo.akG().getBannerListData() != null) {
@@ -593,7 +593,7 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        com.baidu.tbadk.core.data.z ml;
+        com.baidu.tbadk.core.data.z mm;
         PostWriteCallBackData postWriteCallBackData;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
@@ -636,15 +636,15 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
                 case 18003:
                     this.bdm.Of().notifyDataSetChanged();
                     String stringExtra = intent.getStringExtra("tid");
-                    if (stringExtra != null && (ml = this.bdo.ml(stringExtra)) != null) {
+                    if (stringExtra != null && (mm = this.bdo.mm(stringExtra)) != null) {
                         int intExtra = intent.getIntExtra("type", 0);
                         if (intExtra == 2) {
-                            ml.bD(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
-                            ml.parser_title();
+                            mm.bD(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
+                            mm.parser_title();
                             bP(6);
                             return;
                         } else if (intExtra == 0) {
-                            this.bdo.j(ml);
+                            this.bdo.j(mm);
                             this.bdm.NZ();
                             if (com.baidu.tieba.tbadkCore.d.aDI() != null) {
                                 com.baidu.tieba.tbadkCore.d.aDI().I(this.bde, false);
@@ -870,13 +870,13 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
             if (bool.booleanValue()) {
                 FrsActivity.this.showToast(n.j.shortcut_has_add);
             } else {
-                FrsActivity.this.hp(this.name);
+                FrsActivity.this.hq(this.name);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hp(String str) {
+    public void hq(String str) {
         Intent K;
         if (str != null && (K = com.baidu.tieba.frs.utils.a.K(getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
@@ -965,10 +965,10 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
             com.baidu.tbadk.core.sharedPref.b.tJ().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
             return;
         }
-        hq(str);
+        hr(str);
     }
 
-    private void hq(String str) {
+    private void hr(String str) {
         JSONObject jSONObject = null;
         if (!StringUtils.isNull(str)) {
             try {
@@ -1506,8 +1506,8 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
                         if (zVar.getAnchorInfoData() == null || zVar.getAnchorInfoData().getGroup_id() == 0 || FrsActivity.this.checkUpIsLogin()) {
                             if ((zVar.sI() != 1 && zVar.sI() != 2) || FrsActivity.this.checkUpIsLogin()) {
                                 com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-                                if (readThreadHistory != null && !readThreadHistory.mC(zVar.getId())) {
-                                    readThreadHistory.mB(zVar.getId());
+                                if (readThreadHistory != null && !readThreadHistory.mD(zVar.getId())) {
+                                    readThreadHistory.mC(zVar.getId());
                                 }
                                 boolean z = false;
                                 String sx = zVar.sx();
@@ -1647,7 +1647,7 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
         this.bdm = cgVar;
     }
 
-    public void hr(String str) {
+    public void hs(String str) {
         this.bde = str;
     }
 
@@ -1688,7 +1688,7 @@ public class FrsActivity extends BaseActivity<FrsActivity> implements BdListView
         }
     }
 
-    public void hs(String str) {
+    public void ht(String str) {
         Ns();
         showToast(str);
     }

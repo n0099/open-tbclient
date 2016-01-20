@@ -10,6 +10,6 @@ class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.dWP.nr(com.baidu.adp.lib.util.j.a(this.dWP.cbx.getText(), ""));
+        this.dWP.ns(com.baidu.adp.lib.util.j.a(this.dWP.cbx.getText(), ""));
     }
 }

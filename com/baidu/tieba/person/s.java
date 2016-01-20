@@ -142,7 +142,7 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
             this.aHJ.setVisibility(0);
         }
         this.cOh = new ad(aoI(), this.cNW.aoL(), this.mIsHost, this.cNa);
-        this.cOh.kQ(aoI().aor());
+        this.cOh.kR(aoI().aor());
         this.cOh.x(new z(this));
         this.cOh.E(new aa(this));
         this.mListView = (BdListView) inflate.findViewById(n.g.my_friend_list);

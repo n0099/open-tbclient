@@ -123,7 +123,7 @@ public class o extends Dialog {
         } else {
             this.aHf.setText(this.mContext.getString(n.j.update_after));
         }
-        if (this.aGU != null && this.aGU.showCombineDownload()) {
+        if (this.aGU != null && this.aGU.showCombineDownload() && !TextUtils.isEmpty(this.aGU.getApkMD5RSA())) {
             this.aHe.setText(this.aGU.getAppName());
             if (!ah.isInstalledPackage(this.mContext, this.aGU.getAppProc()) && !TextUtils.isEmpty(this.aGU.getAppUrl())) {
                 this.aHe.setVisibility(0);
@@ -158,7 +158,7 @@ public class o extends Dialog {
     }
 
     public void bG(boolean z) {
-        if (y.a(this.mContext.getPackageManager())) {
+        if (z.a(this.mContext.getPackageManager())) {
             this.aHj.setVisibility(8);
         } else {
             this.aHj.setVisibility(0);

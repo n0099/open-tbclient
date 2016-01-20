@@ -98,7 +98,7 @@ public class a implements j.a {
                     if (string.length() > cjs) {
                         string = string.substring(0, cjs);
                     }
-                    this.cjw.jw(string);
+                    this.cjw.jx(string);
                     this.cjw.q(this.bdT);
                     return;
                 case 1:

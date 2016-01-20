@@ -207,7 +207,7 @@ public class l {
         this.bkh.a(arrayList, pVar);
     }
 
-    public void hv(String str) {
+    public void hw(String str) {
         a(NoDataViewFactory.d.ac(str, this.bjg.getPageContext().getString(n.j.refresh_view_title_text)));
     }
 

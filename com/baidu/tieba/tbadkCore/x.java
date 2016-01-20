@@ -68,7 +68,7 @@ public class x extends com.baidu.adp.base.e {
         return this.dFz != null;
     }
 
-    public void mn(String str) {
+    public void mo(String str) {
         this.dFA = str;
     }
 
@@ -116,7 +116,7 @@ public class x extends com.baidu.adp.base.e {
                 if (this.ahV.uw().vq().qO() && tV != null) {
                     y yVar = new y();
                     yVar.parserJson(tV);
-                    yVar.mo(x.this.mForumId);
+                    yVar.mp(x.this.mForumId);
                     return yVar;
                 }
             } catch (Exception e) {
@@ -124,7 +124,7 @@ public class x extends com.baidu.adp.base.e {
             }
             y yVar2 = new y();
             yVar2.setLike(0);
-            yVar2.mo(x.this.mForumId);
+            yVar2.mp(x.this.mForumId);
             return yVar2;
         }
 

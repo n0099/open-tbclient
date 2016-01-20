@@ -149,16 +149,19 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         this.aHA = z3;
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
         intent.addFlags(268435456);
-        if (z && this.aHB != null && URLUtil.isNetworkUrl(this.aHB.getUrl())) {
+        if (z && this.aHB != null && URLUtil.isNetworkUrl(this.aHB.getUrl()) && !TextUtils.isEmpty(this.aHB.getApkMD5RSA())) {
             intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.aHB.getUrl());
             intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aHB);
+            intent.putExtra("MD5_RSA_tieba_apk", this.aHB.getApkMD5RSA());
         }
-        if (z2 && URLUtil.isNetworkUrl(this.aHC)) {
+        if (z2 && URLUtil.isNetworkUrl(this.aHC) && !TextUtils.isEmpty(this.aHB.getAsApkMD5RSA())) {
             intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aHB);
             intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.aHC);
+            intent.putExtra("MD5_RSA_as_apk", this.aHB.getAsApkMD5RSA());
         }
-        if (z3 && this.mCombineDownload != null && URLUtil.isNetworkUrl(this.mCombineDownload.getAppUrl())) {
+        if (z3 && this.mCombineDownload != null && URLUtil.isNetworkUrl(this.mCombineDownload.getAppUrl()) && !TextUtils.isEmpty(this.mCombineDownload.getApkMD5RSA())) {
             intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.mCombineDownload.getAppUrl());
+            intent.putExtra("MD5_RSA_other_apk", this.mCombineDownload.getApkMD5RSA());
         }
         getPageContext().getPageActivity().startService(intent);
     }
@@ -191,7 +194,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         @Override // com.baidu.tieba.o.a
         public void bH(boolean z) {
             UpdateDialog.this.aGX = true;
-            UpdateDialog.this.b(true, false, z && y.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
+            UpdateDialog.this.b(true, false, z && z.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
             UpdateDialog.this.showToast(n.j.download_begin_tip);
             if (!UpdateDialog.this.aGY) {
                 UpdateDialog.this.aHD.dismiss();
@@ -207,15 +210,15 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 UpdateDialog.this.finish();
                 return;
             }
-            if (y.a(UpdateDialog.this.getPageContext().getPageActivity().getPackageManager())) {
-                y.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.aHB);
+            if (z.a(UpdateDialog.this.getPageContext().getPageActivity().getPackageManager())) {
+                z.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.aHB);
                 UpdateDialog updateDialog = UpdateDialog.this;
-                if (!z || !y.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload)) {
+                if (!z || !z.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload)) {
                     z2 = false;
                 }
                 updateDialog.b(false, false, z2);
             } else {
-                UpdateDialog.this.b(false, true, z && y.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
+                UpdateDialog.this.b(false, true, z && z.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
             }
             if (!UpdateDialog.this.aGY) {
                 UpdateDialog.this.aHD.dismiss();

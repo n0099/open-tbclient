@@ -52,7 +52,7 @@ public class ApplistRequest extends HttpMessage {
             aVar.setIcon(applicationInfo.loadIcon(packageManager));
             aVar.setName(applicationInfo.loadLabel(packageManager).toString());
             String str = applicationInfo.packageName;
-            aVar.gE(str);
+            aVar.gF(str);
             try {
                 aVar.setVersion(packageManager.getPackageInfo(str, 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {

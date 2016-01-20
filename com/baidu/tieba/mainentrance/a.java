@@ -33,7 +33,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void jE(String str) {
+    public void jF(String str) {
         this.coP = str;
     }
 

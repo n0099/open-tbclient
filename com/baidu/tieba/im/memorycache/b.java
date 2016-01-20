@@ -77,10 +77,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aaz() {
-        ImMessageCenterPojo iN;
+        ImMessageCenterPojo iO;
         a iK = iK(-4);
-        if (iK != null && (iN = iK.iN("-1003")) != null) {
-            String last_content = iN.getLast_content();
+        if (iK != null && (iO = iK.iO("-1003")) != null) {
+            String last_content = iO.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
                     JSONObject jSONObject = new JSONObject(last_content);
@@ -99,12 +99,12 @@ public class b {
                         str2 = jSONObject.optString("userName");
                         str3 = jSONObject.optString("groupName");
                     }
-                    ImMessageCenterPojo iN2 = this.bWN.iN(str);
-                    if (iN2 != null) {
-                        str3 = iN2.getGroup_name();
+                    ImMessageCenterPojo iO2 = this.bWN.iO(str);
+                    if (iO2 != null) {
+                        str3 = iO2.getGroup_name();
                     }
                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str2)) {
-                        iN.setLast_content(String.valueOf(str2) + TbadkCoreApplication.m411getInst().getApp().getApplicationContext().getString(n.j.validate_im_apply_prefix1) + str3);
+                        iO.setLast_content(String.valueOf(str2) + TbadkCoreApplication.m411getInst().getApp().getApplicationContext().getString(n.j.validate_im_apply_prefix1) + str3);
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -115,13 +115,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aaA() {
-        ImMessageCenterPojo iN;
+        ImMessageCenterPojo iO;
         a iK = iK(-3);
-        if (iK != null && (iN = iK.iN("-1002")) != null) {
-            String last_content = iN.getLast_content();
+        if (iK != null && (iO = iK.iO("-1002")) != null) {
+            String last_content = iO.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
-                    iN.setLast_content(new JSONObject(last_content).optString("userMsg"));
+                    iO.setLast_content(new JSONObject(last_content).optString("userMsg"));
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -131,13 +131,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aaB() {
-        ImMessageCenterPojo iN;
+        ImMessageCenterPojo iO;
         a iK = iK(-5);
-        if (iK != null && (iN = iK.iN("-1004")) != null) {
-            String last_content = iN.getLast_content();
+        if (iK != null && (iO = iK.iO("-1004")) != null) {
+            String last_content = iO.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
-                    iN.setLast_content(new JSONObject(last_content).optString("userMsg"));
+                    iO.setLast_content(new JSONObject(last_content).optString("userMsg"));
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -155,7 +155,7 @@ public class b {
     public ImMessageCenterPojo O(String str, int i) {
         a iK;
         if (this.bWM.get() && (iK = iK(i)) != null) {
-            return iK.iN(str);
+            return iK.iO(str);
         }
         return null;
     }
@@ -176,7 +176,7 @@ public class b {
             if (i == 9) {
                 BdLog.i("quit live group. ");
             }
-            iK.iO(str);
+            iK.iP(str);
         }
     }
 
@@ -530,7 +530,7 @@ public class b {
         ImMessageCenterPojo imMessageCenterPojo = null;
         a iK = iK(-7);
         if (iK != null) {
-            imMessageCenterPojo = iK.iN("-1001");
+            imMessageCenterPojo = iK.iO("-1001");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -577,7 +577,7 @@ public class b {
         ImMessageCenterPojo imMessageCenterPojo = null;
         a iK = iK(-8);
         if (iK != null) {
-            imMessageCenterPojo = iK.iN("-1000");
+            imMessageCenterPojo = iK.iO("-1000");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -681,7 +681,7 @@ public class b {
         if (list != null && list.size() != 0) {
             for (ImMessageCenterPojo imMessageCenterPojo : list) {
                 if (imMessageCenterPojo != null) {
-                    this.bWN.iO(imMessageCenterPojo.getGid());
+                    this.bWN.iP(imMessageCenterPojo.getGid());
                 }
             }
         }

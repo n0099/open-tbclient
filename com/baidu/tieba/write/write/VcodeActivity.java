@@ -62,7 +62,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         setContentView(n.h.vcode_activity);
         initUI();
         initData(bundle);
-        nu(this.dXn.getVcodeUrl());
+        nv(this.dXn.getVcodeUrl());
     }
 
     private void initData(Bundle bundle) {
@@ -148,7 +148,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nu(String str) {
+    public void nv(String str) {
         if (this.dXD != null) {
             this.dXD.cancel();
         }
@@ -378,7 +378,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         if (nVar2.getVcode_pic_url() != null) {
                             VcodeActivity.this.dXn.setVcodeMD5(nVar2.getVcode_md5());
                             VcodeActivity.this.dXn.setVcodeUrl(nVar2.getVcode_pic_url());
-                            VcodeActivity.this.nu(VcodeActivity.this.dXn.getVcodeUrl());
+                            VcodeActivity.this.nv(VcodeActivity.this.dXn.getVcodeUrl());
                         }
                         VcodeActivity.this.mEdit.setText((CharSequence) null);
                     }

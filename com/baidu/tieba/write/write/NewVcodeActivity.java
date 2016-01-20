@@ -90,7 +90,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 return true;
             } else if (TextUtils.equals("jsChangeVcode", str2)) {
                 try {
-                    NewVcodeActivity.this.nt(new JSONObject(str3).optString("callback"));
+                    NewVcodeActivity.this.nu(new JSONObject(str3).optString("callback"));
                 } catch (JSONException e3) {
                 }
                 jsPromptResult.confirm();
@@ -761,7 +761,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public void nt(String str) {
+    public void nu(String str) {
         if (str != null && str.length() > 0) {
             this.dXt = str;
             if (this.mHandler != null) {

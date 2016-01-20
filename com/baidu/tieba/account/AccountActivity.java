@@ -94,7 +94,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void j(AccountData accountData) {
         if (this.aHL == null) {
-            gm("account changed");
+            gn("account changed");
             showLoadingDialog(getPageContext().getString(n.j.account_logining), new g(this));
             com.baidu.tbadk.core.a.a.qY().a(accountData.getAccount(), accountData.getBDUSS(), "", new c(accountData));
         }
@@ -210,7 +210,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if (this.aHM == null) {
             boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
-                gm("account delete");
+                gn("account delete");
             }
             showLoadingDialog(getPageContext().getString(n.j.deleting), new h(this, z2));
             this.aHM = new a(z, accountData);
@@ -317,7 +317,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void gm(String str) {
+    private void gn(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().ev();
         BdSocketLinkService.setAvailable(false);
@@ -325,7 +325,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gn(String str) {
+    public void go(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);

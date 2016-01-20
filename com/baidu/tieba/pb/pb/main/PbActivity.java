@@ -575,7 +575,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
                 if (TextUtils.isEmpty(rVar.getBimg_url()) || !com.baidu.tbadk.core.m.qQ().qW()) {
                     return false;
                 }
-                return kB(rVar.getId());
+                return kC(rVar.getId());
             }
             return false;
         }
@@ -709,7 +709,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kv(String str) {
+    public void kw(String str) {
         if (!StringUtils.isNull(str) && this.cFl != null) {
             String threadID = this.cFl.getThreadID();
             String id = this.cFl.getPbData().akG().getId();
@@ -1078,7 +1078,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
     public void alr() {
         com.baidu.tieba.pb.a.c pbData = this.cFl.getPbData();
         this.cFl.fe(true);
-        pbData.kt(this.cFm.pM());
+        pbData.ku(this.cFm.pM());
         this.cFq.i(pbData);
     }
 
@@ -1190,12 +1190,12 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), str, null)));
     }
 
-    public boolean kw(String str) {
+    public boolean kx(String str) {
         Map<String, String> dE;
         if (!TextUtils.isEmpty(str) && (dE = com.baidu.tbadk.core.util.bf.dE(com.baidu.tbadk.core.util.bf.dF(str))) != null) {
             String str2 = dE.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return kw(com.baidu.adp.lib.util.j.aU(str2));
+                return kx(com.baidu.adp.lib.util.j.aU(str2));
             }
             String str3 = dE.get(cFg);
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -1211,17 +1211,17 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
     private void P(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
             boolean z = str.contains("is_native_app=1");
-            if (ky(str) || z) {
+            if (kz(str) || z) {
                 boolean v = com.baidu.adp.lib.util.k.v(context, "com.qiyi.video");
-                kz(str);
+                kA(str);
                 if (v) {
                     alt();
                 } else {
                     alu();
                 }
-            } else if (kw(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(getApplicationContext(), null, str, null));
             } else if (kx(str)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(getApplicationContext(), null, str, null));
+            } else if (ky(str)) {
                 com.baidu.tbadk.core.util.bf.vn().a(getPageContext(), new String[]{str}, true);
             } else {
                 com.baidu.tbadk.core.util.bf.vn().b(getPageContext(), new String[]{str});
@@ -1229,15 +1229,15 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
         }
     }
 
-    private boolean kx(String str) {
+    private boolean ky(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 
-    private boolean ky(String str) {
+    private boolean kz(String str) {
         return !TextUtils.isEmpty(str) && str.contains("com.qiyi.video");
     }
 
-    private void kz(String str) {
+    private void kA(String str) {
         String[] split;
         int indexOf;
         if (!TextUtils.isEmpty(str) && (split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length != 0) {
@@ -1500,7 +1500,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
         return a2;
     }
 
-    private long kA(String str) {
+    private long kB(String str) {
         ArrayList<com.baidu.tieba.tbadkCore.data.r> akI;
         com.baidu.tieba.pb.a.c pbData = this.cFl.getPbData();
         if (pbData != null && (akI = pbData.akI()) != null && !akI.isEmpty()) {
@@ -1824,7 +1824,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
         this.cFo.a(z, str, str2, str3, str4, UserMuteAddAndDelModel.From.PB);
     }
 
-    private boolean kB(String str) {
+    private boolean kC(String str) {
         String string;
         if (!StringUtils.isNull(str) && com.baidu.tbadk.core.util.bj.ah(getPageContext().getPageActivity())) {
             if (StringUtils.isNull(com.baidu.tbadk.core.sharedPref.b.tJ().getString("bubble_link", ""))) {
@@ -1857,14 +1857,14 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
         if (rVar == null || rVar.getAuthor() == null) {
             return "";
         }
-        if (this.cFl.kF(rVar.getAuthor().getUserId())) {
+        if (this.cFl.kG(rVar.getAuthor().getUserId())) {
             return rVar.getId();
         }
         for (int i = amP - 1; i != 0; i--) {
             com.baidu.tieba.tbadkCore.data.r rVar2 = (com.baidu.tieba.tbadkCore.data.r) com.baidu.tbadk.core.util.y.b(akI, i);
             if (rVar2 == null || rVar2.getAuthor() == null || rVar2.getAuthor().getUserId() == null) {
                 break;
-            } else if (this.cFl.kF(rVar2.getAuthor().getUserId())) {
+            } else if (this.cFl.kG(rVar2.getAuthor().getUserId())) {
                 return rVar2.getId();
             }
         }
@@ -1873,7 +1873,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
             if (rVar3 == null || rVar3.getAuthor() == null || rVar3.getAuthor().getUserId() == null) {
                 return "";
             }
-            if (this.cFl.kF(rVar3.getAuthor().getUserId())) {
+            if (this.cFl.kG(rVar3.getAuthor().getUserId())) {
                 return rVar3.getId();
             }
         }
@@ -1883,7 +1883,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
     @Override // com.baidu.tbadk.widget.richText.l
     public void onLinkButtonClicked(Context context, String str) {
         if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bf.vn().b(getPageContext(), new String[]{str})) {
-            com.baidu.tieba.pb.a.a(kA(str), str, "PB", "BUTTON", "CLICK", "tpoint", this.cFl.getPbData().akG().getId(), this.cFl.getPbData().akG().getName(), this.cFl.getPbData().akH().getTid());
+            com.baidu.tieba.pb.a.a(kB(str), str, "PB", "BUTTON", "CLICK", "tpoint", this.cFl.getPbData().akG().getId(), this.cFl.getPbData().akG().getName(), this.cFl.getPbData().akH().getTid());
         }
     }
 

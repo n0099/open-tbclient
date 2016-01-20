@@ -34,7 +34,7 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ns(String str) {
+    public void nt(String str) {
         if (this.dWX == null) {
             this.dWX = new a(this, null);
             this.dWX.setPriority(3);

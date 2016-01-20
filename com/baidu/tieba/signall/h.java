@@ -8,7 +8,7 @@ public class h {
     private static final String dxu = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
     private com.baidu.tbadk.core.util.ab Ua = null;
 
-    public String lW(String str) {
+    public String lX(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {

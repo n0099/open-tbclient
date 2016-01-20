@@ -22,7 +22,7 @@ public class d {
 
     /* loaded from: classes.dex */
     public interface a {
-        void kq(String str);
+        void kr(String str);
     }
 
     public d(Context context, a aVar) {

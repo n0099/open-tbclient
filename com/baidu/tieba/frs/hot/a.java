@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public byte[] hl(String str) {
+    public byte[] hm(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

@@ -96,7 +96,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             if (this.dJL.aGS() <= 0) {
                 showToast(n.j.buy_num_zeor_tip);
             } else if (view.getTag() != null && (view.getTag() instanceof IconInfo)) {
-                r.kn("c10296");
+                r.ko("c10296");
                 com.baidu.tbadk.pay.e.Eg().a(new PayConfig(2, "0", ((IconInfo) view.getTag()).iconId, String.valueOf(this.dJL.aGR()), String.valueOf(this.dJL.aGS()), true, String.valueOf(this.dJL.aGT()), this.mIsPayDialog, PageDialogHelper.PayForm.NOT_SET), getPageContext().getPageActivity());
             }
         }
@@ -119,7 +119,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     @Override // com.baidu.tieba.tbean.e.a
-    public void hs(String str) {
+    public void ht(String str) {
         showToast(str);
         closeLoadingDialog();
         if (this.dJL != null) {

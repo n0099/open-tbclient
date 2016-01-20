@@ -39,7 +39,7 @@ public class f implements a.b {
         if (ah.a(pageActivity, bVar2, 0, str)) {
             iVar2 = this.cjA.cjx;
             bVar3 = this.cjA.cju;
-            iVar2.jx(bVar3.US);
+            iVar2.jy(bVar3.US);
         }
         aVar.dismiss();
     }

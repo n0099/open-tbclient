@@ -39,6 +39,6 @@ class e implements NoNetworkView.a {
             this.bkc.refresh();
             return;
         }
-        this.bkc.hu(this.bkc.getResources().getString(n.j.no_network_guide));
+        this.bkc.hv(this.bkc.getResources().getString(n.j.no_network_guide));
     }
 }

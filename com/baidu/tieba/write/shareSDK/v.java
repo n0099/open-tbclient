@@ -2,9 +2,8 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements TextWatcher {
+class v implements TextWatcher {
     final /* synthetic */ o dVe;
 
     /* JADX INFO: Access modifiers changed from: package-private */

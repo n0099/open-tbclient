@@ -34,7 +34,7 @@ public class e {
 
         void aku();
 
-        void kp(String str);
+        void kq(String str);
     }
 
     public e(Context context) {
@@ -59,7 +59,7 @@ public class e {
         this.cCo = bVar;
     }
 
-    public void kr(String str) {
+    public void ks(String str) {
         if (!StringUtils.isNull(str) && this.aLn != null) {
             this.aLn.d(str, 12, false);
         }
@@ -111,7 +111,7 @@ public class e {
     public void a(UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            kr(userInfo.portrait);
+            ks(userInfo.portrait);
             this.aLn.setOnClickListener(new g(this, userInfo));
             this.aGr.setOnClickListener(new h(this, userInfo));
         }
@@ -148,7 +148,7 @@ public class e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (e.this.cCo != null) {
-                e.this.cCo.kp(this.forumName);
+                e.this.cCo.kq(this.forumName);
             }
         }
     }

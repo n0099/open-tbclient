@@ -26,7 +26,6 @@ import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.performanceLog.z;
 import com.baidu.tieba.n;
 import java.io.File;
 import java.util.HashMap;
@@ -107,7 +106,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             LogoActivityConfig.isFirst = true;
         }
         this.aGB = TbadkCoreApplication.m411getInst().getIsFirstUse();
-        z.EN().bD(this.aGB);
+        com.baidu.tbadk.performanceLog.z.EN().bD(this.aGB);
         registerListener(this.aGE);
         Gr();
         this.mHandler.sendMessage(this.mHandler.obtainMessage());
@@ -177,7 +176,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     public void onResume() {
         super.onResume();
         if (LogoActivityConfig.isFirst) {
-            z.EN().R(System.currentTimeMillis());
+            com.baidu.tbadk.performanceLog.z.EN().R(System.currentTimeMillis());
         }
         if (this.aGC) {
             this.aGC = false;
@@ -239,7 +238,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private void Gu() {
-        z.EN().S(System.currentTimeMillis() - System.currentTimeMillis());
+        com.baidu.tbadk.performanceLog.z.EN().S(System.currentTimeMillis() - System.currentTimeMillis());
         if (Gv()) {
             com.baidu.adp.lib.h.h.hj().post(this.aGG);
         } else {
@@ -268,7 +267,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NotLoginGuideActivityConfig(getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
             finish();
         }
-        z.EN().U(System.currentTimeMillis());
+        com.baidu.tbadk.performanceLog.z.EN().U(System.currentTimeMillis());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

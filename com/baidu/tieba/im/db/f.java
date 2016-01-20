@@ -92,7 +92,7 @@ public class f {
         return linkedList;
     }
 
-    public static void ix(String str) {
+    public static void iy(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 g.Ym().Yn();

@@ -35,12 +35,12 @@ public class MsgReplyCardView extends as {
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            c.a jv = c.jv(chatMessage.getContent());
+            c.a jw = c.jw(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.chB.setText(a(jv, valueOf));
-            this.chC.setText(jv.chl);
-            this.chD.setText(b(jv, valueOf));
-            this.chE.setText(String.valueOf(jv.chN) + this.mContext.getString(n.j.bar));
+            this.chB.setText(a(jw, valueOf));
+            this.chC.setText(jw.chl);
+            this.chD.setText(b(jw, valueOf));
+            this.chE.setText(String.valueOf(jw.chN) + this.mContext.getString(n.j.bar));
         }
     }
 

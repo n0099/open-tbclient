@@ -44,7 +44,7 @@ public class c {
         return this.icon_url;
     }
 
-    public void gS(String str) {
+    public void gT(String str) {
         this.icon_url = str;
     }
 
@@ -68,7 +68,7 @@ public class c {
         return this.statistics;
     }
 
-    public void gT(String str) {
+    public void gU(String str) {
         this.statistics = str;
     }
 

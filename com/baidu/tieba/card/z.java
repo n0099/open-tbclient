@@ -39,7 +39,7 @@ public class z implements View.OnClickListener {
                 nVar3 = this.aOv.aOj;
                 TiebaStatic.log(nVar3.IB());
                 nVar4 = this.aOv.aOj;
-                x.gH(nVar4.aQo.getId());
+                x.gI(nVar4.aQo.getId());
                 tbPageContext = this.aOv.mPageContext;
                 tbPageContext2 = this.aOv.mPageContext;
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(tbPageContext2.getPageActivity());
@@ -49,14 +49,14 @@ public class z implements View.OnClickListener {
                 tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg.addLocateParam(nVar6.It())));
                 y yVar = this.aOv;
                 nVar7 = this.aOv.aOj;
-                boolean gI = x.gI(nVar7.aQo.getId());
+                boolean gJ = x.gJ(nVar7.aQo.getId());
                 textView = this.aOv.aOn;
-                yVar.a(gI, textView, n.d.cp_cont_b, n.d.cp_cont_d);
+                yVar.a(gJ, textView, n.d.cp_cont_b, n.d.cp_cont_d);
                 y yVar2 = this.aOv;
                 nVar8 = this.aOv.aOj;
-                boolean gI2 = x.gI(nVar8.aQo.getId());
+                boolean gJ2 = x.gJ(nVar8.aQo.getId());
                 textView2 = this.aOv.aOp;
-                yVar2.a(gI2, textView2, n.d.cp_cont_j, n.d.cp_cont_d);
+                yVar2.a(gJ2, textView2, n.d.cp_cont_j, n.d.cp_cont_d);
             }
         }
     }

@@ -417,7 +417,7 @@ public class cp extends ce<com.baidu.tieba.tbadkCore.data.r, cs> implements View
         this.cDs = z;
     }
 
-    public void ku(String str) {
+    public void kv(String str) {
         this.cDX = str;
     }
 

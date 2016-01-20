@@ -218,7 +218,7 @@ public class k extends FrameLayout implements AbsListView.OnScrollListener, Adap
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(getContext(), j, str)));
     }
 
-    private void lT(String str) {
+    private void lU(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getContext()).createNormalCfg(str, null, null)));
     }
 
@@ -244,12 +244,12 @@ public class k extends FrameLayout implements AbsListView.OnScrollListener, Adap
                 i(jVar.ayv(), str);
                 TiebaStatic.log(new av("kantie_card").aa("obj_name", jVar.dpt).r("obj_type", 1).r("obj_locate", i).aa("obj_source", jVar.dpu).r("obj_param1", 1).aa("abtest", jVar.abtest));
             } else if (jVar.ayz() == 3) {
-                lT(new StringBuilder(String.valueOf(jVar.getThreadId())).toString());
+                lU(new StringBuilder(String.valueOf(jVar.getThreadId())).toString());
                 TiebaStatic.log(new av("kantie_card").aa("obj_name", jVar.dpt).r("obj_type", 2).r("obj_locate", i).aa("obj_source", jVar.dpu).r("obj_param1", 1).aa("abtest", jVar.abtest));
             }
             com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.mC(String.valueOf(jVar.getThreadId()))) {
-                readThreadHistory.mB(String.valueOf(jVar.getThreadId()));
+            if (readThreadHistory != null && !readThreadHistory.mD(String.valueOf(jVar.getThreadId()))) {
+                readThreadHistory.mC(String.valueOf(jVar.getThreadId()));
                 this.doe.A(item);
             }
         }

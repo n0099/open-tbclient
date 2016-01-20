@@ -58,7 +58,7 @@ public class g {
         }
     }
 
-    public boolean iy(String str) {
+    public boolean iz(String str) {
         SQLiteDatabase Yk = f.Yk();
         if (Yk == null) {
             return false;

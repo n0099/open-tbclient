@@ -2,8 +2,9 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 
 import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements View.OnTouchListener {
+public class w implements View.OnTouchListener {
     final /* synthetic */ p chh;
 
     /* JADX INFO: Access modifiers changed from: package-private */

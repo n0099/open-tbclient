@@ -110,7 +110,7 @@ public class eh extends bp<com.baidu.tbadk.core.data.z, el> implements View.OnCl
             elVar.ahk.setVisibility(0);
             zVar.parser_title();
             elVar.ahk.setText(zVar.getSpan_str());
-            if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+            if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                 com.baidu.tbadk.core.util.as.b(elVar.ahk, n.d.cp_cont_c, 1);
             } else {
                 com.baidu.tbadk.core.util.as.b(elVar.ahk, n.d.cp_cont_b, 1);
@@ -142,7 +142,7 @@ public class eh extends bp<com.baidu.tbadk.core.data.z, el> implements View.OnCl
                     elVar.bcy.setText(stringBuffer.toString());
                 }
                 elVar.bcy.setVisibility(0);
-                if (readThreadHistory != null && readThreadHistory.mC(zVar.getId())) {
+                if (readThreadHistory != null && readThreadHistory.mD(zVar.getId())) {
                     com.baidu.tbadk.core.util.as.b(elVar.bcy, n.d.cp_cont_c, 1);
                 } else {
                     com.baidu.tbadk.core.util.as.b(elVar.bcy, n.d.cp_cont_b, 1);

@@ -150,7 +150,7 @@ public class d implements View.OnClickListener {
                         aoVar3 = this.cLc.cKR;
                         String BJ = aoVar3.BJ();
                         if (this.cLc.checkUpIsLogin()) {
-                            this.cLc.kv(BJ);
+                            this.cLc.kw(BJ);
                             return;
                         }
                         return;
@@ -187,7 +187,7 @@ public class d implements View.OnClickListener {
                                             if (aoVar != null) {
                                                 NewSubPbActivity newSubPbActivity2 = this.cLc;
                                                 aoVar2 = this.cLc.cKR;
-                                                newSubPbActivity2.kK(aoVar2.BJ());
+                                                newSubPbActivity2.kL(aoVar2.BJ());
                                                 return;
                                             }
                                             return;

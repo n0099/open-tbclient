@@ -47,7 +47,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lX(String str) {
+    public void lY(String str) {
         if (this.dxz) {
             c aCn = this.dxw.aCn();
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
@@ -142,7 +142,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 return;
             }
             if (aCn.aBz() != 0) {
-                lY(aCn.aBA());
+                lZ(aCn.aBA());
                 this.Md.tf();
             } else if (com.baidu.adp.lib.util.i.iQ()) {
                 aBW();
@@ -177,7 +177,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lY(String str) {
+    public void lZ(String str) {
         this.Md = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).cF(str).a(n.j.signallforum_signnow, new o(this));
         this.Md.b(getPageContext());
     }

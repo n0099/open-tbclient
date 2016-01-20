@@ -66,14 +66,14 @@ public class h extends HttpMessageListener {
                         return;
                     }
                 } else {
-                    r.kn("c10297");
+                    r.ko("c10297");
                     if (!(httpMessage.getExtra() instanceof String)) {
                         str = "";
                     } else {
                         str = (String) httpMessage.getExtra();
                     }
                     com.baidu.tieba.tbadkCore.data.f fVar = new com.baidu.tieba.tbadkCore.data.f();
-                    fVar.mt(str);
+                    fVar.mu(str);
                     fVar.setStatus(pay_status);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS, fVar));
                     buyTBeanActivity9 = this.dJX.dJV;

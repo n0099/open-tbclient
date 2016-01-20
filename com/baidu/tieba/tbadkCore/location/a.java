@@ -18,7 +18,7 @@ public class a {
         return this.poi_info;
     }
 
-    public void mu(String str) {
+    public void mv(String str) {
         this.formatted_address = str;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this.sn;
     }
 
-    public void mv(String str) {
+    public void mw(String str) {
         this.sn = str;
     }
 

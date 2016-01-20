@@ -35,7 +35,7 @@ public class j implements aj.a {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
             y yVar = new y();
             yVar.setLike(0);
-            yVar.mo(new StringBuilder(String.valueOf(j)).toString());
+            yVar.mp(new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
         }
     }

@@ -29,7 +29,7 @@ public abstract class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=5] */
-    public int im(String str) {
+    public int in(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -54,7 +54,7 @@ public abstract class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=5] */
-    public long in(String str) {
+    public long io(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
@@ -68,7 +68,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                is(str);
+                it(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -94,7 +94,7 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v5, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v9 */
-    public CommonMsgPojo io(String str) {
+    public CommonMsgPojo ip(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -132,7 +132,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        is(str);
+                        it(str);
                         com.baidu.adp.lib.util.o.b(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
@@ -201,7 +201,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            is(str);
+                            it(str);
                             com.baidu.adp.lib.util.o.b(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -293,7 +293,7 @@ public abstract class a {
                             try {
                                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                                 e2.printStackTrace();
-                                is(valueOf);
+                                it(valueOf);
                                 com.baidu.adp.lib.util.o.b(cursor2);
                                 return linkedList;
                             } catch (Throwable th2) {
@@ -381,7 +381,7 @@ public abstract class a {
             this.bPW = Ye();
         }
         if (!this.bPW.contains(valueOf)) {
-            is(valueOf);
+            it(valueOf);
             this.bPW.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
@@ -485,7 +485,7 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    is(next);
+                    it(next);
                 }
             }
         }
@@ -520,29 +520,6 @@ public abstract class a {
         }
     }
 
-    public boolean ip(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (this.bPW == null) {
-            this.bPW = Ye();
-        }
-        if (this.bPW != null && this.bPW.contains(str)) {
-            Iterator<String> it = this.bPW.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                String next = it.next();
-                if (next.equals(str)) {
-                    this.bPW.remove(next);
-                    break;
-                }
-            }
-        }
-        return g.Ym().iy("DROP TABLE IF EXISTS " + (String.valueOf(this.bPU) + str));
-    }
-
     public boolean iq(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -563,10 +540,33 @@ public abstract class a {
                 }
             }
         }
-        return g.Ym().iy("delete from " + (String.valueOf(this.bPU) + str));
+        return g.Ym().iz("DROP TABLE IF EXISTS " + (String.valueOf(this.bPU) + str));
     }
 
     public boolean ir(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.bPW == null) {
+            this.bPW = Ye();
+        }
+        if (this.bPW != null && this.bPW.contains(str)) {
+            Iterator<String> it = this.bPW.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                if (next.equals(str)) {
+                    this.bPW.remove(next);
+                    break;
+                }
+            }
+        }
+        return g.Ym().iz("delete from " + (String.valueOf(this.bPU) + str));
+    }
+
+    public boolean is(String str) {
         try {
             e(Long.parseLong(str), true);
             return true;
@@ -577,9 +577,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void is(String str) {
+    public synchronized void it(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.Ym().iy("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.bPU) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            g.Ym().iz("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.bPU) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 

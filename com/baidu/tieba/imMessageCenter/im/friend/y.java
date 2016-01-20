@@ -40,7 +40,7 @@ public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
         bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.chk);
     }
 
-    public void js(String str) {
+    public void jt(String str) {
         this.chi = c(this.chj, this.chk, str);
         super.sendMessage(this.chi);
     }

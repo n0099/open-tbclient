@@ -291,7 +291,7 @@ public class FrsGoodActivity extends BaseActivity<FrsGoodActivity> implements Bd
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        com.baidu.tbadk.core.data.z ml;
+        com.baidu.tbadk.core.data.z mm;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
@@ -307,15 +307,15 @@ public class FrsGoodActivity extends BaseActivity<FrsGoodActivity> implements Bd
                 case 18003:
                     this.bkj.OV().notifyDataSetChanged();
                     String stringExtra = intent.getStringExtra("tid");
-                    if (stringExtra != null && (ml = this.bdo.ml(stringExtra)) != null) {
+                    if (stringExtra != null && (mm = this.bdo.mm(stringExtra)) != null) {
                         int intExtra = intent.getIntExtra("type", 0);
                         if (intExtra == 2) {
-                            ml.bD(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
-                            ml.parser_title();
+                            mm.bD(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
+                            mm.parser_title();
                             cy(false);
                             return;
                         } else if (intExtra == 0) {
-                            this.bdo.j(ml);
+                            this.bdo.j(mm);
                             ArrayList<com.baidu.adp.widget.ListView.u> threadList = this.bdo.getThreadList();
                             if (threadList != null && threadList.size() <= 0) {
                                 threadList.add(new cw());
@@ -761,7 +761,7 @@ public class FrsGoodActivity extends BaseActivity<FrsGoodActivity> implements Bd
         return this.bkk;
     }
 
-    public void hr(String str) {
+    public void hs(String str) {
         this.bde = str;
     }
 
@@ -800,7 +800,7 @@ public class FrsGoodActivity extends BaseActivity<FrsGoodActivity> implements Bd
         }
     }
 
-    public void hs(String str) {
+    public void ht(String str) {
         Ns();
     }
 

@@ -59,7 +59,7 @@ public class j {
         int size = this.cjC.size();
         for (int i = 0; i < size; i++) {
             String str7 = this.cjC.get(i);
-            this.cjM.put(jA(str7), str7);
+            this.cjM.put(jB(str7), str7);
         }
         this.cjE = str3;
         this.bde = str2;
@@ -221,8 +221,8 @@ public class j {
                         for (int i5 = 0; i5 < size; i5++) {
                             l lVar = afm.get(i5);
                             String a = j.this.a(lVar);
-                            String jA = j.this.jA(a);
-                            if (!j.this.cjM.containsKey(jA)) {
+                            String jB = j.this.jB(a);
+                            if (!j.this.cjM.containsKey(jB)) {
                                 ImageUrlData imageUrlData = new ImageUrlData();
                                 imageUrlData.imageUrl = a;
                                 imageUrlData.urlType = 10;
@@ -235,7 +235,7 @@ public class j {
                                 imageUrlData.overAllIndex = lVar.afl();
                                 j.this.cjC.add(a);
                                 j.this.amP.put(a, imageUrlData);
-                                j.this.cjM.put(jA, a);
+                                j.this.cjM.put(jB, a);
                             }
                         }
                         l lVar2 = afm.get(size - 1);
@@ -304,7 +304,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String jA(String str) {
+    public String jB(String str) {
         int lastIndexOf;
         int indexOf;
         String aU = ax.aU(str);

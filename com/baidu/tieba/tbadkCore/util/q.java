@@ -13,7 +13,7 @@ public class q {
         this.dlR = i;
     }
 
-    public void mB(String str) {
+    public void mC(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
@@ -46,7 +46,7 @@ public class q {
         }
     }
 
-    public boolean mC(String str) {
+    public boolean mD(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));

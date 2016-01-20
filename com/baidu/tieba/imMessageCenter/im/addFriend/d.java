@@ -27,7 +27,7 @@ public class d implements View.OnClickListener {
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             editText2 = this.ccU.ccP;
-            this.ccU.gA(editText2.getText().toString());
+            this.ccU.gB(editText2.getText().toString());
             return;
         }
         this.ccU.showToast(n.j.plugin_not_install);

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.data.o;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.util.Date;
 import java.util.Random;
 /* loaded from: classes.dex */
@@ -131,7 +131,7 @@ public class TiebaSyncService extends BdBaseService {
                 this.Ua.o("package", packageName);
                 this.Ua.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
                 this.Ua.o("signmd5", az.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.Ua.o("md5", y.getTiebaApkMd5());
+                this.Ua.o("md5", z.getTiebaApkMd5());
                 String tV = this.Ua.tV();
                 if (this.Ua.uz()) {
                     TbadkCoreApplication.m411getInst().clearActiveVersion();

@@ -20,7 +20,7 @@ public class m implements View.OnClickListener {
         if (this.this$0.mProgress.getVisibility() != 0) {
             this.this$0.cNk.replaceImageBitmap(this.this$0.mBitmap);
             this.this$0.cNE = false;
-            this.this$0.kP(this.cNJ);
+            this.this$0.kQ(this.cNJ);
             this.this$0.cNA = this.val$id;
         }
     }

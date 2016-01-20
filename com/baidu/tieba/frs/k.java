@@ -16,7 +16,7 @@ class k implements af.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.af.a
-    public void gx(String str) {
+    public void gy(String str) {
         boolean z;
         com.baidu.tbadk.core.data.z zVar;
         com.baidu.tbadk.core.data.z zVar2;

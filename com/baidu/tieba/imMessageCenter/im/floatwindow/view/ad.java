@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements Runnable {
+class ad implements Runnable {
     final /* synthetic */ FloatingPersonalChatView cgl;
 
     /* JADX INFO: Access modifiers changed from: package-private */

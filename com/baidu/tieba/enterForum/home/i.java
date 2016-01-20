@@ -364,7 +364,7 @@ public class i implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 TbadkCoreApplication.m411getInst().clearSignedForum();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    com.baidu.tieba.tbadkCore.util.m.mw(currentAccount);
+                    com.baidu.tieba.tbadkCore.util.m.mx(currentAccount);
                 }
                 this.aUl.notifyDataSetChanged();
             }

@@ -32,22 +32,22 @@ public class p extends c {
     }
 
     public av IA() {
-        return gM(aQy);
+        return gN(aQy);
     }
 
     public av IB() {
-        return gM(aQz);
+        return gN(aQz);
     }
 
     public av IC() {
-        return gM(aQw);
+        return gN(aQw);
     }
 
     public av ID() {
-        return gM(aQv);
+        return gN(aQv);
     }
 
     public av IL() {
-        return gM(aQx);
+        return gN(aQx);
     }
 }

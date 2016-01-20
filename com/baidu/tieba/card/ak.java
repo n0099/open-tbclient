@@ -110,7 +110,7 @@ public class ak extends a<com.baidu.tieba.card.a.r> {
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        am.Iq().gJ(this.aPh);
+        am.Iq().gK(this.aPh);
         this.aPg = rVar;
         this.aPe.setVisibility(this.aPg.aQE ? 0 : 8);
         this.aOS.setText(this.aPg.aQF.trim());

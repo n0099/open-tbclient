@@ -13,15 +13,15 @@ public class m implements CompoundButton.OnCheckedChangeListener {
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        String km;
-        String km2;
+        String kn;
+        String kn2;
         com.baidu.tbadk.core.sharedPref.b tJ = com.baidu.tbadk.core.sharedPref.b.tJ();
-        km = this.cAI.km("payment_confirm_show");
-        tJ.putBoolean(km, !z);
+        kn = this.cAI.kn("payment_confirm_show");
+        tJ.putBoolean(kn, !z);
         if (!z) {
             com.baidu.tbadk.core.sharedPref.b tJ2 = com.baidu.tbadk.core.sharedPref.b.tJ();
-            km2 = this.cAI.km("payment_confirm_notshow_count");
-            tJ2.putInt(km2, 0);
+            kn2 = this.cAI.kn("payment_confirm_notshow_count");
+            tJ2.putInt(kn2, 0);
         }
     }
 }

@@ -41,7 +41,7 @@ public class ao extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
             String cmd = p.getCmd();
             if (!TextUtils.isEmpty(cmd)) {
-                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ic(cmd)) {
+                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.id(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid("-1002");
                     imMessageCenterPojo.setCustomGroupType(-3);
@@ -49,7 +49,7 @@ public class ao extends CustomMessageListener {
                     imMessageCenterPojo.setLast_content_time(p.getTime());
                     imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.h.b.c(p.getNotice_id(), 0L));
                     b.aay().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.id(cmd)) {
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ie(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                     imMessageCenterPojo2.setGid("-1003");
                     imMessageCenterPojo2.setCustomGroupType(-4);
@@ -57,7 +57,7 @@ public class ao extends CustomMessageListener {
                     imMessageCenterPojo2.setLast_content_time(p.getTime());
                     imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.h.b.c(p.getNotice_id(), 0L));
                     b.aay().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ig(cmd)) {
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ih(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                     imMessageCenterPojo3.setGid("-1004");
                     imMessageCenterPojo3.setCustomGroupType(-5);
@@ -136,8 +136,8 @@ public class ao extends CustomMessageListener {
                     if (TextUtils.isEmpty(gid)) {
                         return;
                     }
-                    this.this$0.iP(gid);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ie(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
+                    this.this$0.iQ(gid);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ig(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
                     b.aay().c(a, 1);
                 }
             }

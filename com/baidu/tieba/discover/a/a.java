@@ -39,7 +39,7 @@ public class a extends RelativeLayout {
 
     public void ap(String str, String str2) {
         if (this.Nm != null) {
-            this.Nm.setDefaultResource(t.gQ(str2));
+            this.Nm.setDefaultResource(t.gR(str2));
             if (!StringUtils.isNull(str)) {
                 this.Nm.d(str, 10, false);
             }

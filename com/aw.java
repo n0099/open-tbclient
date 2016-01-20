@@ -17,7 +17,7 @@ public class aw {
         this.edE = iBaiduListener;
     }
 
-    public av nB(String str) {
+    public av nC(String str) {
         switch (MediaType.fromString(str)) {
             case SINAWEIBO:
                 return new as(this.edD, this.b, this.edE);

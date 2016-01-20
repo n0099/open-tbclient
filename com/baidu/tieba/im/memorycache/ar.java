@@ -21,7 +21,7 @@ class ar implements CustomMessageTask.CustomRunnable<String> {
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             com.baidu.tieba.im.db.g.Ym().Yn();
-            com.baidu.tieba.im.db.c.Yi().is(this.bXY.getGid());
+            com.baidu.tieba.im.db.c.Yi().it(this.bXY.getGid());
             com.baidu.tieba.im.db.i.Yr().c(this.bXY);
         } catch (Exception e) {
             BdLog.detailException(e);

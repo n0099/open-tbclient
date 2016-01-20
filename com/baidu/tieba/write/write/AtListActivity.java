@@ -65,7 +65,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         setContentView(n.h.at_list_activity);
         initData(bundle);
         initUI();
-        nr(null);
+        ns(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -224,7 +224,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nr(String str) {
+    public void ns(String str) {
         if (!isFinishing()) {
             this.dWH.setData(null);
             if (this.dWE != null) {
@@ -427,7 +427,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return null;
             }
             com.baidu.tieba.write.data.a aVar = new com.baidu.tieba.write.data.a();
-            aVar.nm(tV);
+            aVar.nn(tV);
             return aVar;
         }
 

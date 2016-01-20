@@ -40,7 +40,7 @@ public class a {
         }
     }
 
-    public void nm(String str) {
+    public void nn(String str) {
         try {
             c(new JSONObject(str), true);
         } catch (Exception e) {

@@ -47,7 +47,7 @@ public class u implements a.InterfaceC0040a {
                         aoVar3.fy(true);
                         aoVar4 = this.cLc.cKR;
                         aoVar5 = this.cLc.cKR;
-                        aoVar4.kO(aoVar5.BJ());
+                        aoVar4.kP(aoVar5.BJ());
                         this.cLc.showToast(MessageFormat.format(this.cLc.getPageContext().getString(n.j.add_mark_on_pb), Integer.valueOf(pQ.getFloor())));
                     } else {
                         this.cLc.showToast(this.cLc.getPageContext().getString(n.j.add_mark));
@@ -58,7 +58,7 @@ public class u implements a.InterfaceC0040a {
                 aoVar = this.cLc.cKR;
                 aoVar.fy(false);
                 aoVar2 = this.cLc.cKR;
-                aoVar2.kO(null);
+                aoVar2.kP(null);
                 this.cLc.showToast(this.cLc.getPageContext().getString(n.j.remove_mark));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, aqVar));

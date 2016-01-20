@@ -37,7 +37,7 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean ib(String str);
+        boolean ic(String str);
     }
 
     public static boolean f(ChatMessage chatMessage) {
@@ -48,7 +48,7 @@ public abstract class a {
         return (y == null || y.getIsSelf()) ? false : true;
     }
 
-    public static void ia(String str) {
+    public static void ib(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -160,7 +160,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.ib(valueOf)) {
+            if (cVar != null && cVar.ic(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);

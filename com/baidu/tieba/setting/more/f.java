@@ -68,8 +68,8 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
         if (aVar != null && aVar.azf() != null) {
             SimpleUser azf = aVar.azf();
-            this.dtE.setTip(lU(azf.securemobil));
-            this.dtF.setTip(lV(azf.secureemail));
+            this.dtE.setTip(lV(azf.securemobil));
+            this.dtF.setTip(lW(azf.secureemail));
             switch (azf.user_status.intValue()) {
                 case 0:
                     this.dtI.setTip(getPageContext().getString(n.j.account_status_normal));
@@ -92,7 +92,7 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         }
     }
 
-    private String lU(String str) {
+    private String lV(String str) {
         if (TextUtils.isEmpty(str)) {
             return getPageContext().getString(n.j.unbind_status);
         }
@@ -105,7 +105,7 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         return str;
     }
 
-    private String lV(String str) {
+    private String lW(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return getPageContext().getString(n.j.unbind_status);

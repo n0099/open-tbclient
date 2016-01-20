@@ -7,7 +7,7 @@ import java.util.Map;
 public class n {
     private static String cFg = "tbgametype";
 
-    public static String mz(String str) {
+    public static String mA(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
@@ -24,7 +24,7 @@ public class n {
         return "";
     }
 
-    public static boolean kw(String str) {
+    public static boolean kx(String str) {
         Map<String, String> dE;
         if (!TextUtils.isEmpty(str) && (dE = bf.dE(bf.dF(str))) != null) {
             String str2 = dE.get(cFg);

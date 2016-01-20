@@ -123,7 +123,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             boolean Fg = g.Fg();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
             long currentTimeMillis = System.currentTimeMillis();
-            String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
+            String str = String.valueOf(TbConfig.getVersion()) + ".31";
             PluginPackageManager.ls().a(a.ES(), new com.baidu.tbadk.g.c(), str, isMainProcess(false), this.isThirdProcess, Fg && isXiaomiPushSdkShouldOpen);
             PluginSettings lM = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
             if (lM != null) {

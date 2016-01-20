@@ -386,7 +386,7 @@ public class a {
         }
     }
 
-    public boolean hw(String str) {
+    public boolean hx(String str) {
         if (str != null && str.startsWith("homework:")) {
             PluginNetConfigInfos.PluginConfig pluginConfig = PluginPackageManager.ls().getPluginConfig("com.baidu.tieba.pluginHomework");
             if (pluginConfig == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1) {

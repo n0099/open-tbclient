@@ -96,14 +96,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         TZ();
         MY();
         if (!this.cky) {
-            String jA = jA(this.ckj);
-            if (jA == null) {
+            String jB = jB(this.ckj);
+            if (jB == null) {
                 this.boZ.setVisibility(8);
             }
-            if (jD(this.ckj)) {
+            if (jE(this.ckj)) {
                 this.boZ.setVisibility(0);
             }
-            this.cks = new j(this.cki, this.ckl, this.ckv, this.ckw, this.cjE, jA, this.mUserId, this.mFrom);
+            this.cks = new j(this.cki, this.ckl, this.ckv, this.ckw, this.cjE, jB, this.mUserId, this.mFrom);
             this.cks.ee(this.ckk);
             this.cks.ef(this.mIsSeeHost);
             this.cks.a(new u(this));
@@ -263,7 +263,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
             if (afq()) {
                 afs();
             } else {
-                jB(str);
+                jC(str);
             }
         }
     }
@@ -273,7 +273,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         return this.ckz && this.ckA != null && this.ckA.aeS() && this.mIndex == this.ckq.getItemNum() + (-1);
     }
 
-    private void jB(String str) {
+    private void jC(String str) {
         this.ckp.setText(str);
         if (!this.ckD) {
             this.ckn.setVisibility(8);
@@ -289,14 +289,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         }
         Iterator<String> it = this.cki.iterator();
         while (it.hasNext()) {
-            if (jC(it.next())) {
+            if (jD(it.next())) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean jC(String str) {
+    private boolean jD(String str) {
         return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith("https://")) ? false : true;
     }
 
@@ -549,7 +549,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         }
     }
 
-    private String jA(String str) {
+    private String jB(String str) {
         int lastIndexOf;
         int indexOf;
         String aU = ax.aU(str);
@@ -562,7 +562,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         return aU;
     }
 
-    private boolean jD(String str) {
+    private boolean jE(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

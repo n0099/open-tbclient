@@ -47,7 +47,7 @@ public class c {
                 if ((uVar instanceof com.baidu.tieba.card.a.c) && (Iv = (cVar = (com.baidu.tieba.card.a.c) uVar).Iv()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Iv.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.gL(threadPersonalized.abtest_tag);
+                    cVar.gM(threadPersonalized.abtest_tag);
                 }
             }
         }

@@ -18,7 +18,7 @@ public class c {
         this.mKey = re();
     }
 
-    private byte[] b(Key key, byte[] bArr) {
+    private byte[] c(Key key, byte[] bArr) {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);
@@ -39,16 +39,16 @@ public class c {
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bytes)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bytes)));
             } else if (i != length - 1) {
                 byte[] bArr = new byte[SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE];
                 System.arraycopy(bytes, i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, bArr, 0, SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bArr)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bArr)));
             } else {
                 int length2 = bytes.length - (i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
                 byte[] bArr2 = new byte[length2];
                 System.arraycopy(bytes, i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, bArr2, 0, length2);
-                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(b(publicKey, bArr2)));
+                jSONArray.put(com.baidu.adp.lib.util.c.encodeBytes(c(publicKey, bArr2)));
             }
         }
         return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));

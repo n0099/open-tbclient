@@ -40,7 +40,7 @@ public class an extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.d> impleme
     private com.baidu.tbadk.core.view.viewpager.d ahi;
     private IndicatorView ahm;
 
-    public void gK(String str) {
+    public void gL(String str) {
         this.aNO = str;
     }
 

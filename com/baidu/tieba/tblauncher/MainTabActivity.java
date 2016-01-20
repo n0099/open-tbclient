@@ -86,7 +86,7 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     private final CustomMessageListener dKJ = new d(this, CmdConfigCustom.MAINTAB_SET_INST);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mH(String str) {
+    public void mI(String str) {
         if (str != null && TbadkCoreApplication.m411getInst().getConfigVersion() != null && aGU()) {
             this.dKB = System.currentTimeMillis();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_START_SYNC, null));

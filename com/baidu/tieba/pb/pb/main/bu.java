@@ -116,7 +116,7 @@ public class bu {
         if (this.cGk != null && this.cGl != null) {
             this.cGs.a(cVar);
             this.cGs.setFromCDN(this.mIsFromCDN);
-            this.cGs.ku(this.cDX);
+            this.cGs.kv(this.cDX);
             this.cGs.setImageMaxWidth(this.cDq);
             this.cGs.eS(this.cDr);
             this.cGs.eU(this.cDQ);
@@ -128,7 +128,7 @@ public class bu {
             this.cGs.a(this.cDu);
             this.cGk.a(cVar);
             this.cGk.setFromCDN(this.mIsFromCDN);
-            this.cGk.ku(this.cDX);
+            this.cGk.kv(this.cDX);
             this.cGk.setImageMaxWidth(this.cDq);
             this.cGk.eS(this.cDr);
             this.cGk.eU(this.cDQ);
@@ -162,7 +162,7 @@ public class bu {
             this.cGn.setFromCDN(this.mIsFromCDN);
             this.cGr.a(cVar);
             this.cGr.setFromCDN(this.mIsFromCDN);
-            this.cGr.ku(this.cDX);
+            this.cGr.kv(this.cDX);
             this.cGr.setImageMaxWidth(this.cDq);
             this.cGr.eS(this.cDr);
             this.cGr.eU(this.cDQ);
@@ -174,7 +174,7 @@ public class bu {
             this.cGr.a(this.cDu);
             this.cGt.a(cVar);
             this.cGt.setFromCDN(this.mIsFromCDN);
-            this.cGt.ku(this.cDX);
+            this.cGt.kv(this.cDX);
             this.cGt.setImageMaxWidth(this.cDq);
             this.cGt.eS(this.cDr);
             this.cGt.eU(this.cDQ);
@@ -186,7 +186,7 @@ public class bu {
             this.cGt.a(this.cDu);
             this.cGu.a(cVar);
             this.cGu.setFromCDN(this.mIsFromCDN);
-            this.cGu.ku(this.cDX);
+            this.cGu.kv(this.cDX);
             this.cGu.setImageMaxWidth(this.cDq);
             this.cGu.eS(this.cDr);
             this.cGu.eU(this.cDQ);

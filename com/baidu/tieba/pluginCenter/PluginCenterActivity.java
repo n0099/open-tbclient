@@ -142,7 +142,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PluginConfigWrapper lE(String str) {
+    public PluginConfigWrapper lF(String str) {
         if (str == null) {
             return null;
         }

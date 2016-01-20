@@ -20,15 +20,15 @@ public class PostSearchActivity extends BaseFragmentActivity {
         initData();
     }
 
-    public void jH(String str) {
+    public void jI(String str) {
         this.cpN = str;
         this.djK.lZ(1);
         this.djL.awD();
         this.djK.MF();
     }
 
-    public void lG(String str) {
-        this.djK.lG(str);
+    public void lH(String str) {
+        this.djK.lH(str);
     }
 
     public void awp() {

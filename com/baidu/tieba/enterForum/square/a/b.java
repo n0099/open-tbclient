@@ -22,7 +22,7 @@ public class b extends com.baidu.tieba.enterForum.square.a.a<com.baidu.tieba.car
         this.aVs = KM();
         this.aVs.setTag(getTag());
         this.aVr = true;
-        this.aVs.gK("c10583");
+        this.aVs.gL("c10583");
         return new a(this.aVs);
     }
 

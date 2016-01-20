@@ -114,7 +114,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (i2 == 230013) {
                 ajQ();
             } else if (i2 == 230014 && intent != null) {
-                kj(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
+                kk(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
             }
         } else if (i == 230015) {
             if (i2 == -1) {
@@ -143,7 +143,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kj(String str) {
+    public void kk(String str) {
         if (TextUtils.isEmpty(str)) {
             str = getResources().getString(n.j.social_login_error);
         }

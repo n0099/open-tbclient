@@ -57,7 +57,7 @@ public class h {
         as.a(this.bxl, n.d.fenfa_downloading_button, 1, 0);
     }
 
-    public void jw(String str) {
+    public void jx(String str) {
         this.bxl.setText(str);
         this.bxl.setEnabled(true);
         this.bxl.setBackgroundResource(n.f.button_fenfa_download_selector);

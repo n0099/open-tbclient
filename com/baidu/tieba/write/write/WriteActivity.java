@@ -900,7 +900,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
             this.dXL.setVisibility(0);
             this.dXM.setVisibility(0);
             this.dXK = new o(this);
-            this.dXK.ns(this.dJy.getForumName());
+            this.dXK.nt(this.dJy.getForumName());
             this.dXK.setLoadDataCallBack(new ar(this));
         }
     }

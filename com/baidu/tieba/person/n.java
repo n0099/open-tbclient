@@ -23,7 +23,7 @@ public class n implements View.OnClickListener {
             str = this.this$0.cNC;
             if (!str2.equals(str)) {
                 this.this$0.E(this.cNJ, true);
-                this.this$0.kP(this.cNJ);
+                this.this$0.kQ(this.cNJ);
                 this.this$0.cNA = this.val$id;
             }
         }

@@ -60,7 +60,7 @@ public class a extends com.baidu.tbadk.mvc.g.a<j, com.baidu.tbadk.mvc.d.b> {
             }
             this.dqF.setText(ax.x(ayy.reply_num.intValue() == 0 ? jVar.ayu() : ayy.reply_num.intValue()));
             q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.mC(String.valueOf(jVar.getThreadId()))) {
+            if (readThreadHistory != null && readThreadHistory.mD(String.valueOf(jVar.getThreadId()))) {
                 this.dqG = n.d.cp_cont_c;
             } else {
                 this.dqG = n.d.cp_cont_b;

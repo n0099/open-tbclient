@@ -46,7 +46,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         initUI();
         Bz();
         akf();
-        t.kn("c10291");
+        t.ko("c10291");
     }
 
     private void initData() {
@@ -61,7 +61,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
 
     private void initUI() {
         this.cAy = new s(this);
-        this.cAy.akl().setChecked(com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean(km("payment_confirm_show"), true) ? false : true);
+        this.cAy.akl().setChecked(com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean(kn("payment_confirm_show"), true) ? false : true);
         this.cAy.akl().setOnCheckedChangeListener(new m(this));
         this.cAy.akm().setOnClickListener(new n(this));
     }
@@ -85,7 +85,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kl(String str) {
+    public void km(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PAYMENT_CONFIRM_SUCCESS, str));
     }
 
@@ -122,12 +122,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             akg();
             return true;
         }
-        if (cpath.getTip_exist() != 1 || com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean(km("payment_confirm_show"), true)) {
+        if (cpath.getTip_exist() != 1 || com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean(kn("payment_confirm_show"), true)) {
             return false;
         }
-        int i = com.baidu.tbadk.core.sharedPref.b.tJ().getInt(km("payment_confirm_notshow_count"), 0);
+        int i = com.baidu.tbadk.core.sharedPref.b.tJ().getInt(kn("payment_confirm_notshow_count"), 0);
         if (i < cpath.getTip_days()) {
-            com.baidu.tbadk.core.sharedPref.b.tJ().putInt(km("payment_confirm_notshow_count"), i + 1);
+            com.baidu.tbadk.core.sharedPref.b.tJ().putInt(kn("payment_confirm_notshow_count"), i + 1);
             if (z) {
                 akh();
                 return true;
@@ -209,7 +209,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String km(String str) {
+    public String kn(String str) {
         return String.valueOf(str) + this.mUserId;
     }
 

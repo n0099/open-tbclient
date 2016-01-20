@@ -34,10 +34,10 @@ class j extends HttpMessageListener {
             if (!responsePaymentPayMessage.hasError()) {
                 int error = responsePaymentPayMessage.getError();
                 if (error == 0) {
-                    t.kn("c10294");
+                    t.ko("c10294");
                     PaymentConfirmActivity paymentConfirmActivity = this.cAI;
                     paymentConfirmRequestData = this.cAI.cAA;
-                    paymentConfirmActivity.kl(paymentConfirmRequestData.getOrder_id());
+                    paymentConfirmActivity.km(paymentConfirmRequestData.getOrder_id());
                     this.cAI.closeActivity();
                     return;
                 } else if (error == 2270018) {

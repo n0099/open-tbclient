@@ -15,7 +15,7 @@ public class f {
     public interface a {
         void a(AccountData accountData);
 
-        void kk(String str);
+        void kl(String str);
     }
 
     public static void a(String str, String str2, a aVar) {
@@ -54,7 +54,7 @@ public class f {
                 if (accountData != null) {
                     this.cAf.a(accountData);
                 } else {
-                    this.cAf.kk(this.mAccount);
+                    this.cAf.kl(this.mAccount);
                 }
             }
         }

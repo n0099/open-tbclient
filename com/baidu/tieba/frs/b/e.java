@@ -112,13 +112,13 @@ public class e implements View.OnClickListener {
                 if (dl == 2) {
                     bf.vn().a((TbPageContext) this.bmZ.getPageContext(), new String[]{aDV}, true);
                 } else if (dl == 1) {
-                    String mz = com.baidu.tieba.tbadkCore.util.n.mz(aDV);
-                    if (TextUtils.isEmpty(mz) || Build.VERSION.SDK_INT < 11) {
+                    String mA = com.baidu.tieba.tbadkCore.util.n.mA(aDV);
+                    if (TextUtils.isEmpty(mA) || Build.VERSION.SDK_INT < 11) {
                         com.baidu.adp.lib.util.k.showToast(this.bmZ.getPageContext().getPageActivity(), this.bmZ.getPageContext().getPageActivity().getString(n.j.frs_header_games_unavailable));
                         return;
                     }
-                    TiebaStatic.eventStat(this.bmZ.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", mz, "ref_id", "1000601", "ref_type", "603");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.bmZ.getPageContext().getPageActivity(), mz, "1000601")));
+                    TiebaStatic.eventStat(this.bmZ.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", mA, "ref_id", "1000601", "ref_type", "603");
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.bmZ.getPageContext().getPageActivity(), mA, "1000601")));
                 } else if (dl == 3) {
                     frsActivity8 = this.bmZ.blE;
                     com.baidu.tbadk.core.util.o.a(frsActivity8.getPageContext(), aDV);

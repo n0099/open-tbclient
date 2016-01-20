@@ -37,20 +37,20 @@ public class e extends com.baidu.adp.framework.listener.a {
         if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
             aVar6 = this.cpb.coZ;
             squareSearchActivity3 = this.cpb.coY;
-            aVar6.jF(squareSearchActivity3.getPageContext().getString(n.j.neterror));
+            aVar6.jG(squareSearchActivity3.getPageContext().getString(n.j.neterror));
         } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
             aVar = this.cpb.coZ;
             squareSearchActivity = this.cpb.coY;
-            aVar.jF(squareSearchActivity.getPageContext().getString(n.j.neterror));
+            aVar.jG(squareSearchActivity.getPageContext().getString(n.j.neterror));
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                 aVar3 = this.cpb.coZ;
-                aVar3.jF(responsedMessage.getErrorString());
+                aVar3.jG(responsedMessage.getErrorString());
                 return;
             }
             aVar2 = this.cpb.coZ;
             squareSearchActivity2 = this.cpb.coY;
-            aVar2.jF(squareSearchActivity2.getPageContext().getString(n.j.neterror));
+            aVar2.jG(squareSearchActivity2.getPageContext().getString(n.j.neterror));
         } else {
             if (responsedMessage instanceof HotForumHttpResponseMessage) {
                 HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;

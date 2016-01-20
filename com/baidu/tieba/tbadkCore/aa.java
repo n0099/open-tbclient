@@ -20,7 +20,7 @@ public class aa extends com.baidu.tbadk.core.data.z {
         return this.fortune_desc;
     }
 
-    public void mp(String str) {
+    public void mq(String str) {
         this.fortune_desc = str;
     }
 

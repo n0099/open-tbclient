@@ -58,7 +58,7 @@ public class a extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             }
             this.aRo.setVisibility(0);
             q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.mC(String.valueOf(tinfoVar.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.mD(String.valueOf(tinfoVar.forum_id))) {
                 as.b(this.ahk, n.d.cp_cont_d, 1);
             } else {
                 as.b(this.ahk, n.d.cp_cont_b, 1);

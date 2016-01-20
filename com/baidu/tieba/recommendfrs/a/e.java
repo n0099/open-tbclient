@@ -85,7 +85,7 @@ public class e extends com.baidu.tbadk.mvc.g.a<j, com.baidu.tbadk.mvc.d.b> {
                 this.aRl.setOnClickListener(new f(this, jVar));
             }
             q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.mC(String.valueOf(jVar.getThreadId()))) {
+            if (readThreadHistory != null && readThreadHistory.mD(String.valueOf(jVar.getThreadId()))) {
                 this.dqG = n.d.cp_cont_c;
             } else {
                 this.dqG = n.d.cp_cont_b;

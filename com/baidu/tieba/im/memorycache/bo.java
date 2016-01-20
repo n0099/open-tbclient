@@ -22,7 +22,7 @@ public class bo implements CustomMessageTask.CustomRunnable<String> {
             try {
                 com.baidu.tieba.im.db.g.Ym().Yn();
                 com.baidu.tieba.im.db.i.Yr().J(this.bYg, 1);
-                com.baidu.tieba.im.db.c.Yi().ip(this.bYg);
+                com.baidu.tieba.im.db.c.Yi().iq(this.bYg);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
