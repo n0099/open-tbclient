@@ -1,17 +1,17 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ g La;
+    final /* synthetic */ g Lp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.La = gVar;
+        this.Lp = gVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.La.KW != null && com.baidu.adp.lib.voice.l.zp == 2) {
-            this.La.KW.onStopingRecorder();
+        if (this.Lp.Ll != null && com.baidu.adp.lib.voice.l.zx == 2) {
+            this.Lp.Ll.onStopingRecorder();
         }
     }
 }

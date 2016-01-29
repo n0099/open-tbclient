@@ -17,30 +17,30 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.e.d {
-    private static c coz;
-    private LocationManager coB;
+    private static c cvi;
+    private LocationManager cvk;
     private int errorCode;
     private Context mContext;
-    private a coA = null;
-    private a.b cot = null;
-    private Address coC = null;
-    private long uz = 0;
+    private a cvj = null;
+    private a.b cvc = null;
+    private Address cvl = null;
+    private long uI = 0;
     private Handler mHandler = null;
-    private boolean cox = false;
-    private Runnable coD = null;
-    private Runnable coE = null;
-    private final LocationListener coF = new d(this);
-    private final LocationListener coG = new e(this);
+    private boolean cvg = false;
+    private Runnable cvm = null;
+    private Runnable cvn = null;
+    private final LocationListener cvo = new d(this);
+    private final LocationListener cvp = new e(this);
 
-    public static c agf() {
-        if (coz == null) {
+    public static c akh() {
+        if (cvi == null) {
             synchronized (c.class) {
-                if (coz == null) {
-                    coz = new c();
+                if (cvi == null) {
+                    cvi = new c();
                 }
             }
         }
-        return coz;
+        return cvi;
     }
 
     private c() {
@@ -49,45 +49,45 @@ public class c implements com.baidu.adp.lib.e.d {
     @Override // com.baidu.adp.lib.e.d
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.m411getInst().getContext();
-        this.cot = bVar;
+        this.cvc = bVar;
         try {
-            this.coB = (LocationManager) this.mContext.getSystemService("location");
+            this.cvk = (LocationManager) this.mContext.getSystemService("location");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        this.coD = new f(this);
-        this.coE = new g(this);
-        gE();
+        this.cvm = new f(this);
+        this.cvn = new g(this);
+        gM();
     }
 
-    private void gE() {
+    private void gM() {
         this.mHandler = new Handler(Looper.getMainLooper(), new h(this));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
     @Override // com.baidu.adp.lib.e.d
     public void A(boolean z) {
-        if (this.cot == null) {
+        if (this.cvc == null) {
             return;
         }
         try {
-            if (this.coB != null) {
-                this.coB.removeUpdates(this.coF);
+            if (this.cvk != null) {
+                this.cvk.removeUpdates(this.cvo);
                 this.errorCode = 4;
-                this.cox = z;
-                if (!this.coB.isProviderEnabled("gps") && !this.coB.isProviderEnabled("network")) {
+                this.cvg = z;
+                if (!this.cvk.isProviderEnabled("gps") && !this.cvk.isProviderEnabled("network")) {
                     this.errorCode = 3;
-                    this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.e.a.gD().gF());
+                    this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.e.a.gL().gN());
                     return;
                 }
-                if (this.coB.isProviderEnabled("gps")) {
-                    this.mHandler.post(this.coE);
+                if (this.cvk.isProviderEnabled("gps")) {
+                    this.mHandler.post(this.cvn);
                 } else {
                     this.errorCode = 1;
                 }
                 if (!z) {
-                    if (this.coB.isProviderEnabled("network")) {
-                        this.mHandler.post(this.coD);
+                    if (this.cvk.isProviderEnabled("network")) {
+                        this.mHandler.post(this.cvm);
                     } else {
                         this.errorCode = 2;
                     }
@@ -95,10 +95,10 @@ public class c implements com.baidu.adp.lib.e.d {
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            gH();
+            gP();
             this.errorCode = 5;
         } finally {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.e.a.gD().gF());
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.e.a.gL().gN());
         }
     }
 
@@ -107,19 +107,19 @@ public class c implements com.baidu.adp.lib.e.d {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.coE);
-        this.mHandler.removeCallbacks(this.coD);
-        if (this.coB != null) {
+        this.mHandler.removeCallbacks(this.cvn);
+        this.mHandler.removeCallbacks(this.cvm);
+        if (this.cvk != null) {
             try {
-                this.coB.removeUpdates(this.coF);
-                this.coB.removeUpdates(this.coG);
+                this.cvk.removeUpdates(this.cvo);
+                this.cvk.removeUpdates(this.cvp);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.coA != null) {
-            this.coA.cancel();
-            this.coA = null;
+        if (this.cvj != null) {
+            this.cvj.cancel();
+            this.cvj = null;
         }
     }
 
@@ -172,12 +172,12 @@ public class c implements com.baidu.adp.lib.e.d {
         /* renamed from: a */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            c.this.coA = null;
+            c.this.cvj = null;
             if (address != null) {
-                c.this.gH();
-                c.this.uz = System.currentTimeMillis();
-                c.this.coC = address;
-                c.this.cot.a(0, "", c.this.coC, c.this.uz, c.this.cox);
+                c.this.gP();
+                c.this.uI = System.currentTimeMillis();
+                c.this.cvl = address;
+                c.this.cvc.a(0, "", c.this.cvl, c.this.uI, c.this.cvg);
             }
         }
 
@@ -185,28 +185,28 @@ public class c implements com.baidu.adp.lib.e.d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            c.this.coA = null;
+            c.this.cvj = null;
         }
     }
 
     @Override // com.baidu.adp.lib.e.d
-    public void gH() {
+    public void gP() {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.coE);
-        this.mHandler.removeCallbacks(this.coD);
-        if (this.coB != null) {
+        this.mHandler.removeCallbacks(this.cvn);
+        this.mHandler.removeCallbacks(this.cvm);
+        if (this.cvk != null) {
             try {
-                this.coB.removeUpdates(this.coF);
-                this.coB.removeUpdates(this.coG);
+                this.cvk.removeUpdates(this.cvo);
+                this.cvk.removeUpdates(this.cvp);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.coA != null) {
-            this.coA.cancel();
-            this.coA = null;
+        if (this.cvj != null) {
+            this.cvj.cancel();
+            this.cvj = null;
         }
     }
 }

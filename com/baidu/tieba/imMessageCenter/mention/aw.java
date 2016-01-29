@@ -6,7 +6,7 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class aw extends aj implements com.baidu.tbadk.mvc.b.c {
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean R(byte[] bArr) {
+    public boolean Q(byte[] bArr) {
         try {
             a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
             return true;
@@ -17,7 +17,7 @@ public class aw extends aj implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Df() {
+    public byte[] EA() {
         return null;
     }
 

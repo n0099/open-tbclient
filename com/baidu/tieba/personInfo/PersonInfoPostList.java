@@ -1,7 +1,7 @@
 package com.baidu.tieba.personInfo;
 
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class PersonInfoPostList implements Serializable {
         if (jSONObject != null) {
             this.forumId = jSONObject.optLong("forum_id");
             this.threadId = jSONObject.optLong("thread_id");
-            this.threadType = jSONObject.optLong(PbActivityConfig.KEY_THREAD_TYPE);
+            this.threadType = jSONObject.optLong("thread_type");
             this.postId = jSONObject.optLong("post_id");
             this.isThread = jSONObject.optInt("is_thread");
             this.createTime = jSONObject.optInt("create_time");
@@ -88,7 +88,7 @@ public class PersonInfoPostList implements Serializable {
                 }
                 this.anchorInfo.parseJson(optJSONObject2);
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("video_info");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO);
             if (optJSONObject3 != null) {
                 if (this.videoInfo == null) {
                     this.videoInfo = new PersonInfoVideo();

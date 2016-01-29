@@ -1,23 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ed {
-    private static ed biB = new ed();
-    private SparseArray<ee> biA = new SparseArray<>();
+public class ed extends x.a {
+    public int ahU;
+    public ViewGroup blj;
+    public PhotoLiveCardView blk;
 
-    private ed() {
+    public ed(View view) {
+        super(view);
+        this.ahU = 3;
+        this.blj = (ViewGroup) view.findViewById(t.g.live_card_layout);
+        this.blk = (PhotoLiveCardView) view.findViewById(t.g.item_live_card);
+        this.blk.setAllowGreyState(true);
     }
 
-    public static ed Ox() {
-        return biB;
-    }
-
-    public void a(int i, ee eeVar) {
-        this.biA.put(i, eeVar);
-    }
-
-    public ee gc(int i) {
-        return this.biA.get(i);
+    public void xf() {
+        if (this.blk != null) {
+            this.blk.xf();
+        }
     }
 }

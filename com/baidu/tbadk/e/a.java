@@ -1,7 +1,7 @@
 package com.baidu.tbadk.e;
 /* loaded from: classes.dex */
 public interface a {
-    boolean isLiveListEmpty();
+    boolean En();
 
-    void showEditState(boolean z, String str);
+    void d(boolean z, String str);
 }

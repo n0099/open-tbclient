@@ -5,84 +5,71 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.card.a.o;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.card.a.m;
 import com.baidu.tieba.card.ae;
+import com.baidu.tieba.card.ax;
+import com.baidu.tieba.card.w;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<o, a> {
-    private ae dqg;
-    private TbPageContext<?> mPageContext;
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommendfrs.data.c, a> {
+    private TbPageContext<?> Nw;
+    private BdUniqueId aPF;
+    private w dGj;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mPageContext = tbPageContext;
+    public c(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.recommendfrs.data.f.dEK);
+        this.Nw = tbPageContext;
+        this.dGj = new w(this.Nw);
+        this.dGj.i("c10714", "c10739", "c10712", "c10738");
+        this.dGj.setFrom("home");
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.aPF = bdUniqueId;
+        if (this.dGj != null) {
+            this.dGj.i(this.aPF);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: az */
-    public a a(ViewGroup viewGroup) {
-        this.dqg = new ae(this.mPageContext);
-        return new a(this.dqg);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, o oVar, a aVar) {
-        if (aVar == null || aVar.dqh == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendfrs.data.c cVar, a aVar) {
+        if (aVar.dGh == null) {
             return null;
         }
-        if (oVar != null) {
-            oVar.fc(i + 1);
-            oVar.b(b(oVar));
-            oVar.c(c(oVar));
-            oVar.d(e(oVar));
-            oVar.e(d(oVar));
-        }
-        aVar.dqh.a(oVar);
+        aVar.dGh.a((m) cVar);
+        ax.Kc().a(new au("c10714").aa("obj_param3", ae.JU()));
         return aVar.getView();
     }
 
-    private av b(o oVar) {
-        if (oVar == null || oVar.Iv() == null) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aT */
+    public a b(ViewGroup viewGroup) {
+        if (this.dGj == null) {
+            this.dGj = new w(this.Nw);
+            this.dGj.i(this.aPF);
+            this.dGj.i("c10714", "c10739", "c10712", "c10738");
         }
-        return new av("c10732").aa(ImageViewerConfig.FORUM_ID, String.valueOf(oVar.Iv().ss())).aa("tid", String.valueOf(oVar.Iv().getTid())).aa("obj_param1", oVar.getWeight()).aa("obj_source", oVar.getSource()).r("obj_locate", oVar.Is()).r("obj_type", oVar.IG());
+        return new a(this.dGj);
     }
 
-    private av c(o oVar) {
-        if (oVar == null || oVar.Iv() == null) {
-            return null;
+    public void onChangeSkinType(int i) {
+        if (this.dGj != null) {
+            this.dGj.d(this.Nw, i);
         }
-        return new av("c10707").aa(ImageViewerConfig.FORUM_ID, String.valueOf(oVar.Iv().ss())).aa("tid", String.valueOf(oVar.Iv().getTid())).aa("obj_param1", oVar.getWeight()).aa("obj_source", oVar.getSource()).r("obj_locate", oVar.Is()).r("obj_type", oVar.IG());
-    }
-
-    private av d(o oVar) {
-        if (oVar == null || oVar.Iv() == null) {
-            return null;
-        }
-        return new av("c10733").aa(ImageViewerConfig.FORUM_ID, String.valueOf(oVar.Iv().ss())).aa("tid", String.valueOf(oVar.Iv().getTid())).aa("obj_param1", oVar.getWeight()).aa("obj_source", oVar.getSource()).r("obj_locate", oVar.Is()).r("obj_type", oVar.IG());
-    }
-
-    private av e(o oVar) {
-        if (oVar == null || oVar.Iv() == null) {
-            return null;
-        }
-        return new av("c10706").aa(ImageViewerConfig.FORUM_ID, String.valueOf(oVar.Iv().ss())).aa("tid", String.valueOf(oVar.Iv().getTid())).aa("obj_param1", oVar.getWeight()).aa("obj_source", oVar.getSource()).r("obj_locate", oVar.Is()).r("obj_type", oVar.IG());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public ae dqh;
+        public w dGh;
 
-        public a(ae aeVar) {
-            super(aeVar.getView());
-            this.dqh = aeVar;
+        public a(w wVar) {
+            super(wVar.getView());
+            this.dGh = wVar;
         }
     }
 }

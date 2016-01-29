@@ -1,32 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder atP;
-    private final /* synthetic */ EmotionGroupType atQ;
-    final /* synthetic */ WriteActivity dYD;
+public class bc implements Runnable {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.dYD = writeActivity;
-        this.atP = spannableStringBuilder;
-        this.atQ = emotionGroupType;
+    public bc(WriteActivity writeActivity) {
+        this.ets = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aMe;
-        super.a((bc) aVar, str, i);
-        if (aVar == null) {
-            return;
-        }
-        aMe = this.dYD.aMe();
-        this.dYD.a(this.atP, aMe.getSelectionStart(), aVar, this.atQ);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
+        GridView gridView;
+        aVar = this.ets.esY;
+        aVar.notifyDataSetChanged();
+        gridView = this.ets.esX;
+        gridView.invalidateViews();
     }
 }

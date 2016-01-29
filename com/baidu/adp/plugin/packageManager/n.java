@@ -1,32 +1,18 @@
 package com.baidu.adp.plugin.packageManager;
-
-import android.os.Looper;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ m Eq;
+public class n implements Runnable {
+    final /* synthetic */ m EC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.Eq = mVar;
+        this.EC = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
+    @Override // java.lang.Runnable
+    public void run() {
         PluginPackageManager pluginPackageManager;
-        Object c = com.baidu.adp.lib.a.a.a.c(Looper.getMainLooper(), "sThreadLocal");
-        if (c instanceof ThreadLocal) {
-            ((ThreadLocal) c).set(Looper.getMainLooper());
-        }
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            pluginPackageManager = this.Eq.this$0;
-            pluginPackageManager.lv();
-            return null;
-        }
-        com.baidu.adp.plugin.b.a.lf().bo("plugin_asyncinit_fail");
-        com.baidu.adp.lib.h.h.hj().post(new o(this));
-        return null;
+        pluginPackageManager = this.EC.this$0;
+        pluginPackageManager.lI();
     }
 }

@@ -10,16 +10,16 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class b extends c {
-    private Rect mRect;
+    private Rect rM;
 
     public Rect getRect() {
-        return this.mRect;
+        return this.rM;
     }
 
     public b(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.mRect = null;
-        this.mRect = new Rect();
+        this.rM = null;
+        this.rM = new Rect();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0081 */
@@ -42,23 +42,23 @@ public class b extends c {
     public boolean x(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.rG.y(bArr)) {
-            if (this.rG.rK == 0 || this.rG.rK >= System.currentTimeMillis()) {
-                if (this.rF == null) {
-                    this.rF = new BitmapFactory.Options();
-                    this.rF.inDither = false;
+        if (bArr != null && this.rO.y(bArr)) {
+            if (this.rO.rS == 0 || this.rO.rS >= System.currentTimeMillis()) {
+                if (this.rN == null) {
+                    this.rN = new BitmapFactory.Options();
+                    this.rN.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.rF.inScreenDensity = i;
-                    this.rF.inTargetDensity = i;
-                    r2 = this.rF;
+                    this.rN.inScreenDensity = i;
+                    this.rN.inTargetDensity = i;
+                    r2 = this.rN;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
-                int fI = c.a.fI();
+                int fQ = c.a.fQ();
                 try {
                     try {
-                        byteArrayInputStream = new ByteArrayInputStream(bArr, fI, bArr.length - fI);
+                        byteArrayInputStream = new ByteArrayInputStream(bArr, fQ, bArr.length - fQ);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rF);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.rM, this.rN);
                             com.baidu.adp.lib.h.a.e(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {

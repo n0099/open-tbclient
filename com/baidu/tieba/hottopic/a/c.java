@@ -3,24 +3,24 @@ package com.baidu.tieba.hottopic.a;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ a bGb;
+class c implements View.OnClickListener {
+    final /* synthetic */ b bJk;
+    private final /* synthetic */ com.baidu.tieba.hottopic.data.b bJl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.bGb = aVar;
+    public c(b bVar, com.baidu.tieba.hottopic.data.b bVar2) {
+        this.bJk = bVar;
+        this.bJl = bVar2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        HotTopicActivity hotTopicActivity;
-        MessageManager messageManager = MessageManager.getInstance();
-        hotTopicActivity = this.bGb.bFY;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(hotTopicActivity.getPageContext().getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.bJl.getId()), this.bJl.getName(), "")));
+        TiebaStatic.log(new au("c10811").aa("obj_name", this.bJl.getName()));
     }
 }

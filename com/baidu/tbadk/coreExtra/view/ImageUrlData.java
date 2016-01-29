@@ -13,5 +13,6 @@ public class ImageUrlData implements Serializable {
     public long postId = -1;
     public boolean mIsReserver = true;
     public boolean mIsSeeHost = false;
-    public long overAllIndex = 1;
+    public long overAllIndex = 0;
+    public int mThreadType = 0;
 }

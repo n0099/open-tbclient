@@ -6,89 +6,89 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.enterForum.square.a.h;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import tbclient.GetForumClassList.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private BaseFragmentActivity aJl;
-    private com.baidu.tieba.enterForum.home.e aUk;
-    private String aUo;
-    private e aVl;
-    private a aVm;
-    public h aVn = null;
-    private boolean aVo = false;
-    private final com.baidu.adp.framework.listener.a aVp = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
+    private BaseFragmentActivity aKq;
+    private com.baidu.tieba.enterForum.home.e aWr;
+    private String aWv;
+    public h aXA = null;
+    private boolean aXB = false;
+    private final com.baidu.adp.framework.listener.a aXC = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
+    private e aXy;
+    private a aXz;
 
     public View getView() {
-        return this.aVm.getView();
+        return this.aXz.getView();
     }
 
     public b(com.baidu.tieba.enterForum.home.e eVar) {
-        this.aUk = eVar;
-        this.aJl = eVar.getBaseFragmentActivity();
-        this.aVl = new e(this.aJl);
-        initUI();
-        initListener();
+        this.aWr = eVar;
+        this.aKq = eVar.getBaseFragmentActivity();
+        this.aXy = new e(this.aKq);
+        qD();
+        pm();
     }
 
-    private void initListener() {
-        this.aUk.registerListener(this.aVp);
+    private void pm() {
+        this.aWr.registerListener(this.aXC);
     }
 
-    private void initUI() {
-        this.aVm = new a(this.aUk);
-        this.aVm.mPullView.a(new d(this));
-        this.aVn = new h(this.aUk.getPageContext(), this.aVm.aVi, this.aUk.getUniqueId());
+    private void qD() {
+        this.aXz = new a(this.aWr);
+        this.aXz.mPullView.a(new d(this));
+        this.aXA = new h(this.aWr.getPageContext(), this.aXz.aXu, this.aWr.getUniqueId());
     }
 
-    public void ca(boolean z) {
-        if (this.aVm != null && this.aUk != null) {
+    public void bY(boolean z) {
+        if (this.aXz != null && this.aWr != null) {
             if (z) {
-                if (DV() && this.aUk.isPrimary() && this.aUk.isResumed()) {
-                    Kn();
+                if (Fq() && this.aWr.isPrimary() && this.aWr.isResumed()) {
+                    Me();
                     return;
                 }
-                fw(n.j.no_data_text);
-                this.aVm.KK();
+                fV(t.j.no_data_text);
+                this.aXz.MB();
                 return;
             }
-            fw(n.j.neterror);
-            this.aVm.KK();
+            fV(t.j.neterror);
+            this.aXz.MB();
         }
     }
 
-    public void Kn() {
-        String str = this.aUo;
-        this.aUo = TbadkCoreApplication.getCurrentAccount();
-        if (DV() || (this.aUo != null && !this.aUo.equals(str))) {
-            this.aVm.nb();
+    public void Me() {
+        String str = this.aWv;
+        this.aWv = TbadkCoreApplication.getCurrentAccount();
+        if (Fq() || (this.aWv != null && !this.aWv.equals(str))) {
+            this.aXz.ns();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aVm != null) {
-            this.aVm.onChangeSkinType(i);
+        if (this.aXz != null) {
+            this.aXz.onChangeSkinType(i);
         }
-        if (this.aVn != null) {
-            this.aVn.cK(i);
+        if (this.aXA != null) {
+            this.aXA.db(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fw(int i) {
-        if (DV()) {
-            this.aVm.fv(i);
+    public void fV(int i) {
+        if (Fq()) {
+            this.aXz.fU(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        if (dataRes == null || this.aVn == null) {
-            fw(n.j.no_data_text);
+        if (dataRes == null || this.aXA == null) {
+            fV(t.j.no_data_text);
             return;
         }
-        this.aVm.hideNoDataView();
-        this.aVn.b(dataRes);
+        this.aXz.hideNoDataView();
+        this.aXA.b(dataRes);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,27 +97,27 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.aVn != null) {
-            this.aVn.onDestroy();
+        if (this.aXA != null) {
+            this.aXA.onDestroy();
         }
     }
 
     public void onPause() {
-        if (this.aVn != null) {
-            this.aVn.onPause();
+        if (this.aXA != null) {
+            this.aXA.onPause();
         }
     }
 
     public void onResume() {
-        if (this.aVn != null) {
-            this.aVn.onResume();
+        if (this.aXA != null) {
+            this.aXA.onResume();
         }
     }
 
-    public boolean DV() {
-        if (this.aVn == null || this.aVn.getData() == null) {
+    public boolean Fq() {
+        if (this.aXA == null || this.aXA.getData() == null) {
             return true;
         }
-        return this.aVn.getData().isEmpty();
+        return this.aXA.getData().isEmpty();
     }
 }

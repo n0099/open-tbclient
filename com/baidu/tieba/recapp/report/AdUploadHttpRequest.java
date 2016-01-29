@@ -3,9 +3,11 @@ package com.baidu.tieba.recapp.report;
 import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class AdUploadHttpRequest extends HttpMessage {
@@ -37,7 +39,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (y.l(arrayList) <= 0) {
+        if (x.o(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -45,9 +47,15 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.axM());
+                jSONArray.put(next.aEJ());
             }
         }
         return jSONArray.toString();
+    }
+
+    @Override // com.baidu.adp.framework.message.HttpMessage
+    public synchronized List<Map.Entry<String, Object>> encodeInBackGround() {
+        removeParam("_phone_imei");
+        return super.encodeInBackGround();
     }
 }

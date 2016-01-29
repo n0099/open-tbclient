@@ -1,50 +1,75 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.af;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
+import java.io.File;
 /* loaded from: classes.dex */
-public class ag extends HttpMessageListener {
-    final /* synthetic */ af dFS;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(af afVar, int i) {
-        super(i);
-        this.dFS = afVar;
+public class ag {
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i) {
+        if (context == null || cVar == null) {
+            return false;
+        }
+        String str = cVar.Uu;
+        if (StringUtils.isNull(str) && cVar.UI != null) {
+            str = cVar.UI.userName;
+        }
+        if (StringUtils.isNull(str)) {
+            str = "";
+        }
+        return a(context, cVar, i, str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        af.a aVar;
-        af.a aVar2;
-        af.a aVar3;
-        af.a aVar4;
-        af.a aVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.dFS.dFR;
-                if (aVar != null) {
-                    aVar2 = this.dFS.dFR;
-                    aVar2.y(statusCode, null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.dFS.dFR;
-                aVar5.gy(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            aVar3 = this.dFS.dFR;
-            if (aVar3 != null) {
-                aVar4 = this.dFS.dFR;
-                aVar4.y(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
-            }
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i, String str) {
+        if (context == null || cVar == null) {
+            return false;
         }
+        if (!(!TextUtils.isEmpty(cVar.Uy))) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.pb_app_error);
+            return false;
+        } else if (!com.baidu.adp.lib.util.i.iZ()) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.neterror);
+            return false;
+        } else {
+            com.baidu.tbadk.distribute.a.Cl().a(cVar);
+            String str2 = cVar.Uu;
+            if (StringUtils.isNull(str2)) {
+                str2 = str;
+            }
+            com.baidu.tbadk.download.b.Cr().a(cVar.Uy, cVar.Ux, str2, i, com.baidu.adp.lib.h.b.g(cVar.Ut, 0));
+            return true;
+        }
+    }
+
+    public static final void e(com.baidu.tbadk.core.data.c cVar) {
+        com.baidu.tbadk.download.b.Cr().ai(cVar.Ux, cVar.Uy);
+    }
+
+    public static final void a(Context context, q qVar) {
+        if (context != null && qVar != null) {
+            N(context, qVar.getPkgName());
+        }
+    }
+
+    public static final void N(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.pb_app_error);
+            return;
+        }
+        File cR = com.baidu.tbadk.core.util.m.cR(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cR != null) {
+            Intent intent = new Intent();
+            intent.addFlags(268435456);
+            intent.setAction("android.intent.action.VIEW");
+            intent.setDataAndType(Uri.fromFile(cR), "application/vnd.android.package-archive");
+            context.startActivity(intent);
+        }
+    }
+
+    public static boolean isInstalledPackage(Context context, String str) {
+        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
     }
 }

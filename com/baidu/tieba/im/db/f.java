@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String nD = null;
-    private static volatile SQLiteDatabase nz = null;
-    public static HashMap<String, SQLiteDatabase> bQa = new HashMap<>();
+    private static String nF = null;
+    private static volatile SQLiteDatabase nB = null;
+    public static HashMap<String, SQLiteDatabase> bUc = new HashMap<>();
 
-    public static synchronized SQLiteDatabase Yk() {
+    public static synchronized SQLiteDatabase aaV() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -26,34 +26,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (bQa.containsKey(str)) {
-                    sQLiteDatabase = bQa.get(str);
-                } else if (nz != null && str.equals(nD) && nz.isOpen()) {
-                    sQLiteDatabase = nz;
+                if (bUc.containsKey(str)) {
+                    sQLiteDatabase = bUc.get(str);
+                } else if (nB != null && str.equals(nF) && nB.isOpen()) {
+                    sQLiteDatabase = nB;
                 } else {
-                    if (nz != null) {
-                        com.baidu.adp.lib.util.o.h(nz);
+                    if (nB != null) {
+                        com.baidu.adp.lib.util.o.h(nB);
                     }
                     e eVar = new e(TbadkCoreApplication.m411getInst().getApp(), str);
-                    nD = str;
-                    nz = eVar.getWritableDatabase();
-                    sQLiteDatabase = nz;
+                    nF = str;
+                    nB = eVar.getWritableDatabase();
+                    sQLiteDatabase = nB;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> Yl() {
+    public static LinkedList<String> aaW() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase Yk = Yk();
+        SQLiteDatabase aaV = aaV();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (Yk != null) {
+        if (aaV != null) {
             try {
-                cursor2 = Yk.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = aaV.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class f {
         return linkedList;
     }
 
-    public static void iy(String str) {
+    public static void iz(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.Ym().Yn();
-                Iterator<String> it = Yl().iterator();
+                g.aaX().aaY();
+                Iterator<String> it = aaW().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.Ym().update("tb_message_center", contentValues, null, null);
+                            g.aaX().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.Ym().a(next, null, null);
+                            g.aaX().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.Ym().endTransaction();
+            g.aaX().endTransaction();
         }
     }
 }

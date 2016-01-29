@@ -1,43 +1,52 @@
 package com.baidu.tbadk.core.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class ac {
-    private int Xx = 0;
-    private int Xy = 0;
-    private String link = "";
+    protected String img_url = null;
+    protected String link = null;
+    protected String Wv = null;
 
-    public int sZ() {
-        return this.Xx;
+    public String sV() {
+        return this.img_url;
     }
 
-    public int ta() {
-        return this.Xy;
+    public void cu(String str) {
+        this.img_url = str;
     }
 
     public String getLink() {
         return this.link;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
+        }
+    }
+
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
             try {
-                this.Xx = jSONObject.optInt("is_lpost", 0);
-                this.Xy = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
+                cu(banner.pic_url);
+                setLink(banner.link);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.Xx = topic.is_lpost.intValue();
-            this.Xy = topic.topic_type.intValue();
-            this.link = topic.link;
-        }
+    public String sW() {
+        return this.Wv;
+    }
+
+    public void cv(String str) {
+        this.Wv = str;
     }
 }

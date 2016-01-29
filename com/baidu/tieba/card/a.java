@@ -9,15 +9,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.a.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnClickListener {
-    private aq<T> aNl;
+    private bb<T> aOz;
+    private String aer;
     private Context mContext;
-    private String mFrom;
     private TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
     private BdUniqueId mTag = null;
-    private View mView = LayoutInflater.from(getContext()).inflate(Ig(), (ViewGroup) null, false);
+    private View mView = LayoutInflater.from(getContext()).inflate(JM(), (ViewGroup) null, false);
 
-    public abstract int Ig();
+    public abstract int JM();
 
     public a(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -33,11 +33,11 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
     }
 
     public String getFrom() {
-        return this.mFrom;
+        return this.aer;
     }
 
     public void setFrom(String str) {
-        this.mFrom = str;
+        this.aer = str;
     }
 
     public View getView() {
@@ -48,15 +48,15 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
         return this.mContext;
     }
 
-    public TbPageContext<?> Ie() {
+    public TbPageContext<?> JK() {
         return this.mTbPageContext;
     }
 
-    public void a(aq<T> aqVar) {
-        this.aNl = aqVar;
+    public void a(bb<T> bbVar) {
+        this.aOz = bbVar;
     }
 
-    public aq<T> If() {
-        return this.aNl;
+    public bb<T> JL() {
+        return this.aOz;
     }
 }

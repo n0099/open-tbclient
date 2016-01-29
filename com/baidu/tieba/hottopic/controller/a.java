@@ -4,11 +4,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.hottopic.message.RequestBlessMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private BaseActivity<?> bbA;
+    private BaseActivity<?> bdK;
 
     public a(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.bbA = baseActivity;
+        this.bdK = baseActivity;
     }
 
     @Override // com.baidu.adp.base.e

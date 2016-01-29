@@ -5,41 +5,37 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class a {
-    private HttpMessageListener mHttpMessageListener = null;
-    private e mSocketMessageListener = null;
+    private HttpMessageListener qn = null;
+    private e qo = null;
 
     public abstract void onMessage(ResponsedMessage<?> responsedMessage);
-
-    public a(int i, int i2, int i3) {
-        init(i, i2, i3);
-    }
 
     public a(int i, int i2) {
         init(i, i2, 0);
     }
 
     private void init(int i, int i2, int i3) {
-        this.mHttpMessageListener = new b(this, i);
-        this.mSocketMessageListener = new c(this, i2);
+        this.qn = new b(this, i);
+        this.qo = new c(this, i2);
     }
 
-    public HttpMessageListener getHttpMessageListener() {
-        return this.mHttpMessageListener;
+    public HttpMessageListener eV() {
+        return this.qn;
     }
 
-    public e getSocketMessageListener() {
-        return this.mSocketMessageListener;
+    public e eW() {
+        return this.qo;
     }
 
     public BdUniqueId getTag() {
-        if (this.mHttpMessageListener.getTag() != this.mSocketMessageListener.getTag()) {
+        if (this.qn.getTag() != this.qo.getTag()) {
             throw new InvalidParameterException("tag invalid");
         }
-        return this.mHttpMessageListener.getTag();
+        return this.qn.getTag();
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.mHttpMessageListener.setTag(bdUniqueId);
-        this.mSocketMessageListener.setTag(bdUniqueId);
+        this.qn.setTag(bdUniqueId);
+        this.qo.setTag(bdUniqueId);
     }
 }

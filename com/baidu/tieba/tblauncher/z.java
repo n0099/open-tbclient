@@ -1,22 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ w dKW;
+public class z implements FragmentTabHost.b {
+    final /* synthetic */ y ebe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(w wVar) {
-        this.dKW = wVar;
+    public z(y yVar) {
+        this.ebe = yVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
-        com.baidu.tbadk.core.sharedPref.b.tJ().putBoolean("enter_forum_edit_mode", false);
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
+    public void c(int i, boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
     }
 }

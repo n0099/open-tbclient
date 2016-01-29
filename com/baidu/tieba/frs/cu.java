@@ -1,65 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.frs.dr;
-import com.baidu.tieba.n;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu extends com.baidu.adp.widget.ListView.c {
-    private View.OnClickListener afM;
-    private final int bcm;
-    private boolean bhl;
-    private dr.a bhm;
-    private Context mContext;
+public class cu implements TbImageView.a {
+    final /* synthetic */ cn bjV;
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View mT() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(n.h.frs_item_control, (ViewGroup) null);
-        this.bhm = new dr.a();
-        this.bhm.bih = (FrameLayout) inflate.findViewById(n.g.frs_list_control);
-        this.bhm.bii = (LinearLayout) inflate.findViewById(n.g.frs_list_control_in);
-        this.bhm.bik = (ProgressBar) inflate.findViewById(n.g.frs_list_control_progress);
-        this.bhm.bij = (TextView) inflate.findViewById(n.g.frs_list_control_tv);
-        inflate.setTag(this.bhm);
-        return inflate;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cu(cn cnVar) {
+        this.bjV = cnVar;
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.bhm != null) {
-            com.baidu.tbadk.core.util.as.i(this.bhm.bii, n.f.frs_item_control_bg);
-            com.baidu.tbadk.core.util.as.c(this.bhm.bij, i);
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void t(String str, boolean z) {
+        BannerView bannerView;
+        boolean z2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BannerView bannerView2;
+        if (z) {
+            bannerView = this.bjV.bjI;
+            if (bannerView.AL()) {
+                z2 = this.bjV.bjK;
+                if (!z2) {
+                    bdTypeListView = this.bjV.bjt;
+                    if (bdTypeListView != null) {
+                        this.bjV.bjK = true;
+                        bdTypeListView2 = this.bjV.bjt;
+                        bannerView2 = this.bjV.bjI;
+                        bdTypeListView2.f(bannerView2, 1);
+                    }
+                }
+            }
         }
     }
 
-    public void cq(boolean z) {
-        this.bhl = z;
-        this.bhm.bih.setVisibility(0);
-        this.bhm.bih.setPadding(0, this.bcm, 0, this.bcm);
-        if (this.bhl) {
-            this.bhm.bij.setText(n.j.loading);
-            this.bhm.bik.setVisibility(0);
-        } else {
-            this.bhm.bij.setText(n.j.frs_next);
-            this.bhm.bik.setVisibility(8);
-        }
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-    }
-
-    public void m(View.OnClickListener onClickListener) {
-        this.afM = onClickListener;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.afM != null) {
-            this.afM.onClick(getView());
-        }
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

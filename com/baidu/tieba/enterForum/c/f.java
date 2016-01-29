@@ -1,23 +1,24 @@
 package com.baidu.tieba.enterForum.c;
 
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.tbadkCore.v;
 import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements Comparator<w> {
-    final /* synthetic */ c aUY;
+public class f implements Comparator<v> {
+    final /* synthetic */ c aXk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.aUY = cVar;
+        this.aXk = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
-    public int compare(w wVar, w wVar2) {
-        if (wVar == null || wVar2 == null) {
+    public int compare(v vVar, v vVar2) {
+        if (vVar == null || vVar2 == null) {
             return 0;
         }
-        return wVar2.getLevel() - wVar.getLevel();
+        return vVar2.getLevel() - vVar.getLevel();
     }
 }

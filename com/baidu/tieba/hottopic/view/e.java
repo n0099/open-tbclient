@@ -1,43 +1,21 @@
 package com.baidu.tieba.hottopic.view;
 
-import android.view.animation.Animation;
+import android.view.View;
 import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements Runnable {
-    final /* synthetic */ d bJm;
+public class e implements View.OnClickListener {
+    final /* synthetic */ c bMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.bJm = dVar;
+    public e(c cVar) {
+        this.bMS = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        a aVar;
-        int i;
-        a aVar2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         LinearLayout linearLayout;
-        a aVar3;
-        Animation animation;
-        a aVar4;
-        LinearLayout linearLayout2;
-        a aVar5;
-        Animation animation2;
-        aVar = this.bJm.bJl;
-        i = aVar.index;
-        if (i > 1) {
-            aVar2 = this.bJm.bJl;
-            linearLayout = aVar2.bJb;
-            Animation animation3 = linearLayout.getAnimation();
-            aVar3 = this.bJm.bJl;
-            animation = aVar3.bJh;
-            if (animation3 != animation) {
-                aVar4 = this.bJm.bJl;
-                linearLayout2 = aVar4.bJb;
-                aVar5 = this.bJm.bJl;
-                animation2 = aVar5.bJh;
-                linearLayout2.startAnimation(animation2);
-            }
-        }
+        linearLayout = this.bMS.bMI;
+        linearLayout.performClick();
     }
 }

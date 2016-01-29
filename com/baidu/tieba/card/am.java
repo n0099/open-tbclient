@@ -1,55 +1,23 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am {
-    private static am aPt;
-    private List<av> aPs;
+public class am implements View.OnClickListener {
+    final /* synthetic */ af aQu;
 
-    public static am Iq() {
-        if (aPt == null) {
-            synchronized (am.class) {
-                if (aPt == null) {
-                    aPt = new am();
-                }
-            }
-        }
-        return aPt;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(af afVar) {
+        this.aQu = afVar;
     }
 
-    public void a(av avVar) {
-        if (avVar != null) {
-            if (this.aPs == null) {
-                this.aPs = new ArrayList();
-            }
-            if (this.aPs != null) {
-                this.aPs.add(avVar);
-            }
-        }
-    }
-
-    public void gK(String str) {
-        if (str != null) {
-            if (this.aPs == null) {
-                this.aPs = new ArrayList();
-            }
-            if (this.aPs != null) {
-                this.aPs.add(new av(str));
-            }
-        }
-    }
-
-    public void Ir() {
-        if (com.baidu.tbadk.core.util.y.l(this.aPs) != 0) {
-            for (av avVar : this.aPs) {
-                if (avVar != null) {
-                    TiebaStatic.log(avVar);
-                }
-            }
-            this.aPs.clear();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.a.q qVar;
+        if (this.aQu.JL() != null) {
+            bb<com.baidu.tieba.card.a.q> JL = this.aQu.JL();
+            qVar = this.aQu.aQn;
+            JL.a(view, qVar);
         }
     }
 }

@@ -1,81 +1,55 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.hottopic.message.RequestHotTopicMessage;
-import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
-import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private com.baidu.adp.framework.listener.a bGE;
-    private com.baidu.tieba.hottopic.data.c bGM;
-    private a bGS;
-    private BaseActivity<?> bbA;
+class i extends CustomMessageListener {
+    final /* synthetic */ HotTopicActivity bKr;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(boolean z, com.baidu.tieba.hottopic.data.c cVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(HotTopicActivity hotTopicActivity, int i) {
+        super(i);
+        this.bKr = hotTopicActivity;
     }
 
-    public i(BaseActivity<?> baseActivity) {
-        super(baseActivity.getPageContext());
-        this.bGM = null;
-        this.bGS = null;
-        this.bGE = new j(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.bbA = baseActivity;
-        registerListener(this.bGE);
-        this.bGM = new com.baidu.tieba.hottopic.data.c();
-    }
-
-    public com.baidu.tieba.hottopic.data.c getHotTopicData() {
-        return this.bGM;
-    }
-
-    public void aA(String str, String str2) {
-        f(com.baidu.adp.lib.h.b.c(str, 0L), str2);
-    }
-
-    private void f(long j, String str) {
-        RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-        int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
-        int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
-        requestHotTopicMessage.setTopicId(Long.valueOf(j));
-        requestHotTopicMessage.setTopicName(str);
-        requestHotTopicMessage.setScrH(Integer.valueOf(L));
-        requestHotTopicMessage.setScrW(Integer.valueOf(K));
-        requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
-        requestHotTopicMessage.setQType(Integer.valueOf(com.baidu.tbadk.core.m.qQ().getViewImageQuality()));
-        sendMessage(requestHotTopicMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null) {
-            com.baidu.tieba.hottopic.data.c cVar = null;
-            if ((responsedMessage instanceof ResponseHttpHotTopicMessage) && ((ResponseHttpHotTopicMessage) responsedMessage).getHotTopicData() != null) {
-                cVar = ((ResponseHttpHotTopicMessage) responsedMessage).getHotTopicData();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.hottopic.data.e eVar;
+        com.baidu.tieba.hottopic.data.e eVar2;
+        com.baidu.tieba.hottopic.data.e eVar3;
+        RelateForumItemData aM;
+        com.baidu.tieba.hottopic.data.e eVar4;
+        com.baidu.tieba.hottopic.view.c cVar;
+        com.baidu.tieba.hottopic.data.e eVar5;
+        com.baidu.tieba.hottopic.view.c cVar2;
+        if (customResponsedMessage != null) {
+            eVar = this.bKr.bKl;
+            if (eVar != null) {
+                eVar2 = this.bKr.bKl;
+                if (eVar2.XS() != null) {
+                    eVar3 = this.bKr.bKl;
+                    if (eVar3.XS().bLE != null) {
+                        Object data = customResponsedMessage.getData();
+                        if (data instanceof Long) {
+                            aM = this.bKr.aM(((Long) data).longValue());
+                            if (aM != null) {
+                                aM.followNum--;
+                                aM.setIsLiked(false);
+                                eVar4 = this.bKr.bKl;
+                                eVar4.XS().bLG = true;
+                                cVar = this.bKr.bKf;
+                                eVar5 = this.bKr.bKl;
+                                cVar.c(eVar5);
+                                cVar2 = this.bKr.bKf;
+                                cVar2.Yc();
+                            }
+                        }
+                    }
+                }
             }
-            if ((responsedMessage instanceof ResponseSocketHotTopicMessage) && ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData() != null) {
-                cVar = ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData();
-            }
-            this.bGS.a(!responsedMessage.hasError(), cVar);
         }
-    }
-
-    public void a(a aVar) {
-        this.bGS = aVar;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
     }
 }

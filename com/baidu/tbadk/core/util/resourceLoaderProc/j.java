@@ -5,8 +5,16 @@ import android.graphics.NinePatch;
 import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class j extends a {
+    private int acq;
+
+    public j(int i) {
+        this.acq = 0;
+        this.acq = i;
+    }
+
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getWidth() {
         return 0;
@@ -23,18 +31,18 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vC() {
+    public boolean wI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vD() {
+    public boolean wJ() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dK(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dJ(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -54,18 +62,23 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected Bitmap b(byte[] bArr, Rect rect, StringBuilder sb) {
-        return com.baidu.tbadk.core.util.c.a(bArr, rect, sb);
+    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+        return BitmapHelper.Bytes2NineBitmap(bArr, rect, sb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean i(Bitmap bitmap) {
+    public boolean g(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected Bitmap b(Bitmap bitmap, int i, int i2) {
+    protected Bitmap a(Bitmap bitmap, int i, int i2) {
         return bitmap;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int wK() {
+        return this.acq;
     }
 }

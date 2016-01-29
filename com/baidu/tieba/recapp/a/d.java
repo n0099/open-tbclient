@@ -10,30 +10,30 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.n;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
-import com.baidu.tieba.tbadkCore.ah;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.ag;
 import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d dns;
+    private static d dCv;
 
-    public static final d axJ() {
-        if (dns == null) {
+    public static final d aEG() {
+        if (dCv == null) {
             synchronized (d.class) {
-                if (dns == null) {
-                    dns = new d();
+                if (dCv == null) {
+                    dCv = new d();
                 }
             }
         }
-        return dns;
+        return dCv;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (!i.iE()) {
-                k.showToast(view.getContext(), n.j.neterror);
+            if (!i.iN()) {
+                k.showToast(view.getContext(), t.j.neterror);
                 return;
             }
             Object tag = view.getTag();
@@ -46,49 +46,49 @@ public class d implements View.OnClickListener {
                 switch (baseAppViewHolder.getDownloadData().getStatus()) {
                     case 1:
                     case 5:
-                        com.baidu.tbadk.download.b.Bb().ai(appData.getDownloadUrl(), appData.getPkgName());
-                        ((TextView) view).setText(n.j.pb_download_pause);
+                        com.baidu.tbadk.download.b.Cr().ai(appData.getDownloadUrl(), appData.getPkgName());
+                        ((TextView) view).setText(t.j.pb_download_pause);
                         return;
                     case 2:
                     case 4:
                     default:
                         return;
                     case 3:
-                        ah.a(view.getContext(), appData);
+                        ag.a(view.getContext(), appData);
                         baseAppViewHolder.refresh();
                         return;
                     case 6:
-                        if (!i.iR() && (view.getContext() instanceof Activity)) {
+                        if (!i.ja() && (view.getContext() instanceof Activity)) {
                             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
-                            aVar.bG(n.j.frs_network_tips);
-                            aVar.a(n.j.alert_yes_button, new e(this, view, appData, position, baseAppViewHolder));
-                            aVar.b(n.j.alert_no_button, new f(this));
+                            aVar.bY(t.j.frs_network_tips);
+                            aVar.a(t.j.alert_yes_button, new e(this, view, appData, position, baseAppViewHolder));
+                            aVar.b(t.j.alert_no_button, new f(this));
                             TbPageContext tbPageContext = null;
                             if (view.getContext() instanceof TbPageContextSupport) {
                                 tbPageContext = ((TbPageContextSupport) view.getContext()).getPageContext();
-                            } else if (l.C(view.getContext()) instanceof com.baidu.adp.base.h) {
+                            } else if (l.C(view.getContext()) instanceof TbPageContext) {
                                 tbPageContext = (TbPageContext) l.C(view.getContext());
                             }
                             aVar.b(tbPageContext);
-                            aVar.tf();
+                            aVar.uj();
                             return;
                         }
-                        ((TextView) view).setText(n.j.downloading2);
+                        ((TextView) view).setText(t.j.downloading2);
                         baseAppViewHolder.getAppDownloadView().setVisibility(0);
-                        com.baidu.tbadk.distribute.a.AV().a(view.getContext(), appData.aFk(), "btn_download", "pb", appData.dHa, appData.threadId);
-                        if (ah.a(view.getContext(), appData.aFk(), position)) {
-                            appData.mW(1);
+                        com.baidu.tbadk.distribute.a.Cl().a(view.getContext(), appData.aMq(), "btn_download", "pb", appData.dWW, appData.threadId);
+                        if (ag.a(view.getContext(), appData.aMq(), position)) {
+                            appData.oh(1);
                             TiebaStatic.eventStat(view.getContext(), "pb_dl_app", null, 1, "app_name", appData.getPkgName());
                         }
                         baseAppViewHolder.refresh();
                         return;
                     case 7:
-                        if (ah.a(view.getContext(), appData.aFk(), position)) {
-                            appData.mW(1);
+                        if (ag.a(view.getContext(), appData.aMq(), position)) {
+                            appData.oh(1);
                             TiebaStatic.eventStat(view.getContext(), "pb_dl_app", null, 1, "app_name", appData.getPkgName());
                         }
                         baseAppViewHolder.refresh();
-                        ((TextView) view).setText(n.j.downloading2);
+                        ((TextView) view).setText(t.j.downloading2);
                         return;
                 }
             }
@@ -97,9 +97,9 @@ public class d implements View.OnClickListener {
 
     private void a(Context context, q qVar) {
         if (qVar != null) {
-            com.baidu.tbadk.distribute.a.AV().a(context, qVar.aFk(), "btn_click", "pb", qVar.dHa, qVar.threadId);
-            com.baidu.tbadk.distribute.a.AV().a(qVar.aFk(), qVar.dHa, qVar.threadId, "PB", "click", qVar.pageNumber);
-            com.baidu.tieba.recapp.report.b.axN().a(com.baidu.tieba.recapp.report.e.a(qVar, "click"));
+            com.baidu.tbadk.distribute.a.Cl().a(context, qVar.aMq(), "btn_click", "pb", qVar.dWW, qVar.threadId);
+            com.baidu.tbadk.distribute.a.Cl().a(qVar.aMq(), qVar.dWW, qVar.threadId, "PB", "click", qVar.pageNumber);
+            com.baidu.tieba.recapp.report.b.aEK().a(com.baidu.tieba.recapp.report.e.a(qVar, "click"));
         }
     }
 }

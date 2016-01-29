@@ -5,23 +5,23 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    final /* synthetic */ MultiImgToolView.b atC;
-    private final /* synthetic */ FrameLayout atE;
+    final /* synthetic */ MultiImgToolView.b auu;
+    private final /* synthetic */ FrameLayout auw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(MultiImgToolView.b bVar, FrameLayout frameLayout) {
-        this.atC = bVar;
-        this.atE = frameLayout;
+        this.auu = bVar;
+        this.auw = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MultiImgToolView.a aVar;
         MultiImgToolView.a aVar2;
-        aVar = this.atC.atA;
+        aVar = this.auu.aus;
         if (aVar != null) {
-            aVar2 = this.atC.atA;
-            aVar2.t(this.atE);
+            aVar2 = this.auu.aus;
+            aVar2.G(this.auw);
         }
     }
 }

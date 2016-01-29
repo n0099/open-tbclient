@@ -8,15 +8,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity cPi;
+    final /* synthetic */ PersonChangeActivity cYF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PersonChangeActivity personChangeActivity) {
-        this.cPi = personChangeActivity;
+        this.cYF = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -30,23 +30,23 @@ public class ai implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.cPi.mEdit;
+        editText = this.cYF.cYq;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.cPi.cOV;
+        textView = this.cYF.cYs;
         textView.setText(String.valueOf(length));
-        linearLayout = this.cPi.cOU;
+        linearLayout = this.cYF.cYr;
         linearLayout.setVisibility(0);
-        this.cPi.kK(0);
-        this.cPi.aoQ();
+        this.cYF.lq(0);
+        this.cYF.atI();
         if (length > 50) {
-            this.cPi.showToast(n.j.over_limit_tip);
+            this.cYF.showToast(t.j.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.cPi.mEdit;
+            editText2 = this.cYF.cYq;
             editText2.setText(substring);
-            editText3 = this.cPi.mEdit;
+            editText3 = this.cYF.cYq;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -61,16 +61,16 @@ public class ai implements TextWatcher {
         View view;
         TextView textView;
         TextView textView2;
-        if (!editable.toString().replaceAll("\\s*", "").equals(this.cPi.cOZ.aoU().getIntro())) {
-            view = this.cPi.cOO;
+        if (!editable.toString().replaceAll("\\s*", "").equals(this.cYF.cYw.atN().getIntro())) {
+            view = this.cYF.cYk;
             view.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView2 = this.cPi.bUD;
-                com.baidu.tbadk.core.util.as.b(textView2, n.d.navi_op_text, 1);
+                textView2 = this.cYF.bYI;
+                com.baidu.tbadk.core.util.ar.b(textView2, t.d.navi_op_text, 1);
                 return;
             }
-            textView = this.cPi.bUD;
-            com.baidu.tbadk.core.util.as.b(textView, n.d.cp_link_tip_a, 1);
+            textView = this.cYF.bYI;
+            com.baidu.tbadk.core.util.ar.b(textView, t.d.cp_link_tip_a, 1);
         }
     }
 }

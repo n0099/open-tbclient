@@ -10,7 +10,7 @@ import com.baidu.tieba.enterForum.square.ForumClassSocketResponseMessage;
 public class EnterForumStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.c(309089, ForumClassSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_CLASS_LIST, com.baidu.tieba.tbadkCore.a.a.ak(TbConfig.FORUM_CLASS_LIST, 309089));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_CLASS_LIST, com.baidu.tieba.tbadkCore.a.a.am(TbConfig.FORUM_CLASS_LIST, 309089));
         tbHttpMessageTask.setResponsedClass(ForumClassHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

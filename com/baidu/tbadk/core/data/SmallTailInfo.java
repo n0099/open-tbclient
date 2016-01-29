@@ -5,7 +5,7 @@ import android.text.SpannableString;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -30,11 +30,11 @@ public class SmallTailInfo implements Serializable {
     }
 
     public void updateShowInfo() {
-        si();
-        sj();
+        sT();
+        sU();
     }
 
-    private void si() {
+    private void sT() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -43,31 +43,31 @@ public class SmallTailInfo implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String fg = TbFaceManager.CL().fg(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(fg)) {
-                        sb.append("#(" + fg + ")");
+                    String ff = TbFaceManager.Ec().ff(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(ff)) {
+                        sb.append("#(" + ff + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.CL().a(TbadkCoreApplication.m411getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.Ec().a(TbadkCoreApplication.m411getInst(), sb.toString(), null);
         }
     }
 
-    private void sj() {
+    private void sU() {
         try {
-            this.showColorId = Color.parseColor(cu(this.color));
+            this.showColorId = Color.parseColor(ct(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(cu(TbadkCoreApplication.m411getInst().getString(n.j.tail_color_default)));
+            this.showColorId = Color.parseColor(ct(TbadkCoreApplication.m411getInst().getString(t.j.tail_color_default)));
         }
     }
 
-    private String cu(String str) {
+    private String ct(String str) {
         if (str == null) {
             return null;
         }
         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-            return String.valueOf(TbadkCoreApplication.m411getInst().getString(n.j.color_prefix)) + TbadkCoreApplication.m411getInst().getString(n.j.tail_color_night) + str;
+            return String.valueOf(TbadkCoreApplication.m411getInst().getString(t.j.color_prefix)) + TbadkCoreApplication.m411getInst().getString(t.j.tail_color_night) + str;
         }
-        return String.valueOf(TbadkCoreApplication.m411getInst().getString(n.j.color_prefix)) + str;
+        return String.valueOf(TbadkCoreApplication.m411getInst().getString(t.j.color_prefix)) + str;
     }
 }

@@ -9,20 +9,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.a.b.a.a.i {
     private int mType = 0;
-    private b aEQ = null;
-    private f aEu = null;
-    private v aEw = null;
-    private d aEy = null;
-    private m aEz = null;
-    private j aEB = null;
-    private k aEA = null;
+    private b aFG = null;
+    private f aFk = null;
+    private v aFm = null;
+    private d aFo = null;
+    private m aFp = null;
+    private j aFr = null;
+    private k aFq = null;
 
     public int getType() {
         return this.mType;
@@ -30,92 +30,77 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
 
     public void a(int i, b bVar, f fVar, v vVar, d dVar, j jVar, k kVar) {
         this.mType = i;
-        this.aEQ = bVar;
-        this.aEu = fVar;
-        this.aEw = vVar;
-        this.aEy = dVar;
-        this.aEB = jVar;
-        this.aEA = kVar;
+        this.aFG = bVar;
+        this.aFk = fVar;
+        this.aFm = vVar;
+        this.aFo = dVar;
+        this.aFr = jVar;
+        this.aFq = kVar;
     }
 
-    public k FM() {
+    public k He() {
         if (this.mType == 1280) {
-            return this.aEA;
+            return this.aFq;
         }
         return null;
     }
 
-    public j FN() {
+    public j Hf() {
         if (this.mType == 1024) {
-            return this.aEB;
+            return this.aFr;
         }
         return null;
     }
 
-    public f FF() {
+    public f GX() {
         if (this.mType == 8) {
-            return this.aEu;
+            return this.aFk;
         }
         return null;
     }
 
-    public m FJ() {
+    public m Hb() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aEz;
+        return this.aFp;
     }
 
-    public v FH() {
+    public v GZ() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aEw;
+            return this.aFm;
         }
         return null;
     }
 
-    public d FK() {
+    public d Hc() {
         if (this.mType == 17) {
-            return this.aEy;
+            return this.aFo;
         }
         return null;
     }
 
-    public SpannableString FT() {
-        if (this.mType != 1 || this.aEQ == null) {
+    public SpannableString Hl() {
+        if (this.mType != 1 || this.aFG == null) {
             return null;
         }
-        return new SpannableString(this.aEQ.getText());
-    }
-
-    public CharSequence u(ArrayList<e> arrayList) {
-        SpannableString c;
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 32 && this.aEQ != null) {
-            spannableStringBuilder.append((CharSequence) TbadkCoreApplication.m411getInst().getString(n.j.video_text));
-            CharSequence w = w(arrayList);
-            if (w != null) {
-                spannableStringBuilder.append(w);
-            }
-            if (this.aEQ.FB() == 1) {
-                c = c(this.mType, this.aEQ.getText(), this.aEQ.FC());
-            } else {
-                c = c(this.mType, this.aEQ.getText(), this.aEQ.getText());
-            }
-            if (c != null) {
-                spannableStringBuilder.append((CharSequence) c);
-            }
-        }
-        return spannableStringBuilder;
+        return new SpannableString(this.aFG.getText());
     }
 
     public CharSequence v(ArrayList<e> arrayList) {
+        SpannableString c;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 128 && this.aEQ != null) {
-            CharSequence w = w(arrayList);
-            if (w != null) {
-                spannableStringBuilder.append(w);
+        if (this.mType == 32 && this.aFG != null) {
+            spannableStringBuilder.append((CharSequence) TbadkCoreApplication.m411getInst().getString(t.j.video_text));
+            CharSequence x = x(arrayList);
+            if (x != null) {
+                spannableStringBuilder.append(x);
             }
-            SpannableString c = c(this.mType, this.aEQ.getLink(), this.aEQ.getLink());
+            if (this.aFG.GT() == 1) {
+                c = c(this.mType, this.aFG.getText(), this.aFG.GU());
+            } else {
+                c = c(this.mType, this.aFG.getText(), this.aFG.getText());
+            }
             if (c != null) {
                 spannableStringBuilder.append((CharSequence) c);
             }
@@ -123,37 +108,52 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         return spannableStringBuilder;
     }
 
-    private CharSequence w(ArrayList<e> arrayList) {
+    public CharSequence w(ArrayList<e> arrayList) {
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (this.mType == 128 && this.aFG != null) {
+            CharSequence x = x(arrayList);
+            if (x != null) {
+                spannableStringBuilder.append(x);
+            }
+            SpannableString c = c(this.mType, this.aFG.getLink(), this.aFG.getLink());
+            if (c != null) {
+                spannableStringBuilder.append((CharSequence) c);
+            }
+        }
+        return spannableStringBuilder;
+    }
+
+    private CharSequence x(ArrayList<e> arrayList) {
         h hVar = new h();
         hVar.a(4, new b("video_icon", " "), null, null, null, null, null);
-        return hVar.y(arrayList);
+        return hVar.z(arrayList);
     }
 
     public String getVideoUrl() {
-        if (this.mType != 32 || this.aEQ == null) {
+        if (this.mType != 32 || this.aFG == null) {
             return null;
         }
-        if (this.aEQ.FB() == 1) {
-            return this.aEQ.FC();
+        if (this.aFG.GT() == 1) {
+            return this.aFG.GU();
         }
-        return this.aEQ.getText();
+        return this.aFG.getText();
     }
 
-    public SpannableString FU() {
-        if (this.mType != 2 || this.aEQ == null) {
+    public SpannableString Hm() {
+        if (this.mType != 2 || this.aFG == null) {
             return null;
         }
-        if (this.aEQ.FB() == 1) {
-            return c(this.mType, this.aEQ.getText(), this.aEQ.FC());
+        if (this.aFG.GT() == 1) {
+            return c(this.mType, this.aFG.getText(), this.aFG.GU());
         }
-        return c(this.mType, this.aEQ.getText(), this.aEQ.getLink());
+        return c(this.mType, this.aFG.getText(), this.aFG.getLink());
     }
 
-    public SpannableString FV() {
-        if (this.mType != 256 || this.aEQ == null) {
+    public SpannableString Hn() {
+        if (this.mType != 256 || this.aFG == null) {
             return null;
         }
-        String text = this.aEQ.getText();
+        String text = this.aFG.getText();
         if (text == null) {
             return null;
         }
@@ -162,32 +162,32 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         }
         SpannableString spannableString = new SpannableString(text);
         g gVar = new g(this.mType, text);
-        gVar.gk(this.aEQ.getLink());
+        gVar.gh(this.aFG.getLink());
         spannableString.setSpan(gVar, 0, text.length() - 1, 33);
         return spannableString;
     }
 
-    public SpannableString FW() {
-        if (this.mType != 16 || this.aEQ == null) {
+    public SpannableString Ho() {
+        if (this.mType != 16 || this.aFG == null) {
             return null;
         }
-        return c(this.mType, this.aEQ.getText(), this.aEQ.getLink());
+        return c(this.mType, this.aFG.getText(), this.aFG.getLink());
     }
 
-    private SpannableString x(ArrayList<e> arrayList) {
+    private SpannableString y(ArrayList<e> arrayList) {
         String text;
-        int fe;
-        a.C0051a fF;
+        int fd;
+        a.C0052a fD;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.aEQ != null && this.aEQ.getText() != null && this.aEQ.getLink() != null && (fe = TbFaceManager.CL().fe((text = this.aEQ.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.CL().fg(text) + ")";
+        if (this.mType == 4 && this.aFG != null && this.aFG.getText() != null && this.aFG.getLink() != null && (fd = TbFaceManager.Ec().fd((text = this.aFG.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.Ec().ff(text) + ")";
             spannableString = new SpannableString(String.valueOf(str) + " ");
-            e eVar = new e(TbadkCoreApplication.m411getInst().getContext(), fe);
+            e eVar = new e(TbadkCoreApplication.m411getInst().getContext(), fd);
             if (arrayList != null) {
                 arrayList.add(eVar);
             }
-            if (TbFaceManager.CL().fF(text) != null) {
-                int width = (int) (fF.getWidth() * 0.5d);
+            if (TbFaceManager.Ec().fD(text) != null) {
+                int width = (int) (fD.getWidth() * 0.5d);
                 eVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 eVar.setBounds(new Rect(0, 0, 0, 0));
@@ -209,47 +209,47 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         return spannableString;
     }
 
-    public SpannableString FX() {
-        if (this.mType != 1024 || this.aEB == null) {
+    public SpannableString Hp() {
+        if (this.mType != 1024 || this.aFr == null) {
             return null;
         }
         SpannableString spannableString = new SpannableString("a");
-        Drawable eR = i.eR(this.aEB.aER);
-        eR.setBounds(0, 0, eR.getIntrinsicWidth(), eR.getIntrinsicHeight());
-        com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(eR);
-        fVar.setVerticalOffset(com.baidu.adp.lib.util.k.d(TbadkCoreApplication.m411getInst().getContext(), n.e.ds4));
+        Drawable fm = i.fm(this.aFr.aFH);
+        fm.setBounds(0, 0, fm.getIntrinsicWidth(), fm.getIntrinsicHeight());
+        com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(fm);
+        fVar.setVerticalOffset(com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst().getContext(), t.e.ds4));
         spannableString.setSpan(fVar, 0, 1, 33);
-        spannableString.setSpan(new g(1024, this.aEB.link), spannableString.length() - 1, "a".length(), 33);
+        spannableString.setSpan(new g(1024, this.aFr.link), spannableString.length() - 1, "a".length(), 33);
         return spannableString;
     }
 
-    public CharSequence y(ArrayList<e> arrayList) {
+    public CharSequence z(ArrayList<e> arrayList) {
         switch (this.mType) {
             case 1:
-                return FT();
+                return Hl();
             case 2:
-                return FU();
+                return Hm();
             case 4:
-                return x(arrayList);
+                return y(arrayList);
             case 8:
             case 17:
             default:
                 return null;
             case 16:
-                return FW();
+                return Ho();
             case 32:
-                return u(arrayList);
-            case 128:
                 return v(arrayList);
+            case 128:
+                return w(arrayList);
             case 256:
-                return FV();
+                return Hn();
             case 1024:
-                return FX();
+                return Hp();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.aEz.Gb() != false) goto L9;
+        if (r7.aFp.Hz() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -258,71 +258,71 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = eQ(pbContent.type.intValue());
+            this.mType = fl(pbContent.type.intValue());
             switch (this.mType) {
                 case 8:
-                    this.aEu = new f(pbContent);
+                    this.aFk = new f(pbContent);
                     break;
                 case 16:
-                    this.aEQ = new b(pbContent.text, String.valueOf(pbContent.uid));
+                    this.aFG = new b(pbContent.text, String.valueOf(pbContent.uid));
                     break;
                 case 17:
-                    this.aEy = new d();
-                    this.aEy.avZ.avz = String.format("#(%s)", pbContent.c);
-                    this.aEy.avZ.avB = pbContent.dynamic;
-                    this.aEy.avZ.avA = pbContent._static;
-                    this.aEy.mType = this.mType;
-                    this.aEy.avZ.avC = pbContent.width.intValue();
-                    this.aEy.avZ.avD = pbContent.height.intValue();
-                    this.aEy.avZ.mPackageName = pbContent.packet_name;
-                    this.aEy.avZ.avE = pbContent._static;
-                    String[] split = this.aEy.avZ.avB.split("/");
+                    this.aFo = new d();
+                    this.aFo.awQ.awr = String.format("#(%s)", pbContent.c);
+                    this.aFo.awQ.awt = pbContent.dynamic;
+                    this.aFo.awQ.aws = pbContent._static;
+                    this.aFo.mType = this.mType;
+                    this.aFo.awQ.awu = pbContent.width.intValue();
+                    this.aFo.awQ.awv = pbContent.height.intValue();
+                    this.aFo.awQ.mPackageName = pbContent.packet_name;
+                    this.aFo.awQ.Vq = pbContent._static;
+                    String[] split = this.aFo.awQ.awt.split("/");
                     for (String str2 : split) {
                         i++;
                         if (str2.equals("faceshop")) {
-                            this.aEy.avZ.mGid = split[i].split("_")[0];
+                            this.aFo.awQ.mGid = split[i].split("_")[0];
                             break;
                         }
                     }
-                    this.aEy.avZ.mGid = split[i].split("_")[0];
+                    this.aFo.awQ.mGid = split[i].split("_")[0];
                 case 512:
-                    this.aEw = new v(pbContent);
+                    this.aFm = new v(pbContent);
                     break;
                 case 1024:
-                    this.aEB = new j(pbContent);
+                    this.aFr = new j(pbContent);
                     break;
                 case 1280:
-                    this.aEA = new k(pbContent);
+                    this.aFq = new k(pbContent);
                     break;
                 default:
                     if (this.mType == 32) {
-                        this.aEz = new m();
-                        this.aEz.b(pbContent);
+                        this.aFp = new m();
+                        this.aFp.b(pbContent);
                         break;
                     }
-                    this.aEQ = new b(pbContent);
+                    this.aFG = new b(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.CL().fe(this.aEQ.getText()) <= 0) {
+                        if (TbFaceManager.Ec().fd(this.aFG.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
-                                str = "[" + TbadkCoreApplication.m411getInst().getString(n.j.editor_express) + "]";
+                                str = "[" + TbadkCoreApplication.m411getInst().getString(t.j.editor_express) + "]";
                             } else {
                                 str = "[" + pbContent.c + "]";
                             }
-                            this.aEQ.setText(str);
+                            this.aFG.setText(str);
                             break;
                         } else {
-                            this.aEQ.setLink("[" + pbContent.c + "]");
+                            this.aFG.setLink("[" + pbContent.c + "]");
                             break;
                         }
                     } else if (this.mType == 256) {
-                        this.aEQ.setLink(pbContent.phonetype);
+                        this.aFG.setLink(pbContent.phonetype);
                         break;
                     }
                     break;
             }
-            if (this.mType != 1 && this.aEQ != null) {
-                this.aEQ.FD();
+            if (this.mType != 1 && this.aFG != null) {
+                this.aFG.GV();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -333,60 +333,60 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = eQ(jSONObject.optInt("type", 0));
+            this.mType = fl(jSONObject.optInt("type", 0));
             if (this.mType == 8) {
-                this.aEu = new f(jSONObject);
+                this.aFk = new f(jSONObject);
             } else if (this.mType == 512) {
-                this.aEw = new v(jSONObject);
+                this.aFm = new v(jSONObject);
             } else if (this.mType == 16) {
-                this.aEQ = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
+                this.aFG = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else if (this.mType == 17) {
-                this.aEy = new d();
-                this.aEy.avZ.avz = String.format("#(%s)", jSONObject.optString("c"));
-                this.aEy.avZ.avB = jSONObject.optString("dynamic");
-                this.aEy.avZ.avA = jSONObject.optString("static");
-                this.aEy.mType = this.mType;
-                this.aEy.avZ.avC = jSONObject.optInt("width", 200);
-                this.aEy.avZ.avD = jSONObject.optInt("height", 200);
-                this.aEy.avZ.mPackageName = jSONObject.optString("packet_name", "");
-                this.aEy.avZ.avE = jSONObject.optString("icon");
-                String[] split = this.aEy.avZ.avB.split("/");
+                this.aFo = new d();
+                this.aFo.awQ.awr = String.format("#(%s)", jSONObject.optString("c"));
+                this.aFo.awQ.awt = jSONObject.optString("dynamic");
+                this.aFo.awQ.aws = jSONObject.optString("static");
+                this.aFo.mType = this.mType;
+                this.aFo.awQ.awu = jSONObject.optInt("width", 200);
+                this.aFo.awQ.awv = jSONObject.optInt("height", 200);
+                this.aFo.awQ.mPackageName = jSONObject.optString("packet_name", "");
+                this.aFo.awQ.Vq = jSONObject.optString("icon");
+                String[] split = this.aFo.awQ.awt.split("/");
                 for (String str2 : split) {
                     i++;
                     if (str2.equals("faceshop")) {
                         break;
                     }
                 }
-                this.aEy.avZ.mGid = split[i].split("_")[0];
+                this.aFo.awQ.mGid = split[i].split("_")[0];
             } else {
-                this.aEQ = new b(jSONObject);
+                this.aFG = new b(jSONObject);
                 if (this.mType == 4) {
-                    int fe = TbFaceManager.CL().fe(this.aEQ.getText());
+                    int fd = TbFaceManager.Ec().fd(this.aFG.getText());
                     String optString = jSONObject.optString("c");
-                    if (fe <= 0) {
+                    if (fd <= 0) {
                         this.mType = 1;
                         if (StringUtils.isNull(optString)) {
-                            str = "[" + TbadkCoreApplication.m411getInst().getString(n.j.editor_express) + "]";
+                            str = "[" + TbadkCoreApplication.m411getInst().getString(t.j.editor_express) + "]";
                         } else {
                             str = "[" + optString + "]";
                         }
-                        this.aEQ.setText(str);
+                        this.aFG.setText(str);
                     } else {
-                        this.aEQ.setLink("[" + optString + "]");
+                        this.aFG.setLink("[" + optString + "]");
                     }
                 } else if (this.mType == 256) {
-                    this.aEQ.setLink(jSONObject.optString("phonetype"));
+                    this.aFG.setLink(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.mType != 1 && this.aEQ != null) {
-                this.aEQ.FD();
+            if (this.mType != 1 && this.aFG != null) {
+                this.aFG.GV();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private int eQ(int i) {
+    private int fl(int i) {
         switch (i) {
             case 0:
                 return 1;

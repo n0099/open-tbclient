@@ -4,31 +4,31 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String Xw;
-    private String dGO;
-    private int dGP;
-    private String dGQ;
-    private String dGR;
-    private String dGS;
+    private String XE;
+    private String dWK;
+    private int dWL;
+    private String dWM;
+    private String dWN;
+    private String dWO;
     private int height;
     private int width;
 
     public j(Timgs timgs) {
-        this.dGO = null;
-        this.dGP = 0;
-        this.dGQ = null;
-        this.dGR = null;
-        this.dGS = null;
-        this.Xw = null;
+        this.dWK = null;
+        this.dWL = 0;
+        this.dWM = null;
+        this.dWN = null;
+        this.dWO = null;
+        this.XE = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.dGO = timgs.img_url;
-            this.dGP = timgs.flag.intValue();
-            this.dGQ = timgs.url;
-            this.dGR = timgs.big_cdn_url;
-            this.dGS = timgs.des_main;
-            this.Xw = timgs.des_sub;
+            this.dWK = timgs.img_url;
+            this.dWL = timgs.flag.intValue();
+            this.dWM = timgs.url;
+            this.dWN = timgs.big_cdn_url;
+            this.dWO = timgs.des_main;
+            this.XE = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
@@ -50,20 +50,20 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.dGO;
+        return this.dWK;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rt() {
-        return this.dGQ;
+    public String rX() {
+        return this.dWM;
     }
 
-    public String aEV() {
-        return this.dGS;
+    public String aMb() {
+        return this.dWO;
     }
 
-    public String sX() {
-        return this.Xw;
+    public String tV() {
+        return this.XE;
     }
 
     public int getHeight() {
@@ -74,7 +74,7 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String aEW() {
-        return this.dGR;
+    public String aMc() {
+        return this.dWN;
     }
 }

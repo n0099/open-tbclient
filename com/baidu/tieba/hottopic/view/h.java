@@ -1,90 +1,90 @@
 package com.baidu.tieba.hottopic.view;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.hottopic.a.u;
-import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import com.baidu.tieba.n;
-import java.util.List;
+import android.graphics.drawable.AnimationDrawable;
+import android.view.animation.Animation;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.f<RelateTopicForumActivity> {
-    private NoNetworkView aUd;
-    private PbListView aVj;
-    private RelateTopicForumActivity bJH;
-    private u bJI;
-    private List<RelateForumItemData> bJJ;
-    private AdapterView.OnItemClickListener bJK;
-    private BdListView mListView;
-    private NavigationBar mNavigationBar;
-    private View mRootView;
+public class h implements AbsListView.OnScrollListener {
+    final /* synthetic */ c bMS;
 
-    public h(RelateTopicForumActivity relateTopicForumActivity, List<RelateForumItemData> list) {
-        super(relateTopicForumActivity.getPageContext());
-        this.mNavigationBar = null;
-        this.mRootView = null;
-        this.mListView = null;
-        this.bJJ = null;
-        this.bJK = new i(this);
-        this.bJH = relateTopicForumActivity;
-        if (list != null) {
-            if (list.size() > 20) {
-                this.bJJ = list.subList(0, 20);
-            } else {
-                this.bJJ = list;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(c cVar) {
+        this.bMS = cVar;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        ImageView imageView;
+        LinearLayout linearLayout;
+        Animation animation;
+        LinearLayout linearLayout2;
+        Animation animation2;
+        LinearLayout linearLayout3;
+        Animation animation3;
+        LinearLayout linearLayout4;
+        Animation animation4;
+        LinearLayout linearLayout5;
+        Animation animation5;
+        LinearLayout linearLayout6;
+        Animation animation6;
+        AnimationDrawable animationDrawable;
+        LinearLayout linearLayout7;
+        Animation animation7;
+        LinearLayout linearLayout8;
+        Animation animation8;
+        AnimationDrawable animationDrawable2;
+        this.bMS.index = i;
+        imageView = this.bMS.bMH;
+        if (imageView.getDrawable() instanceof AnimationDrawable) {
+            if (i <= 1) {
+                linearLayout7 = this.bMS.bMI;
+                Animation animation9 = linearLayout7.getAnimation();
+                animation7 = this.bMS.bMP;
+                if (animation9 != animation7) {
+                    linearLayout8 = this.bMS.bMI;
+                    animation8 = this.bMS.bMP;
+                    linearLayout8.startAnimation(animation8);
+                    animationDrawable2 = this.bMS.bML;
+                    animationDrawable2.start();
+                    return;
+                }
+                return;
+            }
+            linearLayout5 = this.bMS.bMI;
+            Animation animation10 = linearLayout5.getAnimation();
+            animation5 = this.bMS.bMO;
+            if (animation10 != animation5) {
+                linearLayout6 = this.bMS.bMI;
+                animation6 = this.bMS.bMO;
+                linearLayout6.startAnimation(animation6);
+                animationDrawable = this.bMS.bML;
+                animationDrawable.stop();
+            }
+        } else if (i >= 2) {
+            linearLayout3 = this.bMS.bMI;
+            Animation animation11 = linearLayout3.getAnimation();
+            animation3 = this.bMS.bMM;
+            if (animation11 != animation3) {
+                linearLayout4 = this.bMS.bMI;
+                animation4 = this.bMS.bMM;
+                linearLayout4.startAnimation(animation4);
+            }
+        } else {
+            linearLayout = this.bMS.bMI;
+            Animation animation12 = linearLayout.getAnimation();
+            animation = this.bMS.bMM;
+            if (animation12 == animation) {
+                linearLayout2 = this.bMS.bMI;
+                animation2 = this.bMS.bMN;
+                linearLayout2.startAnimation(animation2);
             }
         }
-        initView();
-    }
-
-    public void onChangeSkinType(int i) {
-        this.bJH.getLayoutMode().ac(i == 1);
-        this.bJH.getLayoutMode().k(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.bJH.getPageContext(), i);
-        this.aUd.onChangeSkinType(this.bJH.getPageContext(), i);
-        this.aVj.cP(i);
-    }
-
-    private void initView() {
-        if (this.bJH != null) {
-            this.bJH.setContentView(n.h.hot_topic_more_activity);
-        }
-        this.mRootView = this.bJH.findViewById(n.g.topic_list_root_view);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(n.g.view_navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(n.j.hot_topic_list_navigationbar_title);
-        this.aUd = (NoNetworkView) this.mRootView.findViewById(n.g.view_no_network);
-        this.mListView = (BdListView) this.mRootView.findViewById(n.g.hot_topic_more_list);
-        this.bJI = new u(this.bJH);
-        this.aVj = new PbListView(this.bJH.getPageContext().getPageActivity());
-        this.aVj.mT();
-        this.aVj.cO(n.d.cp_bg_line_d);
-        this.mListView.setAdapter((ListAdapter) this.bJI);
-        this.bJI.setData(this.bJJ);
-        this.mListView.setOnItemClickListener(this.bJK);
-    }
-
-    public void Ol() {
-        if (this.mListView != null && this.aVj != null) {
-            this.mListView.setNextPage(this.aVj);
-            this.aVj.vP();
-            this.aVj.setText(this.bJH.getResources().getString(n.j.list_no_more));
-        }
-    }
-
-    public void Om() {
-        if (this.mListView != null && this.aVj != null) {
-            this.mListView.setNextPage(null);
-            this.aVj.vQ();
-        }
-    }
-
-    public u VN() {
-        return this.bJI;
     }
 }

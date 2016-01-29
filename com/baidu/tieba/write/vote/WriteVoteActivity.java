@@ -22,43 +22,44 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.data.VoteInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 import com.baidu.tieba.write.vote.c;
-import com.baidu.tieba.write.write.cf;
+import com.baidu.tieba.write.write.cc;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implements View.OnClickListener, PopupWindow.OnDismissListener, RadioGroup.OnCheckedChangeListener, BdSwitchView.a, b, c.a, cf.a {
-    private com.baidu.tbadk.img.b apC;
-    private com.baidu.tieba.tbadkCore.writeModel.a aud;
-    private int dUu;
-    private n dWe;
-    private String dWi;
-    private BdToast dWk;
+public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implements View.OnClickListener, PopupWindow.OnDismissListener, RadioGroup.OnCheckedChangeListener, BdSwitchView.a, b, c.a, cc.a {
+    private com.baidu.tbadk.img.b aqu;
+    private com.baidu.tieba.tbadkCore.writeModel.a auV;
+    private int eoZ;
+    private n eqX;
+    private String erb;
+    private BdToast erd;
     private PostPrefixData mPrefixData;
-    private final WriteData dJy = new WriteData();
+    private final WriteData dZC = new WriteData();
     private final VoteInfo mVoteInfo = new VoteInfo();
-    private final WriteImagesInfo mWriteImagesInfo = new WriteImagesInfo();
-    private final WriteImagesInfo dWf = new WriteImagesInfo();
-    private int dWg = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.e.ds80);
-    private final ImageOperation dWh = com.baidu.tbadk.img.effect.d.K(this.dWg, this.dWg);
-    private DialogInterface.OnCancelListener cPd = null;
-    private int dVN = 7;
-    private boolean dWj = false;
-    private int aUh = 0;
-    private final CustomMessageListener dWl = new i(this, CmdConfigCustom.CMD_TEXT_CHANGED);
-    private final a.d aut = new j(this);
+    private final WriteImagesInfo cYj = new WriteImagesInfo();
+    private final WriteImagesInfo eqY = new WriteImagesInfo();
+    private int eqZ = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds80);
+    private final ImageOperation era = com.baidu.tbadk.img.effect.d.G(this.eqZ, this.eqZ);
+    private DialogInterface.OnCancelListener cYA = null;
+    private int eqG = 7;
+    private boolean erc = false;
+    private int aWo = 0;
+    private final CustomMessageListener ere = new i(this, CmdConfigCustom.CMD_TEXT_CHANGED);
+    private final a.d avl = new j(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -66,11 +67,11 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initData();
-        this.dWe = new n(this);
-        this.dWe.b(this.mPrefixData);
-        this.aud = new com.baidu.tieba.tbadkCore.writeModel.a(this);
-        this.apC = new com.baidu.tbadk.img.b();
-        initListener();
+        this.eqX = new n(this);
+        this.eqX.b(this.mPrefixData);
+        this.auV = new com.baidu.tieba.tbadkCore.writeModel.a(this);
+        this.aqu = new com.baidu.tbadk.img.b();
+        pm();
         if (!checkUpIsLogin()) {
             finish();
             return;
@@ -79,21 +80,21 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         adjustResizeForSoftInput();
     }
 
-    private void initListener() {
-        this.aud.b(this.aut);
-        registerListener(this.dWl);
-        this.cPd = new k(this);
+    private void pm() {
+        this.auV.b(this.avl);
+        registerListener(this.ere);
+        this.cYA = new k(this);
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.dJy.setType(6);
-        this.dJy.setForumId(intent.getStringExtra("forum_id"));
-        this.dJy.setForumName(intent.getStringExtra("forum_name"));
+        this.dZC.setType(6);
+        this.dZC.setForumId(intent.getStringExtra("forum_id"));
+        this.dZC.setForumName(intent.getStringExtra("forum_name"));
         this.mPrefixData = (PostPrefixData) intent.getSerializableExtra("prefix_data");
         if (this.mPrefixData != null && this.mPrefixData.getPrefixs() != null && this.mPrefixData.getPrefixs().size() > 0) {
-            this.mPrefixData.getPrefixs().add(0, getPageContext().getString(n.j.write_no_prefix));
-            this.dUu = 1;
+            this.mPrefixData.getPrefixs().add(0, getPageContext().getString(t.j.write_no_prefix));
+            this.eoZ = 1;
         }
         AntiData antiData = (AntiData) intent.getSerializableExtra("anti");
         if (antiData != null && !TextUtils.isEmpty(antiData.getPollMessage())) {
@@ -104,25 +105,25 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if (this.dWe != null) {
-            if (i == n.g.radio_vote_pic) {
-                this.dWe.fr(0);
-                this.aUh = 0;
-            } else if (i == n.g.radio_vote_text) {
-                this.dWe.fr(1);
-                this.aUh = 1;
+        if (this.eqX != null) {
+            if (i == t.g.radio_vote_pic) {
+                this.eqX.fQ(0);
+                this.aWo = 0;
+            } else if (i == t.g.radio_vote_text) {
+                this.eqX.fQ(1);
+                this.aWo = 1;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
-        if (AntiHelper.ne(postWriteCallBackData.getErrorCode())) {
-            AntiHelper.Q(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
+        if (AntiHelper.or(postWriteCallBackData.getErrorCode())) {
+            AntiHelper.X(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
         } else if (postWriteCallBackData.getErrorCode() != 0) {
             String errorString = postWriteCallBackData.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                errorString = getPageContext().getPageActivity().getString(n.j.error_write);
+                errorString = getPageContext().getPageActivity().getString(t.j.error_write);
             }
             showToast(errorString);
         } else {
@@ -132,77 +133,77 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.dWe != null && view == this.dWe.aLt()) {
+        if (this.eqX != null && view == this.eqX.aUo()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.dWj = true;
+                this.erc = true;
             } else {
-                this.dWj = false;
+                this.erc = false;
             }
-            Nm();
+            Pj();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.dWe != null) {
-            Nm();
-            if (view == this.dWe.aLv()) {
-                if (this.dWe.aLu() != null) {
-                    this.dWe.aLu().showDialog();
+        if (this.eqX != null) {
+            Pj();
+            if (view == this.eqX.aUq()) {
+                if (this.eqX.aUp() != null) {
+                    this.eqX.aUp().Gp();
                 }
-            } else if (view == this.dWe.aLw()) {
-                if (this.aUh == 0) {
+            } else if (view == this.eqX.aUr()) {
+                if (this.aWo == 0) {
                     String valueOf = String.valueOf(System.currentTimeMillis());
-                    this.dWf.clear();
-                    this.dWf.setMaxImagesAllowed(getMaxImagesAllowed());
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.dWf.toJsonString(), valueOf);
+                    this.eqY.clear();
+                    this.eqY.setMaxImagesAllowed(getMaxImagesAllowed());
+                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.eqY.toJsonString(), valueOf);
                     albumActivityConfig.setRequestCode(12002);
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
-                } else if (this.aUh == 1) {
-                    this.dWe.ow(1).aLj();
+                } else if (this.aWo == 1) {
+                    this.eqX.pR(1).aUe();
                 }
-            } else if (view == this.dWe.aLq()) {
-                aLm();
-            } else if (view == this.dWe.aLo()) {
-                this.dWe.aO(view);
-            } else if (view == this.dWe.aLp()) {
-                this.dWe.aO(view);
+            } else if (view == this.eqX.aUl()) {
+                aUh();
+            } else if (view == this.eqX.aUj()) {
+                this.eqX.bg(view);
+            } else if (view == this.eqX.aUk()) {
+                this.eqX.bg(view);
             }
         }
     }
 
     @Override // com.baidu.tieba.write.vote.c.a
-    public void R(int i, String str) {
-        Nm();
-        this.dVN = i;
-        if (this.dWe != null) {
-            this.dWe.nr(str);
+    public void U(int i, String str) {
+        Pj();
+        this.eqG = i;
+        if (this.eqX != null) {
+            this.eqX.nI(str);
         }
     }
 
     @Override // com.baidu.tieba.write.vote.b
-    public void or(int i) {
-        Nm();
-        this.dWf.clear();
-        this.dWf.setMaxImagesAllowed(getMaxImagesAllowed());
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.dWf.toJsonString(), String.valueOf(System.currentTimeMillis()), i);
+    public void pM(int i) {
+        Pj();
+        this.eqY.clear();
+        this.eqY.setMaxImagesAllowed(getMaxImagesAllowed());
+        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getPageContext().getPageActivity(), this.eqY.toJsonString(), String.valueOf(System.currentTimeMillis()), i);
         albumActivityConfig.setRequestFrom(3);
         albumActivityConfig.setRequestCode(12002);
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
     @Override // com.baidu.tieba.write.vote.b
-    public void os(int i) {
-        Nm();
-        if (this.dWe != null) {
-            this.dWe.ox(i);
+    public void pN(int i) {
+        Pj();
+        if (this.eqX != null) {
+            this.eqX.pS(i);
         }
     }
 
     @Override // com.baidu.tieba.write.vote.b
-    public void Q(int i, String str) {
-        Nm();
+    public void T(int i, String str) {
+        Pj();
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(str);
         sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(getPageContext().getPageActivity()).createConfig(arrayList, 0, "", "", "", true, "", true)));
@@ -210,16 +211,16 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        if (this.dWe != null) {
-            this.dWe.hT(false);
+        if (this.eqX != null) {
+            this.eqX.iE(false);
         }
     }
 
-    @Override // com.baidu.tieba.write.write.cf.a
-    public void ok(int i) {
-        this.dUu = i;
-        if (this.dWe != null && this.mPrefixData != null) {
-            this.dWe.S(i, this.mPrefixData.getPrefixs().get(i));
+    @Override // com.baidu.tieba.write.write.cc.a
+    public void pF(int i) {
+        this.eoZ = i;
+        if (this.eqX != null && this.mPrefixData != null) {
+            this.eqX.V(i, this.mPrefixData.getPrefixs().get(i));
         }
     }
 
@@ -227,21 +228,21 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dWe != null) {
-            this.dWe.dO(i);
+        if (this.eqX != null) {
+            this.eqX.ej(i);
         }
     }
 
     private int getMaxImagesAllowed() {
-        ArrayList<g> aLx;
-        if (this.dWe == null || (aLx = this.dWe.aLx()) == null) {
+        ArrayList<g> aUs;
+        if (this.eqX == null || (aUs = this.eqX.aUs()) == null) {
             return 10;
         }
-        Iterator<g> it = aLx.iterator();
+        Iterator<g> it = aUs.iterator();
         int i = 0;
         while (it.hasNext()) {
             g next = it.next();
-            if (next != null && next.aLg()) {
+            if (next != null && next.aUb()) {
                 i++;
             }
         }
@@ -249,39 +250,39 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKF() {
-        if (this.aud != null) {
-            this.aud.cancelLoadData();
+    public void aTp() {
+        if (this.auV != null) {
+            this.auV.cancelLoadData();
         }
     }
 
-    private void aLm() {
-        aKF();
-        if (this.dWe != null && this.aud != null && this.dWe.aLr() != null && this.dWe.aLr() != null) {
-            String trim = this.dWe.aLr().getText().toString().trim();
-            String trim2 = this.dWe.aLs().getText().toString().trim();
-            if (!bh(trim, trim2)) {
-                aLn();
+    private void aUh() {
+        aTp();
+        if (this.eqX != null && this.auV != null && this.eqX.aUm() != null && this.eqX.aUm() != null) {
+            String trim = this.eqX.aUm().getText().toString().trim();
+            String trim2 = this.eqX.aUn().getText().toString().trim();
+            if (!bs(trim, trim2)) {
+                aUi();
                 return;
             }
-            this.dJy.setVoteInfo(this.mVoteInfo);
-            this.aud.c(this.dJy);
-            this.dJy.setContent(trim2);
-            this.dJy.setVcode(null);
-            if (this.dUu != 0 && this.mPrefixData != null && this.mPrefixData.getPrefixs() != null && this.mPrefixData.getPrefixs().size() > 0 && this.dWe.aLp() != null) {
-                this.dJy.setTitle(String.valueOf(this.dWe.aLp().getText().toString()) + trim);
+            this.dZC.setVoteInfo(this.mVoteInfo);
+            this.auV.c(this.dZC);
+            this.dZC.setContent(trim2);
+            this.dZC.setVcode(null);
+            if (this.eoZ != 0 && this.mPrefixData != null && this.mPrefixData.getPrefixs() != null && this.mPrefixData.getPrefixs().size() > 0 && this.eqX.aUk() != null) {
+                this.dZC.setTitle(String.valueOf(this.eqX.aUk().getText().toString()) + trim);
             } else {
-                this.dJy.setTitle(trim);
+                this.dZC.setTitle(trim);
             }
-            if (TextUtils.isEmpty(this.dJy.getTitle())) {
-                this.dJy.setIsNoTitle(true);
+            if (TextUtils.isEmpty(this.dZC.getTitle())) {
+                this.dZC.setIsNoTitle(true);
             } else {
-                this.dJy.setIsNoTitle(false);
+                this.dZC.setIsNoTitle(false);
             }
-            if (!this.aud.aGD()) {
-                ov(n.j.write_img_limit);
-            } else if (this.aud.aGA()) {
-                showLoadingDialog(getPageContext().getString(n.j.sending), this.cPd);
+            if (!this.auV.aNH()) {
+                pQ(t.j.write_img_limit);
+            } else if (this.auV.aNE()) {
+                showLoadingDialog(getPageContext().getString(t.j.sending), this.cYA);
             }
         }
     }
@@ -291,85 +292,85 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean bh(String str, String str2) {
+    private boolean bs(String str, String str2) {
         ArrayList<g> arrayList;
-        List<g> aLy;
+        List<g> aUt;
         int i;
-        if (this.dWe == null) {
+        if (this.eqX == null) {
             return false;
         }
-        if (this.aUh == 0) {
-            aLy = this.dWe.aLx();
-            if (!h(str2, aLy)) {
+        if (this.aWo == 0) {
+            aUt = this.eqX.aUs();
+            if (!h(str2, aUt)) {
                 return false;
             }
-        } else if (this.aUh != 1) {
+        } else if (this.aWo != 1) {
             arrayList = null;
-            if (cf(arrayList)) {
+            if (cs(arrayList)) {
                 return false;
             }
-            this.mWriteImagesInfo.clear();
-            this.mWriteImagesInfo.setMaxImagesAllowed(10);
+            this.cYj.clear();
+            this.cYj.setMaxImagesAllowed(10);
             this.mVoteInfo.setDescription(str2);
-            this.mVoteInfo.setEndtime(this.dVN);
-            if (this.aUh == 0) {
+            this.mVoteInfo.setEndtime(this.eqG);
+            if (this.aWo == 0) {
                 i = 2;
             } else {
-                i = this.aUh == 1 ? 1 : -1;
+                i = this.aWo == 1 ? 1 : -1;
             }
             if (i != -1) {
                 this.mVoteInfo.setType(i);
                 ArrayList<VoteInfo.VoteOption> arrayList2 = new ArrayList<>();
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
                     g gVar = arrayList.get(i2);
-                    if (gVar != null && (this.aUh != 1 || gVar.aLh())) {
-                        ImageFileInfo aLk = gVar.aLk();
-                        arrayList2.add(new VoteInfo.VoteOption(gVar.getId(), gVar.aLi(), aLk));
-                        if (this.aUh == 0 && aLk != null) {
-                            this.mWriteImagesInfo.addChooseFile(aLk);
-                            this.mWriteImagesInfo.updateQuality();
+                    if (gVar != null && (this.aWo != 1 || gVar.aUc())) {
+                        ImageFileInfo aUf = gVar.aUf();
+                        arrayList2.add(new VoteInfo.VoteOption(gVar.getId(), gVar.aUd(), aUf));
+                        if (this.aWo == 0 && aUf != null) {
+                            this.cYj.addChooseFile(aUf);
+                            this.cYj.updateQuality();
                         }
                     }
                 }
                 this.mVoteInfo.setOptions(arrayList2);
-                this.mVoteInfo.setIsMulti(this.dWj ? 1 : 0);
-                this.dJy.setWriteImagesInfo(this.mWriteImagesInfo);
-                this.aud.hw(this.mWriteImagesInfo.size() > 0);
+                this.mVoteInfo.setIsMulti(this.erc ? 1 : 0);
+                this.dZC.setWriteImagesInfo(this.cYj);
+                this.auV.hX(this.cYj.size() > 0);
                 return true;
             }
             return false;
         } else {
-            aLy = this.dWe.aLy();
-            if (!ce(aLy)) {
+            aUt = this.eqX.aUt();
+            if (!cr(aUt)) {
                 return false;
             }
         }
-        arrayList = aLy;
-        if (cf(arrayList)) {
+        arrayList = aUt;
+        if (cs(arrayList)) {
         }
     }
 
     private boolean h(String str, List<g> list) {
-        if (cf(list)) {
+        if (cs(list)) {
             if (TextUtils.isEmpty(str)) {
                 for (g gVar : list) {
                     if (gVar != null) {
-                        if (!gVar.aLg()) {
-                            gVar.aLj();
-                            ov(n.j.vote_item_pic_no_ok);
+                        if (!gVar.aUb()) {
+                            gVar.aUe();
+                            pQ(t.j.vote_item_pic_no_ok);
                             return false;
-                        } else if (!gVar.aLh()) {
-                            gVar.ou(n.j.vote_hint);
-                            ov(n.j.vote_item_no_ok);
+                        } else if (!gVar.aUc()) {
+                            gVar.pP(t.j.vote_hint);
+                            pQ(t.j.vote_item_no_ok);
                             return false;
                         }
                     }
                 }
             } else {
                 for (g gVar2 : list) {
-                    if (gVar2 != null && !gVar2.aLg()) {
-                        gVar2.aLj();
-                        ov(n.j.vote_item_pic_no_ok);
+                    if (gVar2 != null && !gVar2.aUb()) {
+                        gVar2.aUe();
+                        pQ(t.j.vote_item_pic_no_ok);
                         return false;
                     }
                 }
@@ -379,14 +380,14 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         return false;
     }
 
-    private boolean ce(List<g> list) {
+    private boolean cr(List<g> list) {
         int i;
-        if (cf(list)) {
+        if (cs(list)) {
             g gVar = null;
             int i2 = 0;
             for (g gVar2 : list) {
                 if (gVar2 != null) {
-                    if (!gVar2.aLh()) {
+                    if (!gVar2.aUc()) {
                         if (gVar == null) {
                             i = i2;
                         } else {
@@ -408,7 +409,7 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
                 return true;
             }
             if (gVar != null) {
-                gVar.ou(n.j.vote_hint);
+                gVar.pP(t.j.vote_hint);
                 return false;
             }
             return false;
@@ -416,12 +417,12 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         return false;
     }
 
-    private boolean cf(List<g> list) {
+    private boolean cs(List<g> list) {
         if (list == null || list.size() == 0) {
-            ov(n.j.vote_error_null);
+            pQ(t.j.vote_error_null);
             return false;
         } else if (list.size() < 2) {
-            ov(n.j.vote_error_less_two);
+            pQ(t.j.vote_error_less_two);
             return false;
         } else {
             return true;
@@ -438,17 +439,17 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
             } else if (i == 12002 && intent != null) {
                 intent.getIntExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
                 if (intent.getBooleanExtra(AlbumActivityConfig.CAMERA_RESULT, false)) {
-                    Y(intent);
+                    ab(intent);
                 } else {
-                    X(intent);
+                    aa(intent);
                 }
-                this.dWf.clear();
+                this.eqY.clear();
             }
         } else if (i2 == 0) {
-            Nm();
+            Pj();
             switch (i) {
                 case 12001:
-                    BW();
+                    Dm();
                     return;
                 case 12002:
                 case 12003:
@@ -463,23 +464,23 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
                 default:
                     return;
                 case 12010:
-                    this.dWi = String.valueOf(System.currentTimeMillis());
-                    ar.b(getPageContext(), this.dWi);
+                    this.erb = String.valueOf(System.currentTimeMillis());
+                    aq.b(getPageContext(), this.erb);
                     return;
             }
         }
     }
 
-    private void X(Intent intent) {
+    private void aa(Intent intent) {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
             if (stringExtra != null) {
-                this.dWf.clear();
-                this.dWf.parseJson(stringExtra);
-                this.dWf.updateQuality();
+                this.eqY.clear();
+                this.eqY.parseJson(stringExtra);
+                this.eqY.updateQuality();
             }
-            if (this.dWf.size() >= 1) {
-                Iterator<ImageFileInfo> it = this.dWf.getChosedFiles().iterator();
+            if (this.eqY.size() >= 1) {
+                Iterator<ImageFileInfo> it = this.eqY.getChosedFiles().iterator();
                 while (it.hasNext()) {
                     ImageFileInfo next = it.next();
                     if (next != null) {
@@ -490,38 +491,38 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         }
     }
 
-    private void Y(Intent intent) {
-        h(Z(intent));
+    private void ab(Intent intent) {
+        h(ac(intent));
     }
 
     private void h(ImageFileInfo imageFileInfo) {
-        if (imageFileInfo != null && this.apC != null) {
-            imageFileInfo.addPageAction(this.dWh);
-            com.baidu.adp.widget.a.a a = this.apC.a(imageFileInfo, false);
+        if (imageFileInfo != null && this.aqu != null) {
+            imageFileInfo.addPageAction(this.era);
+            com.baidu.adp.widget.a.a a = this.aqu.a(imageFileInfo, false);
             if (a != null) {
-                this.dWe.b(imageFileInfo, a);
+                this.eqX.b(imageFileInfo, a);
             } else {
-                this.apC.a(imageFileInfo, new l(this, imageFileInfo), false);
+                this.aqu.a(imageFileInfo, new l(this, imageFileInfo), false);
             }
         }
     }
 
-    private ImageFileInfo Z(Intent intent) {
-        this.dWi = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
-        String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.dWi;
+    private ImageFileInfo ac(Intent intent) {
+        this.erb = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
+        String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.erb;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            int cN = com.baidu.tbadk.core.util.c.cN(str);
-            if (cN != 0) {
-                Bitmap b = com.baidu.tbadk.core.util.c.b(str, com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), com.baidu.adp.lib.util.k.K(getPageContext().getPageActivity())), com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), com.baidu.adp.lib.util.k.L(getPageContext().getPageActivity())));
-                Bitmap i = com.baidu.tbadk.core.util.c.i(b, cN);
-                if (b != i) {
-                    b.recycle();
+            int readPictureDegree = BitmapHelper.readPictureDegree(str);
+            if (readPictureDegree != 0) {
+                Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), com.baidu.adp.lib.util.k.K(getPageContext().getPageActivity())), com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), com.baidu.adp.lib.util.k.L(getPageContext().getPageActivity())));
+                Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
+                if (loadResizedBitmap != rotateBitmapBydegree) {
+                    loadResizedBitmap.recycle();
                 }
-                com.baidu.tbadk.core.util.n.a(TbConfig.LOCAL_CAMERA_DIR, this.dWi, i, 100);
-                i.recycle();
+                com.baidu.tbadk.core.util.m.b(TbConfig.LOCAL_CAMERA_DIR, this.erb, rotateBitmapBydegree, 100);
+                rotateBitmapBydegree.recycle();
             }
         } catch (Exception e) {
         }
@@ -531,43 +532,43 @@ public class WriteVoteActivity extends BaseActivity<WriteVoteActivity> implement
         return imageFileInfo;
     }
 
-    private void BW() {
+    private void Dm() {
         new m(this).execute(new Void[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.apC != null) {
-            this.apC.CS();
+        if (this.aqu != null) {
+            this.aqu.Ej();
         }
         TiebaPrepareImageService.StopService();
-        aKF();
+        aTp();
         destroyWaitingDialog();
         super.onDestroy();
     }
 
-    private void Nm() {
+    private void Pj() {
         if (getCurrentFocus() != null) {
             com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), getCurrentFocus());
         }
     }
 
-    private void aLn() {
+    private void aUi() {
         if (getCurrentFocus() != null) {
             ShowSoftKeyPadDelay(getCurrentFocus(), 150);
         }
     }
 
-    private void nq(String str) {
-        if (this.dWk == null) {
-            this.dWk = BdToast.a(getApplicationContext(), 48, 0, 350);
+    private void nH(String str) {
+        if (this.erd == null) {
+            this.erd = BdToast.a(getApplicationContext(), 48, 0, 350);
         }
-        this.dWk.b(str);
-        this.dWk.to();
+        this.erd.b(str);
+        this.erd.us();
     }
 
-    private void ov(int i) {
-        nq(getApplicationContext().getResources().getString(i));
+    private void pQ(int i) {
+        nH(getApplicationContext().getResources().getString(i));
     }
 }

@@ -6,18 +6,18 @@ import com.baidu.tieba.pb.b.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements c.a {
-    final /* synthetic */ w cLC;
+    final /* synthetic */ w cUl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(w wVar) {
-        this.cLC = wVar;
+        this.cUl = wVar;
     }
 
     @Override // com.baidu.tieba.pb.b.c.a
     public boolean a(View view, MotionEvent motionEvent) {
-        this.cLC.fo(false);
-        this.cLC.ao(view);
-        this.cLC.fo(true);
+        this.cUl.fE(false);
+        this.cUl.aE(view);
+        this.cUl.fE(true);
         return true;
     }
 

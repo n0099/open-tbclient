@@ -1,23 +1,25 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v extends com.baidu.adp.base.g {
-    final /* synthetic */ RelateTopicForumActivity bGY;
+public class v implements a.b {
+    final /* synthetic */ o bKu;
+    private final /* synthetic */ com.baidu.tieba.hottopic.view.r bKv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(RelateTopicForumActivity relateTopicForumActivity) {
-        this.bGY = relateTopicForumActivity;
+    public v(o oVar, com.baidu.tieba.hottopic.view.r rVar) {
+        this.bKu = oVar;
+        this.bKv = rVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        if (AntiHelper.ne(this.bGY.bGQ.getErrorCode())) {
-            AntiHelper.Q(this.bGY.getActivity(), this.bGY.bGQ.getErrorString());
-        } else if (!StringUtils.isNull(this.bGY.bGQ.getErrorString())) {
-            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bGY.bGQ.getErrorString());
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bKu.context;
+        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bKv.getChatMsgView().getWindowToken(), 2);
+        aVar.dismiss();
     }
 }

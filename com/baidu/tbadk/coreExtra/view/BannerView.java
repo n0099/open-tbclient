@@ -10,27 +10,27 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private String amp;
-    private String amq;
-    private Button amr;
-    private TbImageView ams;
-    private boolean amt;
-    private float amu;
-    private boolean amv;
-    private a amw;
-    View.OnClickListener amx;
+    private TbPageContext<?> MR;
+    private String ani;
+    private String anj;
+    private Button ank;
+    private TbImageView anl;
+    private boolean anm;
+    private float ann;
+    private boolean ano;
+    private a anp;
+    View.OnClickListener anq;
     private String link;
-    private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void zu();
+        void AM();
 
-        void zv();
+        void AN();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.amp = "";
-        this.amq = "";
-        this.amt = false;
-        this.amu = 0.1388889f;
-        this.amv = false;
-        this.amx = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.ani = "";
+        this.anj = "";
+        this.anm = false;
+        this.ann = 0.1388889f;
+        this.ano = false;
+        this.anq = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -53,30 +53,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(n.h.bannerview, this);
-        this.amr = (Button) findViewById(n.g.btn_close);
-        this.amr.setOnClickListener(this.amx);
-        this.ams = (TbImageView) findViewById(n.g.banner_image);
-        this.ams.setAutoChangeStyle(true);
-        this.ams.setOnClickListener(this.amx);
+        LayoutInflater.from(context).inflate(t.h.bannerview, this);
+        this.ank = (Button) findViewById(t.g.btn_close);
+        this.ank.setOnClickListener(this.anq);
+        this.anl = (TbImageView) findViewById(t.g.banner_image);
+        this.anl.setAutoChangeStyle(true);
+        this.anl.setOnClickListener(this.anq);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.ams != null && aVar != null) {
-            this.ams.setEvent(aVar);
+        if (this.anl != null && aVar != null) {
+            this.anl.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.mContext = tbPageContext;
+        this.MR = tbPageContext;
         this.link = str2;
-        this.amv = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.ano = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.amt && this.amv) {
-            ViewGroup.LayoutParams layoutParams = this.ams.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.amu) + 0.5d);
-            this.ams.setLayoutParams(layoutParams);
-            this.ams.a(str, 10, 720, 100, false);
+        if (!this.anm && this.ano) {
+            ViewGroup.LayoutParams layoutParams = this.anl.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.ann) + 0.5d);
+            this.anl.setLayoutParams(layoutParams);
+            this.anl.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.amw = aVar;
+        this.anp = aVar;
     }
 
-    public boolean zt() {
-        return this.amv;
+    public boolean AL() {
+        return this.ano;
     }
 
     public void reset() {
-        this.amt = false;
-        this.amv = false;
+        this.anm = false;
+        this.ano = false;
     }
 
-    public void ot() {
-        this.ams.postInvalidate();
+    public void oO() {
+        this.anl.postInvalidate();
     }
 }

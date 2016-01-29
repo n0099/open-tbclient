@@ -18,7 +18,7 @@ public class u implements s {
     }
 
     @Override // com.baidu.tieba.setting.more.s
-    public void mw(int i) {
+    public void nI(int i) {
         if (i != 0) {
             if (i != 1) {
                 if (i != 2) {
@@ -32,10 +32,10 @@ public class u implements s {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                this.this$0.duw.aAr();
+                                                this.this$0.dKA.aHy();
                                                 return;
                                             } else if (i == 12) {
-                                                com.baidu.adp.lib.h.h.hj().postDelayed(new v(this), 1000L);
+                                                com.baidu.adp.lib.h.h.hr().postDelayed(new v(this), 1000L);
                                                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NotLoginGuideActivityConfig(this.this$0.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
                                                 return;
                                             } else if (i == 11) {
@@ -46,36 +46,36 @@ public class u implements s {
                                             } else if (i != 13) {
                                                 return;
                                             } else {
-                                                this.this$0.aAh();
+                                                this.this$0.aHo();
                                                 TiebaStatic.log("c10017");
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.aAo();
+                                            this.this$0.aHv();
                                             return;
                                         }
                                     }
-                                    this.this$0.aAg();
+                                    this.this$0.aHn();
                                     return;
                                 }
-                                this.this$0.goToFeedBack();
+                                this.this$0.Tt();
                                 return;
                             }
-                            this.this$0.aAi();
+                            this.this$0.aHp();
                             return;
                         }
-                        this.this$0.aAn();
+                        this.this$0.aHu();
                         return;
                     }
-                    this.this$0.aAj();
+                    this.this$0.aHq();
                     return;
                 }
-                this.this$0.aAk();
+                this.this$0.aHr();
                 return;
             }
-            this.this$0.aAl();
+            this.this$0.aHs();
             return;
         }
-        this.this$0.aAm();
+        this.this$0.aHt();
     }
 }

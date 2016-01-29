@@ -3,19 +3,19 @@ package com.baidu.tbadk.widget.a;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.w;
 import com.baidu.tieba.tbadkCore.x;
-import com.baidu.tieba.tbadkCore.y;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.base.g {
-    final /* synthetic */ d aEa;
-    private final /* synthetic */ x aEb;
-    private final /* synthetic */ TextView aEc;
+    final /* synthetic */ d aEQ;
+    private final /* synthetic */ w aER;
+    private final /* synthetic */ TextView aES;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, x xVar, TextView textView) {
-        this.aEa = dVar;
-        this.aEb = xVar;
-        this.aEc = textView;
+    public e(d dVar, w wVar, TextView textView) {
+        this.aEQ = dVar;
+        this.aER = wVar;
+        this.aES = textView;
     }
 
     @Override // com.baidu.adp.base.g
@@ -25,19 +25,19 @@ class e extends com.baidu.adp.base.g {
         a aVar2;
         TbPageContext tbPageContext2;
         a aVar3;
-        if ((obj instanceof y) && this.aEb.getErrorCode() == 0) {
-            y yVar = (y) obj;
-            yVar.setLike(1);
-            aVar3 = this.aEa.aDZ;
-            aVar3.a(this.aEc, yVar.isLike() == 1);
-        } else if (AntiHelper.ne(this.aEb.getErrorCode())) {
-            aVar2 = this.aEa.aDZ;
+        if ((obj instanceof x) && this.aER.getErrorCode() == 0) {
+            x xVar = (x) obj;
+            xVar.setLike(1);
+            aVar3 = this.aEQ.aEP;
+            aVar3.a(this.aES, xVar.isLike() == 1);
+        } else if (AntiHelper.or(this.aER.getErrorCode())) {
+            aVar2 = this.aEQ.aEP;
             tbPageContext2 = aVar2.mTbPageContext;
-            AntiHelper.Q(tbPageContext2.getPageActivity(), this.aEb.getErrorString());
+            AntiHelper.X(tbPageContext2.getPageActivity(), this.aER.getErrorString());
         } else {
-            aVar = this.aEa.aDZ;
+            aVar = this.aEQ.aEP;
             tbPageContext = aVar.mTbPageContext;
-            tbPageContext.showToast(this.aEb.getErrorString());
+            tbPageContext.showToast(this.aER.getErrorString());
         }
     }
 }

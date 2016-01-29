@@ -1,36 +1,22 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ay cXA;
+public class az extends CustomMessageListener {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(ay ayVar) {
-        this.cXA = ayVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public az(f fVar, int i) {
+        super(i);
+        this.diG = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        BdExpandImageView bdExpandImageView;
-        if (aVar != null) {
-            bdExpandImageView = this.cXA.cWZ;
-            aVar.a(bdExpandImageView);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void an(String str) {
-        super.an(str);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.diG.aWD = true;
     }
 }

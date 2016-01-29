@@ -6,56 +6,56 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.m;
+import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.data.d;
 import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public class PbAppNewViewHolder extends PbAppNewBaseViewHolder {
-    private final int bft;
-    private final int bfu;
-    protected TbImageView dnT;
+    protected TbImageView dCX;
+    private final int imageHeight;
+    private final int imageWidth;
     private final int maxHeight;
     private final int maxWidth;
 
     public PbAppNewViewHolder(View view) {
         super(view);
-        this.dnT = (TbImageView) view.findViewById(n.g.recommend_img);
+        this.dCX = (TbImageView) view.findViewById(t.g.recommend_img);
         Resources resources = view.getResources();
-        this.bfu = (int) (resources.getDimension(n.e.ds594) - resources.getDimension(n.e.ds20));
-        this.bft = (int) (resources.getDimension(n.e.ds260) - resources.getDimension(n.e.ds10));
-        this.maxWidth = k.K(TbadkCoreApplication.m411getInst().getContext()) - TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(n.e.ds96);
-        this.maxHeight = resources.getDimensionPixelSize(n.e.ds321);
+        this.imageWidth = (int) (resources.getDimension(t.e.ds594) - resources.getDimension(t.e.ds20));
+        this.imageHeight = (int) (resources.getDimension(t.e.ds260) - resources.getDimension(t.e.ds10));
+        this.maxWidth = k.K(TbadkCoreApplication.m411getInst().getContext()) - TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(t.e.ds96);
+        this.maxHeight = Math.max(resources.getDimensionPixelSize(t.e.ds321), (int) ((this.maxWidth * 9.0f) / 16.0f));
     }
 
     @Override // com.baidu.tieba.recapp.view.PbAppNewBaseViewHolder, com.baidu.tieba.recapp.PbRecBaseViewHolder
     public void update(q qVar, int i, boolean z) {
         super.update(qVar, i, z);
-        boolean a = a(this.dnT, qVar);
-        if (!StringUtils.isNull(qVar.aFi()) && m.qQ().qW() && a) {
-            this.dnT.setVisibility(0);
-            this.dnT.d(qVar.aFi(), z ? 17 : 18, false);
+        boolean a = a(this.dCX, qVar);
+        if (!StringUtils.isNull(qVar.aMo()) && l.rn().rt() && a) {
+            this.dCX.setVisibility(0);
+            this.dCX.d(qVar.aMo(), z ? 17 : 18, false);
             return;
         }
-        this.dnT.setVisibility(8);
+        this.dCX.setVisibility(8);
     }
 
     private boolean a(TbImageView tbImageView, q qVar) {
-        if (qVar == null || qVar.aFf() == null || qVar.aFf().dGx == null || tbImageView == null) {
-            a(tbImageView, this.bft, this.bfu);
+        if (qVar == null || qVar.aMl() == null || qVar.aMl().dWs == null || tbImageView == null) {
+            a(tbImageView, this.imageHeight, this.imageWidth);
             return true;
         }
-        d.a aVar = qVar.aFf().dGx;
+        d.a aVar = qVar.aMl().dWs;
         int i = this.maxWidth;
-        if (!aVar.Vn) {
-            a(tbImageView, (this.bft * i) / this.bfu, i);
+        if (!aVar.UY) {
+            a(tbImageView, (this.imageHeight * i) / this.imageWidth, i);
             return true;
         }
         int i2 = aVar.height;
         int i3 = aVar.width;
         if (i2 <= 0 || i3 <= 0) {
-            a(tbImageView, this.bft, this.bfu);
+            a(tbImageView, this.imageHeight, this.imageWidth);
             return true;
         }
         int i4 = (i2 * i) / i3;

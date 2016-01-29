@@ -4,20 +4,27 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class k extends a {
-    public static final BdUniqueId aPP = BdUniqueId.gen();
-    private final List<com.baidu.tbadk.widget.a.g> aOe = new ArrayList();
+public class k extends com.baidu.tieba.card.a.a {
+    public static final BdUniqueId aRS = BdUniqueId.gen();
+    private List<a> aQh = new ArrayList();
 
-    public void a(com.baidu.tbadk.widget.a.g gVar) {
-        this.aOe.add(gVar);
-    }
-
-    public List<com.baidu.tbadk.widget.a.g> DS() {
-        return this.aOe;
+    /* loaded from: classes.dex */
+    public static class a {
+        public int aSe;
+        public long id;
+        public String link;
+        public int position;
+        public String title;
+        public int type;
+        public String url;
     }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aPP;
+        return aRS;
+    }
+
+    public List<a> Fm() {
+        return this.aQh;
     }
 }

@@ -1,18 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.n;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class eo extends x.a {
-    TextView aOn;
-    LinearLayout bfw;
+public class eo {
+    private static eo blw = new eo();
+    private SparseArray<ep> blv = new SparseArray<>();
 
-    public eo(View view) {
-        super(view);
-        this.bfw = (LinearLayout) view.findViewById(n.g.frs_top_item);
-        this.aOn = (TextView) view.findViewById(n.g.frs_top_title);
+    private eo() {
+    }
+
+    public static eo Qz() {
+        return blw;
+    }
+
+    public void a(int i, ep epVar) {
+        this.blv.put(i, epVar);
+    }
+
+    public ep gz(int i) {
+        return this.blv.get(i);
     }
 }

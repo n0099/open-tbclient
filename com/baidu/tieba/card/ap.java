@@ -1,22 +1,23 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.view.viewpager.g;
-import com.baidu.tieba.card.a.d;
-import com.baidu.tieba.card.an;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements g.a<d.a, an.a.C0058a> {
-    final /* synthetic */ an aPB;
+public class ap implements View.OnClickListener {
+    final /* synthetic */ an aQz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(an anVar) {
-        this.aPB = anVar;
+        this.aQz = anVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.view.viewpager.g.a
-    /* renamed from: a */
-    public void c(an.a.C0058a c0058a, d.a aVar) {
-        this.aPB.a(aVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.a.r rVar;
+        if (this.aQz.JL() != null) {
+            bb<com.baidu.tieba.card.a.r> JL = this.aQz.JL();
+            rVar = this.aQz.aQv;
+            JL.a(view, rVar);
+        }
     }
 }

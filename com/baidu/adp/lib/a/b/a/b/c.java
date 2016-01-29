@@ -8,28 +8,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c implements h {
-    private Bundle rQ;
+    private Bundle rY;
 
     public c(Bundle bundle) {
-        this.rQ = bundle;
+        this.rY = bundle;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Type[] fK = cVar.fK();
-        Set<String> keySet = this.rQ.keySet();
+        Type[] fS = cVar.fS();
+        Set<String> keySet = this.rY.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.rQ.get(str);
-            if (fK != null && fK.length >= 2) {
+            Object obj = this.rY.get(str);
+            if (fS != null && fS.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fK[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fS[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.fL())));
+                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.fT())));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -40,7 +40,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rQ;
+        return this.rY;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -50,7 +50,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rQ;
+        return this.rY;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -70,6 +70,6 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rQ;
+        return this.rY;
     }
 }

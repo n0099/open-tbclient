@@ -5,63 +5,67 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String cpN;
-    private z djK;
-    private t djL;
+    public String cws;
+    private z dxE;
+    private t dxF;
     public String mForumName;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.djK = new z(this);
-        this.djK.initView();
-        this.djL = new t(this);
+        this.dxE = new z(this);
+        this.dxE.initView();
+        this.dxF = new t(this);
         initData();
     }
 
-    public void jI(String str) {
-        this.cpN = str;
-        this.djK.lZ(1);
-        this.djL.awD();
-        this.djK.MF();
+    public void jM(String str) {
+        this.cws = str;
+        this.dxE.na(1);
+        this.dxF.aCZ();
+        this.dxE.Ow();
     }
 
-    public void lH(String str) {
-        this.djK.lH(str);
+    public void lV(String str) {
+        this.dxE.lV(str);
     }
 
-    public void awp() {
-        this.djK.aj(this.djL.dkh);
+    public void aCK() {
+        this.dxE.ak(this.dxF.dyc);
     }
 
     public void a(int i, k kVar, boolean z) {
-        if (i == 1 && (kVar == null || !kVar.abB())) {
-            this.djK.auH();
-            this.djK.awH();
+        if (i == 1 && (kVar == null || !kVar.aeH())) {
+            this.dxE.aAV();
+            this.dxE.aDd();
             return;
         }
-        this.djK.auH();
-        this.djK.aww();
-        this.djK.a(i, kVar, z);
+        this.dxE.aAV();
+        this.dxE.aCS();
+        this.dxE.a(i, kVar, z);
     }
 
-    public boolean awq() {
-        return this.djK.awq();
+    public boolean aCL() {
+        return this.dxE.aCL();
     }
 
-    public void awl() {
-        this.djK.awl();
+    public void aCG() {
+        this.dxE.aCG();
     }
 
-    public t awr() {
-        return this.djL;
+    public t aCM() {
+        return this.dxF;
+    }
+
+    public z aCN() {
+        return this.dxE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.djK.onChangeSkinType(i);
+        this.dxE.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -69,14 +73,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
         if (intent != null) {
             this.mForumName = intent.getStringExtra("forum_name");
         }
-        this.djL.awA();
+        this.dxF.aCW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.djK != null) {
-            this.djK.onDestroy();
+        if (this.dxE != null) {
+            this.dxE.onDestroy();
         }
         super.onDestroy();
     }

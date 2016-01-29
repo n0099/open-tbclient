@@ -13,33 +13,33 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0076a c0076a = new C0076a(null);
-            c0076a.cMX = str;
-            c0076a.cMY = bVar;
-            c0076a.execute("");
+            C0078a c0078a = new C0078a(null);
+            c0078a.cWr = str;
+            c0078a.cWs = bVar;
+            c0078a.execute("");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0076a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String cMX;
-        public b cMY;
+    public static class C0078a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String cWr;
+        public b cWs;
 
-        private C0076a() {
+        private C0078a() {
         }
 
-        /* synthetic */ C0076a(C0076a c0076a) {
+        /* synthetic */ C0078a(C0078a c0078a) {
             this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: k */
+        /* renamed from: o */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.c("user_pics").s(com.baidu.tbadk.core.util.n.cT(this.cMX), false);
+            return new com.baidu.tbadk.img.c("user_pics").s(com.baidu.tbadk.core.util.m.cQ(this.cWr), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,14 +48,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.cMY != null) {
+            if (this.cWs != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.cMY.a(i, str, imageUploadResult);
+                this.cWs.a(i, str, imageUploadResult);
             }
         }
     }

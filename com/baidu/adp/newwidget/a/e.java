@@ -4,17 +4,17 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class e {
-    public boolean BG;
-    public boolean BH;
-    public int BI;
-    public int BJ;
-    public boolean BK;
-    public boolean BL;
-    public Drawable BN;
-    public Matrix BO;
-    public int BP;
+    public boolean BO;
+    public boolean BP;
+    public int BQ;
+    public int BR;
+    public boolean BS;
+    public boolean BT;
+    public Drawable BV;
+    public Matrix BW;
+    public int BX;
     public float mRadius;
-    public boolean BM = true;
+    public boolean BU = true;
     public float mAlpha = 1.0f;
-    public boolean BQ = false;
+    public boolean BY = false;
 }

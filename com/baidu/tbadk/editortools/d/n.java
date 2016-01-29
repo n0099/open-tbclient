@@ -9,17 +9,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.editortools.y;
-import com.baidu.tbadk.plugins.XiaoyingUtil;
-import com.baidu.tieba.n;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.editortools.d {
-    private a<?> auz;
+    private a<?> avr;
     private String forumName = null;
     private String forumId = null;
     private String from = null;
-    private boolean auy = false;
+    private boolean avq = false;
 
     public void setForumName(String str) {
         this.forumName = str;
@@ -34,43 +32,43 @@ public class n extends com.baidu.tbadk.editortools.d {
     }
 
     public void a(a<?> aVar) {
-        this.auz = aVar;
+        this.avr = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f al(Context context) {
         com.baidu.tbadk.editortools.k kVar = new com.baidu.tbadk.editortools.k(context);
         kVar.setBackgroundColorId(0);
-        kVar.setBarBackgroundColorId(n.d.pb_editor_tool_view_bg_alpha);
+        kVar.setBarBackgroundColorId(t.d.pb_editor_tool_view_bg_alpha);
         kVar.setBarLinePostion(1);
         e eVar = new e(kVar);
-        eVar.a(this.auz);
+        eVar.a(this.avr);
         return eVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d
     protected void b(com.baidu.tbadk.editortools.f fVar) {
         if (fVar instanceof e) {
-            com.baidu.tbadk.editortools.k Bj = fVar.Bj();
-            o oVar = new o(this, (e) fVar, Bj);
-            Bj.a(5, oVar);
-            Bj.a(4, oVar);
-            Bj.a(7, oVar);
-            Bj.a(16, oVar);
-            Bj.a(14, oVar);
-            Bj.a(15, oVar);
-            Bj.a(21, oVar);
-            Bj.a(22, oVar);
-            Bj.a(23, oVar);
-            Bj.a(8, oVar);
-            Bj.a(18, oVar);
-            Bj.a(20, oVar);
-            Bj.a(10, oVar);
-            Bj.a(11, oVar);
-            Bj.a(27, oVar);
-            Bj.a(29, oVar);
-            Bj.a(36, oVar);
-            Bj.a(32, oVar);
+            com.baidu.tbadk.editortools.k Cz = fVar.Cz();
+            o oVar = new o(this, (e) fVar, Cz);
+            Cz.a(5, oVar);
+            Cz.a(4, oVar);
+            Cz.a(7, oVar);
+            Cz.a(16, oVar);
+            Cz.a(14, oVar);
+            Cz.a(15, oVar);
+            Cz.a(21, oVar);
+            Cz.a(22, oVar);
+            Cz.a(23, oVar);
+            Cz.a(8, oVar);
+            Cz.a(18, oVar);
+            Cz.a(20, oVar);
+            Cz.a(10, oVar);
+            Cz.a(11, oVar);
+            Cz.a(27, oVar);
+            Cz.a(29, oVar);
+            Cz.a(36, oVar);
+            Cz.a(32, oVar);
         }
     }
 
@@ -78,9 +76,7 @@ public class n extends com.baidu.tbadk.editortools.d {
     protected void a(com.baidu.tbadk.editortools.f fVar) {
         CustomResponsedMessage runTask;
         y yVar;
-        y yVar2;
-        y yVar3;
-        com.baidu.tbadk.editortools.k Bj = fVar.Bj();
+        com.baidu.tbadk.editortools.k Cz = fVar.Cz();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         arrayList.add(19);
@@ -89,52 +85,41 @@ public class n extends com.baidu.tbadk.editortools.d {
         arrayList.add(11);
         arrayList.add(6);
         arrayList.add(9);
-        if (XiaoyingUtil.showXiaoyingTool()) {
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_TOOL, Bj.getContext()), y.class);
-            if (runTask2 != null && (yVar3 = (y) runTask2.getData()) != null) {
-                yVar3.launcherPriority = 2;
-                Bj.b(yVar3);
-            }
-            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_PANNEL_TOOL, Bj.getContext()), y.class);
-            if (runTask3 != null && (yVar2 = (y) runTask3.getData()) != null) {
-                Bj.b(yVar2);
-            }
-        }
-        Bj.b(new com.baidu.tbadk.editortools.imagetool.i(Bj.getContext(), 3));
-        Bj.b(new com.baidu.tbadk.editortools.imagetool.b(Bj.getContext()));
-        if (com.baidu.tieba.tbadkCore.voice.c.aGy() && v.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Bj.getContext()), y.class)) != null && (yVar = (y) runTask.getData()) != null) {
+        Cz.b(new com.baidu.tbadk.editortools.imagetool.i(Cz.getContext(), 3));
+        Cz.b(new com.baidu.tbadk.editortools.imagetool.b(Cz.getContext()));
+        if (com.baidu.tieba.tbadkCore.voice.c.aNC() && com.baidu.tieba.tbadkCore.u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Cz.getContext()), y.class)) != null && (yVar = (y) runTask.getData()) != null) {
             yVar.launcherPriority = 4;
-            Bj.b(yVar);
+            Cz.b(yVar);
         }
-        Bj.b(new com.baidu.tbadk.editortools.a.a(Bj.getContext(), 5));
+        Cz.b(new com.baidu.tbadk.editortools.a.a(Cz.getContext(), 5));
         arrayList.add(7);
         arrayList.add(8);
-        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, Bj.getContext()), y.class);
-        if (runTask4 != null && runTask4.getData() != null) {
-            y yVar4 = (y) runTask4.getData();
-            yVar4.launcherPriority = 7;
-            Bj.b(yVar4);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, Cz.getContext()), y.class);
+        if (runTask2 != null && runTask2.getData() != null) {
+            y yVar2 = (y) runTask2.getData();
+            yVar2.launcherPriority = 7;
+            Cz.b(yVar2);
         }
         arrayList.add(13);
         arrayList.add(14);
-        Bj.b(new com.baidu.tbadk.editortools.inputtool.a(Bj.getContext(), true));
-        Bj.b(new com.baidu.tbadk.editortools.sendtool.a(Bj.getContext()));
-        CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, Bj.getContext()), y.class);
-        if (runTask5 != null && runTask5.getData() != null) {
-            y yVar5 = (y) runTask5.getData();
-            yVar5.launcherPriority = 8;
-            Bj.b(yVar5);
+        Cz.b(new com.baidu.tbadk.editortools.inputtool.a(Cz.getContext(), true));
+        Cz.b(new com.baidu.tbadk.editortools.sendtool.a(Cz.getContext()));
+        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, Cz.getContext()), y.class);
+        if (runTask3 != null && runTask3.getData() != null) {
+            y yVar3 = (y) runTask3.getData();
+            yVar3.launcherPriority = 8;
+            Cz.b(yVar3);
         }
-        Bj.q(arrayList);
-        Bj.b(new com.baidu.tbadk.editortools.b.a(Bj.getContext(), 9));
-        Bj.Bk();
+        Cz.u(arrayList);
+        Cz.b(new com.baidu.tbadk.editortools.b.a(Cz.getContext(), 9));
+        Cz.CA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(n.j.login_to_use), true, i)));
+            TbadkCoreApplication.m411getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(t.j.login_to_use), true, i)));
             return false;
         }
         return true;

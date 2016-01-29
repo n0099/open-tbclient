@@ -1,80 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.data.IconData;
-import org.json.JSONObject;
-import tbclient.FrsPage.UserInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class v {
-    private String Wu;
-    private String Wv;
-    private IconData Ww = new IconData();
-    private boolean isAdded;
-    private String name;
-    private int sex;
-    private long userId;
+    private int VU;
+    private ArrayList<a> VV;
 
-    public void sb() {
-        this.isAdded = true;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String Oy;
+        public int giftId;
+        public int num;
+        public String thumbnailUrl;
     }
 
-    public boolean sc() {
-        return this.isAdded;
-    }
-
-    public void a(UserInfo userInfo) {
-        if (userInfo != null) {
-            this.isAdded = false;
-            this.userId = userInfo.user_id.longValue();
-            this.Wu = userInfo.portrait;
-            this.name = userInfo.user_name;
-            this.sex = userInfo.gender.intValue();
-            this.Wv = userInfo.intro;
-            if (userInfo.tshow_icon != null) {
-                this.Ww.setIcon(userInfo.tshow_icon.icon);
-                this.Ww.setIconName(userInfo.tshow_icon.name);
-                this.Ww.setUrl(userInfo.tshow_icon.url);
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.VU = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.VV = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.Oy = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.VV.add(aVar);
+                    }
+                }
             }
         }
     }
 
-    public long getUserId() {
-        return this.userId;
+    public int sx() {
+        return this.VU;
     }
 
-    public String sd() {
-        return this.Wu;
+    public void bR(int i) {
+        this.VU = i;
     }
 
-    public String getName() {
-        return this.name;
+    public ArrayList<a> sy() {
+        return this.VV;
     }
 
-    public boolean se() {
-        return 2 == this.sex;
-    }
-
-    public String sf() {
-        return this.Wv;
-    }
-
-    public IconData sg() {
-        return this.Ww;
-    }
-
-    public void h(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.userId = jSONObject.optLong("user_id");
-            this.name = jSONObject.optString("user_name");
-            this.Wu = jSONObject.optString("portait");
-            this.sex = jSONObject.optInt("gender");
-            this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.Wv = jSONObject.optString("intro");
-            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
-            if (optJSONObject != null) {
-                this.Ww.setIcon(optJSONObject.optString("icon"));
-                this.Ww.setIconName(optJSONObject.optString("user_name"));
-                this.Ww.setUrl(optJSONObject.optString("url"));
-            }
-        }
+    public void j(ArrayList<a> arrayList) {
+        this.VV = arrayList;
     }
 }

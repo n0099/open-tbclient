@@ -18,13 +18,13 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void I(String str) {
+    public void H(String str) {
         e eVar;
         e eVar2;
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            eVar2.I(str);
+            eVar2.H(str);
         }
     }
 
@@ -40,18 +40,18 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void c(Map<String, String> map) {
+    public void d(Map<String, String> map) {
         Handler handler;
         e eVar;
         e eVar2;
         k.a("linkservice", 0, 0, "onOpen", 0, "LinkService:onOpen");
-        k.eE();
+        k.eI();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            eVar2.b(map);
+            eVar2.c(map);
         }
     }
 
@@ -63,7 +63,9 @@ class c extends l {
         e eVar2;
         boolean z = false;
         k.a("linkservice", 0, 0, "onClose", i, str);
-        k.eE();
+        if (i == 6 || i == 5 || i == 2 || i == 3 || i == 4) {
+            k.eI();
+        }
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
@@ -71,7 +73,7 @@ class c extends l {
             eVar2 = BdSocketLinkService.connStateCallBack;
             z = eVar2.k(i, null);
         }
-        if (!z && i != 1 && com.baidu.adp.lib.util.k.jh()) {
+        if (!z && i != 1 && com.baidu.adp.lib.util.k.jq()) {
             hVar = BdSocketLinkService.reConnStra;
             hVar.start("onClose:" + i + ":" + str);
         }

@@ -12,20 +12,22 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d xY = null;
-    private volatile SparseArray<Bitmap> xZ = new SparseArray<>();
+    private static d yh = null;
+    private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config ya = Bitmap.Config.RGB_565;
+    private Bitmap.Config yi = Bitmap.Config.RGB_565;
 
-    public static synchronized d ix() {
+    public static synchronized d iH() {
         d dVar;
         synchronized (d.class) {
-            if (xY == null) {
-                xY = new d();
+            if (yh == null) {
+                yh = new d();
             }
-            dVar = xY;
+            dVar = yh;
         }
         return dVar;
     }
@@ -34,18 +36,51 @@ public class d {
         this.mContext = context;
     }
 
+    public void a(Bitmap.Config config) {
+        this.yi = config;
+    }
+
     private d() {
     }
 
-    public synchronized void iy() {
-        this.xZ.clear();
+    public synchronized Bitmap getCashBitmap(int i) {
+        Bitmap bitmap;
+        bitmap = this.mBitmapHash.get(i);
+        if (bitmap == null && (bitmap = getResBitmap(this.mContext, i)) != null) {
+            this.mBitmapHash.put(i, bitmap);
+        }
+        return bitmap;
     }
 
-    public Bitmap aD(String str) {
+    public synchronized void clearCashBitmap() {
+        this.mBitmapHash.clear();
+    }
+
+    public Bitmap aC(String str) {
         return BitmapFactory.decodeFile(str);
     }
 
-    public Bitmap b(Context context, int i) {
+    public String a(String str, String str2, Bitmap bitmap, int i) {
+        if (e.aF(str) && bitmap != null && e.u(str, str2)) {
+            File x = e.x(str, str2);
+            try {
+                if ((!x.exists() || x.delete()) && x.createNewFile()) {
+                    FileOutputStream fileOutputStream = new FileOutputStream(x);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    return x.getPath();
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public Bitmap getResBitmap(Context context, int i) {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Exception e) {
@@ -78,7 +113,7 @@ public class d {
         return bitmap;
     }
 
-    public Bitmap d(Bitmap bitmap, int i) {
+    public Bitmap resizeBitmap(Bitmap bitmap, int i) {
         return resizeBitmap(bitmap, i, i);
     }
 
@@ -100,9 +135,18 @@ public class d {
         return createBitmap;
     }
 
-    public byte[] e(Bitmap bitmap, int i) {
+    public byte[] Bitmap2Bytes(Bitmap bitmap, int i) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
+    }
+
+    public Bitmap Bytes2Bitmap(byte[] bArr) {
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = this.yi;
+        return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
     }
 }

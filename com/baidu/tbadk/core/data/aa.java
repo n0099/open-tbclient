@@ -1,85 +1,80 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.IconData;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class aa {
-    private String Xp;
-    private String Xq;
-    private String Xr;
-    private int Xs;
-    private String Xt;
-    private long Xu;
-    private String Xv;
-    private String Xw;
-    private String summary;
+    private String Wq;
+    private String Wr;
+    private IconData Ws = new IconData();
+    private boolean isAdded;
+    private String name;
+    private int sex;
+    private long userId;
 
-    public String sk() {
-        return this.Xp;
+    public void sM() {
+        this.isAdded = true;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public boolean sN() {
+        return this.isAdded;
     }
 
-    public String sS() {
-        return this.Xr;
-    }
-
-    public int sT() {
-        return this.Xs;
-    }
-
-    public String sU() {
-        return this.Xt;
-    }
-
-    public long sV() {
-        return this.Xu;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.Xp = topCode.img_url;
-            this.Xq = topCode.game_link;
-            this.summary = topCode.summary;
-            this.Xr = topCode.code_link;
-            this.Xs = topCode.get_type.intValue();
-            this.Xt = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.Xu = 0L;
-            } else {
-                this.Xu = topCode.giftworth.longValue();
+    public void a(UserInfo userInfo) {
+        if (userInfo != null) {
+            this.isAdded = false;
+            this.userId = userInfo.user_id.longValue();
+            this.Wq = userInfo.portrait;
+            this.name = userInfo.user_name;
+            this.sex = userInfo.gender.intValue();
+            this.Wr = userInfo.intro;
+            if (userInfo.tshow_icon != null) {
+                this.Ws.setIcon(userInfo.tshow_icon.icon);
+                this.Ws.setIconName(userInfo.tshow_icon.name);
+                this.Ws.setUrl(userInfo.tshow_icon.url);
             }
-            this.Xv = topCode.type_text;
-            this.Xw = topCode.subtitle;
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public long getUserId() {
+        return this.userId;
+    }
+
+    public String sO() {
+        return this.Wq;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean sP() {
+        return 2 == this.sex;
+    }
+
+    public String sQ() {
+        return this.Wr;
+    }
+
+    public IconData sR() {
+        return this.Ws;
+    }
+
+    public void h(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.Xp = jSONObject.optString("img_url");
-                this.Xq = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.Xr = jSONObject.optString("code_link");
-                this.Xs = jSONObject.optInt("get_type", 1);
-                this.Xt = jSONObject.optString("surplusgift");
-                this.Xu = jSONObject.optLong("giftworth", 0L);
-                this.Xv = jSONObject.optString("type_text");
-                this.Xw = jSONObject.optString("subtitle");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            this.userId = jSONObject.optLong("user_id");
+            this.name = jSONObject.optString("user_name");
+            this.Wq = jSONObject.optString("portait");
+            this.sex = jSONObject.optInt("gender");
+            this.isAdded = jSONObject.optBoolean("recommend_is_added");
+            this.Wr = jSONObject.optString("intro");
+            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
+            if (optJSONObject != null) {
+                this.Ws.setIcon(optJSONObject.optString("icon"));
+                this.Ws.setIconName(optJSONObject.optString("user_name"));
+                this.Ws.setUrl(optJSONObject.optString("url"));
             }
         }
-    }
-
-    public String sW() {
-        return this.Xv;
-    }
-
-    public String sX() {
-        return this.Xw;
     }
 }

@@ -1,10 +1,9 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import protobuf.ConfigVersion;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.framework.listener.e {
+class l extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,14 +15,15 @@ class l extends com.baidu.adp.framework.listener.e {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ConfigVersion configVersion;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
-                return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        y yVar;
+        if (customResponsedMessage != null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof Boolean) {
+                boolean booleanValue = ((Boolean) data).booleanValue();
+                yVar = this.this$0.eaD;
+                yVar.aOn().setWidgetLayerVisible(booleanValue);
             }
-            this.this$0.mI(configVersion.sync);
         }
     }
 }

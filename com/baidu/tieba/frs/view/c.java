@@ -1,21 +1,18 @@
 package com.baidu.tieba.frs.view;
-
-import android.view.View;
-import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ a bop;
+public class c implements Runnable {
+    final /* synthetic */ b brj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.bop = aVar;
+    public c(b bVar) {
+        this.brj = bVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.bop.mContext == null || this.bop.mContext.getOrignalPage() == null || this.bop.mContext.getOrignalPage().checkUpIsLogin()) {
-            bf.vn().b(this.bop.mContext, new String[]{(String) view.getTag()});
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.brj.bqA != null && this.brj.bqA.isShowing() && !this.brj.bra) {
+            com.baidu.adp.lib.h.j.a(this.brj.bqA, this.brj.MR.getPageActivity());
         }
     }
 }

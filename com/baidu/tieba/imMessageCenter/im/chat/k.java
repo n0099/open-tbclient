@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.ChatStatusManager;
 /* loaded from: classes.dex */
 class k extends com.baidu.tbadk.util.m<Void> {
-    private final /* synthetic */ UserData bML;
-    final /* synthetic */ PersonalChatActivity cdg;
+    private final /* synthetic */ UserData bQJ;
+    final /* synthetic */ PersonalChatActivity chF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PersonalChatActivity personalChatActivity, UserData userData) {
-        this.cdg = personalChatActivity;
-        this.bML = userData;
+        this.chF = personalChatActivity;
+        this.bQJ = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.m
-    /* renamed from: Ha */
+    /* renamed from: IB */
     public Void doInBackground() {
-        com.baidu.tieba.im.settingcache.j.abO().b(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.bML);
+        com.baidu.tieba.im.settingcache.j.aeU().b(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.bQJ);
         return null;
     }
 }

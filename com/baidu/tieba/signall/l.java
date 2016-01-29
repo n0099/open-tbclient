@@ -3,37 +3,37 @@ package com.baidu.tieba.signall;
 import com.baidu.tieba.signall.f;
 /* loaded from: classes.dex */
 class l implements f.a {
-    final /* synthetic */ SignAllForumActivity dxE;
+    final /* synthetic */ SignAllForumActivity dNI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SignAllForumActivity signAllForumActivity) {
-        this.dxE = signAllForumActivity;
+        this.dNI = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.f.a
     public void a(c cVar) {
-        ae aeVar;
-        ae aeVar2;
+        af afVar;
+        af afVar2;
         f fVar;
-        aeVar = this.dxE.dxw;
-        aeVar.KK();
-        a aBC = cVar.aBC();
-        if (aBC != null && aBC.getErrorNumber() == 0) {
-            aeVar2 = this.dxE.dxw;
-            fVar = this.dxE.dxx;
-            aeVar2.a(cVar, fVar.aBV());
+        afVar = this.dNI.dNA;
+        afVar.MB();
+        a aIJ = cVar.aIJ();
+        if (aIJ != null && aIJ.getErrorNumber() == 0) {
+            afVar2 = this.dNI.dNA;
+            fVar = this.dNI.dNB;
+            afVar2.a(cVar, fVar.aJc());
             return;
         }
-        this.dxE.showToast(aBC.getUserMsg(), false);
-        this.dxE.finish();
+        this.dNI.showToast(aIJ.getUserMsg(), false);
+        this.dNI.finish();
     }
 
     @Override // com.baidu.tieba.signall.f.a
-    public void iA(String str) {
-        ae aeVar;
-        aeVar = this.dxE.dxw;
-        aeVar.KK();
-        this.dxE.showToast(str, false);
-        this.dxE.finish();
+    public void iB(String str) {
+        af afVar;
+        afVar = this.dNI.dNA;
+        afVar.MB();
+        this.dNI.showToast(str, false);
+        this.dNI.finish();
     }
 }

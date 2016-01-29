@@ -4,92 +4,92 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int ard;
-    private int dsa;
-    private int dsb;
-    private boolean dsc;
-    private SimpleUser dsd;
+    private int arW;
+    private int dIe;
+    private int dIf;
+    private boolean dIg;
+    private SimpleUser dIh;
 
-    public boolean aza() {
-        com.baidu.tbadk.core.sharedPref.b tJ = com.baidu.tbadk.core.sharedPref.b.tJ();
+    public boolean aGh() {
+        com.baidu.tbadk.core.sharedPref.b uO = com.baidu.tbadk.core.sharedPref.b.uO();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.dsa = tJ.getInt("post" + currentAccount, 0);
-        this.dsb = tJ.getInt("like" + currentAccount, 0);
-        this.ard = tJ.getInt("group" + currentAccount, 0);
-        this.dsc = TbadkCoreApplication.m411getInst().getLocationShared();
-        return (this.dsa == 0 && this.dsb == 0 && this.ard == 0) ? false : true;
+        this.dIe = uO.getInt("post" + currentAccount, 0);
+        this.dIf = uO.getInt("like" + currentAccount, 0);
+        this.arW = uO.getInt("group" + currentAccount, 0);
+        this.dIg = TbadkCoreApplication.m411getInst().getLocationShared();
+        return (this.dIe == 0 && this.dIf == 0 && this.arW == 0) ? false : true;
     }
 
     public void a(a aVar) {
-        this.dsa = aVar.dsa;
-        this.dsb = aVar.dsb;
-        this.ard = aVar.ard;
-        this.dsc = aVar.dsc;
+        this.dIe = aVar.dIe;
+        this.dIf = aVar.dIf;
+        this.arW = aVar.arW;
+        this.dIg = aVar.dIg;
     }
 
-    public int azb() {
-        return this.dsa;
+    public int aGi() {
+        return this.dIe;
     }
 
-    public void ag(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.tJ().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
+    public void ai(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.uO().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void azc() {
+    public void aGj() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b tJ = com.baidu.tbadk.core.sharedPref.b.tJ();
-        tJ.putInt("post" + currentAccount, this.dsa);
-        tJ.putInt("like" + currentAccount, this.dsb);
-        tJ.putInt("group" + currentAccount, this.ard);
-        TbadkCoreApplication.m411getInst().setLocationShared(this.dsc);
+        com.baidu.tbadk.core.sharedPref.b uO = com.baidu.tbadk.core.sharedPref.b.uO();
+        uO.putInt("post" + currentAccount, this.dIe);
+        uO.putInt("like" + currentAccount, this.dIf);
+        uO.putInt("group" + currentAccount, this.arW);
+        TbadkCoreApplication.m411getInst().setLocationShared(this.dIg);
     }
 
-    public void mr(int i) {
+    public void nD(int i) {
         if (i <= 3 && i >= 1) {
-            this.dsa = i;
+            this.dIe = i;
         }
     }
 
-    public int azd() {
-        return this.dsb;
+    public int aGk() {
+        return this.dIf;
     }
 
-    public void ms(int i) {
+    public void nE(int i) {
         if (i <= 3 && i >= 1) {
-            this.dsb = i;
+            this.dIf = i;
         }
     }
 
-    public int AN() {
-        return this.ard;
+    public int Cd() {
+        return this.arW;
     }
 
-    public void mt(int i) {
+    public void nF(int i) {
         if (i <= 3 && i >= 1) {
-            this.ard = i;
+            this.arW = i;
         }
     }
 
-    public boolean aze() {
-        return this.dsc;
+    public boolean aGl() {
+        return this.dIg;
     }
 
-    public void mu(int i) {
+    public void nG(int i) {
         switch (i) {
             case 1:
-                this.dsc = true;
+                this.dIg = true;
                 return;
             default:
-                this.dsc = false;
+                this.dIg = false;
                 return;
         }
     }
 
-    public SimpleUser azf() {
-        return this.dsd;
+    public SimpleUser aGm() {
+        return this.dIh;
     }
 
     public void a(SimpleUser simpleUser) {
-        this.dsd = simpleUser;
+        this.dIh = simpleUser;
     }
 }

@@ -1,40 +1,57 @@
 package com.baidu.tieba.hottopic.a;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.view.viewpager.g;
-import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.ar;
+import com.baidu.tieba.card.bb;
 /* loaded from: classes.dex */
-public class q implements g.a<RelateForumItemData, com.baidu.tieba.hottopic.b.f> {
-    final /* synthetic */ p bGt;
+public class q extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.s, a> {
+    private TbPageContext<?> Nw;
+    private BdUniqueId aPF;
+    private bb<com.baidu.tieba.card.a.s> bJA;
+    private ar bJH;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar) {
-        this.bGt = pVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public q(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bJA = new r(this);
+        this.Nw = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.view.viewpager.g.a
-    public void c(com.baidu.tieba.hottopic.b.f fVar, RelateForumItemData relateForumItemData) {
-        HotTopicActivity hotTopicActivity;
-        Context context;
-        if (relateForumItemData != null) {
-            av aa = new av("c10365").aa("obj_type", "1");
-            hotTopicActivity = this.bGt.bGr;
-            TiebaStatic.log(aa.aa("obj_id", hotTopicActivity.Vo()));
-            if (ax.aR(relateForumItemData.forumName)) {
-                MessageManager messageManager = MessageManager.getInstance();
-                context = this.bGt.mContext;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: U */
+    public a b(ViewGroup viewGroup) {
+        this.bJH = new ar(this.Nw);
+        this.bJH.j(this.aPF);
+        return new a(this.bJH);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.s sVar, a aVar) {
+        aVar.bJJ.a(sVar);
+        aVar.bJJ.a(this.bJA);
+        return aVar.getView();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends x.a {
+        public ar bJJ;
+
+        public a(ar arVar) {
+            super(arVar.getView());
+            this.bJJ = arVar;
         }
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.aPF = bdUniqueId;
     }
 }

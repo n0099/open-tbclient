@@ -1,31 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.coreExtra.view.BannerView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ch implements BannerView.a {
-    final /* synthetic */ cg bhg;
+class ch implements View.OnClickListener {
+    private final /* synthetic */ MetaData biQ;
+    private final /* synthetic */ View.OnClickListener biR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cg cgVar) {
-        this.bhg = cgVar;
+    public ch(MetaData metaData, View.OnClickListener onClickListener) {
+        this.biQ = metaData;
+        this.biR = onClickListener;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zu() {
-        com.baidu.tbadk.core.data.j jVar;
-        com.baidu.tbadk.core.data.j jVar2;
-        jVar = this.bhg.bgV;
-        if (jVar != null) {
-            jVar2 = this.bhg.bgV;
-            if (jVar2.getType() == 2) {
-                this.bhg.NM();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10632").aa("obj_id", this.biQ.getUserId()));
+        if (this.biR != null) {
+            this.biR.onClick(view);
         }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zv() {
-        this.bhg.Oa();
     }
 }

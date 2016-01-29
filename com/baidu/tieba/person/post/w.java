@@ -1,35 +1,33 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class w extends HttpMessageListener {
-    final /* synthetic */ u cVS;
+class w extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ v dhq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(u uVar, int i) {
+    public w(v vVar, int i) {
         super(i);
-        this.cVS = uVar;
+        this.dhq = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         PersonPostModel.a aVar;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.cVS.b(null, false);
+        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
+                this.dhq.b(null, false);
                 return;
             }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
             if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                aVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

@@ -1,24 +1,27 @@
 package com.baidu.tbadk.core.util.a;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.lib.util.BdLog;
+import java.net.InetAddress;
+import java.net.URL;
+import java.net.UnknownHostException;
 /* loaded from: classes.dex */
-public class h {
-    public boolean adO;
-    public boolean mIsBaiduServer = true;
-    public String adP = "UTF-8";
-    public String mUrl = null;
-    public ArrayList<BasicNameValuePair> adL = null;
-    public boolean adN = true;
-    public boolean mIsBDImage = false;
-    public HashMap<String, byte[]> adM = null;
-    public String adQ = null;
-    public String mNetType = null;
-    public String mFrom = null;
+class h implements Runnable {
+    final /* synthetic */ f aej;
+    private final /* synthetic */ URL aek;
 
-    public h() {
-        this.adO = true;
-        this.adO = true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(f fVar, URL url) {
+        this.aej = fVar;
+        this.aek = url;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            BdLog.i("testcdn" + this.aek.getHost());
+            InetAddress.getByName(this.aek.getHost()).getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 }

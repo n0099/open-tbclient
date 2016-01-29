@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ae implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId cRq = BdUniqueId.gen();
+    public static final BdUniqueId daX = BdUniqueId.gen();
     private boolean isSelf;
     private List<com.baidu.tbadk.data.g> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cRq;
+        return daX;
     }
 
     public List<com.baidu.tbadk.data.g> getPhotoAlbum() {

@@ -12,93 +12,97 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.hottopic.controller.b;
-import com.baidu.tieba.hottopic.controller.i;
+import com.baidu.tieba.hottopic.controller.f;
+import com.baidu.tieba.hottopic.controller.m;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes.dex */
-public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements BdListView.e, UserIconBox.b, b.a, i.a, FrsCommonImageLayout.c {
-    private com.baidu.adp.lib.f.b<TbImageView> agI;
-    private k bGJ;
-    private a bGK;
-    private com.baidu.adp.lib.f.b<TbImageView> bGL;
-    private BdBaseViewPager.a bGP;
-    public x bGQ;
-    private com.baidu.tieba.hottopic.view.a bGG = null;
-    private i bGH = null;
-    private b bGI = null;
-    private com.baidu.tieba.hottopic.data.c bGM = null;
-    private String bGN = null;
-    private String aQB = null;
-    private com.baidu.tieba.hottopic.data.h bGO = null;
-    private CustomMessageListener aDW = new d(this, CmdConfigCustom.CMD_LIKE_FORUM);
-    private CustomMessageListener aDV = new e(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
-    private com.baidu.adp.base.g aUC = new f(this);
+public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements BdListView.e, UserIconBox.b, f.a, m.a, FrsCommonImageLayout.c {
+    private com.baidu.adp.lib.f.b<TbImageView> ahx;
+    private o bKi;
+    private a bKj;
+    private com.baidu.adp.lib.f.b<TbImageView> bKk;
+    private BdBaseViewPager.a bKo;
+    public com.baidu.tieba.tbadkCore.w bKp;
+    private com.baidu.tieba.hottopic.view.c bKf = null;
+    private m bKg = null;
+    private f bKh = null;
+    private com.baidu.tieba.hottopic.data.e bKl = null;
+    private String bKm = null;
+    private String Wm = null;
+    private com.baidu.tieba.hottopic.data.k bKn = null;
+    private long bKq = 0;
+    private CustomMessageListener aEM = new h(this, CmdConfigCustom.CMD_LIKE_FORUM);
+    private CustomMessageListener aEL = new i(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
+    private com.baidu.adp.base.g aWL = new j(this);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        e(bundle);
-        this.bGG = new com.baidu.tieba.hottopic.view.a(getPageContext());
-        this.bGH = new i(this);
-        this.bGH.a(this);
-        this.bGQ = new x(getPageContext());
-        this.bGQ.setLoadDataCallBack(this.aUC);
-        this.bGI = new b(this);
-        this.bGI.a(this);
-        this.bGJ = new k(getPageContext());
-        this.bGK = new a(this);
-        Vm();
-        Vh();
+        g(bundle);
+        this.bKf = new com.baidu.tieba.hottopic.view.c(getPageContext());
+        this.bKg = new m(this);
+        this.bKg.a(this);
+        this.bKp = new com.baidu.tieba.tbadkCore.w(getPageContext());
+        this.bKp.setLoadDataCallBack(this.aWL);
+        this.bKh = new f(this);
+        this.bKh.a(this);
+        this.bKi = new o(getPageContext());
+        this.bKj = new a(this);
+        Xr();
+        Xw();
     }
 
-    private void Vh() {
-        showLoadingView(this.bGG.VF(), true);
-        if (!com.baidu.adp.lib.util.i.iQ()) {
-            hideLoadingView(this.bGG.VF());
-            showNetRefreshView(this.bGG.VF(), getResources().getString(n.j.neterror), true);
-            this.bGG.ic(0);
+    private void Xw() {
+        showLoadingView(this.bKf.Yb(), true);
+        if (!com.baidu.adp.lib.util.i.iZ()) {
+            hideLoadingView(this.bKf.Yb());
+            showNetRefreshView(this.bKf.Yb(), getResources().getString(t.j.neterror), true);
+            this.bKf.iA(0);
             return;
         }
-        Vj();
+        Xy();
     }
 
-    private void e(Bundle bundle) {
+    private void g(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.bGN = intent.getStringExtra(IntentConfig.TOPIC_ID);
-            this.aQB = intent.getStringExtra(IntentConfig.TOPIC_NAME);
+            this.bKm = intent.getStringExtra(IntentConfig.TOPIC_ID);
+            this.Wm = intent.getStringExtra(IntentConfig.TOPIC_NAME);
         } else if (bundle != null) {
-            this.bGN = bundle.getString(IntentConfig.TOPIC_ID);
-            this.aQB = bundle.getString(IntentConfig.TOPIC_NAME);
+            this.bKm = bundle.getString(IntentConfig.TOPIC_ID);
+            this.Wm = bundle.getString(IntentConfig.TOPIC_NAME);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        Vn();
+        Xu();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onResume() {
+        this.bKq = System.currentTimeMillis();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        if (this.bGP != null) {
-            this.bGP.wa();
+        if (this.bKo != null) {
+            this.bKo.xo();
         }
         super.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onPause() {
-        if (this.bGP != null) {
-            this.bGP.wb();
+        TiebaStatic.log(new au("c10817").aa("obj_duration", String.valueOf(System.currentTimeMillis() - this.bKq)));
+        if (this.bKo != null) {
+            this.bKo.xp();
         }
         super.onPause();
     }
@@ -109,14 +113,14 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         if (i2 == -1) {
             switch (i) {
                 case 23003:
-                    if (intent != null && this.bGM != null) {
-                        this.bGJ.a(Vi(), intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.bGM);
+                    if (intent != null && this.bKl != null) {
+                        this.bKi.a(Xx(), intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.bKl);
                         return;
                     }
                     return;
                 case 23007:
-                    if (intent != null && this.bGM != null) {
-                        this.bGJ.a(Vi(), intent.getLongExtra("key_user_id", -1L), intent.getStringExtra("key_user_name"), intent.getStringExtra("key_user_portait"), this.bGM);
+                    if (intent != null && this.bKl != null) {
+                        this.bKi.a(Xx(), intent.getLongExtra("key_user_id", -1L), intent.getStringExtra("key_user_name"), intent.getStringExtra("key_user_portait"), this.bKl);
                         return;
                     }
                     return;
@@ -126,14 +130,14 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         }
     }
 
-    public ShareFromTopicMsgData Vi() {
+    public ShareFromTopicMsgData Xx() {
         ShareFromTopicMsgData shareFromTopicMsgData = new ShareFromTopicMsgData();
-        shareFromTopicMsgData.setContent(this.bGM.Vv().bHt);
-        shareFromTopicMsgData.setImageUrl(this.bGM.Vv().bHu);
-        shareFromTopicMsgData.setTitle(this.bGM.Vv().aQB);
-        shareFromTopicMsgData.setHotTopicID(this.bGM.Vv().bGN);
-        shareFromTopicMsgData.setHotTopicName(this.bGM.Vv().aQB);
-        shareFromTopicMsgData.setLinkUrl(String.valueOf("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") + this.bGM.Vv().bGN);
+        shareFromTopicMsgData.setContent(this.bKl.XO().bLf);
+        shareFromTopicMsgData.setImageUrl(this.bKl.XO().bLg);
+        shareFromTopicMsgData.setTitle(this.bKl.XO().Wm);
+        shareFromTopicMsgData.setHotTopicID(this.bKl.XO().bKm);
+        shareFromTopicMsgData.setHotTopicName(this.bKl.XO().Wm);
+        shareFromTopicMsgData.setLinkUrl(String.valueOf("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") + this.bKl.XO().bKm);
         return shareFromTopicMsgData;
     }
 
@@ -145,146 +149,146 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bGG.onChangeSkinType(i);
+        this.bKf.onChangeSkinType(i);
         changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.bGG.VI();
+        return this.bKf.Yg();
     }
 
-    @Override // com.baidu.tieba.hottopic.controller.i.a
-    public void a(boolean z, com.baidu.tieba.hottopic.data.c cVar) {
-        this.bGG.VJ();
-        hideLoadingView(this.bGG.VF());
-        if (!z || cVar == null || this.bGG == null) {
-            showNetRefreshView(this.bGG.VF(), null);
+    @Override // com.baidu.tieba.hottopic.controller.m.a
+    public void a(boolean z, com.baidu.tieba.hottopic.data.e eVar) {
+        this.bKf.Ya();
+        hideLoadingView(this.bKf.Yb());
+        if (!z || eVar == null || this.bKf == null) {
+            showNetRefreshView(this.bKf.Yb(), null, true);
             return;
         }
-        this.bGM = cVar;
-        if (cVar.Vx() != null && cVar.Vy() != null) {
-            this.bGG.a(8, true, 0L, 0);
-        } else if (cVar.Vx() != null) {
-            this.bGG.a(0, true, cVar.Vx().bHc, cVar.Vx().bHd);
-        } else if (cVar.Vy() != null) {
-            this.bGG.a(0, false, cVar.Vy().bHc, cVar.Vy().bHd);
+        this.bKl = eVar;
+        if (eVar.XQ() != null && eVar.XR() != null) {
+            this.bKf.a(8, true, 0L, 0);
+        } else if (eVar.XQ() != null) {
+            this.bKf.a(0, true, eVar.XQ().bKC, eVar.XQ().bKD);
+        } else if (eVar.XR() != null) {
+            this.bKf.a(0, false, eVar.XR().bKC, eVar.XR().bKD);
         }
-        a(cVar.VB());
-        this.bGG.c(cVar);
-        this.bGG.VH();
+        a(eVar.XU());
+        this.bKf.c(eVar);
+        this.bKf.Yc();
     }
 
-    private void a(com.baidu.tbadk.core.data.q qVar) {
-        if (qVar != null) {
-            if (this.bGO == null) {
-                this.bGO = new com.baidu.tieba.hottopic.data.h();
-                this.bGO.bHS = qVar.rM();
+    private void a(com.baidu.tbadk.core.data.u uVar) {
+        if (uVar != null) {
+            if (this.bKn == null) {
+                this.bKn = new com.baidu.tieba.hottopic.data.k();
+                this.bKn.bLv = uVar.st();
             }
-            this.bGO.bGN = this.bGN;
-            this.bGO.aQB = this.aQB;
-            this.bGO.bHT = qVar.rO() != 0;
-            this.bGO.bHU = 10;
-            if (this.bGO.bHT) {
-                this.bGO.bHS++;
-                this.bGG.Ok();
+            this.bKn.bKm = this.bKm;
+            this.bKn.Wm = this.Wm;
+            this.bKn.bLw = uVar.sv() != 0;
+            this.bKn.bLx = 10;
+            if (this.bKn.bLw) {
+                this.bKn.bLv++;
+                this.bKf.Qn();
                 return;
             }
-            this.bGG.Om();
-            this.bGG.Ol();
+            this.bKf.Qp();
+            this.bKf.Qo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vj() {
-        if (!com.baidu.adp.lib.util.i.iQ()) {
-            this.bGG.VJ();
-        } else if (this.bGH != null) {
-            this.bGH.aA(this.bGN, this.aQB);
+    public void Xy() {
+        if (!com.baidu.adp.lib.util.i.iZ()) {
+            this.bKf.Ya();
+        } else if (this.bKg != null) {
+            this.bKg.aF(this.bKm, this.Wm);
         }
     }
 
-    public void Vk() {
-        if (com.baidu.adp.lib.util.i.iQ() && this.bGK != null) {
-            com.baidu.tieba.hottopic.data.a Vx = this.bGM.Vx();
-            com.baidu.tieba.hottopic.data.a Vy = this.bGM.Vy();
-            if (Vx != null) {
-                this.bGK.a(Vx.bHg, Long.parseLong(this.bGN), 1, 0, 1, Vx.bHh);
-            } else if (Vy != null) {
-                this.bGK.a(Vy.bHg, Long.parseLong(this.bGN), 1, 0, 1, Vy.bHh);
+    public void Xz() {
+        if (com.baidu.adp.lib.util.i.iZ() && this.bKj != null) {
+            com.baidu.tieba.hottopic.data.a XQ = this.bKl.XQ();
+            com.baidu.tieba.hottopic.data.a XR = this.bKl.XR();
+            if (XQ != null) {
+                this.bKj.a(XQ.bKG, Long.parseLong(this.bKm), 1, 0, 1, XQ.bKH);
+            } else if (XR != null) {
+                this.bKj.a(XR.bKG, Long.parseLong(this.bKm), 1, 0, 1, XR.bKH);
             }
         }
     }
 
-    public void Vl() {
-        com.baidu.tieba.hottopic.data.e Vw;
-        if (com.baidu.adp.lib.util.i.iQ() && this.bGK != null && (Vw = this.bGM.Vw()) != null) {
-            this.bGK.a(Vw.bHg, Long.parseLong(this.bGN), Vw.bHd, 0, 0, Vw.bHh);
+    public void XA() {
+        com.baidu.tieba.hottopic.data.h XP;
+        if (com.baidu.adp.lib.util.i.iZ() && this.bKj != null && (XP = this.bKl.XP()) != null) {
+            this.bKj.a(XP.bKG, Long.parseLong(this.bKm), XP.bKD, 0, 0, XP.bKH);
         }
     }
 
-    private void Vm() {
-        this.bGG.a(new g(this));
-        this.bGG.f(new h(this));
-        registerListener(this.aDW);
-        registerListener(this.aDV);
+    private void Xr() {
+        this.bKf.a(new k(this));
+        this.bKf.f(new l(this));
+        registerListener(this.aEM);
+        registerListener(this.aEL);
     }
 
-    private void Vn() {
-        if (this.bGG != null) {
-            this.bGG.VL();
-            this.bGG.VM();
-            this.bGG.clearAnimation();
+    private void Xu() {
+        if (this.bKf != null) {
+            this.bKf.Yd();
+            this.bKf.Ye();
+            this.bKf.clearAnimation();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.bGG.VF());
-        Vh();
+        hideNetRefreshView(this.bKf.Yb());
+        Xw();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> MH() {
-        if (this.bGL == null) {
-            this.bGL = FrsCommonImageLayout.n(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.f.b<TbImageView> OC() {
+        if (this.bKk == null) {
+            this.bKk = FrsCommonImageLayout.l(getPageContext().getPageActivity(), 12);
         }
-        return this.bGL;
+        return this.bKk;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.f.b<TbImageView> vV() {
-        if (this.agI == null) {
-            this.agI = UserIconBox.g(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.f.b<TbImageView> xj() {
+        if (this.ahx == null) {
+            this.ahx = UserIconBox.e(getPageContext().getPageActivity(), 8);
         }
-        return this.agI;
+        return this.ahx;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public int vU() {
-        return com.baidu.tieba.hottopic.b.a.VE();
+    public int xi() {
+        return com.baidu.tieba.hottopic.b.c.XY();
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     public ListView getListView() {
-        if (this.bGG != null) {
-            return this.bGG.VI();
+        if (this.bKf != null) {
+            return this.bKf.Yg();
         }
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        if (!com.baidu.adp.lib.util.i.iQ()) {
-            this.bGG.Om();
-        } else if (this.bGG == null || this.bGM == null || this.bGM.Vz() == null || this.bGO == null) {
-            this.bGG.Ol();
+    public void nv() {
+        if (!com.baidu.adp.lib.util.i.iZ()) {
+            this.bKf.Qp();
+        } else if (this.bKf == null || this.bKl == null || this.bKl.XS() == null || this.bKn == null) {
+            this.bKf.Qo();
         } else {
-            this.bGG.Ok();
-            if (this.bGO.bHT) {
-                this.bGI.b(this.bGO);
+            this.bKf.Qn();
+            if (this.bKn.bLw) {
+                this.bKh.b(this.bKn);
             } else {
-                this.bGG.Ol();
+                this.bKf.Qo();
             }
         }
     }
@@ -292,40 +296,40 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (!StringUtils.isNull(this.aQB) || !StringUtils.isNull(this.bGN)) {
-            bundle.putString(IntentConfig.TOPIC_ID, this.bGN);
-            bundle.putString(IntentConfig.TOPIC_NAME, this.aQB);
+        if (!StringUtils.isNull(this.Wm) || !StringUtils.isNull(this.bKm)) {
+            bundle.putString(IntentConfig.TOPIC_ID, this.bKm);
+            bundle.putString(IntentConfig.TOPIC_NAME, this.Wm);
         }
     }
 
-    @Override // com.baidu.tieba.hottopic.controller.b.a
-    public void a(boolean z, com.baidu.tieba.hottopic.data.b bVar) {
-        this.bGG.Om();
-        if (!z || bVar == null || this.bGM == null) {
-            this.bGG.Ol();
+    @Override // com.baidu.tieba.hottopic.controller.f.a
+    public void a(boolean z, com.baidu.tieba.hottopic.data.d dVar) {
+        this.bKf.Qp();
+        if (!z || dVar == null || this.bKl == null) {
+            this.bKf.Qo();
             return;
         }
-        this.bGM.a(bVar);
-        this.bGG.VH();
-        a(bVar.bHj);
+        this.bKl.a(dVar);
+        this.bKf.Yc();
+        a(dVar.bKQ);
     }
 
-    public String Vo() {
-        return this.bGN;
+    public String XB() {
+        return this.bKm;
     }
 
-    public void Vp() {
-        this.bGJ.b(this.bGM);
+    public String getTopicName() {
+        return this.Wm;
     }
 
-    public void a(BdBaseViewPager.a aVar) {
-        this.bGP = aVar;
+    public void XC() {
+        this.bKi.b(this.bKl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RelateForumItemData aL(long j) {
-        if (this.bGM != null && this.bGM.Vz() != null && this.bGM.Vz().bIa != null) {
-            for (com.baidu.adp.widget.ListView.u uVar : this.bGM.Vz().bIa) {
+    public RelateForumItemData aM(long j) {
+        if (this.bKl != null && this.bKl.XS() != null && this.bKl.XS().bLE != null) {
+            for (com.baidu.adp.widget.ListView.u uVar : this.bKl.XS().bLE) {
                 if (uVar != null && (uVar instanceof RelateForumItemData) && ((RelateForumItemData) uVar).forumId == j) {
                     return (RelateForumItemData) uVar;
                 }

@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    final /* synthetic */ l djT;
+    final /* synthetic */ l dxN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(l lVar) {
-        this.djT = lVar;
+        this.dxN = lVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         PostSearchActivity postSearchActivity;
         BdListView bdListView;
         aVar.dismiss();
-        postSearchActivity = this.djT.djG;
-        postSearchActivity.awr().awC();
-        bdListView = this.djT.djP;
+        postSearchActivity = this.dxN.dxA;
+        postSearchActivity.aCM().aCY();
+        bdListView = this.dxN.dxJ;
         bdListView.setVisibility(8);
-        this.djT.showNoDataView();
+        this.dxN.showNoDataView();
     }
 }

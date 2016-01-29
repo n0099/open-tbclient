@@ -2,28 +2,28 @@ package com.baidu.tieba.write.album;
 
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.write.album.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    final /* synthetic */ ab dTo;
-    private final /* synthetic */ ab.a dTp;
-    private final /* synthetic */ ImageFileInfo dTq;
-    private final /* synthetic */ o dTr;
-    private final /* synthetic */ ab.b dTs;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int YA;
+    final /* synthetic */ ab enS;
+    private final /* synthetic */ ab.a enT;
+    private final /* synthetic */ ImageFileInfo enU;
+    private final /* synthetic */ o enV;
+    private final /* synthetic */ ab.b enW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ab abVar, ab.a aVar, o oVar, ImageFileInfo imageFileInfo, int i, ab.b bVar) {
-        this.dTo = abVar;
-        this.dTp = aVar;
-        this.dTr = oVar;
-        this.dTq = imageFileInfo;
-        this.val$position = i;
-        this.dTs = bVar;
+        this.enS = abVar;
+        this.enT = aVar;
+        this.enV = oVar;
+        this.enU = imageFileInfo;
+        this.YA = i;
+        this.enW = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,18 +31,18 @@ public class af implements View.OnClickListener {
         aa aaVar;
         aa aaVar2;
         AlbumActivity albumActivity;
-        aaVar = this.dTo.dTn;
-        if (aaVar != null && this.dTp.dTt) {
-            boolean isAdded = this.dTr.isAdded(this.dTq);
-            aaVar2 = this.dTo.dTn;
-            if (aaVar2.a(this.val$position, this.dTq, !isAdded)) {
+        aaVar = this.enS.enR;
+        if (aaVar != null && this.enT.enX) {
+            boolean isAdded = this.enV.isAdded(this.enU);
+            aaVar2 = this.enS.enR;
+            if (aaVar2.a(this.YA, this.enU, !isAdded)) {
                 if (!isAdded) {
-                    as.i(this.dTs.cmu, n.f.chx_camera_pic_s);
-                    albumActivity = this.dTo.dSj;
-                    this.dTs.cmu.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), n.a.album_choose_icon));
+                    ar.k(this.enW.csZ, t.f.chx_camera_pic_s);
+                    albumActivity = this.enS.emU;
+                    this.enW.csZ.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), t.a.album_choose_icon));
                     return;
                 }
-                as.i(this.dTs.cmu, n.f.chx_camera_pic_n);
+                ar.k(this.enW.csZ, t.f.chx_camera_pic_n);
             }
         }
     }

@@ -4,17 +4,17 @@ import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ AbsHListView.j bDB;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int YA;
+    final /* synthetic */ AbsHListView.j bGN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AbsHListView.j jVar, int i) {
-        this.bDB = jVar;
-        this.val$position = i;
+        this.bGN = jVar;
+        this.YA = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bDB.hA(this.val$position);
+        this.bGN.start(this.YA);
     }
 }

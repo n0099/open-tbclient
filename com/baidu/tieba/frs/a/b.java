@@ -1,28 +1,49 @@
 package com.baidu.tieba.frs.a;
 
-import android.view.View;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.frs.ed;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends x.a {
-    TextView aGr;
-    HeadImageView aLn;
-    TextView ahk;
-    TbImageView blA;
-    LinearLayout bly;
-    TextView blz;
+public class b implements com.baidu.adp.lib.f.c<ed> {
+    final /* synthetic */ a boe;
 
-    public b(View view) {
-        super(view);
-        this.bly = (LinearLayout) view.findViewById(n.g.frs_locality_big_image_parent);
-        this.aLn = (HeadImageView) view.findViewById(n.g.frs_locality_big_iamge_head);
-        this.aGr = (TextView) view.findViewById(n.g.frs_locality_big_iamge_name);
-        this.blz = (TextView) view.findViewById(n.g.frs_app_time);
-        this.ahk = (TextView) view.findViewById(n.g.frs_locality_big_iamge_title);
-        this.blA = (TbImageView) view.findViewById(n.g.frs_locality_big_iamge_pic);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.boe = aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Rn */
+    public ed hk() {
+        Context context;
+        context = this.boe.mContext;
+        ed edVar = new ed(LayoutInflater.from(context).inflate(t.h.frs_item_single_photolivecard, (ViewGroup) null));
+        ((LinearLayout.LayoutParams) edVar.blk.getLayoutParams()).topMargin = 0;
+        return edVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(ed edVar) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public ed m(ed edVar) {
+        return edVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public ed n(ed edVar) {
+        return edVar;
     }
 }

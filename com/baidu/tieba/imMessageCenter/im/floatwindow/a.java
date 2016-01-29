@@ -9,25 +9,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private boolean cen = true;
-    private ArrayList<String> ceo = new ArrayList<>();
-    private HashMap<String, ImMessageCenterPojo> cep = new HashMap<>();
-    private HashMap<String, Integer> ceq = new HashMap<>();
+    private boolean ciM = true;
+    private ArrayList<String> ciN = new ArrayList<>();
+    private HashMap<String, ImMessageCenterPojo> ciO = new HashMap<>();
+    private HashMap<String, Integer> ciP = new HashMap<>();
 
-    public void acG() {
-        this.cen = false;
+    public void afP() {
+        this.ciM = false;
     }
 
-    public void acH() {
-        this.cen = true;
+    public void afQ() {
+        this.ciM = true;
     }
 
     private void p(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!StringUtils.isNull(gid)) {
-                this.cep.remove(gid);
-                this.cep.put(gid, imMessageCenterPojo);
+                this.ciO.remove(gid);
+                this.ciO.put(gid, imMessageCenterPojo);
             }
         }
     }
@@ -37,14 +37,14 @@ public class a {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!StringUtils.isNull(gid)) {
-                this.ceo.add(gid);
-                this.cep.put(gid, imMessageCenterPojo);
-                this.ceq.put(gid, Integer.valueOf(imMessageCenterPojo.getUnread_count()));
-                if (this.cen && (size = this.ceo.size()) >= 4) {
-                    for (String str : this.ceo.subList(0, size - 4)) {
-                        this.ceo.remove(str);
-                        this.cep.remove(str);
-                        this.ceq.remove(str);
+                this.ciN.add(gid);
+                this.ciO.put(gid, imMessageCenterPojo);
+                this.ciP.put(gid, Integer.valueOf(imMessageCenterPojo.getUnread_count()));
+                if (this.ciM && (size = this.ciN.size()) >= 4) {
+                    for (String str : this.ciN.subList(0, size - 4)) {
+                        this.ciN.remove(str);
+                        this.ciO.remove(str);
+                        this.ciP.remove(str);
                     }
                 }
             }
@@ -53,34 +53,34 @@ public class a {
 
     private void r(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            jg(imMessageCenterPojo.getGid());
+            ji(imMessageCenterPojo.getGid());
         }
     }
 
-    public void jg(String str) {
+    public void ji(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ceo.remove(str);
-            this.ceo.add(str);
+            this.ciN.remove(str);
+            this.ciN.add(str);
         }
     }
 
-    public void jh(String str) {
+    public void jj(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ceo.remove(str);
-            this.ceq.remove(str);
-            this.cep.remove(str);
+            this.ciN.remove(str);
+            this.ciP.remove(str);
+            this.ciO.remove(str);
         }
     }
 
     public void removeAll() {
-        this.ceo.clear();
-        this.ceq.clear();
-        this.cep.clear();
+        this.ciN.clear();
+        this.ciP.clear();
+        this.ciO.clear();
     }
 
-    public int acI() {
+    public int afR() {
         int i = 0;
-        Iterator<ImMessageCenterPojo> it = this.cep.values().iterator();
+        Iterator<ImMessageCenterPojo> it = this.ciO.values().iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -91,12 +91,12 @@ public class a {
         }
     }
 
-    public ArrayList<String> acJ() {
+    public ArrayList<String> afS() {
         ArrayList<String> arrayList = new ArrayList<>();
-        int size = this.ceo.size() - 1;
+        int size = this.ciN.size() - 1;
         if (size >= 0) {
             for (int i = size; i >= 0; i--) {
-                ImMessageCenterPojo imMessageCenterPojo = this.cep.get(this.ceo.get(i));
+                ImMessageCenterPojo imMessageCenterPojo = this.ciO.get(this.ciN.get(i));
                 if (imMessageCenterPojo != null) {
                     arrayList.add(imMessageCenterPojo.getGroup_head());
                 }
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         String gid = imMessageCenterPojo.getGid();
-        return (StringUtils.isNull(gid) || (imMessageCenterPojo2 = this.cep.get(gid)) == null || imMessageCenterPojo2 == imMessageCenterPojo) ? false : true;
+        return (StringUtils.isNull(gid) || (imMessageCenterPojo2 = this.ciO.get(gid)) == null || imMessageCenterPojo2 == imMessageCenterPojo) ? false : true;
     }
 
     private boolean t(ImMessageCenterPojo imMessageCenterPojo) {
@@ -122,7 +122,7 @@ public class a {
         if (StringUtils.isNull(gid)) {
             return false;
         }
-        Integer num = this.ceq.get(gid);
+        Integer num = this.ciP.get(gid);
         return num == null || num.intValue() != imMessageCenterPojo.getUnread_count();
     }
 
@@ -131,14 +131,14 @@ public class a {
             return 0;
         }
         if (imMessageCenterPojo.getIs_hidden() == 1) {
-            jh(imMessageCenterPojo.getGid());
+            jj(imMessageCenterPojo.getGid());
             return 5;
         } else if (imMessageCenterPojo.getUnread_count() > 0) {
             if (s(imMessageCenterPojo)) {
                 p(imMessageCenterPojo);
                 return 4;
             } else if (t(imMessageCenterPojo)) {
-                if (this.ceo.contains(imMessageCenterPojo.getGid())) {
+                if (this.ciN.contains(imMessageCenterPojo.getGid())) {
                     r(imMessageCenterPojo);
                     return 1;
                 }
@@ -148,7 +148,7 @@ public class a {
                 return 0;
             }
         } else {
-            ji(imMessageCenterPojo.getGid());
+            jk(imMessageCenterPojo.getGid());
             return 3;
         }
     }
@@ -157,23 +157,23 @@ public class a {
         if (imMessageCenterPojo == null) {
             return 0;
         }
-        return ((imMessageCenterPojo.getIs_hidden() == 1) && acL()) ? 6 : 0;
+        return ((imMessageCenterPojo.getIs_hidden() == 1) && afU()) ? 6 : 0;
     }
 
-    private void ji(String str) {
-        if (!StringUtils.isNull(str) && this.ceq.containsKey(str)) {
-            this.ceq.put(str, 0);
+    private void jk(String str) {
+        if (!StringUtils.isNull(str) && this.ciP.containsKey(str)) {
+            this.ciP.put(str, 0);
         }
     }
 
-    public ArrayList<UserData> acK() {
-        if (this.ceo == null || this.ceo.isEmpty()) {
+    public ArrayList<UserData> afT() {
+        if (this.ciN == null || this.ciN.isEmpty()) {
             return null;
         }
         ArrayList<UserData> arrayList = new ArrayList<>();
-        int size = this.ceo.size();
+        int size = this.ciN.size();
         for (int i = 0; i < size; i++) {
-            ImMessageCenterPojo imMessageCenterPojo = this.cep.get(this.ceo.get(i));
+            ImMessageCenterPojo imMessageCenterPojo = this.ciO.get(this.ciN.get(i));
             if (imMessageCenterPojo != null) {
                 UserData userData = new UserData();
                 userData.setUserId(imMessageCenterPojo.getGid());
@@ -191,14 +191,20 @@ public class a {
         return arrayList;
     }
 
-    public boolean acL() {
-        Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.cep.entrySet().iterator();
+    public void jl(String str) {
+        if (!StringUtils.isNull(str) && this.ciO != null && this.ciO.get(str) != null) {
+            this.ciO.get(str).setUnread_count(0);
+        }
+    }
+
+    public boolean afU() {
+        Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.ciO.entrySet().iterator();
         boolean z = false;
         while (it.hasNext()) {
             ImMessageCenterPojo value = it.next().getValue();
             if (value.getIsFriend() != 1) {
-                this.ceo.remove(value.getGid());
-                this.ceq.remove(value.getGid());
+                this.ciN.remove(value.getGid());
+                this.ciP.remove(value.getGid());
                 it.remove();
                 z = true;
             }
@@ -206,7 +212,7 @@ public class a {
         return z;
     }
 
-    public boolean acM() {
-        return (this.ceo == null || this.ceo.isEmpty()) ? false : true;
+    public boolean afV() {
+        return (this.ciN == null || this.ciN.isEmpty()) ? false : true;
     }
 }

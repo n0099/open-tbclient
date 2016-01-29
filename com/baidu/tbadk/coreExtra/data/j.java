@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private int ajk;
+    private int ajX;
     private String link;
     private String title;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.ajk = jSONObject.optInt("offline");
+            this.ajX = jSONObject.optInt("offline");
             this.title = jSONObject.optString("title");
             this.link = jSONObject.optString("link");
             if (!TextUtils.isEmpty(this.link)) {

@@ -9,7 +9,7 @@ public class b extends y {
         super(context, (String) null, 11);
         this.toolNeedAction = true;
         this.toolPosition = 6;
-        this.toolView = c.h(context, 10);
+        this.toolView = c.f(context, 10);
         this.toolLaunchAction = new int[]{12, 13, 9};
     }
 
@@ -17,11 +17,11 @@ public class b extends y {
         super(context, (String) null, 11);
         this.toolNeedAction = true;
         this.toolPosition = 6;
-        this.toolView = c.h(context, i);
+        this.toolView = c.f(context, i);
         this.toolLaunchAction = new int[]{12, 13, 9};
     }
 
-    public void ei(int i) {
+    public void eC(int i) {
         if (this.toolView != null) {
             MultiImgToolView multiImgToolView = (MultiImgToolView) this.toolView;
             if (i == 1) {
@@ -33,14 +33,14 @@ public class b extends y {
         }
     }
 
-    public void fk(String str) {
+    public void fj(String str) {
         TextView mutiImageTips;
         if (this.toolView != null && (mutiImageTips = ((MultiImgToolView) this.toolView).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void fl(String str) {
+    public void fk(String str) {
         if (this.toolView instanceof MultiImgToolView) {
             ((MultiImgToolView) this.toolView).setNoPicTips(str);
         }

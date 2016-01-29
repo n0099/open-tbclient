@@ -14,7 +14,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class g {
-    private static WeakReference<byte[]> Fj;
+    private static WeakReference<byte[]> Fw;
     private static Object mSync = new Object();
 
     public static Signature[] bP(String str) {
@@ -26,9 +26,9 @@ public final class g {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = Fj;
+            WeakReference<byte[]> weakReference2 = Fw;
             if (weakReference2 != null) {
-                Fj = null;
+                Fw = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -81,7 +81,7 @@ public final class g {
             }
             jarFile.close();
             synchronized (mSync) {
-                Fj = weakReference;
+                Fw = weakReference;
             }
             if (certificateArr != null && certificateArr.length > 0) {
                 int length = certificateArr.length;

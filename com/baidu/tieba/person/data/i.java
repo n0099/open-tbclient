@@ -7,16 +7,17 @@ import com.baidu.tbadk.data.MyGift;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i implements u {
-    public static final BdUniqueId cSb = BdUniqueId.gen();
-    private boolean bAA = true;
+    public static final BdUniqueId dbP = BdUniqueId.gen();
+    private boolean bDM = true;
+    private boolean dbQ = false;
     private UserData mUserData;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cSb;
+        return dbP;
     }
 
-    public List<MyGift> apr() {
+    public List<MyGift> auj() {
         if (this.mUserData != null) {
             return this.mUserData.getGift();
         }
@@ -46,11 +47,11 @@ public class i implements u {
     }
 
     public void setIsSelf(boolean z) {
-        this.bAA = z;
+        this.bDM = z;
     }
 
     public boolean getIsSelf() {
-        return this.bAA;
+        return this.bDM;
     }
 
     public String getUserId() {
@@ -58,5 +59,13 @@ public class i implements u {
             return this.mUserData.getUserId();
         }
         return null;
+    }
+
+    public boolean auk() {
+        return this.dbQ;
+    }
+
+    public void fV(boolean z) {
+        this.dbQ = z;
     }
 }

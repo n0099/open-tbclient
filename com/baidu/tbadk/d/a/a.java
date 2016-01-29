@@ -3,25 +3,25 @@ package com.baidu.tbadk.d.a;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int arn;
-    private int aro;
-    public int arp;
+    private int asg;
+    private int ash;
+    public int asi;
     private int iconId;
     private Context mContext;
 
     public a(Context context, int i, int i2, int i3, int i4) {
         this.mContext = context;
-        this.arn = i;
+        this.asg = i;
         this.iconId = i2;
-        this.arp = i3;
-        this.aro = i4;
+        this.asi = i3;
+        this.ash = i4;
     }
 
-    public int AT() {
+    public int Cj() {
         return this.iconId;
     }
 
-    public int AU() {
-        return this.arn;
+    public int Ck() {
+        return this.asg;
     }
 }

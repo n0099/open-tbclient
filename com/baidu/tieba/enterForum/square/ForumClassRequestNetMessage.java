@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.m;
+import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.util.i;
 import tbclient.GetForumClassList.DataReq;
 import tbclient.GetForumClassList.GetForumClassListReqIdl;
@@ -22,7 +22,7 @@ public class ForumClassRequestNetMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(K);
         builder.scr_h = Integer.valueOf(L);
         builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp()));
-        builder.q_type = Long.valueOf(m.qQ().getViewImageQuality());
+        builder.q_type = Long.valueOf(l.rn().getViewImageQuality());
         if (z) {
             i.a(builder, true);
         }

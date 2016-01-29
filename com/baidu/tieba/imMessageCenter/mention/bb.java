@@ -2,17 +2,17 @@ package com.baidu.tieba.imMessageCenter.mention;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements com.baidu.tbadk.editortools.d.c {
-    final /* synthetic */ ax cjh;
+    final /* synthetic */ ax cnH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ax axVar) {
-        this.cjh = axVar;
+        this.cnH = axVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d.c
-    public void BL() {
+    public void Db() {
         bd bdVar;
-        bdVar = this.cjh.ciq;
+        bdVar = this.cnH.cmQ;
         bdVar.showProgressBar();
     }
 }

@@ -14,8 +14,8 @@ public class ac implements com.baidu.adp.lib.f.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vT */
-    public TbImageView hc() {
+    /* renamed from: xh */
+    public TbImageView hk() {
         return new TbImageView(this.val$context);
     }
 

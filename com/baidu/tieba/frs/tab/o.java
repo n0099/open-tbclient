@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.tab;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.frs.fc;
+import com.baidu.tieba.frs.fm;
 import com.baidu.tieba.frs.tab.i;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ m bmB;
+    final /* synthetic */ m bpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.bmB = mVar;
+        this.bpq = mVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,31 +21,31 @@ public class o implements AdapterView.OnItemClickListener {
         i iVar;
         BaseAdapter baseAdapter;
         i.a aVar;
-        List<fc> list;
+        List<fm> list;
         BaseAdapter baseAdapter2;
         i.a aVar2;
         i iVar2;
-        iVar = this.bmB.bmz;
+        iVar = this.bpq.bpn;
         if (iVar != null) {
-            iVar2 = this.bmB.bmz;
-            iVar2.PB();
+            iVar2 = this.bpq.bpn;
+            iVar2.RF();
         }
-        baseAdapter = this.bmB.bmA;
+        baseAdapter = this.bpq.bpo;
         if (baseAdapter != null) {
-            aVar = this.bmB.bmd;
+            aVar = this.bpq.boS;
             if (aVar != null) {
-                list = this.bmB.mData;
-                for (fc fcVar : list) {
-                    if (fcVar != null) {
-                        fcVar.isSelected = false;
+                list = this.bpq.aIY;
+                for (fm fmVar : list) {
+                    if (fmVar != null) {
+                        fmVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.bmB.bmA;
-                fc fcVar2 = (fc) baseAdapter2.getItem(i);
-                if (fcVar2 != null) {
-                    fcVar2.isSelected = true;
-                    aVar2 = this.bmB.bmd;
-                    aVar2.gp(fcVar2.biz);
+                baseAdapter2 = this.bpq.bpo;
+                fm fmVar2 = (fm) baseAdapter2.getItem(i);
+                if (fmVar2 != null) {
+                    fmVar2.isSelected = true;
+                    aVar2 = this.bpq.boS;
+                    aVar2.gM(fmVar2.blu);
                 }
             }
         }

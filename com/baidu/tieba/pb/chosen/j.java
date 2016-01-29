@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cBV;
+    final /* synthetic */ PbChosenActivity cIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PbChosenActivity pbChosenActivity) {
-        this.cBV = pbChosenActivity;
+        this.cIA = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,26 +26,26 @@ public class j implements View.OnClickListener {
         com.baidu.tieba.pb.chosen.net.a aVar6;
         com.baidu.tieba.pb.chosen.net.a aVar7;
         int i;
-        aVar = this.cBV.chosenData;
+        aVar = this.cIA.chosenData;
         if (aVar != null) {
-            aVar2 = this.cBV.chosenData;
+            aVar2 = this.cIA.chosenData;
             if (aVar2.getThreadInfo() != null) {
-                av avVar = new av("c10091");
+                au auVar = new au("c10091");
                 StringBuilder sb = new StringBuilder();
-                aVar3 = this.cBV.chosenData;
-                av aa = avVar.aa("tid", sb.append(aVar3.getThreadInfo().thread_id).toString());
-                aVar4 = this.cBV.chosenData;
-                av aa2 = aa.aa("obj_name", aVar4.getThreadInfo().tag_name);
-                aVar5 = this.cBV.chosenData;
-                av r = aa2.r("obj_source", aVar5.getThreadInfo().source.intValue());
-                aVar6 = this.cBV.chosenData;
+                aVar3 = this.cIA.chosenData;
+                au aa = auVar.aa("tid", sb.append(aVar3.getThreadInfo().thread_id).toString());
+                aVar4 = this.cIA.chosenData;
+                au aa2 = aa.aa("obj_name", aVar4.getThreadInfo().tag_name);
+                aVar5 = this.cIA.chosenData;
+                au r = aa2.r("obj_source", aVar5.getThreadInfo().source.intValue());
+                aVar6 = this.cIA.chosenData;
                 TiebaStatic.log(r.aa("abtest", aVar6.getThreadInfo().abtest));
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cBV.getPageContext().getPageActivity());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cIA.getPageContext().getPageActivity());
                 StringBuilder sb2 = new StringBuilder();
-                aVar7 = this.cBV.chosenData;
+                aVar7 = this.cIA.chosenData;
                 String sb3 = sb2.append(aVar7.getThreadInfo().thread_id).toString();
-                i = this.cBV.cBK;
-                this.cBV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createCfgForPbChosen(sb3, i)));
+                i = this.cIA.cIq;
+                this.cIA.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createCfgForPbChosen(sb3, i)));
             }
         }
     }

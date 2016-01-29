@@ -18,19 +18,19 @@ import java.util.ArrayList;
 @Deprecated
 /* loaded from: classes.dex */
 public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements BdListView.e, r.a {
-    private com.baidu.tieba.myCollection.baseEditMark.a cya = null;
-    private m cyb = null;
-    private int cyc = -1;
-    private ArrayList<MarkData> cyd = null;
+    private com.baidu.tieba.myCollection.baseEditMark.a cEH = null;
+    private m cEI = null;
+    private int cEJ = -1;
+    private ArrayList<MarkData> cEK = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cya = new com.baidu.tieba.myCollection.baseEditMark.a();
-        this.cya.a(new g(this));
-        this.cyb = new m(this);
-        this.cyb.b(new h(this));
+        this.cEH = new com.baidu.tieba.myCollection.baseEditMark.a();
+        this.cEH.a(new g(this));
+        this.cEI = new m(this);
+        this.cEI.d(new h(this));
         refresh();
     }
 
@@ -38,35 +38,35 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cyb.onChangeSkinType(i);
+        this.cEI.onChangeSkinType(i);
     }
 
     private void refresh() {
-        if (this.cya.getCount() == 0 || this.cya.ajw() < 0) {
-            this.cya.f(true);
+        if (this.cEH.getCount() == 0 || this.cEH.anu() < 0) {
+            this.cEH.f(true);
             return;
         }
-        this.cyb.startSync();
-        this.cya.startSync();
+        this.cEI.startSync();
+        this.cEH.startSync();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.cyb.onDestroy();
-        this.cya.onDestroy();
+        this.cEI.onDestroy();
+        this.cEH.onDestroy();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cyb.ajk()) {
-            this.cyb.changeEditState();
-        } else if (view.getId() == this.cyb.ajl()) {
+        if (view == this.cEI.anh()) {
+            this.cEI.ani();
+        } else if (view.getId() == this.cEI.anj()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.cyb.Lq();
-            if (!this.cya.kc(intValue)) {
-                this.cyb.Pe();
+            this.cEI.Nj();
+            if (!this.cEH.kC(intValue)) {
+                this.cEI.Rh();
             }
         }
         super.onClick(view);
@@ -74,23 +74,23 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.cya.ajt().size()) {
-            this.cyc = i;
-            MarkData markData = this.cya.ajt().get(i);
-            MarkData markData2 = this.cyd.get(i);
-            int ajs = this.cya.ajs();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xv().getMsgBookmark();
+        if (i >= 0 && i < this.cEH.anr().size()) {
+            this.cEJ = i;
+            MarkData markData = this.cEH.anr().get(i);
+            MarkData markData2 = this.cEK.get(i);
+            int anq = this.cEH.anq();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.yN().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_content", "is_redpoint", markData2.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData2.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yN().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xv().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yN().setMsgBookmark(0);
                 }
-                if (ajs > 0) {
-                    this.cya.kb(ajs - 1);
+                if (anq > 0) {
+                    this.cEH.kB(anq - 1);
                 } else {
-                    this.cya.kb(0);
+                    this.cEH.kB(0);
                 }
             }
             markData2.setNewCounts(0);
@@ -105,7 +105,7 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cyb.R(this.cyd);
+        this.cEI.S(this.cEK);
     }
 
     @Override // android.app.Activity
@@ -115,11 +115,11 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
             switch (i) {
                 case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra(PbActivityConfig.KEY_MARK);
-                    if (markData != null && this.cya.ajt().size() > this.cyc && this.cyc >= 0) {
-                        this.cya.ajt().get(this.cyc).setPostId(markData.getPostId());
-                        this.cya.ajt().get(this.cyc).setHostMode(markData.getHostMode());
-                        this.cya.ajt().get(this.cyc).setSequence(markData.getSequence());
-                        this.cyb.ajn();
+                    if (markData != null && this.cEH.anr().size() > this.cEJ && this.cEJ >= 0) {
+                        this.cEH.anr().get(this.cEJ).setPostId(markData.getPostId());
+                        this.cEH.anr().get(this.cEJ).setHostMode(markData.getHostMode());
+                        this.cEH.anr().get(this.cEJ).setSequence(markData.getSequence());
+                        this.cEI.anl();
                         return;
                     }
                     return;
@@ -129,9 +129,9 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.cya.ajt().size() > this.cyc && this.cyc >= 0) {
-                        this.cya.ajt().remove(this.cyc);
-                        this.cyb.ajn();
+                    if (this.cEH.anr().size() > this.cEJ && this.cEJ >= 0) {
+                        this.cEH.anr().remove(this.cEJ);
+                        this.cEI.anl();
                         return;
                     }
                     return;
@@ -142,26 +142,26 @@ public class EditMarkActivity extends BaseActivity<EditMarkActivity> implements 
     }
 
     @Override // com.baidu.tbadk.core.view.r.a
-    public void onListPullRefresh(boolean z) {
-        if (this.cya != null && this.cyb != null) {
-            this.cya.reset();
-            this.cyb.bu(true);
-            this.cya.f(false);
+    public void az(boolean z) {
+        if (this.cEH != null && this.cEI != null) {
+            this.cEH.reset();
+            this.cEI.bw(true);
+            this.cEH.f(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        if (this.cyb != null && this.cya != null && this.cya.hasMore()) {
-            this.cyb.ka(this.cya.getOffset());
-            this.cya.f(false);
+    public void nv() {
+        if (this.cEI != null && this.cEH != null && this.cEH.hasMore()) {
+            this.cEI.kA(this.cEH.getOffset());
+            this.cEH.f(false);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 4 && this.cyb != null && this.cyb.KS()) {
-            this.cyb.changeEditState();
+        if (keyEvent.getKeyCode() == 4 && this.cEI != null && this.cEI.MJ()) {
+            this.cEI.ani();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

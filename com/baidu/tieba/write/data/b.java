@@ -6,7 +6,7 @@ import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class b {
-    private ArrayList<a> dTF = new ArrayList<>();
+    private ArrayList<a> eok = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public static class a {
@@ -36,17 +36,17 @@ public class b {
             return this.screatString;
         }
 
-        public void no(String str) {
+        public void nD(String str) {
             this.screatString = str;
         }
     }
 
-    public ArrayList<a> aKo() {
-        return this.dTF;
+    public ArrayList<a> aSY() {
+        return this.eok;
     }
 
-    public void ap(ArrayList<a> arrayList) {
-        this.dTF = arrayList;
+    public void aq(ArrayList<a> arrayList) {
+        this.eok = arrayList;
     }
 
     public void a(DataRes dataRes) {
@@ -55,7 +55,7 @@ public class b {
             for (Lbs lbs : list) {
                 a aVar = new a();
                 aVar.b(lbs);
-                this.dTF.add(aVar);
+                this.eok.add(aVar);
             }
         }
     }

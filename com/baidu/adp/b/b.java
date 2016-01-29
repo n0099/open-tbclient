@@ -9,11 +9,11 @@ public class b extends a {
     public void a(String str, long j, long j2, String str2) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        arrayList = a.Fs;
+        arrayList = a.FF;
         if (arrayList.size() >= 30) {
             return;
         }
-        arrayList2 = a.Fs;
+        arrayList2 = a.FF;
         arrayList2.add(new a.C0000a(str, j, j2, str2));
     }
 }

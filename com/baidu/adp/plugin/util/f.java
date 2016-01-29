@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> Fi = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Fv = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class f {
     }
 
     static {
-        Fi.put(Boolean.class, Boolean.TYPE);
-        Fi.put(Byte.class, Byte.TYPE);
-        Fi.put(Character.class, Character.TYPE);
-        Fi.put(Short.class, Short.TYPE);
-        Fi.put(Integer.class, Integer.TYPE);
-        Fi.put(Float.class, Float.TYPE);
-        Fi.put(Long.class, Long.TYPE);
-        Fi.put(Double.class, Double.TYPE);
-        Fi.put(Boolean.TYPE, Boolean.TYPE);
-        Fi.put(Byte.TYPE, Byte.TYPE);
-        Fi.put(Character.TYPE, Character.TYPE);
-        Fi.put(Short.TYPE, Short.TYPE);
-        Fi.put(Integer.TYPE, Integer.TYPE);
-        Fi.put(Float.TYPE, Float.TYPE);
-        Fi.put(Long.TYPE, Long.TYPE);
-        Fi.put(Double.TYPE, Double.TYPE);
+        Fv.put(Boolean.class, Boolean.TYPE);
+        Fv.put(Byte.class, Byte.TYPE);
+        Fv.put(Character.class, Character.TYPE);
+        Fv.put(Short.class, Short.TYPE);
+        Fv.put(Integer.class, Integer.TYPE);
+        Fv.put(Float.class, Float.TYPE);
+        Fv.put(Long.class, Long.TYPE);
+        Fv.put(Double.class, Double.TYPE);
+        Fv.put(Boolean.TYPE, Boolean.TYPE);
+        Fv.put(Byte.TYPE, Byte.TYPE);
+        Fv.put(Character.TYPE, Character.TYPE);
+        Fv.put(Short.TYPE, Short.TYPE);
+        Fv.put(Integer.TYPE, Integer.TYPE);
+        Fv.put(Float.TYPE, Float.TYPE);
+        Fv.put(Long.TYPE, Long.TYPE);
+        Fv.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) {
@@ -41,7 +41,7 @@ public class f {
     }
 
     public static <T> T b(Object obj, String str, Object[] objArr) {
-        return (T) a(obj.getClass(), str, g(objArr)).invoke(obj, h(objArr));
+        return (T) b(obj.getClass(), str, d(objArr)).invoke(obj, e(objArr));
     }
 
     public static void a(Object obj, Class<?> cls, String str, Object obj2) {
@@ -50,7 +50,7 @@ public class f {
         declaredField.set(obj, obj2);
     }
 
-    private static Method a(Class<?> cls, String str, Class<?>[] clsArr) {
+    private static Method b(Class<?> cls, String str, Class<?>[] clsArr) {
         Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
         if (a2 != null) {
             a2.setAccessible(true);
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (Fi.containsKey(clsArr[i]) && Fi.get(clsArr[i]).equals(Fi.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (Fv.containsKey(clsArr[i]) && Fv.get(clsArr[i]).equals(Fv.get(clsArr2[i])))) {
                     return true;
                 }
             }
@@ -121,7 +121,7 @@ public class f {
         return obj;
     }
 
-    private static Class<?>[] g(Object[] objArr) {
+    private static Class<?>[] d(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -142,7 +142,7 @@ public class f {
         }
     }
 
-    private static Object[] h(Object[] objArr) {
+    private static Object[] e(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }

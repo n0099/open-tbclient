@@ -1,133 +1,53 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.ay;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
-    private static m Ul;
-    private int Um = 1;
-    private int mIsAbstractOn = 1;
-    private int Un = 0;
-    private int Uo = 0;
-    private String forumName = null;
-    private boolean Up = true;
-    private int mViewImageQuality = 0;
+public class m implements Handler.Callback {
+    final /* synthetic */ TbadkCoreApplication this$0;
 
-    public static m qQ() {
-        m mVar;
-        if (Ul == null) {
-            synchronized (m.class) {
-                if (Ul == null) {
-                    Ul = new m();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(TbadkCoreApplication tbadkCoreApplication) {
+        this.this$0 = tbadkCoreApplication;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 1:
+                TbadkCoreApplication.setCurrentAccount(null, this.this$0.getContext());
+                if (message.getData().getString(LoginActivityConfig.ACCOUNT) == null) {
                 }
-                mVar = Ul;
-            }
-            return mVar;
-        }
-        return Ul;
-    }
-
-    private m() {
-    }
-
-    public void initSetting() {
-        this.Un = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("image_quality", 0);
-        this.Um = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("new_display_photo", 1);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("new_abstract_state", 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("view_image_quality", 0);
-        this.Up = com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean("show_images", true);
-    }
-
-    public void bj(int i) {
-        this.Um = i;
-        com.baidu.tbadk.core.sharedPref.b.tJ().putInt("new_display_photo", i);
-    }
-
-    public int qR() {
-        return this.Um;
-    }
-
-    public boolean qS() {
-        if (this.Um == 0) {
-            if (com.baidu.adp.lib.util.i.iR()) {
-                return true;
-            }
-        } else if (this.Um == 1) {
-            return true;
+                NotLoginGuideActivityConfig notLoginGuideActivityConfig = new NotLoginGuideActivityConfig(this.this$0.getContext(), NotLoginGuideActivityConfig.FROM_ACCOUNT);
+                notLoginGuideActivityConfig.getIntent().setFlags(268435456);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, notLoginGuideActivityConfig));
+                break;
+            case 4:
+                long nanoTime = (((System.nanoTime() - this.this$0.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
+                if (nanoTime > 0) {
+                    new ao(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
+                }
+                this.this$0.mStartTime = 0L;
+                break;
+            case 5:
+                if (Boolean.TRUE.equals(message.obj)) {
+                    this.this$0.notifyAppEnterBackground();
+                    break;
+                } else {
+                    this.this$0.notifyAppEnterForehead();
+                    break;
+                }
         }
         return false;
-    }
-
-    public void bk(int i) {
-        if (this.Un != i) {
-            this.Un = i;
-            com.baidu.tbadk.core.sharedPref.b.tJ().putInt("image_quality", i);
-        }
-    }
-
-    public int qT() {
-        this.Un = com.baidu.tbadk.core.sharedPref.b.tJ().getInt("image_quality", 0);
-        return this.Un;
-    }
-
-    public void bl(int i) {
-        if (this.Uo != i) {
-            this.Uo = i;
-            com.baidu.tbadk.core.sharedPref.b.tJ().putInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "add_image_water", i);
-        }
-    }
-
-    public int qU() {
-        this.Uo = com.baidu.tbadk.core.sharedPref.b.tJ().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "add_image_water", 0);
-        return this.Uo;
-    }
-
-    public void ci(String str) {
-        this.forumName = str;
-    }
-
-    public String qV() {
-        return this.forumName;
-    }
-
-    public boolean qW() {
-        return this.Up;
-    }
-
-    public void ad(boolean z) {
-        if (this.Up != z) {
-            this.Up = z;
-            com.baidu.tbadk.core.sharedPref.b.tJ().putBoolean("show_images", z);
-        }
-    }
-
-    public void bm(int i) {
-        if (this.mViewImageQuality != i) {
-            this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.tJ().putInt("view_image_quality", i);
-            ay.va().vh();
-            ay.va().vi();
-        }
-    }
-
-    public int getViewImageQuality() {
-        return this.mViewImageQuality;
-    }
-
-    public void ae(boolean z) {
-        if (z) {
-            bj(0);
-            bk(0);
-            ad(true);
-            bm(0);
-            return;
-        }
-        bj(1);
-        bk(1);
-        ad(true);
-        bm(1);
-    }
-
-    public boolean qX() {
-        return this.Um == 0 || this.Un == 0 || this.mViewImageQuality == 0;
     }
 }

@@ -1,31 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
-public class bu implements View.OnClickListener {
-    private final /* synthetic */ String cNJ;
-    final /* synthetic */ WriteImageActivity this$0;
-    private final /* synthetic */ int val$id;
+class bu implements a.b {
+    final /* synthetic */ WriteImageActivity.a etD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(WriteImageActivity writeImageActivity, String str, int i) {
-        this.this$0 = writeImageActivity;
-        this.cNJ = str;
-        this.val$id = i;
+    public bu(WriteImageActivity.a aVar) {
+        this.etD = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (this.this$0.mProgress.getVisibility() != 0) {
-            String str2 = this.cNJ;
-            str = this.this$0.cNC;
-            if (!str2.equals(str)) {
-                this.this$0.nw(this.cNJ);
-                this.this$0.kQ(this.cNJ);
-                this.this$0.cNA = this.val$id;
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteImageActivity writeImageActivity;
+        MessageManager messageManager = MessageManager.getInstance();
+        writeImageActivity = WriteImageActivity.this;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
+        aVar.dismiss();
     }
 }

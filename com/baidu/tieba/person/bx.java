@@ -1,24 +1,43 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.person.bv;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
-            RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
-            boolean isFollow = requestLocalPersonListMessage.isFollow();
-            String str = com.baidu.tbadk.core.b.a.tc().cC("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
-            com.baidu.tieba.person.data.p pVar = new com.baidu.tieba.person.data.p();
-            if (str != null) {
-                pVar.parserJson(str);
+public class bx extends CustomMessageListener {
+    final /* synthetic */ bv cZD;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bx(bv bvVar, int i) {
+        super(i);
+        this.cZD = bvVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bv.a aVar;
+        bv.a aVar2;
+        bv.a aVar3;
+        bv.a aVar4;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
+            com.baidu.tieba.person.data.r data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            if (data2 != null) {
+                aVar3 = this.cZD.cZp;
+                if (aVar3 != null) {
+                    aVar4 = this.cZD.cZp;
+                    aVar4.d(data2, true);
+                    return;
+                }
+                return;
             }
-            ResponseLocalPersonListMessage responseLocalPersonListMessage = new ResponseLocalPersonListMessage();
-            responseLocalPersonListMessage.setData(pVar);
-            return responseLocalPersonListMessage;
+            aVar = this.cZD.cZp;
+            if (aVar != null) {
+                aVar2 = this.cZD.cZp;
+                aVar2.F("", true);
+            }
         }
-        return null;
     }
 }

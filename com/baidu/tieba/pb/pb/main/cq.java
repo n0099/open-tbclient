@@ -1,93 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.a;
-import java.util.ArrayList;
-import java.util.HashSet;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.cm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements a.InterfaceC0072a {
-    final /* synthetic */ cp cHR;
+public class cq extends HttpMessageListener {
+    final /* synthetic */ cm cPd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cp cpVar) {
-        this.cHR = cpVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq(cm cmVar, int i) {
+        super(i);
+        this.cPd = cmVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.pb.a.InterfaceC0072a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void t(String str, String str2, String str3) {
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.tbadkCore.data.r rVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        com.baidu.tieba.tbadkCore.data.r rVar2;
-        com.baidu.tieba.tbadkCore.data.r rVar3;
-        com.baidu.tieba.tbadkCore.data.r rVar4;
-        boolean z;
-        com.baidu.tieba.pb.a.c cVar3;
-        com.baidu.tieba.pb.a.c cVar4;
-        com.baidu.tieba.pb.a.c cVar5;
-        cVar = this.cHR.cDR;
-        if (cVar != null) {
-            rVar = this.cHR.cDb;
-            if (rVar != null) {
-                cVar2 = this.cHR.cDR;
-                if (cVar2.akG() != null) {
-                    rVar2 = this.cHR.cDb;
-                    if (rVar2.aFA() != null) {
-                        rVar3 = this.cHR.cDb;
-                        long templateId = rVar3.aFA().getTemplateId();
-                        rVar4 = this.cHR.cDb;
-                        String aEU = rVar4.aFA().aEU();
-                        if ("VIEW_TRUE".equals(str3) || "VIEW_CAROUSEL".equals(str3)) {
-                            if (this.cHR.cHQ.containsKey(Long.valueOf(templateId))) {
-                                HashSet<String> hashSet = this.cHR.cHQ.get(Long.valueOf(templateId));
-                                if (hashSet.add(str2)) {
-                                    this.cHR.cHQ.put(Long.valueOf(templateId), hashSet);
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                if (!z) {
-                                    cVar3 = this.cHR.cDR;
-                                    String id = cVar3.akG().getId();
-                                    cVar4 = this.cHR.cDR;
-                                    String name = cVar4.akG().getName();
-                                    cVar5 = this.cHR.cDR;
-                                    com.baidu.tieba.pb.a.a(templateId, aEU, str, "PB", str2, str3, "tpoint", id, name, cVar5.getThreadId());
-                                    return;
-                                }
-                                return;
-                            }
-                            HashSet<String> hashSet2 = new HashSet<>();
-                            hashSet2.add(str2);
-                            this.cHR.cHQ.put(Long.valueOf(templateId), hashSet2);
-                        }
-                        z = true;
-                        if (!z) {
-                        }
-                    }
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        cm.a aVar;
+        cm.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.cPd.cNp;
+                aVar.g(-1, null, null);
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.a.InterfaceC0072a
-    public int akq() {
-        com.baidu.tieba.tbadkCore.data.r rVar;
-        com.baidu.tieba.tbadkCore.data.r rVar2;
-        rVar = this.cHR.cDb;
-        if (dj.e(rVar)) {
-            rVar2 = this.cHR.cDb;
-            ArrayList<com.baidu.tieba.tbadkCore.data.j> aER = rVar2.aFA().aER();
-            if (aER == null) {
-                return 0;
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            if (errorCode == 0) {
+                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
             }
-            return aER.size();
+            aVar2 = this.cPd.cNp;
+            aVar2.g(errorCode, errorMessage, tid);
         }
-        return 0;
     }
 }

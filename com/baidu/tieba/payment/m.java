@@ -4,24 +4,24 @@ import android.widget.CompoundButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ PaymentConfirmActivity cAI;
+    final /* synthetic */ PaymentConfirmActivity cHo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PaymentConfirmActivity paymentConfirmActivity) {
-        this.cAI = paymentConfirmActivity;
+        this.cHo = paymentConfirmActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        String kn;
-        String kn2;
-        com.baidu.tbadk.core.sharedPref.b tJ = com.baidu.tbadk.core.sharedPref.b.tJ();
-        kn = this.cAI.kn("payment_confirm_show");
-        tJ.putBoolean(kn, !z);
+        String kq;
+        String kq2;
+        com.baidu.tbadk.core.sharedPref.b uO = com.baidu.tbadk.core.sharedPref.b.uO();
+        kq = this.cHo.kq("payment_confirm_show");
+        uO.putBoolean(kq, !z);
         if (!z) {
-            com.baidu.tbadk.core.sharedPref.b tJ2 = com.baidu.tbadk.core.sharedPref.b.tJ();
-            kn2 = this.cAI.kn("payment_confirm_notshow_count");
-            tJ2.putInt(kn2, 0);
+            com.baidu.tbadk.core.sharedPref.b uO2 = com.baidu.tbadk.core.sharedPref.b.uO();
+            kq2 = this.cHo.kq("payment_confirm_notshow_count");
+            uO2.putInt(kq2, 0);
         }
     }
 }

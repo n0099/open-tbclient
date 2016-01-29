@@ -2,11 +2,11 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        com.baidu.adp.lib.c.e.gw().e(BdStatisticsSwitchStatic.class);
+        com.baidu.adp.lib.c.e.gE().e(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean hA() {
-        return com.baidu.adp.lib.c.e.gw().aj("newUrlForPerf") == 1;
+    public static boolean hI() {
+        return com.baidu.adp.lib.c.e.gE().ai("newUrlForPerf") == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

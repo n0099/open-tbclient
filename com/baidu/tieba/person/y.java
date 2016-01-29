@@ -3,14 +3,14 @@ package com.baidu.tieba.person;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class y implements View.OnClickListener {
-    final /* synthetic */ s cOw;
+    final /* synthetic */ s cXR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(s sVar) {
-        this.cOw = sVar;
+        this.cXR = sVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,34 +24,36 @@ class y implements View.OnClickListener {
         ad adVar5;
         TextView textView3;
         TextView textView4;
+        int i;
         ad adVar6;
-        TextView textView5;
-        adVar = this.cOw.cOh;
+        adVar = this.cXR.cXB;
         if (adVar != null) {
-            adVar2 = this.cOw.cOh;
-            if (!adVar2.GK()) {
-                adVar5 = this.cOw.cOh;
+            adVar2 = this.cXR.cXB;
+            if (!adVar2.Il()) {
+                adVar5 = this.cXR.cXB;
                 adVar5.setEditState(true);
-                textView3 = this.cOw.aHJ;
-                textView3.setText(n.j.done);
+                textView3 = this.cXR.aIL;
+                textView3.setText(t.j.done);
                 if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    textView5 = this.cOw.aHJ;
-                    com.baidu.tbadk.core.util.as.b(textView5, n.d.navi_op_text, 1);
+                    this.cXR.cXM = t.d.navi_op_text;
                 } else {
-                    textView4 = this.cOw.aHJ;
-                    com.baidu.tbadk.core.util.as.b(textView4, n.d.cp_link_tip_a, 1);
+                    this.cXR.cXM = t.d.cp_link_tip_a;
                 }
-                adVar6 = this.cOw.cOh;
+                textView4 = this.cXR.aIL;
+                i = this.cXR.cXM;
+                com.baidu.tbadk.core.util.ar.b(textView4, i, 1);
+                adVar6 = this.cXR.cXB;
                 adVar6.notifyDataSetChanged();
                 return;
             }
-            adVar3 = this.cOw.cOh;
+            adVar3 = this.cXR.cXB;
             adVar3.setEditState(false);
-            textView = this.cOw.aHJ;
-            textView.setText(n.j.edit);
-            textView2 = this.cOw.aHJ;
-            com.baidu.tbadk.core.util.as.b(textView2, n.d.navi_op_text, 1);
-            adVar4 = this.cOw.cOh;
+            textView = this.cXR.aIL;
+            textView.setText(t.j.edit);
+            this.cXR.cXM = t.d.navi_op_text;
+            textView2 = this.cXR.aIL;
+            com.baidu.tbadk.core.util.ar.b(textView2, t.d.navi_op_text, 1);
+            adVar4 = this.cXR.cXB;
             adVar4.notifyDataSetChanged();
         }
     }

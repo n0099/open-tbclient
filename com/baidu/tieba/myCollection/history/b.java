@@ -8,29 +8,29 @@ import com.baidu.tbadk.mvc.model.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class b implements a.InterfaceC0054a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ PbHistoryActivity cyS;
+class b implements a.InterfaceC0055a<com.baidu.tieba.myCollection.baseHistory.b> {
+    final /* synthetic */ PbHistoryActivity cFz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbHistoryActivity pbHistoryActivity) {
-        this.cyS = pbHistoryActivity;
+        this.cFz = pbHistoryActivity;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
     public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> readCacheMessage) {
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.cyS.bj(readCacheRespMsg.getData());
+        this.cFz.bk(readCacheRespMsg.getData());
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.cyS.Mo();
+                this.cFz.Oh();
             } else {
-                this.cyS.bj(new ArrayList());
+                this.cFz.bk(new ArrayList());
             }
         }
     }

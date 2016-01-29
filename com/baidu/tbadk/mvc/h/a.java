@@ -10,67 +10,67 @@ import com.baidu.adp.widget.ListView.c;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
-import com.baidu.tieba.tbadkCore.t;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.s;
 /* loaded from: classes.dex */
-public class a extends c implements t {
-    private TbPageContextSupport<?> ayK;
-    private View ayL;
+public class a extends c implements s {
+    private TbPageContextSupport<?> azB;
+    private View azC;
     private int padding;
-    private TextView mTextView = null;
+    private TextView YG = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View mRoot = null;
+    private View Sn = null;
 
     public a(TbPageContextSupport<?> tbPageContextSupport) {
-        this.ayK = null;
-        this.ayK = tbPageContextSupport;
-        this.padding = this.ayK.getPageContext().getResources().getDimensionPixelSize(n.e.listview_item_margin);
+        this.azB = null;
+        this.azB = tbPageContextSupport;
+        this.padding = this.azB.getPageContext().getResources().getDimensionPixelSize(t.e.listview_item_margin);
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View mT() {
-        this.mRoot = LayoutInflater.from(this.ayK.getPageContext().getPageActivity()).inflate(n.h.new_pb_list_more, (ViewGroup) null);
-        this.mRoot.setPadding(0, this.padding, 0, this.padding);
-        this.mTextView = (TextView) this.mRoot.findViewById(n.g.pb_more_text);
-        this.ayL = this.mRoot.findViewById(n.g.pb_more_view);
-        this.ayL.setVisibility(8);
-        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(n.g.progress);
-        a(this.ayK.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.ayL.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.mRoot;
+    public View ni() {
+        this.Sn = LayoutInflater.from(this.azB.getPageContext().getPageActivity()).inflate(t.h.new_pb_list_more, (ViewGroup) null);
+        this.Sn.setPadding(0, this.padding, 0, this.padding);
+        this.YG = (TextView) this.Sn.findViewById(t.g.pb_more_text);
+        this.azC = this.Sn.findViewById(t.g.pb_more_view);
+        this.azC.setVisibility(8);
+        this.mProgressBar = (ProgressBar) this.Sn.findViewById(t.g.progress);
+        a(this.azB.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.azC.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.Sn;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.t
+    @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.ayK.getPageContext().getLayoutMode().k(this.ayL);
+        this.azB.getPageContext().getLayoutMode().x(this.azC);
         return true;
     }
 
     public void hide() {
-        this.ayL.setVisibility(8);
-        this.mRoot.setPadding(0, 0, 0, 0);
+        this.azC.setVisibility(8);
+        this.Sn.setPadding(0, 0, 0, 0);
     }
 
-    public void ob() {
-        this.ayL.setVisibility(0);
-        this.mRoot.setPadding(0, this.padding, 0, this.padding);
+    public void ow() {
+        this.azC.setVisibility(0);
+        this.Sn.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void ez(int i) {
+    public void eT(int i) {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(i);
-        this.ayL.setVisibility(0);
+        this.YG.setText(i);
+        this.azC.setVisibility(0);
     }
 
-    public void eA(int i) {
+    public void eU(int i) {
         this.mProgressBar.setVisibility(8);
-        this.mTextView.setText(i);
+        this.YG.setText(i);
     }
 
-    public void eB(int i) {
+    public void eV(int i) {
         this.mProgressBar.setVisibility(8);
-        this.mTextView.setText(i);
+        this.YG.setText(i);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -80,7 +80,7 @@ public class a extends c implements t {
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.mRoot);
+            this.mOnClickListener.onClick(this.Sn);
         }
     }
 }

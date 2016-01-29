@@ -1,79 +1,59 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
+import android.util.SparseArray;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ g cDT;
+public class i extends x.a {
+    public TbRichTextView cKi;
+    public View cKj;
+    public PbGiftListView cKk;
+    public FrsPraiseView cKl;
+    public ImageView cKm;
+    public View cKq;
+    public TextView cKr;
+    public LinearLayout cKs;
+    public LinearLayout cKt;
+    public TextView cKu;
+    public TextView cKv;
+    public TextView cKw;
+    public View cKx;
+    public View cKy;
+    public SparseArray<com.baidu.tieba.pb.view.l> cKz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.cDT = gVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        com.baidu.tieba.pb.a.c cVar3;
-        com.baidu.tieba.pb.a.c cVar4;
-        Context context;
-        com.baidu.tieba.pb.a.c cVar5;
-        Context context2;
-        com.baidu.tieba.pb.a.c cVar6;
-        com.baidu.tieba.pb.a.c cVar7;
-        com.baidu.tieba.pb.a.c cVar8;
-        com.baidu.tieba.pb.a.c cVar9;
-        com.baidu.tieba.pb.a.c cVar10;
-        com.baidu.tieba.pb.a.c cVar11;
-        pbActivity = this.cDT.cGj;
-        if (pbActivity.checkUpIsLogin()) {
-            cVar = this.cDT.cDR;
-            if (cVar != null) {
-                cVar6 = this.cDT.cDR;
-                if (cVar6.akH() != null) {
-                    cVar7 = this.cDT.cDR;
-                    if (cVar7.akH().sH() == 1) {
-                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        av avVar = new av("c10400");
-                        cVar8 = this.cDT.cDR;
-                        av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cVar8.getForumId());
-                        cVar9 = this.cDT.cDR;
-                        TiebaStatic.log(aa.aa("tid", cVar9.getThreadId()).aa("uid", currentAccount));
-                        cVar10 = this.cDT.cDR;
-                        if (cVar10.akG() != null) {
-                            cVar11 = this.cDT.cDR;
-                            if (cVar11.akG().isLike() == 1) {
-                                this.cDT.alc();
-                                return;
-                            }
-                        }
-                        this.cDT.ald();
-                        return;
-                    }
-                }
-            }
-            cVar2 = this.cDT.cDR;
-            if (cVar2 != null) {
-                cVar3 = this.cDT.cDR;
-                if (cVar3.akH() != null) {
-                    cVar4 = this.cDT.cDR;
-                    if (cVar4.akH().sK() != null) {
-                        context = this.cDT.mContext;
-                        cVar5 = this.cDT.cDR;
-                        com.baidu.tbadk.browser.f.B(context, cVar5.akH().sK());
-                        context2 = this.cDT.mContext;
-                        TiebaStatic.eventStat(context2, "show_picture", "click", 1, "page", "pb");
-                    }
-                }
-            }
-        }
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=5] */
+    public i(View view, boolean z, int i) {
+        super(view);
+        this.cKq = view;
+        this.cKi = (TbRichTextView) view.findViewById(t.g.richText);
+        this.cKr = (TextView) view.findViewById(t.g.pb_act_btn);
+        this.cKj = view.findViewById(t.g.pb_item_praise_topline);
+        this.cKl = (FrsPraiseView) view.findViewById(t.g.pb_item_praise_view);
+        this.cKm = (ImageView) view.findViewById(t.g.pb_item_praise_bottomline);
+        this.cKk = (PbGiftListView) view.findViewById(t.g.gift_list_view);
+        this.cKs = (LinearLayout) view.findViewById(t.g.lottery_bottom_layout);
+        this.cKt = (LinearLayout) view.findViewById(t.g.showpic_cardview_container_ll);
+        this.cKv = (TextView) view.findViewById(t.g.picture_list_tv);
+        this.cKu = (TextView) view.findViewById(t.g.join_vote_tv);
+        this.cKw = (TextView) view.findViewById(t.g.look_all_tv);
+        this.cKx = view.findViewById(t.g.line_view_left);
+        this.cKy = view.findViewById(t.g.line_view_right);
+        this.cKi.HC();
+        this.cKi.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.cKi.getPaddingLeft()) - this.cKi.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60)), i);
+        this.cKi.setMaxImageWidth(min);
+        this.cKi.setMaxImageHeight((int) (min * 1.618f));
+        this.cKi.setTextSize(TbConfig.getContentSize());
+        this.cKi.g(z, false);
+        this.cKi.setVoiceViewRes(t.h.voice_play_btn);
     }
 }

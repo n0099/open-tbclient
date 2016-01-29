@@ -1,41 +1,54 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.os.Handler;
 import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dYD;
+public class aq implements a.b {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.dYD = writeActivity;
+        this.ets = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        cf cfVar;
-        com.baidu.tbadk.editortools.k kVar;
-        InputMethodManager inputMethodManager;
-        EditText aMf;
-        InputMethodManager inputMethodManager2;
-        EditText aMe;
-        textView = this.dYD.dUS;
-        textView.setSelected(true);
-        cfVar = this.dYD.dUT;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(cfVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dYD.getPageContext().getPageActivity(), 1.0f));
-        kVar = this.dYD.aso;
-        kVar.zK();
-        WriteActivity writeActivity = this.dYD;
-        inputMethodManager = this.dYD.mInputManager;
-        aMf = this.dYD.aMf();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aMf);
-        WriteActivity writeActivity2 = this.dYD;
-        inputMethodManager2 = this.dYD.mInputManager;
-        aMe = this.dYD.aMe();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aMe);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteData writeData;
+        EditText aUZ;
+        WriteData writeData2;
+        EditText aUY;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        Handler handler;
+        WriteData writeData6;
+        WriteData writeData7;
+        aVar.dismiss();
+        writeData = this.ets.dZC;
+        aUZ = this.ets.aUZ();
+        writeData.setTitle(aUZ.getText().toString());
+        writeData2 = this.ets.dZC;
+        aUY = this.ets.aUY();
+        writeData2.setContent(aUY.getText().toString());
+        writeData3 = this.ets.dZC;
+        int type = writeData3.getType();
+        if (type == 0) {
+            writeData6 = this.ets.dZC;
+            String forumId = writeData6.getForumId();
+            writeData7 = this.ets.dZC;
+            com.baidu.tieba.tbadkCore.ad.b(forumId, writeData7);
+        } else if (type == 1) {
+            writeData4 = this.ets.dZC;
+            String threadId = writeData4.getThreadId();
+            writeData5 = this.ets.dZC;
+            com.baidu.tieba.tbadkCore.ad.c(threadId, writeData5);
+        }
+        this.ets.showToast(t.j.draft_save_success);
+        handler = this.ets.mHandler;
+        handler.postDelayed(new ar(this), 1000L);
     }
 }

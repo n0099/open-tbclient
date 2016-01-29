@@ -3,11 +3,11 @@ package com.baidu.tieba.screenlocknotify;
 public class p {
     public String content;
     public int customGroupType;
-    public int drK;
-    public String drL;
-    public long drM;
-    public long drN;
-    public boolean drO;
+    public int dHO;
+    public String dHP = null;
+    public long dHQ;
+    public long dHR;
+    public boolean dHS;
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;

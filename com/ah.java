@@ -4,14 +4,14 @@ import android.widget.PopupWindow;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareUIWidget;
 /* loaded from: classes.dex */
 public class ah implements PopupWindow.OnDismissListener {
-    final /* synthetic */ ShareUIWidget eac;
+    final /* synthetic */ ShareUIWidget euR;
 
     public ah(ShareUIWidget shareUIWidget) {
-        this.eac = shareUIWidget;
+        this.euR = shareUIWidget;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.eac.b = null;
+        this.euR.b = null;
     }
 }

@@ -3,49 +3,49 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.f;
 /* loaded from: classes.dex */
 public class k<T> extends e<T> {
-    protected final c<T> tl;
+    protected final c<T> tw;
 
     public k(c<T> cVar, f fVar, boolean z) {
         super(fVar, z);
-        this.tl = cVar;
+        this.tw = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    public h<T> U(String str) {
-        return this.tl.P(str);
+    public h<T> T(String str) {
+        return this.tw.O(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
     public void c(h<T> hVar) {
-        this.tl.b(hVar);
+        this.tw.b(hVar);
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    public void V(String str) {
-        this.tl.Q(str);
+    public void U(String str) {
+        this.tw.P(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    protected void W(String str) {
-        this.tl.c(str, true);
+    protected void V(String str) {
+        this.tw.c(str, true);
+    }
+
+    @Override // com.baidu.adp.lib.cache.n
+    public void X(String str) {
+        this.tw.Q(str);
     }
 
     @Override // com.baidu.adp.lib.cache.n
     public void Y(String str) {
-        this.tl.R(str);
-    }
-
-    @Override // com.baidu.adp.lib.cache.n
-    public void Z(String str) {
-        if (this.sZ instanceof f.b) {
-            com.baidu.adp.lib.h.k.hk().c(new l(this, str));
+        if (this.tj instanceof f.b) {
+            com.baidu.adp.lib.h.k.hs().c(new l(this, str));
         }
-        if (this.sZ instanceof f.a) {
-            com.baidu.adp.lib.h.k.hk().c(new m(this, str));
+        if (this.tj instanceof f.a) {
+            com.baidu.adp.lib.h.k.hs().c(new m(this, str));
         }
     }
 
-    public c<T> gj() {
-        return this.tl;
+    public c<T> gr() {
+        return this.tw;
     }
 }

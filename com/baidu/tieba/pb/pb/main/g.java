@@ -3,45 +3,45 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.af;
+import com.baidu.tieba.tbadkCore.ae;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class g implements af.a {
-    final /* synthetic */ PbActivity cFS;
+class g implements ae.a {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.af.a
-    public void gy(String str) {
-        com.baidu.tieba.tbadkCore.af afVar;
-        cf cfVar;
-        this.cFS.bbT = false;
-        afVar = this.cFS.bce;
-        if (afVar != null) {
-            cfVar = this.cFS.cFl;
-            com.baidu.tieba.pb.a.c pbData = cfVar.getPbData();
-            if (pbData.akH().getPraise().getIsLike() == 1) {
-                this.cFS.fP(0);
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void gx(String str) {
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        cm cmVar;
+        this.cNq.bee = false;
+        aeVar = this.cNq.beq;
+        if (aeVar != null) {
+            cmVar = this.cNq.cMF;
+            com.baidu.tieba.pb.a.c pbData = cmVar.getPbData();
+            if (pbData.aoF().getPraise().getIsLike() == 1) {
+                this.cNq.gl(0);
             } else {
-                this.cFS.fP(1);
+                this.cNq.gl(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.akH()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aoF()));
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.af.a
+    @Override // com.baidu.tieba.tbadkCore.ae.a
     public void y(int i, String str) {
-        com.baidu.tieba.tbadkCore.af afVar;
-        this.cFS.bbT = false;
-        afVar = this.cFS.bce;
-        if (afVar != null && str != null) {
-            if (AntiHelper.ne(i)) {
-                AntiHelper.Q(this.cFS.getPageContext().getPageActivity(), str);
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        this.cNq.bee = false;
+        aeVar = this.cNq.beq;
+        if (aeVar != null && str != null) {
+            if (AntiHelper.or(i)) {
+                AntiHelper.X(this.cNq.getPageContext().getPageActivity(), str);
             } else {
-                this.cFS.showToast(str);
+                this.cNq.showToast(str);
             }
         }
     }

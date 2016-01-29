@@ -1,20 +1,31 @@
 package com.baidu.tieba.recommendfrs;
 
-import tbclient.Personalized.DataRes;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.util.d<DataRes> {
-    final /* synthetic */ n doE;
+public class v implements Animation.AnimationListener {
+    final /* synthetic */ p dDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(n nVar) {
-        this.doE = nVar;
+    public v(p pVar) {
+        this.dDT = pVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.d
-    /* renamed from: b */
-    public void onReturnDataInUI(DataRes dataRes) {
-        this.doE.a(dataRes);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        Runnable runnable;
+        int i;
+        com.baidu.adp.lib.h.h hr = com.baidu.adp.lib.h.h.hr();
+        runnable = this.dDT.cSv;
+        i = this.dDT.dDJ;
+        hr.postDelayed(runnable, i);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int cfh;
-    private a cfi;
+    private int cjG;
+    private a cjH;
     private int end;
     private final int speed;
     private int start;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eC(int i);
+        void eW(int i);
     }
 
     public e(int i) {
@@ -18,33 +18,33 @@ public class e implements b {
 
     public void setStart(int i) {
         this.start = i;
-        this.cfh = i;
+        this.cjG = i;
     }
 
-    public void jh(int i) {
+    public void jF(int i) {
         this.end = i;
     }
 
     public void a(a aVar) {
-        this.cfi = aVar;
+        this.cjH = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (this.cfh != this.end) {
+        if (this.cjG != this.end) {
             if (this.end > this.start) {
-                this.cfh += this.speed;
-                if (this.cfh > this.end) {
-                    this.cfh = this.end;
+                this.cjG += this.speed;
+                if (this.cjG > this.end) {
+                    this.cjG = this.end;
                 }
             } else {
-                this.cfh -= this.speed;
-                if (this.cfh < this.end) {
-                    this.cfh = this.end;
+                this.cjG -= this.speed;
+                if (this.cjG < this.end) {
+                    this.cjG = this.end;
                 }
             }
-            if (this.cfi != null) {
-                this.cfi.eC(this.cfh);
+            if (this.cjH != null) {
+                this.cjH.eW(this.cjG);
             }
             return false;
         }

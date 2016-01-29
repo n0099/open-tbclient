@@ -1,21 +1,15 @@
 package com.baidu.tieba.passaccount.framework;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.app.Activity;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.passaccount.a.g;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("com.baidu.sapi2")) {
-            TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
-        }
+class c implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.coreExtra.a.c> run(CustomMessage<Activity> customMessage) {
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, g.anR());
     }
 }

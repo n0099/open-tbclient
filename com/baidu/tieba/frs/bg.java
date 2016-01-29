@@ -1,43 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg {
-    private Animation bfd;
-    private TbPageContext<FrsActivity> mContext;
+public class bg extends CustomMessageListener {
+    final /* synthetic */ bf bhA;
 
-    public bg(TbPageContext<FrsActivity> tbPageContext) {
-        this.mContext = tbPageContext;
-        this.bfd = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), n.a.frs_like);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(bf bfVar, int i) {
+        super(i);
+        this.bhA = bfVar;
     }
 
-    public void G(View view) {
-        if (!this.mContext.getPageActivity().isFinishing()) {
-            View inflate = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.h.frs_like_cover, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(n.g.btn_love);
-            TextView textView = (TextView) inflate.findViewById(n.g.tv_love);
-            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(n.f.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.as.getColor(n.d.frs_like_shadow));
-            com.baidu.tbadk.core.util.as.i((View) button, n.f.frs_btn_like);
-            com.baidu.tbadk.core.util.as.b(textView, n.d.frs_like_txt, 1);
-            button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.u(false);
-            gVar.Q(n.g.love).P(0).v(true);
-            gVar.a(new bh(this, inflate));
-            com.baidu.adp.lib.guide.d gz = gVar.gz();
-            gz.i(this.mContext.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.bfd, new bi(this, gz));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        FrsActivity frsActivity;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
+            AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
+            Iterator it = absDelegateAdapterList.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
+                if (aVar instanceof bv) {
+                    frsActivity = this.bhA.bgW;
+                    ((bv) aVar).e(frsActivity);
+                }
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(absDelegateAdapterList);
+            this.bhA.ad(arrayList);
+            bdTypeListView = this.bhA.aXu;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.bhA.aXu;
+                bdTypeListView2.g(arrayList);
+            }
         }
     }
 }

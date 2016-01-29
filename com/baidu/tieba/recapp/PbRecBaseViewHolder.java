@@ -5,32 +5,32 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder extends x.a {
-    protected q dnn;
+    protected View azA;
+    protected q dCq;
     protected boolean mIsFromCDN;
     private int position;
-    protected View rootView;
 
     public PbRecBaseViewHolder(View view) {
         super(view);
     }
 
     public View getRootView() {
-        return this.rootView;
+        return this.azA;
     }
 
     public void update(q qVar, int i, boolean z) {
-        if (!qVar.dGZ) {
-            com.baidu.tbadk.distribute.a.AV().a(this.rootView.getContext(), qVar.aFk(), "show", "pb", qVar.dHa, qVar.threadId);
-            com.baidu.tbadk.distribute.a.AV().a(qVar.aFk(), qVar.dHa, qVar.threadId, "PB", "show", qVar.pageNumber);
-            qVar.dGZ = true;
+        if (!qVar.dWV) {
+            com.baidu.tbadk.distribute.a.Cl().a(this.azA.getContext(), qVar.aMq(), "show", "pb", qVar.dWW, qVar.threadId);
+            com.baidu.tbadk.distribute.a.Cl().a(qVar.aMq(), qVar.dWW, qVar.threadId, "PB", "show", qVar.pageNumber);
+            qVar.dWV = true;
         }
         if (qVar != null) {
-            com.baidu.tbadk.distribute.a.art = qVar.bkF;
+            com.baidu.tbadk.distribute.a.asm = qVar.bnC;
         }
-        this.dnn = qVar;
+        this.dCq = qVar;
         this.position = i;
         this.mIsFromCDN = z;
-        this.rootView.setTag(this);
+        this.azA.setTag(this);
     }
 
     public int getPosition() {
@@ -38,13 +38,13 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        if (!this.dnn.dGZ) {
-            com.baidu.tbadk.distribute.a.AV().a(this.rootView.getContext(), this.dnn.aFk(), "show", "pb", this.dnn.dHa, this.dnn.threadId);
-            com.baidu.tbadk.distribute.a.AV().a(this.dnn.aFk(), this.dnn.dHa, this.dnn.threadId, "PB", "show", this.dnn.pageNumber);
-            this.dnn.dGZ = true;
+        if (!this.dCq.dWV) {
+            com.baidu.tbadk.distribute.a.Cl().a(this.azA.getContext(), this.dCq.aMq(), "show", "pb", this.dCq.dWW, this.dCq.threadId);
+            com.baidu.tbadk.distribute.a.Cl().a(this.dCq.aMq(), this.dCq.dWW, this.dCq.threadId, "PB", "show", this.dCq.pageNumber);
+            this.dCq.dWV = true;
         }
-        if (this.dnn != null) {
-            com.baidu.tbadk.distribute.a.art = this.dnn.bkF;
+        if (this.dCq != null) {
+            com.baidu.tbadk.distribute.a.asm = this.dCq.bnC;
         }
     }
 }

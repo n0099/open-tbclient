@@ -1,32 +1,55 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ FrsCommonImageLayout dEF;
+public class f implements com.baidu.adp.lib.f.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(FrsCommonImageLayout frsCommonImageLayout) {
-        this.dEF = frsCommonImageLayout;
+    public f(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.f.b bVar;
-        com.baidu.adp.lib.f.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.dEF.dEy;
-            if (bVar != null) {
-                bVar2 = this.dEF.dEy;
-                bVar2.k((TbImageView) view2);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: xh */
+    public TbImageView hk() {
+        TbImageView tbImageView = new TbImageView(this.val$context);
+        tbImageView.setSupportNoImage(true);
+        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderWidth(1);
+        return tbImageView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public TbImageView m(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public TbImageView n(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

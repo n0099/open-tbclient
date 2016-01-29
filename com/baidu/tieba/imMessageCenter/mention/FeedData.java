@@ -3,7 +3,6 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -120,7 +119,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put("post_id", this.post_id);
             jSONObject.put("is_floor", this.isFloor);
             jSONObject.put("quote_pid", this.quote_pid);
-            jSONObject.put(PbActivityConfig.KEY_THREAD_TYPE, this.thread_type);
+            jSONObject.put("thread_type", this.thread_type);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
@@ -170,7 +169,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 }
                 this.replyer.parserJson(jSONObject.optJSONObject("replyer"));
                 this.quote_user.parserJson(jSONObject.optJSONObject("quote_user"));
-                this.thread_type = jSONObject.optInt(PbActivityConfig.KEY_THREAD_TYPE);
+                this.thread_type = jSONObject.optInt("thread_type");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

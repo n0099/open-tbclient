@@ -7,34 +7,34 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
-    private com.baidu.tbadk.img.b apC;
-    private AlbumActivity dSj;
-    private o dTi;
-    private boolean dTj;
-    private boolean dTk;
-    private z dTl;
-    private x dTm;
-    private aa dTn;
+    private com.baidu.tbadk.img.b aqu;
+    private boolean eha;
+    private AlbumActivity emU;
+    private o enN;
+    private boolean enO;
+    private z enP;
+    private x enQ;
+    private aa enR;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, o oVar) {
-        this.dSj = albumActivity;
-        this.apC = albumActivity.aJI();
-        this.dTi = oVar;
-        this.mWidth = (int) this.dSj.getResources().getDimension(n.e.album_gridview_item_height);
+        this.emU = albumActivity;
+        this.aqu = albumActivity.aSw();
+        this.enN = oVar;
+        this.mWidth = (int) this.emU.getResources().getDimension(t.e.album_gridview_item_height);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.dTj = z;
+        this.enO = z;
         notifyDataSetChanged();
     }
 
@@ -70,7 +70,7 @@ public class ab extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oa */
+    /* renamed from: pv */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -85,7 +85,7 @@ public class ab extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.dTj && i == 0) ? 1 : 0;
+        return (this.enO && i == 0) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -100,14 +100,14 @@ public class ab extends BaseAdapter {
         if (view == null) {
             bVar = new b(this, null);
             if (itemViewType == 0) {
-                view = LayoutInflater.from(this.dSj.getPageContext().getPageActivity()).inflate(n.h.album_image_item_view, viewGroup, false);
-                bVar.dTu = (HeadImageView) view.findViewById(n.g.pic);
-                bVar.cmu = (ImageView) view.findViewById(n.g.select_icon);
-                bVar.cmv = (RelativeLayout) view.findViewById(n.g.lay_select);
+                view = LayoutInflater.from(this.emU.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view, viewGroup, false);
+                bVar.enY = (HeadImageView) view.findViewById(t.g.pic);
+                bVar.csZ = (ImageView) view.findViewById(t.g.select_icon);
+                bVar.cta = (RelativeLayout) view.findViewById(t.g.lay_select);
                 view.setTag(bVar);
             } else {
-                view = LayoutInflater.from(this.dSj.getPageContext().getPageActivity()).inflate(n.h.album_image_item_view_camera, viewGroup, false);
-                bVar.dTv = (ViewGroup) view.findViewById(n.g.item_camera);
+                view = LayoutInflater.from(this.emU.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view_camera, viewGroup, false);
+                bVar.enZ = (ViewGroup) view.findViewById(t.g.item_camera);
                 view.setTag(bVar);
             }
         } else {
@@ -115,75 +115,75 @@ public class ab extends BaseAdapter {
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            bVar.dTu.setTag(null);
-            bVar.dTu.setRadius(1);
-            bVar.dTu.setDefaultResource(n.f.img_default_100);
-            bVar.dTu.d(null, 12, false);
-            bVar.dTu.invalidate();
+            bVar.enY.setTag(null);
+            bVar.enY.setRadius(1);
+            bVar.enY.setDefaultResource(t.f.img_default_100);
+            bVar.enY.d(null, 12, false);
+            bVar.enY.invalidate();
             a aVar = new a(this, null);
-            aVar.dTt = true;
+            aVar.enX = true;
             if (item != null) {
                 item.clearPageActions();
-                item.addPageAction(com.baidu.tbadk.img.effect.d.K(this.mWidth, this.mWidth));
-                bVar.dTu.setTag(item.toCachedKey(false));
-                if (this.apC.a(item, false) != null) {
-                    bVar.dTu.invalidate();
+                item.addPageAction(com.baidu.tbadk.img.effect.d.G(this.mWidth, this.mWidth));
+                bVar.enY.setTag(item.toCachedKey(false));
+                if (this.aqu.a(item, false) != null) {
+                    bVar.enY.invalidate();
                 } else {
-                    this.apC.a(item, new ac(this, viewGroup, aVar), false, this.dTk);
+                    this.aqu.a(item, new ac(this, viewGroup, aVar), false, this.eha);
                 }
             } else {
-                aVar.dTt = false;
+                aVar.enX = false;
             }
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-            if (this.dTi != null) {
-                if (this.dTi.isAdded(item)) {
-                    as.i(bVar.cmu, n.f.chx_camera_pic_s);
+            if (this.enN != null) {
+                if (this.enN.isAdded(item)) {
+                    ar.k(bVar.csZ, t.f.chx_camera_pic_s);
                 } else {
-                    as.i(bVar.cmu, n.f.chx_camera_pic_n);
+                    ar.k(bVar.csZ, t.f.chx_camera_pic_n);
                 }
-                a(bVar, aVar, i, item, skinType, this.dTi);
+                a(bVar, aVar, i, item, skinType, this.enN);
             }
-            bVar.dTu.setOnClickListener(new ad(this, aVar, i, item));
+            bVar.enY.setOnClickListener(new ad(this, aVar, i, item));
         } else {
-            as.i(bVar.dTv, n.f.icon_camera_pic);
-            bVar.dTv.setOnClickListener(new ae(this, i, item));
+            ar.k(bVar.enZ, t.f.icon_camera_pic);
+            bVar.enZ.setOnClickListener(new ae(this, i, item));
         }
-        applyNightMode(view);
+        u(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.dTk;
+        return this.eha;
     }
 
-    public void hO(boolean z) {
-        this.dTk = z;
+    public void io(boolean z) {
+        this.eha = z;
     }
 
-    private void applyNightMode(View view) {
-        this.dSj.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.dSj.getLayoutMode().k(view);
+    private void u(View view) {
+        this.emU.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.emU.getLayoutMode().x(view);
     }
 
     public void a(z zVar) {
-        this.dTl = zVar;
+        this.enP = zVar;
     }
 
     public void a(aa aaVar) {
-        this.dTn = aaVar;
+        this.enR = aaVar;
     }
 
     public void a(x xVar) {
-        this.dTm = xVar;
+        this.enQ = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        ImageView cmu;
-        RelativeLayout cmv;
-        HeadImageView dTu;
-        ViewGroup dTv;
+        ImageView csZ;
+        RelativeLayout cta;
+        HeadImageView enY;
+        ViewGroup enZ;
 
         private b() {
         }
@@ -196,7 +196,7 @@ public class ab extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        boolean dTt;
+        boolean enX;
 
         private a() {
         }
@@ -207,6 +207,6 @@ public class ab extends BaseAdapter {
     }
 
     private void a(b bVar, a aVar, int i, ImageFileInfo imageFileInfo, int i2, o oVar) {
-        bVar.cmv.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
+        bVar.cta.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
     }
 }

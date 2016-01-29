@@ -10,13 +10,13 @@ import protobuf.QueryUserInfos.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ r ced;
+    final /* synthetic */ r ciC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.ced = rVar;
+        this.ciC = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,10 +37,10 @@ public class s extends com.baidu.adp.framework.listener.e {
             switch (socketResponsedMessage.getCmd()) {
                 case 104102:
                     if (socketResponsedMessage instanceof ResponsedMessage) {
-                        personalTalkSettingActivity4 = this.ced.ceb;
+                        personalTalkSettingActivity4 = this.ciC.ciA;
                         personalTalkSettingActivity4.closeLoadingDialog();
                         if (socketResponsedMessage.getError() != 0) {
-                            personalTalkSettingActivity5 = this.ced.ceb;
+                            personalTalkSettingActivity5 = this.ciC.ciA;
                             personalTalkSettingActivity5.showToast(socketResponsedMessage.getErrorString());
                         }
                     }
@@ -49,11 +49,11 @@ public class s extends com.baidu.adp.framework.listener.e {
                         if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                                this.ced.cdY = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                                aVar3 = this.ced.cec;
+                                this.ciC.cix = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                                aVar3 = this.ciC.ciB;
                                 if (aVar3 != null) {
-                                    aVar4 = this.ced.cec;
-                                    aVar4.vN();
+                                    aVar4 = this.ciC.ciB;
+                                    aVar4.wV();
                                     return;
                                 }
                                 return;
@@ -65,27 +65,27 @@ public class s extends com.baidu.adp.framework.listener.e {
                     return;
                 case 205003:
                     if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                        personalTalkSettingActivity2 = this.ced.ceb;
+                        personalTalkSettingActivity2 = this.ciC.ciA;
                         personalTalkSettingActivity2.hideProgressBar();
-                        personalTalkSettingActivity3 = this.ced.ceb;
+                        personalTalkSettingActivity3 = this.ciC.ciA;
                         personalTalkSettingActivity3.showToast(socketResponsedMessage.getErrorString());
                         return;
                     } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                         ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                         if (responseQueryUserInfoMessage.getResData() != null) {
-                            this.ced.data = responseQueryUserInfoMessage.getResData();
-                            r rVar = this.ced;
-                            dataRes = this.ced.data;
-                            rVar.ajG = dataRes.hasConcerned.intValue() == 1;
-                            r rVar2 = this.ced;
-                            dataRes2 = this.ced.data;
-                            rVar2.cdY = dataRes2.isBlacklist.intValue() == 1;
-                            personalTalkSettingActivity = this.ced.ceb;
+                            this.ciC.data = responseQueryUserInfoMessage.getResData();
+                            r rVar = this.ciC;
+                            dataRes = this.ciC.data;
+                            rVar.akv = dataRes.hasConcerned.intValue() == 1;
+                            r rVar2 = this.ciC;
+                            dataRes2 = this.ciC.data;
+                            rVar2.cix = dataRes2.isBlacklist.intValue() == 1;
+                            personalTalkSettingActivity = this.ciC.ciA;
                             personalTalkSettingActivity.hideProgressBar();
-                            aVar = this.ced.cec;
+                            aVar = this.ciC.ciB;
                             if (aVar != null) {
-                                aVar2 = this.ced.cec;
-                                aVar2.vN();
+                                aVar2 = this.ciC.ciB;
+                                aVar2.wV();
                                 return;
                             }
                             return;

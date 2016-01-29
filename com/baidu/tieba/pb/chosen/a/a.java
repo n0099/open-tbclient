@@ -9,30 +9,30 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private List<com.baidu.tieba.pb.c.a.d> list = new ArrayList();
+    private List<com.baidu.tieba.pb.d.a.d> list = new ArrayList();
     private int maxWidth;
     private int padding;
 
     /* renamed from: com.baidu.tieba.pb.chosen.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0074a {
-        TbImageView aGb;
+    public static class C0076a {
+        TbImageView aGU;
     }
 
     public a(Context context) {
         this.maxWidth = 0;
         this.padding = 0;
         this.context = context;
-        this.maxWidth = com.baidu.adp.lib.util.k.K(context) - (((int) context.getResources().getDimension(n.e.ds30)) * 2);
-        this.padding = context.getResources().getDimensionPixelSize(n.e.ds32);
+        this.maxWidth = com.baidu.adp.lib.util.k.K(context) - (((int) context.getResources().getDimension(t.e.ds30)) * 2);
+        this.padding = context.getResources().getDimensionPixelSize(t.e.ds32);
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void bl(List<com.baidu.tieba.pb.c.a.d> list) {
+    public void bm(List<com.baidu.tieba.pb.d.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -52,8 +52,8 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ki */
-    public com.baidu.tieba.pb.c.a.d getItem(int i) {
+    /* renamed from: kI */
+    public com.baidu.tieba.pb.d.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -82,7 +82,7 @@ public class a extends BaseAdapter {
         if (i < 0 || i >= this.list.size()) {
             return super.getItemViewType(i);
         }
-        com.baidu.tieba.pb.c.a.d dVar = this.list.get(i);
+        com.baidu.tieba.pb.d.a.d dVar = this.list.get(i);
         if (dVar == null) {
             return super.getItemViewType(i);
         }
@@ -108,33 +108,33 @@ public class a extends BaseAdapter {
     }
 
     private View e(int i, View view) {
-        C0074a c0074a;
-        if (view == null || !(view.getTag() instanceof C0074a)) {
-            view = LayoutInflater.from(this.context).inflate(n.h.chosen_pb_image_item, (ViewGroup) null);
-            c0074a = new C0074a();
-            c0074a.aGb = (TbImageView) view.findViewById(n.g.pb_chosen_list_image);
-            view.setTag(c0074a);
+        C0076a c0076a;
+        if (view == null || !(view.getTag() instanceof C0076a)) {
+            view = LayoutInflater.from(this.context).inflate(t.h.chosen_pb_image_item, (ViewGroup) null);
+            c0076a = new C0076a();
+            c0076a.aGU = (TbImageView) view.findViewById(t.g.pb_chosen_list_image);
+            view.setTag(c0076a);
         } else {
-            c0074a = (C0074a) view.getTag();
+            c0076a = (C0076a) view.getTag();
         }
-        com.baidu.tieba.pb.c.a.d item = getItem(i);
-        if (item instanceof com.baidu.tieba.pb.c.a.e) {
-            com.baidu.tieba.pb.c.a.e eVar = (com.baidu.tieba.pb.c.a.e) item;
-            if (StringUtils.isNull(eVar.cMq) || "1".equals(eVar.cMq)) {
-                c0074a.aGb.setVisibility(8);
+        com.baidu.tieba.pb.d.a.d item = getItem(i);
+        if (item instanceof com.baidu.tieba.pb.d.a.e) {
+            com.baidu.tieba.pb.d.a.e eVar = (com.baidu.tieba.pb.d.a.e) item;
+            if (StringUtils.isNull(eVar.cVe) || "1".equals(eVar.cVe)) {
+                c0076a.aGU.setVisibility(8);
             } else {
-                c0074a.aGb.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0074a.aGb.getLayoutParams();
+                c0076a.aGU.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0076a.aGU.getLayoutParams();
                 int i2 = this.maxWidth;
-                int kE = eVar.kE(i2);
+                int li = eVar.li(i2);
                 if (layoutParams == null) {
-                    layoutParams = new AbsListView.LayoutParams(i2, kE);
+                    layoutParams = new AbsListView.LayoutParams(i2, li);
                 } else {
-                    layoutParams.height = kE;
+                    layoutParams.height = li;
                     layoutParams.width = i2;
                 }
-                c0074a.aGb.setLayoutParams(layoutParams);
-                c0074a.aGb.d(eVar.getSrc(), 17, false);
+                c0076a.aGU.setLayoutParams(layoutParams);
+                c0076a.aGU.d(eVar.getSrc(), 17, false);
             }
         }
         return view;
@@ -146,16 +146,16 @@ public class a extends BaseAdapter {
             textView = (TextView) view;
         } else {
             textView = new TextView(this.context);
-            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(n.e.fontsize32));
+            textView.setTextSize(0, this.context.getResources().getDimensionPixelSize(t.e.fontsize32));
             textView.setLineSpacing(0.0f, 1.2f);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             textView.setPadding(this.padding, 0, this.padding, 0);
         }
-        com.baidu.tieba.pb.c.a.d item = getItem(i);
-        if (item instanceof com.baidu.tieba.pb.c.a.g) {
-            com.baidu.tieba.pb.c.a.g gVar = (com.baidu.tieba.pb.c.a.g) item;
-            textView.setText(gVar.aog());
-            switch (gVar.aoi()) {
+        com.baidu.tieba.pb.d.a.d item = getItem(i);
+        if (item instanceof com.baidu.tieba.pb.d.a.g) {
+            com.baidu.tieba.pb.d.a.g gVar = (com.baidu.tieba.pb.d.a.g) item;
+            textView.setText(gVar.asP());
+            switch (gVar.asR()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -166,12 +166,12 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.aoj())) {
-                if (!as.a(textView, gVar.aoj())) {
-                    as.b(textView, n.d.cp_cont_b, 1);
+            if (!StringUtils.isNull(gVar.asS())) {
+                if (!ar.a(textView, gVar.asS())) {
+                    ar.b(textView, t.d.cp_cont_b, 1);
                 }
             } else {
-                as.b(textView, n.d.cp_cont_b, 1);
+                ar.b(textView, t.d.cp_cont_b, 1);
             }
             if (gVar.getTextSize() > 0) {
                 textView.setTextSize(0, gVar.getTextSize());

@@ -7,42 +7,42 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> YA;
-    private IMBlackListActivity cgu;
-    private View.OnClickListener cgv = new g(this);
+    private ArrayList<com.baidu.tieba.im.data.a> YX;
+    private IMBlackListActivity ckU;
+    private View.OnClickListener ckV = new g(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.cgu = iMBlackListActivity;
+        this.ckU = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.YA = arrayList;
+        this.YX = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.YA != null) {
-            this.YA.remove(aVar);
+        if (this.YX != null) {
+            this.YX.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.YA != null) {
-            return this.YA.size();
+        if (this.YX != null) {
+            return this.YX.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.YA != null) {
-            return this.YA.get(i);
+        if (this.YX != null) {
+            return this.YX.get(i);
         }
         return null;
     }
@@ -62,51 +62,51 @@ public class f extends BaseAdapter {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.rootView;
+            return aVar.azA;
         }
         return null;
     }
 
-    private a adM() {
+    private a agW() {
         a aVar = new a(this, null);
-        aVar.rootView = LayoutInflater.from(this.cgu.getPageContext().getContext()).inflate(n.h.im_black_list_item, (ViewGroup) null);
-        aVar.cgx = (HeadImageView) aVar.rootView.findViewById(n.g.header_view);
-        aVar.cgx.setIsRound(true);
-        aVar.aLp = (TextView) aVar.rootView.findViewById(n.g.user_name);
-        aVar.cgy = (Button) aVar.rootView.findViewById(n.g.remove_button);
-        aVar.rootView.setTag(aVar);
-        aVar.cgy.setOnClickListener(this.cgv);
+        aVar.azA = LayoutInflater.from(this.ckU.getPageContext().getContext()).inflate(t.h.im_black_list_item, (ViewGroup) null);
+        aVar.ckX = (HeadImageView) aVar.azA.findViewById(t.g.header_view);
+        aVar.ckX.setIsRound(true);
+        aVar.aMu = (TextView) aVar.azA.findViewById(t.g.user_name);
+        aVar.ckY = (Button) aVar.azA.findViewById(t.g.remove_button);
+        aVar.azA.setTag(aVar);
+        aVar.ckY.setOnClickListener(this.ckV);
         return aVar;
     }
 
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = adM();
+            aVar2 = agW();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.XY());
-        aVar2.aLp.setText(aVar.getUserName());
-        aVar2.cgy.setTag(aVar);
-        this.cgu.getLayoutMode().k(aVar2.rootView);
+        a(aVar2, aVar.aaJ());
+        aVar2.aMu.setText(aVar.getUserName());
+        aVar2.ckY.setTag(aVar);
+        this.ckU.getLayoutMode().x(aVar2.azA);
         return aVar2;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.cgx.setTag(str);
-            aVar.cgx.d(str, 12, false);
+            aVar.ckX.setTag(str);
+            aVar.ckX.d(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView aLp;
-        public HeadImageView cgx;
-        public Button cgy;
-        public View rootView;
+        public TextView aMu;
+        public View azA;
+        public HeadImageView ckX;
+        public Button ckY;
 
         private a() {
         }

@@ -9,11 +9,11 @@ public interface a {
 
     void b(Context context, int i, boolean z);
 
-    void e(Context context, int i);
+    void d(Context context, int i);
 
     int getCurrentTabType();
 
-    Class<?> tC();
+    Class<?> uH();
 
-    String tD();
+    String uI();
 }

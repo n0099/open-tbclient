@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.hottopic.data.c;
+import com.baidu.tieba.hottopic.data.e;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Hottopic.HotThread;
@@ -14,7 +14,7 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     private HotThread hot_thread;
     private MagicPost magic_post;
     private List<RelateForum> relate_forum;
-    private c topicData;
+    private e topicData;
     private TopicInfo topic_info;
 
     public ResponseSocketHotTopicMessage() {
@@ -38,7 +38,7 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         return this.topic_info;
     }
 
-    public c getHotTopicData() {
+    public e getHotTopicData() {
         return this.topicData;
     }
 
@@ -54,7 +54,7 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
                 this.magic_post = hottopicResIdl.data.magic_post;
                 this.hot_thread = hottopicResIdl.data.hot_thread;
                 this.topic_info = hottopicResIdl.data.topic_info;
-                this.topicData = new c();
+                this.topicData = new e();
                 this.topicData.a(hottopicResIdl.data);
             }
         }

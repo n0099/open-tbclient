@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class i extends CustomMessageListener {
-    final /* synthetic */ WriteVoteActivity dWm;
+    final /* synthetic */ WriteVoteActivity erf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(WriteVoteActivity writeVoteActivity, int i) {
         super(i);
-        this.dWm = writeVoteActivity;
+        this.erf = writeVoteActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,10 +19,10 @@ class i extends CustomMessageListener {
         n nVar;
         n nVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001364) {
-            nVar = this.dWm.dWe;
+            nVar = this.erf.eqX;
             if (nVar != null) {
-                nVar2 = this.dWm.dWe;
-                nVar2.hS(true);
+                nVar2 = this.erf.eqX;
+                nVar2.iD(true);
             }
         }
     }

@@ -1,48 +1,35 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.x;
-import com.baidu.tieba.tbadkCore.y;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.g {
-    final /* synthetic */ g cDT;
+public class h implements a.b {
+    final /* synthetic */ d cKp;
+    private final /* synthetic */ String cfq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.cDT = gVar;
+    public h(d dVar, String str) {
+        this.cKp = dVar;
+        this.cfq = str;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        x xVar;
-        x xVar2;
-        y yVar;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.pb.a.c cVar;
-        x xVar3;
         com.baidu.tieba.pb.a.c cVar2;
-        if (obj != null && (obj instanceof y) && (yVar = (y) obj) != null) {
-            cVar = this.cDT.cDR;
-            if (cVar.akG() != null) {
-                xVar3 = this.cDT.MB;
-                if (xVar3.getErrorCode() == 0) {
-                    cVar2 = this.cDT.cDR;
-                    cVar2.akG().setLike(1);
-                    yVar.setLike(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
-                    return;
-                }
-            }
-        }
-        xVar = this.cDT.MB;
-        if (!StringUtils.isNull(xVar.getErrorString())) {
-            TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-            xVar2 = this.cDT.MB;
-            com.baidu.adp.lib.util.k.showToast(m411getInst, xVar2.getErrorString());
+        com.baidu.tieba.pb.a.c cVar3;
+        aVar.dismiss();
+        this.cKp.kL(1);
+        cVar = this.cKp.cKn;
+        if (cVar != null) {
+            au auVar = new au("c10398");
+            cVar2 = this.cKp.cKn;
+            au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cVar2.getForumId());
+            cVar3 = this.cKp.cKn;
+            TiebaStatic.log(aa.aa("tid", cVar3.getThreadId()).aa("uid", this.cfq).aa("is_like", "1"));
         }
     }
 }

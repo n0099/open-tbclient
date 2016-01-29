@@ -15,8 +15,8 @@ class q implements com.baidu.adp.lib.f.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Gg */
-    public TextView hc() {
+    /* renamed from: HF */
+    public TextView hk() {
         return new TbListTextView(this.val$context);
     }
 

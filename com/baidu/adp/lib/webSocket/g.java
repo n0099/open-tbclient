@@ -8,7 +8,7 @@ public interface g {
     public interface a {
         void F(byte[] bArr);
 
-        void I(String str);
+        void H(String str);
 
         void a(int i, c cVar);
 
@@ -18,9 +18,9 @@ public interface g {
 
         void c(c cVar);
 
-        void c(Map<String, String> map);
+        void d(Map<String, String> map);
 
-        void jB();
+        void jK();
 
         void l(int i, String str);
 

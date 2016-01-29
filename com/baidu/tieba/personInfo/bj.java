@@ -1,32 +1,19 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tbadk.core.view.j;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements j.a {
-    final /* synthetic */ be cYp;
+public class bj implements View.OnTouchListener {
+    final /* synthetic */ bi dkc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(be beVar) {
-        this.cYp = beVar;
+    public bj(bi biVar) {
+        this.dkc = biVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void qp() {
-        MorePopupWindow morePopupWindow;
-        d dVar;
-        morePopupWindow = this.cYp.cYk;
-        dVar = this.cYp.cQj;
-        com.baidu.adp.lib.h.j.a(morePopupWindow, dVar.getPageContext().getPageActivity());
-    }
-
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void qq() {
-        MorePopupWindow morePopupWindow;
-        d dVar;
-        morePopupWindow = this.cYp.cYk;
-        dVar = this.cYp.cQj;
-        com.baidu.adp.lib.h.j.a(morePopupWindow, dVar.getPageContext().getPageActivity());
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

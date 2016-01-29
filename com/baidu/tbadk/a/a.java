@@ -7,56 +7,56 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    private AlarmManager Sw;
-    private PendingIntent Sx;
-    private long Sy;
+    public static int RR = 0;
+    public static int RS = 1;
+    public static int RT = 2;
+    private AlarmManager RO;
+    private PendingIntent RP;
+    private long RQ;
     private Context mContext;
-    public static int Sz = 0;
-    public static int SA = 1;
-    public static int SB = 2;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.Sx = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.Sw = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.RP = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.RO = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.Sw != null) {
-            this.Sy = j2;
-            if (i == Sz) {
-                this.Sw.set(i2, j, this.Sx);
-            } else if (i == SA) {
-                this.Sw.setRepeating(i2, j, j2, this.Sx);
-            } else if (i == SB) {
-                this.Sw.setInexactRepeating(i2, j, j2, this.Sx);
+        if (this.RO != null) {
+            this.RQ = j2;
+            if (i == RR) {
+                this.RO.set(i2, j, this.RP);
+            } else if (i == RS) {
+                this.RO.setRepeating(i2, j, j2, this.RP);
+            } else if (i == RT) {
+                this.RO.setInexactRepeating(i2, j, j2, this.RP);
             } else {
-                this.Sw.set(i2, j, this.Sx);
+                this.RO.set(i2, j, this.RP);
             }
         }
     }
 
     public void cancel() {
-        if (this.Sw != null && this.Sx != null) {
-            this.Sw.cancel(this.Sx);
+        if (this.RO != null && this.RP != null) {
+            this.RO.cancel(this.RP);
         }
     }
 
-    public void pK() {
-        if (this.Sw != null && this.Sx != null) {
-            if (this.Sy <= 0) {
-                this.Sy = 3600000L;
+    public void qd() {
+        if (this.RO != null && this.RP != null) {
+            if (this.RQ <= 0) {
+                this.RQ = 3600000L;
             }
-            a(SA, 1, System.currentTimeMillis() + this.Sy, this.Sy);
+            a(RS, 1, System.currentTimeMillis() + this.RQ, this.RQ);
         }
     }
 
-    public long pL() {
-        if (this.Sy <= 0) {
-            this.Sy = 3600000L;
+    public long qe() {
+        if (this.RQ <= 0) {
+            this.RQ = 3600000L;
         }
-        return this.Sy;
+        return this.RQ;
     }
 }

@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a oa;
-    private SparseArray<String> ob;
+    private static volatile a od;
+    private SparseArray<String> oe;
 
-    public static a dT() {
-        if (oa == null) {
+    public static a dW() {
+        if (od == null) {
             synchronized (a.class) {
-                if (oa == null) {
-                    oa = new a();
+                if (od == null) {
+                    od = new a();
                 }
             }
         }
-        return oa;
+        return od;
     }
 
     private a() {
-        this.ob = null;
-        this.ob = new SparseArray<>();
+        this.oe = null;
+        this.oe = new SparseArray<>();
     }
 
     public void c(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                G(str);
+                F(str);
             }
         }
     }
 
-    private void G(String str) {
+    private void F(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.ob.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.ob.get(i) + " 重复");
+                    if (this.oe.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.oe.get(i) + " 重复");
                     }
-                    this.ob.put(i, name);
+                    this.oe.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String t(int i) {
-        String str = this.ob.get(i);
+    public String D(int i) {
+        String str = this.oe.get(i);
         if (str != null) {
             return str;
         }

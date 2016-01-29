@@ -1,22 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em implements Runnable {
-    final /* synthetic */ dk cKg;
-    private final /* synthetic */ boolean cKj;
+public class em implements View.OnClickListener {
+    final /* synthetic */ dz cSw;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cSy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public em(dk dkVar, boolean z) {
-        this.cKg = dkVar;
-        this.cKj = z;
+    public em(dz dzVar, com.baidu.tieba.tbadkCore.data.r rVar) {
+        this.cSw = dzVar;
+        this.cSy = rVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdTypeListView bdTypeListView;
-        bdTypeListView = this.cKg.aVi;
-        bdTypeListView.setEnabled(this.cKj);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10630").aa("obj_id", this.cSy.getAuthor().getUserId()));
+        pbActivity = this.cSw.cNL;
+        if (pbActivity.cML.cSE != null) {
+            pbActivity2 = this.cSw.cNL;
+            pbActivity2.cML.cSE.onClick(view);
+        }
     }
 }

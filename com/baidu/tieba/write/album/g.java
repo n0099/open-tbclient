@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e dSm;
+    final /* synthetic */ e emX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.dSm = eVar;
+        this.emX = eVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -20,39 +20,39 @@ class g implements ViewPager.OnPageChangeListener {
         o oVar2;
         j jVar2;
         int i3;
-        ImageFileInfo oa;
+        ImageFileInfo pv;
         o oVar3;
         ImageView imageView;
         ImageView imageView2;
         j jVar3;
         int i4;
-        this.dSm.auZ = i;
-        e eVar = this.dSm;
-        i2 = this.dSm.auZ;
-        eVar.nZ(i2 + 1);
-        jVar = this.dSm.dSk;
+        this.emX.avR = i;
+        e eVar = this.emX;
+        i2 = this.emX.avR;
+        eVar.pu(i2 + 1);
+        jVar = this.emX.emV;
         if (jVar != null) {
-            oVar = this.dSm.dRW;
+            oVar = this.emX.emG;
             if (oVar != null) {
-                oVar2 = this.dSm.dRW;
-                if ("-1".equals(oVar2.aJX())) {
-                    jVar3 = this.dSm.dSk;
-                    i4 = this.dSm.auZ;
-                    oa = jVar3.oa(i4 + 1);
+                oVar2 = this.emX.emG;
+                if ("-1".equals(oVar2.aSJ())) {
+                    jVar3 = this.emX.emV;
+                    i4 = this.emX.avR;
+                    pv = jVar3.pv(i4 + 1);
                 } else {
-                    jVar2 = this.dSm.dSk;
-                    i3 = this.dSm.auZ;
-                    oa = jVar2.oa(i3);
+                    jVar2 = this.emX.emV;
+                    i3 = this.emX.avR;
+                    pv = jVar2.pv(i3);
                 }
-                oVar3 = this.dSm.dRW;
-                if (oVar3.isAdded(oa)) {
-                    e eVar2 = this.dSm;
-                    imageView2 = this.dSm.dSl;
+                oVar3 = this.emX.emG;
+                if (oVar3.isAdded(pv)) {
+                    e eVar2 = this.emX;
+                    imageView2 = this.emX.emW;
                     eVar2.b(imageView2, true);
                     return;
                 }
-                e eVar3 = this.dSm;
-                imageView = this.dSm.dSl;
+                e eVar3 = this.emX;
+                imageView = this.emX.emW;
                 eVar3.b(imageView, false);
             }
         }

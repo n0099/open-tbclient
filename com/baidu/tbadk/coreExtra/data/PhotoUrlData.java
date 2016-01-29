@@ -70,7 +70,7 @@ public class PhotoUrlData implements Serializable {
 
     public void setToServerPhotoInfo(String str) {
         this.toServerPhotoInfo = str;
-        eb(str);
+        ea(str);
     }
 
     public JSONObject toJson() {
@@ -92,10 +92,10 @@ public class PhotoUrlData implements Serializable {
         this.bigurl = jSONObject.optString("bigurl", "");
         this.picId = jSONObject.optString("picId", "");
         this.toServerPhotoInfo = jSONObject.optString("toServerPhotoInfo", "");
-        eb(this.toServerPhotoInfo);
+        ea(this.toServerPhotoInfo);
     }
 
-    private void eb(String str) {
+    private void ea(String str) {
         if (!StringUtils.isNull(str)) {
             str.replaceAll("#\\(|\\)", "");
             String[] split = str.split(",");

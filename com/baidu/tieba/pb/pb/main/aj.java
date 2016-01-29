@@ -1,36 +1,66 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements a.b {
-    private final /* synthetic */ int beq;
-    private final /* synthetic */ String ber;
-    private final /* synthetic */ long bes;
-    final /* synthetic */ PbActivity cFS;
-    private final /* synthetic */ ep cFW;
-    private final /* synthetic */ ShareFromPBMsgData cFX;
+public class aj implements c.b {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(PbActivity pbActivity, ep epVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
-        this.cFS = pbActivity;
-        this.cFW = epVar;
-        this.beq = i;
-        this.ber = str;
-        this.bes = j;
-        this.cFX = shareFromPBMsgData;
+    public aj(PbActivity pbActivity) {
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.cFS.HidenSoftKeyPad((InputMethodManager) this.cFS.getSystemService("input_method"), this.cFW.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.cFS.getPageContext().getPageActivity(), this.beq, this.ber, this.bes, "from_share", this.cFW.getLeaveMsg(), this.cFX.toChatMessageContent())));
-        aVar.dismiss();
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        cm cmVar;
+        String str5;
+        String str6;
+        String str7;
+        cm cmVar2;
+        String str8;
+        if (i == 0) {
+            TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_phone_call", "call");
+            PbActivity pbActivity = this.cNq;
+            str6 = this.cNq.cMf;
+            pbActivity.cMf = str6.trim();
+            Activity pageActivity = this.cNq.getPageContext().getPageActivity();
+            str7 = this.cNq.cMf;
+            UtilHelper.callPhone(pageActivity, str7);
+            cmVar2 = this.cNq.cMF;
+            String threadID = cmVar2.getThreadID();
+            str8 = this.cNq.cMf;
+            new a(threadID, str8, "1").start();
+            cVar.dismiss();
+        } else if (i == 1) {
+            TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
+            PbActivity pbActivity2 = this.cNq;
+            str3 = this.cNq.cMf;
+            pbActivity2.cMf = str3.trim();
+            Activity pageActivity2 = this.cNq.getPageContext().getPageActivity();
+            str4 = this.cNq.cMf;
+            UtilHelper.smsPhone(pageActivity2, str4);
+            cmVar = this.cNq.cMF;
+            String threadID2 = cmVar.getThreadID();
+            str5 = this.cNq.cMf;
+            new a(threadID2, str5, "2").start();
+            cVar.dismiss();
+        } else if (i == 2) {
+            PbActivity pbActivity3 = this.cNq;
+            str = this.cNq.cMf;
+            pbActivity3.cMf = str.trim();
+            Activity pageActivity3 = this.cNq.getPageContext().getPageActivity();
+            str2 = this.cNq.cMf;
+            UtilHelper.startBaiDuBar(pageActivity3, str2);
+            cVar.dismiss();
+        }
     }
 }

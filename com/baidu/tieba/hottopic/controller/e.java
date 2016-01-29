@@ -1,54 +1,39 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.hottopic.controller.d;
+import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
+import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ HotTopicActivity bGR;
+public class e extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ d bKc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(HotTopicActivity hotTopicActivity, int i) {
-        super(i);
-        this.bGR = hotTopicActivity;
+    public e(d dVar, int i, int i2) {
+        super(i, i2);
+        this.bKc = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.hottopic.data.c cVar;
-        com.baidu.tieba.hottopic.data.c cVar2;
-        com.baidu.tieba.hottopic.data.c cVar3;
-        RelateForumItemData aL;
-        com.baidu.tieba.hottopic.data.c cVar4;
-        com.baidu.tieba.hottopic.view.a aVar;
-        com.baidu.tieba.hottopic.data.c cVar5;
-        com.baidu.tieba.hottopic.view.a aVar2;
-        if (customResponsedMessage != null) {
-            cVar = this.bGR.bGM;
-            if (cVar != null) {
-                cVar2 = this.bGR.bGM;
-                if (cVar2.Vz() != null) {
-                    cVar3 = this.bGR.bGM;
-                    if (cVar3.Vz().bIa != null) {
-                        Object data = customResponsedMessage.getData();
-                        if (data instanceof Long) {
-                            aL = this.bGR.aL(((Long) data).longValue());
-                            if (aL != null) {
-                                aL.followNum--;
-                                aL.setIsLiked(false);
-                                cVar4 = this.bGR.bGM;
-                                cVar4.Vz().bIc = true;
-                                aVar = this.bGR.bGG;
-                                cVar5 = this.bGR.bGM;
-                                aVar.c(cVar5);
-                                aVar2 = this.bGR.bGG;
-                                aVar2.VH();
-                            }
-                        }
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        d.a aVar;
+        BaseActivity baseActivity;
+        if (responsedMessage != null) {
+            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bKc.getUniqueId()) {
+                if (responsedMessage.hasError()) {
+                    if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                        baseActivity = this.bKc.bdK;
+                        baseActivity.showToast(responsedMessage.getErrorString());
                     }
+                    aVar = this.bKc.bKa;
+                    aVar.a(false, null);
+                    return;
                 }
+                this.bKc.h(responsedMessage);
             }
         }
     }

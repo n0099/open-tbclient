@@ -5,16 +5,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.n;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -33,27 +33,27 @@ public class b implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.cLc.cKS;
-            if (!aVar.aGg() && objArr != null && objArr.length >= 4) {
+            aVar = this.cTK.cTA;
+            if (!aVar.aNl() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
                 boolean e = com.baidu.adp.lib.h.b.e(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[3]), 0);
-                aoVar = this.cLc.cKR;
+                aoVar = this.cTK.cTz;
                 if (aoVar != null) {
-                    aoVar2 = this.cLc.cKR;
-                    if (aoVar2.anR() != null) {
-                        aoVar3 = this.cLc.cKR;
-                        if (aoVar3.anR().akZ() != null) {
-                            aoVar4 = this.cLc.cKR;
-                            if (aoVar4.anR().Iv() != null) {
-                                aVar2 = this.cLc.cKS;
-                                aoVar5 = this.cLc.cKR;
-                                String id = aoVar5.anR().akZ().getId();
-                                aoVar6 = this.cLc.cKR;
-                                String name = aoVar6.anR().akZ().getName();
-                                aoVar7 = this.cLc.cKR;
-                                aVar2.a(id, name, aoVar7.anR().Iv().getId(), valueOf, g2, g, e);
+                    aoVar2 = this.cTK.cTz;
+                    if (aoVar2.asw() != null) {
+                        aoVar3 = this.cTK.cTz;
+                        if (aoVar3.asw().aoX() != null) {
+                            aoVar4 = this.cTK.cTz;
+                            if (aoVar4.asw().Ki() != null) {
+                                aVar2 = this.cTK.cTA;
+                                aoVar5 = this.cTK.cTz;
+                                String id = aoVar5.asw().aoX().getId();
+                                aoVar6 = this.cTK.cTz;
+                                String name = aoVar6.asw().aoX().getName();
+                                aoVar7 = this.cTK.cTz;
+                                aVar2.a(id, name, aoVar7.asw().Ki().getId(), valueOf, g2, g, e);
                                 return;
                             }
                             return;
@@ -66,6 +66,6 @@ public class b implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.cLc.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cLc.getPageContext().getPageActivity(), this.cLc.getPageContext().getString(n.j.login_to_use), true, 11017)));
+        TbadkCoreApplication.m411getInst().login(this.cTK.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cTK.getPageContext().getPageActivity(), this.cTK.getPageContext().getString(t.j.login_to_use), true, 11017)));
     }
 }

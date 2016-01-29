@@ -5,21 +5,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj implements View.OnTouchListener {
-    final /* synthetic */ MsgleftView bLI;
+    final /* synthetic */ MsgleftView bPw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(MsgleftView msgleftView) {
-        this.bLI = msgleftView;
+        this.bPw = msgleftView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         TouchType touchType;
         TouchType touchType2;
-        touchType = this.bLI.bLG;
+        touchType = this.bPw.bPu;
         if (touchType.get() && motionEvent.getAction() == 1) {
-            this.bLI.bKV.onItemViewLongClick(view, 2, this.bLI.anc, 0L);
-            touchType2 = this.bLI.bLG;
+            this.bPw.bOJ.b(view, 2, this.bPw.anV, 0L);
+            touchType2 = this.bPw.bPu;
             touchType2.set(false);
         }
         return false;

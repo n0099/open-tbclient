@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnTouchListener {
-    final /* synthetic */ w cLC;
+    final /* synthetic */ w cUl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(w wVar) {
-        this.cLC = wVar;
+        this.cUl = wVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,28 +26,28 @@ public class ai implements View.OnTouchListener {
         MorePopupWindow morePopupWindow8;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        morePopupWindow = this.cLC.cLr;
+        morePopupWindow = this.cUl.cUa;
         if (morePopupWindow.getContentView() == null) {
             return false;
         }
-        morePopupWindow2 = this.cLC.cLr;
+        morePopupWindow2 = this.cUl.cUa;
         int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.cLC.cLr;
+        morePopupWindow3 = this.cUl.cUa;
         int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.cLC.cLr;
+        morePopupWindow4 = this.cUl.cUa;
         int bottom = morePopupWindow4.getContentView().getBottom();
         if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.cLC.cLr;
+            morePopupWindow6 = this.cUl.cUa;
             if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.cLC.cLr;
-                newSubPbActivity = this.cLC.cLg;
+                morePopupWindow7 = this.cUl.cUa;
+                newSubPbActivity = this.cUl.cTO;
                 com.baidu.adp.lib.h.j.a(morePopupWindow7, newSubPbActivity.getPageContext().getPageActivity());
-                morePopupWindow8 = this.cLC.cLr;
+                morePopupWindow8 = this.cUl.cUa;
                 morePopupWindow8.setIsIntercepted(true);
                 return true;
             }
         }
-        morePopupWindow5 = this.cLC.cLr;
+        morePopupWindow5 = this.cUl.cUa;
         morePopupWindow5.setIsIntercepted(false);
         return false;
     }

@@ -1,54 +1,22 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
-import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId Xz = BdUniqueId.gen();
-    private String XA;
-    private int position = 0;
-    private String summary;
+public class ad {
+    private int Ww;
+    private Object data;
 
-    public String tb() {
-        return this.XA;
+    public int sX() {
+        return this.Ww;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public void bS(int i) {
+        this.Ww = i;
     }
 
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.XA = topNews.news_link;
-            this.summary = topNews.summary;
-        }
+    public Object getData() {
+        return this.data;
     }
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.XA = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.XA = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
-                this.position = jSONObject.optInt("position", 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return Xz;
+    public void setData(Object obj) {
+        this.data = obj;
     }
 }

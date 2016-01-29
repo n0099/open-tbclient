@@ -7,6 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private String mDisplayName;
     private int mGodType;
     private boolean mIsSelectTail;
     private String mMemberIconUrl;
@@ -42,6 +43,14 @@ public class AccountData implements Serializable {
 
     public String getPassword() {
         return this.mPassword;
+    }
+
+    public String getDisplayName() {
+        return this.mDisplayName;
+    }
+
+    public void setDisplayName(String str) {
+        this.mDisplayName = str;
     }
 
     public void setPassword(String str) {

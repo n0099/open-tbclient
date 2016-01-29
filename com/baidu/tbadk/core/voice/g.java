@@ -1,12 +1,19 @@
 package com.baidu.tbadk.core.voice;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.voice.l;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.core.voice.service.MediaService;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.lib.g.b<com.baidu.tbadk.core.voice.a.a> {
+public class g extends BroadcastReceiver {
     final /* synthetic */ VoiceManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,27 +21,94 @@ public class g extends com.baidu.adp.lib.g.b<com.baidu.tbadk.core.voice.a.a> {
         this.this$0 = voiceManager;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.tbadk.core.voice.a.a aVar, String str, int i) {
-        super.a((g) aVar, str, i);
-        if (this.this$0.mCurPlayModel != null && this.this$0.sPlayView != null && aVar != null) {
-            String str2 = aVar.path;
-            String str3 = aVar.md5;
-            int i2 = aVar.error_code;
-            String str4 = aVar.error_msg;
-            if (StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-                TiebaStatic.voiceError(1, this.this$0.context.getString(n.j.voice_cache_error_internal), str2);
-                if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    this.this$0.sPlayView.onShowErr(5, l.getString(n.j.voice_err_load_fail));
-                } else {
-                    this.this$0.sPlayView.onShowErr(5, str4);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String string;
+        Runnable runnable;
+        if (this.this$0.mCurPlayModel != null && intent != null) {
+            String action = intent.getAction();
+            if (action.equals("com.baidu.isPlaying")) {
+                this.this$0.setVolumeControlStream();
+                if (intent.getBooleanExtra("com.baidu.msg.isPlaying", false) && this.this$0.mCurPlayModel != null) {
+                    if (this.this$0.mHandle != null) {
+                        Handler handler = this.this$0.mHandle;
+                        runnable = this.this$0.unRegistSensorRunnable;
+                        handler.removeCallbacks(runnable);
+                    }
+                    try {
+                        this.this$0.mCurPlayModel.voice_status = 3;
+                        VoiceManager.b playView = this.this$0.getPlayView();
+                        if (playView != null) {
+                            playView.b(this.this$0.mCurPlayModel);
+                        }
+                    } catch (Exception e) {
+                        l lVar = new l();
+                        if (this.this$0.mCurPlayModel != null) {
+                            lVar.i("id", this.this$0.mCurPlayModel.getId());
+                            lVar.i("from", this.this$0.mCurPlayModel.from);
+                        }
+                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), lVar.toString());
+                    }
                 }
-                this.this$0.setPlayWaiting(this.this$0.mCurPlayModel);
-            } else if (!this.this$0.mCurPlayModel.voiceId.equals(str3) || !VoiceManager.isVoiceDownloading(this.this$0.mCurPlayModel.voice_status.intValue())) {
+            } else if (action.equals("com.baidu.playElapsedTime")) {
+                int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
+                VoiceManager.b playView2 = this.this$0.getPlayView();
+                if (playView2 != null) {
+                    playView2.aP(intExtra);
+                }
+                if (this.this$0.mCurPlayModel != null) {
+                    this.this$0.mCurPlayModel.elapse = intExtra;
+                }
+            } else if (action.equals("com.baidu.isStoped")) {
+                VoiceManager.b playView3 = this.this$0.getPlayView();
+                if (this.this$0.mCurPlayModel != null) {
+                    if (!this.this$0.bStopAndReplay) {
+                        this.this$0.releaseWakeLock();
+                        this.this$0.setStatusWaiting(this.this$0.mCurPlayModel);
+                        this.this$0.sPlayView = null;
+                    }
+                    this.this$0.mCurPlayModel = null;
+                    if (this.this$0.bStopAndReplay && playView3 != null) {
+                        VoiceData.VoiceModel voiceModel = playView3.getVoiceModel();
+                        if (voiceModel != null) {
+                            voiceModel.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
+                        }
+                        if (this.this$0.mHandle != null) {
+                            this.this$0.mHandle.removeCallbacks(this.this$0.stopVoiceAndRePlayRunnable);
+                            this.this$0.mHandle.postDelayed(this.this$0.stopVoiceAndRePlayRunnable, 200L);
+                        }
+                    }
+                }
+            } else if (action.equals("com.baidu.playPrepared")) {
+                int intExtra2 = intent.getIntExtra("com.baidu.playPrepared_err_code", -1);
+                if (intExtra2 != -1) {
+                    VoiceManager.b playView4 = this.this$0.getPlayView();
+                    if (playView4 != null) {
+                        if (intExtra2 == 2) {
+                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_io);
+                        } else {
+                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_play);
+                        }
+                        playView4.onShowErr(5, string);
+                    }
+                    if (this.this$0.mCurPlayModel != null) {
+                        this.this$0.setStatusWaiting(this.this$0.mCurPlayModel);
+                        this.this$0.mCurPlayModel = null;
+                        return;
+                    }
+                    return;
+                }
+                long longExtra = intent.getLongExtra("com.baidu.msg.durationTime2", this.this$0.mCurPlayModel != null ? this.this$0.mCurPlayModel.duration * 1000 : 0);
+                if (longExtra > 900 && this.this$0.mCurPlayModel != null) {
+                    this.this$0.mCurPlayModel.duration2 = (int) longExtra;
+                }
+                VoiceManager.b playView5 = this.this$0.getPlayView();
+                if (playView5 != null) {
+                    playView5.oD();
+                }
+                MediaService.startPlay(context);
             } else {
-                this.this$0.setPlaying(this.this$0.mCurPlayModel, str2);
+                action.equalsIgnoreCase("com.baidu.recognize");
             }
         }
     }

@@ -1,29 +1,34 @@
 package com.baidu.tieba.frs.frsgood;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ FrsGoodActivity bkp;
+class e implements View.OnClickListener {
+    final /* synthetic */ FrsGoodActivity bnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(FrsGoodActivity frsGoodActivity, int i) {
-        super(i);
-        this.bkp = frsGoodActivity;
+    public e(FrsGoodActivity frsGoodActivity) {
+        this.bnm = frsGoodActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001122) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int intValue = ((Integer) view.getTag()).intValue();
+        com.baidu.adp.widget.ListView.u aG = this.bnm.bng.QY().aG(intValue);
+        if (aG instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aG;
+            int i = cVar.Us;
+            if (i == 0) {
+                if (com.baidu.adp.lib.util.i.iZ() && !com.baidu.adp.lib.util.i.ja()) {
+                    this.bnm.a(cVar, intValue, false);
+                } else {
+                    this.bnm.a(cVar, "btn_download");
+                    this.bnm.b(cVar, intValue);
+                }
+            } else if (i == 2) {
+                com.baidu.tieba.frs.utils.a.N(this.bnm.getPageContext().getPageActivity(), cVar.Uy);
+            }
+            TiebaStatic.eventStat(this.bnm.getPageContext().getPageActivity(), "frs_tb_btc", "");
         }
-        this.bkp.f(customResponsedMessage);
     }
 }

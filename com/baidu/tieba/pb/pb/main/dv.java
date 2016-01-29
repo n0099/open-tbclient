@@ -1,27 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class dv implements View.OnClickListener {
-    final /* synthetic */ dk cKg;
-
+class dv extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dv(dk dkVar) {
-        this.cKg = dkVar;
+    public dv(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.cKg.cJg;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.cKg.cJg;
-            pbActivity = this.cKg.cGj;
-            com.baidu.adp.lib.h.j.b(dialog2, pbActivity.getPageContext());
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ds.aqK().a(1, customResponsedMessage);
     }
 }

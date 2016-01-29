@@ -5,24 +5,24 @@ import com.baidu.tieba.pb.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ PbNewChudianCommonView cMN;
+    final /* synthetic */ PbNewChudianCommonView cVB;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbNewChudianCommonView pbNewChudianCommonView, String str) {
-        this.cMN = pbNewChudianCommonView;
+        this.cVB = pbNewChudianCommonView;
         this.val$url = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        a.InterfaceC0072a interfaceC0072a;
-        a.InterfaceC0072a interfaceC0072a2;
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        a.InterfaceC0074a interfaceC0074a;
+        a.InterfaceC0074a interfaceC0074a2;
         aVar.dismiss();
-        interfaceC0072a = this.cMN.cBf;
-        if (interfaceC0072a != null) {
-            interfaceC0072a2 = this.cMN.cBf;
-            interfaceC0072a2.t(this.val$url, "BTN_CANCEL", "CLICK_FEEDBACK");
+        interfaceC0074a = this.cVB.cHL;
+        if (interfaceC0074a != null) {
+            interfaceC0074a2 = this.cVB.cHL;
+            interfaceC0074a2.u(this.val$url, "BTN_CANCEL", "CLICK_FEEDBACK");
         }
     }
 }

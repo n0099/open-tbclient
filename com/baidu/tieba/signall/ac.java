@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,21 +26,21 @@ class ac extends CustomMessageListener {
         com.baidu.tbadk.d.d dVar5;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009501 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.d.a)) {
             SignAllForumStatic.mContext = ((com.baidu.tbadk.d.a) customResponsedMessage.getData()).getContext();
-            SignAllForumStatic.czC = new com.baidu.tbadk.d.d();
+            SignAllForumStatic.cGi = new com.baidu.tbadk.d.d();
             context = SignAllForumStatic.mContext;
             if (context != null) {
-                dVar = SignAllForumStatic.czC;
-                onClickListener = SignAllForumStatic.mClickListener;
-                dVar.d(onClickListener);
-                dVar2 = SignAllForumStatic.czC;
+                dVar = SignAllForumStatic.cGi;
+                onClickListener = SignAllForumStatic.OS;
+                dVar.h(onClickListener);
+                dVar2 = SignAllForumStatic.cGi;
                 dVar2.setPosition(4);
-                dVar3 = SignAllForumStatic.czC;
+                dVar3 = SignAllForumStatic.cGi;
                 context2 = SignAllForumStatic.mContext;
-                dVar3.setIcon(context2.getResources().getDrawable(n.f.icon_all_sign_dis));
-                dVar4 = SignAllForumStatic.czC;
+                dVar3.setIcon(context2.getResources().getDrawable(t.f.icon_all_sign_dis));
+                dVar4 = SignAllForumStatic.cGi;
                 context3 = SignAllForumStatic.mContext;
-                dVar4.setTitle(context3.getResources().getString(n.j.ba_all_sign));
-                dVar5 = SignAllForumStatic.czC;
+                dVar4.setTitle(context3.getResources().getString(t.j.ba_all_sign));
+                dVar5 = SignAllForumStatic.cGi;
                 ((com.baidu.tbadk.d.a) customResponsedMessage.getData()).a(dVar5);
             }
         }

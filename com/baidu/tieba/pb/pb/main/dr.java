@@ -1,41 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.n;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dr implements View.OnClickListener {
-    private final /* synthetic */ boolean cFU;
-    final /* synthetic */ dk cKg;
+public class dr extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ dq cQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dr(dk dkVar, boolean z) {
-        this.cKg = dkVar;
-        this.cFU = z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dr(dq dqVar, int i, int i2) {
+        super(i, i2);
+        this.cQa = dqVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.cKg.cIU;
-        if (dialog != null) {
-            dialog2 = this.cKg.cIU;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.cKg.cIU;
-                pbActivity2 = this.cKg.cGj;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity2.getPageContext());
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        BdUniqueId bdUniqueId;
+        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
+            z = this.cQa.cPY;
+            if (!z) {
+                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
+                bdUniqueId = this.cQa.mTag;
+                if (tag == bdUniqueId && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                        this.cQa.a((pbPageSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                        this.cQa.a((pbPageHttpResponseMessage) responsedMessage);
+                    }
+                }
             }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.cKg.cGj;
-            pbActivity.a(this.cFU, (String) sparseArray.get(n.g.tag_user_mute_mute_userid), sparseArray);
         }
     }
 }

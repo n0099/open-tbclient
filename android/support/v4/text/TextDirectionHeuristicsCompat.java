@@ -14,11 +14,11 @@ public class TextDirectionHeuristicsCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface c {
-        int a(CharSequence charSequence, int i, int i2);
+        int b(CharSequence charSequence, int i, int i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int k(int i) {
+    public static int n(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -31,7 +31,7 @@ public class TextDirectionHeuristicsCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int l(int i) {
+    public static int o(int i) {
         switch (i) {
             case 0:
             case 14:
@@ -51,7 +51,7 @@ public class TextDirectionHeuristicsCompat {
     private static abstract class d implements TextDirectionHeuristicCompat {
         private final c mD;
 
-        protected abstract boolean dD();
+        protected abstract boolean dF();
 
         public d(c cVar) {
             this.mD = cVar;
@@ -67,17 +67,17 @@ public class TextDirectionHeuristicsCompat {
             if (charSequence == null || i < 0 || i2 < 0 || charSequence.length() - i2 < i) {
                 throw new IllegalArgumentException();
             }
-            return this.mD == null ? dD() : b(charSequence, i, i2);
+            return this.mD == null ? dF() : c(charSequence, i, i2);
         }
 
-        private boolean b(CharSequence charSequence, int i, int i2) {
-            switch (this.mD.a(charSequence, i, i2)) {
+        private boolean c(CharSequence charSequence, int i, int i2) {
+            switch (this.mD.b(charSequence, i, i2)) {
                 case 0:
                     return true;
                 case 1:
                     return false;
                 default:
-                    return dD();
+                    return dF();
             }
         }
     }
@@ -92,7 +92,7 @@ public class TextDirectionHeuristicsCompat {
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
-        protected boolean dD() {
+        protected boolean dF() {
             return this.mE;
         }
     }
@@ -102,11 +102,11 @@ public class TextDirectionHeuristicsCompat {
         public static final b mB = new b();
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
-        public int a(CharSequence charSequence, int i, int i2) {
+        public int b(CharSequence charSequence, int i, int i2) {
             int i3 = i + i2;
             int i4 = 2;
             while (i < i3 && i4 == 2) {
-                i4 = TextDirectionHeuristicsCompat.l(Character.getDirectionality(charSequence.charAt(i)));
+                i4 = TextDirectionHeuristicsCompat.o(Character.getDirectionality(charSequence.charAt(i)));
                 i++;
             }
             return i4;
@@ -123,11 +123,11 @@ public class TextDirectionHeuristicsCompat {
         public static final a mA = new a(false);
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
-        public int a(CharSequence charSequence, int i, int i2) {
+        public int b(CharSequence charSequence, int i, int i2) {
             int i3 = i + i2;
             boolean z = false;
             while (i < i3) {
-                switch (TextDirectionHeuristicsCompat.k(Character.getDirectionality(charSequence.charAt(i)))) {
+                switch (TextDirectionHeuristicsCompat.n(Character.getDirectionality(charSequence.charAt(i)))) {
                     case 0:
                         if (!this.my) {
                             z = true;
@@ -165,7 +165,7 @@ public class TextDirectionHeuristicsCompat {
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
-        protected boolean dD() {
+        protected boolean dF() {
             return TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == 1;
         }
     }

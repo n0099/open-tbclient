@@ -1,40 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import com.baidu.tieba.n;
-import com.baidu.tieba.usermute.i;
-import tbclient.UserMuteCheck.DataRes;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tieba.pb.b.c;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class j implements i.a {
-    final /* synthetic */ PbActivity cFS;
+class j implements c.a {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.i.a
-    public void a(DataRes dataRes, int i, String str, Object obj) {
-        dk dkVar;
-        boolean z;
-        dk dkVar2;
-        dkVar = this.cFS.cFq;
-        dkVar.ang();
-        SparseArray<Object> sparseArray = (SparseArray) obj;
-        if (i == 0 && dataRes != null) {
-            boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
-            sparseArray.put(n.g.tag_user_mute_visible, true);
-            z = z2;
-        } else {
-            sparseArray.put(n.g.tag_user_mute_visible, false);
-            z = false;
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        dz dzVar;
+        com.baidu.tbadk.editortools.d.e eVar;
+        dz dzVar2;
+        dz dzVar3;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        dz dzVar4;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        dzVar = this.cNq.cMK;
+        dzVar.fE(false);
+        eVar = this.cNq.cMU;
+        if (eVar != null) {
+            dzVar4 = this.cNq.cMK;
+            eVar3 = this.cNq.cMU;
+            dzVar4.ep(eVar3.Dk());
         }
-        int intValue = ((Integer) sparseArray.get(n.g.tag_from)).intValue();
-        if (intValue == 0) {
-            this.cFS.a(z, sparseArray);
-        } else if (intValue == 1) {
-            dkVar2 = this.cFS.cFq;
-            dkVar2.a(sparseArray, z);
+        dzVar2 = this.cNq.cMK;
+        dzVar2.aE(view);
+        dzVar3 = this.cNq.cMK;
+        dzVar3.fE(true);
+        eVar2 = this.cNq.cMU;
+        eVar2.Dn();
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.editortools.d.e eVar;
+        dz dzVar;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        dz dzVar2;
+        dz dzVar3;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        boolean aA;
+        if (view != null && view.getId() == t.g.richText) {
+            aA = this.cNq.aA(view);
+            if (aA) {
+                return true;
+            }
         }
+        eVar = this.cNq.cMU;
+        if (eVar != null) {
+            dzVar3 = this.cNq.cMK;
+            eVar3 = this.cNq.cMU;
+            dzVar3.ep(eVar3.Dk());
+        }
+        dzVar = this.cNq.cMK;
+        dzVar.aqT();
+        eVar2 = this.cNq.cMU;
+        eVar2.Dn();
+        dzVar2 = this.cNq.cMK;
+        dzVar2.ajp();
+        return false;
     }
 }

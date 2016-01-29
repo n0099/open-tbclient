@@ -1,27 +1,23 @@
 package com.baidu.tieba.card;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ an aPB;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ an aQz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(an anVar) {
-        this.aPB = anVar;
+        this.aQz = anVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        this.aPB.aPA = i;
-        this.aPB.setCurrentItem(i);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.a.r rVar;
+        if (this.aQz.JL() != null) {
+            bb<com.baidu.tieba.card.a.r> JL = this.aQz.JL();
+            rVar = this.aQz.aQv;
+            JL.a(view, rVar);
+        }
     }
 }

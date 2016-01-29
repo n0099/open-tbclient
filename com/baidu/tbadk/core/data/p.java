@@ -1,53 +1,44 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class p {
-    private long VZ;
-    private String Wa;
-    private String content;
-    private String link;
-    private String stat;
-    private long taskId;
+    private String class_name = null;
+    private int VI = 0;
 
-    public p() {
-        this.VZ = -1L;
-        this.link = null;
-        this.content = null;
-        this.Wa = null;
-        this.stat = "";
-        this.taskId = -1L;
+    public void cr(String str) {
+        this.class_name = str;
     }
 
-    public p(long j, long j2, String str, String str2, String str3) {
-        this.VZ = -1L;
-        this.link = null;
-        this.content = null;
-        this.Wa = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.VZ = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
+    public String sk() {
+        return this.class_name;
     }
 
-    public String getStat() {
-        return this.stat;
+    public void bJ(int i) {
+        this.VI = i;
     }
 
-    public long rJ() {
-        return this.VZ;
+    public int sl() {
+        return this.VI;
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.VI = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public String getLink() {
-        return this.link;
-    }
-
-    public String getContent() {
-        return this.content;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.VI = classify.class_id.intValue();
+            this.class_name = classify.class_name;
+        }
     }
 }

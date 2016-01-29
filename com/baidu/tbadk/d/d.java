@@ -4,24 +4,24 @@ import android.view.View;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d extends b {
-    private IntentConfig arl;
-    private IntentConfig arm;
-    private View.OnClickListener mClickListener;
+    private View.OnClickListener OS;
+    private IntentConfig ase;
+    private IntentConfig asf;
 
     @Override // com.baidu.tbadk.d.b
-    public void d(View.OnClickListener onClickListener) {
-        this.mClickListener = onClickListener;
+    public void h(View.OnClickListener onClickListener) {
+        this.OS = onClickListener;
     }
 
     public void a(IntentConfig intentConfig) {
-        this.arl = intentConfig;
+        this.ase = intentConfig;
     }
 
     public void b(IntentConfig intentConfig) {
-        this.arm = intentConfig;
+        this.asf = intentConfig;
     }
 
-    public IntentConfig bd(boolean z) {
-        return z ? this.arl : this.arm;
+    public IntentConfig bf(boolean z) {
+        return z ? this.ase : this.asf;
     }
 }

@@ -1,35 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.view.View;
 /* loaded from: classes.dex */
-class o implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bed;
+class o implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        com.baidu.tieba.tbadkCore.p pVar;
-        boolean z2;
-        com.baidu.tieba.tbadkCore.p pVar2;
-        if (z && !this.bed.bdm.No()) {
-            pVar = this.bed.bdo;
-            if (pVar != null) {
-                pVar2 = this.bed.bdo;
-                if (pVar2.getThreadList().size() != 0) {
-                    return;
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.widget.ListView.u aG = this.bgz.bfD.Qi().aG(((Integer) view.getTag()).intValue());
+        if (aG instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aG;
+            if (!cVar.rO()) {
+                return;
             }
-            this.bed.hideNetRefreshView(this.bed.bdm.getRootView());
-            z2 = this.bed.bcZ;
-            if (!z2) {
-                this.bed.showLoadingView(this.bed.bdm.getRootView(), true);
-                this.bed.bdm.Oe();
-            }
-            this.bed.refresh();
+            this.bgz.b(cVar);
         }
     }
 }

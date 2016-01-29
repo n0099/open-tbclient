@@ -1,35 +1,64 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.im.model.BlackListModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.person.god.GodThreadListActivityConfig;
 /* loaded from: classes.dex */
-public class aq implements a.b {
-    final /* synthetic */ d cWV;
+class aq implements com.baidu.adp.widget.ListView.v {
+    final /* synthetic */ ap diJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(d dVar) {
-        this.cWV = dVar;
+    public aq(ap apVar) {
+        this.diJ = apVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        bb bbVar;
-        BlackListModel blackListModel;
-        BlackListModel blackListModel2;
-        BlackListModel blackListModel3;
-        bbVar = this.cWV.cRx;
-        long c = com.baidu.adp.lib.h.b.c(bbVar.getId(), -1L);
-        if (c > 0) {
-            blackListModel = this.cWV.cWj;
-            if (blackListModel.getMaskType() == 1) {
-                blackListModel3 = this.cWV.cWj;
-                blackListModel3.removeFromBlackList(c);
-            } else {
-                blackListModel2 = this.cWV.cWj;
-                blackListModel2.addToBlackList(c);
+    @Override // com.baidu.adp.widget.ListView.v
+    public void a(View view, com.baidu.adp.widget.ListView.u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
+        f fVar;
+        BaseFragmentActivity baseFragmentActivity;
+        f fVar2;
+        bf bfVar;
+        f fVar3;
+        BaseFragmentActivity baseFragmentActivity2;
+        f fVar4;
+        bf bfVar2;
+        f fVar5;
+        BaseFragmentActivity baseFragmentActivity3;
+        f fVar6;
+        if (bdUniqueId == com.baidu.tieba.person.data.f.dbK) {
+            fVar3 = this.diJ.diG;
+            baseFragmentActivity2 = fVar3.aKq;
+            if (com.baidu.tbadk.core.util.bi.ah(baseFragmentActivity2.getPageContext().getPageActivity())) {
+                fVar4 = this.diJ.diG;
+                bfVar2 = fVar4.dbl;
+                UserData userData = bfVar2.getUserData();
+                if (userData != null) {
+                    int like_bars = userData.getLike_bars();
+                    fVar5 = this.diJ.diG;
+                    baseFragmentActivity3 = fVar5.aKq;
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(baseFragmentActivity3.getPageContext().getPageActivity(), like_bars, userData.getUserId(), userData.getSex()));
+                    fVar6 = this.diJ.diG;
+                    fVar6.sendMessage(customMessage);
+                }
             }
+        } else if (bdUniqueId == com.baidu.tieba.person.data.j.aRS && (uVar instanceof com.baidu.tieba.person.data.j)) {
+            long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
+            fVar = this.diJ.diG;
+            baseFragmentActivity = fVar.aKq;
+            Activity pageActivity = baseFragmentActivity.getPageContext().getPageActivity();
+            int i2 = ((com.baidu.tieba.person.data.j) uVar).dbR;
+            fVar2 = this.diJ.diG;
+            bfVar = fVar2.dbl;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodThreadListActivityConfig(pageActivity, c, i2, bfVar.getAuthor())));
         }
-        aVar.dismiss();
     }
 }

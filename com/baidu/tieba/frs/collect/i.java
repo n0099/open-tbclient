@@ -5,53 +5,53 @@ import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.u;
 import com.baidu.adp.widget.ListView.w;
-import com.baidu.tbadk.core.data.t;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.x;
 /* loaded from: classes.dex */
 class i implements w {
-    final /* synthetic */ MyCollectFrsActivity bkc;
+    final /* synthetic */ MyCollectFrsActivity bmY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(MyCollectFrsActivity myCollectFrsActivity) {
-        this.bkc = myCollectFrsActivity;
+        this.bmY = myCollectFrsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
     public boolean b(View view, u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        z zVar;
-        z zVar2;
-        z zVar3;
-        z zVar4;
-        z zVar5;
+        ah ahVar;
+        ah ahVar2;
+        ah ahVar3;
+        ah ahVar4;
+        ah ahVar5;
         l lVar;
-        if (bdUniqueId == null || (uVar instanceof com.baidu.tbadk.core.data.b)) {
+        if (bdUniqueId == null || (uVar instanceof com.baidu.tbadk.core.data.c)) {
             return false;
         }
-        if (uVar instanceof z) {
-            this.bkc.bka = (z) uVar;
-            zVar = this.bkc.bka;
-            if (zVar.isPhotoLiveThread()) {
+        if (uVar instanceof ah) {
+            this.bmY.bmW = (ah) uVar;
+            ahVar = this.bmY.bmW;
+            if (ahVar.isPhotoLiveThread()) {
                 return true;
             }
-            zVar2 = this.bkc.bka;
-            if (zVar2 instanceof t) {
+            ahVar2 = this.bmY.bmW;
+            if (ahVar2 instanceof x) {
                 return true;
             }
-            MyCollectFrsActivity myCollectFrsActivity = this.bkc;
-            zVar3 = this.bkc.bka;
-            myCollectFrsActivity.bjV = zVar3.getId();
-            zVar4 = this.bkc.bka;
-            String sx = zVar4.sx();
-            if (sx == null || sx.equals("")) {
-                this.bkc.bkb = false;
+            MyCollectFrsActivity myCollectFrsActivity = this.bmY;
+            ahVar3 = this.bmY.bmW;
+            myCollectFrsActivity.bmR = ahVar3.getId();
+            ahVar4 = this.bmY.bmW;
+            String tq = ahVar4.tq();
+            if (tq == null || tq.equals("")) {
+                this.bmY.bmX = false;
             } else {
-                this.bkc.bkb = true;
+                this.bmY.bmX = true;
             }
-            MyCollectFrsActivity myCollectFrsActivity2 = this.bkc;
-            zVar5 = this.bkc.bka;
-            myCollectFrsActivity2.c(zVar5);
-            lVar = this.bkc.bjX;
-            lVar.NT();
+            MyCollectFrsActivity myCollectFrsActivity2 = this.bmY;
+            ahVar5 = this.bmY.bmW;
+            myCollectFrsActivity2.c(ahVar5);
+            lVar = this.bmY.bmT;
+            lVar.PU();
             return true;
         }
         return true;

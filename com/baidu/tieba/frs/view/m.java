@@ -1,22 +1,25 @@
 package com.baidu.tieba.frs.view;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements a.b {
-    final /* synthetic */ FrsHeaderView bow;
+public class m implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView brq;
+    private final /* synthetic */ com.baidu.tbadk.core.data.b brr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsHeaderView frsHeaderView) {
-        this.bow = frsHeaderView;
+    public m(FrsHeaderView frsHeaderView, com.baidu.tbadk.core.data.b bVar) {
+        this.brq = frsHeaderView;
+        this.brr = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.bow.mContext.getPageActivity(), this.bow.mMemberType, "exp_acce", 2)));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        au auVar = new au("c10826");
+        auVar.aa("obj_id", this.brq.bqR.aoE().getId());
+        TiebaStatic.log(auVar);
+        com.baidu.tbadk.browser.f.a(this.brq.bgW.getPageContext().getPageActivity(), true, this.brr.rH());
     }
 }

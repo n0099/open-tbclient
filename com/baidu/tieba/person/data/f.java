@@ -5,18 +5,18 @@ import com.baidu.tbadk.data.MyLikeForum;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends a {
-    public static final BdUniqueId cRW = BdUniqueId.gen();
-    private List<MyLikeForum> cRX;
+    public static final BdUniqueId dbK = BdUniqueId.gen();
     private int count;
+    private List<MyLikeForum> dbL;
+    private int dbM = 1;
+    private int isFriend = 1;
     private boolean isSelf;
     private int sex;
     private String userId;
-    private int cRY = 1;
-    private int isFriend = 1;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cRW;
+        return dbK;
     }
 
     public int getCount() {
@@ -27,12 +27,12 @@ public class f extends a {
         this.count = i;
     }
 
-    public List<MyLikeForum> app() {
-        return this.cRX;
+    public List<MyLikeForum> auh() {
+        return this.dbL;
     }
 
-    public void bm(List<MyLikeForum> list) {
-        this.cRX = list;
+    public void bo(List<MyLikeForum> list) {
+        this.dbL = list;
     }
 
     public boolean isSelf() {
@@ -51,12 +51,12 @@ public class f extends a {
         this.sex = i;
     }
 
-    public int apq() {
-        return this.cRY;
+    public int aui() {
+        return this.dbM;
     }
 
-    public void kP(int i) {
-        this.cRY = i;
+    public void lw(int i) {
+        this.dbM = i;
     }
 
     public int getIsFriend() {

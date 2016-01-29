@@ -6,25 +6,25 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.aw;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ a aRp;
-    private final /* synthetic */ tinfo aRq;
+    final /* synthetic */ a aTw;
+    private final /* synthetic */ tinfo aTx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, tinfo tinfoVar) {
-        this.aRp = aVar;
-        this.aRq = tinfoVar;
+        this.aTw = aVar;
+        this.aTx = tinfoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str = this.aRq.forum_name;
-        if (ax.aR(str)) {
-            TiebaStatic.eventStat(this.aRp.getActivity(), "kantie_6", null, 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aRp.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+        String str = this.aTx.forum_name;
+        if (aw.aQ(str)) {
+            TiebaStatic.eventStat(this.aTw.getActivity(), "kantie_6", null, 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aTw.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
         }
     }
 }

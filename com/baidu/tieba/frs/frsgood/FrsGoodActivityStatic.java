@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class FrsGoodActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, new u());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, new v());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

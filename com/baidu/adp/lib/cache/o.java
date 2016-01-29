@@ -4,33 +4,33 @@ public interface o<T> {
 
     /* loaded from: classes.dex */
     public interface a<T> {
-        void onItemGet(String str, T t);
+        void h(String str, T t);
     }
 
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public T sq;
-        public long th;
-        public long ty;
+        public T sz;
+        public long tH;
+        public long ts;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends o<T> {
-        String gm();
+        String gu();
 
-        n<T> gn();
+        n<T> gv();
 
-        void go();
+        void gw();
     }
+
+    b<T> Z(String str);
 
     void a(String str, a<T> aVar);
 
     void a(String str, T t, long j);
 
-    b<T> aa(String str);
-
-    void ab(String str);
+    void aa(String str);
 
     void b(String str, T t, long j);
 

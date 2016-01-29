@@ -2,13 +2,13 @@ package com.baidu.tieba.payment;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class t {
-    public static void ko(String str) {
+    public static void kr(String str) {
         int i = TbadkCoreApplication.getCurrentMemberType() > 0 ? 1 : 0;
-        av avVar = new av(str);
-        avVar.r("obj_type", i);
-        TiebaStatic.log(avVar);
+        au auVar = new au(str);
+        auVar.r("obj_type", i);
+        TiebaStatic.log(auVar);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -22,7 +21,6 @@ public class WriteData implements Serializable {
     private WriteImagesInfo baobaoImagesInfo;
     private boolean isAd;
     private boolean isBabaoPosted;
-    private LiveCardData liveCardData;
     private String mBaobaoContent;
     private int mCategoryFrom;
     private int mCategoryTo;
@@ -38,6 +36,7 @@ public class WriteData implements Serializable {
     private boolean mIsBaobao;
     private boolean mIsFrsReply;
     private boolean mIsGiftPost;
+    private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
     private String mRepostId;
     private String mReturnVoiceMd5;
@@ -54,6 +53,7 @@ public class WriteData implements Serializable {
     private String mShareSummaryImgType;
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
+    private String mTaskId;
     private String mThreadId;
     private String mTitle;
     private int mType;
@@ -90,8 +90,8 @@ public class WriteData implements Serializable {
         this.mVcodeUrl = null;
         this.mVoiceMd5 = null;
         this.mHaveDraft = false;
-        this.liveCardData = null;
         this.mIsBaobao = false;
+        this.mIsInterviewLivew = false;
         setIsAd(false);
         this.mShareApiKey = null;
         this.mShareAppName = null;
@@ -120,10 +120,7 @@ public class WriteData implements Serializable {
         if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
-                    if (this.liveCardData == null || !this.liveCardData.isModifyTime()) {
-                        return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
-                    }
-                    return true;
+                    return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
                 }
                 return true;
             }
@@ -140,10 +137,8 @@ public class WriteData implements Serializable {
             jSONObject.put("mContent", this.mContent);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsBaobao", this.mIsBaobao);
+            jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
             jSONObject.put("mCategoryTo", this.mCategoryTo);
-            if (this.liveCardData != null) {
-                jSONObject.put("livePostInfo", this.liveCardData.toDraftJson());
-            }
             if (this.writeImagesInfo != null) {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
@@ -152,6 +147,9 @@ public class WriteData implements Serializable {
             }
             if (this.mVideoInfo != null) {
                 jSONObject.put(VideoInfo.DRAFT_JSON_NAME, VideoInfo.jsonWithObject(this.mVideoInfo));
+            }
+            if (this.mTaskId != null) {
+                jSONObject.put("mTaskId", this.mTaskId);
             }
         } catch (Exception e) {
         }
@@ -170,25 +168,21 @@ public class WriteData implements Serializable {
             writeData.mContent = jSONObject.optString("mContent", null);
             writeData.mThreadId = jSONObject.optString("mThreadId", null);
             writeData.mIsBaobao = jSONObject.optBoolean("mIsBaobao");
+            writeData.mIsInterviewLivew = jSONObject.optBoolean("mIsInterviewLive");
             writeData.mCategoryTo = jSONObject.optInt("mCategoryTo", -1);
-            JSONObject optJSONObject = jSONObject.optJSONObject("livePostInfo");
+            JSONObject optJSONObject = jSONObject.optJSONObject(VideoInfo.DRAFT_JSON_NAME);
             if (optJSONObject != null) {
-                writeData.liveCardData = new LiveCardData();
-                writeData.liveCardData.parseDraftJson(optJSONObject);
+                writeData.mVideoInfo = (VideoInfo) VideoInfo.objectWithJson(optJSONObject, VideoInfo.class);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(VideoInfo.DRAFT_JSON_NAME);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("writeImagesInfo");
             if (optJSONObject2 != null) {
-                writeData.mVideoInfo = (VideoInfo) VideoInfo.objectWithJson(optJSONObject2, VideoInfo.class);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("writeImagesInfo");
-            if (optJSONObject3 != null) {
                 writeData.writeImagesInfo = new WriteImagesInfo();
-                writeData.writeImagesInfo.parseJson(optJSONObject3);
+                writeData.writeImagesInfo.parseJson(optJSONObject2);
             }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("baobaoImagesInfo");
-            if (optJSONObject4 != null) {
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("baobaoImagesInfo");
+            if (optJSONObject3 != null) {
                 writeData.baobaoImagesInfo = new WriteImagesInfo();
-                writeData.baobaoImagesInfo.parseJson(optJSONObject4);
+                writeData.baobaoImagesInfo.parseJson(optJSONObject3);
             }
             return writeData;
         } catch (Exception e) {
@@ -226,6 +220,14 @@ public class WriteData implements Serializable {
 
     public String getThreadId() {
         return this.mThreadId;
+    }
+
+    public void setTaskId(String str) {
+        this.mTaskId = str;
+    }
+
+    public String getmTaskId() {
+        return this.mTaskId;
     }
 
     public void setFloor(String str) {
@@ -312,6 +314,10 @@ public class WriteData implements Serializable {
         this.mIsBaobao = z;
     }
 
+    public void setIsInterviewLive(boolean z) {
+        this.mIsInterviewLivew = z;
+    }
+
     public boolean getIsBaobaoImageUploaded() {
         if (getIsBaobao()) {
             LinkedList<ImageFileInfo> chosedFiles = this.baobaoImagesInfo.getChosedFiles();
@@ -330,6 +336,10 @@ public class WriteData implements Serializable {
             return false;
         }
         return this.mIsBaobao;
+    }
+
+    public boolean getIsInterviewLive() {
+        return this.mIsInterviewLivew;
     }
 
     public void setVoice(String str) {
@@ -492,14 +502,6 @@ public class WriteData implements Serializable {
 
     public void setIsFrsReply(boolean z) {
         this.mIsFrsReply = z;
-    }
-
-    public LiveCardData getLiveCardData() {
-        return this.liveCardData;
-    }
-
-    public void setLiveCardData(LiveCardData liveCardData) {
-        this.liveCardData = liveCardData;
     }
 
     public String getBaobaoContent() {

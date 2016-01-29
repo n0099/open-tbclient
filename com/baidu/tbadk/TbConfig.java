@@ -38,7 +38,7 @@ public class TbConfig {
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
-    public static final int BUILD_NUMBER = 31;
+    public static final int BUILD_NUMBER = 141;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -121,8 +121,10 @@ public class TbConfig {
     public static final String GET_USER_FREE_CHANCE = "c/e/present/getUserFreeChance";
     public static final String GET_USER_INFO = "c/u/user/getuserinfo";
     public static final String GET_USER_LOCATION = "c/u/user/getuserlocation";
+    public static final String GET_USER_ORDER = "c/e/consume/getUserOrder";
     public static final String GIFT_COMMONLIST = "c/e/gift/commonlist";
     public static final String GIFT_PLACE_ORDER = "c/c/encourage/present/placeOrder";
+    public static final String GOD_THREAD_LIST = "c/u/user/godThreadList";
     public static final String GOOD_LIST_ADDRESS = "c/c/bawu/goodlist";
     public static final String GROUP_HEAD_FILE = "tieba_group_image";
     public static final boolean GROUP_MSG_DEFAULT_SWITCH = true;
@@ -231,7 +233,10 @@ public class TbConfig {
     public static final String PHOTOLIVE_HOST_UPGRADE = "c/c/livegroup/upgradeTWAnchor";
     public static final int PHOTO_DELAY_TIME = 90;
     public static final String PHOTO_LIVE_COVER_FILE = "tieba_photo_live_cover_image";
+    public static final String PHOTO_LIVE_MISSON_DETAILS = "c/f/livegroup/getTWAnchorTask";
+    public static final String PHOTO_LIVE_MISSON_DETAILS_ATTENTION = "c/c/livegroup/setFollowStatus";
     public static final String PHOTO_LIVE_SET_COVER = "c/c/thread/setLiveCover";
+    public static final String PHOTO_LIVE_SET_TWGUIDE_DESC = "c/c/livegroup/setTWGuideDesc";
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
@@ -250,6 +255,7 @@ public class TbConfig {
     public static final int READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI = 2000;
     public static final int READ_IMAGE_CACHE_TIMEOUT_WIFI = 300;
     public static final String RECOMMEND_FRS = "c/f/excellent/excfrspage";
+    public static final String RECOMMEND_FRS_GOD = "c/r/god/feed";
     public static final String RECOMMEND_HOME_PAGE_ADDRESS = "c/f/excellent/personalized";
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
@@ -275,6 +281,7 @@ public class TbConfig {
     public static final String ST_TYPE_PCHAT = "pchat";
     public static final String ST_TYPE_REG = "reg";
     public static final String ST_TYPE_USE = "use";
+    public static final String SUBMIT_CLOSE_ADKILLER = "c/c/game/killAd";
     public static final String SW_APID = "sw";
     public static final String SYNC_ACTIVE = "sync_active";
     public static final String TAIL_ADD = "c/u/tail/addTail";
@@ -309,8 +316,11 @@ public class TbConfig {
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
+    public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
+    public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
@@ -323,6 +333,9 @@ public class TbConfig {
     public static final String VIDEO_FINISH_ADDRESS = "c/c/video/uploadVideoChunkFinish";
     public static final String VIDEO_SINGLE_UPLOAD_ADDRESS = "c/c/video/uploadVideo";
     public static final String VIDEO_UPLOAD_ADDRESS = "c/c/video/uploadVideoChunk";
+    public static final String VIDEO_UPLOAD_BLOCK = "c/c/video/uploadBlock";
+    public static final String VIDEO_UPLOAD_CHUNK = "c/c/video/uploadChunk";
+    public static final String VIDEO_UPLOAD_FILE = "c/c/video/uploadFile";
     public static final int VIEW_IMAGE_QUALITY_AUTO = 0;
     public static final int VIEW_IMAGE_QUALITY_HIGH = 1;
     public static final int VIEW_IMAGE_QUALITY_HIGH_VALUE = 80;

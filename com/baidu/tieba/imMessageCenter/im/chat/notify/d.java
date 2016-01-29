@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ ImMessageCenterDelegateStatic cdx;
+    final /* synthetic */ ImMessageCenterDelegateStatic chV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
         super(i);
-        this.cdx = imMessageCenterDelegateStatic;
+        this.chV = imMessageCenterDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,11 @@ class d extends CustomMessageListener {
         TextView textView;
         TextView textView2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-            int msgChat = ((newsNotifyMessage.getMsgChat() + newsNotifyMessage.getMsgReplyme()) + newsNotifyMessage.getMsgAtme()) - newsNotifyMessage.getMsgStrangerChat();
-            textView = this.cdx.apj;
+            int a = r.a((NewsNotifyMessage) customResponsedMessage);
+            textView = this.chV.aqc;
             if (textView != null) {
-                textView2 = this.cdx.apj;
-                ImMessageCenterDelegateStatic.p(textView2, msgChat);
+                textView2 = this.chV.aqc;
+                ImMessageCenterDelegateStatic.r(textView2, a);
             }
         }
     }

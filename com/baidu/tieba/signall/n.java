@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    private final /* synthetic */ String bew;
-    final /* synthetic */ SignAllForumActivity dxE;
-    private final /* synthetic */ String dxF;
-    private final /* synthetic */ boolean dxG;
+    private final /* synthetic */ String bgQ;
+    final /* synthetic */ SignAllForumActivity dNI;
+    private final /* synthetic */ String dNJ;
+    private final /* synthetic */ boolean dNK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(SignAllForumActivity signAllForumActivity, String str, String str2, boolean z) {
-        this.dxE = signAllForumActivity;
-        this.dxF = str;
-        this.bew = str2;
-        this.dxG = z;
+        this.dNI = signAllForumActivity;
+        this.dNJ = str;
+        this.bgQ = str2;
+        this.dNK = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.dxE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumAdvertActivityConfig(this.dxE.getPageContext().getPageActivity(), this.dxF, this.bew, Boolean.valueOf(this.dxG))));
+        this.dNI.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumAdvertActivityConfig(this.dNI.getPageContext().getPageActivity(), this.dNJ, this.bgQ, Boolean.valueOf(this.dNK))));
     }
 }

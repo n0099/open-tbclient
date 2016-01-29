@@ -20,6 +20,7 @@ public class MetaData extends i implements Serializable {
     private int gender;
     private int is_myfriend;
     private int is_like = 0;
+    private GodUserData godUserData = new GodUserData();
     private String userId = null;
     private int type = 0;
     private int level_id = 0;
@@ -35,6 +36,7 @@ public class MetaData extends i implements Serializable {
     private int concernNum = 0;
     private int fansNum = 0;
     private boolean mHadConcerned = false;
+    @Deprecated
     private GodInfo godInfo = null;
     private int giftNum = 0;
     private int isMem = 0;
@@ -187,6 +189,18 @@ public class MetaData extends i implements Serializable {
         return this.concernNum;
     }
 
+    public void setConcernNum(int i) {
+        this.concernNum = i;
+    }
+
+    public int getConcern_num() {
+        return this.concernNum;
+    }
+
+    public void setConcern_num(int i) {
+        this.concernNum = i;
+    }
+
     public String getFansNickName() {
         return this.fansNickName;
     }
@@ -207,12 +221,22 @@ public class MetaData extends i implements Serializable {
         this.mHadConcerned = z;
     }
 
+    @Deprecated
     public GodInfo getGodInfo() {
         return this.godInfo;
     }
 
+    @Deprecated
     public void setGodInfo(GodInfo godInfo) {
         this.godInfo = godInfo;
+    }
+
+    public GodUserData getGodUserData() {
+        return this.godUserData;
+    }
+
+    public void setGodUserData(GodUserData godUserData) {
+        this.godUserData = godUserData;
     }
 
     public int getGiftNum() {
@@ -273,6 +297,9 @@ public class MetaData extends i implements Serializable {
                     this.mTShowIconInfoNew.add(iconData3);
                 }
             }
+            if (user.god_data != null) {
+                this.godUserData.parserProtobuf(user.god_data);
+            }
             this.godInfo = user.god_data;
             this.giftNum = user.gift_num.intValue();
         }
@@ -308,6 +335,7 @@ public class MetaData extends i implements Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
+                JSONObject optJSONObject = jSONObject.optJSONObject("god_data");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
@@ -328,6 +356,9 @@ public class MetaData extends i implements Serializable {
                         iconData3.parserJson(optJSONArray3.getJSONObject(i3));
                         this.mTShowIconInfoNew.add(iconData3);
                     }
+                }
+                if (optJSONObject != null) {
+                    this.godUserData.parseJson(optJSONObject);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

@@ -1,58 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bl implements a.b {
-    final /* synthetic */ bh cGg;
-    private final /* synthetic */ PbLotteryHttpResponseMessage cGh;
-    private final /* synthetic */ String caQ;
+    private final /* synthetic */ String cNA;
+    private final /* synthetic */ String cNB;
+    private final /* synthetic */ String cNC;
+    private final /* synthetic */ String cND;
+    final /* synthetic */ PbActivity cNq;
+    private final /* synthetic */ long cNz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bh bhVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage, String str) {
-        this.cGg = bhVar;
-        this.cGh = pbLotteryHttpResponseMessage;
-        this.caQ = str;
+    public bl(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
+        this.cNq = pbActivity;
+        this.cNz = j;
+        this.cNA = str;
+        this.cNB = str2;
+        this.cNC = str3;
+        this.cND = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbActivity pbActivity;
-        cf cfVar;
-        PbActivity pbActivity2;
-        cf cfVar2;
-        PbActivity pbActivity3;
-        cf cfVar3;
-        PbActivity pbActivity4;
-        cf cfVar4;
-        PbActivity pbActivity5;
-        PbActivity pbActivity6;
-        if (this.cGh.getOrginalMessage() instanceof PbLotteryRequestMessage) {
-            pbActivity5 = this.cGg.cFS;
-            pbActivity5.showProgressBar(true, 0, 0);
-            PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) this.cGh.getOrginalMessage();
-            PbLotteryRequestMessage pbLotteryRequestMessage2 = new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), pbLotteryRequestMessage.getForumId(), pbLotteryRequestMessage.getThreadId(), 0, pbLotteryRequestMessage.getActivityId(), pbLotteryRequestMessage.getAwardActId(), pbLotteryRequestMessage.getComponentId());
-            pbActivity6 = this.cGg.cFS;
-            pbActivity6.sendMessage(pbLotteryRequestMessage2);
-        }
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        cm cmVar;
+        com.baidu.tieba.pb.a.a(this.cNz, this.cNA, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", this.cNB, this.cNC, this.cND);
         aVar.dismiss();
-        pbActivity = this.cGg.cFS;
-        cfVar = pbActivity.cFl;
-        if (cfVar != null) {
-            pbActivity2 = this.cGg.cFS;
-            cfVar2 = pbActivity2.cFl;
-            if (cfVar2.getPbData() != null) {
-                com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10504");
-                pbActivity3 = this.cGg.cFS;
-                cfVar3 = pbActivity3.cFl;
-                com.baidu.tbadk.core.util.av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cfVar3.getPbData().getForumId());
-                pbActivity4 = this.cGg.cFS;
-                cfVar4 = pbActivity4.cFl;
-                TiebaStatic.log(aa.aa("tid", cfVar4.getPbData().getThreadId()).aa("uid", this.caQ).aa("obj_locate", "1"));
-            }
+        if (this.cNq.checkUpIsLogin()) {
+            cmVar = this.cNq.cMF;
+            cmVar.bn(this.cNz);
         }
     }
 }

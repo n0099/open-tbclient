@@ -131,6 +131,8 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
+        int gid = com.baidu.tieba.im.push.f.aev().getGid();
+        boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             int keyAt = this.mMids.keyAt(i);
             Long valueAt = this.mMids.valueAt(i);
@@ -138,14 +140,25 @@ public class MessageSyncMessage extends TbSocketMessage {
                 GroupLastId.Builder builder2 = new GroupLastId.Builder();
                 builder2.groupId = Integer.valueOf(keyAt);
                 builder2.lastMsgId = valueAt;
+                if (gid == keyAt) {
+                    z = true;
+                    builder2.excludeMid = com.baidu.tieba.im.push.f.aev().aex();
+                }
                 builder.groupMids.add(builder2.build(false));
             }
         }
+        if (!z && com.baidu.tieba.im.push.f.aev().aez()) {
+            GroupLastId.Builder builder3 = new GroupLastId.Builder();
+            builder3.groupId = Integer.valueOf(gid);
+            builder3.lastMsgId = com.baidu.tieba.im.push.f.aev().aew();
+            builder3.excludeMid = com.baidu.tieba.im.push.f.aev().aex();
+            builder.groupMids.add(builder3.build(false));
+        }
         builder.newpushRepire = getNewpushRepire();
-        GetGroupMsgReqIdl.Builder builder3 = new GetGroupMsgReqIdl.Builder();
-        builder3.cuid = TbadkCoreApplication.getUniqueIdentifier();
-        builder3.data = builder.build(false);
-        return builder3.build(false);
+        GetGroupMsgReqIdl.Builder builder4 = new GetGroupMsgReqIdl.Builder();
+        builder4.cuid = TbadkCoreApplication.getUniqueIdentifier();
+        builder4.data = builder.build(false);
+        return builder4.build(false);
     }
 
     public boolean isForTimer() {

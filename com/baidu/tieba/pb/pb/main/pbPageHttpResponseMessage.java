@@ -72,10 +72,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                ca.alH().a(this.cacheKey, this.isFromMark, bArr);
+                ch.apK().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                ca.alH().m(this.cacheKey, bArr);
+                ch.apK().m(this.cacheKey, bArr);
                 return;
             default:
                 return;

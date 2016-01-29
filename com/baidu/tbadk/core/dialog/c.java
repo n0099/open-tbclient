@@ -10,70 +10,69 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.h;
 import com.baidu.adp.lib.h.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.t;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static final HashMap<Integer, Integer[]> Yl = new HashMap<>(2);
-    private AlertDialog XR;
-    private List<CharSequence> Ye;
-    private b Yf;
-    private final ViewGroup Yg;
-    private final TextView Yh;
-    private final View Yi;
+    private static final HashMap<Integer, Integer[]> Yy = new HashMap<>(2);
+    private AlertDialog Yd;
+    private final ViewGroup Ye;
+    private List<CharSequence> Yr;
+    private b Ys;
+    private final ViewGroup Yt;
+    private final TextView Yu;
+    private final View Yv;
     private final Activity mActivity;
-    private h<?> mContext;
-    private final ViewGroup mRootView;
+    private com.baidu.adp.base.h<?> mContext;
     private String mTitle;
-    private int Yk = -1;
-    private int XG = -1;
-    private boolean XT = false;
-    private int Yj = n.h.dialog_bdlist_item;
+    private int Yx = -1;
+    private int XS = -1;
+    private boolean Yg = false;
+    private int Yw = t.h.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int Yo = n.k.dialog_ani_b2t;
-        public static final int Yp = n.k.dialog_ani_t2b;
-        public static final int Yq = n.k.dialog_ani_l2r;
-        public static final int Yr = n.k.dialog_ani_r2l;
+        public static final int YC = t.k.dialog_ani_b2t;
+        public static final int YD = t.k.dialog_ani_t2b;
+        public static final int YE = t.k.dialog_ani_l2r;
+        public static final int YF = t.k.dialog_ani_r2l;
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void itemClick(c cVar, int i, View view);
+        void a(c cVar, int i, View view);
     }
 
     static {
-        Yl.put(0, new Integer[]{Integer.valueOf(n.f.dialg_alert_btn_bg), Integer.valueOf(n.f.dialog_bdalert_button_textcolor_pressed)});
-        Yl.put(1, new Integer[]{Integer.valueOf(n.f.btn_blue_square), Integer.valueOf(n.d.cp_bg_line_d)});
+        Yy.put(0, new Integer[]{Integer.valueOf(t.f.dialg_alert_btn_bg), Integer.valueOf(t.f.dialog_bdalert_button_textcolor_pressed)});
+        Yy.put(1, new Integer[]{Integer.valueOf(t.f.btn_blue_square), Integer.valueOf(t.d.cp_bg_line_d)});
     }
 
     public c(Activity activity) {
         this.mActivity = activity;
-        this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(n.h.dialog_bdlist, (ViewGroup) null);
-        this.Yh = (TextView) this.mRootView.findViewById(n.g.dialog_title_list);
-        this.Yg = (ViewGroup) this.mRootView.findViewById(n.g.dialog_content);
-        this.Yi = this.mRootView.findViewById(n.g.line_bg);
+        this.Ye = (ViewGroup) LayoutInflater.from(activity).inflate(t.h.dialog_bdlist, (ViewGroup) null);
+        this.Yu = (TextView) this.Ye.findViewById(t.g.dialog_title_list);
+        this.Yt = (ViewGroup) this.Ye.findViewById(t.g.dialog_content);
+        this.Yv = this.Ye.findViewById(t.g.line_bg);
     }
 
     public View getRootView() {
-        return this.mRootView;
+        return this.Ye;
     }
 
-    public c cG(String str) {
+    public c cF(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public c bJ(int i) {
-        return cG(this.mActivity.getResources().getString(i));
+    public c cb(int i) {
+        return cF(this.mActivity.getResources().getString(i));
     }
 
     public c a(CharSequence[] charSequenceArr, b bVar) {
@@ -85,40 +84,40 @@ public class c {
 
     public c a(List<CharSequence> list, b bVar) {
         if (list != null && list.size() > 0) {
-            this.Ye = list;
+            this.Yr = list;
             if (bVar != null) {
-                this.Yf = bVar;
+                this.Ys = bVar;
             }
         }
         return this;
     }
 
-    public c bK(int i) {
-        this.Yk = i;
+    public c cc(int i) {
+        this.Yx = i;
         return this;
     }
 
-    public c bL(int i) {
-        this.XG = i;
+    public c cd(int i) {
+        this.XS = i;
         return this;
     }
 
-    public c d(h<?> hVar) {
-        if (!this.XT) {
+    public c d(com.baidu.adp.base.h<?> hVar) {
+        if (!this.Yg) {
             this.mContext = hVar;
-            this.XT = true;
+            this.Yg = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.Yh.setText(this.mTitle);
-                this.Yh.setVisibility(0);
-                this.Yi.setVisibility(0);
+                this.Yu.setText(this.mTitle);
+                this.Yu.setVisibility(0);
+                this.Yv.setVisibility(0);
             } else {
-                this.Yh.setVisibility(8);
-                this.Yi.setVisibility(8);
+                this.Yu.setVisibility(8);
+                this.Yv.setVisibility(8);
             }
-            if (this.Ye != null && this.Ye.size() > 0) {
-                int size = this.Ye.size();
+            if (this.Yr != null && this.Yr.size() > 0) {
+                int size = this.Yr.size();
                 for (int i = 0; i < size; i++) {
-                    bM(i);
+                    ce(i);
                 }
             }
             c(hVar);
@@ -126,86 +125,86 @@ public class c {
         return this;
     }
 
-    public c tj() {
-        if (!this.XT) {
+    public c un() {
+        if (!this.Yg) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.XR != null) {
-            j.a(this.XR, this.mActivity);
+        if (this.Yd != null) {
+            j.a(this.Yd, this.mActivity);
         } else {
-            this.XR = new AlertDialog.Builder(this.mActivity).create();
-            this.XR.setCanceledOnTouchOutside(true);
-            if (j.a(this.XR, this.mActivity)) {
-                Window window = this.XR.getWindow();
-                if (this.Yk == -1) {
-                    this.Yk = a.Yo;
+            this.Yd = new AlertDialog.Builder(this.mActivity).create();
+            this.Yd.setCanceledOnTouchOutside(true);
+            if (j.a(this.Yd, this.mActivity)) {
+                Window window = this.Yd.getWindow();
+                if (this.Yx == -1) {
+                    this.Yx = a.YC;
                 }
-                if (this.XG == -1) {
-                    this.XG = 17;
+                if (this.XS == -1) {
+                    this.XS = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.XG);
-                window.setBackgroundDrawableResource(n.f.transparent_bg);
-                window.setContentView(this.mRootView);
+                window.setGravity(this.XS);
+                window.setBackgroundDrawableResource(t.f.transparent_bg);
+                window.setContentView(this.Ye);
             }
         }
         return this;
     }
 
-    private void c(h<?> hVar) {
+    private void c(com.baidu.adp.base.h<?> hVar) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ac(skinType == 1);
-            ((TbPageContext) hVar).getLayoutMode().k(this.mRootView);
+            ((TbPageContext) hVar).getLayoutMode().x(this.Ye);
         }
-        this.mRootView.setBackgroundResource(n.f.transparent_bg);
+        this.Ye.setBackgroundResource(t.f.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.XR != null) {
-            j.b(this.XR, this.mActivity);
+        if (this.Yd != null) {
+            j.b(this.Yd, this.mActivity);
         }
     }
 
-    private View bM(int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.Yj, this.Yg, false);
+    private View ce(int i) {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.Yw, this.Yt, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
-        TextView textView = (TextView) inflate.findViewById(n.g.dialog_item_btn);
-        View findViewById = inflate.findViewById(n.g.line);
-        CharSequence charSequence = this.Ye.get(i);
+        TextView textView = (TextView) inflate.findViewById(t.g.dialog_item_btn);
+        View findViewById = inflate.findViewById(t.g.line);
+        CharSequence charSequence = this.Yr.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.Ye.size() - 1) {
+        if (i == this.Yr.size() - 1) {
             findViewById.setVisibility(8);
-            as.i(inflate, n.f.dialog_single_button_bg_selector);
+            ar.k(inflate, t.f.dialog_single_button_bg_selector);
         } else {
-            as.i(inflate, n.f.dialg_alert_btn_bg);
+            ar.k(inflate, t.f.dialg_alert_btn_bg);
         }
-        if (this.Yf != null) {
+        if (this.Ys != null) {
             linearLayout.setOnClickListener(new d(this, i, textView));
         }
-        this.Yg.addView(inflate);
+        this.Yt.addView(inflate);
         return inflate;
     }
 
-    public View bN(int i) {
-        if (this.Yg == null) {
+    public View cf(int i) {
+        if (this.Yt == null) {
             return null;
         }
-        int childCount = this.Yg.getChildCount();
+        int childCount = this.Yt.getChildCount();
         if (i < 0 || i > childCount - 1) {
             return null;
         }
-        return this.Yg.getChildAt(i);
+        return this.Yt.getChildAt(i);
     }
 
     public int getItemCount() {
         int childCount;
-        if (this.Yg != null && (childCount = this.Yg.getChildCount()) >= 0) {
+        if (this.Yt != null && (childCount = this.Yt.getChildCount()) >= 0) {
             return childCount;
         }
         return 0;

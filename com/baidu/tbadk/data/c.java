@@ -5,23 +5,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c aqS;
-    public final String aqO = "2g";
-    public final String aqP = "3g";
-    public final String aqQ = "4g";
-    public final String aqR = "wifi";
-    public HashMap<String, String> aqT = new HashMap<>();
-    public HashMap<String, String> aqU = new HashMap<>();
-    public HashMap<String, String> aqV = new HashMap<>();
-    public String aqW;
+    private static c arL;
+    public final String arH = "2g";
+    public final String arI = "3g";
+    public final String arJ = "4g";
+    public final String arK = "wifi";
+    public HashMap<String, String> arM = new HashMap<>();
+    public HashMap<String, String> arN = new HashMap<>();
+    public HashMap<String, String> arO = new HashMap<>();
+    public String arP;
 
-    public static synchronized c AJ() {
+    public static synchronized c BZ() {
         c cVar;
         synchronized (c.class) {
-            if (aqS == null) {
-                aqS = new c();
+            if (arL == null) {
+                arL = new c();
             }
-            cVar = aqS;
+            cVar = arL;
         }
         return cVar;
     }
@@ -36,16 +36,16 @@ public class c {
                     String optString3 = optJSONObject.optString("4g");
                     String optString4 = optJSONObject.optString("wifi");
                     if (optString != null) {
-                        this.aqT.put("2g", optString);
+                        this.arM.put("2g", optString);
                     }
                     if (optString2 != null) {
-                        this.aqT.put("3g", optString2);
+                        this.arM.put("3g", optString2);
                     }
                     if (optString3 != null) {
-                        this.aqT.put("4g", optString3);
+                        this.arM.put("4g", optString3);
                     }
                     if (optString4 != null) {
-                        this.aqT.put("wifi", optString4);
+                        this.arM.put("wifi", optString4);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
@@ -55,16 +55,16 @@ public class c {
                     String optString7 = optJSONObject2.optString("4g");
                     String optString8 = optJSONObject2.optString("wifi");
                     if (optString5 != null) {
-                        this.aqU.put("2g", optString5);
+                        this.arN.put("2g", optString5);
                     }
                     if (optString6 != null) {
-                        this.aqU.put("3g", optString6);
+                        this.arN.put("3g", optString6);
                     }
                     if (optString7 != null) {
-                        this.aqU.put("4g", optString7);
+                        this.arN.put("4g", optString7);
                     }
                     if (optString8 != null) {
-                        this.aqU.put("wifi", optString8);
+                        this.arN.put("wifi", optString8);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
@@ -74,19 +74,19 @@ public class c {
                     String optString11 = optJSONObject3.optString("4g");
                     String optString12 = optJSONObject3.optString("wifi");
                     if (optString9 != null) {
-                        this.aqV.put("2g", optString9);
+                        this.arO.put("2g", optString9);
                     }
                     if (optString10 != null) {
-                        this.aqV.put("3g", optString10);
+                        this.arO.put("3g", optString10);
                     }
                     if (optString11 != null) {
-                        this.aqV.put("4g", optString11);
+                        this.arO.put("4g", optString11);
                     }
                     if (optString12 != null) {
-                        this.aqV.put("wifi", optString12);
+                        this.arO.put("wifi", optString12);
                     }
                 }
-                this.aqW = jSONObject.optString("is_on");
+                this.arP = jSONObject.optString("is_on");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

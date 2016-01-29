@@ -29,7 +29,7 @@ public final class a {
         }
     }
 
-    public static a dF() {
+    public static a dH() {
         if (nq == null) {
             nq = new a();
         }
@@ -43,11 +43,11 @@ public final class a {
     public void g(Activity activity) {
         if (activity != null) {
             np.add(new SoftReference<>(activity));
-            r(this.ns);
+            A(this.ns);
         }
     }
 
-    public Activity q(int i) {
+    public Activity z(int i) {
         int size = np.size();
         if (size == 0) {
             return null;
@@ -90,7 +90,7 @@ public final class a {
         }
     }
 
-    public Activity dG() {
+    public Activity dI() {
         SoftReference<Activity> softReference;
         int size = np.size();
         if (size != 0 && (softReference = np.get(size - 1)) != null) {
@@ -105,11 +105,11 @@ public final class a {
         }
     }
 
-    public void dH() {
-        r(3);
+    public void dJ() {
+        A(3);
     }
 
-    public void dI() {
+    public void dK() {
         Activity activity;
         if (np != null) {
             while (!np.isEmpty()) {
@@ -128,20 +128,20 @@ public final class a {
         return this.ns;
     }
 
-    private void r(int i) {
+    private void A(int i) {
         if (i != 0) {
-            int size = dF().getSize();
+            int size = dH().getSize();
             while (size > i) {
                 size--;
-                Activity q = dF().q(1);
-                if (q != null) {
-                    q.finish();
+                Activity z = dH().z(1);
+                if (z != null) {
+                    z.finish();
                 }
             }
         }
     }
 
-    public String dJ() {
+    public String dL() {
         Activity activity;
         String str;
         if (np == null || np.size() == 0) {

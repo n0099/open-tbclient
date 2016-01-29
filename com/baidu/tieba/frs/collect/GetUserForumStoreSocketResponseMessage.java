@@ -9,14 +9,14 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class GetUserForumStoreSocketResponseMessage extends SocketResponsedMessage {
     private boolean hasMore;
-    private com.baidu.tieba.tbadkCore.n responseData;
+    private com.baidu.tieba.tbadkCore.m responseData;
     private int type;
 
     public GetUserForumStoreSocketResponseMessage() {
         super(309112);
     }
 
-    public com.baidu.tieba.tbadkCore.n getResponseData() {
+    public com.baidu.tieba.tbadkCore.m getResponseData() {
         return this.responseData;
     }
 
@@ -43,7 +43,7 @@ public class GetUserForumStoreSocketResponseMessage extends SocketResponsedMessa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
-        this.responseData = new com.baidu.tieba.tbadkCore.n();
+        this.responseData = new com.baidu.tieba.tbadkCore.m();
         GetUserForumStoreResIdl getUserForumStoreResIdl = (GetUserForumStoreResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserForumStoreResIdl.class);
         if (getUserForumStoreResIdl.error != null) {
             setError(getUserForumStoreResIdl.error.errorno.intValue());
@@ -52,7 +52,7 @@ public class GetUserForumStoreSocketResponseMessage extends SocketResponsedMessa
         if (getUserForumStoreResIdl.data != null) {
             List<ThreadInfo> list = getUserForumStoreResIdl.data.store_thread;
             this.hasMore = getUserForumStoreResIdl.data.has_more.intValue() == 1;
-            this.responseData.bL(list);
+            this.responseData.bX(list);
         }
     }
 }

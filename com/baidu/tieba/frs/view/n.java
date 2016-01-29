@@ -1,21 +1,18 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView bow;
+public class n implements a.b {
+    final /* synthetic */ FrsHeaderView brq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsHeaderView frsHeaderView) {
-        this.bow = frsHeaderView;
+        this.brq = frsHeaderView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.h.j.a(this.bow.bnN, this.bow.mContext.getPageActivity());
-        this.bow.beB.bda = false;
-        com.baidu.tbadk.browser.f.a(this.bow.mContext.getPageActivity(), this.bow.mContext.getResources().getString(n.j.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

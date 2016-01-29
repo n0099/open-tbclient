@@ -1,39 +1,29 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.hottopic.controller.b;
-import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
-import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b bGF;
+public class c implements NoNetworkView.a {
+    final /* synthetic */ HotRanklistActivity bJY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b bVar, int i, int i2) {
-        super(i, i2);
-        this.bGF = bVar;
+    public c(HotRanklistActivity hotRanklistActivity) {
+        this.bJY = hotRanklistActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        b.a aVar;
-        BaseActivity baseActivity;
-        if (responsedMessage != null) {
-            if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bGF.getUniqueId()) {
-                if (responsedMessage.hasError()) {
-                    if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        baseActivity = this.bGF.bbA;
-                        baseActivity.showToast(responsedMessage.getErrorString());
-                    }
-                    aVar = this.bGF.bGD;
-                    aVar.a(false, null);
-                    return;
-                }
-                this.bGF.h(responsedMessage);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ay(boolean z) {
+        d dVar;
+        com.baidu.tieba.hottopic.view.b bVar;
+        com.baidu.tieba.hottopic.view.b bVar2;
+        if (z) {
+            dVar = this.bJY.bJU;
+            if (dVar != null) {
+                HotRanklistActivity hotRanklistActivity = this.bJY;
+                bVar = this.bJY.bJT;
+                hotRanklistActivity.hideNetRefreshView(bVar.Yb());
+                bVar2 = this.bJY.bJT;
+                bVar2.XZ();
             }
         }
     }

@@ -1,25 +1,40 @@
 package com.baidu.tieba.hottopic.controller;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.hottopic.controller.m;
+import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
+import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ k bGU;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bel;
+public class n extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ m bKt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(k kVar, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.bGU = kVar;
-        this.bel = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(m mVar, int i, int i2) {
+        super(i, i2);
+        this.bKt = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        com.baidu.adp.lib.util.a.aC(this.bel.linkUrl);
-        tbPageContext = this.bGU.context;
-        com.baidu.adp.lib.util.k.showToast(((HotTopicActivity) tbPageContext.getOrignalPage()).getPageContext().getPageActivity(), view.getResources().getString(n.j.copy_pb_url_success));
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        m.a aVar;
+        BaseActivity baseActivity;
+        if (responsedMessage != null) {
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bKt.getUniqueId()) {
+                if (responsedMessage.hasError()) {
+                    if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                        baseActivity = this.bKt.bdK;
+                        baseActivity.showToast(responsedMessage.getErrorString());
+                    }
+                    aVar = this.bKt.bKs;
+                    aVar.a(false, null);
+                    return;
+                }
+                this.bKt.h(responsedMessage);
+            }
+        }
     }
 }

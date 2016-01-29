@@ -1,29 +1,34 @@
 package com.baidu.tieba.frs.frsgood;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.tbadkCore.ab;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ab implements ab.a {
-    final /* synthetic */ x bkz;
+class ab implements AbsListView.RecyclerListener {
+    final /* synthetic */ y bnw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(x xVar) {
-        this.bkz = xVar;
+    public ab(y yVar) {
+        this.bnw = yVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void Op() {
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.ab.a
-    public void Oq() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bkz.bgG;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.bkz.bgG;
-            bdTypeListView2.setSelection(0);
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        if (view != null) {
+            PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
+            if (playVoiceBnt != null) {
+                playVoiceBnt.reset();
+            }
+            FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
+            if (frsCommonImageLayout != null) {
+                frsCommonImageLayout.reset();
+            }
+            if (view instanceof UserPhotoLayout) {
+                ((UserPhotoLayout) view).reset();
+            }
         }
     }
 }

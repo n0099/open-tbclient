@@ -3,15 +3,15 @@ package com.baidu.tieba.pluginCenter;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tieba.n;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a djw;
+    final /* synthetic */ PluginDownloadActivity.a dxq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PluginDownloadActivity.a aVar) {
-        this.djw = aVar;
+        this.dxq = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,21 +22,21 @@ class n implements View.OnClickListener {
         TextView textView3;
         PluginDownloadActivity pluginDownloadActivity2;
         PluginDownloadActivity pluginDownloadActivity3;
-        if (!com.baidu.adp.lib.util.i.iQ()) {
+        if (!com.baidu.adp.lib.util.i.iZ()) {
             pluginDownloadActivity3 = PluginDownloadActivity.this;
-            pluginDownloadActivity3.showToast(n.j.neterror);
+            pluginDownloadActivity3.showToast(t.j.neterror);
             return;
         }
         pluginDownloadActivity = PluginDownloadActivity.this;
-        pluginDownloadActivity.djl = true;
-        textView = this.djw.djp;
+        pluginDownloadActivity.dxf = true;
+        textView = this.dxq.dxj;
         textView.setVisibility(8);
-        textView2 = this.djw.aJs;
+        textView2 = this.dxq.aKx;
         textView2.setVisibility(8);
-        textView3 = this.djw.djq;
+        textView3 = this.dxq.dxk;
         textView3.setVisibility(0);
-        PluginPackageManager ls = PluginPackageManager.ls();
+        PluginPackageManager lD = PluginPackageManager.lD();
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        ls.a(pluginDownloadActivity2.dji, new o(this));
+        lD.a(pluginDownloadActivity2.dxc, new o(this));
     }
 }

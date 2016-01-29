@@ -1,35 +1,25 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.IndicatorView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.n;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends x.a {
-    public int ahf;
-    public RelativeLayout ahj;
-    public TextView ahk;
-    public TextView ahl;
-    public IndicatorView ahm;
-    public View ahn;
-    public BdBaseViewPager aho;
+public class c implements Handler.Callback {
+    final /* synthetic */ b aij;
 
-    public c(View view, Context context) {
-        super(view);
-        this.ahf = 3;
-        this.ahk = null;
-        this.ahl = null;
-        this.ahm = null;
-        this.ahn = null;
-        this.aho = null;
-        this.ahj = (RelativeLayout) view.findViewById(n.g.top_area);
-        this.ahk = (TextView) view.findViewById(n.g.theme_title);
-        this.ahl = (TextView) view.findViewById(n.g.more_textview);
-        this.ahm = (IndicatorView) view.findViewById(n.g.tab_indicator);
-        this.ahn = view.findViewById(n.g.bottom_divider_line);
-        this.aho = (BdBaseViewPager) view.findViewById(n.g.bd_base_view_pager);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b bVar) {
+        this.aij = bVar;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 1:
+                this.aij.xr();
+                return false;
+            default:
+                return false;
+        }
     }
 }

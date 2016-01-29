@@ -26,16 +26,16 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
         }
         if (getPrivateInfoResIdl.data != null) {
             if (getPrivateInfoResIdl.data.like != null) {
-                this.privacyData.ms(getPrivateInfoResIdl.data.like.intValue());
+                this.privacyData.nE(getPrivateInfoResIdl.data.like.intValue());
             }
             if (getPrivateInfoResIdl.data.group != null) {
-                this.privacyData.mt(getPrivateInfoResIdl.data.group.intValue());
+                this.privacyData.nF(getPrivateInfoResIdl.data.group.intValue());
             }
             if (getPrivateInfoResIdl.data.post != null) {
-                this.privacyData.mr(getPrivateInfoResIdl.data.post.intValue());
+                this.privacyData.nD(getPrivateInfoResIdl.data.post.intValue());
             }
             if (getPrivateInfoResIdl.data.location != null) {
-                this.privacyData.mu(getPrivateInfoResIdl.data.location.intValue());
+                this.privacyData.nG(getPrivateInfoResIdl.data.location.intValue());
             }
             if (getPrivateInfoResIdl.data.user != null) {
                 this.privacyData.a(getPrivateInfoResIdl.data.user);

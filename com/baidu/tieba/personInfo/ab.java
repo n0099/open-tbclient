@@ -1,37 +1,41 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements NoNetworkView.a {
-    final /* synthetic */ d cWV;
+public class ab extends CustomMessageListener {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(d dVar) {
-        this.cWV = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(f fVar, int i) {
+        super(i);
+        this.diG = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        bb bbVar;
-        bb bbVar2;
-        com.baidu.tbadk.f.f fVar;
-        bb bbVar3;
-        com.baidu.tbadk.f.h hVar;
-        if (z) {
-            bbVar = this.cWV.cRx;
-            if (bbVar != null) {
-                bbVar2 = this.cWV.cRx;
-                if (!bbVar2.getIsSelf()) {
-                    fVar = this.cWV.cWx;
-                    if (fVar == null) {
-                        hVar = this.cWV.refreshView;
-                        if (hVar == null) {
-                            return;
-                        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        bf bfVar;
+        bf bfVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            z = this.diG.cIp;
+            if (z) {
+                if (intValue == 0) {
+                    bfVar2 = this.diG.dbl;
+                    if (bfVar2.djm) {
+                        this.diG.avw();
+                        return;
                     }
-                    bbVar3 = this.cWV.cRx;
-                    bbVar3.aqu();
                 }
+                bfVar = this.diG.dbl;
+                if (bfVar.djm) {
+                    return;
+                }
+                this.diG.avw();
             }
         }
     }

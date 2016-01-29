@@ -1,32 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.b.a;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ei implements a.InterfaceC0073a {
-    final /* synthetic */ dk cKg;
+public class ei implements a.b {
+    final /* synthetic */ dz cSw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ei(dk dkVar) {
-        this.cKg = dkVar;
+    public ei(dz dzVar) {
+        this.cSw = dzVar;
     }
 
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0073a
-    public void Oq() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.cKg.aVi;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.cKg.aVi;
-            bdTypeListView2.setSelection(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0073a
-    public void Op() {
-        PbActivity pbActivity;
-        pbActivity = this.cKg.cGj;
-        pbActivity.Nm();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

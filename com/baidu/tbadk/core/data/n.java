@@ -1,55 +1,45 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.ThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class n {
-    private ArrayList<String> VY;
-    private int smsCodeTime = 0;
-    private UserData VW = new UserData();
-    private AntiData VX = new AntiData();
+public class n extends ah {
+    public static final BdUniqueId Vv = BdUniqueId.gen();
+    private PhotoLiveCardData Vw = null;
 
-    public n() {
-        this.VY = null;
-        this.VY = new ArrayList<>();
-        setSmsCodeTime(0);
+    public PhotoLiveCardData sd() {
+        return this.Vw;
     }
 
-    public UserData getUser() {
-        return this.VW;
-    }
-
-    public AntiData rI() {
-        return this.VX;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    @Override // com.baidu.tbadk.core.data.ah
+    public void a(ThreadInfo threadInfo) {
+        super.a(threadInfo);
+        if (threadInfo.twzhibo_info != null) {
+            a(threadInfo.twzhibo_info);
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.VW.parserJson(jSONObject.optJSONObject("user"));
-            this.VX.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.VY.add(optJSONArray.optString(i, null));
-                }
+    private void a(ZhiBoInfoTW zhiBoInfoTW) {
+        if (zhiBoInfoTW != null) {
+            if (this.Vw == null) {
+                this.Vw = new PhotoLiveCardData();
             }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.Vw.parserProtobuf(zhiBoInfoTW);
+            this.Vw.setShowExpressionViewIndexList(this.Vw.getExpressionDatas());
+            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
+                setId(String.valueOf(this.Vw.getThreadId()));
+                cw(String.valueOf(this.Vw.getThreadId()));
+            }
+            if (StringUtils.isNull(tn())) {
+                cx(this.Vw.getForumName());
+            }
         }
     }
 
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    @Override // com.baidu.tbadk.core.data.ah, com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return Vv;
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l duv;
+    final /* synthetic */ l dKz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar) {
-        this.duv = lVar;
+        this.dKz = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tbadk.core.dialog.e eVar;
+        com.baidu.tbadk.core.dialog.f fVar;
         int i2;
-        eVar = this.duv.duf;
-        eVar.bP(i);
+        fVar = this.dKz.dKj;
+        fVar.ci(i);
         switch (i) {
             case 1:
                 i2 = 1;
@@ -33,10 +33,10 @@ public class o implements AdapterView.OnItemClickListener {
                 i2 = 0;
                 break;
         }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10413").r("obj_type", i2));
-        com.baidu.tbadk.core.m.qQ().bk(i2);
-        this.duv.mA(i2);
-        this.duv.azW();
-        com.baidu.tbadk.core.util.ay.va().vj();
+        TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10413").r("obj_type", i2));
+        com.baidu.tbadk.core.l.rn().bz(i2);
+        this.dKz.nM(i2);
+        this.dKz.aHd();
+        com.baidu.tbadk.core.util.ax.wg().wp();
     }
 }

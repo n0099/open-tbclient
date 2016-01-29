@@ -11,7 +11,7 @@ public class MyCollectFrsActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(MyCollectFrsActivityConfig.class, MyCollectFrsActivity.class);
         com.baidu.tieba.tbadkCore.a.a.a(309112, GetUserForumStoreSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_USER_FORUM_STORE, com.baidu.tieba.tbadkCore.a.a.ak("c/f/livegroup/getUserForumStore", 309112));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_USER_FORUM_STORE, com.baidu.tieba.tbadkCore.a.a.am("c/f/livegroup/getUserForumStore", 309112));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetUserForumStoreHttpResponseMessage.class);

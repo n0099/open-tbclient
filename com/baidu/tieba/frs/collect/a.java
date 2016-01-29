@@ -7,67 +7,66 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<u> Ts = new ArrayList<>();
-    private int bjU;
-    MyCollectFrsActivity bjg;
+    private ArrayList<u> SO = new ArrayList<>();
+    private int bmQ;
+    MyCollectFrsActivity bmb;
     private long mForumId;
 
     public a(MyCollectFrsActivity myCollectFrsActivity, long j) {
-        this.bjg = myCollectFrsActivity;
+        this.bmb = myCollectFrsActivity;
         this.mForumId = j;
     }
 
-    public int OJ() {
-        return this.bjU;
+    public int QL() {
+        return this.bmQ;
     }
 
-    public void gg(int i) {
-        this.bjU = i;
+    public void gD(int i) {
+        this.bmQ = i;
     }
 
-    public void firstLoadData() {
-        this.bjU = 0;
+    public void QM() {
+        this.bmQ = 0;
         Y(0, 0);
     }
 
-    public void Kn() {
+    public void Me() {
         Y(0, 0);
     }
 
-    public void OK() {
-        Y(this.bjU, 1);
+    public void QN() {
+        Y(this.bmQ, 1);
     }
 
     private void Y(int i, int i2) {
-        this.bjU = i;
+        this.bmQ = i;
         GetUserForumStoreRequestMessage getUserForumStoreRequestMessage = new GetUserForumStoreRequestMessage();
         getUserForumStoreRequestMessage.setType(i2);
         getUserForumStoreRequestMessage.setUserId(getUserId());
         getUserForumStoreRequestMessage.setForumId(this.mForumId);
-        getUserForumStoreRequestMessage.setOffset(this.bjU);
-        this.bjg.sendMessage(getUserForumStoreRequestMessage);
+        getUserForumStoreRequestMessage.setOffset(this.bmQ);
+        this.bmb.sendMessage(getUserForumStoreRequestMessage);
     }
 
-    public long getUserId() {
-        TbadkCoreApplication.m411getInst();
+    private long getUserId() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             return -1L;
         }
-        return Long.valueOf(currentAccount).longValue();
+        return com.baidu.adp.lib.h.b.c(currentAccount, -1L);
     }
 
-    public ArrayList<u> qs() {
-        return this.Ts;
+    public ArrayList<u> qN() {
+        return this.SO;
     }
 
     public void setData(List<u> list) {
         if (list != null && !list.isEmpty()) {
-            this.Ts.addAll(list);
+            this.SO.addAll(list);
         }
     }
 
     public void clearData() {
-        this.Ts.clear();
+        this.SO.clear();
     }
 }

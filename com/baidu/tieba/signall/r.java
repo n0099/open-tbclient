@@ -2,11 +2,11 @@ package com.baidu.tieba.signall;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ SignAllForumAdvertActivity dye;
+    final /* synthetic */ SignAllForumAdvertActivity dOi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SignAllForumAdvertActivity signAllForumAdvertActivity) {
-        this.dye = signAllForumAdvertActivity;
+        this.dOi = signAllForumAdvertActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class r extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.a((r) aVar, str, i);
         if (aVar == null) {
-            this.dye.finish();
+            this.dOi.finish();
         }
     }
 }

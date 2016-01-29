@@ -1,45 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bm implements a.b {
-    final /* synthetic */ bh cGg;
-    private final /* synthetic */ String caQ;
+    private final /* synthetic */ String cNA;
+    private final /* synthetic */ String cNB;
+    private final /* synthetic */ String cNC;
+    private final /* synthetic */ String cND;
+    final /* synthetic */ PbActivity cNq;
+    private final /* synthetic */ long cNz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bh bhVar, String str) {
-        this.cGg = bhVar;
-        this.caQ = str;
+    public bm(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
+        this.cNq = pbActivity;
+        this.cNz = j;
+        this.cNA = str;
+        this.cNB = str2;
+        this.cNC = str3;
+        this.cND = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbActivity pbActivity;
-        cf cfVar;
-        PbActivity pbActivity2;
-        cf cfVar2;
-        PbActivity pbActivity3;
-        cf cfVar3;
-        PbActivity pbActivity4;
-        cf cfVar4;
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.pb.a.a(this.cNz, this.cNA, null, "PB", "BTN_FBCANCEL", "CLICK_FEEDBACK", "tpoint", this.cNB, this.cNC, this.cND);
         aVar.dismiss();
-        pbActivity = this.cGg.cFS;
-        cfVar = pbActivity.cFl;
-        if (cfVar != null) {
-            pbActivity2 = this.cGg.cFS;
-            cfVar2 = pbActivity2.cFl;
-            if (cfVar2.getPbData() != null) {
-                com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10505");
-                pbActivity3 = this.cGg.cFS;
-                cfVar3 = pbActivity3.cFl;
-                com.baidu.tbadk.core.util.av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cfVar3.getPbData().getForumId());
-                pbActivity4 = this.cGg.cFS;
-                cfVar4 = pbActivity4.cFl;
-                TiebaStatic.log(aa.aa("tid", cfVar4.getPbData().getThreadId()).aa("uid", this.caQ).aa("obj_locate", "2"));
-            }
-        }
     }
 }

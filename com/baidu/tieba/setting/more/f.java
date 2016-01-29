@@ -7,84 +7,84 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
-    private LinearLayout MO;
-    private NoNetworkView aUd;
-    private AccountSafeActivity dtA;
-    private LinearLayout dtB;
-    private View dtC;
-    private BdSwitchView dtD;
-    private TbSettingTextTipView dtE;
-    private TbSettingTextTipView dtF;
-    private TbSettingTextTipView dtG;
-    private TbSettingTextTipView dtH;
-    private TbSettingTextTipView dtI;
-    private BdSwitchView.a dtJ;
+    private LinearLayout Nf;
+    private NoNetworkView aWk;
+    private AccountSafeActivity dJE;
+    private LinearLayout dJF;
+    private View dJG;
+    private BdSwitchView dJH;
+    private TbSettingTextTipView dJI;
+    private TbSettingTextTipView dJJ;
+    private TbSettingTextTipView dJK;
+    private TbSettingTextTipView dJL;
+    private TbSettingTextTipView dJM;
+    private BdSwitchView.a dJN;
     private NavigationBar mNavigationBar;
 
     public f(AccountSafeActivity accountSafeActivity) {
         super(accountSafeActivity.getPageContext());
-        this.dtJ = new g(this);
-        this.dtA = accountSafeActivity;
-        zU();
+        this.dJN = new g(this);
+        this.dJE = accountSafeActivity;
+        Bk();
     }
 
-    private void zU() {
-        this.dtA.setContentView(n.h.account_safe_activity);
-        this.MO = (LinearLayout) this.dtA.findViewById(n.g.parent);
-        this.aUd = (NoNetworkView) this.dtA.findViewById(n.g.no_network_view);
-        this.dtB = (LinearLayout) this.dtA.findViewById(n.g.content_container);
-        this.mNavigationBar = (NavigationBar) this.dtA.findViewById(n.g.view_navigation_bar);
+    private void Bk() {
+        this.dJE.setContentView(t.h.account_safe_activity);
+        this.Nf = (LinearLayout) this.dJE.findViewById(t.g.parent);
+        this.aWk = (NoNetworkView) this.dJE.findViewById(t.g.no_network_view);
+        this.dJF = (LinearLayout) this.dJE.findViewById(t.g.content_container);
+        this.mNavigationBar = (NavigationBar) this.dJE.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.dtA.getPageContext().getString(n.j.account_safe));
-        this.dtC = this.dtA.findViewById(n.g.voicelogin_lock_layout);
-        this.dtD = (BdSwitchView) this.dtA.findViewById(n.g.voicelogin_switch);
-        this.dtE = (TbSettingTextTipView) this.dtA.findViewById(n.g.secure_mobil);
-        this.dtF = (TbSettingTextTipView) this.dtA.findViewById(n.g.secure_email);
-        this.dtG = (TbSettingTextTipView) this.dtA.findViewById(n.g.modify_pwd);
-        this.dtH = (TbSettingTextTipView) this.dtA.findViewById(n.g.bar_record);
-        this.dtI = (TbSettingTextTipView) this.dtA.findViewById(n.g.account_status);
-        this.dtC.setOnClickListener(this.dtA);
-        this.dtE.setOnClickListener(this.dtA);
-        this.dtF.setOnClickListener(this.dtA);
-        this.dtG.setOnClickListener(this.dtA);
-        this.dtH.setOnClickListener(this.dtA);
-        this.dtI.setOnClickListener(this.dtA);
-        this.dtD.setOnSwitchStateChangeListener(this.dtJ);
+        this.mNavigationBar.setTitleText(this.dJE.getPageContext().getString(t.j.account_safe));
+        this.dJG = this.dJE.findViewById(t.g.voicelogin_lock_layout);
+        this.dJH = (BdSwitchView) this.dJE.findViewById(t.g.voicelogin_switch);
+        this.dJI = (TbSettingTextTipView) this.dJE.findViewById(t.g.secure_mobil);
+        this.dJJ = (TbSettingTextTipView) this.dJE.findViewById(t.g.secure_email);
+        this.dJK = (TbSettingTextTipView) this.dJE.findViewById(t.g.modify_pwd);
+        this.dJL = (TbSettingTextTipView) this.dJE.findViewById(t.g.bar_record);
+        this.dJM = (TbSettingTextTipView) this.dJE.findViewById(t.g.account_status);
+        this.dJG.setOnClickListener(this.dJE);
+        this.dJI.setOnClickListener(this.dJE);
+        this.dJJ.setOnClickListener(this.dJE);
+        this.dJK.setOnClickListener(this.dJE);
+        this.dJL.setOnClickListener(this.dJE);
+        this.dJM.setOnClickListener(this.dJE);
+        this.dJH.setOnSwitchStateChangeListener(this.dJN);
     }
 
-    public void dO(int i) {
-        if (this.aUd != null) {
-            this.aUd.onChangeSkinType(this.dtA.getPageContext(), i);
+    public void ej(int i) {
+        if (this.aWk != null) {
+            this.aWk.onChangeSkinType(this.dJE.getPageContext(), i);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dtA.getLayoutMode().ac(i == 1);
-        this.dtA.getLayoutMode().k(this.MO);
+        this.dJE.getLayoutMode().ac(i == 1);
+        this.dJE.getLayoutMode().x(this.Nf);
     }
 
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && aVar.azf() != null) {
-            SimpleUser azf = aVar.azf();
-            this.dtE.setTip(lV(azf.securemobil));
-            this.dtF.setTip(lW(azf.secureemail));
-            switch (azf.user_status.intValue()) {
+        if (aVar != null && aVar.aGm() != null) {
+            SimpleUser aGm = aVar.aGm();
+            this.dJI.setTip(ml(aGm.securemobil));
+            this.dJJ.setTip(mm(aGm.secureemail));
+            switch (aGm.user_status.intValue()) {
                 case 0:
-                    this.dtI.setTip(getPageContext().getString(n.j.account_status_normal));
+                    this.dJM.setTip(getPageContext().getString(t.j.account_status_normal));
                     return;
                 case 1:
-                    this.dtI.setTip(getPageContext().getString(n.j.account_status_forbidden_and_block));
+                    this.dJM.setTip(getPageContext().getString(t.j.account_status_forbidden_and_block));
                     return;
                 case 2:
-                    this.dtI.setTip(getPageContext().getString(n.j.account_status_system_forbidden));
+                    this.dJM.setTip(getPageContext().getString(t.j.account_status_system_forbidden));
                     return;
                 case 3:
-                    this.dtI.setTip(getPageContext().getString(n.j.account_status_manager_forbidden));
+                    this.dJM.setTip(getPageContext().getString(t.j.account_status_manager_forbidden));
                     return;
                 case 4:
-                    this.dtI.setTip(getPageContext().getString(n.j.account_status_doing_appeal));
+                    this.dJM.setTip(getPageContext().getString(t.j.account_status_doing_appeal));
                     return;
                 default:
                     return;
@@ -92,31 +92,31 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         }
     }
 
-    private String lV(String str) {
+    private String ml(String str) {
         if (TextUtils.isEmpty(str)) {
-            return getPageContext().getString(n.j.unbind_status);
+            return getPageContext().getString(t.j.unbind_status);
         }
         if (!str.contains("*")) {
             if (str.length() < 7) {
-                return getPageContext().getString(n.j.unbind_status);
+                return getPageContext().getString(t.j.unbind_status);
             }
             return str.replace(str.substring(3, str.length() - 2), "******");
         }
         return str;
     }
 
-    private String lW(String str) {
+    private String mm(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
-            return getPageContext().getString(n.j.unbind_status);
+            return getPageContext().getString(t.j.unbind_status);
         }
         if (!str.contains("*")) {
             if (!str.contains("@")) {
-                return getPageContext().getString(n.j.unbind_status);
+                return getPageContext().getString(t.j.unbind_status);
             }
             String[] split = str.split("@");
             if (split == null || split.length < 2) {
-                return getPageContext().getString(n.j.unbind_status);
+                return getPageContext().getString(t.j.unbind_status);
             }
             String str3 = split[0];
             if (!TextUtils.isEmpty(str3) && str3.length() > 4) {
@@ -129,12 +129,12 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         return str;
     }
 
-    public NoNetworkView SD() {
-        return this.aUd;
+    public NoNetworkView UM() {
+        return this.aWk;
     }
 
     public void release() {
-        this.MO.removeAllViews();
-        this.dtA = null;
+        this.Nf.removeAllViews();
+        this.dJE = null;
     }
 }

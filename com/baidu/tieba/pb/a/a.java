@@ -4,18 +4,18 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private int cCK;
-    private String cCL;
-    private String cCM;
+    private int cJq;
+    private String cJr;
+    private String cJs;
     private String mLink;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.cCK = jSONObject.optInt("draw_res_type");
+                this.cJq = jSONObject.optInt("draw_res_type");
                 this.mLink = jSONObject.optString("link");
-                this.cCL = jSONObject.optString("award_imgsrc");
-                this.cCM = jSONObject.optString("award_des");
+                this.cJr = jSONObject.optString("award_imgsrc");
+                this.cJs = jSONObject.optString("award_des");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -26,11 +26,11 @@ public class a {
         return this.mLink;
     }
 
-    public String akC() {
-        return this.cCL;
+    public String aoA() {
+        return this.cJr;
     }
 
-    public String akD() {
-        return this.cCM;
+    public String aoB() {
+        return this.cJs;
     }
 }

@@ -7,12 +7,13 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends BitmapDrawable {
     private Context mContext;
     private int mId;
     private String mKey;
-    private Rect mRect = null;
+    private Rect rM = null;
     private Matrix mMatrix = null;
 
     public e(Context context, int i) {
@@ -26,21 +27,21 @@ public class e extends BitmapDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.mRect = new Rect(i, i2, i3, i4);
+        this.rM = new Rect(i, i2, i3, i4);
         this.mMatrix = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.mRect = new Rect(rect);
+        this.rM = new Rect(rect);
         this.mMatrix = null;
         super.setBounds(rect);
     }
 
-    public void Q(int i, int i2) {
-        if (this.mRect != null) {
-            super.setBounds(this.mRect.left, this.mRect.top, this.mRect.right + i, this.mRect.bottom + i2);
+    public void L(int i, int i2) {
+        if (this.rM != null) {
+            super.setBounds(this.rM.left, this.rM.top, this.rM.right + i, this.rM.bottom + i2);
         }
     }
 
@@ -48,32 +49,32 @@ public class e extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c CM = com.baidu.tbadk.imageManager.c.CM();
-            com.baidu.adp.widget.a.a fJ = (CM == null || this.mKey == null) ? null : CM.fJ(this.mKey);
-            if (fJ == null) {
-                Bitmap b = com.baidu.tbadk.core.util.c.b(this.mContext, this.mId);
-                if (b != null) {
-                    fJ = new com.baidu.adp.widget.a.a(b, false, null);
+            com.baidu.tbadk.imageManager.c Ed = com.baidu.tbadk.imageManager.c.Ed();
+            com.baidu.adp.widget.a.a fH = (Ed == null || this.mKey == null) ? null : Ed.fH(this.mKey);
+            if (fH == null) {
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
+                if (resBitmap != null) {
+                    fH = new com.baidu.adp.widget.a.a(resBitmap, false, null);
                 }
-                if (CM != null && fJ != null && this.mKey != null) {
-                    CM.c(this.mKey, fJ);
+                if (Ed != null && fH != null && this.mKey != null) {
+                    Ed.c(this.mKey, fH);
                 }
-                aVar = fJ;
+                aVar = fH;
             } else {
-                aVar = fJ;
+                aVar = fH;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
                 int height = aVar.getHeight();
-                if (width > 0 && height > 0 && this.mRect != null) {
+                if (width > 0 && height > 0 && this.rM != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > this.mRect.bottom - this.mRect.top || width > this.mRect.right - this.mRect.left) {
+                    if (height > this.rM.bottom - this.rM.top || width > this.rM.right - this.rM.left) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
                             this.mMatrix.postTranslate(0.0f, 0.0f);
-                            float f = (this.mRect.right - this.mRect.left) / width;
-                            float f2 = (this.mRect.bottom - this.mRect.top) / height;
+                            float f = (this.rM.right - this.rM.left) / width;
+                            float f2 = (this.rM.bottom - this.rM.top) / height;
                             if (f >= f2) {
                                 f = f2;
                             }

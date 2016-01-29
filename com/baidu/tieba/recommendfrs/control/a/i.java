@@ -4,33 +4,33 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.recommendfrs.data.h, BaseFragmentActivity> {
+public class i extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.recommendfrs.data.j, BaseFragmentActivity> {
     public i(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<com.baidu.tieba.recommendfrs.data.h> Du() {
-        return com.baidu.tieba.recommendfrs.data.h.class;
+    public Class<com.baidu.tieba.recommendfrs.data.j> EP() {
+        return com.baidu.tieba.recommendfrs.data.j.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Dg() {
+    public String EB() {
         return "RecommendFrsCache";
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dv() {
+    public int EQ() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dw() {
+    public int ER() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean Dn() {
+    protected boolean EI() {
         return false;
     }
 }

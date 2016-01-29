@@ -71,12 +71,12 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
                 String stringExtra2 = intent.getStringExtra("intent_extra_activity");
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                     com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.mEntity = (PluginBaseActivity) plugin2.kt().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                    this.mEntity = (PluginBaseActivity) plugin2.kD().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
                     this.mEntity.setActivityProxy(this);
                     this.mEntity.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.kw());
+                    setTheme(plugin2.kG());
                 } else {
-                    this.mEntity = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).kt().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                    this.mEntity = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).kD().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
                     this.mEntity.setActivityProxy(this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
@@ -290,7 +290,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = j.dK().getResources();
+            Resources resources = j.dN().getResources();
             if (resources != null) {
                 return resources;
             }

@@ -1,33 +1,30 @@
 package com.baidu.tieba.frs.b;
 
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.tab.HorizontalTabView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class d implements HorizontalTabView.a {
-    final /* synthetic */ a bmZ;
+public class d extends x.a {
+    TextView aHk;
+    HeadImageView aMs;
+    TextView apm;
+    LinearLayout bon;
+    TbImageView bop;
+    TextView boq;
+    TextView bor;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar) {
-        this.bmZ = aVar;
-    }
-
-    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public void gq(int i) {
-        o oVar;
-        oVar = this.bmZ.bmT;
-        oVar.gC(i);
-    }
-
-    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public boolean gr(int i) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        frsActivity = this.bmZ.blE;
-        if (frsActivity != null) {
-            frsActivity2 = this.bmZ.blE;
-            return (frsActivity2.No() && i == 1) ? false : true;
-        }
-        return true;
+    public d(View view) {
+        super(view);
+        this.bon = (LinearLayout) view.findViewById(t.g.normal_locality_parent);
+        this.aMs = (HeadImageView) view.findViewById(t.g.normal_locality_head);
+        this.aHk = (TextView) view.findViewById(t.g.normal_locality_name);
+        this.boq = (TextView) view.findViewById(t.g.normal_locality_sub);
+        this.apm = (TextView) view.findViewById(t.g.normal_locality_title);
+        this.bop = (TbImageView) view.findViewById(t.g.normal_locality_pic);
+        this.bor = (TextView) view.findViewById(t.g.normal_locality_brief);
     }
 }

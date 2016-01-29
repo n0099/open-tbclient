@@ -4,84 +4,86 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
-import com.baidu.tieba.tbadkCore.ah;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cjA;
+    final /* synthetic */ a coa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cjA = aVar;
+        this.coa = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.b bVar;
+        com.baidu.tbadk.core.data.c cVar;
         i iVar;
-        com.baidu.tbadk.core.data.b bVar2;
-        com.baidu.tbadk.core.data.b bVar3;
-        com.baidu.tbadk.core.data.b bVar4;
-        com.baidu.tbadk.core.data.b bVar5;
-        com.baidu.tbadk.core.data.b bVar6;
-        com.baidu.tbadk.core.data.b bVar7;
-        TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.b bVar8;
+        com.baidu.tbadk.core.data.c cVar2;
+        com.baidu.tbadk.core.data.c cVar3;
         i iVar2;
-        TbPageContext tbPageContext2;
-        com.baidu.tbadk.core.data.b bVar9;
+        TbPageContext tbPageContext;
+        com.baidu.tbadk.core.data.c cVar4;
         i iVar3;
-        com.baidu.tbadk.core.data.b bVar10;
+        com.baidu.tbadk.core.data.c cVar5;
+        TbPageContext tbPageContext2;
+        com.baidu.tbadk.core.data.c cVar6;
+        com.baidu.tbadk.core.data.c cVar7;
+        com.baidu.tbadk.core.data.c cVar8;
         TbPageContext tbPageContext3;
-        com.baidu.tbadk.core.data.b bVar11;
-        bVar = this.cjA.cju;
-        if (bVar != null) {
-            iVar = this.cjA.cjx;
-            iVar.afe();
-            bVar2 = this.cjA.cju;
-            int i = bVar2.UL;
-            if (i == 0) {
-                if (!com.baidu.adp.lib.util.i.iQ() || com.baidu.adp.lib.util.i.iR()) {
-                    bVar8 = this.cjA.cju;
-                    String str = bVar8.UN;
+        com.baidu.tbadk.core.data.c cVar9;
+        com.baidu.tbadk.core.data.c cVar10;
+        com.baidu.tbadk.core.data.c cVar11;
+        cVar = this.coa.cnU;
+        if (cVar != null) {
+            iVar = this.coa.cnX;
+            iVar.ain();
+            cVar2 = this.coa.cnU;
+            int i = cVar2.Us;
+            if (i == 0 || i == 3) {
+                if (!com.baidu.adp.lib.util.i.iZ() || com.baidu.adp.lib.util.i.ja()) {
+                    cVar3 = this.coa.cnU;
+                    String str = cVar3.Uu;
                     if (StringUtils.isNull(str)) {
-                        tbPageContext3 = this.cjA.mContext;
-                        str = tbPageContext3.getString(n.j.app_name);
+                        tbPageContext2 = this.coa.MR;
+                        str = tbPageContext2.getString(t.j.app_name);
                     }
-                    iVar2 = this.cjA.cjx;
-                    iVar2.afg();
-                    tbPageContext2 = this.cjA.mContext;
-                    Activity pageActivity = tbPageContext2.getPageActivity();
-                    bVar9 = this.cjA.cju;
-                    if (ah.a(pageActivity, bVar9, 0, str)) {
-                        iVar3 = this.cjA.cjx;
-                        bVar10 = this.cjA.cju;
-                        iVar3.jy(bVar10.US);
+                    iVar2 = this.coa.cnX;
+                    iVar2.aip();
+                    tbPageContext = this.coa.MR;
+                    Activity pageActivity = tbPageContext.getPageActivity();
+                    cVar4 = this.coa.cnU;
+                    if (ag.a(pageActivity, cVar4, 0, str)) {
+                        iVar3 = this.coa.cnX;
+                        cVar5 = this.coa.cnU;
+                        iVar3.jC(cVar5.Uy);
                         return;
                     }
                     return;
                 }
-                a aVar = this.cjA;
-                bVar11 = this.cjA.cju;
-                aVar.c(bVar11);
+                a aVar = this.coa;
+                cVar6 = this.coa.cnU;
+                aVar.c(cVar6);
+            } else if (i == 1) {
+                cVar10 = this.coa.cnU;
+                ag.e(cVar10);
+                cVar11 = this.coa.cnU;
+                cVar11.Us = 3;
+                this.coa.aic();
             } else if (i == 2) {
-                com.baidu.tbadk.download.b Bb = com.baidu.tbadk.download.b.Bb();
-                bVar3 = this.cjA.cju;
-                if (Bb.fa(bVar3.US)) {
-                    bVar5 = this.cjA.cju;
-                    String str2 = bVar5.US;
-                    bVar6 = this.cjA.cju;
-                    String str3 = bVar6.UR;
-                    bVar7 = this.cjA.cju;
-                    k kVar = new k(str2, str3, bVar7.UN);
-                    tbPageContext = this.cjA.mContext;
-                    ah.a(tbPageContext.getPageActivity(), kVar);
+                com.baidu.tbadk.download.b Cr = com.baidu.tbadk.download.b.Cr();
+                cVar7 = this.coa.cnU;
+                if (!Cr.eZ(cVar7.Uy)) {
+                    cVar8 = this.coa.cnU;
+                    cVar8.Us = 0;
+                    this.coa.aic();
                     return;
                 }
-                bVar4 = this.cjA.cju;
-                bVar4.UL = 0;
-                this.cjA.aeT();
+                tbPageContext3 = this.coa.MR;
+                Activity pageActivity2 = tbPageContext3.getPageActivity();
+                cVar9 = this.coa.cnU;
+                ag.N(pageActivity2, cVar9.Uy);
             }
         }
     }

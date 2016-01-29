@@ -6,28 +6,28 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends Handler {
-    final /* synthetic */ ag ciI;
+    final /* synthetic */ ag cni;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ag agVar) {
-        this.ciI = agVar;
+        this.cni = agVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Handler handler;
         Handler handler2;
-        boolean iQ;
+        boolean iZ;
         if (message.what == 1) {
-            this.ciI.ciH = System.currentTimeMillis();
+            this.cni.cnh = System.currentTimeMillis();
             if (!MessageManager.getInstance().getSocketClient().isValid()) {
-                iQ = this.ciI.iQ();
-                if (iQ) {
-                    this.ciI.aeF();
+                iZ = this.cni.iZ();
+                if (iZ) {
+                    this.cni.ahP();
                 }
             }
-            handler = this.ciI.mHandler;
-            handler2 = this.ciI.mHandler;
+            handler = this.cni.mHandler;
+            handler2 = this.cni.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }

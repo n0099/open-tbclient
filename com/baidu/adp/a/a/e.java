@@ -6,26 +6,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int nU;
-    private a nV;
+    private int nW;
+    private a nX;
 
-    public a dR() {
+    public a dU() {
         a aVar = new a();
-        aVar.nX = F(String.valueOf("/proc/uid_stat/") + this.nU + "/tcp_rcv");
-        aVar.nY = F(String.valueOf("/proc/uid_stat/") + this.nU + "/tcp_snd");
-        aVar.nW = d.b(aVar.nX + aVar.nY);
+        aVar.nZ = E(String.valueOf("/proc/uid_stat/") + this.nW + "/tcp_rcv");
+        aVar.oa = E(String.valueOf("/proc/uid_stat/") + this.nW + "/tcp_snd");
+        aVar.nY = d.b(aVar.nZ + aVar.oa);
         return aVar;
     }
 
-    public a dS() {
-        a dR = dR();
-        this.nV.nX = d.b(dR.nX - d.dQ().nX);
-        this.nV.nY = d.b(dR.nY - d.dQ().nY);
-        this.nV.nW = d.b(dR.nW - d.dQ().nW);
-        return this.nV;
+    public a dV() {
+        a dU = dU();
+        this.nX.nZ = d.b(dU.nZ - d.dT().nZ);
+        this.nX.oa = d.b(dU.oa - d.dT().oa);
+        this.nX.nY = d.b(dU.nY - d.dT().nY);
+        return this.nX;
     }
 
-    public double F(String str) {
+    public double E(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -56,13 +56,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(dS());
+                d.a(dV());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!dO()) {
+            if (!dR()) {
                 return;
             }
             Thread.sleep(500L);
@@ -71,9 +71,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double nW = 0.0d;
-        double nX = 0.0d;
         double nY = 0.0d;
+        double nZ = 0.0d;
+        double oa = 0.0d;
 
         public a() {
         }

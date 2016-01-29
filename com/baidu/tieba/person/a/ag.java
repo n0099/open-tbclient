@@ -1,73 +1,93 @@
 package com.baidu.tieba.person.a;
 
-import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bj;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ af cRt;
-    private final /* synthetic */ com.baidu.tieba.person.data.l cRu;
-    private final /* synthetic */ com.baidu.tieba.person.b.a cRv;
+public class ag extends c<com.baidu.tieba.person.data.m, com.baidu.tieba.person.b.b> {
+    private boolean bDM;
+    private BaseFragmentActivity cZG;
+    private String dbc;
+    private String dbd;
+    protected int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar, com.baidu.tieba.person.data.l lVar, com.baidu.tieba.person.b.a aVar) {
-        this.cRt = afVar;
-        this.cRu = lVar;
-        this.cRv = aVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ag(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.bDM = false;
+        this.dbc = "c10433";
+        this.dbd = "c10434";
+        this.cZG = baseFragmentActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean apk;
-        boolean z;
-        String str;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        BaseFragmentActivity baseFragmentActivity3;
-        BaseFragmentActivity baseFragmentActivity4;
-        String str2;
-        BaseFragmentActivity baseFragmentActivity5;
-        apk = this.cRt.apk();
-        if (!apk) {
-            baseFragmentActivity5 = this.cRt.mActivity;
-            baseFragmentActivity5.showToast(n.j.membership_load_fail);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aE */
+    public com.baidu.tieba.person.b.b b(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.b(LayoutInflater.from(this.mContext).inflate(t.h.personinfo_card_membership, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.m mVar, com.baidu.tieba.person.b.b bVar) {
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (this.aXE) {
+            a(bVar, mVar);
+            this.aXE = false;
         }
-        if (this.cRu.getUserData() != null && !ax.isEmpty(this.cRu.getUserData().getUserId())) {
-            com.baidu.tbadk.core.sharedPref.b.tJ().putBoolean("membership_first_launch" + this.cRu.getUserData().getUserId(), false);
-        }
-        this.cRv.cSs.setVisibility(8);
-        z = this.cRt.bAA;
-        if (z) {
-            str2 = this.cRt.cRr;
-            TiebaStatic.log(str2);
-        } else {
-            str = this.cRt.cRs;
-            TiebaStatic.log(str);
-        }
-        baseFragmentActivity = this.cRt.mActivity;
-        if (bj.ah(baseFragmentActivity.getActivity())) {
-            String vipLink = this.cRu.getVipLink();
-            if (!StringUtils.isNull(vipLink) && !vipLink.startsWith("vipcenter:") && !vipLink.startsWith("membercenter:")) {
-                baseFragmentActivity3 = this.cRt.mActivity;
-                Activity activity = baseFragmentActivity3.getActivity();
-                baseFragmentActivity4 = this.cRt.mActivity;
-                com.baidu.tbadk.browser.f.f(activity, baseFragmentActivity4.getResources().getString(n.j.person_member_center), vipLink);
+        com.baidu.tbadk.i.a.a(this.cZG.getPageContext(), view);
+        return view;
+    }
+
+    private void a(com.baidu.tieba.person.b.b bVar, com.baidu.tieba.person.data.m mVar) {
+        if (mVar != null) {
+            LinearLayout linearLayout = (LinearLayout) bVar.getView();
+            this.bDM = mVar.getIsSelf();
+            if (this.bDM) {
+                bVar.ddy.setVisibility(0);
+                bVar.ddA.setVisibility(8);
+                bVar.ddz.setText(t.j.person_member_center);
+                if (mVar.getUserData() != null && !aw.isEmpty(mVar.getUserData().getUserId())) {
+                    if (com.baidu.tbadk.core.sharedPref.b.uO().getBoolean("membership_first_launch" + mVar.getUserData().getUserId(), true)) {
+                        bVar.ddC.setVisibility(0);
+                    } else {
+                        bVar.ddC.setVisibility(8);
+                    }
+                }
+            } else if (mVar.getUserData() == null || mVar.getUserData().getIsMem() == 0) {
+                linearLayout.setVisibility(8);
                 return;
+            } else {
+                linearLayout.setVisibility(0);
+                bVar.ddy.setVisibility(8);
+                bVar.ddA.setVisibility(0);
+                bVar.ddz.setText(t.j.person_member_level);
+                if (!StringUtils.isNull(mVar.getVipIcon())) {
+                    bVar.ddA.setVisibility(0);
+                    bVar.ddA.d(mVar.getVipIcon(), 21, false);
+                } else {
+                    bVar.ddA.setVisibility(8);
+                }
             }
-            MessageManager messageManager = MessageManager.getInstance();
-            baseFragmentActivity2 = this.cRt.mActivity;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(baseFragmentActivity2.getActivity())));
+            if (!StringUtils.isNull(mVar.getVipContent())) {
+                bVar.ddB.setText(mVar.getVipContent());
+            }
+            linearLayout.setOnClickListener(new ah(this, mVar, bVar));
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean auc() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
     }
 }

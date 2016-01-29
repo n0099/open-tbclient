@@ -2,22 +2,22 @@ package com.baidu.tieba.pb.pb.sub;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements Runnable {
-    final /* synthetic */ w cLC;
-    private final /* synthetic */ String cLE;
-    private final /* synthetic */ String cLF;
+    final /* synthetic */ w cUl;
+    private final /* synthetic */ String cUn;
+    private final /* synthetic */ String cUo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(w wVar, String str, String str2) {
-        this.cLC = wVar;
-        this.cLE = str;
-        this.cLF = str2;
+        this.cUl = wVar;
+        this.cUn = str;
+        this.cUo = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.editortools.d.p pVar;
-        this.cLC.kM(this.cLE);
-        pVar = this.cLC.cjc;
-        pVar.fz(this.cLF);
+        this.cUl.kS(this.cUn);
+        pVar = this.cUl.cnC;
+        pVar.fx(this.cUo);
     }
 }

@@ -13,12 +13,12 @@ import android.util.Log;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class e extends DynamicDrawableSpan {
-    private Drawable Hf;
-    private Uri JJ;
-    private int JK;
-    private a JL;
+    private Drawable Hr;
+    private Uri JY;
+    private int JZ;
+    private a Ka;
     private Context mContext;
-    private Rect mRect;
+    private Rect rM;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,28 +26,28 @@ public class e extends DynamicDrawableSpan {
     }
 
     public void setDrawable(Drawable drawable) {
-        this.Hf = drawable;
+        this.Hr = drawable;
     }
 
     public e(a aVar, int i, int i2) {
         super(i2);
-        this.mRect = new Rect();
-        this.JK = i;
-        this.JL = aVar;
+        this.rM = new Rect();
+        this.JZ = i;
+        this.Ka = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.Hf != null || this.JL == null) {
+        if (this.Hr != null || this.Ka == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.mRect.bottom;
+            fontMetricsInt.ascent = -this.rM.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.mRect.right;
+        return this.rM.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
@@ -56,17 +56,17 @@ public class e extends DynamicDrawableSpan {
         Drawable drawable2;
         Exception e;
         Drawable drawable3 = null;
-        if (this.Hf != null) {
-            drawable3 = this.Hf;
-        } else if (this.JL != null) {
-            drawable3 = this.JL.a(this);
+        if (this.Hr != null) {
+            drawable3 = this.Hr;
+        } else if (this.Ka != null) {
+            drawable3 = this.Ka.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.JJ != null) {
+        if (this.JY != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.JJ);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.JY);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
@@ -74,7 +74,7 @@ public class e extends DynamicDrawableSpan {
                     return drawable2;
                 } catch (Exception e2) {
                     e = e2;
-                    Log.e("sms", "Failed to loaded content " + this.JJ, e);
+                    Log.e("sms", "Failed to loaded content " + this.JY, e);
                     return drawable2;
                 }
             } catch (Exception e3) {
@@ -83,12 +83,12 @@ public class e extends DynamicDrawableSpan {
             }
         } else {
             try {
-                drawable = this.mContext.getResources().getDrawable(this.JK);
+                drawable = this.mContext.getResources().getDrawable(this.JZ);
                 try {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     return drawable;
                 } catch (Exception e4) {
-                    Log.e("sms", "Unable to find resource: " + this.JK);
+                    Log.e("sms", "Unable to find resource: " + this.JZ);
                     return drawable;
                 }
             } catch (Exception e5) {
@@ -113,6 +113,6 @@ public class e extends DynamicDrawableSpan {
     }
 
     public void c(int i, int i2, int i3, int i4) {
-        this.mRect.set(i, i2, i3, i4);
+        this.rM.set(i, i2, i3, i4);
     }
 }

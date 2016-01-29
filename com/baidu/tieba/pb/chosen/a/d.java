@@ -6,63 +6,63 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.t;
 import java.util.List;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class d {
-    private TextView aOS;
-    private View aPe;
-    private b cCk;
-    private b cCl;
-    private b cCm;
-    private View rootView;
+    private View aOS;
+    private TextView aQR;
+    private View azA;
+    private b cIP;
+    private b cIQ;
+    private b cIR;
 
     /* loaded from: classes.dex */
     public interface a {
-        void kr(String str);
+        void ku(String str);
     }
 
     public d(Context context, a aVar) {
-        this.rootView = LayoutInflater.from(context).inflate(n.h.chosen_pb_comment_layout, (ViewGroup) null);
-        this.aOS = (TextView) this.rootView.findViewById(n.g.chosen_pb_comment_title);
-        this.aPe = this.rootView.findViewById(n.g.chosen_pb_comment_line);
-        this.cCk = new b((ViewStub) this.rootView.findViewById(n.g.chosen_pb_commrnt_first), aVar);
-        this.cCl = new b((ViewStub) this.rootView.findViewById(n.g.chosen_pb_commrnt_second), aVar);
-        this.cCm = new b((ViewStub) this.rootView.findViewById(n.g.chosen_pb_commrnt_third), aVar);
+        this.azA = LayoutInflater.from(context).inflate(t.h.chosen_pb_comment_layout, (ViewGroup) null);
+        this.aQR = (TextView) this.azA.findViewById(t.g.chosen_pb_comment_title);
+        this.aOS = this.azA.findViewById(t.g.chosen_pb_comment_line);
+        this.cIP = new b((ViewStub) this.azA.findViewById(t.g.chosen_pb_commrnt_first), aVar);
+        this.cIQ = new b((ViewStub) this.azA.findViewById(t.g.chosen_pb_commrnt_second), aVar);
+        this.cIR = new b((ViewStub) this.azA.findViewById(t.g.chosen_pb_commrnt_third), aVar);
     }
 
-    public void b(Context context, List<Post> list, List<User> list2) {
+    public void a(Context context, List<Post> list, List<User> list2) {
         boolean z;
         boolean z2;
         boolean z3;
         if (list == null || list.isEmpty()) {
-            this.aOS.setVisibility(8);
-            this.cCk.eN(false);
-            this.cCl.eN(false);
-            this.cCm.eN(false);
+            this.aQR.setVisibility(8);
+            this.cIP.fb(false);
+            this.cIQ.fb(false);
+            this.cIR.fb(false);
             return;
         }
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.cCk.a(context, list.get(0), a(list.get(0), list2));
-            this.cCl.eN(false);
-            this.cCm.eN(false);
+            boolean a2 = this.cIP.a(context, list.get(0), a(list.get(0), list2));
+            this.cIQ.fb(false);
+            this.cIR.fb(false);
             z2 = false;
             z3 = a2;
             z = false;
         } else if (size == 2) {
-            z3 = this.cCk.a(context, list.get(0), a(list.get(0), list2));
-            boolean a3 = this.cCl.a(context, list.get(1), a(list.get(1), list2));
-            this.cCm.eN(false);
+            z3 = this.cIP.a(context, list.get(0), a(list.get(0), list2));
+            boolean a3 = this.cIQ.a(context, list.get(1), a(list.get(1), list2));
+            this.cIR.fb(false);
             z2 = a3;
             z = false;
         } else if (size >= 3) {
-            boolean a4 = this.cCk.a(context, list.get(0), a(list.get(0), list2));
-            boolean a5 = this.cCl.a(context, list.get(1), a(list.get(1), list2));
-            z = this.cCm.a(context, list.get(2), a(list.get(2), list2));
+            boolean a4 = this.cIP.a(context, list.get(0), a(list.get(0), list2));
+            boolean a5 = this.cIQ.a(context, list.get(1), a(list.get(1), list2));
+            z = this.cIR.a(context, list.get(2), a(list.get(2), list2));
             z2 = a5;
             z3 = a4;
         } else {
@@ -71,9 +71,9 @@ public class d {
             z3 = false;
         }
         if (z3 || z2 || z) {
-            this.aOS.setVisibility(0);
+            this.aQR.setVisibility(0);
         } else {
-            this.aOS.setVisibility(8);
+            this.aQR.setVisibility(8);
         }
     }
 
@@ -93,16 +93,16 @@ public class d {
         return null;
     }
 
-    public void tr() {
-        as.i(this.rootView, n.d.recommend_pb_comment_background);
-        as.b(this.aOS, n.d.cp_cont_f, 1);
-        as.j(this.aPe, n.d.cp_bg_line_b);
-        this.cCk.tr();
-        this.cCl.tr();
-        this.cCm.tr();
+    public void uv() {
+        ar.k(this.azA, t.d.recommend_pb_comment_background);
+        ar.b(this.aQR, t.d.cp_cont_f, 1);
+        ar.l(this.aOS, t.d.cp_bg_line_b);
+        this.cIP.uv();
+        this.cIQ.uv();
+        this.cIR.uv();
     }
 
     public View getView() {
-        return this.rootView;
+        return this.azA;
     }
 }

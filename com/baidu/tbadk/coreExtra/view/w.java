@@ -1,38 +1,27 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-import com.baidu.tbadk.widget.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class w implements a.d {
-    final /* synthetic */ MultiImageView anU;
+class w implements Animation.AnimationListener {
+    final /* synthetic */ v aqy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(MultiImageView multiImageView) {
-        this.anU = multiImageView;
+    public w(v vVar) {
+        this.aqy = vVar;
     }
 
-    @Override // com.baidu.tbadk.widget.a.d
-    public void a(com.baidu.tbadk.widget.a aVar) {
-        i iVar;
-        boolean z;
-        i iVar2;
-        i iVar3;
-        iVar = this.anU.anN;
-        if (aVar == iVar.getCurrentView()) {
-            z = this.anU.anR;
-            if (z) {
-                iVar2 = this.anU.anN;
-                int childCount = iVar2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    iVar3 = this.anU.anN;
-                    View childAt = iVar3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof z) && ((z) childAt).getImageView() != aVar) {
-                        ((z) childAt).release();
-                    }
-                }
-            }
-            aVar.play();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        u uVar;
+        uVar = this.aqy.aqx;
+        uVar.aqi.setVisibility(8);
     }
 }

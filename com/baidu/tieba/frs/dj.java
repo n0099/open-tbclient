@@ -1,105 +1,78 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.n;
-import java.util.List;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class dj extends bp<com.baidu.tbadk.core.data.s, dl> implements View.OnClickListener, PhotoLiveCardView.b {
-    private dl bhN;
-    com.baidu.tbadk.core.data.s bhO;
-    private Handler mHandler;
-    private Runnable mRunnable;
+public class dj extends x.a {
+    public TextView aPr;
+    public UserIconBox ahI;
+    public UserIconBox ahJ;
+    public int ahU;
+    public TextView ahm;
+    public TextView ahn;
+    public LinearLayout beO;
+    public LinearLayout beP;
+    public TextView beQ;
+    public PlayVoiceBnt beR;
+    public FrsCommonImageLayout beS;
+    public TextView beT;
+    public HeadImageView beU;
+    public TextView beY;
+    public TextView bfa;
+    public TextView biV;
+    public RelativeLayout bkl;
+    public LinearLayout bkm;
+    public TextView bkn;
+    public RelativeLayout bko;
+    public LinearLayout bkp;
+    public LinearLayout bkq;
+    public LinearLayout bkr;
+    public View bks;
+    public TbImageView bkt;
+    public RelativeLayout bku;
+    public TbImageView bkv;
+    public TextView bkw;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dj(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.mHandler = new Handler();
-        this.mRunnable = new dk(this);
-        this.mHandler.post(this.mRunnable);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: x */
-    public dl a(ViewGroup viewGroup) {
-        if (this.bhN == null) {
-            Ot();
-        }
-        return this.bhN;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ot() {
-        if (this.mContext != null) {
-            this.bhN = new dl(LayoutInflater.from(this.mContext).inflate(n.h.frs_photo_live_view_pager_div, (ViewGroup) null));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.s sVar, dl dlVar) {
-        super.a(i, view, viewGroup, (ViewGroup) sVar, (com.baidu.tbadk.core.data.s) dlVar);
-        dlVar.bhV.setTag(sVar);
-        dlVar.bhV.setOnClickListener(this);
-        dlVar.bhT.setTag(sVar);
-        dlVar.bhT.setOnClickListener(this);
-        dlVar.bhT.setPortraitClicklistener(this);
-        dlVar.bhR.setOnClickListener(this);
-        if (this.bhO != sVar && sVar != null && sVar.rS() != null && sVar.rS().size() > 0) {
-            this.bhO = sVar;
-            dlVar.bhT.setData(sVar.rS().get(0));
-        }
-        dlVar.vR();
-        return view;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getTag() instanceof com.baidu.tbadk.core.data.s) {
-            com.baidu.tbadk.core.data.s sVar = (com.baidu.tbadk.core.data.s) view.getTag();
-            int id = view.getId();
-            if (id == n.g.item_live_card) {
-                List<PhotoLiveCardData> rS = sVar.rS();
-                if (rS != null && rS.size() > 0) {
-                    PhotoLiveCardData photoLiveCardData = rS.get(0);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.mContext, String.valueOf(photoLiveCardData.getThreadId())).cp("from_frs").bo(18003).rf()));
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10242").aa(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", 1));
-                }
-            } else if (id == n.g.all_live_list) {
-                this.bfE.a(id, 0, view, null, sVar);
-            }
-        }
-    }
-
-    public int Ou() {
-        return n.g.all_live_list;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.b
-    public void onPortraitClick(View view) {
-        if (view.getTag() instanceof PhotoLiveCardData) {
-            PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) view.getTag();
-            if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
-            }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10178").aa(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", 1));
-        }
+    public dj(View view, int i) {
+        super(view);
+        this.ahU = 3;
+        this.beO = (LinearLayout) view.findViewById(t.g.frs_list);
+        this.bko = (RelativeLayout) view.findViewById(t.g.frs_item_user_info_view);
+        this.bkp = (LinearLayout) view.findViewById(t.g.frs_item_base_user_info);
+        this.beP = (LinearLayout) view.findViewById(t.g.frs_list_item_top_linear_layout);
+        this.bkl = (RelativeLayout) view.findViewById(t.g.frs_list_item_top_card);
+        this.bkm = (LinearLayout) view.findViewById(t.g.new_year_color_egg);
+        this.beU = (HeadImageView) view.findViewById(t.g.frs_photo);
+        this.ahI = (UserIconBox) view.findViewById(t.g.frs_user_tshow_icon_box);
+        this.ahJ = (UserIconBox) view.findViewById(t.g.frs_user_icon_box);
+        this.beT = (TextView) view.findViewById(t.g.frs_lv_author);
+        this.ahm = (TextView) view.findViewById(t.g.frs_lv_reply_time);
+        this.aPr = (TextView) view.findViewById(t.g.frs_lv_title);
+        this.beQ = (TextView) view.findViewById(t.g.abstract_text);
+        this.beR = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
+        this.beS = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
+        this.ahn = (TextView) view.findViewById(t.g.frs_praise_num);
+        this.bkn = (TextView) view.findViewById(t.g.action_button);
+        this.beY = (TextView) view.findViewById(t.g.frs_reply_num);
+        this.bfa = (TextView) view.findViewById(t.g.frs_more_abstract);
+        this.bkq = (LinearLayout) view.findViewById(t.g.frs_item_num);
+        this.bkr = (LinearLayout) view.findViewById(t.g.frs_item_loc_view);
+        this.biV = (TextView) view.findViewById(t.g.frs_item_location_address);
+        this.bks = view.findViewById(t.g.frs_item_location_sep);
+        this.beO.setBackgroundResource(t.d.transparent);
+        this.beO.setPadding(0, i, 0, 0);
+        this.bkt = (TbImageView) view.findViewById(t.g.game_activity_banner);
+        this.bkv = (TbImageView) view.findViewById(t.g.app_code_banner);
+        this.bkw = (TextView) view.findViewById(t.g.app_code_btn);
+        this.bku = (RelativeLayout) view.findViewById(t.g.app_code_wrapper);
     }
 }

@@ -1,68 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class j {
-    private int VF;
-    private String VG;
-    private String VH;
-    private int VI;
-    private int mType;
-    private String mValue;
+    private String Vj;
+    private int Vk;
+    private ArrayList<k> Vl = new ArrayList<>();
+    private int height;
+    private int width;
 
-    public int rw() {
-        return this.VF;
+    public ArrayList<k> rW() {
+        return this.Vl;
     }
 
-    public String rx() {
-        return this.VG;
+    public void i(ArrayList<k> arrayList) {
+        this.Vl = arrayList;
     }
 
-    public String getValue() {
-        return this.mValue;
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.VF = jSONObject.optInt("bannerType");
-                this.VG = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.VH = jSONObject.optString("desc");
-                this.VI = jSONObject.optInt("template_id");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.Vk = activityHead.activity_type.intValue();
+            this.Vj = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                k kVar = new k();
+                kVar.a(headImgs);
+                this.Vl.add(kVar);
             }
         }
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.VF = banner.banner_type.intValue();
-            this.VG = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.VH = banner.desc;
-            this.VI = banner.template_id.intValue();
-        }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.VF == 1 || this.VF == 4 || this.VF == 2 || this.VF == 3 : this.mType == 2 && !StringUtils.isNull(this.VH);
-    }
-
-    public int ry() {
-        return this.VI;
     }
 }

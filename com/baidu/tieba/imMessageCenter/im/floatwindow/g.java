@@ -8,65 +8,65 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int aYR;
-    private long ceG;
-    private Point ceM;
-    protected final int ceN;
-    private i ceO;
-    private boolean ceP;
+    private int bbg;
+    private long cjf;
+    private Point cjl;
+    protected final int cjm;
+    private i cjn;
+    private boolean cjo;
 
     public g(View view) {
         super(view);
-        this.ceP = true;
-        this.aYR = 0;
-        this.ceN = k.K(TbadkCoreApplication.m411getInst());
-        this.ceM = new Point();
-        this.ceR.setOnTouchListener(new h(this));
-        this.aYR = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
-        if (this.aYR == 0) {
-            this.aYR = 25;
+        this.cjo = true;
+        this.bbg = 0;
+        this.cjm = k.K(TbadkCoreApplication.m411getInst());
+        this.cjl = new Point();
+        this.cjq.setOnTouchListener(new h(this));
+        this.bbg = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
+        if (this.bbg == 0) {
+            this.bbg = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.ceP = z;
+        this.cjo = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aC(int i, int i2) {
+        this.cjf = SystemClock.elapsedRealtime();
+        this.cjl.x = i;
+        this.cjl.y = i2;
+        if (this.cjn != null) {
+            this.cjn.aC(i, i2);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aB(int i, int i2) {
-        this.ceG = SystemClock.elapsedRealtime();
-        this.ceM.x = i;
-        this.ceM.y = i2;
-        if (this.ceO != null) {
-            this.ceO.aB(i, i2);
+        aF(this.cjl.x + i, (i2 - this.cjl.y) - this.bbg);
+        if (this.cjn != null) {
+            this.cjn.aB(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aA(int i, int i2) {
-        aE(this.ceM.x + i, (i2 - this.ceM.y) - this.aYR);
-        if (this.ceO != null) {
-            this.ceO.aA(i, i2);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void acX() {
-        if (this.ceO != null) {
-            if (SystemClock.elapsedRealtime() - this.ceG > 200) {
-                this.ceO.acX();
+    public void agg() {
+        if (this.cjn != null) {
+            if (SystemClock.elapsedRealtime() - this.cjf > 200) {
+                this.cjn.agg();
             } else {
-                this.ceO.acY();
+                this.cjn.agh();
             }
         }
     }
 
     public void a(i iVar) {
-        this.ceO = iVar;
+        this.cjn = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams adb() {
+    public WindowManager.LayoutParams agk() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;
@@ -77,29 +77,29 @@ public class g extends j {
         return layoutParams;
     }
 
-    public void aD(int i, int i2) {
-        if (this.ceT != null) {
+    public void aE(int i, int i2) {
+        if (this.cjs != null) {
             if (i >= 0) {
-                this.ceT.x = i;
+                this.cjs.x = i;
             }
             if (i2 >= 0) {
-                this.ceT.y = i2;
+                this.cjs.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aE(int i, int i2) {
-        if (this.ceT != null) {
-            int i3 = this.ceN - i;
+    public void aF(int i, int i2) {
+        if (this.cjs != null) {
+            int i3 = this.cjm - i;
             if (i3 >= 0) {
-                this.ceT.x = i3;
+                this.cjs.x = i3;
             }
             if (i2 >= 0) {
-                this.ceT.y = i2;
+                this.cjs.y = i2;
             }
-            if (this.ceS != null && this.ceR.getParent() != null) {
-                this.ceS.updateViewLayout(this.ceR, this.ceT);
+            if (this.cjr != null && this.cjq.getParent() != null) {
+                this.cjr.updateViewLayout(this.cjq, this.cjs);
             }
         }
     }

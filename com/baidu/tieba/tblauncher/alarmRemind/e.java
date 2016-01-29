@@ -7,20 +7,20 @@ import com.baidu.adp.lib.util.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ b dLb;
+    final /* synthetic */ b ebj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(b bVar, int i) {
         super(i);
-        this.dLb = bVar;
+        this.ebj = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.iQ() && this.dLb.aHo()) {
-            this.dLb.aHn();
+        if (customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && i.iZ() && this.ebj.aOt()) {
+            this.ebj.aOs();
         }
     }
 }

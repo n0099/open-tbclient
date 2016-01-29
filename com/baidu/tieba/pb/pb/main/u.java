@@ -1,35 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
-class u implements BdListView.e {
-    final /* synthetic */ PbActivity cFS;
+class u extends com.baidu.adp.base.g {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        boolean z;
-        cf cfVar;
-        dk dkVar;
-        cf cfVar2;
-        dk dkVar2;
-        z = this.cFS.mIsLogin;
-        if (z) {
-            cfVar = this.cFS.cFl;
-            if (cfVar.fc(false)) {
-                dkVar2 = this.cFS.cFq;
-                dkVar2.amL();
-                TiebaStatic.eventStat(this.cFS.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-                return;
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        dz dzVar;
+        com.baidu.tieba.tbadkCore.f.a aVar;
+        com.baidu.tieba.tbadkCore.f.a aVar2;
+        com.baidu.tieba.tbadkCore.f.a aVar3;
+        cm cmVar;
+        if (obj != null) {
+            aVar2 = this.cNq.cMH;
+            switch (aVar2.getLoadDataMode()) {
+                case 0:
+                    cmVar = this.cNq.cMF;
+                    cmVar.aqb();
+                    this.cNq.a((a.b) obj);
+                    return;
+                case 1:
+                    this.cNq.a((a.d) obj);
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    PbActivity pbActivity = this.cNq;
+                    aVar3 = this.cNq.cMH;
+                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
+                    return;
+                case 6:
+                    this.cNq.a((a.f) obj);
+                    return;
+                default:
+                    return;
             }
-            dkVar = this.cFS.cFq;
-            cfVar2 = this.cFS.cFl;
-            dkVar.l(cfVar2.getPbData());
         }
+        dzVar = this.cNq.cMK;
+        aVar = this.cNq.cMH;
+        dzVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

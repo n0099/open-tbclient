@@ -1,26 +1,35 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d cWV;
+public class au implements a.b {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(d dVar, int i, int i2) {
-        super(i, i2);
-        this.cWV = dVar;
+    public au(f fVar) {
+        this.diG = fVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        if (responsedMessage != null && responsedMessage.getError() == 0) {
-            z = this.cWV.mIsHost;
-            if (z) {
-                this.cWV.cWl = true;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        bf bfVar;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        BlackListModel blackListModel3;
+        bfVar = this.diG.dbl;
+        long c = com.baidu.adp.lib.h.b.c(bfVar.getId(), -1L);
+        if (c > 0) {
+            blackListModel = this.diG.dhS;
+            if (blackListModel.getMaskType() == 1) {
+                blackListModel3 = this.diG.dhS;
+                blackListModel3.removeFromBlackList(c);
+            } else {
+                blackListModel2 = this.diG.dhS;
+                blackListModel2.addToBlackList(c);
             }
         }
+        aVar.dismiss();
     }
 }

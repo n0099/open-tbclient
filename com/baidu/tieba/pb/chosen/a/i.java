@@ -8,107 +8,107 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes.dex */
 public class i {
-    private a cCA;
-    public boolean cCB;
-    private Animation cCD;
-    private View cCv;
-    private TextView cCw;
-    private ImageView cCx;
-    private TextView cCy;
-    private TextView cCz;
+    private View cJa;
+    private TextView cJb;
+    private ImageView cJc;
+    private TextView cJd;
+    private TextView cJe;
+    private a cJf;
+    public boolean cJg;
+    private Animation cJi;
     private Context context;
-    private long cCC = 0;
-    private boolean cCE = false;
+    private long cJh = 0;
+    private boolean cJj = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eM(boolean z);
+        void fa(boolean z);
 
         void g(long j, String str);
     }
 
     public i(Context context) {
         this.context = context;
-        this.cCv = LayoutInflater.from(context).inflate(n.h.chosen_pb_post_info, (ViewGroup) null);
-        this.cCw = (TextView) this.cCv.findViewById(n.g.chosen_post_info_copyright);
-        this.cCx = (ImageView) this.cCv.findViewById(n.g.chosen_post_info_praise_icon);
-        this.cCy = (TextView) this.cCv.findViewById(n.g.chosen_post_info_praise_num);
-        this.cCz = (TextView) this.cCv.findViewById(n.g.chosen_post_info_original_post);
+        this.cJa = LayoutInflater.from(context).inflate(t.h.chosen_pb_post_info, (ViewGroup) null);
+        this.cJb = (TextView) this.cJa.findViewById(t.g.chosen_post_info_copyright);
+        this.cJc = (ImageView) this.cJa.findViewById(t.g.chosen_post_info_praise_icon);
+        this.cJd = (TextView) this.cJa.findViewById(t.g.chosen_post_info_praise_num);
+        this.cJe = (TextView) this.cJa.findViewById(t.g.chosen_post_info_original_post);
     }
 
-    public View akz() {
-        return this.cCv;
+    public View aox() {
+        return this.cJa;
     }
 
     public void a(a aVar) {
-        this.cCA = aVar;
+        this.cJf = aVar;
     }
 
-    public void kj(int i) {
-        if (this.cCw != null) {
-            this.cCw.setText(i);
+    public void kJ(int i) {
+        if (this.cJb != null) {
+            this.cJb.setText(i);
         }
     }
 
-    public void y(View.OnClickListener onClickListener) {
-        if (this.cCz != null) {
-            this.cCz.setOnClickListener(onClickListener);
+    public void E(View.OnClickListener onClickListener) {
+        if (this.cJe != null) {
+            this.cJe.setOnClickListener(onClickListener);
         }
     }
 
-    public void bk(long j) {
+    public void bm(long j) {
         if (j >= 0) {
-            this.cCC = j;
-            if (this.cCy != null) {
-                this.cCy.setText(this.context.getString(n.j.chosen_pb_praise_num, ax.x(j)));
+            this.cJh = j;
+            if (this.cJd != null) {
+                this.cJd.setText(this.context.getString(t.j.chosen_pb_praise_num, aw.y(j)));
             }
         }
     }
 
     public void a(ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            kj(n.j.chosen_pb_copyright);
-            bk(excellentPbThreadInfo.zan.zansum.longValue());
-            eQ(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            y(new j(this, excellentPbThreadInfo));
-            this.cCx.setOnClickListener(new k(this));
+            kJ(t.j.chosen_pb_copyright);
+            bm(excellentPbThreadInfo.zan.zansum.longValue());
+            fe(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            E(new j(this, excellentPbThreadInfo));
+            this.cJc.setOnClickListener(new k(this));
         }
     }
 
-    public void akA() {
-        this.cCE = false;
+    public void aoy() {
+        this.cJj = false;
     }
 
-    public void eP(boolean z) {
-        eQ(z);
+    public void fd(boolean z) {
+        fe(z);
         if (z) {
-            this.cCC++;
+            this.cJh++;
         } else {
-            this.cCC--;
+            this.cJh--;
         }
-        bk(this.cCC);
+        bm(this.cJh);
     }
 
-    private void eQ(boolean z) {
-        this.cCB = z;
+    private void fe(boolean z) {
+        this.cJg = z;
         if (z) {
-            as.c(this.cCx, n.f.btn_zambia_big_s);
+            ar.c(this.cJc, t.f.btn_zambia_big_s);
         } else {
-            as.c(this.cCx, n.f.btn_zambia_big_n);
+            ar.c(this.cJc, t.f.btn_zambia_big_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation akB() {
-        if (this.cCD == null) {
-            this.cCD = AnimationUtils.loadAnimation(this.context, n.a.praise_animation_scale3);
+    public Animation aoz() {
+        if (this.cJi == null) {
+            this.cJi = AnimationUtils.loadAnimation(this.context, t.a.praise_animation_scale3);
         }
-        return this.cCD;
+        return this.cJi;
     }
 }

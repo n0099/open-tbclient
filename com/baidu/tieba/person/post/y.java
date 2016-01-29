@@ -1,17 +1,35 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.tieba.person.post.v;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ u cVS;
+public class y extends CustomMessageListener {
+    final /* synthetic */ v dhq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(u uVar) {
-        this.cVS = uVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(v vVar, int i) {
+        super(i);
+        this.dhq = vVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cVS.apK();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        q qVar;
+        v.a aVar;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && com.baidu.adp.lib.util.i.iZ()) {
+            z = this.dhq.aza;
+            if (z) {
+                qVar = this.dhq.dhn;
+                qVar.fY(false);
+                aVar = this.dhq.dhp;
+                aVar.Ob();
+            }
+        }
     }
 }

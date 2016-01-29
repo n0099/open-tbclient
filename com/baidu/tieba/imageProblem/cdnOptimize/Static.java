@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.a.e;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.r;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.logic.ImageProblemActivity;
@@ -19,7 +19,7 @@ import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class Static {
-    private static CustomMessageTask azq = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    private static CustomMessageTask aAh = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             boolean z;
@@ -27,31 +27,31 @@ public class Static {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.ckO == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.cpp == null) {
                         return null;
                     }
                     String str = "";
-                    if (data.ckM == null) {
-                        if (data.pos < data.ipListData.ckO.size()) {
-                            ArrayList<String> arrayList = data.ipListData.ckO.get(data.pos);
+                    if (data.cpn == null) {
+                        if (data.pos < data.ipListData.cpp.size()) {
+                            ArrayList<String> arrayList = data.ipListData.cpp.get(data.pos);
                             if (arrayList.size() > 0) {
                                 z = false;
                                 str = arrayList.get(0);
                             }
                         }
                         z = false;
-                    } else if (data.ckM.length() <= 0) {
+                    } else if (data.cpn.length() <= 0) {
                         return null;
                     } else {
-                        str = data.ckM;
+                        str = data.cpn;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.ckQ, data.ipListData.ckN, data.isNormal);
-                        data.Ha = System.currentTimeMillis() - currentTimeMillis;
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.cpr, data.ipListData.cpo, data.isNormal);
+                        data.Hm = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.ckM = str;
+                            data.cpn = str;
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
@@ -67,7 +67,7 @@ public class Static {
         TbadkCoreApplication.m411getInst().RegisterIntent(ImageProblemActivityConfig.class, ImageProblemActivity.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<s> run(CustomMessage<Object> customMessage) {
+            public CustomResponsedMessage<r> run(CustomMessage<Object> customMessage) {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, CDNProblemUploader.m414getInstance());
             }
         });
@@ -81,8 +81,8 @@ public class Static {
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        azq.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        azq.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
-        MessageManager.getInstance().registerTask(azq);
+        aAh.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        aAh.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        MessageManager.getInstance().registerTask(aAh);
     }
 }

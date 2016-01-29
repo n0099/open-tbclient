@@ -1,22 +1,22 @@
 package com.baidu.tieba.setting.more;
 
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class aw implements a.b {
-    final /* synthetic */ SystemHelpSettingActivity dvU;
+    final /* synthetic */ SystemHelpSettingActivity dLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.dvU = systemHelpSettingActivity;
+        this.dLY = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.setting.model.j jVar;
         aVar.dismiss();
-        this.dvU.showLoadingDialog(this.dvU.getPageContext().getString(n.j.deleting));
-        jVar = this.dvU.dvS;
-        jVar.azy();
+        this.dLY.showLoadingDialog(this.dLY.getPageContext().getString(t.j.deleting));
+        jVar = this.dLY.dLW;
+        jVar.aGF();
     }
 }

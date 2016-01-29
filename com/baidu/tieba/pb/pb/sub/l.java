@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.editortools.d.c {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.editortools.d.c
-    public void BL() {
+    public void Db() {
         w wVar;
-        wVar = this.cLc.cKT;
-        wVar.anD();
+        wVar = this.cTK.cTB;
+        wVar.asg();
     }
 }

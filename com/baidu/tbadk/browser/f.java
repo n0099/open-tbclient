@@ -10,6 +10,7 @@ import android.webkit.WebSettings;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,8 +18,8 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
@@ -38,85 +39,36 @@ public class f {
     }
 
     public static void B(Context context, String str) {
-        b(context, true, str);
+        a(context, true, str);
     }
 
-    public static void b(Context context, boolean z, String str) {
-        String appendVersionCode;
-        qf();
-        if (z) {
-            try {
-                appendVersionCode = appendVersionCode(appendCuidParam(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return;
-            }
-        } else {
-            appendVersionCode = str;
-        }
-        if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, null, appendVersionCode, true, true, true)));
-        } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, null, appendVersionCode, true, true, true)));
-        }
-    }
-
-    public static void a(Context context, boolean z, String str, String str2) {
-        String appendVersionCode;
-        qf();
-        if (z) {
-            try {
-                appendVersionCode = appendVersionCode(appendCuidParam(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return;
-            }
-        } else {
-            appendVersionCode = str;
-        }
-        if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str2, appendVersionCode, true, false, true)));
-        } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str2, appendVersionCode, true, false, true)));
-        }
+    public static void a(Context context, boolean z, String str) {
+        a(context, "", str, true, true, true, true, z);
     }
 
     public static void f(Context context, String str, String str2) {
-        qf();
-        try {
-            String appendVersionCode = appendVersionCode(appendCuidParam(str2));
-            if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str, appendVersionCode, true, true, true)));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode, true, true, true)));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        a(context, str, str2, true, true, true, true, true);
     }
 
-    public static void c(Context context, String str, String str2, boolean z) {
-        qf();
-        try {
-            String appendVersionCode = appendVersionCode(appendCuidParam(str2));
-            if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str, appendVersionCode, true, z, true)));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode, true, z, true)));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public static void b(Context context, String str, String str2, boolean z) {
+        a(context, str, str2, true, z, true, true, true);
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
-        a(context, str, str2, z, z2, z3, true);
+        a(context, str, str2, z, z2, z3, true, true);
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        qf();
+    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+        qx();
         try {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode(appendCuidParam(str2)), z, z2, z3)));
+            if (!StringUtils.isNull(str2)) {
+                String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
+                if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null && z4) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
+                }
+            }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -141,7 +93,7 @@ public class f {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ax.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!aw.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -159,17 +111,17 @@ public class f {
     }
 
     public static String appendVersionCode(String str) {
-        return (ax.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (aw.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void W(Context context) {
-        a.b cj = com.baidu.tbadk.core.a.a.qY().cj(TbadkCoreApplication.getCurrentBduss());
+        a.b ci = com.baidu.tbadk.core.a.a.rv().ci(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (cj != null) {
+        if (ci != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + cj.wA + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + cj.Uv + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + ci.wJ + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + ci.TU + "; domain=.baidu.com;");
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {
@@ -189,7 +141,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void qf() {
-        new ap("open_webview", true).start();
+    private static void qx() {
+        new ao("open_webview", true).start();
     }
 }

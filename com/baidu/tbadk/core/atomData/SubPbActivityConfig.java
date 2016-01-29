@@ -2,12 +2,19 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_ANTI = "anti";
+    public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
     public static final String KEY_POST_ID = "post_id";
@@ -18,6 +25,10 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_TAIL = "post_tail";
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_USER_IDENTITY = "user_identity";
+    public static final String SUB_KEY_IMG_CDN = "sub_img_cdn";
+    public static final String SUB_KEY_IMG_OFFSET = "sub_img_offset";
+    public static final String SUB_KEY_IMG_SRC = "sub_img_src";
+    public static final String SUB_KEY_IMG_URL = "sub_img_url";
 
     public SubPbActivityConfig(Context context) {
         super(context);
@@ -56,6 +67,27 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_TAIL, smallTailInfo);
         intent.putExtra("anti", antiData);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
+        return this;
+    }
+
+    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i) {
+        if (concurrentHashMap != null && arrayList != null) {
+            Intent intent = getIntent();
+            Bundle bundle = new Bundle();
+            ArrayList<String> arrayList2 = new ArrayList<>(concurrentHashMap.keySet());
+            bundle.putStringArrayList(SUB_KEY_IMG_URL, arrayList2);
+            bundle.putBoolean(SUB_KEY_IMG_CDN, z);
+            bundle.putStringArrayList(SUB_KEY_IMG_SRC, arrayList);
+            Iterator<String> it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!StringUtils.isNull(next)) {
+                    bundle.putSerializable(next, concurrentHashMap.get(next));
+                }
+            }
+            bundle.putInt(SUB_KEY_IMG_OFFSET, i);
+            intent.putExtra(KEY_IMG_URLS, bundle);
+        }
         return this;
     }
 }

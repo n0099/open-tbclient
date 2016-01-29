@@ -1,38 +1,28 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.n;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.PbListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
-    private static final Class<?>[] dod = {com.baidu.tieba.recommendfrs.a.b.class, com.baidu.tieba.recommendfrs.a.e.class, com.baidu.tieba.recommendfrs.a.a.class};
-    private static final int[] dba = {n.h.recommend_frs_item_pic, n.h.recommend_frs_item_pics, n.h.recommend_frs_item_photo_live};
+public class j implements BdListView.e {
+    final /* synthetic */ f dDl;
 
-    public j(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, dod, dba, viewEventCenter);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(f fVar) {
+        this.dDl = fVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.g.b
-    public int ey(int i) {
-        Object item = getItem(i);
-        if (item instanceof com.baidu.tieba.recommendfrs.data.j) {
-            com.baidu.tieba.recommendfrs.data.j jVar = (com.baidu.tieba.recommendfrs.data.j) item;
-            if (jVar.ayx() == 33) {
-                return 2;
-            }
-            return jVar.getType() == 2 ? 1 : 0;
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void nv() {
+        PbListView pbListView;
+        p pVar;
+        PbListView pbListView2;
+        pbListView = this.dDl.aXw;
+        if (pbListView != null) {
+            pbListView2 = this.dDl.aXw;
+            pbListView2.xb();
         }
-        return 0;
-    }
-
-    public com.baidu.tieba.recommendfrs.data.j axY() {
-        com.baidu.tieba.recommendfrs.data.j jVar;
-        for (int count = getCount() - 1; count >= 0; count--) {
-            Object item = getItem(count);
-            if ((item instanceof com.baidu.tieba.recommendfrs.data.j) && (jVar = (com.baidu.tieba.recommendfrs.data.j) item) != null) {
-                return jVar;
-            }
-        }
-        return null;
+        pVar = this.dDl.dDh;
+        pVar.OB();
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.view.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements Runnable {
-    private final /* synthetic */ AccountData Uq;
-    final /* synthetic */ NotLoginGuideActivity aIE;
+public class x implements j.a {
+    final /* synthetic */ NotLoginGuideActivity aJJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(NotLoginGuideActivity notLoginGuideActivity, AccountData accountData) {
-        this.aIE = notLoginGuideActivity;
-        this.Uq = accountData;
+    public x(NotLoginGuideActivity notLoginGuideActivity) {
+        this.aJJ = notLoginGuideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.a.b.b(this.Uq);
+    @Override // com.baidu.tbadk.coreExtra.view.j.a
+    public void i(AccountData accountData) {
+        this.aJJ.o(accountData);
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.framework.a.j {
-    final /* synthetic */ n aqE;
+    final /* synthetic */ n arx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(n nVar, int i) {
         super(i);
-        this.aqE = nVar;
+        this.arx = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,21 +32,22 @@ public class p extends com.baidu.adp.framework.a.j {
                 j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
             }
             if (responseOnlineMessage.getError() == 0) {
-                this.aqE.AF();
+                this.arx.BV();
                 int cmd = socketResponsedMessage.getCmd();
                 StringBuilder sb = new StringBuilder("online succ. retry count-");
-                i2 = this.aqE.aqA;
+                i2 = this.arx.art;
                 com.baidu.adp.framework.client.socket.k.a("TbOnline", cmd, j, i, "online_succ", 0, sb.append(i2).toString());
                 return socketResponsedMessage;
             }
-            this.aqE.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+            this.arx.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
             int cmd2 = socketResponsedMessage.getCmd();
-            StringBuilder sb2 = new StringBuilder("online failed. count-");
-            i3 = this.aqE.aqA;
-            com.baidu.adp.framework.client.socket.k.a("TbOnline", cmd2, j, 0, "online_failed", 0, sb2.append(i3).toString());
+            int error = responseOnlineMessage.getError();
+            StringBuilder append = new StringBuilder(String.valueOf(responseOnlineMessage.getErrorString())).append("online failed. count-");
+            i3 = this.arx.art;
+            com.baidu.adp.framework.client.socket.k.a("TbOnline", cmd2, j, i, "online_failed", error, append.append(i3).toString());
             return null;
         }
-        this.aqE.b(socketResponsedMessage.getCmd(), -1, null);
+        this.arx.b(socketResponsedMessage.getCmd(), -1, null);
         return null;
     }
 }

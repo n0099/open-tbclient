@@ -1,72 +1,61 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class o extends q {
-    private volatile HashMap<String, Long> dJk;
-
-    static {
-        MessageManager.getInstance().registerListener(new p(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
-    }
+public class o extends r {
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.b> dZk;
 
     public o(int i) {
         super(i);
-        this.dJk = new HashMap<>();
+        this.dZk = new HashMap<>();
     }
 
-    public void bf(String str, String str2) {
+    public void a(String str, com.baidu.tieba.myCollection.baseHistory.b bVar) {
+        mT(str);
         try {
-            Long valueOf = Long.valueOf(Long.parseLong(str2));
+            Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
             synchronized (this) {
-                if (this.dJk.size() >= this.dlR) {
-                    atf();
-                }
-                this.dJk.put(str, valueOf);
+                this.dZk.put(valueOf, bVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long mB(String str) {
-        long longValue;
+    public com.baidu.tieba.myCollection.baseHistory.b mR(String str) {
+        com.baidu.tieba.myCollection.baseHistory.b bVar;
         try {
+            Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
             synchronized (this) {
-                longValue = this.dJk.get(str) != null ? this.dJk.get(str).longValue() : 0L;
+                bVar = this.dZk.get(valueOf) != null ? this.dZk.get(valueOf) : null;
             }
-            return longValue;
+            return bVar;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            return 0L;
+            return null;
         }
     }
 
-    public void bg(String str, String str2) {
-        String key;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str2));
-            synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.dJk.entrySet().iterator();
-                if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.dJk.remove(key);
-                }
-                this.dJk.put(str, valueOf);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.util.q
-    public void aGq() {
+    @Override // com.baidu.tieba.tbadkCore.util.r
+    public void azo() {
         synchronized (this) {
-            this.dJm.clear();
-            this.dJk.clear();
+            int i = 134217727;
+            Long l = null;
+            for (Map.Entry<Long, Integer> entry : this.dZn.entrySet()) {
+                if (entry.getValue().intValue() < i) {
+                    i = entry.getValue().intValue();
+                    l = entry.getKey();
+                }
+            }
+            if (l != null) {
+                this.dZn.remove(l);
+                this.dZk.remove(l);
+            } else {
+                this.dZn.clear();
+                this.dZk.clear();
+            }
         }
     }
 }

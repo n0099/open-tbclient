@@ -4,17 +4,17 @@ import android.widget.ImageView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ PersonPostActivity cVf;
+    final /* synthetic */ PersonPostActivity dgG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonPostActivity personPostActivity, int i) {
         super(i);
-        this.cVf = personPostActivity;
+        this.dgG = personPostActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,20 +26,20 @@ class c extends HttpMessageListener {
         int[] iArr3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonPostActivity.bZc;
-                com.baidu.tbadk.core.a.h.v(4, iArr[this.cVf.bYU]);
-                imageView = this.cVf.bYW;
-                iArr2 = PersonPostActivity.bZa;
-                as.c(imageView, iArr2[this.cVf.bYU]);
-                PersonPostActivity personPostActivity = this.cVf;
-                TbPageContext pageContext = this.cVf.getPageContext();
-                iArr3 = PersonPostActivity.bZb;
-                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.cVf.bYU]), n.f.icon_toast_info);
+                iArr = PersonPostActivity.cdx;
+                com.baidu.tbadk.core.a.h.r(4, iArr[this.dgG.cdo]);
+                imageView = this.dgG.cdr;
+                iArr2 = PersonPostActivity.cdv;
+                ar.c(imageView, iArr2[this.dgG.cdo]);
+                PersonPostActivity personPostActivity = this.dgG;
+                TbPageContext pageContext = this.dgG.getPageContext();
+                iArr3 = PersonPostActivity.cdw;
+                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.dgG.cdo]), t.f.icon_toast_info);
                 return;
             }
-            this.cVf.showToast(httpResponsedMessage.getErrorString());
+            this.dgG.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.cVf.showToast(this.cVf.getPageContext().getString(n.j.neterror));
+        this.dgG.showToast(this.dgG.getPageContext().getString(t.j.neterror));
     }
 }

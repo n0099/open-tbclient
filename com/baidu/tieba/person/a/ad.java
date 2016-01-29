@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ad extends c<ae, com.baidu.tieba.person.b.m> {
-    private View.OnClickListener cRp;
+public class ad extends c<ae, com.baidu.tieba.person.b.n> {
+    private View.OnClickListener daW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
@@ -18,28 +18,28 @@ public class ad extends c<ae, com.baidu.tieba.person.b.m> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.person.b.m a(ViewGroup viewGroup) {
-        com.baidu.tieba.person.b.m mVar = new com.baidu.tieba.person.b.m(LayoutInflater.from(this.mContext).inflate(n.h.person_info_user_pics_layout, viewGroup, false), this.mContext);
-        mVar.cUG.G(this.cRp);
-        return mVar;
+    /* renamed from: aD */
+    public com.baidu.tieba.person.b.n b(ViewGroup viewGroup) {
+        com.baidu.tieba.person.b.n nVar = new com.baidu.tieba.person.b.n(LayoutInflater.from(this.mContext).inflate(t.h.person_info_user_pics_layout, viewGroup, false), this.mContext);
+        nVar.dge.M(this.daW);
+        return nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ae aeVar, com.baidu.tieba.person.b.m mVar) {
-        if (aeVar != null && mVar != null) {
-            mVar.apC();
-            if (this.aVr) {
-                mVar.a(aeVar);
-                this.aVr = false;
+    public View a(int i, View view, ViewGroup viewGroup, ae aeVar, com.baidu.tieba.person.b.n nVar) {
+        if (aeVar != null && nVar != null) {
+            nVar.auP();
+            if (this.aXE) {
+                nVar.a(aeVar);
+                this.aXE = false;
             }
         }
         return view;
     }
 
-    public void F(View.OnClickListener onClickListener) {
-        this.cRp = onClickListener;
+    public void L(View.OnClickListener onClickListener) {
+        this.daW = onClickListener;
     }
 }

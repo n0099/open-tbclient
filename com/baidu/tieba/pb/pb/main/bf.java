@@ -1,29 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements a.b {
-    final /* synthetic */ PbActivity cFS;
-    private final /* synthetic */ long cGb;
-    private final /* synthetic */ String cGc;
-    private final /* synthetic */ String cGd;
-    private final /* synthetic */ String cGe;
-    private final /* synthetic */ String cGf;
+public class bf implements View.OnClickListener {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.cFS = pbActivity;
-        this.cGb = j;
-        this.cGc = str;
-        this.cGd = str2;
-        this.cGe = str3;
-        this.cGf = str4;
+    public bf(PbActivity pbActivity) {
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.a.a(this.cGb, this.cGc, null, "PB", "BTN_FBCANCEL", "CLICK_FEEDBACK", "tpoint", this.cGd, this.cGe, this.cGf);
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cm cmVar;
+        this.cNq.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.cNq.getPageContext().getPageActivity(), 23007)));
+        com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10125");
+        cmVar = this.cNq.cMF;
+        TiebaStatic.log(auVar.aa("tid", cmVar.getThreadID()).r("obj_type", 1));
     }
 }

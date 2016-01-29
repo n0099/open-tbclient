@@ -1,29 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eo implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
-            return null;
+public class eo implements DialogInterface.OnCancelListener {
+    final /* synthetic */ dz cSw;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public eo(dz dzVar) {
+        this.cSw = dzVar;
+    }
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Runnable runnable;
+        Runnable runnable2;
+        runnable = this.cSw.cRU;
+        if (runnable == null) {
+            this.cSw.cRU = new ep(this);
         }
-        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] B = ca.alH().B(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
-        try {
-            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, B);
-            return pbPageReadLocalResponseMessage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return pbPageReadLocalResponseMessage;
-        }
+        com.baidu.adp.lib.h.h hr = com.baidu.adp.lib.h.h.hr();
+        runnable2 = this.cSw.cRU;
+        hr.postDelayed(runnable2, 150L);
     }
 }

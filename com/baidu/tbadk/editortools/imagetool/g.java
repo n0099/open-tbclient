@@ -7,17 +7,17 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
 import com.baidu.tbadk.editortools.z;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.io.File;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    final /* synthetic */ MultiImgToolView.b atC;
-    private final /* synthetic */ ViewGroup atD;
+    final /* synthetic */ MultiImgToolView.b auu;
+    private final /* synthetic */ ViewGroup auv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MultiImgToolView.b bVar, ViewGroup viewGroup) {
-        this.atC = bVar;
-        this.atD = viewGroup;
+        this.auu = bVar;
+        this.auv = viewGroup;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,9 +26,9 @@ class g implements View.OnClickListener {
         z zVar;
         z zVar2;
         Context context;
-        int indexOfChild = this.atD.indexOfChild(view);
+        int indexOfChild = this.auv.indexOfChild(view);
         if (indexOfChild >= 0) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.atC.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.auu.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -36,13 +36,13 @@ class g implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                context = this.atC.mContext;
-                k.c(context, n.j.editor_mutiiamge_image_error);
+                context = this.auu.mContext;
+                k.b(context, t.j.editor_mutiiamge_image_error);
                 return;
             }
-            zVar = this.atC.atz;
+            zVar = this.auu.aur;
             if (zVar != null) {
-                zVar2 = this.atC.atz;
+                zVar2 = this.auu.aur;
                 zVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

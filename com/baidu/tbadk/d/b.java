@@ -4,24 +4,24 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b implements c {
-    private int anc;
-    private Drawable ark;
-    private View.OnClickListener mClickListener;
+    private View.OnClickListener OS;
+    private int anV;
+    private Drawable asd;
     private String mTitle;
 
     public void setPosition(int i) {
-        this.anc = i;
+        this.anV = i;
     }
 
     public void setIcon(Drawable drawable) {
-        this.ark = drawable;
+        this.asd = drawable;
     }
 
     public void setTitle(String str) {
         this.mTitle = str;
     }
 
-    public void d(View.OnClickListener onClickListener) {
-        this.mClickListener = onClickListener;
+    public void h(View.OnClickListener onClickListener) {
+        this.OS = onClickListener;
     }
 }

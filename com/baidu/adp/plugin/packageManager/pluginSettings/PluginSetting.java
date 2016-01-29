@@ -29,6 +29,7 @@ public class PluginSetting implements Serializable, Cloneable {
     public int load_priority = 1000;
     public boolean hasRes = false;
     public boolean isThird = false;
+    public boolean isPatch = false;
 
     public boolean isContainCmd(int i) {
         if (this.cmdRangeInt == null) {
@@ -121,6 +122,7 @@ public class PluginSetting implements Serializable, Cloneable {
         pluginSetting.priority = this.priority;
         pluginSetting.hasRes = this.hasRes;
         pluginSetting.isThird = this.isThird;
+        pluginSetting.isPatch = this.isPatch;
         pluginSetting.load_priority = this.load_priority;
         return pluginSetting;
     }

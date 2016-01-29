@@ -9,70 +9,70 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b {
-    private AlertDialog aeD;
+    private TbPageContext<?> MR;
+    private AlertDialog afe;
     private Activity mActivity;
-    private TbPageContext<?> mContext;
-    private String aeE = null;
-    private TextView YB = null;
+    private String aff = null;
+    private TextView YY = null;
 
     public b(TbPageContext<?> tbPageContext) {
-        this.mContext = null;
+        this.MR = null;
         this.mActivity = null;
-        this.mContext = tbPageContext;
-        if (this.mContext != null && this.mContext.getPageActivity() != null) {
-            this.mActivity = this.mContext.getPageActivity();
+        this.MR = tbPageContext;
+        if (this.MR != null && this.MR.getPageActivity() != null) {
+            this.mActivity = this.MR.getPageActivity();
         }
     }
 
     public b b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aeD = new AlertDialog.Builder(this.mActivity).create();
-            View inflate = LayoutInflater.from(this.mActivity).inflate(n.h.custom_loading_toast, (ViewGroup) null);
-            this.YB = (TextView) inflate.findViewById(n.g.custom_loading_text);
-            com.baidu.adp.lib.h.j.a(this.aeD, this.mActivity);
-            if (this.aeD != null && this.aeD.getWindow() != null) {
-                this.aeD.getWindow().setContentView(inflate);
+            this.afe = new AlertDialog.Builder(this.mActivity).create();
+            View inflate = LayoutInflater.from(this.mActivity).inflate(t.h.custom_loading_toast, (ViewGroup) null);
+            this.YY = (TextView) inflate.findViewById(t.g.custom_loading_text);
+            com.baidu.adp.lib.h.j.a(this.afe, this.mActivity);
+            if (this.afe != null && this.afe.getWindow() != null) {
+                this.afe.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.aeD.setCancelable(true);
-                    this.aeD.setCanceledOnTouchOutside(true);
-                    this.aeD.setOnCancelListener(onCancelListener);
+                    this.afe.setCancelable(true);
+                    this.afe.setCanceledOnTouchOutside(true);
+                    this.afe.setOnCancelListener(onCancelListener);
                 } else {
-                    this.aeD.setCanceledOnTouchOutside(false);
-                    this.aeD.setCancelable(false);
+                    this.afe.setCanceledOnTouchOutside(false);
+                    this.afe.setCancelable(false);
                 }
             }
         }
         return this;
     }
 
-    public b vG() {
+    public b wN() {
         return b(null);
     }
 
     public void show() {
-        av(true);
+        aw(true);
     }
 
-    public void av(boolean z) {
+    public void aw(boolean z) {
         if (z) {
-            if (this.aeD == null) {
-                vG();
+            if (this.afe == null) {
+                wN();
             }
-            if (!StringUtils.isNull(this.aeE) && this.YB != null) {
-                this.YB.setText(this.aeE);
+            if (!StringUtils.isNull(this.aff) && this.YY != null) {
+                this.YY.setText(this.aff);
             }
-            com.baidu.adp.lib.h.j.a(this.aeD, this.mActivity);
+            com.baidu.adp.lib.h.j.a(this.afe, this.mActivity);
             return;
         }
-        com.baidu.adp.lib.h.j.b(this.aeD, this.mActivity);
+        com.baidu.adp.lib.h.j.b(this.afe, this.mActivity);
     }
 
-    public void cE(int i) {
+    public void cV(int i) {
         if (this.mActivity != null) {
-            this.aeE = this.mActivity.getString(i);
+            this.aff = this.mActivity.getString(i);
         }
     }
 }

@@ -2,18 +2,17 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        h(0, 0, com.baidu.adp.lib.util.k.d(context, n.e.ds30), 0);
+        g(0, 0, com.baidu.adp.lib.util.k.c(context, t.e.ds30), 0);
     }
 
     public void refresh() {
@@ -25,13 +24,13 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.apj.setText("new");
-            this.apj.setTextAppearance(this.mContext, z2 ? n.k.setting_version_prompt_text_1 : n.k.setting_version_prompt_text);
-            com.baidu.tbadk.core.util.as.i((View) this.apj, n.f.icon_news_text_prompt);
+            this.aqc.setText("new");
+            this.aqc.setTextAppearance(this.mContext, z2 ? t.k.setting_version_prompt_text_1 : t.k.setting_version_prompt_text);
+            com.baidu.tbadk.core.util.ar.k(this.aqc, t.f.icon_news_text_prompt);
             return;
         }
-        this.apj.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.ax.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
-        this.apj.setBackgroundDrawable(null);
-        this.apj.setTextAppearance(this.mContext, z2 ? n.k.setting_version_text_1 : n.k.setting_version_text);
+        this.aqc.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.aw.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
+        this.aqc.setBackgroundDrawable(null);
+        this.aqc.setTextAppearance(this.mContext, z2 ? t.k.setting_version_text_1 : t.k.setting_version_text);
     }
 }

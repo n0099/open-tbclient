@@ -5,35 +5,35 @@ import com.baidu.tbadk.core.view.r;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
 /* loaded from: classes.dex */
 class ac implements r.a {
-    final /* synthetic */ s cOw;
+    final /* synthetic */ s cXR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(s sVar) {
-        this.cOw = sVar;
+        this.cXR = sVar;
     }
 
     @Override // com.baidu.tbadk.core.view.r.a
-    public void onListPullRefresh(boolean z) {
-        PersonBarActivity aoI;
-        PersonBarActivity aoI2;
-        PersonBarActivity aoI3;
-        aoI = this.cOw.aoI();
-        if (aoI != null) {
-            this.cOw.cOk = 1;
-            aoI2 = this.cOw.aoI();
-            if (aoI2 != null) {
-                aoI3 = this.cOw.aoI();
-                if (aoI3.getRequestCode() == 23011) {
+    public void az(boolean z) {
+        PersonBarActivity atz;
+        PersonBarActivity atz2;
+        PersonBarActivity atz3;
+        atz = this.cXR.atz();
+        if (atz != null) {
+            this.cXR.cXE = 1;
+            atz2 = this.cXR.atz();
+            if (atz2 != null) {
+                atz3 = this.cXR.atz();
+                if (atz3.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
-                    requestGetLivableForumList.setPageNo(this.cOw.cOk);
-                    requestGetLivableForumList.setPageSize(this.cOw.pageSize);
+                    requestGetLivableForumList.setPageNo(this.cXR.cXE);
+                    requestGetLivableForumList.setPageSize(this.cXR.pageSize);
                     requestGetLivableForumList.setUserId(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                    this.cOw.sendMessage(requestGetLivableForumList);
+                    this.cXR.sendMessage(requestGetLivableForumList);
                     return;
                 }
             }
-            this.cOw.Mo();
+            this.cXR.Oh();
         }
     }
 }

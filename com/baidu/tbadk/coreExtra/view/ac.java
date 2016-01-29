@@ -1,38 +1,19 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class ac implements SubsamplingScaleImageView.OnImageEventListener {
-    final /* synthetic */ z apF;
+class ac implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqA;
+    final /* synthetic */ u aqx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(z zVar) {
-        this.apF = zVar;
+    public ac(u uVar, com.baidu.tbadk.core.dialog.a aVar) {
+        this.aqx = uVar;
+        this.aqA = aVar;
     }
 
-    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-    public void onImageLoadError(Exception exc) {
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-    public void onImageLoaded() {
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-    public void onPreviewLoadError(Exception exc) {
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-    public void onReady() {
-        this.apF.mProgressBar.setVisibility(8);
-        this.apF.apo.restoreSize();
-        this.apF.apo.setVisibility(4);
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-    public void onTileLoadError(Exception exc) {
-        BdLog.e(exc);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.aqA.dismiss();
     }
 }

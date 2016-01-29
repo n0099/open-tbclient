@@ -3,26 +3,26 @@ package com.baidu.tieba.frs.collect;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AbsListView.RecyclerListener {
-    final /* synthetic */ l bki;
+    final /* synthetic */ l bnf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bki = lVar;
+        this.bnf = lVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(n.g.abstract_voice);
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
         if (playVoiceBnt != null) {
             playVoiceBnt.reset();
         }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(n.g.abstract_img_layout);
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
         if (frsCommonImageLayout != null) {
             frsCommonImageLayout.reset();
         }

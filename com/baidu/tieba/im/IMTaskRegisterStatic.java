@@ -12,16 +12,17 @@ import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.message.ResponseUploadClientLogMessage;
 import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.push.h;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 /* loaded from: classes.dex */
 public class IMTaskRegisterStatic {
     static {
-        VO();
-        VP();
-        VQ();
+        Yi();
+        Yj();
+        Yk();
     }
 
-    private static void VO() {
+    private static void Yi() {
         f.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         f.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         f.b(202009, PushResponseMessage.class, false);
@@ -35,13 +36,13 @@ public class IMTaskRegisterStatic {
         f.b(104104, ResponseCheckUserMaskMessage.class, false);
     }
 
-    private static void VP() {
+    private static void Yj() {
     }
 
-    private static boolean VQ() {
+    private static boolean Yk() {
         MessageManager.getInstance().addResponsedMessageRule(new g(202006));
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.b.j());
-        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.f());
+        MessageManager.getInstance().addResponsedMessageRule(new h());
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.i());
         return true;
     }

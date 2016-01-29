@@ -1,46 +1,46 @@
 package com.baidu.tieba.frs.mc;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.ev;
-import com.baidu.tieba.frs.ey;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tieba.frs.ff;
+import com.baidu.tieba.frs.fi;
+import com.baidu.tieba.tbadkCore.o;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements ev {
-    final /* synthetic */ a blT;
+public class b implements ff {
+    final /* synthetic */ a boI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.blT = aVar;
+        this.boI = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.ev
-    public void a(int i, int i2, ey eyVar, ArrayList<u> arrayList) {
+    @Override // com.baidu.tieba.frs.ff
+    public void a(int i, int i2, fi fiVar, ArrayList<u> arrayList) {
         int i3;
-        ev evVar;
-        p pVar;
-        p pVar2;
-        ev evVar2;
-        this.blT.blM = false;
-        i3 = this.blT.blI;
+        ff ffVar;
+        o oVar;
+        o oVar2;
+        ff ffVar2;
+        this.boI.boB = false;
+        i3 = this.boI.box;
         if (i != i3) {
             return;
         }
-        evVar = this.blT.blQ;
-        if (evVar != null) {
-            this.blT.blL = eyVar;
-            this.blT.b(i, i2, eyVar);
+        ffVar = this.boI.boF;
+        if (ffVar != null) {
+            this.boI.boA = fiVar;
+            this.boI.b(i, i2, fiVar);
             ArrayList<u> arrayList2 = new ArrayList<>();
             if (arrayList != null) {
                 arrayList2.addAll(arrayList);
             }
-            pVar = this.blT.bdo;
-            pVar.am(arrayList2);
-            pVar2 = this.blT.bdo;
-            pVar2.aEo();
-            evVar2 = this.blT.blQ;
-            evVar2.a(i, i2, eyVar, arrayList);
+            oVar = this.boI.bfF;
+            oVar.an(arrayList2);
+            oVar2 = this.boI.bfF;
+            oVar2.aLt();
+            ffVar2 = this.boI.boF;
+            ffVar2.a(i, i2, fiVar, arrayList);
         }
     }
 }

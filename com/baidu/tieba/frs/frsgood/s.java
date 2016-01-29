@@ -1,19 +1,22 @@
 package com.baidu.tieba.frs.frsgood;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.r;
+import android.os.Handler;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class s implements r.a {
-    final /* synthetic */ FrsGoodActivity bkp;
+class s implements NoNetworkView.a {
+    final /* synthetic */ FrsGoodActivity bnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsGoodActivity frsGoodActivity) {
-        this.bkp = frsGoodActivity;
+        this.bnm = frsGoodActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r.a
-    public void onListPullRefresh(boolean z) {
-        TiebaStatic.eventStat(this.bkp.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.bkp.cy(true);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ay(boolean z) {
+        Handler handler;
+        if (z) {
+            handler = this.bnm.bnl;
+            handler.sendEmptyMessageDelayed(0, 500L);
+        }
     }
 }

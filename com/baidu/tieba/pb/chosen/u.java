@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ t cBY;
+    final /* synthetic */ t cID;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.cBY = tVar;
+        this.cID = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,11 +21,11 @@ public class u implements View.OnClickListener {
         PbChosenActivity pbChosenActivity;
         PbChosenActivity pbChosenActivity2;
         PbChosenActivity pbChosenActivity3;
-        pbChosenActivity = this.cBY.cBX;
+        pbChosenActivity = this.cID.cIC;
         pbChosenActivity.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        pbChosenActivity2 = this.cBY.cBX;
+        pbChosenActivity2 = this.cID.cIC;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23003)));
-        pbChosenActivity3 = this.cBY.cBX;
+        pbChosenActivity3 = this.cID.cIC;
         TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 1, new Object[0]);
     }
 }

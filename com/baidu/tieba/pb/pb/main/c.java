@@ -10,85 +10,85 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.core.dialog.a {
     public c(Activity activity) {
         super(activity);
     }
 
-    public void a(C0075c c0075c) {
-        if (c0075c != null && c0075c.ale()) {
-            View inflate = LayoutInflater.from(this.mActivity).inflate(n.h.pb_dlg_img_txt, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(n.g.tip_top);
-            textView.setText(c0075c.cEY);
-            com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_c, 1);
-            TextView textView2 = (TextView) inflate.findViewById(n.g.tip_bottom);
-            textView2.setText(c0075c.cES);
-            com.baidu.tbadk.core.util.as.b(textView2, n.d.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.as.c((ImageView) inflate.findViewById(n.g.tip_img), n.f.pic_orange_tanhao);
-            m(inflate);
-            a(c0075c.cEV, c0075c.cEX);
-            b(c0075c.cEU, c0075c.cEW);
-            aj(false);
-            b(c0075c.cET).tf();
+    public void a(C0077c c0077c) {
+        if (c0077c != null && c0077c.apg()) {
+            View inflate = LayoutInflater.from(this.mActivity).inflate(t.h.pb_dlg_img_txt, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(t.g.tip_top);
+            textView.setText(c0077c.cMp);
+            com.baidu.tbadk.core.util.ar.b(textView, t.d.cp_cont_c, 1);
+            TextView textView2 = (TextView) inflate.findViewById(t.g.tip_bottom);
+            textView2.setText(c0077c.cMj);
+            com.baidu.tbadk.core.util.ar.b(textView2, t.d.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.ar.c((ImageView) inflate.findViewById(t.g.tip_img), t.f.pic_orange_tanhao);
+            z(inflate);
+            a(c0077c.cMm, c0077c.cMo);
+            b(c0077c.cMl, c0077c.cMn);
+            ak(false);
+            b(c0077c.cMk).uj();
         }
     }
 
-    public void b(C0075c c0075c) {
-        if (c0075c != null && c0075c.ale()) {
-            View inflate = LayoutInflater.from(this.mActivity).inflate(n.h.pb_dlg_txt, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(n.g.tip_top);
-            textView.setText(c0075c.cEY);
-            com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_b, 1);
-            TextView textView2 = (TextView) inflate.findViewById(n.g.tip_bottom);
-            textView2.setText(c0075c.cES);
-            com.baidu.tbadk.core.util.as.b(textView2, n.d.cp_cont_b, 1);
-            m(inflate);
-            a(c0075c.cEV, c0075c.cEX);
-            b(c0075c.cEU, c0075c.cEW);
-            aj(false);
-            b(c0075c.cET).tf();
+    public void b(C0077c c0077c) {
+        if (c0077c != null && c0077c.apg()) {
+            View inflate = LayoutInflater.from(this.mActivity).inflate(t.h.pb_dlg_txt, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(t.g.tip_top);
+            textView.setText(c0077c.cMp);
+            com.baidu.tbadk.core.util.ar.b(textView, t.d.cp_cont_b, 1);
+            TextView textView2 = (TextView) inflate.findViewById(t.g.tip_bottom);
+            textView2.setText(c0077c.cMj);
+            com.baidu.tbadk.core.util.ar.b(textView2, t.d.cp_cont_b, 1);
+            z(inflate);
+            a(c0077c.cMm, c0077c.cMo);
+            b(c0077c.cMl, c0077c.cMn);
+            ak(false);
+            b(c0077c.cMk).uj();
         }
     }
 
     public void a(a aVar) {
-        if (aVar != null && aVar.ale()) {
-            View inflate = LayoutInflater.from(this.mActivity).inflate(n.h.pb_dlg_multi, (ViewGroup) null);
-            com.baidu.tbadk.core.util.as.b((TextView) inflate.findViewById(n.g.tip_title), n.d.cp_cont_b, 1);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(n.g.inner_img_txt_layout);
-            com.baidu.tbadk.core.util.as.i(linearLayout, n.f.bg_lottery_win);
-            TbImageView tbImageView = (TbImageView) linearLayout.findViewById(n.g.tip_img);
+        if (aVar != null && aVar.apg()) {
+            View inflate = LayoutInflater.from(this.mActivity).inflate(t.h.pb_dlg_multi, (ViewGroup) null);
+            com.baidu.tbadk.core.util.ar.b((TextView) inflate.findViewById(t.g.tip_title), t.d.cp_cont_b, 1);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(t.g.inner_img_txt_layout);
+            com.baidu.tbadk.core.util.ar.k(linearLayout, t.f.bg_lottery_win);
+            TbImageView tbImageView = (TbImageView) linearLayout.findViewById(t.g.tip_img);
             tbImageView.setDefaultBgResource(0);
-            tbImageView.d(aVar.cEQ, 10, false);
-            LinearLayout linearLayout2 = (LinearLayout) inflate.findViewById(n.g.inner_text_layout);
-            TextView textView = (TextView) linearLayout2.findViewById(n.g.inner_text_bottom);
-            if (!com.baidu.tbadk.core.util.ax.isEmpty(aVar.cES)) {
-                textView.setText(aVar.cES);
+            tbImageView.d(aVar.cMh, 10, false);
+            LinearLayout linearLayout2 = (LinearLayout) inflate.findViewById(t.g.inner_text_layout);
+            TextView textView = (TextView) linearLayout2.findViewById(t.g.inner_text_bottom);
+            if (!com.baidu.tbadk.core.util.aw.isEmpty(aVar.cMj)) {
+                textView.setText(aVar.cMj);
             }
-            com.baidu.tbadk.core.util.as.b(textView, n.d.cp_cont_c, 1);
-            TextView textView2 = (TextView) linearLayout2.findViewById(n.g.inner_text_top);
-            textView2.setText(aVar.cER);
-            com.baidu.tbadk.core.util.as.b(textView2, n.d.cp_cont_b, 1);
-            m(inflate);
-            a(aVar.cEV, aVar.cEX);
-            b(aVar.cEU, aVar.cEW);
-            aj(false);
-            bI(1);
-            b(aVar.cET).tf();
+            com.baidu.tbadk.core.util.ar.b(textView, t.d.cp_cont_c, 1);
+            TextView textView2 = (TextView) linearLayout2.findViewById(t.g.inner_text_top);
+            textView2.setText(aVar.cMi);
+            com.baidu.tbadk.core.util.ar.b(textView2, t.d.cp_cont_b, 1);
+            z(inflate);
+            a(aVar.cMm, aVar.cMo);
+            b(aVar.cMl, aVar.cMn);
+            ak(false);
+            ca(1);
+            b(aVar.cMk).uj();
         }
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public com.baidu.adp.base.h<?> cET;
-        public String cEU = null;
-        public String cEV = null;
-        public a.b cEW = null;
-        public a.b cEX = null;
+        public com.baidu.adp.base.h<?> cMk;
+        public String cMl = null;
+        public String cMm = null;
+        public a.b cMn = null;
+        public a.b cMo = null;
 
-        public boolean ale() {
-            if (this.cET == null || com.baidu.tbadk.core.util.ax.isEmpty(this.cEU) || com.baidu.tbadk.core.util.ax.isEmpty(this.cEV) || this.cEW == null || this.cEX == null) {
+        public boolean apg() {
+            if (this.cMk == null || com.baidu.tbadk.core.util.aw.isEmpty(this.cMl) || com.baidu.tbadk.core.util.aw.isEmpty(this.cMm) || this.cMn == null || this.cMo == null) {
                 BdLog.e("PbActDialog: wrong paras!");
                 return false;
             }
@@ -98,14 +98,14 @@ public class c extends com.baidu.tbadk.core.dialog.a {
 
     /* renamed from: com.baidu.tieba.pb.pb.main.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0075c extends b {
-        public String cEY = null;
-        public String cES = null;
+    public static class C0077c extends b {
+        public String cMp = null;
+        public String cMj = null;
 
         @Override // com.baidu.tieba.pb.pb.main.c.b
-        public boolean ale() {
-            if (super.ale()) {
-                if (com.baidu.tbadk.core.util.ax.isEmpty(this.cEY) || com.baidu.tbadk.core.util.ax.isEmpty(this.cES)) {
+        public boolean apg() {
+            if (super.apg()) {
+                if (com.baidu.tbadk.core.util.aw.isEmpty(this.cMp) || com.baidu.tbadk.core.util.aw.isEmpty(this.cMj)) {
                     BdLog.e("PbActDialog: wrong paras!");
                     return false;
                 }
@@ -117,14 +117,14 @@ public class c extends com.baidu.tbadk.core.dialog.a {
 
     /* loaded from: classes.dex */
     public static class a extends b {
-        public String cEQ = null;
-        public String cER = null;
-        public String cES = null;
+        public String cMh = null;
+        public String cMi = null;
+        public String cMj = null;
 
         @Override // com.baidu.tieba.pb.pb.main.c.b
-        public boolean ale() {
-            if (super.ale()) {
-                if (com.baidu.tbadk.core.util.ax.isEmpty(this.cEQ) || com.baidu.tbadk.core.util.ax.isEmpty(this.cER)) {
+        public boolean apg() {
+            if (super.apg()) {
+                if (com.baidu.tbadk.core.util.aw.isEmpty(this.cMh) || com.baidu.tbadk.core.util.aw.isEmpty(this.cMi)) {
                     BdLog.e("PbActDialog: wrong paras!");
                     return false;
                 }

@@ -6,15 +6,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements h.b {
-    final /* synthetic */ h.c dSy;
+    final /* synthetic */ h.c eng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h.c cVar) {
-        this.dSy = cVar;
+        this.eng = cVar;
     }
 
     @Override // com.baidu.tieba.write.album.h.b
-    public void bZ(List<ImageFileInfo> list) {
-        this.dSy.publishProgress(list);
+    public void cm(List<ImageFileInfo> list) {
+        this.eng.publishProgress(list);
     }
 }

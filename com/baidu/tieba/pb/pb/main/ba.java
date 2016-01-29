@@ -1,48 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements com.baidu.adp.lib.f.c<LinearLayout> {
-    final /* synthetic */ PbActivity cFS;
+public class ba implements a.b {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: alC */
-    public LinearLayout hc() {
-        LinearLayout linearLayout = new LinearLayout(this.cFS.getPageContext().getPageActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: g */
-    public void l(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: h */
-    public LinearLayout m(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: i */
-    public LinearLayout n(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.cNq.cMu;
+        aVar2.dismiss();
+        if (com.baidu.tbadk.core.util.m.fq()) {
+            str = this.cNq.baG;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.ja()) {
+                Activity pageActivity = this.cNq.getPageContext().getPageActivity();
+                str2 = this.cNq.baG;
+                FileDownloader.download(pageActivity, str2, null, this.cNq.getPageContext().getString(t.j.download_iqiyi_app));
+                return;
+            }
+            return;
+        }
+        this.cNq.showToast(com.baidu.tbadk.core.util.m.uU());
     }
 }

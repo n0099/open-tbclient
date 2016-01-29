@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g dWd;
+    final /* synthetic */ g eqW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.dWd = gVar;
+        this.eqW = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,23 +24,23 @@ public class h implements View.OnClickListener {
         b bVar3;
         int i3;
         ImageFileInfo imageFileInfo;
-        imageView = this.dWd.dVX;
+        imageView = this.eqW.eqQ;
         if (view != imageView) {
-            imageView2 = this.dWd.dVZ;
+            imageView2 = this.eqW.eqS;
             if (view == imageView2) {
-                bVar = this.dWd.dWc;
-                i = this.dWd.mId;
-                bVar.os(i);
+                bVar = this.eqW.eqV;
+                i = this.eqW.mId;
+                bVar.pN(i);
             }
-        } else if (this.dWd.aLg()) {
-            bVar3 = this.dWd.dWc;
-            i3 = this.dWd.mId;
-            imageFileInfo = this.dWd.dWa;
-            bVar3.Q(i3, imageFileInfo.getFilePath());
+        } else if (this.eqW.aUb()) {
+            bVar3 = this.eqW.eqV;
+            i3 = this.eqW.mId;
+            imageFileInfo = this.eqW.eqT;
+            bVar3.T(i3, imageFileInfo.getFilePath());
         } else {
-            bVar2 = this.dWd.dWc;
-            i2 = this.dWd.mId;
-            bVar2.or(i2);
+            bVar2 = this.eqW.eqV;
+            i2 = this.eqW.mId;
+            bVar2.pM(i2);
         }
     }
 }

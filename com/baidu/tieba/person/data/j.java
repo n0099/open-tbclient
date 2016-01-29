@@ -1,71 +1,18 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.data.MyGroup;
-import com.baidu.tieba.personInfo.PersonTainInfo;
-import java.util.List;
+import com.baidu.adp.widget.ListView.u;
 /* loaded from: classes.dex */
-public class j extends a {
-    public static final BdUniqueId cSc = BdUniqueId.gen();
-    private boolean bAA = true;
-    private PersonTainInfo cSd;
-    private UserData mUserData;
+public class j implements u {
+    public static final BdUniqueId aRS = BdUniqueId.gen();
+    public long dbS;
+    public String title;
+    public int dbR = 0;
+    public boolean dbT = false;
+    public boolean dbU = false;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cSc;
-    }
-
-    public List<MyGroup> aps() {
-        if (this.mUserData != null) {
-            return this.mUserData.getGroup();
-        }
-        return null;
-    }
-
-    public void f(UserData userData) {
-        this.mUserData = userData;
-    }
-
-    public UserData getUserData() {
-        return this.mUserData;
-    }
-
-    public void setIsSelf(boolean z) {
-        this.bAA = z;
-    }
-
-    public boolean getIsSelf() {
-        return this.bAA;
-    }
-
-    public int getSex() {
-        if (this.mUserData != null) {
-            return this.mUserData.getSex();
-        }
-        return 0;
-    }
-
-    public void a(PersonTainInfo personTainInfo) {
-        this.cSd = personTainInfo;
-    }
-
-    public PersonTainInfo apt() {
-        return this.cSd;
-    }
-
-    public com.baidu.tbadk.data.f apu() {
-        if (this.mUserData != null) {
-            return this.mUserData.getPersonPrivate();
-        }
-        return null;
-    }
-
-    public String getUserId() {
-        if (this.mUserData != null) {
-            return this.mUserData.getUserId();
-        }
-        return null;
+        return aRS;
     }
 }

@@ -10,157 +10,157 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.n;
-import com.baidu.tieba.write.write.cf;
+import com.baidu.tieba.t;
+import com.baidu.tieba.write.write.cc;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
-    private View aUe;
-    private int aUh;
-    private EditText dUM;
-    private EditText dUQ;
-    private TextView dUR;
-    private TextView dUS;
-    private cf dUT;
-    private ImageView dUU;
-    private WriteVoteActivity dVT;
-    private final ArrayList<g> dWA;
-    private View dWo;
-    private View dWp;
-    private ArrayList<com.baidu.tieba.write.view.j> dWq;
-    private RadioGroup dWr;
-    private RadioButton dWs;
-    private RadioButton dWt;
-    private TextView dWu;
-    private c dWv;
-    private LinearLayout dWw;
-    private View dWx;
-    private BdSwitchView dWy;
-    private final ArrayList<g> dWz;
+    private View aWl;
+    private int aWo;
+    private EditText epr;
+    private EditText epv;
+    private TextView epw;
+    private TextView epx;
+    private cc epy;
+    private ImageView epz;
+    private WriteVoteActivity eqM;
+    private View erh;
+    private View eri;
+    private ArrayList<com.baidu.tieba.write.view.j> erj;
+    private RadioGroup erk;
+    private RadioButton erl;
+    private RadioButton erm;
+    private TextView ern;
+    private c ero;
+    private LinearLayout erp;
+    private View erq;
+    private BdSwitchView err;
+    private final ArrayList<g> ers;
+    private final ArrayList<g> ert;
     private NavigationBar mNavigationBar;
 
-    public View aLo() {
-        return this.dWo;
+    public View aUj() {
+        return this.erh;
     }
 
-    public TextView aLp() {
-        return this.dUS;
+    public TextView aUk() {
+        return this.epx;
     }
 
-    public View aLq() {
-        return this.dUR;
+    public View aUl() {
+        return this.epw;
     }
 
-    public EditText aLr() {
-        return this.dUM;
+    public EditText aUm() {
+        return this.epr;
     }
 
-    public EditText aLs() {
-        return this.dUQ;
+    public EditText aUn() {
+        return this.epv;
     }
 
-    public BdSwitchView aLt() {
-        return this.dWy;
+    public BdSwitchView aUo() {
+        return this.err;
     }
 
-    public c aLu() {
-        return this.dWv;
+    public c aUp() {
+        return this.ero;
     }
 
-    public TextView aLv() {
-        return this.dWu;
+    public TextView aUq() {
+        return this.ern;
     }
 
-    public View aLw() {
-        return this.dWx;
+    public View aUr() {
+        return this.erq;
     }
 
-    public ArrayList<g> aLx() {
-        return this.dWz;
+    public ArrayList<g> aUs() {
+        return this.ers;
     }
 
-    public ArrayList<g> aLy() {
-        return this.dWA;
+    public ArrayList<g> aUt() {
+        return this.ert;
     }
 
     public n(WriteVoteActivity writeVoteActivity) {
         super(writeVoteActivity.getPageContext());
-        this.aUh = 0;
+        this.aWo = 0;
         this.mNavigationBar = null;
-        this.dUR = null;
-        this.dWq = new ArrayList<>();
-        this.dUM = null;
-        this.dUQ = null;
-        this.dWz = new ArrayList<>();
-        this.dWA = new ArrayList<>();
-        this.dVT = writeVoteActivity;
+        this.epw = null;
+        this.erj = new ArrayList<>();
+        this.epr = null;
+        this.epv = null;
+        this.ers = new ArrayList<>();
+        this.ert = new ArrayList<>();
+        this.eqM = writeVoteActivity;
         initView();
-        initListener();
-        aLz();
-        fr(this.aUh);
+        pm();
+        aUu();
+        fQ(this.aWo);
     }
 
     private void initView() {
-        this.dVT.setContentView(n.h.write_vote_activity);
-        this.aUe = (RelativeLayout) this.dVT.findViewById(n.g.parent);
-        this.mNavigationBar = (NavigationBar) this.dVT.findViewById(n.g.view_navigation_bar);
+        this.eqM.setContentView(t.h.write_vote_activity);
+        this.aWl = (RelativeLayout) this.eqM.findViewById(t.g.parent);
+        this.mNavigationBar = (NavigationBar) this.eqM.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.dVT.getPageContext().getString(n.j.write_vote_titlebar));
-        this.dUR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(n.j.send_post));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dUR.getLayoutParams();
-        layoutParams.rightMargin = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), n.e.ds16);
-        this.dUR.setLayoutParams(layoutParams);
-        this.dUR.setEnabled(false);
-        this.dUM = (EditText) this.dVT.findViewById(n.g.post_title);
-        this.dUQ = (EditText) this.dVT.findViewById(n.g.post_content);
-        this.dWr = (RadioGroup) this.dVT.findViewById(n.g.raidos_tabs_vote);
-        this.dWs = (RadioButton) this.dVT.findViewById(n.g.radio_vote_pic);
-        this.dWt = (RadioButton) this.dVT.findViewById(n.g.radio_vote_text);
-        this.dWu = (TextView) this.dVT.findViewById(n.g.endtime_day);
-        this.dWv = new c(this.dVT);
-        this.dWw = (LinearLayout) this.dVT.findViewById(n.g.vote_container);
-        this.dWx = this.dVT.findViewById(n.g.vote_add_layout);
-        this.dWy = (BdSwitchView) this.dVT.findViewById(n.g.multiple_switch);
-        this.dWy.mf();
+        this.mNavigationBar.setTitleText(this.eqM.getPageContext().getString(t.j.write_vote_titlebar));
+        this.epw = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(t.j.send_post));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.epw.getLayoutParams();
+        layoutParams.rightMargin = com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), t.e.ds16);
+        this.epw.setLayoutParams(layoutParams);
+        this.epw.setEnabled(false);
+        this.epr = (EditText) this.eqM.findViewById(t.g.post_title);
+        this.epv = (EditText) this.eqM.findViewById(t.g.post_content);
+        this.erk = (RadioGroup) this.eqM.findViewById(t.g.raidos_tabs_vote);
+        this.erl = (RadioButton) this.eqM.findViewById(t.g.radio_vote_pic);
+        this.erm = (RadioButton) this.eqM.findViewById(t.g.radio_vote_text);
+        this.ern = (TextView) this.eqM.findViewById(t.g.endtime_day);
+        this.ero = new c(this.eqM);
+        this.erp = (LinearLayout) this.eqM.findViewById(t.g.vote_container);
+        this.erq = this.eqM.findViewById(t.g.vote_add_layout);
+        this.err = (BdSwitchView) this.eqM.findViewById(t.g.multiple_switch);
+        this.err.mt();
     }
 
     public void b(PostPrefixData postPrefixData) {
-        if (postPrefixData != null && this.dVT != null) {
-            this.dWo = this.dVT.findViewById(n.g.post_prefix_layout);
-            this.dUS = (TextView) this.dVT.findViewById(n.g.post_prefix);
-            this.dWp = this.dVT.findViewById(n.g.prefix_divider);
-            this.dUU = (ImageView) this.dVT.findViewById(n.g.prefix_icon);
+        if (postPrefixData != null && this.eqM != null) {
+            this.erh = this.eqM.findViewById(t.g.post_prefix_layout);
+            this.epx = (TextView) this.eqM.findViewById(t.g.post_prefix);
+            this.eri = this.eqM.findViewById(t.g.prefix_divider);
+            this.epz = (ImageView) this.eqM.findViewById(t.g.prefix_icon);
             if (postPrefixData != null && postPrefixData.getPrefixs() != null && postPrefixData.getPrefixs().size() > 1) {
-                this.dWo.setVisibility(0);
-                this.dWp.setVisibility(0);
+                this.erh.setVisibility(0);
+                this.eri.setVisibility(0);
                 ArrayList<String> prefixs = postPrefixData.getPrefixs();
                 int size = prefixs.size();
-                this.dWo.setOnClickListener(this.dVT);
-                this.dUU = (ImageView) this.dVT.findViewById(n.g.prefix_icon);
+                this.erh.setOnClickListener(this.eqM);
+                this.epz = (ImageView) this.eqM.findViewById(t.g.prefix_icon);
                 if (size > 1) {
-                    this.dUU.setVisibility(0);
-                    this.dUS.setOnClickListener(this.dVT);
+                    this.epz.setVisibility(0);
+                    this.epx.setOnClickListener(this.eqM);
                 }
-                this.dUT = new cf(this.dVT.getPageContext().getPageActivity());
-                this.dUT.a(this.dVT);
-                this.dUT.setMaxHeight(com.baidu.adp.lib.util.k.d(this.dVT.getActivity(), n.e.ds510));
-                this.dUT.setOutsideTouchable(true);
-                this.dUT.setFocusable(true);
-                this.dUT.setOnDismissListener(this.dVT);
-                this.dUT.setBackgroundDrawable(as.getDrawable(n.d.cp_bg_line_d));
-                int color = as.getColor(n.d.write_text);
-                int color2 = as.getColor(n.d.cp_cont_c);
-                as.i((View) this.dUS, n.d.cp_bg_line_d);
-                as.c(this.dUU, n.f.icon_title_down);
-                this.dUS.setTextColor(color);
-                this.dWq.clear();
+                this.epy = new cc(this.eqM.getPageContext().getPageActivity());
+                this.epy.a(this.eqM);
+                this.epy.setMaxHeight(com.baidu.adp.lib.util.k.c(this.eqM.getActivity(), t.e.ds510));
+                this.epy.setOutsideTouchable(true);
+                this.epy.setFocusable(true);
+                this.epy.setOnDismissListener(this.eqM);
+                this.epy.setBackgroundDrawable(ar.getDrawable(t.d.cp_bg_line_d));
+                int color = ar.getColor(t.d.write_text);
+                int color2 = ar.getColor(t.d.cp_cont_c);
+                ar.k(this.epx, t.d.cp_bg_line_d);
+                ar.c(this.epz, t.f.icon_title_down);
+                this.epx.setTextColor(color);
+                this.erj.clear();
                 for (int i = 0; i < size; i++) {
-                    com.baidu.tieba.write.view.j jVar = new com.baidu.tieba.write.view.j(this.dVT.getActivity());
-                    this.dWq.add(jVar);
+                    com.baidu.tieba.write.view.j jVar = new com.baidu.tieba.write.view.j(this.eqM.getActivity());
+                    this.erj.add(jVar);
                     jVar.setPrefixText(prefixs.get(i));
                     if (i == 0) {
                         jVar.setPrefixTextColor(color2);
@@ -170,161 +170,161 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
                     if (i != size - 1) {
                         jVar.setDividerStyle(false);
                     }
-                    this.dUT.addView(jVar);
+                    this.epy.addView(jVar);
                 }
-                this.dUT.od(0);
-                this.dUS.setText(prefixs.get(1));
-                oy(1);
+                this.epy.py(0);
+                this.epx.setText(prefixs.get(1));
+                pT(1);
                 return;
             }
-            this.dWo.setVisibility(8);
+            this.erh.setVisibility(8);
         }
     }
 
-    private void aLz() {
-        this.dWz.add(new g(this.dVT, 0));
-        this.dWz.add(new g(this.dVT, 0));
-        this.dWA.add(new g(this.dVT, 1));
-        this.dWA.add(new g(this.dVT, 1));
+    private void aUu() {
+        this.ers.add(new g(this.eqM, 0));
+        this.ers.add(new g(this.eqM, 0));
+        this.ert.add(new g(this.eqM, 1));
+        this.ert.add(new g(this.eqM, 1));
     }
 
-    private void initListener() {
-        this.dWu.setOnClickListener(this.dVT);
-        this.dWx.setOnClickListener(this.dVT);
-        this.dUR.setOnClickListener(this.dVT);
-        this.dWy.setOnSwitchStateChangeListener(this.dVT);
-        this.dWv.a(this.dVT);
-        this.dWr.setOnCheckedChangeListener(this.dVT);
-        this.dUM.addTextChangedListener(new a(31, this.dUM));
-        this.dUQ.addTextChangedListener(new a(50, this.dUQ));
+    private void pm() {
+        this.ern.setOnClickListener(this.eqM);
+        this.erq.setOnClickListener(this.eqM);
+        this.epw.setOnClickListener(this.eqM);
+        this.err.setOnSwitchStateChangeListener(this.eqM);
+        this.ero.a(this.eqM);
+        this.erk.setOnCheckedChangeListener(this.eqM);
+        this.epr.addTextChangedListener(new a(31, this.epr));
+        this.epv.addTextChangedListener(new a(50, this.epv));
     }
 
-    public void fr(int i) {
-        this.aUh = i;
-        aLB();
-        if (this.aUh == 0) {
-            aq(this.dWz);
-        } else if (this.aUh == 1) {
-            aq(this.dWA);
+    public void fQ(int i) {
+        this.aWo = i;
+        aUw();
+        if (this.aWo == 0) {
+            ar(this.ers);
+        } else if (this.aWo == 1) {
+            ar(this.ert);
         }
     }
 
-    private void aLA() {
-        if (this.aUh == 0) {
-            if (this.dWz.size() >= 10) {
-                this.dWx.setVisibility(8);
+    private void aUv() {
+        if (this.aWo == 0) {
+            if (this.ers.size() >= 10) {
+                this.erq.setVisibility(8);
             } else {
-                this.dWx.setVisibility(0);
+                this.erq.setVisibility(0);
             }
-        } else if (this.aUh == 1) {
-            if (this.dWA.size() >= 20) {
-                this.dWx.setVisibility(8);
+        } else if (this.aWo == 1) {
+            if (this.ert.size() >= 20) {
+                this.erq.setVisibility(8);
             } else {
-                this.dWx.setVisibility(0);
+                this.erq.setVisibility(0);
             }
         }
     }
 
-    private void aq(ArrayList<g> arrayList) {
+    private void ar(ArrayList<g> arrayList) {
         if (arrayList != null) {
-            this.dWw.removeAllViews();
+            this.erp.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < arrayList.size()) {
                     g gVar = arrayList.get(i2);
                     if (gVar != null && gVar.getView() != null) {
-                        this.dWw.addView(gVar.getView());
+                        this.erp.addView(gVar.getView());
                     }
                     i = i2 + 1;
                 } else {
-                    aLA();
+                    aUv();
                     return;
                 }
             }
         }
     }
 
-    private void aLB() {
-        if (this.dWs != null && this.dWt != null) {
-            if (this.aUh == 0) {
-                as.b(this.dWs, n.d.cp_link_tip_c, 3);
-                as.b(this.dWt, n.d.cp_cont_f, 3);
-            } else if (this.aUh == 1) {
-                as.b(this.dWt, n.d.cp_link_tip_c, 3);
-                as.b(this.dWs, n.d.cp_cont_f, 3);
+    private void aUw() {
+        if (this.erl != null && this.erm != null) {
+            if (this.aWo == 0) {
+                ar.b(this.erl, t.d.cp_link_tip_c, 3);
+                ar.b(this.erm, t.d.cp_cont_f, 3);
+            } else if (this.aWo == 1) {
+                ar.b(this.erm, t.d.cp_link_tip_c, 3);
+                ar.b(this.erl, t.d.cp_cont_f, 3);
             }
         }
     }
 
-    public g ow(int i) {
+    public g pR(int i) {
         g gVar = null;
         if (i == 0) {
-            gVar = new g(this.dVT, 0);
-            this.dWz.add(gVar);
-            this.dWw.addView(gVar.getView());
+            gVar = new g(this.eqM, 0);
+            this.ers.add(gVar);
+            this.erp.addView(gVar.getView());
         } else if (i == 1) {
-            gVar = new g(this.dVT, 1);
-            this.dWA.add(gVar);
-            this.dWw.addView(gVar.getView());
+            gVar = new g(this.eqM, 1);
+            this.ert.add(gVar);
+            this.erp.addView(gVar.getView());
         }
-        aLA();
+        aUv();
         return gVar;
     }
 
     public g b(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
-        g cg = cg(this.dWz);
-        if (cg != null) {
-            cg.a(imageFileInfo, aVar);
+        g ct = ct(this.ers);
+        if (ct != null) {
+            ct.a(imageFileInfo, aVar);
         } else {
             c(imageFileInfo, aVar);
         }
-        return cg;
+        return ct;
     }
 
     private g c(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
-        g gVar = new g(this.dVT, 0);
+        g gVar = new g(this.eqM, 0);
         gVar.a(imageFileInfo, aVar);
-        this.dWz.add(gVar);
-        this.dWw.addView(gVar.getView());
-        aLA();
+        this.ers.add(gVar);
+        this.erp.addView(gVar.getView());
+        aUv();
         return gVar;
     }
 
-    public void ox(int i) {
-        if (this.aUh == 0) {
-            g i2 = i(this.dWz, i);
-            if (i2 != null && i2.getView() != null) {
-                this.dWz.remove(i2);
-                this.dWw.removeView(i2.getView());
+    public void pS(int i) {
+        if (this.aWo == 0) {
+            g j = j(this.ers, i);
+            if (j != null && j.getView() != null) {
+                this.ers.remove(j);
+                this.erp.removeView(j.getView());
             } else {
                 return;
             }
-        } else if (this.aUh == 1) {
-            g i3 = i(this.dWA, i);
-            if (i3 != null && i3.getView() != null) {
-                this.dWA.remove(i3);
-                this.dWw.removeView(i3.getView());
+        } else if (this.aWo == 1) {
+            g j2 = j(this.ert, i);
+            if (j2 != null && j2.getView() != null) {
+                this.ert.remove(j2);
+                this.erp.removeView(j2.getView());
             } else {
                 return;
             }
         }
-        aLA();
+        aUv();
     }
 
-    private g cg(List<g> list) {
+    private g ct(List<g> list) {
         if (list == null) {
             return null;
         }
         for (g gVar : list) {
-            if (!gVar.aLg()) {
+            if (!gVar.aUb()) {
                 return gVar;
             }
         }
         return null;
     }
 
-    private g i(List<g> list, int i) {
+    private g j(List<g> list, int i) {
         if (list == null) {
             return null;
         }
@@ -336,60 +336,60 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         return null;
     }
 
-    public void nr(String str) {
-        if (this.dWu != null) {
-            this.dWu.setText(str);
+    public void nI(String str) {
+        if (this.ern != null) {
+            this.ern.setText(str);
         }
     }
 
-    public void hS(boolean z) {
-        if (this.dUR != null) {
-            this.dUR.setEnabled(z);
+    public void iD(boolean z) {
+        if (this.epw != null) {
+            this.epw.setEnabled(z);
         }
     }
 
-    private void oy(int i) {
-        if (i >= 0 && i < this.dWq.size()) {
-            for (int i2 = 0; i2 < this.dWq.size(); i2++) {
-                this.dWq.get(i2).hR(false);
+    private void pT(int i) {
+        if (i >= 0 && i < this.erj.size()) {
+            for (int i2 = 0; i2 < this.erj.size(); i2++) {
+                this.erj.get(i2).iC(false);
             }
-            this.dWq.get(i).hR(true);
+            this.erj.get(i).iC(true);
         }
     }
 
-    public void S(int i, String str) {
-        if (this.dUS != null && this.dUT != null && this.dVT != null) {
-            this.dUT.od(i);
-            oy(i);
-            this.dUS.setText(str);
-            hS(true);
-            com.baidu.adp.lib.h.j.a(this.dUT, this.dVT.getPageContext().getPageActivity());
+    public void V(int i, String str) {
+        if (this.epx != null && this.epy != null && this.eqM != null) {
+            this.epy.py(i);
+            pT(i);
+            this.epx.setText(str);
+            iD(true);
+            com.baidu.adp.lib.h.j.a(this.epy, this.eqM.getPageContext().getPageActivity());
         }
     }
 
-    public void hT(boolean z) {
-        if (this.dWo != null) {
-            this.dWo.setSelected(z);
+    public void iE(boolean z) {
+        if (this.erh != null) {
+            this.erh.setSelected(z);
         }
     }
 
-    public void aO(View view) {
-        if (view != null && this.dUS != null && this.dWo != null && this.dUT != null) {
-            this.dUS.setVisibility(0);
-            this.dWo.setSelected(true);
-            com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this.dUT, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dVT.getPageContext().getPageActivity(), 1.0f));
+    public void bg(View view) {
+        if (view != null && this.epx != null && this.erh != null && this.epy != null) {
+            this.epx.setVisibility(0);
+            this.erh.setSelected(true);
+            com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this.epy, view, 0, com.baidu.adp.lib.util.k.dip2px(this.eqM.getPageContext().getPageActivity(), 1.0f));
         }
     }
 
-    public void dO(int i) {
-        if (this.aUe != null) {
-            this.dVT.getLayoutMode().ac(i == 1);
-            this.dVT.getLayoutMode().k(this.aUe);
+    public void ej(int i) {
+        if (this.aWl != null) {
+            this.eqM.getLayoutMode().ac(i == 1);
+            this.eqM.getLayoutMode().x(this.aWl);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        as.i((View) this.dUR, n.f.s_navbar_button_bg);
-        aLB();
+        ar.k(this.epw, t.f.s_navbar_button_bg);
+        aUw();
     }
 }

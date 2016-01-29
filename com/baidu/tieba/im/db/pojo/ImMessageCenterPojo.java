@@ -31,6 +31,7 @@ public class ImMessageCenterPojo implements Serializable {
     private int mCustomGroupType = 1;
     long orderCol;
     long pulled_msgId;
+    private String pushIds;
     private long read_msgId;
     int send_status;
     private long sent_msgId;
@@ -39,6 +40,14 @@ public class ImMessageCenterPojo implements Serializable {
     int type;
     int unread_count;
     private int userType;
+
+    public String getPushIds() {
+        return this.pushIds;
+    }
+
+    public void setPushIds(String str) {
+        this.pushIds = str;
+    }
 
     public long getSid() {
         return this.sid;
@@ -261,7 +270,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(h.E(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(h.G(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

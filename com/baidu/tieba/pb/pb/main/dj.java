@@ -1,31 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj {
-    public static Intent L(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
-        }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
+public class dj implements View.OnClickListener {
+    private final /* synthetic */ String cKW;
+    private final /* synthetic */ String cKX;
+    private final /* synthetic */ String cKY;
+    final /* synthetic */ de cPG;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dj(de deVar, String str, String str2, String str3) {
+        this.cPG = deVar;
+        this.cKW = str;
+        this.cKX = str2;
+        this.cKY = str3;
     }
 
-    public static boolean e(com.baidu.tieba.tbadkCore.data.r rVar) {
-        if (rVar == null || rVar.aFA() == null) {
-            return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cKW) && !StringUtils.isNull(this.cKX)) {
+            if (com.baidu.adp.lib.util.i.iZ()) {
+                context = this.cPG.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cKW) + "," + this.cKX, this.cKY, this.cKY, context.getString(t.j.app_info_for_map));
+                context2 = this.cPG.mContext;
+                com.baidu.tbadk.browser.f.B(context2, format);
+                return;
+            }
+            this.cPG.cNL.showToast(t.j.neterror);
         }
-        com.baidu.tieba.tbadkCore.data.h aFA = rVar.aFA();
-        if (aFA.dGJ) {
-            int aET = aFA.aET();
-            return aET == 2 || aET == 1;
-        }
-        return false;
     }
 }

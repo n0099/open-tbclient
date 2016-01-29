@@ -5,17 +5,17 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.r;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r ced;
+    final /* synthetic */ r ciC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.ced = rVar;
+        this.ciC = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,30 +32,30 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.ced.ceb;
+                personalTalkSettingActivity = this.ciC.ciA;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.ced.ceb;
+                    personalTalkSettingActivity2 = this.ciC.ciA;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.ced.ajG = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.ced.ceb;
+            this.ciC.akv = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.ciC.ciA;
             if (personalTalkSettingActivity3 != null) {
-                z = this.ced.ajG;
+                z = this.ciC.akv;
                 if (z) {
-                    personalTalkSettingActivity5 = this.ced.ceb;
-                    personalTalkSettingActivity5.showToast(n.j.add_succ);
+                    personalTalkSettingActivity5 = this.ciC.ciA;
+                    personalTalkSettingActivity5.showToast(t.j.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.ced.ceb;
-                    personalTalkSettingActivity4.showToast(n.j.remove_succ);
+                    personalTalkSettingActivity4 = this.ciC.ciA;
+                    personalTalkSettingActivity4.showToast(t.j.remove_succ);
                 }
             }
-            aVar = this.ced.cec;
+            aVar = this.ciC.ciB;
             if (aVar != null) {
-                aVar2 = this.ced.cec;
-                aVar2.vN();
+                aVar2 = this.ciC.ciB;
+                aVar2.wV();
             }
         }
     }

@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private com.baidu.tbadk.core.data.z aeF;
-    private View.OnClickListener aeG;
+    private com.baidu.tbadk.core.data.ah afg;
+    private View.OnClickListener afh;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -22,15 +22,15 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mContext = context;
     }
 
-    public void setData(com.baidu.tbadk.core.data.z zVar) {
-        if (zVar != null && zVar.getAuthor() != null && zVar.getAuthor().getPortrait() != null) {
-            this.aeF = zVar;
+    public void setData(com.baidu.tbadk.core.data.ah ahVar) {
+        if (ahVar != null && ahVar.getAuthor() != null && ahVar.getAuthor().getPortrait() != null) {
+            this.afg = ahVar;
             setOnClickListener(this.mOnClickListener);
-            d(zVar.getAuthor().getPortrait(), 28, false);
+            d(ahVar.getAuthor().getPortrait(), 28, false);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aeG = onClickListener;
+        this.afh = onClickListener;
     }
 }

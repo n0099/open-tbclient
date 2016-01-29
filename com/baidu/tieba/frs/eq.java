@@ -1,29 +1,68 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class eq implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.z bgh;
-    final /* synthetic */ ep biW;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public eq(ep epVar, com.baidu.tbadk.core.data.z zVar) {
-        this.biW = epVar;
-        this.bgh = zVar;
+public class eq extends SparseArray<fe> {
+    public void a(ff ffVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fe valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(ffVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.biW.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bgh.getAuthor().getUserId(), this.bgh.getAuthor().getName_show(), this.biW.bdo.akG().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fe valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fe valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.Op();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void a(int i, fe feVar) {
+        if (i > 100) {
+            i = 100;
+        }
+        put(i, feVar);
+    }
+
+    public fe gA(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

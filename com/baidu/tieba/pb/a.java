@@ -5,16 +5,16 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0072a {
-        int akq();
+    public interface InterfaceC0074a {
+        int aoo();
 
-        void t(String str, String str2, String str3);
+        void u(String str, String str2, String str3);
     }
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
@@ -25,7 +25,7 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         if (j > 0) {
-            av aa = new av("ad_tpoint").aa("obj_id", String.valueOf(j)).aa("obj_name", str);
+            au aa = new au("ad_tpoint").aa("obj_id", String.valueOf(j)).aa("obj_name", str);
             if (str3 != null) {
                 aa = aa.aa("page", str3);
             }
@@ -47,7 +47,7 @@ public class a {
             if (str9 != null) {
                 aa = aa.aa("tid", str9);
             }
-            av aa2 = aa.aa("line", "PT").aa("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", SocialConstants.ANDROID_CLIENT_TYPE).aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
+            au aa2 = aa.aa("line", "PT").aa("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", SocialConstants.ANDROID_CLIENT_TYPE).aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
             if (str2 != null) {
                 aa2 = aa2.aa("link", str2);
             }

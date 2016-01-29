@@ -2,17 +2,17 @@ package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class p implements a.d {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -24,22 +24,22 @@ class p implements a.d {
         ao aoVar;
         ao aoVar2;
         if (z) {
-            pVar = this.cLc.cjc;
+            pVar = this.cTK.cnC;
             if (pVar != null) {
-                pVar2 = this.cLc.cjc;
-                if (pVar2.Bj() != null) {
-                    pVar3 = this.cLc.cjc;
-                    pVar3.Bj().hide();
-                    aoVar = this.cLc.cKR;
-                    if (aoVar.aoa()) {
-                        av avVar = new av("c10367");
-                        aoVar2 = this.cLc.cKR;
-                        TiebaStatic.log(avVar.aa("post_id", aoVar2.BJ()));
+                pVar2 = this.cTK.cnC;
+                if (pVar2.Cz() != null) {
+                    pVar3 = this.cTK.cnC;
+                    pVar3.Cz().hide();
+                    aoVar = this.cTK.cTz;
+                    if (aoVar.asF()) {
+                        au auVar = new au("c10367");
+                        aoVar2 = this.cTK.cTz;
+                        TiebaStatic.log(auVar.aa("post_id", aoVar2.CZ()));
                     }
                 }
             }
         }
-        wVar = this.cLc.cKT;
-        wVar.anE();
+        wVar = this.cTK.cTB;
+        wVar.ash();
     }
 }

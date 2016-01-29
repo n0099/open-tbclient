@@ -1,24 +1,31 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements c.b {
-    final /* synthetic */ cg bhg;
+public class co implements BannerView.a {
+    final /* synthetic */ cn bjV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(cg cgVar) {
-        this.bhg = cgVar;
+    public co(cn cnVar) {
+        this.bjV = cnVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (i == 0) {
-            com.baidu.tbadk.core.util.ar.c(this.bhg.beB.getPageContext());
-        } else if (i == 1) {
-            com.baidu.tbadk.core.util.ar.p(this.bhg.beB.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void AM() {
+        com.baidu.tbadk.core.data.m mVar;
+        com.baidu.tbadk.core.data.m mVar2;
+        mVar = this.bjV.bjJ;
+        if (mVar != null) {
+            mVar2 = this.bjV.bjJ;
+            if (mVar2.getType() == 2) {
+                this.bjV.PM();
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void AN() {
+        this.bjV.Qa();
     }
 }

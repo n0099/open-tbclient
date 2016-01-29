@@ -1,7 +1,7 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ActivityPendingTransitionFactory {
     public static final int TYPE_BIG_IMAGE = 2;
@@ -9,12 +9,12 @@ public class ActivityPendingTransitionFactory {
     public static final int TYPE_NORMAL = 1;
     public static final int TYPE_NO_ANIMATION = 0;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
-    public static int RES_NFADE_IN = n.a.fade_in;
-    public static int RES_FADE_OUT = n.a.fade_out;
-    public static int RES_NORMAL_IN_FROM_RIGHT = n.a.in_from_right;
-    public static int RES_NORMAL_OUT_TO_RIGHT = n.a.out_to_right;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = n.a.big_imageview_in;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = n.a.big_imageview_out;
+    public static int RES_NFADE_IN = t.a.fade_in;
+    public static int RES_FADE_OUT = t.a.fade_out;
+    public static int RES_NORMAL_IN_FROM_RIGHT = t.a.in_from_right;
+    public static int RES_NORMAL_OUT_TO_RIGHT = t.a.out_to_right;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = t.a.big_imageview_in;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = t.a.big_imageview_out;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;

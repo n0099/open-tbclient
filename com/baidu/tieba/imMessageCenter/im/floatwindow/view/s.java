@@ -8,11 +8,11 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.RequestPersonalLbsIn
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class s implements a.InterfaceC0004a {
-    final /* synthetic */ FloatingPersonalChatActivity cfW;
+    final /* synthetic */ FloatingPersonalChatActivity ckw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.cfW = floatingPersonalChatActivity;
+        this.ckw = floatingPersonalChatActivity;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0004a
@@ -23,16 +23,16 @@ class s implements a.InterfaceC0004a {
         if (i == 0 && address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            msglistModel = this.cfW.mListModel;
+            msglistModel = this.ckw.bPK;
             if (msglistModel instanceof PersonalMsglistModel) {
-                msglistModel2 = this.cfW.mListModel;
+                msglistModel2 = this.ckw.bPK;
                 userData = ((PersonalMsglistModel) msglistModel2).getUser();
             } else {
                 userData = null;
             }
             if (userData != null) {
-                this.cfW.mUser = userData;
-                this.cfW.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
+                this.ckw.mUser = userData;
+                this.ckw.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
             }
         }
     }

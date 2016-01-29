@@ -5,171 +5,171 @@ import android.os.SystemClock;
 import com.baidu.tieba.imMessageCenter.im.floatwindow.a.c;
 /* loaded from: classes.dex */
 public class d implements b {
-    private c.a cfc;
-    private int cfd;
-    private float cfe;
-    private float cff;
-    private final long cfg;
+    private c.a cjB;
+    private int cjC;
+    private float cjD;
+    private float cjE;
+    private final long cjF;
     private float k;
     private long startTime;
-    private Point ceX = new Point();
-    private Point ceZ = new Point();
-    private Point ceY = new Point();
+    private Point cjw = new Point();
+    private Point cjy = new Point();
+    private Point cjx = new Point();
 
     public d(long j) {
-        this.cfg = j;
+        this.cjF = j;
     }
 
     public void a(c.a aVar) {
-        this.cfc = aVar;
+        this.cjB = aVar;
     }
 
     public void a(Point point, Point point2) {
-        this.ceX.x = point.x;
-        this.ceX.y = point.y;
-        this.ceZ.x = point.x;
-        this.ceZ.y = point.y;
-        this.ceY.x = point2.x;
-        this.ceY.y = point2.y;
+        this.cjw.x = point.x;
+        this.cjw.y = point.y;
+        this.cjy.x = point.x;
+        this.cjy.y = point.y;
+        this.cjx.x = point2.x;
+        this.cjx.y = point2.y;
         b(point, point2);
         this.startTime = SystemClock.elapsedRealtime();
     }
 
     private void b(Point point, Point point2) {
         if (point.x == point2.x) {
-            this.cff = Math.abs(point2.y - point.y) / ((float) this.cfg);
+            this.cjE = Math.abs(point2.y - point.y) / ((float) this.cjF);
             if (point2.y > point.y) {
-                this.cfd = 0;
+                this.cjC = 0;
             } else {
-                this.cfd = 1;
+                this.cjC = 1;
             }
         } else if (point.y == point2.y) {
-            this.cfe = Math.abs(point2.x - point.x) / ((float) this.cfg);
+            this.cjD = Math.abs(point2.x - point.x) / ((float) this.cjF);
             if (point2.x > point.x) {
-                this.cfd = 2;
+                this.cjC = 2;
             } else {
-                this.cfd = 3;
+                this.cjC = 3;
             }
         } else {
             float f = point2.x - point.x;
             this.k = (point2.y - point.y) / f;
-            this.cfe = Math.abs(f) / ((float) this.cfg);
+            this.cjD = Math.abs(f) / ((float) this.cjF);
             if (f > 0.0f) {
-                this.cfd = 5;
+                this.cjC = 5;
             } else {
-                this.cfd = 4;
+                this.cjC = 4;
             }
         }
     }
 
-    private int jg(int i) {
-        return (int) (((this.k * i) + this.ceX.y) - (this.k * this.ceX.x));
+    private int jE(int i) {
+        return (int) (((this.k * i) + this.cjw.y) - (this.k * this.cjw.x));
     }
 
-    private long adm() {
+    private long agv() {
         return SystemClock.elapsedRealtime() - this.startTime;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.ceZ.equals(this.ceY)) {
-            switch (this.cfd) {
+        if (!this.cjy.equals(this.cjx)) {
+            switch (this.cjC) {
                 case 0:
-                    adg();
+                    agp();
                     break;
                 case 1:
-                    adi();
+                    agr();
                     break;
                 case 2:
-                    adh();
+                    agq();
                     break;
                 case 3:
-                    adj();
+                    ags();
                     break;
                 case 4:
-                    adk();
+                    agt();
                     break;
                 case 5:
-                    adl();
+                    agu();
                     break;
             }
             return false;
         }
-        if (this.cfc != null) {
-            this.cfc.acZ();
+        if (this.cjB != null) {
+            this.cjB.agi();
         }
         return true;
     }
 
-    private void adg() {
-        this.ceZ.y = (int) (this.ceX.y + (this.cff * ((float) adm())));
-        if (this.ceZ.y > this.ceY.y) {
-            this.ceZ.y = this.ceY.y;
+    private void agp() {
+        this.cjy.y = (int) (this.cjw.y + (this.cjE * ((float) agv())));
+        if (this.cjy.y > this.cjx.y) {
+            this.cjy.y = this.cjx.y;
         }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
-        }
-    }
-
-    private void adh() {
-        this.ceZ.x = (int) (this.ceX.x + (this.cfe * ((float) adm())));
-        if (this.ceZ.x > this.ceY.x) {
-            this.ceZ.x = this.ceY.x;
-        }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
         }
     }
 
-    private void adi() {
-        this.ceZ.y = (int) (this.ceX.y - (this.cff * ((float) adm())));
-        if (this.ceZ.y < this.ceY.y) {
-            this.ceZ.y = this.ceY.y;
+    private void agq() {
+        this.cjy.x = (int) (this.cjw.x + (this.cjD * ((float) agv())));
+        if (this.cjy.x > this.cjx.x) {
+            this.cjy.x = this.cjx.x;
         }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
-        }
-    }
-
-    private void adj() {
-        this.ceZ.x = (int) (this.ceX.x - (this.cfe * ((float) adm())));
-        if (this.ceZ.x < this.ceY.x) {
-            this.ceZ.x = this.ceY.x;
-        }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
         }
     }
 
-    private void adk() {
+    private void agr() {
+        this.cjy.y = (int) (this.cjw.y - (this.cjE * ((float) agv())));
+        if (this.cjy.y < this.cjx.y) {
+            this.cjy.y = this.cjx.y;
+        }
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
+        }
+    }
+
+    private void ags() {
+        this.cjy.x = (int) (this.cjw.x - (this.cjD * ((float) agv())));
+        if (this.cjy.x < this.cjx.x) {
+            this.cjy.x = this.cjx.x;
+        }
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
+        }
+    }
+
+    private void agt() {
         boolean z = true;
-        this.ceZ.x = (int) (this.ceX.x - (this.cfe * ((float) adm())));
-        this.ceZ.y = jg(this.ceZ.x);
-        if (this.ceX.y <= this.ceY.y ? this.ceZ.y <= this.ceY.y : this.ceZ.y >= this.ceY.y) {
+        this.cjy.x = (int) (this.cjw.x - (this.cjD * ((float) agv())));
+        this.cjy.y = jE(this.cjy.x);
+        if (this.cjw.y <= this.cjx.y ? this.cjy.y <= this.cjx.y : this.cjy.y >= this.cjx.y) {
             z = false;
         }
-        if (this.ceZ.x < this.ceY.x || z) {
-            this.ceZ.x = this.ceY.x;
-            this.ceZ.y = this.ceY.y;
+        if (this.cjy.x < this.cjx.x || z) {
+            this.cjy.x = this.cjx.x;
+            this.cjy.y = this.cjx.y;
         }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
         }
     }
 
-    private void adl() {
+    private void agu() {
         boolean z = true;
-        this.ceZ.x = (int) (this.ceX.x + (this.cfe * ((float) adm())));
-        this.ceZ.y = jg(this.ceZ.x);
-        if (this.ceX.y <= this.ceY.y ? this.ceZ.y <= this.ceY.y : this.ceZ.y >= this.ceY.y) {
+        this.cjy.x = (int) (this.cjw.x + (this.cjD * ((float) agv())));
+        this.cjy.y = jE(this.cjy.x);
+        if (this.cjw.y <= this.cjx.y ? this.cjy.y <= this.cjx.y : this.cjy.y >= this.cjx.y) {
             z = false;
         }
-        if (this.ceZ.x > this.ceY.x || z) {
-            this.ceZ.x = this.ceY.x;
-            this.ceZ.y = this.ceY.y;
+        if (this.cjy.x > this.cjx.x || z) {
+            this.cjy.x = this.cjx.x;
+            this.cjy.y = this.cjx.y;
         }
-        if (this.cfc != null) {
-            this.cfc.a(this.ceZ);
+        if (this.cjB != null) {
+            this.cjB.a(this.cjy);
         }
     }
 }

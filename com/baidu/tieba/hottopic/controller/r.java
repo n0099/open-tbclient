@@ -1,25 +1,25 @@
 package com.baidu.tieba.hottopic.controller;
 
-import android.view.inputmethod.InputMethodManager;
+import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements a.b {
-    final /* synthetic */ k bGU;
-    private final /* synthetic */ com.baidu.tieba.hottopic.view.j bGV;
+public class r implements View.OnClickListener {
+    final /* synthetic */ o bKu;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bgG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(k kVar, com.baidu.tieba.hottopic.view.j jVar) {
-        this.bGU = kVar;
-        this.bGV = jVar;
+    public r(o oVar, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.bKu = oVar;
+        this.bgG = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         TbPageContext tbPageContext;
-        tbPageContext = this.bGU.context;
-        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bGV.getChatMsgView().getWindowToken(), 2);
-        aVar.dismiss();
+        com.baidu.adp.lib.util.a.aB(this.bgG.linkUrl);
+        tbPageContext = this.bKu.context;
+        com.baidu.adp.lib.util.k.showToast(((HotTopicActivity) tbPageContext.getOrignalPage()).getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
     }
 }

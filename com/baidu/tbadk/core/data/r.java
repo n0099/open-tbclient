@@ -1,53 +1,55 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private int We;
-    private ArrayList<a> Wf;
+    private ArrayList<String> VN;
+    private int smsCodeTime = 0;
+    private UserData VL = new UserData();
+    private AntiData VM = new AntiData();
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String Wg;
-        public int giftId;
-        public int num;
-        public String thumbnailUrl;
+    public r() {
+        this.VN = null;
+        this.VN = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.We = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.Wf = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.Wg = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.Wf.add(aVar);
-                    }
-                }
-            }
+    public UserData getUser() {
+        return this.VL;
+    }
+
+    public AntiData so() {
+        return this.VM;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public int rQ() {
-        return this.We;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.VL.parserJson(jSONObject.optJSONObject("user"));
+            this.VM.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.VN.add(optJSONArray.optString(i, null));
+                }
+            }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public void bA(int i) {
-        this.We = i;
-    }
-
-    public ArrayList<a> rR() {
-        return this.Wf;
-    }
-
-    public void i(ArrayList<a> arrayList) {
-        this.Wf = arrayList;
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

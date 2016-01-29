@@ -4,75 +4,75 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
-    private PayVcodeActivity cAt;
-    private View cAu;
-    private ViewGroup cAv;
-    private TextView cAw;
-    private TextView cAx;
-    private ProgressBar mProgress;
-    private ViewGroup mRootView;
+    private ViewGroup Ye;
+    private ProgressBar aNo;
+    private PayVcodeActivity cGZ;
+    private View cHa;
+    private ViewGroup cHb;
+    private TextView cHc;
+    private TextView cHd;
     private BaseWebView mWebView;
 
     public b(PayVcodeActivity payVcodeActivity) {
         super(payVcodeActivity.getPageContext());
-        this.cAt = payVcodeActivity;
-        payVcodeActivity.setContentView(n.h.pay_vcode_activity);
+        this.cGZ = payVcodeActivity;
+        payVcodeActivity.setContentView(t.h.pay_vcode_activity);
         o(payVcodeActivity);
     }
 
     private void o(PayVcodeActivity payVcodeActivity) {
-        this.mRootView = (ViewGroup) this.cAt.findViewById(n.g.payvcode_parent);
-        this.cAw = (TextView) this.cAt.findViewById(n.g.payment_performance);
-        as.i((View) this.cAw, n.f.s_navbar_button_bg);
-        as.b(this.cAw, n.d.cp_cont_i, 1);
-        this.mWebView = (BaseWebView) payVcodeActivity.findViewById(n.g.vcode_webview);
-        this.cAx = (TextView) payVcodeActivity.findViewById(n.g.webview_fail_view);
-        this.cAu = payVcodeActivity.findViewById(n.g.payvcode_empty_layout);
-        this.cAv = (ViewGroup) payVcodeActivity.findViewById(n.g.payvcode_layout);
-        this.mProgress = (ProgressBar) payVcodeActivity.findViewById(n.g.payvcode_progress);
+        this.Ye = (ViewGroup) this.cGZ.findViewById(t.g.payvcode_parent);
+        this.cHc = (TextView) this.cGZ.findViewById(t.g.payment_performance);
+        ar.k(this.cHc, t.f.s_navbar_button_bg);
+        ar.b(this.cHc, t.d.cp_cont_i, 1);
+        this.mWebView = (BaseWebView) payVcodeActivity.findViewById(t.g.vcode_webview);
+        this.cHd = (TextView) payVcodeActivity.findViewById(t.g.webview_fail_view);
+        this.cHa = payVcodeActivity.findViewById(t.g.payvcode_empty_layout);
+        this.cHb = (ViewGroup) payVcodeActivity.findViewById(t.g.payvcode_layout);
+        this.aNo = (ProgressBar) payVcodeActivity.findViewById(t.g.payvcode_progress);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setHorizontalScrollbarOverlay(false);
         this.mWebView.setScrollBarStyle(33554432);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
     }
 
-    public TextView akb() {
-        return this.cAw;
+    public TextView anZ() {
+        return this.cHc;
     }
 
-    public TextView akc() {
-        return this.cAx;
+    public TextView aoa() {
+        return this.cHd;
     }
 
     public BaseWebView getWebView() {
         return this.mWebView;
     }
 
-    public void eJ(boolean z) {
-        this.cAx.setVisibility(z ? 0 : 8);
+    public void eX(boolean z) {
+        this.cHd.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.i.a.a(this.cAt.getPageContext(), this.mRootView);
-        as.e((View) this.cAx, i);
-        as.i((View) this.cAw, n.f.s_navbar_button_bg);
-        as.b(this.cAw, n.d.cp_cont_i, 1);
+        com.baidu.tbadk.i.a.a(this.cGZ.getPageContext(), this.Ye);
+        ar.g((View) this.cHd, i);
+        ar.k(this.cHc, t.f.s_navbar_button_bg);
+        ar.b(this.cHc, t.d.cp_cont_i, 1);
     }
 
-    public View akd() {
-        return this.cAu;
+    public View aob() {
+        return this.cHa;
     }
 
-    public ViewGroup ake() {
-        return this.cAv;
+    public ViewGroup aoc() {
+        return this.cHb;
     }
 
-    public void dy(boolean z) {
-        this.mProgress.setVisibility(z ? 0 : 8);
+    public void dB(boolean z) {
+        this.aNo.setVisibility(z ? 0 : 8);
     }
 }

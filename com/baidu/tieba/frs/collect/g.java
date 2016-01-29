@@ -10,20 +10,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.t;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.tbadkCore.util.q;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.tbadkCore.util.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements v {
-    final /* synthetic */ MyCollectFrsActivity bkc;
+    final /* synthetic */ MyCollectFrsActivity bmY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MyCollectFrsActivity myCollectFrsActivity) {
-        this.bkc = myCollectFrsActivity;
+        this.bmY = myCollectFrsActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v17, resolved type: com.baidu.tieba.frs.collect.MyCollectFrsActivity */
@@ -31,41 +31,41 @@ public class g implements v {
     @Override // com.baidu.adp.widget.ListView.v
     public void a(View view, u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
         String str;
-        if (bdUniqueId != null && (uVar instanceof z) && !(uVar instanceof com.baidu.tbadk.core.data.b)) {
-            z zVar = (z) uVar;
-            q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.mD(zVar.getId())) {
-                readThreadHistory.mC(zVar.getId());
+        if (bdUniqueId != null && (uVar instanceof ah) && !(uVar instanceof com.baidu.tbadk.core.data.c)) {
+            ah ahVar = (ah) uVar;
+            r readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+            if (readThreadHistory != null && !readThreadHistory.mU(ahVar.getId())) {
+                readThreadHistory.mT(ahVar.getId());
             }
             boolean z = false;
-            String sx = zVar.sx();
-            if (sx != null && !sx.equals("")) {
+            String tq = ahVar.tq();
+            if (tq != null && !tq.equals("")) {
                 z = true;
-                new Thread(new h(this, sx)).start();
+                new Thread(new h(this, tq)).start();
             }
-            String tid = zVar.getTid();
+            String tid = ahVar.getTid();
             if (tid == null) {
                 tid = "";
             }
-            if (zVar.getIs_top() == 2 && !tid.startsWith("pb:")) {
-                bf vn = bf.vn();
-                TbPageContext<?> pageContext = this.bkc.getPageContext();
+            if (ahVar.getIs_top() == 2 && !tid.startsWith("pb:")) {
+                be wt = be.wt();
+                TbPageContext<?> pageContext = this.bmY.getPageContext();
                 String[] strArr = new String[3];
                 strArr[0] = tid;
                 strArr[1] = "";
-                vn.b(pageContext, strArr);
+                wt.c(pageContext, strArr);
                 return;
             }
-            if (zVar.getThreadType() == 33 || (zVar instanceof t)) {
-                this.bkc.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bkc.getPageContext().getPageActivity(), zVar.getTid()).cp("from_frs").bo(18003).rf()));
+            if (ahVar.getThreadType() == 33 || (ahVar instanceof x)) {
+                this.bmY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bmY.getPageContext().getPageActivity(), ahVar.getTid()).co("from_frs").bD(18003).rC()));
             } else {
                 if (tid.startsWith("pb:")) {
-                    zVar.setId(tid.substring(3));
+                    ahVar.setId(tid.substring(3));
                 }
-                MyCollectFrsActivity myCollectFrsActivity = this.bkc;
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bkc.getPageContext().getPageActivity());
-                str = this.bkc.mForumName;
-                myCollectFrsActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(zVar, str, null, 18003, true, false, z)));
+                MyCollectFrsActivity myCollectFrsActivity = this.bmY;
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bmY.getPageContext().getPageActivity());
+                str = this.bmY.mForumName;
+                myCollectFrsActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(ahVar, str, null, 18003, true, false, z)));
             }
             TiebaStatic.log("c10419");
         }

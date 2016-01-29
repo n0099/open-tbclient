@@ -1,27 +1,27 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes.dex */
 public class e {
-    private static e KI;
-    private static int[] KJ = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
-    private static short[] KK = {2, 3};
-    private static short[] KL = {2, 16, 12, 3};
-    private int KE;
-    private short KF;
-    private short KG;
-    private int KH = -2;
+    private static e KX;
+    private static int[] KY = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+    private static short[] KZ = {2, 3};
+    private static short[] La = {2, 16, 12, 3};
+    private int KT;
+    private short KU;
+    private short KV;
+    private int KW = -2;
 
-    public static e nR() {
+    public static e ol() {
         e eVar;
-        if (KI == null) {
+        if (KX == null) {
             synchronized (e.class) {
-                if (KI == null) {
-                    KI = new e();
+                if (KX == null) {
+                    KX = new e();
                 }
-                eVar = KI;
+                eVar = KX;
             }
             return eVar;
         }
-        return KI;
+        return KX;
     }
 
     private e() {
@@ -36,34 +36,34 @@ public class e {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=6, 150=6, 151=6] */
-    public android.media.AudioRecord nS() {
+    public android.media.AudioRecord om() {
         /*
             r18 = this;
             r0 = r18
-            int r1 = r0.KE
+            int r1 = r0.KT
             if (r1 <= 0) goto L29
             r0 = r18
-            short r1 = r0.KF
+            short r1 = r0.KU
             if (r1 <= 0) goto L29
             r0 = r18
-            short r1 = r0.KG
+            short r1 = r0.KV
             if (r1 <= 0) goto L29
             android.media.AudioRecord r1 = new android.media.AudioRecord
             r2 = 1
             r0 = r18
-            int r3 = r0.KE
+            int r3 = r0.KT
             r0 = r18
-            short r4 = r0.KG
+            short r4 = r0.KV
             r0 = r18
-            short r5 = r0.KF
+            short r5 = r0.KU
             r0 = r18
-            int r6 = r0.KH
+            int r6 = r0.KW
             r1.<init>(r2, r3, r4, r5, r6)
         L28:
             return r1
         L29:
             r2 = 0
-            int[] r12 = com.baidu.audiorecorder.lib.voice.e.KJ
+            int[] r12 = com.baidu.audiorecorder.lib.voice.e.KY
             int r13 = r12.length
             r1 = 0
             r9 = r1
@@ -76,7 +76,7 @@ public class e {
             throw r1
         L3a:
             r3 = r12[r9]
-            short[] r14 = com.baidu.audiorecorder.lib.voice.e.KK
+            short[] r14 = com.baidu.audiorecorder.lib.voice.e.KZ
             int r15 = r14.length
             r2 = 0
             r10 = r2
@@ -89,7 +89,7 @@ public class e {
             goto L30
         L49:
             short r5 = r14[r10]
-            short[] r16 = com.baidu.audiorecorder.lib.voice.e.KL
+            short[] r16 = com.baidu.audiorecorder.lib.voice.e.La
             r0 = r16
             int r0 = r0.length
             r17 = r0
@@ -107,9 +107,9 @@ public class e {
             short r4 = r16[r11]
             int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L126
             r0 = r18
-            r0.KH = r1     // Catch: java.lang.Throwable -> L126
+            r0.KW = r1     // Catch: java.lang.Throwable -> L126
             r0 = r18
-            int r1 = r0.KH     // Catch: java.lang.Throwable -> L126
+            int r1 = r0.KW     // Catch: java.lang.Throwable -> L126
             r2 = -2
             if (r1 != r2) goto L81
             if (r7 == 0) goto L12a
@@ -125,7 +125,7 @@ public class e {
             goto L55
         L81:
             r0 = r18
-            int r1 = r0.KH     // Catch: java.lang.Throwable -> L126
+            int r1 = r0.KW     // Catch: java.lang.Throwable -> L126
             int r1 = r1 * 8
             r2 = 4096(0x1000, float:5.74E-42)
             int r6 = java.lang.Math.min(r1, r2)     // Catch: java.lang.Throwable -> L126
@@ -137,13 +137,13 @@ public class e {
             r2 = 1
             if (r1 != r2) goto Lba
             r0 = r18
-            r0.KE = r3     // Catch: java.lang.Throwable -> Le8
+            r0.KT = r3     // Catch: java.lang.Throwable -> Le8
             r0 = r18
-            r0.KF = r5     // Catch: java.lang.Throwable -> Le8
+            r0.KU = r5     // Catch: java.lang.Throwable -> Le8
             r0 = r18
-            r0.KG = r4     // Catch: java.lang.Throwable -> Le8
+            r0.KV = r4     // Catch: java.lang.Throwable -> Le8
             r0 = r18
-            r0.KH = r6     // Catch: java.lang.Throwable -> Le8
+            r0.KW = r6     // Catch: java.lang.Throwable -> Le8
             if (r8 == 0) goto Lb7
             int r1 = r8.getState()
             r2 = 1
@@ -157,17 +157,17 @@ public class e {
             android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Le8
             r2 = 1
             r0 = r18
-            int r6 = r0.KH     // Catch: java.lang.Throwable -> Le8
+            int r6 = r0.KW     // Catch: java.lang.Throwable -> Le8
             r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Le8
             int r2 = r1.getState()     // Catch: java.lang.Throwable -> L124
             r6 = 1
             if (r2 != r6) goto L10a
             r0 = r18
-            r0.KE = r3     // Catch: java.lang.Throwable -> L124
+            r0.KT = r3     // Catch: java.lang.Throwable -> L124
             r0 = r18
-            r0.KF = r5     // Catch: java.lang.Throwable -> L124
+            r0.KU = r5     // Catch: java.lang.Throwable -> L124
             r0 = r18
-            r0.KG = r4     // Catch: java.lang.Throwable -> L124
+            r0.KV = r4     // Catch: java.lang.Throwable -> L124
             if (r1 == 0) goto L28
             int r2 = r1.getState()
             r3 = 1
@@ -231,6 +231,6 @@ public class e {
             r1 = r7
             goto L7c
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.e.nS():android.media.AudioRecord");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.e.om():android.media.AudioRecord");
     }
 }

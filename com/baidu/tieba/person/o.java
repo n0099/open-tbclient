@@ -10,15 +10,15 @@ import com.baidu.tieba.person.EditHeadActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.b {
-    final /* synthetic */ EditHeadActivity.a cNN;
+    final /* synthetic */ EditHeadActivity.a cXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EditHeadActivity.a aVar) {
-        this.cNN = aVar;
+        this.cXh = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         EditHeadActivity editHeadActivity;
         MessageManager messageManager = MessageManager.getInstance();
         editHeadActivity = EditHeadActivity.this;

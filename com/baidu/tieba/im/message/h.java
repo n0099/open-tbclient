@@ -6,11 +6,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class h implements a.b {
-    final /* synthetic */ ResponsePullMessage bYy;
+    final /* synthetic */ ResponsePullMessage ccS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ResponsePullMessage responsePullMessage) {
-        this.bYy = responsePullMessage;
+        this.ccS = responsePullMessage;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
@@ -19,6 +19,6 @@ class h implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void f(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.c.Yi().a(str, list, true);
+        com.baidu.tieba.im.db.c.aaT().a(str, list, true);
     }
 }

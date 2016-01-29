@@ -19,42 +19,42 @@ public class i implements com.baidu.adp.plugin.install.a {
         long j;
         String str3;
         if (z) {
-            if (PluginPackageManager.ls().hs()) {
-                PluginSettings lM = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
-                com.baidu.adp.plugin.b.a lf = com.baidu.adp.plugin.b.a.lf();
-                str3 = this.this$0.Eb;
-                lf.d("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (lM == null ? "" : lM.getContainerVersion()));
+            if (PluginPackageManager.lD().hA()) {
+                PluginSettings lZ = com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().lZ();
+                com.baidu.adp.plugin.b.a lq = com.baidu.adp.plugin.b.a.lq();
+                str3 = this.this$0.Eo;
+                lq.e("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (lZ == null ? "" : lZ.getContainerVersion()));
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c lP = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP();
-            str2 = this.this$0.Eb;
-            lP.bG(str2);
-            if (PluginPackageManager.ls().hs()) {
-                com.baidu.adp.plugin.b.a lf2 = com.baidu.adp.plugin.b.a.lf();
+            com.baidu.adp.plugin.packageManager.pluginSettings.c mc = com.baidu.adp.plugin.packageManager.pluginSettings.c.mc();
+            str2 = this.this$0.Eo;
+            mc.bG(str2);
+            if (PluginPackageManager.lD().hA()) {
+                com.baidu.adp.plugin.b.a lq2 = com.baidu.adp.plugin.b.a.lq();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.Ed;
-                lf2.e("plugin_install", currentTimeMillis - j);
+                j = this.this$0.Eq;
+                lq2.e("plugin_install", currentTimeMillis - j);
             }
-        } else if (PluginPackageManager.ls().hs()) {
-            PluginSettings lM2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().lM();
-            com.baidu.adp.plugin.b.a lf3 = com.baidu.adp.plugin.b.a.lf();
-            str = this.this$0.Eb;
-            lf3.d("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (lM2 == null ? "" : lM2.getContainerVersion()));
+        } else if (PluginPackageManager.lD().hA()) {
+            PluginSettings lZ2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().lZ();
+            com.baidu.adp.plugin.b.a lq3 = com.baidu.adp.plugin.b.a.lq();
+            str = this.this$0.Eo;
+            lq3.e("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (lZ2 == null ? "" : lZ2.getContainerVersion()));
         }
-        this.this$0.lx();
+        this.this$0.lK();
         this.this$0.J(true);
     }
 
     @Override // com.baidu.adp.plugin.install.a
     public void bi(String str) {
         int i;
-        com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().g(str, true);
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().findPluginSetting(str);
+        com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().g(str, true);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().findPluginSetting(str);
         if (findPluginSetting != null) {
             int i2 = findPluginSetting.versionCode;
-            i = PluginPackageManager.DW;
+            i = PluginPackageManager.Ej;
             if (i2 < i) {
-                com.baidu.adp.plugin.b.a.lf().E("plugin_launch_lowversion", str);
-                com.baidu.adp.plugin.b.a.lf().d("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
+                com.baidu.adp.plugin.b.a.lq().F("plugin_launch_lowversion", str);
+                com.baidu.adp.plugin.b.a.lq().e("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
             }
         }
     }

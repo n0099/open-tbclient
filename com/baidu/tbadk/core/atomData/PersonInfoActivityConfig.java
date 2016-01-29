@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PersonInfoActivityConfig extends IntentConfig {
+    public static final String FANS_NUM = "fans_num";
     public static final int REQUSET_CHANGE = 101;
     public static final String TAG_DATA = "data";
     public static boolean IS_SUPPORT_EDIT = true;
@@ -29,5 +30,12 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("from", str3);
         getIntent().putExtra("st_type", str4);
+    }
+
+    public PersonInfoActivityConfig(Context context, String str, String str2, int i) {
+        super(context);
+        getIntent().putExtra("user_id", str);
+        getIntent().putExtra("user_name", str2);
+        getIntent().putExtra(FANS_NUM, i);
     }
 }

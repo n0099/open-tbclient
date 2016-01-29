@@ -1,62 +1,66 @@
 package com.baidu.tieba.hottopic.data;
 
-import com.baidu.tbadk.core.data.q;
-import com.baidu.tbadk.core.data.z;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTopicRelateThread.DataRes;
-import tbclient.Hottopic.HotThread;
-import tbclient.ThreadInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.u;
+import tbclient.HottopicRanklist.TopicList;
+import tbclient.HottopicRanklist.TopicListModule;
 /* loaded from: classes.dex */
-public class b extends z {
-    public String bHi;
-    public q bHj;
-    public List<z> bcS;
+public class b implements u {
+    public static final BdUniqueId bKL = BdUniqueId.gen();
+    private long bKI;
+    private String bKJ;
+    private String bKK;
+    private long mId;
+    private String mName;
+    private int mTag;
+    String module_title;
+    String rule_jump_url;
+    String tips;
 
-    public void a(HotThread hotThread) {
-        if (hotThread != null) {
-            this.bHi = hotThread.hot_title;
-            if (hotThread.thread_list != null) {
-                this.bcS = new ArrayList();
-                for (ThreadInfo threadInfo : hotThread.thread_list) {
-                    if (threadInfo != null) {
-                        z zVar = new z();
-                        zVar.a(threadInfo);
-                        if (zVar.getType() == z.WC && !f(zVar)) {
-                            this.bcS.add(zVar);
-                        }
-                    }
-                }
-            }
-            if (hotThread.page != null) {
-                this.bHj = new q();
-                this.bHj.a(hotThread.page);
-            }
+    public String XI() {
+        return this.bKK;
+    }
+
+    public String XJ() {
+        return this.bKJ;
+    }
+
+    public long getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public String XK() {
+        return this.module_title;
+    }
+
+    public void a(TopicList topicList) {
+        if (topicList != null) {
+            this.mId = topicList.topic_id.longValue();
+            this.mName = topicList.topic_name;
+            this.mTag = topicList.tag.intValue();
+            this.bKI = topicList.discuss_num.longValue();
+            this.bKJ = topicList.topic_desc;
+            this.bKK = topicList.topic_pic;
         }
     }
 
-    public void a(DataRes dataRes) {
-        if (dataRes != null) {
-            if (dataRes.thread_list != null) {
-                this.bcS = new ArrayList();
-                for (ThreadInfo threadInfo : dataRes.thread_list) {
-                    if (threadInfo != null) {
-                        z zVar = new z();
-                        zVar.a(threadInfo);
-                        if (zVar.getType() == z.WC && !f(zVar)) {
-                            this.bcS.add(zVar);
-                        }
-                    }
-                }
-            }
-            if (dataRes.page != null) {
-                this.bHj = new q();
-                this.bHj.a(dataRes.page);
-            }
+    public void a(TopicListModule topicListModule) {
+        try {
+            this.module_title = topicListModule.module_title;
+            this.tips = topicListModule.tips;
+            this.rule_jump_url = topicListModule.rule_jump_url;
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    private boolean f(z zVar) {
-        return (zVar.getAnchorInfoData() == null || zVar.getAnchorInfoData().getGroup_id() == 0) ? false : true;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return bKL;
     }
 }

@@ -1,166 +1,119 @@
 package com.baidu.tbadk.performanceLog;
-
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.location.a0;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class o extends r {
-    public static int azJ = 0;
-    public static int azK = 1;
-    public static int azL = 2;
-    private static CustomMessageTask azq = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
-    private ArrayList<String> azH;
-    private boolean azI;
-    private ArrayList<String> azg;
-    private ArrayList<String> azh;
-    private CustomMessageListener customNormalListener = new q(this, CmdConfigCustom.CMD_PERF_LIVE_SAMPLE);
-
-    static {
-        azq.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(azq);
-    }
-
-    public o() {
-        El();
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.mId);
-    }
-
-    public boolean Ev() {
-        return this.azI;
-    }
-
-    public void bB(boolean z) {
-        this.azI = z;
-    }
-
-    public void Ek() {
-        Em();
-    }
-
-    public void L(int i, int i2) {
-        if (i != 0) {
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(azJ, 6);
-            sparseArray.put(azK, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(azL, Integer.valueOf(i));
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray));
-        }
-        if (i2 != 0) {
-            SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(azJ, 6);
-            sparseArray2.put(azK, Integer.valueOf((int) a0.t));
-            sparseArray2.put(azL, Integer.valueOf(i2));
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray2));
-        }
-    }
-
-    public void Ew() {
-        Ey();
-        if (this.azh != null) {
-            this.azh.clear();
-        }
-        if (this.azg != null) {
-            this.azg.clear();
-        }
-        if (this.azH != null) {
-            this.azH.clear();
-        }
-    }
-
-    private void El() {
-        this.customNormalListener.setTag(this.mId);
-        MessageManager.getInstance().unRegisterListener(this.mId);
-        MessageManager.getInstance().registerListener(this.customNormalListener);
-    }
-
-    private void Em() {
-        CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new a());
-        customMessage.setTag(this.mId);
-        MessageManager.getInstance().sendMessage(customMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fV(String str) {
-        if (this.azg == null) {
-            this.azg = new ArrayList<>();
-        }
-        if (str != null) {
-            this.azg.add(str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fW(String str) {
-        if (this.azH == null) {
-            this.azH = new ArrayList<>();
-        }
-        if (str != null) {
-            this.azH.add(str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void eE(int i) {
-        String valueOf = String.valueOf(i);
-        if (this.azh == null) {
-            this.azh = new ArrayList<>();
-        }
-        this.azh.add(valueOf);
-    }
-
-    public String Ex() {
-        return s(this.azH);
-    }
-
-    public String Ep() {
-        return s(this.azg);
-    }
-
-    public String getCpuString() {
-        return s(this.azh);
-    }
-
-    private String s(ArrayList<String> arrayList) {
-        if (arrayList == null || arrayList.size() == 0) {
-            return "()";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("(");
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            String str = arrayList.get(i);
-            if (i == size - 1) {
-                stringBuffer.append(str);
-            } else {
-                stringBuffer.append(String.valueOf(str) + "_");
+public class o extends ac {
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void a(v vVar) {
+        if (aa.FY().FZ()) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "time_t");
+            a(hm, vVar);
+            hm.r("ishttp", vVar.aAQ ? "1" : "0");
+            hm.r("issuccess", vVar.isSuccess ? "1" : "0");
+            hm.r("nettype", aa.FY().getNetType());
+            hm.r("ct", String.valueOf(vVar.aAE));
+            hm.r("wt", String.valueOf(vVar.aAL));
+            hm.r("qt", String.valueOf(vVar.aAF));
+            hm.r("connt", String.valueOf(vVar.aAG));
+            hm.r("rwt", String.valueOf(vVar.aAH));
+            hm.r("dect", String.valueOf(vVar.aAI));
+            hm.r("parset", String.valueOf(vVar.aAJ));
+            hm.r("rendert", String.valueOf(vVar.aAK));
+            hm.r("ss", String.valueOf(vVar.aAO));
+            hm.r("hs", String.valueOf(vVar.aAP));
+            if (vVar.aAQ && vVar.socketErrNo != 0) {
+                hm.r("salno", String.valueOf(vVar.socketErrNo));
+                if (vVar.socketCostTime != 0) {
+                    hm.r("scosttime", String.valueOf(vVar.socketCostTime));
+                }
             }
-        }
-        stringBuffer.append(")");
-        return stringBuffer.toString();
-    }
-
-    private void Ey() {
-        w wVar;
-        if (this.azg != null && this.azg.size() > 0 && this.azh != null && this.azh.size() > 0 && this.azH != null && this.azH.size() > 0 && (wVar = (w) y.EH().eH(this.mSubType)) != null) {
-            wVar.b(this);
+            if (vVar.errCode != 0) {
+                hm.b("errcode", Integer.valueOf(vVar.errCode));
+            }
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
         }
     }
 
-    /* loaded from: classes.dex */
-    public class a {
-        public String azN;
-        public String azs;
-        public int azt;
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void b(v vVar) {
+        if (aa.FY().FZ() && vVar.aAL > 0) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "white_t");
+            a(hm, vVar);
+            hm.r("ct", String.valueOf(vVar.aAE));
+            hm.r("wt", String.valueOf(vVar.aAL));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
 
-        public a() {
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void c(v vVar) {
+        if (aa.FY().FZ() && vVar.aAM > 0) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "readCache_t");
+            a(hm, vVar);
+            hm.r("rct", String.valueOf(vVar.aAM));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
+
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void d(v vVar) {
+        if (aa.FY().FZ() && vVar.aAN > 0) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "writeCache_t");
+            a(hm, vVar);
+            hm.r("wct", String.valueOf(vVar.aAN));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
+
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void a(u uVar, String str) {
+        if (uVar != null && str != null && aa.FY().FZ()) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "resource_t");
+            hm.r("actype", str);
+            hm.r("issuccess", uVar.isSuccess ? "1" : "0");
+            hm.r("isfs", uVar.aAD ? "1" : "0");
+            hm.r("ct", String.valueOf(uVar.Hm));
+            hm.r("from", String.valueOf(uVar.Hl));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
+
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void g(e eVar) {
+        if (eVar != null && aa.FY().FZ()) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "fluency_t");
+            a(hm, eVar);
+            hm.r("fps", String.valueOf(eVar.FI()));
+            hm.r("memp", String.valueOf(eVar.FK()));
+            hm.r("cpu", String.valueOf(eVar.getCpuString()));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
+
+    @Override // com.baidu.tbadk.performanceLog.ac
+    public void h(e eVar) {
+        if (aa.FY().FZ()) {
+            com.baidu.adp.lib.stats.d hm = hm();
+            hm.r("action", "gc_t");
+            a(hm, eVar);
+            hm.r("gc", String.valueOf(eVar.FJ()));
+            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        }
+    }
+
+    private void a(com.baidu.adp.lib.stats.d dVar, e eVar) {
+        if (eVar instanceof m) {
+            dVar.b("ptype", Integer.valueOf(((m) eVar).pageType));
+        }
+    }
+
+    private void a(com.baidu.adp.lib.stats.d dVar, v vVar) {
+        if (vVar instanceof n) {
+            dVar.b("ptype", Integer.valueOf(((n) vVar).pageType));
         }
     }
 }

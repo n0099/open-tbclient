@@ -5,24 +5,24 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aFI;
-    private final /* synthetic */ c aFK;
+    final /* synthetic */ TbRichTextView aGA;
+    private final /* synthetic */ c aGC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(TbRichTextView tbRichTextView, c cVar) {
-        this.aFI = tbRichTextView;
-        this.aFK = cVar;
+        this.aGA = tbRichTextView;
+        this.aGC = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbRichTextView.c cVar;
         TbRichTextView.c cVar2;
-        cVar = this.aFI.aFy;
+        cVar = this.aGA.aGq;
         if (cVar != null) {
-            d FK = this.aFK.FK();
-            cVar2 = this.aFI.aFy;
-            cVar2.a(view, FK.avZ.mGid, FK.avZ.mPackageName, FK.avZ.avE, FK.avZ.avA, FK.avZ.avB, FK.avZ.avz, FK.avZ.avC, FK.avZ.avD);
+            d Hc = this.aGC.Hc();
+            cVar2 = this.aGA.aGq;
+            cVar2.a(view, Hc.awQ.mGid, Hc.awQ.mPackageName, Hc.awQ.Vq, Hc.awQ.aws, Hc.awQ.awt, Hc.awQ.awr, Hc.awQ.awu, Hc.awQ.awv);
         }
     }
 }

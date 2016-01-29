@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity cBV;
+    final /* synthetic */ PbChosenActivity cIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PbChosenActivity pbChosenActivity, int i) {
         super(i);
-        this.cBV = pbChosenActivity;
+        this.cIA = pbChosenActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,19 +22,19 @@ class e extends CustomMessageListener {
         com.baidu.tieba.pb.chosen.a.i iVar4;
         com.baidu.tieba.pb.chosen.a.i iVar5;
         com.baidu.tieba.pb.chosen.a.i iVar6;
-        iVar = this.cBV.cBy;
-        iVar.akA();
-        iVar2 = this.cBV.cBy;
-        iVar3 = this.cBV.cBy;
-        iVar2.cCB = !iVar3.cCB;
-        iVar4 = this.cBV.cBy;
-        iVar5 = this.cBV.cBy;
-        iVar4.eP(iVar5.cCB);
-        iVar6 = this.cBV.cBy;
-        if (iVar6.cCB) {
-            this.cBV.cBK = 1;
+        iVar = this.cIA.cIe;
+        iVar.aoy();
+        iVar2 = this.cIA.cIe;
+        iVar3 = this.cIA.cIe;
+        iVar2.cJg = !iVar3.cJg;
+        iVar4 = this.cIA.cIe;
+        iVar5 = this.cIA.cIe;
+        iVar4.fd(iVar5.cJg);
+        iVar6 = this.cIA.cIe;
+        if (iVar6.cJg) {
+            this.cIA.cIq = 1;
         } else {
-            this.cBV.cBK = 0;
+            this.cIA.cIq = 0;
         }
     }
 }

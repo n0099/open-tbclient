@@ -4,10 +4,10 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class q {
-    public static String np(int i) {
+    public static String oD(int i) {
         float f;
         int i2;
         if (i < 0) {
@@ -16,9 +16,9 @@ public class q {
         String valueOf = String.valueOf(i);
         if (i >= 1000000) {
             if (i / 10000.0f > i / 10000) {
-                return String.valueOf(String.format("%.1f", Float.valueOf(f))) + TbadkCoreApplication.m411getInst().getResources().getString(n.j.tdou_unit);
+                return String.valueOf(String.format("%.1f", Float.valueOf(f))) + TbadkCoreApplication.m411getInst().getResources().getString(t.j.tdou_unit);
             }
-            return String.valueOf(i2) + TbadkCoreApplication.m411getInst().getResources().getString(n.j.tdou_unit);
+            return String.valueOf(i2) + TbadkCoreApplication.m411getInst().getResources().getString(t.j.tdou_unit);
         }
         return valueOf;
     }

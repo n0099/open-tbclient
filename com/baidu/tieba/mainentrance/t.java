@@ -1,25 +1,21 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.Activity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity cqu;
+public class t implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity cwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(SquareSearchActivity squareSearchActivity) {
-        this.cqu = squareSearchActivity;
+        this.cwZ = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ScrollView scrollView;
-        Activity pageActivity = this.cqu.getPageContext().getPageActivity();
-        scrollView = this.cqu.cpZ;
-        com.baidu.adp.lib.util.k.c(pageActivity, scrollView);
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.cwZ.cvX.hasFocus()) {
+            com.baidu.adp.lib.util.k.c(this.cwZ.getPageContext().getPageActivity(), this.cwZ.cvX);
+        }
+        this.cwZ.closeActivity();
     }
 }

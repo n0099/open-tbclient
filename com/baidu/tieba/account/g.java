@@ -1,20 +1,24 @@
 package com.baidu.tieba.account;
 
-import android.content.DialogInterface;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements DialogInterface.OnCancelListener {
-    final /* synthetic */ AccountActivity aHO;
+public class g implements j.a {
+    final /* synthetic */ AccountActivity aIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AccountActivity accountActivity) {
-        this.aHO = accountActivity;
+        this.aIQ = accountActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.aHO.destroyWaitingDialog();
-        this.aHO.go("account changed");
-        this.aHO.aHL = null;
+    @Override // com.baidu.tbadk.coreExtra.view.j.a
+    public void i(AccountData accountData) {
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
+        this.aIQ.k(accountData);
     }
 }

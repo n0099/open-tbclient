@@ -1,25 +1,17 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class cc extends x.a {
-    public TextView agy;
-    public TextView agz;
-    public int ahf;
-    public TextView bcG;
-    public TextView bgj;
-    public View bgk;
+class cc implements a.b {
+    final /* synthetic */ bx biy;
 
-    public cc(View view) {
-        super(view);
-        this.ahf = 3;
-        this.agy = (TextView) getView().findViewById(n.g.frs_god_lv_reply_time);
-        this.agz = (TextView) getView().findViewById(n.g.frs_god_praise_num);
-        this.bcG = (TextView) getView().findViewById(n.g.frs_god_reply_num);
-        this.bgj = (TextView) getView().findViewById(n.g.frs_god_item_location_address);
-        this.bgk = getView().findViewById(n.g.frs_god_item_location_sep);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cc(bx bxVar) {
+        this.biy = bxVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

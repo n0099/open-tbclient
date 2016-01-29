@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l djT;
+    final /* synthetic */ l dxN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.djT = lVar;
+        this.dxN = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,11 +18,11 @@ public class n implements AdapterView.OnItemClickListener {
         BdListView bdListView;
         PostSearchActivity postSearchActivity;
         PostSearchActivity postSearchActivity2;
-        bdListView = this.djT.djP;
+        bdListView = this.dxN.dxJ;
         String str = (String) bdListView.getItemAtPosition(i);
-        postSearchActivity = this.djT.djG;
-        postSearchActivity.lH(str);
-        postSearchActivity2 = this.djT.djG;
-        postSearchActivity2.jI(str);
+        postSearchActivity = this.dxN.dxA;
+        postSearchActivity.lV(str);
+        postSearchActivity2 = this.dxN.dxA;
+        postSearchActivity2.jM(str);
     }
 }

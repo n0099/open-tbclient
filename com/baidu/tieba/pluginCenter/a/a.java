@@ -7,43 +7,43 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
 import com.baidu.tieba.pluginCenter.PluginConfigWrapper;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView Nm;
-    private TextView ahk;
-    private View djA;
-    private ImageView djB;
-    private int djC;
-    private BdSwitchView djy;
-    private TextView djz;
+    private TbImageView NM;
+    private TextView apm;
+    private BdSwitchView dxs;
+    private TextView dxt;
+    private View dxu;
+    private ImageView dxv;
+    private int dxw;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.Nm = (TbImageView) view.findViewById(n.g.icon);
-        this.ahk = (TextView) view.findViewById(n.g.title);
-        this.djy = (BdSwitchView) view.findViewById(n.g.switchview);
-        this.djB = (ImageView) view.findViewById(n.g.downloading_forground);
-        this.djA = view.findViewById(n.g.downloading_layout);
-        this.djz = (TextView) view.findViewById(n.g.download_text);
-        this.djy.setOnSwitchStateChangeListener(new b(this));
-        this.djz.setOnClickListener(new c(this));
+        this.NM = (TbImageView) view.findViewById(t.g.icon);
+        this.apm = (TextView) view.findViewById(t.g.title);
+        this.dxs = (BdSwitchView) view.findViewById(t.g.switchview);
+        this.dxv = (ImageView) view.findViewById(t.g.downloading_forground);
+        this.dxu = view.findViewById(t.g.downloading_layout);
+        this.dxt = (TextView) view.findViewById(t.g.download_text);
+        this.dxs.setOnSwitchStateChangeListener(new b(this));
+        this.dxt.setOnClickListener(new c(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: b */
     public void B(PluginConfigWrapper pluginConfigWrapper) {
-        super.B((a) pluginConfigWrapper);
+        super.B(pluginConfigWrapper);
         if (pluginConfigWrapper != null) {
             if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-                this.Nm.d(pluginConfigWrapper.icon, 10, false);
+                this.NM.d(pluginConfigWrapper.icon, 10, false);
             }
-            this.ahk.setText(pluginConfigWrapper.display_name);
+            this.apm.setText(pluginConfigWrapper.display_name);
             c(pluginConfigWrapper.getDownLoadStatus(), pluginConfigWrapper.getDownLoadPercent());
         }
     }
@@ -51,56 +51,56 @@ public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tb
     private void c(int i, float f) {
         switch (i) {
             case 1:
-                this.djz.setVisibility(8);
-                this.djA.setVisibility(8);
-                this.djy.setVisibility(0);
-                this.djy.mf();
+                this.dxt.setVisibility(8);
+                this.dxu.setVisibility(8);
+                this.dxs.setVisibility(0);
+                this.dxs.mt();
                 return;
             case 2:
-                this.djz.setVisibility(8);
-                this.djA.setVisibility(8);
-                this.djy.setVisibility(0);
-                this.djy.me();
+                this.dxt.setVisibility(8);
+                this.dxu.setVisibility(8);
+                this.dxs.setVisibility(0);
+                this.dxs.ms();
                 return;
             case 3:
-                this.djz.setVisibility(8);
-                this.djA.setVisibility(0);
-                this.djy.setVisibility(8);
-                B(f);
+                this.dxt.setVisibility(8);
+                this.dxu.setVisibility(0);
+                this.dxs.setVisibility(8);
+                H(f);
                 return;
             case 4:
-                this.djz.setVisibility(0);
-                this.djA.setVisibility(8);
-                this.djy.setVisibility(8);
-                this.djz.setText(n.j.plugin_update);
+                this.dxt.setVisibility(0);
+                this.dxu.setVisibility(8);
+                this.dxs.setVisibility(8);
+                this.dxt.setText(t.j.plugin_update);
                 return;
             default:
-                this.djz.setVisibility(0);
-                this.djA.setVisibility(8);
-                this.djy.setVisibility(8);
-                this.djz.setText(n.j.download);
+                this.dxt.setVisibility(0);
+                this.dxu.setVisibility(8);
+                this.dxs.setVisibility(8);
+                this.dxt.setText(t.j.download);
                 return;
         }
     }
 
-    private void B(float f) {
-        if (this.djC == 0) {
-            this.djC = this.djA.getWidth();
+    private void H(float f) {
+        if (this.dxw == 0) {
+            this.dxw = this.dxu.getWidth();
         }
-        int i = (int) (this.djC * f);
+        int i = (int) (this.dxw * f);
         if (i < 0) {
             i = 0;
         }
-        int i2 = i > this.djC ? this.djC : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.djB.getLayoutParams();
+        int i2 = i > this.dxw ? this.dxw : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dxv.getLayoutParams();
         layoutParams.width = i2;
-        this.djB.setLayoutParams(layoutParams);
+        this.dxv.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.t
+    @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        this.djy.a(as.cx(n.f.bg_switch_open), as.cx(n.f.bg_switch_close), as.cx(n.f.btn_handle));
+        this.dxs.a(ar.cO(t.f.bg_switch_open), ar.cO(t.f.bg_switch_close), ar.cO(t.f.btn_handle));
         return true;
     }
 }

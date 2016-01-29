@@ -183,7 +183,7 @@ public final class BidiFormatter {
             int i2 = 0;
             int i3 = 0;
             while (this.ms < this.length && i == 0) {
-                switch (dx()) {
+                switch (dz()) {
                     case 0:
                         if (i3 != 0) {
                             i = i3;
@@ -237,7 +237,7 @@ public final class BidiFormatter {
                 return i2;
             }
             while (this.ms > 0) {
-                switch (dy()) {
+                switch (dA()) {
                     case 14:
                     case 15:
                         if (i != i3) {
@@ -267,7 +267,7 @@ public final class BidiFormatter {
             int i = 0;
             int i2 = 0;
             while (this.ms > 0) {
-                switch (dy()) {
+                switch (dA()) {
                     case 0:
                         if (i2 != 0) {
                             if (i != 0) {
@@ -338,7 +338,7 @@ public final class BidiFormatter {
             return c < 1792 ? mq[c] : Character.getDirectionality(c);
         }
 
-        byte dx() {
+        byte dz() {
             this.mt = this.text.charAt(this.ms);
             if (Character.isHighSurrogate(this.mt)) {
                 int codePointAt = Character.codePointAt(this.text, this.ms);
@@ -349,17 +349,17 @@ public final class BidiFormatter {
             byte d = d(this.mt);
             if (this.mr) {
                 if (this.mt == '<') {
-                    return dz();
+                    return dB();
                 }
                 if (this.mt == '&') {
-                    return dB();
+                    return dD();
                 }
                 return d;
             }
             return d;
         }
 
-        byte dy() {
+        byte dA() {
             this.mt = this.text.charAt(this.ms - 1);
             if (Character.isLowSurrogate(this.mt)) {
                 int codePointBefore = Character.codePointBefore(this.text, this.ms);
@@ -370,17 +370,17 @@ public final class BidiFormatter {
             byte d = d(this.mt);
             if (this.mr) {
                 if (this.mt == '>') {
-                    return dA();
+                    return dC();
                 }
                 if (this.mt == ';') {
-                    return dC();
+                    return dE();
                 }
                 return d;
             }
             return d;
         }
 
-        private byte dz() {
+        private byte dB() {
             int i = this.ms;
             while (this.ms < this.length) {
                 String str = this.text;
@@ -409,7 +409,7 @@ public final class BidiFormatter {
             return (byte) 13;
         }
 
-        private byte dA() {
+        private byte dC() {
             int i = this.ms;
             while (this.ms > 0) {
                 String str = this.text;
@@ -440,7 +440,7 @@ public final class BidiFormatter {
             return (byte) 13;
         }
 
-        private byte dB() {
+        private byte dD() {
             while (this.ms < this.length) {
                 String str = this.text;
                 int i = this.ms;
@@ -454,7 +454,7 @@ public final class BidiFormatter {
             return (byte) 12;
         }
 
-        private byte dC() {
+        private byte dE() {
             int i = this.ms;
             while (this.ms > 0) {
                 String str = this.text;

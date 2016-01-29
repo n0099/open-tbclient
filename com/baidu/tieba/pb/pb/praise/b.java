@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b {
-    private HeadImageView mItemHead;
-    private ImageView mItemLineBottom;
-    private TextView mItemName;
-    private TextView mItemTime;
-    private View mItemView;
+    private View cST;
+    private HeadImageView cSU;
+    private TextView cSV;
+    private TextView cSW;
+    private ImageView cSX;
 
     public static b h(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.mItemView = null;
-        this.mItemHead = null;
-        this.mItemName = null;
-        this.mItemTime = null;
-        this.mItemLineBottom = null;
-        this.mItemView = LayoutInflater.from(context).inflate(n.h.zan_list_item, (ViewGroup) null);
-        this.mItemHead = (HeadImageView) this.mItemView.findViewById(n.g.zan_list_item_head);
-        this.mItemName = (TextView) this.mItemView.findViewById(n.g.zan_list_item_name);
-        this.mItemTime = (TextView) this.mItemView.findViewById(n.g.zan_list_item_time);
-        this.mItemLineBottom = (ImageView) this.mItemView.findViewById(n.g.zan_list_item_line_bottom);
-        this.mItemLineBottom.setVisibility(0);
-        this.mItemView.setTag(this);
+        this.cST = null;
+        this.cSU = null;
+        this.cSV = null;
+        this.cSW = null;
+        this.cSX = null;
+        this.cST = LayoutInflater.from(context).inflate(t.h.zan_list_item, (ViewGroup) null);
+        this.cSU = (HeadImageView) this.cST.findViewById(t.g.zan_list_item_head);
+        this.cSV = (TextView) this.cST.findViewById(t.g.zan_list_item_name);
+        this.cSW = (TextView) this.cST.findViewById(t.g.zan_list_item_time);
+        this.cSX = (ImageView) this.cST.findViewById(t.g.zan_list_item_line_bottom);
+        this.cSX.setVisibility(0);
+        this.cST.setTag(this);
     }
 
     public View getView() {
-        return this.mItemView;
+        return this.cST;
     }
 
-    public void setData(String str, String str2, long j, boolean z) {
-        this.mItemName.setText(str);
-        this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(ax.s(j));
-        this.mItemHead.d(str2, 28, false);
+    public void a(String str, String str2, long j, boolean z) {
+        this.cSV.setText(str);
+        this.cSU.setImageDrawable(null);
+        this.cSW.setText(aw.t(j));
+        this.cSU.d(str2, 28, false);
     }
 }

@@ -7,23 +7,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cqu;
-    private final /* synthetic */ TextView cqv;
-    private final /* synthetic */ ImageView cqw;
-    private final /* synthetic */ TextView cqx;
-    private final /* synthetic */ ImageView cqy;
+    final /* synthetic */ SquareSearchActivity cwZ;
+    private final /* synthetic */ TextView cxa;
+    private final /* synthetic */ ImageView cxb;
+    private final /* synthetic */ TextView cxc;
+    private final /* synthetic */ ImageView cxd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(SquareSearchActivity squareSearchActivity, TextView textView, ImageView imageView, TextView textView2, ImageView imageView2) {
-        this.cqu = squareSearchActivity;
-        this.cqv = textView;
-        this.cqw = imageView;
-        this.cqx = textView2;
-        this.cqy = imageView2;
+        this.cwZ = squareSearchActivity;
+        this.cxa = textView;
+        this.cxb = imageView;
+        this.cxc = textView2;
+        this.cxd = imageView2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,21 +31,21 @@ public class ae implements View.OnClickListener {
         View view2;
         FragmentTabIndicator fragmentTabIndicator;
         FragmentTabIndicator fragmentTabIndicator2;
-        this.cqu.cpV = false;
-        this.cqv.setTextColor(com.baidu.tbadk.core.util.as.getColor(n.d.cp_link_tip_a));
-        this.cqw.setVisibility(0);
-        this.cqx.setTextColor(com.baidu.tbadk.core.util.as.getColor(n.d.cp_cont_c));
-        this.cqy.setVisibility(8);
-        view2 = this.cqu.cpw;
+        this.cwZ.cwA = true;
+        this.cxa.setTextColor(com.baidu.tbadk.core.util.ar.getColor(t.d.cp_cont_c));
+        this.cxb.setVisibility(8);
+        this.cxc.setTextColor(com.baidu.tbadk.core.util.ar.getColor(t.d.cp_link_tip_a));
+        this.cxd.setVisibility(0);
+        view2 = this.cwZ.cwc;
         view2.setVisibility(8);
-        fragmentTabIndicator = this.cqu.cpn;
-        fragmentTabIndicator.setCompoundDrawablesRightResId(n.f.icon_toolbar_arrow_down_s);
-        fragmentTabIndicator2 = this.cqu.cpn;
-        fragmentTabIndicator2.cR(TbadkCoreApplication.m411getInst().getSkinType());
-        this.cqu.agr();
-        if (!TextUtils.isEmpty(this.cqu.cpN)) {
-            this.cqu.I(1, this.cqu.cpN);
+        fragmentTabIndicator = this.cwZ.cvT;
+        fragmentTabIndicator.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down_s);
+        fragmentTabIndicator2 = this.cwZ.cvT;
+        fragmentTabIndicator2.dk(TbadkCoreApplication.m411getInst().getSkinType());
+        this.cwZ.aks();
+        if (!TextUtils.isEmpty(this.cwZ.cws)) {
+            this.cwZ.K(1, this.cwZ.cws);
         }
-        TiebaStatic.eventStat(this.cqu.getPageContext().getPageActivity(), "search_2", "click", 1, new Object[0]);
+        TiebaStatic.eventStat(this.cwZ.getPageContext().getPageActivity(), "search_3", "click", 1, new Object[0]);
     }
 }

@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h {
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
@@ -20,29 +20,29 @@ public class h {
     private static void a(TextView textView, boolean z, boolean z2, boolean z3) {
         Drawable drawable;
         Resources resources = TbadkCoreApplication.m411getInst().getResources();
-        float dimension = resources.getDimension(n.e.ds640) + resources.getDimension(n.e.ds16);
-        float dimension2 = resources.getDimension(n.e.ds594) - resources.getDimension(n.e.ds14);
+        float dimension = resources.getDimension(t.e.ds640) + resources.getDimension(t.e.ds16);
+        float dimension2 = resources.getDimension(t.e.ds594) - resources.getDimension(t.e.ds14);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
         if (z2) {
-            drawable = as.getDrawable(n.f.icon_pb_tail_long);
+            drawable = ar.getDrawable(t.f.icon_pb_tail_long);
         } else {
-            drawable = as.getDrawable(n.f.icon_pb_tail_short);
+            drawable = ar.getDrawable(t.f.icon_pb_tail_short);
             dimension = dimension2;
         }
         if (z2 && z3) {
-            layoutParams.setMargins((int) resources.getDimension(n.e.ds32), (int) resources.getDimension(n.e.ds8), (int) resources.getDimension(n.e.ds32), (int) resources.getDimension(n.e.ds20));
+            layoutParams.setMargins((int) resources.getDimension(t.e.ds32), (int) resources.getDimension(t.e.ds8), (int) resources.getDimension(t.e.ds32), (int) resources.getDimension(t.e.ds20));
         } else if (z) {
-            layoutParams.setMargins((int) resources.getDimension(n.e.ds80), -((int) resources.getDimension(n.e.ds8)), (int) resources.getDimension(n.e.ds2), (int) resources.getDimension(n.e.ds20));
+            layoutParams.setMargins((int) resources.getDimension(t.e.ds80), -((int) resources.getDimension(t.e.ds8)), (int) resources.getDimension(t.e.ds2), (int) resources.getDimension(t.e.ds20));
         } else if (!z2) {
-            layoutParams.setMargins((int) resources.getDimension(n.e.ds100), -((int) resources.getDimension(n.e.ds8)), (int) resources.getDimension(n.e.ds32), (int) resources.getDimension(n.e.ds20));
+            layoutParams.setMargins((int) resources.getDimension(t.e.ds100), -((int) resources.getDimension(t.e.ds8)), (int) resources.getDimension(t.e.ds32), (int) resources.getDimension(t.e.ds20));
         } else {
-            layoutParams.setMargins((int) resources.getDimension(n.e.ds32), -((int) resources.getDimension(n.e.ds18)), (int) resources.getDimension(n.e.ds32), (int) resources.getDimension(n.e.ds20));
+            layoutParams.setMargins((int) resources.getDimension(t.e.ds32), -((int) resources.getDimension(t.e.ds18)), (int) resources.getDimension(t.e.ds32), (int) resources.getDimension(t.e.ds20));
         }
         layoutParams.width = (int) dimension;
-        drawable.setBounds(0, 0, (int) dimension, (int) resources.getDimension(n.e.ds36));
+        drawable.setBounds(0, 0, (int) dimension, (int) resources.getDimension(t.e.ds36));
         textView.setLayoutParams(layoutParams);
         textView.setCompoundDrawables(null, drawable, null, null);
-        textView.setCompoundDrawablePadding((int) resources.getDimension(n.e.ds20));
+        textView.setCompoundDrawablePadding((int) resources.getDimension(t.e.ds20));
     }
 
     private static void a(SmallTailInfo smallTailInfo, TextView textView) {

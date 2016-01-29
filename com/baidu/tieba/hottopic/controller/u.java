@@ -1,46 +1,41 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import java.util.ArrayList;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    final /* synthetic */ RelateTopicForumActivity bGY;
+public class u implements a.b {
+    final /* synthetic */ o bKu;
+    private final /* synthetic */ com.baidu.tieba.hottopic.view.r bKv;
+    private final /* synthetic */ ShareFromTopicMsgData bKw;
+    private final /* synthetic */ long bgI;
+    private final /* synthetic */ String bgJ;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(RelateTopicForumActivity relateTopicForumActivity, int i) {
-        super(i);
-        this.bGY = relateTopicForumActivity;
+    public u(o oVar, com.baidu.tieba.hottopic.view.r rVar, long j, String str, String str2, ShareFromTopicMsgData shareFromTopicMsgData) {
+        this.bKu = oVar;
+        this.bKv = rVar;
+        this.bgI = j;
+        this.val$name = str;
+        this.bgJ = str2;
+        this.bKw = shareFromTopicMsgData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList arrayList;
-        RelateForumItemData aM;
-        com.baidu.tieba.hottopic.view.h hVar;
-        ArrayList arrayList2;
-        if (customResponsedMessage != null) {
-            arrayList = this.bGY.YJ;
-            if (!arrayList.isEmpty()) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Long) {
-                    aM = this.bGY.aM(((Long) data).longValue());
-                    if (aM != null) {
-                        aM.followNum--;
-                        aM.setIsLiked(false);
-                        hVar = this.bGY.bGX;
-                        com.baidu.tieba.hottopic.a.u VN = hVar.VN();
-                        if (VN != null) {
-                            arrayList2 = this.bGY.YJ;
-                            VN.setData(arrayList2);
-                            VN.notifyDataSetChanged();
-                        }
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        tbPageContext = this.bKu.context;
+        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bKv.getChatMsgView().getWindowToken(), 2);
+        tbPageContext2 = this.bKu.context;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(((HotTopicActivity) tbPageContext2.getOrignalPage()).getPageContext().getPageActivity(), this.bgI, this.val$name, this.bgJ, 0, this.bKv.getLeaveMsg(), this.bKw.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

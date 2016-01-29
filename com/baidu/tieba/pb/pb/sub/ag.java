@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.sub;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bj;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements AdapterView.OnItemClickListener {
-    final /* synthetic */ w cLC;
+    final /* synthetic */ w cUl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(w wVar) {
-        this.cLC = wVar;
+        this.cUl = wVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,28 +26,28 @@ public class ag implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        newSubPbActivity = this.cLC.cLg;
-        if (bj.ah(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.cLC.cLy;
+        newSubPbActivity = this.cUl.cTO;
+        if (bi.ah(newSubPbActivity.getPageContext().getPageActivity())) {
+            arrayList = this.cUl.cUh;
             if (arrayList != null) {
-                arrayList2 = this.cLC.cLy;
+                arrayList2 = this.cUl.cUh;
                 if (i < arrayList2.size()) {
-                    arrayList3 = this.cLC.cLy;
+                    arrayList3 = this.cUl.cUh;
                     if (arrayList3.get(i) != null) {
-                        w wVar = this.cLC;
-                        arrayList4 = this.cLC.cLy;
-                        wVar.cLz = ((com.baidu.tieba.tbadkCore.data.r) arrayList4.get(i)).getId();
+                        w wVar = this.cUl;
+                        arrayList4 = this.cUl.cUh;
+                        wVar.cUi = ((com.baidu.tieba.tbadkCore.data.r) arrayList4.get(i)).getId();
                         sparseArray = (SparseArray) view.getTag();
-                        if (sparseArray == null && (str = (String) sparseArray.get(n.g.tag_photo_username)) != null) {
-                            pVar = this.cLC.cjc;
-                            pVar.fC(str);
-                            this.cLC.g(i, view);
+                        if (sparseArray == null && (str = (String) sparseArray.get(t.g.tag_photo_username)) != null) {
+                            pVar = this.cUl.cnC;
+                            pVar.fA(str);
+                            this.cUl.g(i, view);
                             return;
                         }
                     }
                 }
             }
-            this.cLC.cLz = null;
+            this.cUl.cUi = null;
             sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null) {
             }

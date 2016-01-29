@@ -8,10 +8,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<a> {
-    private com.baidu.adp.base.h<?> cAs;
+    private com.baidu.adp.base.h<?> cGY;
 
     public a(com.baidu.adp.base.h<?> hVar) {
-        this.cAs = hVar;
+        this.cGY = hVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -24,11 +24,11 @@ public class a extends com.baidu.adp.base.e<a> {
         return false;
     }
 
-    public void ajZ() {
-        this.cAs.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+    public void anX() {
+        this.cGY.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 
-    public void aka() {
+    public void anY() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAY_NEW_VCODE, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/encourage/consume/getVcode");
         tbHttpMessageTask.setResponsedClass(ResponsePayNewVcodeInfoMessage.class);

@@ -1,30 +1,43 @@
 package com.baidu.tieba.frs.a;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.o;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends x.a {
-    TextView aGr;
-    HeadImageView aLn;
-    TextView ahk;
-    TbImageView blA;
-    TextView blB;
-    TextView blC;
-    LinearLayout bly;
+public class d implements View.OnClickListener {
+    final /* synthetic */ a boe;
+    private final /* synthetic */ n bof;
 
-    public d(View view) {
-        super(view);
-        this.bly = (LinearLayout) view.findViewById(n.g.normal_locality_parent);
-        this.aLn = (HeadImageView) view.findViewById(n.g.normal_locality_head);
-        this.aGr = (TextView) view.findViewById(n.g.normal_locality_name);
-        this.blB = (TextView) view.findViewById(n.g.normal_locality_sub);
-        this.ahk = (TextView) view.findViewById(n.g.normal_locality_title);
-        this.blA = (TbImageView) view.findViewById(n.g.normal_locality_pic);
-        this.blC = (TextView) view.findViewById(n.g.normal_locality_brief);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(a aVar, n nVar) {
+        this.boe = aVar;
+        this.bof = nVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        o oVar;
+        Context context;
+        o oVar2;
+        o oVar3;
+        String str = "";
+        oVar = this.boe.bfF;
+        if (oVar != null) {
+            oVar2 = this.boe.bfF;
+            if (oVar2.aoE() != null) {
+                oVar3 = this.boe.bfF;
+                str = oVar3.aoE().getName();
+            }
+        }
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.boe.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bof.getAuthor().getUserId(), this.bof.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

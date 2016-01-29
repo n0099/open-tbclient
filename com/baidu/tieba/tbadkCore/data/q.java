@@ -5,163 +5,163 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class q extends r implements o {
-    private int UL;
-    public String bkF;
-    private d dGY;
-    public boolean dGZ = false;
-    public String dHa;
+    private int Us;
+    public String bnC;
+    private d dWU;
+    public boolean dWV = false;
+    public String dWW;
     public int pageNumber;
     public long threadId;
 
-    public void b(App app) {
-        this.dGY = new d(app);
+    public void c(App app) {
+        this.dWU = new d(app);
     }
 
-    public d aFf() {
-        return this.dGY;
+    public d aMl() {
+        return this.dWU;
     }
 
-    public String aFg() {
-        return this.dGY == null ? "" : this.dGY.id;
+    public String aMm() {
+        return this.dWU == null ? "" : this.dWU.id;
     }
 
-    public void mW(int i) {
-        this.UL = i;
+    public void oh(int i) {
+        this.Us = i;
     }
 
-    public boolean rk() {
-        if (this.dGY == null) {
+    public boolean rM() {
+        if (this.dWU == null) {
             return false;
         }
-        return this.dGY.rk();
+        return this.dWU.rM();
     }
 
     public boolean isApp() {
-        if (this.dGY == null) {
+        if (this.dWU == null) {
             return false;
         }
-        return this.dGY.rl();
+        return this.dWU.rN();
     }
 
-    public boolean aFh() {
-        if (this.dGY == null) {
+    public boolean aMn() {
+        if (this.dWU == null) {
             return false;
         }
-        return this.dGY.rm();
+        return this.dWU.rO();
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
+    @Override // com.baidu.tieba.tbadkCore.q
     public String getPkgName() {
-        if (this.dGY == null) {
+        if (this.dWU == null) {
             return null;
         }
-        return this.dGY.apk_name;
+        return this.dWU.apk_name;
     }
 
     public String getDownloadUrl() {
-        if (this.dGY == null) {
+        if (this.dWU == null) {
             return null;
         }
-        return this.dGY.apk_url;
+        return this.dWU.apk_url;
     }
 
     public String getAppName() {
-        return this.dGY == null ? "" : StringUtils.isNull(this.dGY.name) ? this.dGY.dGx.user_name : this.dGY.name;
+        return this.dWU == null ? "" : StringUtils.isNull(this.dWU.name) ? this.dWU.dWs.user_name : this.dWU.name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.p
-    public String aFb() {
-        String str = (this.dGY == null || this.dGY.dGx == null) ? null : this.dGY.dGx.user_name;
+    public String aMh() {
+        String str = (this.dWU == null || this.dWU.dWs == null) ? null : this.dWU.dWs.user_name;
         return StringUtils.isNull(str) ? "" : str;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.p
-    public String aFc() {
-        if (this.dGY == null || this.dGY.dGx == null) {
+    public String aMi() {
+        if (this.dWU == null || this.dWU.dWs == null) {
             return null;
         }
-        return this.dGY.dGx.user_portrait;
+        return this.dWU.dWs.user_portrait;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.p
-    public String aFd() {
-        if (this.dGY == null || this.dGY.dGx == null) {
+    public String aMj() {
+        if (this.dWU == null || this.dWU.dWs == null) {
             return null;
         }
-        return this.dGY.dGx.thread_title;
+        return this.dWU.dWs.thread_title;
     }
 
-    public String aFi() {
-        if (this.dGY == null || this.dGY.dGx == null) {
+    public String aMo() {
+        if (this.dWU == null || this.dWU.dWs == null) {
             return null;
         }
-        return this.dGY.dGx.thread_pic;
+        return this.dWU.dWs.thread_pic;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.p
-    public long aFe() {
-        if (this.dGY == null) {
+    public long aMk() {
+        if (this.dWU == null) {
             return 0L;
         }
-        return this.dGY.dGv * 1000;
+        return this.dWU.dWq * 1000;
     }
 
-    public int aFj() {
-        if (this.dGY == null || this.dGY.dGx == null) {
+    public int aMp() {
+        if (this.dWU == null || this.dWU.dWs == null) {
             return -1;
         }
-        return this.dGY.dGx.dGz;
+        return this.dWU.dWs.dWu;
     }
 
     public int getPosition() {
-        int g = this.dGY != null ? com.baidu.adp.lib.h.b.g(this.dGY.pos_name, 0) : 0;
+        int g = this.dWU != null ? com.baidu.adp.lib.h.b.g(this.dWU.pos_name, 0) : 0;
         if (g < 2 || g > 30) {
             return 7;
         }
         return g;
     }
 
-    public com.baidu.tbadk.core.data.b aFk() {
-        com.baidu.tbadk.core.data.b bVar = new com.baidu.tbadk.core.data.b();
-        if (this.dGY != null) {
-            bVar.UM = this.dGY.id;
-            bVar.UN = this.dGY.name;
-            bVar.UO = this.dGY.dGt;
-            bVar.UQ = this.dGY.url;
-            bVar.UR = this.dGY.apk_url;
-            bVar.US = this.dGY.apk_name;
-            bVar.UT = this.dGY.pos_name.trim();
-            bVar.UU = this.dGY.first_name;
-            bVar.UV = this.dGY.second_name;
-            bVar.UW = this.dGY.UW;
-            bVar.abtest = this.dGY.abtest;
-            bVar.UX = this.dGY.dGu;
-            bVar.userId = this.dGY.user_id;
-            bVar.UY = this.dGY.verify;
-            bVar.price = this.dGY.price;
-            bVar.UZ = this.dGY.ext_info;
-            bVar.Va = this.dGY.dGv * 1000;
-            if (this.dGY.dGx != null) {
-                bVar.Vb.Vh = this.dGY.dGx.pop_window_text;
-                bVar.Vb.Vd = this.dGY.dGx.id;
-                bVar.Vb.Vg = this.dGY.dGx.thread_pic;
-                bVar.Vb.Vi = this.dGY.dGx.dGz;
-                bVar.Vb.Ve = this.dGY.dGx.thread_title;
-                bVar.Vb.userName = this.dGY.dGx.user_name;
-                bVar.Vb.userPortrait = this.dGY.dGx.user_portrait;
+    public com.baidu.tbadk.core.data.c aMq() {
+        com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
+        if (this.dWU != null) {
+            cVar.Ut = this.dWU.id;
+            cVar.Uu = this.dWU.name;
+            cVar.Uv = this.dWU.dWo;
+            cVar.Uw = this.dWU.url;
+            cVar.Ux = this.dWU.apk_url;
+            cVar.Uy = this.dWU.apk_name;
+            cVar.Uz = this.dWU.pos_name.trim();
+            cVar.UB = this.dWU.first_name;
+            cVar.UC = this.dWU.second_name;
+            cVar.UD = this.dWU.UD;
+            cVar.abtest = this.dWU.abtest;
+            cVar.UE = this.dWU.dWp;
+            cVar.userId = this.dWU.user_id;
+            cVar.UF = this.dWU.verify;
+            cVar.price = this.dWU.price;
+            cVar.UG = this.dWU.ext_info;
+            cVar.UH = this.dWU.dWq * 1000;
+            if (this.dWU.dWs != null) {
+                cVar.UI.UT = this.dWU.dWs.pop_window_text;
+                cVar.UI.UO = this.dWU.dWs.id;
+                cVar.UI.US = this.dWU.dWs.thread_pic;
+                cVar.UI.UU = this.dWU.dWs.dWu;
+                cVar.UI.UQ = this.dWU.dWs.thread_title;
+                cVar.UI.userName = this.dWU.dWs.user_name;
+                cVar.UI.userPortrait = this.dWU.dWs.user_portrait;
             }
         }
-        return bVar;
+        return cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.r, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        if (aFj() == 2) {
-            return com.baidu.tbadk.core.data.b.UG;
+        if (aMp() == 2) {
+            return com.baidu.tbadk.core.data.c.Un;
         }
-        if (aFj() == 6) {
-            return com.baidu.tbadk.core.data.b.UH;
+        if (aMp() == 6) {
+            return com.baidu.tbadk.core.data.c.Uo;
         }
-        return com.baidu.tbadk.core.data.b.UF;
+        return com.baidu.tbadk.core.data.c.Um;
     }
 }

@@ -10,13 +10,14 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.t;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
@@ -26,50 +27,52 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
 
     public abstract boolean isFromCDN();
 
-    public abstract boolean vC();
+    public abstract boolean wI();
 
-    public abstract boolean vD();
+    public abstract boolean wJ();
+
+    public abstract int wK();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.g.e
     /* renamed from: f */
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a fJ = com.baidu.tbadk.imageManager.c.CM().fJ(str);
-        if (fJ != null) {
-            fJ.GX.GZ = "memory";
-            fJ.GX.Ha = 0L;
-            fJ.GX.Hb = true;
+        com.baidu.adp.widget.a.a fH = com.baidu.tbadk.imageManager.c.Ed().fH(str);
+        if (fH != null) {
+            fH.Hj.Hl = "memory";
+            fH.Hj.Hm = 0L;
+            fH.Hj.Hn = true;
         }
-        return fJ;
+        return fH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.g.e
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.d he = v.he();
-        he.hB();
+        com.baidu.adp.lib.stats.d hm = u.hm();
+        hm.hJ();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c dK = dK(az.dB(str2));
-        if (dK == null) {
+        com.baidu.adp.lib.Disk.ops.c dJ = dJ(ay.dy(str2));
+        if (dJ == null) {
             return null;
         }
-        dK.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        dK.o(true);
-        dK.p(false);
-        dK.h(bArr);
+        dJ.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        dJ.o(true);
+        dJ.p(false);
+        dJ.h(bArr);
         if (aVar != null) {
             d dVar = new d();
-            dVar.f(dK);
-            aVar.vA = dVar;
+            dVar.f(dJ);
+            aVar.vK = dVar;
         }
-        boolean iR = com.baidu.adp.lib.util.i.iR();
-        if (!com.baidu.adp.lib.Disk.d.fj().c(dK)) {
-            v.a(he, str2, false, he.hC(), iR);
+        boolean ja = com.baidu.adp.lib.util.i.ja();
+        if (!com.baidu.adp.lib.Disk.d.fr().c(dJ)) {
+            u.a(hm, str2, false, hm.hK(), ja);
             return null;
         }
         int i = 2000;
-        if (iR) {
+        if (ja) {
             i = 300;
         }
         synchronized (bArr) {
@@ -78,16 +81,16 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = dK.isSuccess() ? a(dK, str2) : null;
+        com.baidu.adp.widget.a.a a = dJ.isSuccess() ? a(dJ, str2) : null;
         if (a != null) {
-            v.a(he, str2, true, he.hC(), iR);
+            u.a(hm, str2, true, hm.hK(), ja);
         } else {
-            v.a(he, str2, false, he.hC(), iR);
+            u.a(hm, str2, false, hm.hK(), ja);
         }
         if (a != null) {
-            a.GX.GZ = "disk";
-            a.GX.Ha = he.hC();
-            a.GX.Hb = true;
+            a.Hj.Hl = "disk";
+            a.Hj.Hm = hm.hK();
+            a.Hj.Hn = true;
         }
         return a;
     }
@@ -105,8 +108,8 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
         if (StringUtils.isNull(str)) {
             return null;
         }
-        com.baidu.adp.lib.stats.d he = v.he();
-        he.hB();
+        com.baidu.adp.lib.stats.d hm = u.hm();
+        hm.hJ();
         int width = i == 0 ? getWidth() : i;
         int height = i2 == 0 ? getHeight() : i2;
         int dip2px = width == 0 ? com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 105.0f) : width;
@@ -114,31 +117,31 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
             height = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 105.0f);
         }
         boolean isFromCDN = isFromCDN();
-        String d = isFromCDN ? str : d(str, dip2px, height);
-        if (!(TbadkCoreApplication.m411getInst().getCapabilityOfWebp() && com.baidu.adp.lib.c.e.gw().aj("webp_enable") == 1) || d.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = d.lastIndexOf(".jpg")) <= 0) {
+        String c = isFromCDN ? str : c(str, dip2px, height);
+        if (!(TbadkCoreApplication.m411getInst().getCapabilityOfWebp() && com.baidu.adp.lib.c.e.gE().ai("webp_enable") == 1) || c.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = c.lastIndexOf(".jpg")) <= 0) {
             z = false;
-            str3 = d;
+            str3 = c;
         } else {
-            str3 = String.valueOf(d.substring(0, lastIndexOf)) + ".webp" + d.substring(lastIndexOf + 4, d.length());
+            str3 = String.valueOf(c.substring(0, lastIndexOf)) + ".webp" + c.substring(lastIndexOf + 4, c.length());
             z = true;
         }
-        com.baidu.tbadk.core.util.a.j jVar = new com.baidu.tbadk.core.util.a.j();
+        com.baidu.tbadk.core.util.a.k kVar = new com.baidu.tbadk.core.util.a.k();
         if (aVar != null) {
-            aVar.vA = jVar;
+            aVar.vK = kVar;
         }
-        byte[] m = jVar.m(str3, !isFromCDN);
+        byte[] m = kVar.m(str3, !isFromCDN);
         Rect rect = new Rect();
         StringBuilder sb2 = new StringBuilder(100);
-        if (!jVar.vz()) {
-            if (jVar.responseCode == 302 && !com.baidu.tbadk.util.e.gf(d)) {
+        if (!kVar.wF()) {
+            if (kVar.responseCode == 302 && (17 == wK() || 18 == wK() || 13 == wK() || 14 == wK())) {
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.m411getInst().getResources().openRawResource(n.f.img_default_delete, new TypedValue());
-                    byte[] d2 = com.baidu.adp.lib.network.a.b.d(openRawResource);
-                    com.baidu.adp.widget.a.a a = a(str, str2, aVar, null, com.baidu.tbadk.core.util.c.a(d2, rect, sb2), jVar.GK || com.baidu.adp.lib.util.k.z(d2), jVar, d2, rect);
+                    InputStream openRawResource = TbadkCoreApplication.m411getInst().getResources().openRawResource(t.f.img_default_delete, new TypedValue());
+                    byte[] d = com.baidu.adp.lib.network.a.b.d(openRawResource);
+                    com.baidu.adp.widget.a.a a = a(str, str2, aVar, null, BitmapHelper.Bytes2NineBitmap(d, rect, sb2), kVar.GY || com.baidu.adp.lib.util.k.z(d), kVar, d, rect);
                     if (a != null) {
-                        a.GX.GZ = "net";
-                        a.GX.Ha = he.hC();
-                        a.GX.Hb = true;
+                        a.Hj.Hl = "net";
+                        a.Hj.Hm = hm.hK();
+                        a.Hj.Hn = true;
                     }
                     com.baidu.adp.lib.h.a.e(openRawResource);
                     return a;
@@ -146,88 +149,88 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
                     BdLog.e(th);
                     return null;
                 }
-            } else if (!jVar.gT().vl) {
+            } else if (!kVar.hb().vu) {
                 long j = 0;
                 if (m != null) {
                     j = m.length;
                 }
-                v.a(he, str, false, str3, isFromCDN, Boolean.valueOf(z), jVar.adY, "NetworkError", he.hC(), jVar.vB(), j);
+                u.a(hm, str, false, str3, isFromCDN, Boolean.valueOf(z), kVar.aey, "NetworkError", hm.hK(), kVar.wH(), j, wK());
                 return null;
             }
         }
         if (m == null) {
-            v.a(he, str, false, str3, isFromCDN, Boolean.valueOf(z), jVar.adY, "ByteIsNull", he.hC(), jVar.vB(), 0L);
+            u.a(hm, str, false, str3, isFromCDN, Boolean.valueOf(z), kVar.aey, "ByteIsNull", hm.hK(), kVar.wH(), 0L, wK());
             return null;
         }
         if (m.length > 1) {
-            h.vE().b(m.length, he.hC());
-            v.a(he, str, true, str3, isFromCDN, Boolean.valueOf(z), jVar.adY, "", he.hC(), jVar.vB(), m.length);
+            h.wL().b(m.length, hm.hK());
+            u.a(hm, str, true, str3, isFromCDN, Boolean.valueOf(z), kVar.aey, "InputToByteSucc", hm.hK(), kVar.wH(), m.length, wK());
         } else {
-            v.a(he, str, false, str3, isFromCDN, Boolean.valueOf(z), jVar.adY, "bytes<1", he.hC(), jVar.vB(), m.length);
+            u.a(hm, str, false, str3, isFromCDN, Boolean.valueOf(z), kVar.aey, "bytes<1", hm.hK(), kVar.wH(), m.length, wK());
         }
-        com.baidu.adp.lib.stats.d he2 = v.he();
-        he2.hB();
-        com.baidu.tbadk.imageManager.c.CM().et(TbConfig.getPbImageSize() + m.length);
-        Bitmap b = b(m, rect, sb2);
-        if (z && b == null) {
+        com.baidu.adp.lib.stats.d hm2 = u.hm();
+        hm2.hJ();
+        com.baidu.tbadk.imageManager.c.Ed().eN(TbConfig.getPbImageSize() + m.length);
+        Bitmap a2 = a(m, rect, sb2);
+        if (z && a2 == null) {
             TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str);
             TbadkCoreApplication.m411getInst().incWebpFailureCount();
-            m = jVar.m(d, !isFromCDN);
-            he2.hB();
-            if (m == null || !jVar.vz()) {
-                bitmap = b;
+            m = kVar.m(c, !isFromCDN);
+            hm2.hJ();
+            if (m == null || !kVar.wF()) {
+                bitmap = a2;
                 sb = sb2;
                 z2 = false;
             } else {
                 StringBuilder sb3 = new StringBuilder(100);
-                bitmap = b(m, rect, sb3);
+                bitmap = a(m, rect, sb3);
                 sb = sb3;
                 z2 = false;
             }
         } else {
             z2 = z;
-            bitmap = b;
+            bitmap = a2;
             sb = sb2;
         }
         if (m == null || bitmap == null) {
             if (m == null) {
-                v.a(he2, str, str3, false, isFromCDN, z2, 0, "TmpIsNull", he2.hC(), sb.toString());
+                u.a(hm2, str, str3, false, isFromCDN, z2, 0, "TmpIsNull", hm2.hK(), sb.toString());
             } else {
-                v.a(he2, str, str3, false, isFromCDN, z2, m.length, "ConvertError", he2.hC(), sb.toString());
+                u.a(hm2, str, str3, false, isFromCDN, z2, m.length, "ConvertError", hm2.hK(), sb.toString());
             }
             return null;
         }
-        boolean z3 = jVar.GK || com.baidu.adp.lib.util.k.z(m);
-        Bitmap b2 = b(bitmap, dip2px, height);
-        if (b2 == null) {
-            v.a(he2, str, str3, false, isFromCDN, z2, m.length, "ResizeError", he2.hC(), sb.toString());
+        boolean z3 = kVar.GY || com.baidu.adp.lib.util.k.z(m);
+        Bitmap a3 = a(bitmap, dip2px, height);
+        if (a3 == null) {
+            u.a(hm2, str, str3, false, isFromCDN, z2, m.length, "ResizeError", hm2.hK(), sb.toString());
             return null;
         }
-        v.a(he2, str, str3, true, isFromCDN, z2, m.length, "", he2.hC(), sb.toString());
-        com.baidu.adp.widget.a.a a2 = a(str, str2, aVar, null, b2, z3, jVar, m, rect);
-        if (a2 != null) {
-            a2.GX.GZ = "net";
-            a2.GX.Ha = he.hC();
-            a2.GX.Hb = true;
-            return a2;
+        u.a(hm2, str, str3, true, isFromCDN, z2, m.length, "", hm2.hK(), sb.toString());
+        com.baidu.adp.widget.a.a a4 = a(str, str2, aVar, null, a3, z3, kVar, m, rect);
+        if (a4 != null) {
+            a4.Hj.Hl = "net";
+            a4.Hj.Hm = hm.hK();
+            a4.Hj.Hn = true;
+            return a4;
         }
-        return a2;
+        return a4;
     }
 
-    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.g.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.j jVar, byte[] bArr, Rect rect) {
-        if (i(bitmap)) {
+    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.g.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.k kVar, byte[] bArr, Rect rect) {
+        if (g(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            if (!jVar.aea) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, az.dB(str2), DiskFileOperate.Action.WRITE);
+            if (!kVar.aeA) {
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ay.dy(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.o(true);
                 cVar.setData(bArr);
                 cVar.r(z);
-                com.baidu.adp.lib.Disk.d.fj().c(cVar);
+                com.baidu.adp.lib.Disk.d.fr().c(cVar);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(cVar);
-                    aVar.vA = dVar;
+                    aVar.vK = dVar;
                 }
             }
         }
@@ -235,34 +238,34 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public boolean hg() {
-        return com.baidu.tbadk.core.m.qQ().qW();
+    public boolean ho() {
+        return com.baidu.tbadk.core.l.rn().rt();
     }
 
     @Override // com.baidu.adp.lib.g.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.c.CM().c(str, (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.c.Ed().c(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
-    protected String d(String str, int i, int i2) {
+    protected String c(String str, int i, int i2) {
         StringBuilder sb = new StringBuilder(100);
         if (!str.startsWith(TbConfig.IMAGE_ADDRESS)) {
             sb.append(TbConfig.IMAGE_ADDRESS);
             sb.append("src=");
-            sb.append(ax.aT(str));
+            sb.append(aw.aS(str));
             sb.append("&width=");
             sb.append(String.valueOf(i));
             sb.append("&height=");
             sb.append(String.valueOf(i2));
             sb.append("&imgtype=0");
-            sb.append("&qulity=" + ay.va().vf());
+            sb.append("&qulity=" + ax.wg().wl());
             sb.append("&first_gif=1");
-            if (vC()) {
+            if (wI()) {
                 sb.append("&ispv=1");
             }
-            if (vD()) {
+            if (wJ()) {
                 sb.append("&no_prefix=1");
             }
             return sb.toString();
@@ -271,7 +274,7 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.adp.lib.Disk.ops.c dK(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dJ(String str) {
         return new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -283,38 +286,38 @@ public abstract class a implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.
         cVar.x(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, cVar.fF(), str);
+            return new com.baidu.adp.widget.a.a(bitmap, cVar.fN(), str);
         }
         return null;
     }
 
-    protected Bitmap b(byte[] bArr, Rect rect, StringBuilder sb) {
-        return com.baidu.tbadk.core.util.c.a(bArr, sb);
+    protected Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
+        return BitmapHelper.Bytes2Bitmap(bArr, sb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean i(Bitmap bitmap) {
+    public boolean g(Bitmap bitmap) {
         return bitmap != null;
     }
 
-    protected Bitmap b(Bitmap bitmap, int i, int i2) {
+    protected Bitmap a(Bitmap bitmap, int i, int i2) {
         if (bitmap == null) {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.CM().et(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
-            return com.baidu.tbadk.core.util.c.a(bitmap, i, i2, true);
+            com.baidu.tbadk.imageManager.c.Ed().eN(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
         }
         return bitmap;
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public BdAsyncTaskParallel hh() {
-        return h.vE().hh();
+    public BdAsyncTaskParallel hp() {
+        return h.wL().hp();
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public int hi() {
+    public int hq() {
         return 1;
     }
 }

@@ -95,7 +95,6 @@ public class BaseWebView extends WebView {
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
         }
-        setOnLongClickListener(new com.baidu.tbadk.coreExtra.view.b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -215,6 +214,6 @@ public class BaseWebView extends WebView {
     }
 
     private void initDownload() {
-        this.mDownloadListener = new com.baidu.tbadk.coreExtra.view.c(this);
+        this.mDownloadListener = new com.baidu.tbadk.coreExtra.view.b(this);
     }
 }

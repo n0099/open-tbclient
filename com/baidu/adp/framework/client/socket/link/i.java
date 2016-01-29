@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Handler {
-    final /* synthetic */ h qb;
+    final /* synthetic */ h qf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, Looper looper) {
         super(looper);
-        this.qb = hVar;
+        this.qf = hVar;
     }
 
     @Override // android.os.Handler
@@ -29,31 +29,31 @@ public class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.qb.myHandler;
+                handler = this.qf.qe;
                 handler.removeMessages(1);
                 StringBuilder sb = new StringBuilder("this is reconn time:");
-                i = this.qb.qa;
+                i = this.qf.qd;
                 BdLog.i(sb.append(i).toString());
                 BdSocketLinkService.startService(true, "time to reconnStragety");
-                h hVar = this.qb;
-                i2 = hVar.qa;
-                hVar.qa = i2 + 1;
-                int[] eB = com.baidu.adp.framework.client.socket.j.eB();
-                if (eB != null) {
-                    i3 = this.qb.qa;
-                    if (i3 < eB.length) {
+                h hVar = this.qf;
+                i2 = hVar.qd;
+                hVar.qd = i2 + 1;
+                int[] eF = com.baidu.adp.framework.client.socket.j.eF();
+                if (eF != null) {
+                    i3 = this.qf.qd;
+                    if (i3 < eF.length) {
                         StringBuilder sb2 = new StringBuilder("Next will be delay:");
-                        i4 = this.qb.qa;
-                        BdLog.i(sb2.append(eB[i4]).toString());
-                        handler2 = this.qb.myHandler;
-                        handler3 = this.qb.myHandler;
+                        i4 = this.qf.qd;
+                        BdLog.i(sb2.append(eF[i4]).toString());
+                        handler2 = this.qf.qe;
+                        handler3 = this.qf.qe;
                         Message obtainMessage = handler3.obtainMessage(1);
-                        i5 = this.qb.qa;
-                        handler2.sendMessageDelayed(obtainMessage, eB[i5] * 1000);
+                        i5 = this.qf.qd;
+                        handler2.sendMessageDelayed(obtainMessage, eF[i5] * 1000);
                         return;
                     }
                 }
-                this.qb.stop("reconnStragety to the end");
+                this.qf.stop("reconnStragety to the end");
                 return;
             default:
                 return;

@@ -14,7 +14,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        j.dK().a(super.getResources());
+        j.dN().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -29,7 +29,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.li().init();
+        com.baidu.adp.plugin.c.a.lt().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -61,11 +61,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.ix().I(this.mContext);
+        com.baidu.adp.lib.util.d.iH().I(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.dF().dH();
+        a.dH().dJ();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -74,16 +74,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.dF().setActivityStackMaxSize(i);
+        a.dH().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.dF().getActivityStackMaxSize();
+        return a.dH().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = j.dK().getResources();
+        Resources resources = j.dN().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

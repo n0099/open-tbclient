@@ -5,27 +5,27 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bed;
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(FrsActivity frsActivity, int i) {
         super(i);
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String str;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.z)) {
-            com.baidu.tbadk.core.data.z zVar = (com.baidu.tbadk.core.data.z) customResponsedMessage.getData();
-            this.bed.bbW = zVar.getId();
-            str = this.bed.bbW;
-            if (TextUtils.isEmpty(str) || zVar.getPraise() == null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.ah)) {
+            com.baidu.tbadk.core.data.ah ahVar = (com.baidu.tbadk.core.data.ah) customResponsedMessage.getData();
+            this.bgz.beh = ahVar.getId();
+            str = this.bgz.beh;
+            if (TextUtils.isEmpty(str) || ahVar.getPraise() == null) {
                 return;
             }
-            this.bed.fP(zVar.getPraise().getIsLike());
+            this.bgz.gl(ahVar.getPraise().getIsLike());
         }
     }
 }

@@ -14,7 +14,7 @@ class j implements Parcelable.Creator<ExpandableHListView.SavedState> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: hP */
+    /* renamed from: im */
     public ExpandableHListView.SavedState[] newArray(int i) {
         return new ExpandableHListView.SavedState[i];
     }

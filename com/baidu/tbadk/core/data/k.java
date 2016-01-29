@@ -1,45 +1,71 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.ThreadInfo;
-import tbclient.ZhiBoInfoTW;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class k extends z {
-    public static final BdUniqueId VJ = BdUniqueId.gen();
-    private PhotoLiveCardData VK = null;
+public class k implements com.baidu.tbadk.core.flow.a.a {
+    private String Vm;
+    private String Vn;
+    private String Vo;
+    private boolean Vp;
+    private String mImageUrl;
+    private String mTitle;
 
-    public PhotoLiveCardData rz() {
-        return this.VK;
+    public k(String str, String str2, String str3) {
+        this.mImageUrl = str;
+        this.Vm = str2;
+        this.mTitle = str3;
     }
 
-    @Override // com.baidu.tbadk.core.data.z
-    public void a(ThreadInfo threadInfo) {
-        super.a(threadInfo);
-        if (threadInfo.twzhibo_info != null) {
-            a(threadInfo.twzhibo_info);
+    public k() {
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.mImageUrl;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String rX() {
+        return this.Vm;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: rY */
+    public k clone() {
+        k kVar = new k();
+        kVar.mImageUrl = this.mImageUrl;
+        kVar.Vm = this.Vm;
+        kVar.mTitle = this.mTitle;
+        kVar.Vn = this.Vn;
+        kVar.Vo = this.Vo;
+        return kVar;
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.mImageUrl = headImgs.img_url;
+            this.Vm = headImgs.pc_url;
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.Vn = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.Vo = headImgs.btn_text.trim();
+            }
         }
     }
 
-    private void a(ZhiBoInfoTW zhiBoInfoTW) {
-        if (zhiBoInfoTW != null) {
-            if (this.VK == null) {
-                this.VK = new PhotoLiveCardData();
-            }
-            this.VK.parserProtobuf(zhiBoInfoTW);
-            this.VK.setShowExpressionViewIndexList(this.VK.getExpressionDatas());
-            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
-                setId(String.valueOf(this.VK.getThreadId()));
-                cx(String.valueOf(this.VK.getThreadId()));
-            }
-            if (StringUtils.isNull(sv())) {
-                cy(this.VK.getForumName());
-            }
-        }
+    public boolean rZ() {
+        return this.Vp;
     }
 
-    @Override // com.baidu.tbadk.core.data.z, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return VJ;
+    public void ah(boolean z) {
+        this.Vp = z;
     }
 }

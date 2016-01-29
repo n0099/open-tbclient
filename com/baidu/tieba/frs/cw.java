@@ -1,12 +1,22 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
 /* loaded from: classes.dex */
-public class cw implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId bho = BdUniqueId.gen();
+class cw implements View.OnClickListener {
+    final /* synthetic */ FrsMoreFeedForumsActivity bjY;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return bho;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cw(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
+        this.bjY = frsMoreFeedForumsActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        int id = view.getId();
+        view2 = this.bjY.bjm;
+        if (id == view2.getId()) {
+            this.bjY.finish();
+        }
     }
 }

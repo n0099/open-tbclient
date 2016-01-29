@@ -1,39 +1,33 @@
 package com.baidu.tieba.recommendfrs;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements Animation.AnimationListener {
-    final /* synthetic */ n doE;
+public class s implements View.OnClickListener {
+    final /* synthetic */ p dDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(n nVar) {
-        this.doE = nVar;
+    public s(p pVar) {
+        this.dDT = pVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        textView = this.doE.YB;
-        if (textView != null) {
-            textView2 = this.doE.YB;
-            ViewGroup viewGroup = (ViewGroup) textView2.getParent();
-            if (viewGroup != null) {
-                textView3 = this.doE.YB;
-                viewGroup.removeView(textView3);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BdTypeListView bdTypeListView3;
+        this.dDT.hideTip();
+        i = this.dDT.dDF;
+        if (i == 1) {
+            bdTypeListView = this.dDT.aXu;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.dDT.aXu;
+                bdTypeListView2.setSelection(0);
+                bdTypeListView3 = this.dDT.aXu;
+                bdTypeListView3.ns();
             }
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

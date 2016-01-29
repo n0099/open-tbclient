@@ -10,105 +10,105 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.f<AboutActivity> {
-    private int dtf;
-    private int dtg;
-    private long dth;
-    private AboutActivity dti;
-    private RelativeLayout dtj;
-    private TextView dtk;
-    private TextView dtl;
-    private SettingTextTestNewView dtm;
-    private SettingTextTestNewView dtn;
-    private ImageView dto;
-    private TbSettingTextTipView dtp;
-    protected TextView dtq;
-    private ProgressBar dtr;
+    private int dJj;
+    private int dJk;
+    private long dJl;
+    private AboutActivity dJm;
+    private RelativeLayout dJn;
+    private TextView dJo;
+    private TextView dJp;
+    private SettingTextTestNewView dJq;
+    private SettingTextTestNewView dJr;
+    private ImageView dJs;
+    private TbSettingTextTipView dJt;
+    protected TextView dJu;
+    private ProgressBar dJv;
     private long lastClickTime;
     private NavigationBar mNavigationBar;
 
     public c(AboutActivity aboutActivity, s sVar) {
         super(aboutActivity.getPageContext());
-        this.dtf = 0;
+        this.dJj = 0;
         this.lastClickTime = 0L;
-        this.dtg = 0;
-        this.dth = 0L;
-        this.dti = aboutActivity;
-        zU();
+        this.dJk = 0;
+        this.dJl = 0L;
+        this.dJm = aboutActivity;
+        Bk();
         a(sVar);
     }
 
-    public void azA() {
-        if (this.dtr != null) {
-            this.dtr.setVisibility(0);
+    public void aGH() {
+        if (this.dJv != null) {
+            this.dJv.setVisibility(0);
         }
     }
 
-    public void hideProgress() {
-        if (this.dtr != null) {
-            this.dtr.setVisibility(8);
+    public void Oz() {
+        if (this.dJv != null) {
+            this.dJv.setVisibility(8);
         }
     }
 
-    private void zU() {
-        this.dti.setContentView(n.h.about_activity);
-        this.dtj = (RelativeLayout) this.dti.findViewById(n.g.parent);
-        this.dto = (ImageView) this.dti.findViewById(n.g.image_logo);
-        this.dtl = (TextView) this.dti.findViewById(n.g.text_debug);
-        this.mNavigationBar = (NavigationBar) this.dti.findViewById(n.g.view_navigation_bar);
+    private void Bk() {
+        this.dJm.setContentView(t.h.about_activity);
+        this.dJn = (RelativeLayout) this.dJm.findViewById(t.g.parent);
+        this.dJs = (ImageView) this.dJm.findViewById(t.g.image_logo);
+        this.dJp = (TextView) this.dJm.findViewById(t.g.text_debug);
+        this.mNavigationBar = (NavigationBar) this.dJm.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.dti.getPageContext().getString(n.j.version_info));
-        this.dtk = (TextView) this.dti.findViewById(n.g.text_versioninfo);
-        this.dtm = (SettingTextTestNewView) this.dti.findViewById(n.g.about_version_update);
-        this.dtn = (SettingTextTestNewView) this.dti.findViewById(n.g.about_debuger);
-        this.dtp = (TbSettingTextTipView) this.dti.findViewById(n.g.about_guide);
-        this.dtp.hideArrow();
-        this.dtr = (ProgressBar) this.dti.findViewById(n.g.about_progress);
+        this.mNavigationBar.setTitleText(this.dJm.getPageContext().getString(t.j.version_info));
+        this.dJo = (TextView) this.dJm.findViewById(t.g.text_versioninfo);
+        this.dJq = (SettingTextTestNewView) this.dJm.findViewById(t.g.about_version_update);
+        this.dJr = (SettingTextTestNewView) this.dJm.findViewById(t.g.about_debuger);
+        this.dJt = (TbSettingTextTipView) this.dJm.findViewById(t.g.about_guide);
+        this.dJt.hideArrow();
+        this.dJv = (ProgressBar) this.dJm.findViewById(t.g.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !com.baidu.tbadk.core.util.ax.isEmpty(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !com.baidu.tbadk.core.util.aw.isEmpty(TbConfig.getSubVersion())) {
             version = String.valueOf(version) + "." + TbConfig.getSubVersion();
         }
-        this.dtk.setText(String.valueOf(this.dti.getPageContext().getString(TbadkCoreApplication.m411getInst().getApplicationInfo().labelRes)) + this.dti.getPageContext().getString(n.j.setting_version_text) + " " + version);
-        this.dtq = (TextView) this.dti.findViewById(n.g.text_version_protoco);
-        dO(TbadkCoreApplication.m411getInst().getSkinType());
+        this.dJo.setText(String.valueOf(this.dJm.getPageContext().getString(TbadkCoreApplication.m411getInst().getApplicationInfo().labelRes)) + this.dJm.getPageContext().getString(t.j.setting_version_text) + " " + version);
+        this.dJu = (TextView) this.dJm.findViewById(t.g.text_version_protoco);
+        ej(TbadkCoreApplication.m411getInst().getSkinType());
         if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            this.dtp.setVisibility(4);
-            this.dti.findViewById(n.g.line_about_guide).setVisibility(8);
+            this.dJt.setVisibility(4);
+            this.dJm.findViewById(t.g.line_about_guide).setVisibility(8);
         }
-        if (com.baidu.tbadk.core.sharedPref.b.tJ().getBoolean("debug_plugin_switcher", false)) {
-            mx(0);
+        if (com.baidu.tbadk.core.sharedPref.b.uO().getBoolean("debug_plugin_switcher", false)) {
+            nJ(0);
         }
     }
 
     private void a(s sVar) {
         d dVar = new d(this, sVar);
-        this.dtm.setOnClickListener(dVar);
-        this.dtp.setOnClickListener(dVar);
-        this.dtk.setOnClickListener(dVar);
-        this.dto.setOnClickListener(dVar);
-        this.dtn.setOnClickListener(dVar);
+        this.dJq.setOnClickListener(dVar);
+        this.dJt.setOnClickListener(dVar);
+        this.dJo.setOnClickListener(dVar);
+        this.dJs.setOnClickListener(dVar);
+        this.dJr.setOnClickListener(dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mx(int i) {
-        this.dtl.setVisibility(i);
-        this.dtn.setVisibility(i);
-        this.dti.findViewById(n.g.line0).setVisibility(i);
+    public void nJ(int i) {
+        this.dJp.setVisibility(i);
+        this.dJr.setVisibility(i);
+        this.dJm.findViewById(t.g.line0).setVisibility(i);
     }
 
-    public void azB() {
-        if (this.dtm != null) {
-            this.dtm.refresh();
+    public void aGI() {
+        if (this.dJq != null) {
+            this.dJq.refresh();
         }
     }
 
-    public void dO(int i) {
-        com.baidu.tbadk.core.util.as.j(this.dtj, n.d.cp_bg_line_d);
+    public void ej(int i) {
+        com.baidu.tbadk.core.util.ar.l(this.dJn, t.d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dti.getLayoutMode().ac(i == 1);
-        this.dti.getLayoutMode().k(this.dtj);
-        azB();
+        this.dJm.getLayoutMode().ac(i == 1);
+        this.dJm.getLayoutMode().x(this.dJn);
+        aGI();
     }
 }

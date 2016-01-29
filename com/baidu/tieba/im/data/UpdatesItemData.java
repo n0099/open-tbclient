@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
     private String groupName;
     private boolean isSelected;
     private boolean isShown;
-    private LiveCardData mLiveCardData = null;
     private String notice_id;
     private long time;
     private String title;
@@ -161,13 +159,5 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
 
     public void setGroupActivityId(String str) {
         this.groupActivityId = str;
-    }
-
-    public LiveCardData getLiveCardData() {
-        return this.mLiveCardData;
-    }
-
-    public void setLiveCardData(LiveCardData liveCardData) {
-        this.mLiveCardData = liveCardData;
     }
 }

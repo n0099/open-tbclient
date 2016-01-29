@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a atd;
-    private com.baidu.adp.widget.a.a ate;
-    private int atf;
-    private int atg;
+    private com.baidu.adp.widget.a.a atW;
+    private com.baidu.adp.widget.a.a atX;
+    private int atY;
+    private int rows;
 
-    public abstract boolean BB();
+    public abstract boolean CS();
 
-    public abstract EmotionGroupType BC();
+    public abstract EmotionGroupType CT();
 
-    public abstract String ef(int i);
+    public abstract String eA(int i);
 
-    public abstract boolean fh(String str);
+    public abstract boolean fg(String str);
+
+    public abstract com.baidu.adp.widget.a.a fh(String str);
 
     public abstract com.baidu.adp.widget.a.a fi(String str);
-
-    public abstract com.baidu.adp.widget.a.a fj(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a BD() {
-        return this.atd;
+    public com.baidu.adp.widget.a.a CU() {
+        return this.atW;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mE();
+            aVar.mS();
         }
-        this.atd = aVar;
+        this.atW = aVar;
     }
 
-    public com.baidu.adp.widget.a.a BE() {
-        return this.ate;
+    public com.baidu.adp.widget.a.a CV() {
+        return this.atX;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mE();
+            aVar.mS();
         }
-        this.ate = aVar;
+        this.atX = aVar;
     }
 
-    public int BF() {
-        return this.atg;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void eg(int i) {
-        this.atg = i;
-    }
-
-    public int BG() {
-        return this.atf;
+    public int CW() {
+        return this.atY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eh(int i) {
-        this.atf = i;
+    public void eB(int i) {
+        this.atY = i;
+    }
+
+    public int getRows() {
+        return this.rows;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setRows(int i) {
+        this.rows = i;
     }
 }

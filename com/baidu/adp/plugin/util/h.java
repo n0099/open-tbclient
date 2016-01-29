@@ -1,54 +1,54 @@
 package com.baidu.adp.plugin.util;
 /* loaded from: classes.dex */
 public class h implements Comparable<h> {
-    int Fk;
-    int Fl;
-    int Fm;
-    int Fn;
-    int Fo;
-    int Fp;
+    int FA;
+    int FB;
+    int FC;
+    int Fx;
+    int Fy;
+    int Fz;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.Fk = i;
-        this.Fl = i2;
-        this.Fm = i3;
-        this.Fn = i4;
-        this.Fo = i5;
-        this.Fp = i6;
+        this.Fx = i;
+        this.Fy = i2;
+        this.Fz = i3;
+        this.FA = i4;
+        this.FB = i5;
+        this.FC = i6;
     }
 
     public String toString() {
-        return String.valueOf(this.Fk) + "-" + this.Fl + "-" + this.Fm + " " + this.Fn + ":" + this.Fo + ":" + this.Fp;
+        return String.valueOf(this.Fx) + "-" + this.Fy + "-" + this.Fz + " " + this.FA + ":" + this.FB + ":" + this.FC;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(h hVar) {
-        if (this.Fk - hVar.Fk > 0) {
+        if (this.Fx - hVar.Fx > 0) {
             return 1;
         }
-        if (this.Fk - hVar.Fk < 0) {
+        if (this.Fx - hVar.Fx < 0) {
             return -1;
         }
-        if (this.Fl - hVar.Fl <= 0) {
-            if (this.Fl - hVar.Fl < 0) {
+        if (this.Fy - hVar.Fy <= 0) {
+            if (this.Fy - hVar.Fy < 0) {
                 return -1;
             }
-            if (this.Fm - hVar.Fm <= 0) {
-                if (this.Fm - hVar.Fm < 0) {
+            if (this.Fz - hVar.Fz <= 0) {
+                if (this.Fz - hVar.Fz < 0) {
                     return -1;
                 }
-                if (this.Fn - hVar.Fn <= 0) {
-                    if (this.Fn - hVar.Fn < 0) {
+                if (this.FA - hVar.FA <= 0) {
+                    if (this.FA - hVar.FA < 0) {
                         return -1;
                     }
-                    if (this.Fo - hVar.Fo <= 0) {
-                        if (this.Fo - hVar.Fo < 0) {
+                    if (this.FB - hVar.FB <= 0) {
+                        if (this.FB - hVar.FB < 0) {
                             return -1;
                         }
-                        if (this.Fp - hVar.Fp <= 0) {
-                            return this.Fp - hVar.Fp < 0 ? -1 : 0;
+                        if (this.FC - hVar.FC <= 0) {
+                            return this.FC - hVar.FC < 0 ? -1 : 0;
                         }
                         return 1;
                     }

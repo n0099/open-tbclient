@@ -7,11 +7,11 @@ import com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ k cis;
+    final /* synthetic */ k cmS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(k kVar) {
-        this.cis = kVar;
+        this.cmS = kVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,14 +21,14 @@ public class q implements AdapterView.OnItemLongClickListener {
         if (i < 0) {
             return false;
         }
-        k kVar = this.cis;
-        imMessageCenterListAdapter = this.cis.cdC;
-        kVar.cdA = imMessageCenterListAdapter.getItem(i);
-        k kVar2 = this.cis;
-        imMessageCenterShowItemData = this.cis.cdA;
+        k kVar = this.cmS;
+        imMessageCenterListAdapter = this.cmS.cia;
+        kVar.chY = imMessageCenterListAdapter.getItem(i);
+        k kVar2 = this.cmS;
+        imMessageCenterShowItemData = this.cmS.chY;
         kVar2.c(imMessageCenterShowItemData);
-        if (this.cis.cdF != null) {
-            this.cis.cdF.tj();
+        if (this.cmS.cie != null) {
+            this.cmS.cie.un();
         }
         return true;
     }

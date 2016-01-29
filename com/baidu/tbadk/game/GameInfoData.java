@@ -6,6 +6,7 @@ import java.util.List;
 import tbclient.GameInfo;
 import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
+import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes.dex */
 public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
@@ -36,6 +37,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private List<String> game_pic;
     private int game_status;
     private int game_type;
+    private List<GiftPkgInfo> giftPackages;
     private String icon_pic1;
     private String icon_pic2;
     private String icon_pic3;
@@ -157,7 +159,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = fD(str);
+        this.package_size = fB(str);
     }
 
     public String getGameLink() {
@@ -526,7 +528,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String fD(String str) {
+    private String fB(String str) {
         return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.h.b.a(str, 0.0f)));
     }
 
@@ -560,5 +562,13 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public void setGameDesc(String str) {
         this.game_desc = str;
+    }
+
+    public List<GiftPkgInfo> getGiftPackages() {
+        return this.giftPackages;
+    }
+
+    public void setGiftPackages(List<GiftPkgInfo> list) {
+        this.giftPackages = list;
     }
 }

@@ -1,23 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.j;
 /* loaded from: classes.dex */
-class h implements j.a {
-    final /* synthetic */ g aGM;
+class h implements Runnable {
+    final /* synthetic */ g aHM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.aGM = gVar;
+        this.aHM = gVar;
     }
 
-    @Override // com.baidu.tieba.j.a
-    public void Gy() {
+    @Override // java.lang.Runnable
+    public void run() {
+        f fVar;
         LogoActivity logoActivity;
-        LogoActivity.a aVar;
-        com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
-        logoActivity = this.aGM.aGJ;
-        aVar = logoActivity.aGF;
-        hj.post(aVar);
+        fVar = this.aHM.aHL;
+        logoActivity = fVar.aHJ;
+        logoActivity.HX();
     }
 }

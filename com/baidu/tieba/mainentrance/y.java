@@ -1,43 +1,69 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tieba.n;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.TextView;
+import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cqu;
+public class y implements TextWatcher {
+    final /* synthetic */ SquareSearchActivity cwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(SquareSearchActivity squareSearchActivity) {
-        this.cqu = squareSearchActivity;
+        this.cwZ = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean agk;
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         boolean z;
-        if (this.cqu.cpN == null || this.cqu.cpN.trim().length() < 1) {
-            com.baidu.adp.lib.util.k.c(this.cqu.getPageContext().getPageActivity(), this.cqu.cpr);
-            agk = this.cqu.agk();
-            if (!agk) {
-                this.cqu.showToast(this.cqu.getResources().getString(n.j.write_keyword));
-            }
-        } else if (this.cqu.mMode != 0) {
-            if (this.cqu.mMode == 3) {
-                com.baidu.adp.lib.util.k.c(this.cqu.getPageContext().getPageActivity(), this.cqu.cpr);
-                if (!TextUtils.isEmpty(this.cqu.cpN) && this.cqu.cpN.trim().length() != 0) {
-                    this.cqu.cpN = this.cqu.cpN.trim();
-                    this.cqu.gB(this.cqu.cpN);
+        this.cwZ.cws = charSequence.toString();
+        if (this.cwZ.cws.trim().length() > 0) {
+            if (this.cwZ.mMode != 0) {
+                if (this.cwZ.mMode != 1) {
                     return;
                 }
+                this.cwZ.K(1, this.cwZ.cws);
                 return;
             }
-            this.cqu.I(1, this.cqu.cpN);
-        } else {
-            z = this.cqu.atB;
-            if (z) {
-                this.cqu.agu();
+            this.cwZ.akA();
+            return;
+        }
+        this.cwZ.akn();
+        if (this.cwZ.mMode != 0) {
+            if (this.cwZ.mMode != 3) {
+                this.cwZ.akx();
+                return;
+            } else {
+                this.cwZ.aky();
+                return;
             }
         }
+        z = this.cwZ.cwy;
+        if (!z && !SquareSearchActivityConfig.IS_SHOW_LIKE_FORUM) {
+            return;
+        }
+        this.cwZ.akw();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        if (editable.toString().trim().length() == 0) {
+            textView3 = this.cwZ.cvY;
+            textView3.setVisibility(8);
+        } else {
+            textView = this.cwZ.cvY;
+            textView.setVisibility(0);
+        }
+        textView2 = this.cwZ.cvZ;
+        com.baidu.tbadk.core.util.ar.b(textView2, t.d.cp_cont_i, 1);
     }
 }

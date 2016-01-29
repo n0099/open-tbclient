@@ -1,37 +1,37 @@
 package com.baidu.tieba.recommendfrs.control;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.a;
+import com.baidu.tieba.tbadkCore.util.o;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ a doN;
+public class f implements a.InterfaceC0055a<com.baidu.tieba.myCollection.baseHistory.b> {
+    final /* synthetic */ a dEd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.doN = aVar;
+        this.dEd = aVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-        ScrollFragmentTabHost scrollFragmentTabHost;
-        ScrollFragmentTabHost scrollFragmentTabHost2;
-        ScrollFragmentTabHost scrollFragmentTabHost3;
-        ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.doN.doG;
-        if (scrollFragmentTabHost.ayB()) {
-            scrollFragmentTabHost2 = this.doN.doG;
-            if (scrollFragmentTabHost2.dpC) {
-                scrollFragmentTabHost3 = this.doN.doG;
-                scrollFragmentTabHost3.ayD();
-                scrollFragmentTabHost4 = this.doN.doG;
-                scrollFragmentTabHost4.dpC = false;
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
+    public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> readCacheMessage) {
+        if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && (readCacheRespMsg.getData() instanceof List)) {
+            o godFeedReadHistory = TbadkCoreApplication.m411getInst().getGodFeedReadHistory();
+            for (com.baidu.tieba.myCollection.baseHistory.b bVar : readCacheRespMsg.getData()) {
+                if (bVar != null && !StringUtils.isNull(bVar.getThreadId()) && godFeedReadHistory != null) {
+                    godFeedReadHistory.a(bVar.getThreadId(), bVar);
+                }
             }
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, false);
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
+    public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
     }
 }

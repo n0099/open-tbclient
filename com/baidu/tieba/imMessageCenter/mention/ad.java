@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class ad extends PagerAdapter {
-    private bd cih;
+    private bd cmH;
 
     public ad(bd bdVar) {
-        this.cih = bdVar;
+        this.cmH = bdVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -19,29 +19,29 @@ public class ad extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            k aeP = this.cih.aeP();
-            if (aeP.getView() == null) {
-                View oE = aeP.oE();
-                viewGroup.addView(oE);
-                return oE;
+            k ahY = this.cmH.ahY();
+            if (ahY.getView() == null) {
+                View pa = ahY.pa();
+                viewGroup.addView(pa);
+                return pa;
             }
-            return aeP.getView();
+            return ahY.getView();
         } else if (i == 1) {
-            ax aeL = this.cih.aeL();
-            if (aeL.getView() == null) {
-                View oE2 = aeL.oE();
-                viewGroup.addView(oE2);
-                return oE2;
+            ax ahU = this.cmH.ahU();
+            if (ahU.getView() == null) {
+                View pa2 = ahU.pa();
+                viewGroup.addView(pa2);
+                return pa2;
             }
-            return aeL.getView();
+            return ahU.getView();
         } else {
-            j aeM = this.cih.aeM();
-            if (aeM.getView() == null) {
-                View oE3 = aeM.oE();
-                viewGroup.addView(oE3);
-                return oE3;
+            j ahV = this.cmH.ahV();
+            if (ahV.getView() == null) {
+                View pa3 = ahV.pa();
+                viewGroup.addView(pa3);
+                return pa3;
             }
-            return aeM.getView();
+            return ahV.getView();
         }
     }
 

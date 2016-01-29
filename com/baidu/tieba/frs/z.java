@@ -1,31 +1,25 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements c.b {
-    final /* synthetic */ FrsActivity bed;
+class z extends com.baidu.adp.base.g {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(FrsActivity frsActivity) {
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        switch (i) {
-            case 0:
-                this.bed.bdc = false;
-                this.bed.fQ(0);
-                return;
-            case 1:
-                this.bed.bdc = false;
-                this.bed.Ne();
-                return;
-            default:
-                return;
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        com.baidu.tieba.frs.c.l lVar;
+        boolean z = false;
+        if (obj instanceof Boolean) {
+            z = ((Boolean) obj).booleanValue();
         }
+        if (z) {
+            lVar = this.bgz.bfT;
+            lVar.cB(true);
+            return;
+        }
+        this.bgz.refresh();
     }
 }

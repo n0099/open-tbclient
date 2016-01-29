@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ y duW;
+    final /* synthetic */ y dLa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(y yVar) {
-        this.duW = yVar;
+        this.dLa = yVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,76 +39,76 @@ public class ab implements View.OnClickListener {
         s sVar10;
         s sVar11;
         s sVar12;
-        view2 = this.duW.duV;
+        view2 = this.dLa.dKZ;
         if (view == view2) {
-            sVar12 = this.duW.duF;
-            sVar12.mw(0);
+            sVar12 = this.dLa.dKJ;
+            sVar12.nI(0);
             return;
         }
-        settingTextImageView = this.duW.duJ;
+        settingTextImageView = this.dLa.dKN;
         if (view == settingTextImageView) {
-            sVar11 = this.duW.duF;
-            sVar11.mw(1);
+            sVar11 = this.dLa.dKJ;
+            sVar11.nI(1);
             return;
         }
-        tbSettingTextTipView = this.duW.duK;
+        tbSettingTextTipView = this.dLa.dKO;
         if (view == tbSettingTextTipView) {
-            sVar10 = this.duW.duF;
-            sVar10.mw(2);
+            sVar10 = this.dLa.dKJ;
+            sVar10.nI(2);
             return;
         }
-        tbSettingTextTipView2 = this.duW.duL;
+        tbSettingTextTipView2 = this.dLa.dKP;
         if (view == tbSettingTextTipView2) {
-            sVar9 = this.duW.duF;
-            sVar9.mw(3);
+            sVar9 = this.dLa.dKJ;
+            sVar9.nI(3);
             return;
         }
-        tbSettingTextTipView3 = this.duW.duM;
+        tbSettingTextTipView3 = this.dLa.dKQ;
         if (view == tbSettingTextTipView3) {
-            sVar8 = this.duW.duF;
-            sVar8.mw(4);
+            sVar8 = this.dLa.dKJ;
+            sVar8.nI(4);
             return;
         }
-        tbSettingTextTipView4 = this.duW.duN;
+        tbSettingTextTipView4 = this.dLa.dKR;
         if (view == tbSettingTextTipView4) {
-            sVar7 = this.duW.duF;
-            sVar7.mw(9);
+            sVar7 = this.dLa.dKJ;
+            sVar7.nI(9);
             return;
         }
-        settingTextVersionView = this.duW.duO;
+        settingTextVersionView = this.dLa.dKS;
         if (view == settingTextVersionView) {
-            sVar6 = this.duW.duF;
-            sVar6.mw(6);
+            sVar6 = this.dLa.dKJ;
+            sVar6.nI(6);
             return;
         }
-        tbSettingTextTipView5 = this.duW.duP;
+        tbSettingTextTipView5 = this.dLa.dKT;
         if (view == tbSettingTextTipView5) {
-            sVar5 = this.duW.duF;
-            sVar5.mw(7);
+            sVar5 = this.dLa.dKJ;
+            sVar5.nI(7);
             return;
         }
-        tbSettingTextTipView6 = this.duW.duQ;
+        tbSettingTextTipView6 = this.dLa.dKU;
         if (view == tbSettingTextTipView6) {
-            sVar4 = this.duW.duF;
-            sVar4.mw(8);
+            sVar4 = this.dLa.dKJ;
+            sVar4.nI(8);
             return;
         }
-        tbSettingTextNewDotView = this.duW.duS;
+        tbSettingTextNewDotView = this.dLa.dKW;
         if (view == tbSettingTextNewDotView) {
-            sVar3 = this.duW.duF;
-            sVar3.mw(5);
+            sVar3 = this.dLa.dKJ;
+            sVar3.nI(5);
             return;
         }
-        textView = this.duW.duT;
+        textView = this.dLa.dKX;
         if (view == textView) {
-            sVar2 = this.duW.duF;
-            sVar2.mw(10);
+            sVar2 = this.dLa.dKJ;
+            sVar2.nI(10);
             return;
         }
-        tbSettingTextTipView7 = this.duW.duI;
+        tbSettingTextTipView7 = this.dLa.dKM;
         if (view == tbSettingTextTipView7) {
-            sVar = this.duW.duF;
-            sVar.mw(13);
+            sVar = this.dLa.dKJ;
+            sVar.nI(13);
         }
     }
 }

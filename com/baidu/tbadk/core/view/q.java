@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox agk;
+    final /* synthetic */ TbCheckBox agY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(TbCheckBox tbCheckBox) {
-        this.agk = tbCheckBox;
+        this.agY = tbCheckBox;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean vS;
-        TbCheckBox tbCheckBox = this.agk;
-        vS = this.agk.vS();
-        tbCheckBox.setChecked(!vS);
+        boolean xg;
+        TbCheckBox tbCheckBox = this.agY;
+        xg = this.agY.xg();
+        tbCheckBox.setChecked(!xg);
     }
 }

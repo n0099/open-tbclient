@@ -1,24 +1,43 @@
 package com.baidu.tieba.frs.frsgood;
 
-import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
-    final /* synthetic */ FrsGoodActivity bkp;
+class c implements AbsListView.OnScrollListener {
+    final /* synthetic */ FrsGoodActivity bnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsGoodActivity frsGoodActivity) {
-        this.bkp = frsGoodActivity;
+        this.bnm = frsGoodActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u au = this.bkp.bkj.OV().au(((Integer) view.getTag()).intValue());
-        if (au instanceof com.baidu.tbadk.core.data.b) {
-            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) au;
-            if (!bVar.rm()) {
-                return;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        boolean z;
+        com.baidu.adp.widget.ListView.w wVar;
+        if (i == 2 || i == 1) {
+            z = this.bnm.bfM;
+            if (!z) {
+                this.bnm.bfM = true;
+                this.bnm.bng.Qm();
             }
-            this.bkp.b(bVar);
         }
+        if (i == 0) {
+            y yVar = this.bnm.bng;
+            wVar = this.bnm.bgv;
+            yVar.a(wVar);
+            this.bnm.Kg = false;
+        } else {
+            this.bnm.bng.a((com.baidu.adp.widget.ListView.w) null);
+            this.bnm.Kg = true;
+        }
+        if (this.bnm.bfN == null) {
+            this.bnm.bfN = new com.baidu.tbadk.performanceLog.e();
+            this.bnm.bfN.eZ(1000);
+        }
+        this.bnm.bfN.FF();
     }
 }

@@ -7,50 +7,50 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends CustomMessageListener {
-    final /* synthetic */ s cOw;
+    final /* synthetic */ s cXR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(s sVar, int i) {
         super(i);
-        this.cOw = sVar;
+        this.cXR = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonBarActivity aoI;
-        PersonBarActivity aoI2;
+        PersonBarActivity atz;
+        PersonBarActivity atz2;
         boolean z2;
         View view;
         View view2;
         View view3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            z = this.cOw.mIsHost;
+            z = this.cXR.bDs;
             if (z) {
                 r personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                aoI = this.cOw.aoI();
-                if (aoI != null) {
+                atz = this.cXR.atz();
+                if (atz != null) {
                     if (personBarData != null) {
-                        this.cOw.cOq = true;
+                        this.cXR.cXK = true;
                     }
-                    aoI2 = this.cOw.aoI();
-                    if (aoI2.getRequestCode() != 23011) {
-                        view3 = this.cOw.cOo;
+                    atz2 = this.cXR.atz();
+                    if (atz2.getRequestCode() != 23011) {
+                        view3 = this.cXR.cXI;
                         view3.setVisibility(8);
                     } else {
-                        z2 = this.cOw.cOr;
+                        z2 = this.cXR.cXL;
                         if (!z2) {
-                            this.cOw.cOr = true;
-                            BdListView bdListView = this.cOw.mListView;
-                            view2 = this.cOw.cOo;
+                            this.cXR.cXL = true;
+                            BdListView bdListView = this.cXR.IY;
+                            view2 = this.cXR.cXI;
                             bdListView.addHeaderView(view2);
                         }
-                        view = this.cOw.cOo;
+                        view = this.cXR.cXI;
                         view.setVisibility(0);
                     }
-                    this.cOw.a(personBarData, true);
+                    this.cXR.a(personBarData, true);
                 }
             }
         }

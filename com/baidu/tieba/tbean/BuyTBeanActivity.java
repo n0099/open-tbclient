@@ -9,18 +9,18 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.util.PageDialogHelper;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbean.e;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements e.a {
-    private com.baidu.tbadk.pay.b ctO;
-    private e dJK;
-    private j dJL;
-    private long dJM;
+    private com.baidu.tbadk.pay.b cAu;
+    private e dZP;
+    private j dZQ;
+    private long dZR;
     private boolean mIsPayDialog = false;
     private String SCENE_ID = "4001001000";
 
@@ -41,24 +41,24 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             PageDialogHelper.s(getActivity());
         }
         if (bundle != null) {
-            this.dJM = bundle.getLong(BuyTBeanActivityConfig.GIFT_TBEAN);
+            this.dZR = bundle.getLong(BuyTBeanActivityConfig.GIFT_TBEAN);
         }
-        T(getIntent());
-        showLoadingDialog(getPageContext().getString(n.j.flist_loading));
-        this.dJL = new j(this);
-        this.dJL.aGN();
-        this.dJK = new e(this, this);
-        this.dJK.aGJ();
-        this.dJK.aGK();
-        this.dJK.aGL();
-        this.ctO = new com.baidu.tbadk.pay.b(this, new a(this));
-        this.ctO.Ef();
+        W(getIntent());
+        showLoadingDialog(getPageContext().getString(t.j.flist_loading));
+        this.dZQ = new j(this);
+        this.dZQ.aNR();
+        this.dZP = new e(this, this);
+        this.dZP.aNN();
+        this.dZP.aNO();
+        this.dZP.aNP();
+        this.cAu = new com.baidu.tbadk.pay.b(this, new a(this));
+        this.cAu.FA();
         if (this.mIsPayDialog) {
-            findViewById(n.g.buy_tbean_navigation_bar).setVisibility(8);
+            findViewById(t.g.buy_tbean_navigation_bar).setVisibility(8);
         } else {
-            findViewById(n.g.tbean_dialog_wrapper).setVisibility(8);
+            findViewById(t.g.tbean_dialog_wrapper).setVisibility(8);
         }
-        ((ImageView) findViewById(n.g.tbean_dialog_close_btn)).setOnClickListener(new b(this));
+        ((ImageView) findViewById(t.g.tbean_dialog_close_btn)).setOnClickListener(new b(this));
         TiebaStatic.log("c10295");
     }
 
@@ -79,25 +79,25 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.dJL != null) {
-            this.dJL.onChangeSkinType(i);
+        if (this.dZQ != null) {
+            this.dZQ.onChangeSkinType(i);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong(BuyTBeanActivityConfig.GIFT_TBEAN, this.dJM);
+        bundle.putLong(BuyTBeanActivityConfig.GIFT_TBEAN, this.dZR);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == n.g.buy_btn_tv && this.dJL != null && this.dJK != null && this.dJK.getIconInfoList() != null) {
-            if (this.dJL.aGS() <= 0) {
-                showToast(n.j.buy_num_zeor_tip);
+        if (view.getId() == t.g.buy_btn_tv && this.dZQ != null && this.dZP != null && this.dZP.getIconInfoList() != null) {
+            if (this.dZQ.aNW() <= 0) {
+                showToast(t.j.buy_num_zeor_tip);
             } else if (view.getTag() != null && (view.getTag() instanceof IconInfo)) {
-                r.ko("c10296");
-                com.baidu.tbadk.pay.e.Eg().a(new PayConfig(2, "0", ((IconInfo) view.getTag()).iconId, String.valueOf(this.dJL.aGR()), String.valueOf(this.dJL.aGS()), true, String.valueOf(this.dJL.aGT()), this.mIsPayDialog, PageDialogHelper.PayForm.NOT_SET), getPageContext().getPageActivity());
+                r.kr("c10296");
+                com.baidu.tbadk.pay.e.FB().a(new PayConfig(2, "0", ((IconInfo) view.getTag()).iconId, String.valueOf(this.dZQ.aNV()), String.valueOf(this.dZQ.aNW()), true, String.valueOf(this.dZQ.aNX()), this.mIsPayDialog, PageDialogHelper.PayForm.NOT_SET), getPageContext().getPageActivity());
             }
         }
     }
@@ -110,42 +110,42 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
     }
 
-    private void T(Intent intent) {
-        this.dJM = intent.getLongExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0L);
+    private void W(Intent intent) {
+        this.dZR = intent.getLongExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0L);
     }
 
-    public long aGF() {
-        return this.dJM;
+    public long aNJ() {
+        return this.dZR;
     }
 
     @Override // com.baidu.tieba.tbean.e.a
     public void ht(String str) {
         showToast(str);
         closeLoadingDialog();
-        if (this.dJL != null) {
-            this.dJL.aGN();
+        if (this.dZQ != null) {
+            this.dZQ.aNR();
+            ar.l(this.dZQ.getRootView(), t.d.cp_bg_line_d);
+            setNetRefreshViewTopMargin(0);
+            showNetRefreshView(this.dZQ.getRootView(), getResources().getString(t.j.neterror));
         }
-        as.j(this.dJL.getRootView(), n.d.cp_bg_line_d);
-        setNetRefreshViewTopMargin(0);
-        showNetRefreshView(this.dJL.getRootView(), getResources().getString(n.j.neterror));
     }
 
     @Override // com.baidu.tieba.tbean.e.a
     public void onSuccess() {
-        as.j(this.dJL.getRootView(), n.d.cp_bg_line_c);
+        ar.l(this.dZQ.getRootView(), t.d.cp_bg_line_c);
         closeLoadingDialog();
-        hideNetRefreshView(this.dJL.getRootView());
-        if (this.dJL != null) {
-            this.dJL.aGM();
-            this.dJL.e(this.dJK);
+        hideNetRefreshView(this.dZQ.getRootView());
+        if (this.dZQ != null) {
+            this.dZQ.aNQ();
+            this.dZQ.e(this.dZP);
         }
     }
 
     public void refresh() {
-        if (this.dJK != null && this.dJL != null) {
-            showLoadingDialog(getPageContext().getString(n.j.flist_loading));
-            this.dJL.aGN();
-            this.dJK.aGI();
+        if (this.dZP != null && this.dZQ != null) {
+            showLoadingDialog(getPageContext().getString(t.j.flist_loading));
+            this.dZQ.aNR();
+            this.dZP.aNM();
         }
     }
 
@@ -156,9 +156,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0 && this.dJL != null) {
-            this.dJL.hx(false);
-            this.dJL.awl();
+        if (motionEvent.getAction() == 0 && this.dZQ != null) {
+            this.dZQ.hY(false);
+            this.dZQ.aCG();
         }
         return super.dispatchTouchEvent(motionEvent);
     }

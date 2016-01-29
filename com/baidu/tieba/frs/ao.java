@@ -1,27 +1,36 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bed;
+public class ao implements a.b {
+    private final /* synthetic */ com.baidu.tieba.frs.view.s bgH;
+    private final /* synthetic */ ShareFromFrsMsgData bgK;
+    private final /* synthetic */ int bgL;
+    private final /* synthetic */ String bgM;
+    private final /* synthetic */ long bgN;
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ao(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bed = frsActivity;
+    public ao(FrsActivity frsActivity, com.baidu.tieba.frs.view.s sVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.bgz = frsActivity;
+        this.bgH = sVar;
+        this.bgL = i;
+        this.bgM = str;
+        this.bgN = j;
+        this.bgK = shareFromFrsMsgData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.k)) {
-            com.baidu.tbadk.coreExtra.data.k kVar = (com.baidu.tbadk.coreExtra.data.k) customResponsedMessage.getData();
-            if (!TextUtils.isEmpty(kVar.userId) && !TextUtils.isEmpty(kVar.userName) && this.bed.bdm != null && this.bed.bdm.Of() != null) {
-                this.bed.bdm.Of().ao(kVar.userId, kVar.userName);
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.bgz.HidenSoftKeyPad((InputMethodManager) this.bgz.getSystemService("input_method"), this.bgH.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.bgz.getPageContext().getPageActivity(), this.bgL, this.bgM, this.bgN, "from_share", this.bgH.getLeaveMsg(), this.bgK.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

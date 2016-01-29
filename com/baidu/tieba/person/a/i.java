@@ -7,13 +7,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.data.MyLikeForum;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class i extends c<com.baidu.tieba.person.data.f, com.baidu.tieba.person.b.f> {
-    private com.baidu.adp.widget.ListView.v cQE;
+public class i extends c<com.baidu.tieba.person.data.f, com.baidu.tieba.person.b.g> {
+    private com.baidu.adp.widget.ListView.v dai;
     private boolean isSelf;
     private String userId;
 
@@ -27,167 +27,166 @@ public class i extends c<com.baidu.tieba.person.data.f, com.baidu.tieba.person.b
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
-    public com.baidu.tieba.person.b.f a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.f(LayoutInflater.from(this.mContext).inflate(n.h.person_info_forum_card, viewGroup, false));
+    /* renamed from: au */
+    public com.baidu.tieba.person.b.g b(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.g(LayoutInflater.from(this.mContext).inflate(t.h.person_info_forum_card, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.f fVar, com.baidu.tieba.person.b.f fVar2) {
-        a(fVar2, view);
-        if (fVar != null && this.aVr) {
-            a(fVar2, fVar);
-            this.aVr = false;
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.f fVar, com.baidu.tieba.person.b.g gVar) {
+        a(gVar, view);
+        if (fVar != null && this.aXE) {
+            a(gVar, fVar);
+            this.aXE = false;
         }
         return view;
     }
 
-    private void a(com.baidu.tieba.person.b.f fVar, com.baidu.tieba.person.data.f fVar2) {
-        if (fVar != null && fVar2 != null) {
-            this.isSelf = fVar2.isSelf();
-            this.userId = fVar2.getUserId();
+    private void a(com.baidu.tieba.person.b.g gVar, com.baidu.tieba.person.data.f fVar) {
+        if (gVar != null && fVar != null) {
+            this.isSelf = fVar.isSelf();
+            this.userId = fVar.getUserId();
             if (this.isSelf) {
-                c(fVar, fVar2);
-            } else if (fVar2.apq() == 1 || (fVar2.apq() == 2 && fVar2.getIsFriend() == 1)) {
-                c(fVar, fVar2);
+                c(gVar, fVar);
+            } else if (fVar.aui() == 1 || (fVar.aui() == 2 && fVar.getIsFriend() == 1)) {
+                c(gVar, fVar);
             } else {
-                b(fVar, fVar2);
+                b(gVar, fVar);
             }
         }
     }
 
-    private void b(com.baidu.tieba.person.b.f fVar, com.baidu.tieba.person.data.f fVar2) {
-        if (fVar2 != null) {
-            fVar.cSU.setVisibility(8);
-            fVar.cSQ.setVisibility(8);
-            fVar.cSS.setVisibility(8);
-            fVar.cSZ.setVisibility(0);
-            fVar.cSV.setVisibility(0);
-            String string = this.mContext.getResources().getString(n.j.my_attention_bar);
-            if (fVar2.cRM) {
-                fVar.aPe.setVisibility(0);
+    private void b(com.baidu.tieba.person.b.g gVar, com.baidu.tieba.person.data.f fVar) {
+        if (fVar != null) {
+            gVar.deh.setVisibility(8);
+            gVar.dee.setVisibility(8);
+            gVar.def.setVisibility(8);
+            gVar.dem.setVisibility(0);
+            gVar.dei.setVisibility(0);
+            String string = this.mContext.getResources().getString(t.j.my_attention_bar);
+            if (fVar.dbA) {
+                gVar.aOS.setVisibility(0);
             } else {
-                fVar.aPe.setVisibility(8);
+                gVar.aOS.setVisibility(8);
             }
-            if (!fVar2.isSelf()) {
-                if (fVar2.getSex() == 2) {
-                    string = this.mContext.getResources().getString(n.j.her_attention_bar);
+            if (!fVar.isSelf()) {
+                if (fVar.getSex() == 2) {
+                    string = this.mContext.getResources().getString(t.j.her_attention_bar);
                 } else {
-                    string = this.mContext.getResources().getString(n.j.his_attention_bar);
+                    string = this.mContext.getResources().getString(t.j.his_attention_bar);
                 }
             }
-            fVar.cSW.setText(string);
-            fVar.cSX.setText(n.j.set_private);
-            fVar.cSV.setOnClickListener(new j(this));
+            gVar.dej.setText(string);
+            gVar.dek.setText(t.j.set_private);
+            gVar.dei.setOnClickListener(new j(this));
         }
     }
 
-    private void c(com.baidu.tieba.person.b.f fVar, com.baidu.tieba.person.data.f fVar2) {
-        if (fVar2 != null) {
-            String string = this.mContext.getResources().getString(n.j.my_attention_bar);
-            if (fVar2.cRM) {
-                fVar.aPe.setVisibility(0);
+    private void c(com.baidu.tieba.person.b.g gVar, com.baidu.tieba.person.data.f fVar) {
+        if (fVar != null) {
+            String string = this.mContext.getResources().getString(t.j.my_attention_bar);
+            if (fVar.dbA) {
+                gVar.aOS.setVisibility(0);
             } else {
-                fVar.aPe.setVisibility(8);
+                gVar.aOS.setVisibility(8);
             }
-            if (!fVar2.isSelf()) {
-                if (fVar2.getSex() == 2) {
-                    string = this.mContext.getResources().getString(n.j.her_attention_bar);
+            if (!fVar.isSelf()) {
+                if (fVar.getSex() == 2) {
+                    string = this.mContext.getResources().getString(t.j.her_attention_bar);
                 } else {
-                    string = this.mContext.getResources().getString(n.j.his_attention_bar);
+                    string = this.mContext.getResources().getString(t.j.his_attention_bar);
                 }
             }
-            fVar.cSU.setVisibility(0);
-            fVar.cSQ.setVisibility(0);
-            fVar.cSS.setVisibility(0);
-            fVar.cSZ.setVisibility(8);
-            fVar.cSV.setVisibility(8);
-            fVar.cSP.setText(string);
-            fVar.cSW.setText(string);
-            if (com.baidu.tbadk.core.util.y.l(fVar2.app()) > 0) {
-                fVar.cST.setText(new StringBuilder(String.valueOf(fVar2.getCount())).toString());
-                if (com.baidu.tbadk.core.util.y.l(fVar2.app()) <= 3) {
-                    fVar.cSY.setVisibility(8);
+            gVar.deh.setVisibility(0);
+            gVar.dee.setVisibility(0);
+            gVar.def.setVisibility(0);
+            gVar.dem.setVisibility(8);
+            gVar.dei.setVisibility(8);
+            gVar.ded.setText(string);
+            gVar.dej.setText(string);
+            if (com.baidu.tbadk.core.util.x.o(fVar.auh()) > 0) {
+                gVar.deg.setText(new StringBuilder(String.valueOf(fVar.getCount())).toString());
+                if (com.baidu.tbadk.core.util.x.o(fVar.auh()) <= 3) {
+                    gVar.del.setVisibility(8);
                 } else {
-                    fVar.cSY.setVisibility(0);
+                    gVar.del.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 0) != null) {
-                    fVar.cSJ.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 0)).getForumName()));
-                    fVar.cSJ.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 0) != null) {
+                    gVar.ddX.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 0)).getForumName()));
+                    gVar.ddX.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 1) != null) {
-                    fVar.cSK.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 1)).getForumName()));
-                    fVar.cSK.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 1) != null) {
+                    gVar.ddY.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 1)).getForumName()));
+                    gVar.ddY.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 2) != null) {
-                    fVar.cSL.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 2)).getForumName()));
-                    fVar.cSL.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 2) != null) {
+                    gVar.ddZ.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 2)).getForumName()));
+                    gVar.ddZ.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 3) != null) {
-                    fVar.cSM.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 3)).getForumName()));
-                    fVar.cSM.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 3) != null) {
+                    gVar.dea.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 3)).getForumName()));
+                    gVar.dea.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 4) != null) {
-                    fVar.cSN.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 4)).getForumName()));
-                    fVar.cSN.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 4) != null) {
+                    gVar.deb.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 4)).getForumName()));
+                    gVar.deb.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.b(fVar2.app(), 5) != null) {
-                    fVar.cSO.setText(kT(((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 5)).getForumName()));
-                    fVar.cSO.setVisibility(0);
+                if (com.baidu.tbadk.core.util.x.b(fVar.auh(), 5) != null) {
+                    gVar.dec.setText(kZ(((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 5)).getForumName()));
+                    gVar.dec.setVisibility(0);
                 }
-                fVar.cSQ.setOnClickListener(api());
-                fVar.cSJ.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 0)));
-                fVar.cSK.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 1)));
-                fVar.cSL.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 2)));
-                fVar.cSM.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 3)));
-                fVar.cSN.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 4)));
-                fVar.cSO.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.b(fVar2.app(), 5)));
+                gVar.dee.setOnClickListener(aua());
+                gVar.ddX.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 0)));
+                gVar.ddY.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 1)));
+                gVar.ddZ.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 2)));
+                gVar.dea.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 3)));
+                gVar.deb.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 4)));
+                gVar.dec.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.x.b(fVar.auh(), 5)));
             } else {
-                fVar.cSV.setVisibility(0);
-                fVar.cSU.setVisibility(8);
-                fVar.cSQ.setVisibility(8);
+                gVar.dei.setVisibility(0);
+                gVar.deh.setVisibility(8);
+                gVar.dee.setVisibility(8);
             }
-            fVar.cSV.setOnClickListener(api());
+            gVar.dei.setOnClickListener(aua());
         }
     }
 
-    private void a(com.baidu.tieba.person.b.f fVar, View view) {
-        if (fVar.ahf != TbadkCoreApplication.m411getInst().getSkinType()) {
-            as.i(fVar.cSU, n.d.cp_bg_line_d);
-            as.i(fVar.cSV, n.f.addresslist_item_bg);
-            as.i((View) fVar.cSJ, n.f.home_like_item_bg);
-            as.i((View) fVar.cSK, n.f.home_like_item_bg);
-            as.i((View) fVar.cSL, n.f.home_like_item_bg);
-            as.i((View) fVar.cSM, n.f.home_like_item_bg);
-            as.i((View) fVar.cSN, n.f.home_like_item_bg);
-            as.i((View) fVar.cSO, n.f.home_like_item_bg);
-            as.b(fVar.cSJ, n.d.cp_cont_f, 1);
-            as.b(fVar.cSK, n.d.cp_cont_f, 1);
-            as.b(fVar.cSL, n.d.cp_cont_f, 1);
-            as.b(fVar.cSM, n.d.cp_cont_f, 1);
-            as.b(fVar.cSN, n.d.cp_cont_f, 1);
-            as.b(fVar.cSO, n.d.cp_cont_f, 1);
-            as.j(fVar.aPe, n.d.cp_bg_line_c);
-            as.j(view, n.d.cp_bg_line_d);
-            as.j(fVar.cSR, n.d.cp_bg_line_c);
-            as.j(fVar.cSS, n.d.cp_bg_line_c);
-            as.b(fVar.cSP, n.d.cp_cont_f, 1);
-            as.b(fVar.cST, n.d.cp_cont_c, 1);
-            as.c(fVar.cSx, n.f.icon_arrow_tab);
-            as.b(fVar.cSW, n.d.cp_cont_f, 1);
-            as.b(fVar.cSX, n.d.cp_cont_d, 1);
-            as.c(fVar.cSZ, n.f.icon_mycenter_lock);
-            fVar.ahf = TbadkCoreApplication.m411getInst().getSkinType();
+    private void a(com.baidu.tieba.person.b.g gVar, View view) {
+        if (gVar.ahU != TbadkCoreApplication.m411getInst().getSkinType()) {
+            ar.k(gVar.deh, t.d.cp_bg_line_d);
+            ar.k(gVar.dei, t.f.addresslist_item_bg);
+            ar.k(gVar.ddX, t.f.home_like_item_bg);
+            ar.k(gVar.ddY, t.f.home_like_item_bg);
+            ar.k(gVar.ddZ, t.f.home_like_item_bg);
+            ar.k(gVar.dea, t.f.home_like_item_bg);
+            ar.k(gVar.deb, t.f.home_like_item_bg);
+            ar.k(gVar.dec, t.f.home_like_item_bg);
+            ar.b(gVar.ddX, t.d.cp_cont_f, 1);
+            ar.b(gVar.ddY, t.d.cp_cont_f, 1);
+            ar.b(gVar.ddZ, t.d.cp_cont_f, 1);
+            ar.b(gVar.dea, t.d.cp_cont_f, 1);
+            ar.b(gVar.deb, t.d.cp_cont_f, 1);
+            ar.b(gVar.dec, t.d.cp_cont_f, 1);
+            ar.l(gVar.aOS, t.d.cp_bg_line_c);
+            ar.l(view, t.d.cp_bg_line_d);
+            ar.l(gVar.def, t.d.cp_bg_line_c);
+            ar.b(gVar.ded, t.d.cp_cont_f, 1);
+            ar.b(gVar.deg, t.d.cp_cont_c, 1);
+            ar.c(gVar.ddH, t.f.icon_arrow_tab);
+            ar.b(gVar.dej, t.d.cp_cont_f, 1);
+            ar.b(gVar.dek, t.d.cp_cont_d, 1);
+            ar.c(gVar.dem, t.f.icon_mycenter_lock);
+            gVar.ahU = TbadkCoreApplication.m411getInst().getSkinType();
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.v vVar) {
-        this.cQE = vVar;
+        this.dai = vVar;
     }
 
-    public View.OnClickListener api() {
+    public View.OnClickListener aua() {
         return new k(this);
     }
 
@@ -198,13 +197,13 @@ public class i extends c<com.baidu.tieba.person.data.f, com.baidu.tieba.person.b
         return new l(this, myLikeForum);
     }
 
-    private String kT(String str) {
+    private String kZ(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (ax.dA(str) >= 11) {
-            return ax.i(str, 10);
+        if (aw.dx(str) >= 11) {
+            return aw.j(str, 10);
         }
-        return String.valueOf(str) + this.mContext.getResources().getString(n.j.bar);
+        return String.valueOf(str) + this.mContext.getResources().getString(t.j.bar);
     }
 }

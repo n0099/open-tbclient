@@ -7,10 +7,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean aqp = false;
-    private int aqq = 0;
+    private boolean ari = false;
+    private int arj = 0;
 
-    public void eP(String str) {
+    public void eO(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -18,8 +18,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.aqp = false;
-        this.aqq = 0;
+        this.ari = false;
+        this.arj = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -48,7 +48,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.aqp = true;
+                                this.ari = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,23 +82,23 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.aqp && i3 > 0) {
-                    this.aqq = i5 / i3;
+                if (this.ari && i3 > 0) {
+                    this.arj = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.aqp;
+        return this.ari;
     }
 
-    public int Aw() {
-        return this.aqq;
+    public int BM() {
+        return this.arj;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.iW()) {
+        switch (com.baidu.adp.lib.util.i.jf()) {
             case 1:
                 return LocationClientOption.MIN_SCAN_SPAN_NETWORK;
             case 2:

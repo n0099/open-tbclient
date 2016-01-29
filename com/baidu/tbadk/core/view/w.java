@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout agH;
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ahw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.agH = threadCommentAndPraiseInfoLayout;
+        this.ahw = threadCommentAndPraiseInfoLayout;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0063  */
@@ -23,37 +23,37 @@ class w implements View.OnClickListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.z zVar;
-        com.baidu.tbadk.core.data.z zVar2;
+        com.baidu.tbadk.core.data.ah ahVar;
+        com.baidu.tbadk.core.data.ah ahVar2;
         String str;
         Context context;
-        com.baidu.tbadk.core.data.z zVar3;
+        com.baidu.tbadk.core.data.ah ahVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
         String str2;
         Context context2;
-        com.baidu.tbadk.core.data.z zVar4;
+        com.baidu.tbadk.core.data.ah ahVar4;
         String str3;
         String str4;
-        zVar = this.agH.aeF;
-        if (zVar != null) {
-            zVar2 = this.agH.aeF;
-            if (!StringUtils.isNull(zVar2.sv())) {
-                str = this.agH.agB;
+        ahVar = this.ahw.afg;
+        if (ahVar != null) {
+            ahVar2 = this.ahw.afg;
+            if (!StringUtils.isNull(ahVar2.tn())) {
+                str = this.ahw.ahp;
                 if (!StringUtils.isNull(str)) {
-                    str2 = this.agH.agC;
+                    str2 = this.ahw.ahq;
                     if (!StringUtils.isNull(str2)) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        context2 = this.agH.mContext;
+                        context2 = this.ahw.mContext;
                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
-                        zVar4 = this.agH.aeF;
-                        String sv = zVar4.sv();
-                        str3 = this.agH.agB;
-                        str4 = this.agH.agC;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(sv, str3, str4)));
-                        onClickListener = this.agH.agD;
+                        ahVar4 = this.ahw.afg;
+                        String tn = ahVar4.tn();
+                        str3 = this.ahw.ahp;
+                        str4 = this.ahw.ahq;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(tn, str3, str4)));
+                        onClickListener = this.ahw.ahr;
                         if (onClickListener == null) {
-                            onClickListener2 = this.agH.agD;
+                            onClickListener2 = this.ahw.ahr;
                             onClickListener2.onClick(view);
                             return;
                         }
@@ -61,11 +61,11 @@ class w implements View.OnClickListener {
                     }
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
-                context = this.agH.mContext;
+                context = this.ahw.mContext;
                 FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
-                zVar3 = this.agH.aeF;
-                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(zVar3.sv(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                onClickListener = this.agH.agD;
+                ahVar3 = this.ahw.afg;
+                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(ahVar3.tn(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.ahw.ahr;
                 if (onClickListener == null) {
                 }
             }

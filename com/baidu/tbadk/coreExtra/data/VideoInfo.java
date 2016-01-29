@@ -8,13 +8,18 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
+    public static final int VIDEO_TYPE_RECORD = 1;
+    public static final int VIDEO_TYPE_UPLOAD = 2;
     private static final long serialVersionUID = 4168698601975684150L;
+    private boolean isCompressedVideo;
     private long thumbId;
     private String thumbPath;
     private int videoDuration;
     private int videoHeight;
+    private long videoLength;
     private String videoMd5;
     private String videoPath;
+    private int videoType;
     private String videoUrl;
     private int videoWidth;
 
@@ -32,6 +37,14 @@ public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
 
     public void setThumbId(long j) {
         this.thumbId = j;
+    }
+
+    public boolean isCompressedVideo() {
+        return this.isCompressedVideo;
+    }
+
+    public void setIsCompressedVideo(boolean z) {
+        this.isCompressedVideo = z;
     }
 
     public String getVideoUrl() {
@@ -82,6 +95,22 @@ public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
         this.thumbPath = str;
     }
 
+    public long getVideoLength() {
+        return this.videoLength;
+    }
+
+    public void setVideoLength(long j) {
+        this.videoLength = j;
+    }
+
+    public void setVideoType(int i) {
+        this.videoType = i;
+    }
+
+    public int getVideoType() {
+        return this.videoType;
+    }
+
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoPath) && !StringUtils.isNull(this.thumbPath) && this.videoHeight > 0 && this.videoWidth > 0 && new File(this.videoPath).exists();
     }
@@ -118,6 +147,8 @@ public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
             this.videoMd5 = videoInfo.videoMd5;
             this.videoUrl = videoInfo.videoUrl;
             this.thumbId = videoInfo.thumbId;
+            this.videoLength = videoInfo.videoLength;
+            this.videoType = videoInfo.videoType;
         }
     }
 
@@ -130,7 +161,9 @@ public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
         sb.append(this.videoUrl).append(",");
         sb.append(this.videoDuration).append(",");
         sb.append(this.videoWidth).append(",");
-        sb.append(this.videoHeight).append(")");
+        sb.append(this.videoHeight).append(",");
+        sb.append(this.videoLength).append(",");
+        sb.append(this.videoType).append(")");
         return sb.toString();
     }
 }

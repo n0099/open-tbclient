@@ -1,84 +1,41 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.ViewTreeObserver;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.n;
+import android.view.View;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
-    private ViewTreeObserver.OnGlobalLayoutListener anF;
-    private String labelName = "";
-    private int anB = 0;
-    private boolean anC = false;
-    private String labelId = "";
-    private int anD = 0;
-    private boolean anE = false;
-    private int anG = as.getColor(n.d.cp_cont_i);
-    private int anH = as.getColor(n.d.cp_link_tip_d);
+public class o implements View.OnClickListener {
+    final /* synthetic */ MultiImageView aoL;
 
-    public void setLabelName(String str) {
-        this.labelName = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(MultiImageView multiImageView) {
+        this.aoL = multiImageView;
     }
 
-    public String getLabelName() {
-        return this.labelName;
-    }
-
-    public void dM(int i) {
-        this.anB = i;
-    }
-
-    public int zC() {
-        return this.anB;
-    }
-
-    public void aS(boolean z) {
-        this.anC = z;
-    }
-
-    public boolean zD() {
-        return this.anC;
-    }
-
-    public void setLabelId(String str) {
-        this.labelId = str;
-    }
-
-    public String zE() {
-        return this.labelId;
-    }
-
-    public void aT(boolean z) {
-        this.anE = z;
-    }
-
-    public boolean zF() {
-        return this.anE;
-    }
-
-    public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
-        this.anF = onGlobalLayoutListener;
-    }
-
-    public ViewTreeObserver.OnGlobalLayoutListener zG() {
-        return this.anF;
-    }
-
-    public SpannableStringBuilder ag(String str, String str2) {
-        String str3 = String.valueOf(str) + "(" + ax.x(com.baidu.adp.lib.h.b.c(str2, 0L)) + ")";
-        if (com.baidu.adp.lib.h.b.c(str2, 0L) > 0) {
-            str = str3;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
+        r0 = r1.aoL.getCurrentImageView();
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        com.baidu.tbadk.widget.a currentImageView;
+        com.baidu.tbadk.widget.a currentImageView2;
+        button = this.aoL.aoB;
+        if (view != button) {
+            button2 = this.aoL.aoC;
+            if (view == button2 && currentImageView != null) {
+                currentImageView.zoomOutBitmap();
+                return;
+            }
+            return;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        if (com.baidu.adp.lib.h.b.c(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.anG), 0, str.length(), 33);
-        } else {
-            int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.anG), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.anH), indexOf, str.length(), 33);
+        currentImageView2 = this.aoL.getCurrentImageView();
+        if (currentImageView2 != null) {
+            currentImageView2.zoomInBitmap();
         }
-        return spannableStringBuilder;
     }
 }

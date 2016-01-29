@@ -3,17 +3,17 @@ package com.baidu.tieba.vote;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.n;
 import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.t;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ b dRr;
+    final /* synthetic */ b ema;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.dRr = bVar;
+        this.ema = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class e implements View.OnClickListener {
         PbActivity pbActivity4;
         List list;
         VoteDataInfo voteDataInfo3;
-        if (view.getId() == n.g.btn_pb_vote) {
-            pbActivity = this.dRr.cGj;
+        if (view.getId() == t.g.btn_pb_vote) {
+            pbActivity = this.ema.cNL;
             if (pbActivity != null) {
-                pbActivity2 = this.dRr.cGj;
+                pbActivity2 = this.ema.cNL;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.dRr.dRm;
+                    voteDataInfo = this.ema.elV;
                     if (voteDataInfo != null) {
-                        j = this.dRr.mForumId;
+                        j = this.ema.mForumId;
                         if (j > 0) {
-                            j2 = this.dRr.mThreadId;
+                            j2 = this.ema.mThreadId;
                             if (j2 > 0) {
-                                z = this.dRr.dRo;
+                                z = this.ema.elX;
                                 if (!z) {
-                                    pbActivity3 = this.dRr.cGj;
+                                    pbActivity3 = this.ema.cNL;
                                     a aVar = new a(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.dRr.dRm;
+                                    voteDataInfo2 = this.ema.elV;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar2 : options) {
                                             if (aVar2 != null && aVar2.isSelected()) {
                                                 sb.append(aVar2.getId()).append(",");
-                                                list = this.dRr.dRn;
+                                                list = this.ema.elW;
                                                 list.add((f) aVar2);
-                                                voteDataInfo3 = this.dRr.dRm;
+                                                voteDataInfo3 = this.ema.elV;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class e implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.dRr.cGj;
-                                            UtilHelper.showToast(pbActivity4.getActivity(), n.j.vote_checked_less_one);
+                                            pbActivity4 = this.ema.cNL;
+                                            UtilHelper.showToast(pbActivity4.getActivity(), t.j.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.dRr.mForumId;
-                                        j4 = this.dRr.mThreadId;
+                                        j3 = this.ema.mForumId;
+                                        j4 = this.ema.mThreadId;
                                         aVar.c(j3, j4, sb.toString());
-                                        this.dRr.dRo = true;
+                                        this.ema.elX = true;
                                     }
                                 }
                             }

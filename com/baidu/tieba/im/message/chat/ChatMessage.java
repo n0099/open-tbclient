@@ -32,6 +32,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
     private String link;
     private MsgLocalData localData;
     private long logTime;
+    private boolean mIsPushForOperateAccount;
     private LinkedList<IconData> mTShowIconInfo;
     private long mToUserId;
     private long msgId;
@@ -61,8 +62,17 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
     public ChatMessage(int i) {
         super(i);
         this.progressValue = 0;
+        this.mIsPushForOperateAccount = false;
         this.isGifLoadSuccess = true;
         this.isUploading = false;
+    }
+
+    public boolean isPushForOperateAccount() {
+        return this.mIsPushForOperateAccount;
+    }
+
+    public void setIsPushForOperateAccount(boolean z) {
+        this.mIsPushForOperateAccount = z;
     }
 
     public String getGroupId() {
@@ -121,15 +131,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.avy = false;
-                aVar.avz = optString;
-                aVar.avA = optString2;
-                aVar.avB = optString3;
+                aVar.awq = false;
+                aVar.awr = optString;
+                aVar.aws = optString2;
+                aVar.awt = optString3;
                 aVar.mGid = optString4;
-                aVar.avC = optInt;
-                aVar.avD = optInt2;
+                aVar.awu = optInt;
+                aVar.awv = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.avE = optString6;
+                aVar.Vq = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }

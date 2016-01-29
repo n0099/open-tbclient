@@ -27,7 +27,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         DESCEND,
         NONE;
 
-        /* JADX DEBUG: Replace access to removed values field (qv) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qB) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SORT[] valuesCustom() {
             SORT[] valuesCustom = values();
@@ -145,6 +145,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // 
     public synchronized List<Map.Entry<String, Object>> encodeInBackGround() {
         ArrayList arrayList;
         arrayList = new ArrayList(this.mParams.entrySet());
@@ -185,24 +186,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT qu;
+        private SORT qA;
 
         public a(SORT sort) {
-            this.qu = null;
-            this.qu = sort;
+            this.qA = null;
+            this.qA = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.qu == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.qA == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.v(i);
+        return FrameHelper.F(i);
     }
 
     public boolean setNeedProgress() {

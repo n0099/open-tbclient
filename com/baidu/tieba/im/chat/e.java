@@ -4,39 +4,39 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity bKg;
+    final /* synthetic */ AbsMsgImageActivity bNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.bKg = absMsgImageActivity;
+        this.bNP = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         com.baidu.tbadk.core.dialog.c listMenu;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.bKg.getListMenu();
+        listMenu = this.bNP.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.bKg.bJU;
+                        multiImageView = this.bNP.bND;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.bKg.bJU;
+                            multiImageView2 = this.bNP.bND;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.bKg.bJR = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.bKg.bJR;
+                            this.bNP.bNA = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.bNP.bNA;
                             aVar.execute(new String[0]);
-                            this.bKg.bJS.setClickable(false);
+                            this.bNP.bNB.setClickable(false);
                         } else {
-                            this.bKg.showToast(this.bKg.getPageContext().getString(n.j.no_data));
+                            this.bNP.showToast(this.bNP.getPageContext().getString(t.j.no_data));
                         }
                         break;
                     } catch (Exception e) {

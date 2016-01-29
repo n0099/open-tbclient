@@ -18,8 +18,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int cQh = 0;
-    private static String cQi = "";
+    private static int cZE = 0;
+    private static String cZF = "";
     public int hide_post;
     private int mLastChooseStyle;
     public List<PostInfoList> post_list;
@@ -57,19 +57,19 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i) {
-        if (z || !str.equals(cQi)) {
-            cQh = 1;
-            cQi = str;
+        if (z || !str.equals(cZF)) {
+            cZE = 1;
+            cZF = str;
         } else {
-            cQh++;
+            cZE++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(cQi);
-        userPostPageRequestMessage.setPn(cQh);
+        userPostPageRequestMessage.setUid(cZF);
+        userPostPageRequestMessage.setPn(cZE);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
@@ -77,7 +77,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.ay.va().vc() ? 2 : 1;
+        int i2 = com.baidu.tbadk.core.util.ax.wg().wi() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(K);
         userPostPageRequestMessage.set_scr_h(L);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -129,7 +129,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     /* loaded from: classes.dex */
-    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.aj, Serializable {
+    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.ai, Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -203,16 +203,16 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.aj
-        public ArrayList<com.baidu.tbadk.core.util.ai> getImages() {
+        @Override // com.baidu.tbadk.core.util.ai
+        public ArrayList<com.baidu.tbadk.core.util.ah> getImages() {
             Media[] mediaArr;
-            ArrayList<com.baidu.tbadk.core.util.ai> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tbadk.core.util.ah> arrayList = new ArrayList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    com.baidu.tbadk.core.util.ai aiVar = new com.baidu.tbadk.core.util.ai();
-                    aiVar.Xp = media.big_pic;
-                    aiVar.abU = 10;
-                    arrayList.add(aiVar);
+                    com.baidu.tbadk.core.util.ah ahVar = new com.baidu.tbadk.core.util.ah();
+                    ahVar.imgUrl = media.big_pic;
+                    ahVar.acq = 10;
+                    arrayList.add(ahVar);
                 }
             }
             return arrayList;
@@ -282,7 +282,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = m(length, i2, i3);
+                        random = l(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -298,7 +298,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         }
     }
 
-    private static int m(int i, int i2, int i3) {
+    private static int l(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

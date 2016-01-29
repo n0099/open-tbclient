@@ -1,40 +1,32 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class k implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> bf(List<o.b<String>> list) {
-        LinkedList linkedList = new LinkedList();
-        if (list != null) {
-            for (o.b<String> bVar : list) {
-                String str = bVar.key;
-                if (!TextUtils.isEmpty(str)) {
-                    linkedList.add(str);
-                }
-            }
-        }
-        return linkedList;
-    }
-
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
             return null;
         }
+        RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> bf = bf(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.tc().Q("tb.searchperson_history", currentAccount)));
-        ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(bf);
-        return responseSearchPersonHistoryReadMessage;
+        com.baidu.adp.lib.cache.o<String> Q = com.baidu.tbadk.core.b.a.ug().Q("tb.searchperson_history", currentAccount);
+        if (requestSearchPersonHistoryWriteMessage.isClear()) {
+            BdCacheService.gs().a(Q);
+        } else {
+            Object data = requestSearchPersonHistoryWriteMessage.getData();
+            if (data == null || !(data instanceof String)) {
+                return null;
+            }
+            Q.f((String) data, null);
+        }
+        return new ResponseSearchPersonHistoryWriteMessage();
     }
 }
