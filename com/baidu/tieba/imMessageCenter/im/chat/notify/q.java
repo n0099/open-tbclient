@@ -15,7 +15,7 @@ class q implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFrag
             return null;
         }
         bd bdVar = new bd();
-        bdVar.jx(InvokeNewImMessageCenterFragmentConfig.currentPageType);
+        bdVar.jU(InvokeNewImMessageCenterFragmentConfig.currentPageType);
         return new CustomResponsedMessage<>(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, bdVar);
     }
 }

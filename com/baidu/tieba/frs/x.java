@@ -1,33 +1,48 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.RecommendForumData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class x implements Runnable {
-    final /* synthetic */ FrsActivity bed;
-    private final /* synthetic */ long bee;
-    private final /* synthetic */ long bef;
-    private final /* synthetic */ long beg;
+class x implements SlidingMenu.OnOpenedListener {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(FrsActivity frsActivity, long j, long j2, long j3) {
-        this.bed = frsActivity;
-        this.bee = j;
-        this.bef = j2;
-        this.beg = j3;
+    public x(FrsActivity frsActivity) {
+        this.bgz = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int K = com.baidu.adp.lib.util.k.K(this.bed.getPageContext().getPageActivity());
-        int L = com.baidu.adp.lib.util.k.L(this.bed.getPageContext().getPageActivity());
-        float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i = 1;
-        if (com.baidu.tbadk.core.util.ay.va().vc()) {
-            i = 2;
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        eb ebVar;
+        com.baidu.tieba.frs.c.l lVar;
+        eb ebVar2;
+        com.baidu.tieba.tbadkCore.o oVar;
+        com.baidu.tieba.tbadkCore.o oVar2;
+        com.baidu.tieba.tbadkCore.o oVar3;
+        this.bgz.setSwipeBackEnabled(false);
+        cn cnVar = this.bgz.bfD;
+        ebVar = this.bgz.bfG;
+        cnVar.a(ebVar);
+        lVar = this.bgz.bfT;
+        ebVar2 = this.bgz.bfG;
+        lVar.a(ebVar2);
+        TiebaStatic.eventStat(this.bgz.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
+        oVar = this.bgz.bfF;
+        if (oVar != null) {
+            oVar2 = this.bgz.bfF;
+            if (oVar2.aoE() != null) {
+                oVar3 = this.bgz.bfF;
+                ArrayList<RecommendForumData> recommendForumData = oVar3.aoE().getRecommendForumData();
+                if (recommendForumData != null) {
+                    Iterator<RecommendForumData> it = recommendForumData.iterator();
+                    while (it.hasNext()) {
+                        TiebaStatic.eventStat(this.bgz.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);
+                    }
+                }
+            }
         }
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setParams(this.bee, this.bef, this.beg, K, L, f, i);
-        this.bed.sendMessage(requestGetMyPostNetMessage);
     }
 }

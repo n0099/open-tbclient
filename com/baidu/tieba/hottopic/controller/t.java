@@ -1,46 +1,25 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import java.util.ArrayList;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
-    final /* synthetic */ RelateTopicForumActivity bGY;
+public class t implements a.b {
+    final /* synthetic */ o bKu;
+    private final /* synthetic */ com.baidu.tieba.hottopic.view.r bKv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(RelateTopicForumActivity relateTopicForumActivity, int i) {
-        super(i);
-        this.bGY = relateTopicForumActivity;
+    public t(o oVar, com.baidu.tieba.hottopic.view.r rVar) {
+        this.bKu = oVar;
+        this.bKv = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList arrayList;
-        RelateForumItemData aM;
-        com.baidu.tieba.hottopic.view.h hVar;
-        ArrayList arrayList2;
-        if (customResponsedMessage != null) {
-            arrayList = this.bGY.YJ;
-            if (!arrayList.isEmpty()) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Long) {
-                    aM = this.bGY.aM(((Long) data).longValue());
-                    if (aM != null) {
-                        aM.followNum++;
-                        aM.setIsLiked(true);
-                        hVar = this.bGY.bGX;
-                        com.baidu.tieba.hottopic.a.u VN = hVar.VN();
-                        if (VN != null) {
-                            arrayList2 = this.bGY.YJ;
-                            VN.setData(arrayList2);
-                            VN.notifyDataSetChanged();
-                        }
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bKu.context;
+        ((InputMethodManager) ((HotTopicActivity) tbPageContext.getOrignalPage()).getSystemService("input_method")).hideSoftInputFromWindow(this.bKv.getChatMsgView().getWindowToken(), 2);
+        aVar.dismiss();
     }
 }

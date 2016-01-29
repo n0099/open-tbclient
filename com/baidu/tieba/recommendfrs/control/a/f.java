@@ -14,21 +14,21 @@ import com.baidu.tieba.recommendfrs.personalize.RealTimeSocketResponse;
 public class f {
     private BdUniqueId unique_id = null;
 
-    public void l(BdUniqueId bdUniqueId) {
+    public void m(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        IQ();
-        IP();
+        KI();
+        KH();
     }
 
-    private void IP() {
+    private void KH() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309277);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
         bVar.i(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void IQ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, com.baidu.tieba.tbadkCore.a.a.ak(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+    private void KI() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, com.baidu.tieba.tbadkCore.a.a.am(TbConfig.HOME_REALTIME_ADDRESS, 309277));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

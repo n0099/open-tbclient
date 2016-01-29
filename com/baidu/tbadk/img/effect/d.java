@@ -1,6 +1,7 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class d extends b {
     private int maxHeight;
@@ -11,7 +12,7 @@ public class d extends b {
         return "resize";
     }
 
-    public static ImageOperation K(int i, int i2) {
+    public static ImageOperation G(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "resize";
         imageOperation.actionParam = String.valueOf(i) + "," + i2;
@@ -19,7 +20,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void fL(String str) {
+    public void fJ(String str) {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
@@ -34,13 +35,13 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.CM().et(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
-        return com.baidu.tbadk.core.util.c.a(bitmap, this.maxWidth, this.maxHeight, z);
+        com.baidu.tbadk.imageManager.c.Ed().eN(BitmapHelper.getBitmapSize(bitmap) * 2);
+        return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fM(String str) {
-        return b(com.baidu.tbadk.core.util.c.b(str, this.maxWidth, this.maxHeight), true);
+    public Bitmap fK(String str) {
+        return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 
     public int getMaxWidth() {

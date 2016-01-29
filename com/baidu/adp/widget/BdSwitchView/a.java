@@ -1,15 +1,15 @@
 package com.baidu.adp.widget.BdSwitchView;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ BdSwitchView FI;
+    final /* synthetic */ BdSwitchView FV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSwitchView bdSwitchView) {
-        this.FI = bdSwitchView;
+        this.FV = bdSwitchView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.FI.mg();
+        this.FV.mv();
     }
 }

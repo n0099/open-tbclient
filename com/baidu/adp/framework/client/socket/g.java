@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class g {
-    private static g oJ = null;
-    private int ov = 0;
+    private static g oM = null;
+    private int oy = 0;
 
-    public static g et() {
-        if (oJ == null) {
+    public static g ex() {
+        if (oM == null) {
             synchronized (g.class) {
-                if (oJ == null) {
-                    oJ = new g();
+                if (oM == null) {
+                    oM = new g();
                 }
             }
         }
-        return oJ;
+        return oM;
     }
 
-    public synchronized void a(Map<String, String> map) {
+    public synchronized void b(Map<String, String> map) {
         if (map != null) {
             try {
-                this.ov = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.oy = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                k.a("SequenceManager", 0, 0, "setSequenceId", j.pA, "parser Seq-Id error");
-                if (this.ov == 0) {
-                    this.ov = new Random().nextInt();
+                k.a("SequenceManager", 0, 0, "setSequenceId", j.pD, "parser Seq-Id error");
+                if (this.oy == 0) {
+                    this.oy = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int en() {
+    public synchronized int er() {
         int i;
-        if (this.ov == 0) {
-            this.ov++;
+        if (this.oy == 0) {
+            this.oy++;
         }
-        i = this.ov;
-        this.ov = i + 1;
+        i = this.oy;
+        this.oy = i + 1;
         return i;
     }
 }

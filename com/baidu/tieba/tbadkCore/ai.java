@@ -1,65 +1,101 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bj;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ U9InfoView dGe;
+public class ai {
+    private String aer = "bar_detail";
+    private a dWa;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(U9InfoView u9InfoView) {
-        this.dGe = u9InfoView;
+    /* loaded from: classes.dex */
+    public interface a {
+        void g(String str, long j);
+
+        void h(String str, long j);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        RelativeLayout relativeLayout;
-        LinearLayout linearLayout;
-        com.baidu.tbadk.core.data.ad adVar;
-        Context context2;
-        Context context3;
-        com.baidu.tbadk.core.data.ad adVar2;
-        com.baidu.tbadk.core.data.aa aaVar;
-        Context context4;
-        Context context5;
-        com.baidu.tbadk.core.data.aa aaVar2;
-        context = this.dGe.mContext;
-        if (bj.ah(context) && com.baidu.adp.lib.util.k.jh()) {
-            relativeLayout = this.dGe.dFU;
-            if (view != relativeLayout) {
-                linearLayout = this.dGe.dFV;
-                if (view == linearLayout) {
-                    adVar = this.dGe.news_info;
-                    if (!TextUtils.isEmpty(adVar.tb())) {
-                        context2 = this.dGe.mContext;
-                        TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
-                        bf vn = bf.vn();
-                        context3 = this.dGe.mContext;
-                        adVar2 = this.dGe.news_info;
-                        vn.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{adVar2.tb()});
+    public void setFrom(String str) {
+        this.aer = str;
+    }
+
+    public void a(a aVar) {
+        this.dWa = aVar;
+    }
+
+    public void m(String str, long j) {
+        new b(str, j, this.aer, this.dWa).execute(new Integer[0]);
+    }
+
+    /* loaded from: classes.dex */
+    private static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        private String aer;
+        private com.baidu.tbadk.core.util.aa aiG = null;
+        private WeakReference<a> dWb;
+        private long mForumId;
+        private String mForumName;
+
+        public b(String str, long j, String str2, a aVar) {
+            this.mForumName = null;
+            this.mForumId = 0L;
+            this.dWb = null;
+            this.mForumName = str;
+            this.mForumId = j;
+            this.dWb = new WeakReference<>(aVar);
+            this.aer = str2;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public Integer doInBackground(Integer... numArr) {
+            try {
+                if (this.mForumId != 0 && this.mForumName != null) {
+                    this.aiG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                    this.aiG.p(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
+                    this.aiG.p("kw", this.mForumName);
+                    this.aiG.p("favo_type", "1");
+                    this.aiG.p("st_type", this.aer);
+                    this.aiG.vB().wv().mIsNeedTbs = true;
+                    this.aiG.uZ();
+                }
+                return 1;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            a aVar;
+            super.onPostExecute((b) num);
+            if (this.dWb != null && (aVar = this.dWb.get()) != null) {
+                if (this.aiG != null) {
+                    if (this.aiG.vB().ww().rl()) {
+                        if (num.intValue() == 1) {
+                            TbadkCoreApplication.m411getInst().delLikeForum(this.mForumName);
+                            aVar.g(this.mForumName, this.mForumId);
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
+                            return;
+                        }
+                        aVar.h(this.mForumName, this.mForumId);
                         return;
                     }
+                    aVar.h(this.mForumName, this.mForumId);
                     return;
                 }
-                return;
-            }
-            aaVar = this.dGe.top_code;
-            if (!TextUtils.isEmpty(aaVar.sS())) {
-                context4 = this.dGe.mContext;
-                TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
-                bf vn2 = bf.vn();
-                context5 = this.dGe.mContext;
-                aaVar2 = this.dGe.top_code;
-                vn2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{aaVar2.sS()});
+                aVar.h(this.mForumName, this.mForumId);
             }
         }
     }

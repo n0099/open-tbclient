@@ -5,21 +5,21 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import com.baidu.tbadk.editortools.view.a;
 /* loaded from: classes.dex */
-class u implements a.InterfaceC0049a {
-    final /* synthetic */ t asQ;
+class u implements a.InterfaceC0050a {
+    final /* synthetic */ t atJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.asQ = tVar;
+        this.atJ = tVar;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0049a
+    @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0050a
     public View getView(int i, View view, ViewGroup viewGroup) {
-        e ed;
-        ed = this.asQ.ed(i);
-        if (ed.getLayoutParams() == null) {
-            ed.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        e ey;
+        ey = this.atJ.ey(i);
+        if (ey.getLayoutParams() == null) {
+            ey.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         }
-        return ed;
+        return ey;
     }
 }

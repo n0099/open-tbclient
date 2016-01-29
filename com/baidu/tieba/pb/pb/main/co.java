@@ -1,112 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.pb.pb.main.cm;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co extends com.baidu.adp.base.f<PbActivity> {
-    private TextView cHA;
-    private TextView cHH;
-    private View cHI;
-    private TextView cHJ;
-    private TextView cHK;
-    private TextView cHL;
-    private View cHM;
-    private TextView cHN;
-    private View cHO;
-    private PbActivity cHP;
-    private View.OnClickListener mClickListener;
-    private View mView;
+public class co implements Runnable {
+    final /* synthetic */ cn cPe;
+    private final /* synthetic */ PbPageReadLocalResponseMessage cPf;
+    private final /* synthetic */ com.baidu.tieba.pb.a.c cPg;
 
-    public co(PbActivity pbActivity, View.OnClickListener onClickListener) {
-        super(pbActivity.getPageContext());
-        this.mView = null;
-        this.cHA = null;
-        this.cHH = null;
-        this.cHI = null;
-        this.cHJ = null;
-        this.cHK = null;
-        this.cHL = null;
-        this.cHM = null;
-        this.cHN = null;
-        this.cHO = null;
-        this.cHP = null;
-        this.mClickListener = null;
-        this.cHP = pbActivity;
-        this.mClickListener = onClickListener;
-        initUI();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public co(cn cnVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.a.c cVar) {
+        this.cPe = cnVar;
+        this.cPf = pbPageReadLocalResponseMessage;
+        this.cPg = cVar;
     }
 
-    public View getView() {
-        return this.mView;
-    }
-
-    public TextView amf() {
-        return this.cHA;
-    }
-
-    public TextView amk() {
-        return this.cHH;
-    }
-
-    public View aml() {
-        return this.cHI;
-    }
-
-    public TextView amm() {
-        return this.cHJ;
-    }
-
-    public TextView amn() {
-        return this.cHK;
-    }
-
-    public TextView amo() {
-        return this.cHN;
-    }
-
-    public TextView amp() {
-        return this.cHL;
-    }
-
-    public void fi(boolean z) {
-        if (z) {
-            this.cHN.setVisibility(8);
-            this.cHO.setVisibility(8);
-            return;
-        }
-        this.cHN.setVisibility(0);
-        this.cHO.setVisibility(0);
-    }
-
-    public void fj(boolean z) {
-        if (z) {
-            this.cHL.setVisibility(8);
-            this.cHM.setVisibility(8);
-            return;
-        }
-        this.cHL.setVisibility(0);
-        this.cHM.setVisibility(0);
-    }
-
-    private void initUI() {
-        this.mView = LayoutInflater.from(this.cHP.getPageContext().getPageActivity()).inflate(n.h.pb_more_view, (ViewGroup) null);
-        this.cHA = (TextView) this.mView.findViewById(n.g.pb_more_view_item_mark);
-        this.cHA.setOnClickListener(this.mClickListener);
-        this.cHH = (TextView) this.mView.findViewById(n.g.pb_more_view_item_share);
-        this.cHI = this.mView.findViewById(n.g.pb_more_view_item_line_share);
-        this.cHH.setOnClickListener(this.mClickListener);
-        this.cHJ = (TextView) this.mView.findViewById(n.g.pb_more_view_item_jump);
-        this.cHJ.setOnClickListener(this.mClickListener);
-        this.cHK = (TextView) this.mView.findViewById(n.g.pb_more_view_item_see);
-        this.cHK.setOnClickListener(this.mClickListener);
-        this.cHN = (TextView) this.mView.findViewById(n.g.pb_more_view_item_report);
-        this.cHN.setOnClickListener(this.mClickListener);
-        this.cHO = this.mView.findViewById(n.g.pb_more_view_item_report_line);
-        this.cHL = (TextView) this.mView.findViewById(n.g.pb_more_view_item_upgrade_thread);
-        this.cHM = this.mView.findViewById(n.g.pb_more_view_item_upgrade_line);
-        this.cHL.setOnClickListener(this.mClickListener);
+    @Override // java.lang.Runnable
+    public void run() {
+        cm cmVar;
+        cm.c cVar;
+        cm cmVar2;
+        cm.c cVar2;
+        cmVar = this.cPe.cPd;
+        cVar = cmVar.cOL;
+        cVar.a(true, 0, this.cPf.getUpdateType(), 0, this.cPg, this.cPf.getErrorString(), 0);
+        cmVar2 = this.cPe.cPd;
+        cVar2 = cmVar2.cOL;
+        cVar2.fo(false);
     }
 }

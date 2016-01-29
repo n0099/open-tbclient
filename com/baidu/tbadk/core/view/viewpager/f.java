@@ -1,89 +1,108 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.u;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class f implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ d ahy;
+public class f {
+    private int aid;
+    private List<u> ail;
+    private List<u> aim;
+    private boolean ain;
+    private boolean aio;
+    private int aip = 2;
+    private int aiq = 1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.ahy = dVar;
+    public f(List<u> list, boolean z, int i) {
+        this.aid = 2;
+        this.ail = list;
+        this.aio = z;
+        this.aid = i;
+        q(list);
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        ViewPager.OnPageChangeListener onPageChangeListener;
-        a aVar;
-        ViewPager viewPager;
-        ViewPager viewPager2;
-        ViewPager viewPager3;
-        ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.ahy.ahv;
-        if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.ahy.ahv;
-            onPageChangeListener2.onPageScrollStateChanged(i);
+    public void q(List<u> list) {
+        if (list != null && list.size() >= this.aip && list.size() <= this.aid) {
+            this.ain = true;
+        } else if (list.size() > this.aid && this.aio) {
+            this.ain = true;
+        } else {
+            this.ain = false;
         }
-        if (i == 1) {
-            this.ahy.wb();
-        } else if (i == 0) {
-            aVar = this.ahy.ahp;
-            int count = aVar.getCount();
-            if (count >= 2) {
-                viewPager = this.ahy.mViewPager;
-                int currentItem = viewPager.getCurrentItem();
-                int i2 = count - 2;
-                if (currentItem < 1) {
-                    viewPager3 = this.ahy.mViewPager;
-                    viewPager3.setCurrentItem(i2, false);
-                } else if (currentItem > i2) {
-                    viewPager2 = this.ahy.mViewPager;
-                    viewPager2.setCurrentItem(1, false);
+        this.aim = xt();
+    }
+
+    private List<u> xt() {
+        ArrayList arrayList = new ArrayList();
+        if (this.ail != null) {
+            if (this.ain) {
+                if (this.ail.size() > this.aid && this.ail.size() >= this.aiq) {
+                    arrayList.addAll(this.ail.subList(0, this.aid));
+                    arrayList.addAll(0, this.ail.subList(this.aid - this.aiq, this.aid));
+                    arrayList.addAll(this.ail.subList(0, this.aiq));
+                } else {
+                    arrayList.addAll(this.ail);
+                    arrayList.addAll(0, this.ail.subList(this.ail.size() - this.aiq, this.ail.size()));
+                    arrayList.addAll(this.ail.subList(0, this.aiq));
                 }
-                this.ahy.wa();
+            } else if (this.ail != null && this.ail.size() > 0 && this.ail.size() >= this.aiq) {
+                arrayList.addAll(this.ail.subList(0, this.aiq));
             }
         }
+        return arrayList;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-        ViewPager.OnPageChangeListener onPageChangeListener;
-        ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.ahy.ahv;
-        if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.ahy.ahv;
-            onPageChangeListener2.onPageScrolled(i, f, i2);
-        }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        h hVar;
-        h hVar2;
-        IndicatorView indicatorView;
-        ViewPager.OnPageChangeListener onPageChangeListener;
-        ViewPager.OnPageChangeListener onPageChangeListener2;
-        h hVar3;
-        IndicatorView indicatorView2;
-        h hVar4;
-        hVar = this.ahy.ahq;
-        if (hVar != null) {
-            hVar2 = this.ahy.ahq;
-            if (hVar2.cT(i) == i) {
-                indicatorView = this.ahy.ahm;
-                if (indicatorView != null) {
-                    indicatorView2 = this.ahy.ahm;
-                    hVar4 = this.ahy.ahq;
-                    indicatorView2.setPosition(hVar4.cU(i));
-                }
-                onPageChangeListener = this.ahy.ahv;
-                if (onPageChangeListener != null) {
-                    onPageChangeListener2 = this.ahy.ahv;
-                    hVar3 = this.ahy.ahq;
-                    onPageChangeListener2.onPageSelected(hVar3.cU(i));
-                }
+    public int dp(int i) {
+        if (this.ain) {
+            int size = this.aim.size();
+            if (i == 0) {
+                return (size - 1) - this.aiq;
             }
+            if (i == size - this.aiq) {
+                return this.aiq;
+            }
+            return i;
         }
+        return i;
+    }
+
+    public int dq(int i) {
+        if (this.ain) {
+            return i - this.aiq;
+        }
+        return i;
+    }
+
+    public int xu() {
+        if (this.ail == null) {
+            return 0;
+        }
+        return this.ail.size();
+    }
+
+    public int xv() {
+        if (this.ain) {
+            return this.aiq;
+        }
+        return 0;
+    }
+
+    public void dr(int i) {
+        this.aid = i;
+        q(this.ail);
+    }
+
+    public void ds(int i) {
+        this.aip = i;
+        q(this.ail);
+    }
+
+    public List<u> xw() {
+        return this.aim;
+    }
+
+    public void dt(int i) {
+        this.aiq = i;
+        q(this.ail);
     }
 }

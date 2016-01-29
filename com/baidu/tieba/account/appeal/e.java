@@ -3,20 +3,20 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class e implements a.b {
-    final /* synthetic */ AppealActivity aIN;
-    private final /* synthetic */ boolean aIP;
+    final /* synthetic */ AppealActivity aJS;
+    private final /* synthetic */ boolean aJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AppealActivity appealActivity, boolean z) {
-        this.aIN = appealActivity;
-        this.aIP = z;
+        this.aJS = appealActivity;
+        this.aJU = z;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        if (this.aIP) {
-            this.aIN.finish();
+        if (this.aJU) {
+            this.aJS.finish();
         }
     }
 }

@@ -28,7 +28,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.dF().g(getPageContext().getPageActivity());
+        a.dH().g(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -137,8 +137,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.g.c.hd().d(this.mId);
-        a.dF().h(getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.c.hl().d(this.mId);
+        a.dH().h(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -146,7 +146,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.g.c.hd().e(this.mId);
+        com.baidu.adp.lib.g.c.hl().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,7 +163,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.na();
+            onGetPreLoadListView.nq();
         }
     }
 
@@ -217,7 +217,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = j.dK().getResources();
+        Resources resources = j.dN().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

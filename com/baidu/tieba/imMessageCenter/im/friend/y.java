@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
-    private RequestCommitInviteMessage chi;
-    private int chj;
-    private int chk;
+    private int cel;
+    private RequestCommitInviteMessage clK;
+    private int clL;
 
     public y(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.chj = intent.getIntExtra("gid", -1);
-            this.chk = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.cel = intent.getIntExtra("gid", -1);
+            this.clL = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.chj = bundle.getInt("gid", -1);
-            this.chk = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.cel = bundle.getInt("gid", -1);
+            this.clL = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
-    public void f(Bundle bundle) {
-        bundle.putInt("gid", this.chj);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.chk);
+    public void k(Bundle bundle) {
+        bundle.putInt("gid", this.cel);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.clL);
     }
 
-    public void jt(String str) {
-        this.chi = c(this.chj, this.chk, str);
-        super.sendMessage(this.chi);
+    public void jx(String str) {
+        this.clK = c(this.cel, this.clL, str);
+        super.sendMessage(this.clK);
     }
 
     private RequestCommitInviteMessage c(int i, int i2, String str) {

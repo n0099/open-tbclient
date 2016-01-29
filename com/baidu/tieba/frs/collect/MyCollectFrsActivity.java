@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -24,58 +24,58 @@ import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.core.view.r;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.bf;
-import com.baidu.tieba.n;
+import com.baidu.tieba.frs.bh;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tieba.tbadkCore.o;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> implements BdListView.e, UserIconBox.b, VoiceManager.c, FrsCommonImageLayout.c {
-    private static final int bcW = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds90);
-    private static final int bcX = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds300);
-    private com.baidu.adp.lib.f.b<TbImageView> agI;
-    private String bbW;
-    private z bcY;
-    private com.baidu.adp.lib.f.b<TbImageView> bdr;
-    private a bjW;
-    private l bjX;
-    private z bka;
+    private static final int bfn = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90);
+    private static final int bfo = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds300);
+    private com.baidu.adp.lib.f.b<TbImageView> ahx;
+    private String beh;
+    VoiceManager ben;
+    private com.baidu.adp.lib.f.b<TbImageView> bfI;
+    private ah bfp;
+    private a bmS;
+    private l bmT;
+    private ah bmW;
     private long mForumId;
     private String mForumName;
-    VoiceManager mVoiceManager;
-    private String bjV = null;
+    private String bmR = null;
     private String forumId = null;
-    private p bdo = new p();
+    private o bfF = new o();
     private boolean mHasMore = false;
-    private final r.a bdP = new b(this);
-    com.baidu.adp.framework.listener.a bjY = new c(this, CmdConfigHttp.CMD_GET_USER_FORUM_STORE, 309112);
-    private final bf bjZ = new d(this);
+    private final r.a bgi = new b(this);
+    com.baidu.adp.framework.listener.a bmU = new c(this, CmdConfigHttp.CMD_GET_USER_FORUM_STORE, 309112);
+    private final bh bmV = new d(this);
     private boolean isNeedRefreshOnResume = false;
-    private boolean bkb = false;
-    private boolean bcZ = false;
-    private final NoNetworkView.a bbw = new e(this);
-    private CustomMessageListener agG = new f(this, CmdConfigCustom.PB_ACTION_PRAISE);
-    private v bdW = new g(this);
-    private w bdZ = new i(this);
-    private View.OnClickListener SY = new j(this);
+    private boolean bmX = false;
+    private boolean bfq = false;
+    private final NoNetworkView.a bdG = new e(this);
+    private CustomMessageListener ahv = new f(this, CmdConfigCustom.PB_ACTION_PRAISE);
+    private v bgr = new g(this);
+    private w bgv = new i(this);
+    private View.OnClickListener Ss = new j(this);
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.mVoiceManager == null) {
-            this.mVoiceManager = VoiceManager.instance();
+        if (this.ben == null) {
+            this.ben = VoiceManager.instance();
         }
-        return this.mVoiceManager;
+        return this.ben;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
-    public VoiceManager.b getRealView(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fP(int i) {
-        ArrayList<u> threadList = this.bdo.getThreadList();
+    public void gl(int i) {
+        ArrayList<u> threadList = this.bfF.getThreadList();
         if (threadList != null) {
             Iterator<u> it = threadList.iterator();
             while (true) {
@@ -83,26 +83,26 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
                     break;
                 }
                 u next = it.next();
-                if (next instanceof z) {
-                    z zVar = (z) next;
-                    if (zVar == this.bcY) {
-                        b(zVar, i);
-                        this.bcY = null;
+                if (next instanceof ah) {
+                    ah ahVar = (ah) next;
+                    if (ahVar == this.bfp) {
+                        b(ahVar, i);
+                        this.bfp = null;
                         break;
-                    } else if (zVar.getId() != null && zVar.getId().equals(this.bbW)) {
-                        b(zVar, i);
-                        this.bbW = null;
+                    } else if (ahVar.getId() != null && ahVar.getId().equals(this.beh)) {
+                        b(ahVar, i);
+                        this.beh = null;
                         break;
                     }
                 }
             }
-            this.bjX.OL().a(threadList, this.bdo);
+            this.bmT.QO().a(threadList, this.bfF);
         }
     }
 
-    private void b(z zVar, int i) {
+    private void b(ah ahVar, int i) {
         if (i == 1) {
-            PraiseData praise = zVar.getPraise();
+            PraiseData praise = ahVar.getPraise();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 MetaData metaData = new MetaData();
@@ -114,23 +114,23 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
                     praiseData.setIsLike(i);
                     praiseData.setNum(1L);
                     praiseData.getUser().add(0, metaData);
-                    zVar.setPraise(praiseData);
+                    ahVar.setPraise(praiseData);
                     return;
                 }
-                zVar.getPraise().getUser().add(0, metaData);
-                zVar.getPraise().setNum(zVar.getPraise().getNum() + 1);
-                zVar.getPraise().setIsLike(i);
+                ahVar.getPraise().getUser().add(0, metaData);
+                ahVar.getPraise().setNum(ahVar.getPraise().getNum() + 1);
+                ahVar.getPraise().setIsLike(i);
             }
-        } else if (zVar.getPraise() != null) {
-            zVar.getPraise().setIsLike(i);
-            zVar.getPraise().setNum(zVar.getPraise().getNum() - 1);
-            ArrayList<MetaData> user = zVar.getPraise().getUser();
+        } else if (ahVar.getPraise() != null) {
+            ahVar.getPraise().setIsLike(i);
+            ahVar.getPraise().setNum(ahVar.getPraise().getNum() - 1);
+            ArrayList<MetaData> user = ahVar.getPraise().getUser();
             if (user != null) {
                 Iterator<MetaData> it = user.iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
                     if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                        zVar.getPraise().getUser().remove(next);
+                        ahVar.getPraise().getUser().remove(next);
                         return;
                     }
                 }
@@ -139,57 +139,58 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        if (!com.baidu.adp.lib.util.k.jh()) {
-            this.bjX.Om();
+    public void nv() {
+        if (!com.baidu.adp.lib.util.k.jq()) {
+            this.bmT.Qp();
         } else if (this.mHasMore) {
-            Ns();
-            this.bjW.OK();
+            Pp();
+            this.bmS.QN();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> MH() {
-        if (this.bdr == null) {
-            this.bdr = FrsCommonImageLayout.n(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.f.b<TbImageView> OC() {
+        if (this.bfI == null) {
+            this.bfI = FrsCommonImageLayout.l(getPageContext().getPageActivity(), 12);
         }
-        return this.bdr;
+        return this.bfI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
+    /* renamed from: KM */
     public BdListView getListView() {
-        if (this.bjX == null) {
+        if (this.bmT == null) {
             return null;
         }
-        return this.bjX.getListView();
+        return this.bmT.KM();
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public int vU() {
-        if (this.bjX == null) {
+    public int xi() {
+        if (this.bmT == null) {
             return 0;
         }
-        return this.bjX.Oc();
+        return this.bmT.Qc();
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.f.b<TbImageView> vV() {
-        if (this.agI == null) {
-            this.agI = UserIconBox.g(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.f.b<TbImageView> xj() {
+        if (this.ahx == null) {
+            this.ahx = UserIconBox.e(getPageContext().getPageActivity(), 8);
         }
-        return this.agI;
+        return this.ahx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ns() {
+    public void Pp() {
         if (this.mHasMore) {
-            this.bjX.Ok();
-        } else if (this.bdo.getThreadList() == null || this.bdo.getThreadList().size() == 0) {
-            this.bjX.Om();
+            this.bmT.Qn();
+        } else if (this.bfF.getThreadList() == null || this.bfF.getThreadList().size() == 0) {
+            this.bmT.Qp();
         } else {
-            this.bjX.gb(bcW - (this.bjW.qs().size() * bcX));
-            this.bjX.Ol();
+            this.bmT.gy(bfn - (this.bmS.qN().size() * bfo));
+            this.bmT.Qo();
         }
     }
 
@@ -199,80 +200,80 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
         super.onCreate(bundle);
         this.mForumName = getIntent().getStringExtra("forum_name");
         this.mForumId = getIntent().getLongExtra("forum_id", -1L);
-        this.bdo.akG().setName(this.mForumName);
-        this.bdo.akG().setId(String.valueOf(this.mForumId));
-        registerListener(this.bjY);
-        this.bjW = new a(this, this.mForumId);
-        this.bjW.firstLoadData();
-        setContentView(n.h.collect_frs_activity);
-        this.bjX = new l(this);
-        showLoadingView(this.bjX.getRootView());
-        this.mVoiceManager = getVoiceManager();
-        this.mVoiceManager.onCreate(getPageContext());
-        initUI();
+        this.bfF.aoE().setName(this.mForumName);
+        this.bfF.aoE().setId(String.valueOf(this.mForumId));
+        registerListener(this.bmU);
+        this.bmS = new a(this, this.mForumId);
+        this.bmS.QM();
+        setContentView(t.h.collect_frs_activity);
+        this.bmT = new l(this);
+        showLoadingView(this.bmT.getRootView());
+        this.ben = getVoiceManager();
+        this.ben.onCreate(getPageContext());
+        qD();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         super.onChangeSkinType(i);
-        this.bjX.onChangeSkinType(i);
+        this.bmT.onChangeSkinType(i);
         changeSwipeSkinType(i);
     }
 
-    private void initUI() {
-        this.bjX.a(this.bdW);
-        this.bjX.a(this.bdZ);
-        this.bjX.a(this.bdP);
-        this.bjX.f(this.bbw);
-        this.bjX.OL().b(this.bjZ);
-        this.bjX.n(this.SY);
+    private void qD() {
+        this.bmT.a(this.bgr);
+        this.bmT.a(this.bgv);
+        this.bmT.a(this.bgi);
+        this.bmT.f(this.bdG);
+        this.bmT.QO().b(this.bmV);
+        this.bmT.s(this.Ss);
     }
 
     public void refresh() {
-        stopVoice();
-        this.bjW.Kn();
+        Oy();
+        this.bmS.Me();
     }
 
-    public void stopVoice() {
-        this.mVoiceManager = getVoiceManager();
-        this.mVoiceManager.stopPlay();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(z zVar) {
-        boolean sP = zVar == null ? true : zVar.sP();
-        this.bjX.c(new k(this, zVar));
-        this.bjX.a(zVar, sP);
+    public void Oy() {
+        this.ben = getVoiceManager();
+        this.ben.stopPlay();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(z zVar) {
-        boolean sP = zVar == null ? true : zVar.sP();
-        if (this.bjV != null) {
-            if (!sP) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(zVar, this.mForumName, null, 18003, true, true, this.bkb)));
+    public void c(ah ahVar) {
+        boolean tM = ahVar == null ? true : ahVar.tM();
+        this.bmT.a(new k(this, ahVar));
+        this.bmT.a(ahVar, tM);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(ah ahVar) {
+        boolean tM = ahVar == null ? true : ahVar.tM();
+        if (this.bmR != null) {
+            if (!tM) {
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(ahVar, this.mForumName, null, 18003, true, true, this.bmX)));
             } else {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(zVar, this.mForumName, null, 18003, false, false, this.bkb)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(ahVar, this.mForumName, null, 18003, false, false, this.bmX)));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(z zVar) {
-        if (this.bjV != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(zVar, this.mForumName, null, 18003, false, false, this.bkb)));
+    public void e(ah ahVar) {
+        if (this.bmR != null) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createFromThreadCfg(ahVar, this.mForumName, null, 18003, false, false, this.bmX)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hv(String str) {
-        if (this.bjW.qs().isEmpty() && this.bjX != null) {
-            this.bjX.hw(str);
+        if (this.bmS.qN().isEmpty() && this.bmT != null) {
+            this.bmT.hw(str);
         }
     }
 
-    public void Nm() {
+    public void Pj() {
         if (getCurrentFocus() != null) {
             com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), getCurrentFocus());
         }
@@ -283,9 +284,9 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
         super.onSaveInstanceState(bundle);
         bundle.putString("forum_name", this.mForumName);
         bundle.putLong("forum_id", this.mForumId);
-        this.mVoiceManager = getVoiceManager();
-        if (this.mVoiceManager != null) {
-            this.mVoiceManager.onSaveInstanceState(getPageContext().getPageActivity());
+        this.ben = getVoiceManager();
+        if (this.ben != null) {
+            this.ben.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
@@ -295,12 +296,12 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
         super.onResume();
         if (this.isNeedRefreshOnResume) {
             this.isNeedRefreshOnResume = false;
-            this.bjX.nb();
+            this.bmT.ns();
             return;
         }
-        this.mVoiceManager = getVoiceManager();
-        this.mVoiceManager.onResume(getPageContext());
-        registerListener(this.agG);
+        this.ben = getVoiceManager();
+        this.ben.onResume(getPageContext());
+        registerListener(this.ahv);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -318,9 +319,9 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mVoiceManager = getVoiceManager();
-        this.mVoiceManager.onPause(getPageContext());
-        MessageManager.getInstance().unRegisterListener(this.agG);
+        this.ben = getVoiceManager();
+        this.ben.onPause(getPageContext());
+        MessageManager.getInstance().unRegisterListener(this.ahv);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -328,9 +329,9 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
     public void onStop() {
         Object c;
         super.onStop();
-        this.mVoiceManager = getVoiceManager();
-        if (this.mVoiceManager != null) {
-            this.mVoiceManager.onStop(getPageContext());
+        this.ben = getVoiceManager();
+        if (this.ben != null) {
+            this.ben.onStop(getPageContext());
         }
         BdListView listView = getListView();
         if (listView != null && (c = com.baidu.adp.lib.a.a.a.c(listView, "mRecycler")) != null) {
@@ -341,12 +342,12 @@ public class MyCollectFrsActivity extends BaseActivity<MyCollectFrsActivity> imp
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.bjX != null) {
-            this.bjX.onDestroy();
-            this.bjX.release();
+        if (this.bmT != null) {
+            this.bmT.onDestroy();
+            this.bmT.release();
         }
         super.onDestroy();
-        this.mVoiceManager = getVoiceManager();
-        this.mVoiceManager.onDestory(getPageContext());
+        this.ben = getVoiceManager();
+        this.ben.onDestory(getPageContext());
     }
 }

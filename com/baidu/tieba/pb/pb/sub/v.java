@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
@@ -26,14 +26,14 @@ public class v implements NewSubPbActivity.a {
         ao aoVar7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        aoVar = this.cLc.cKR;
-        if (aoVar.anR() != null) {
-            aoVar5 = this.cLc.cKR;
-            if (aoVar5.anR().Iv() != null) {
-                aoVar6 = this.cLc.cKR;
-                if (aoVar6.anR().Iv().getAuthor() != null) {
-                    aoVar7 = this.cLc.cKR;
-                    str = String.valueOf(aoVar7.anR().Iv().getAuthor().getUserId());
+        aoVar = this.cTK.cTz;
+        if (aoVar.asw() != null) {
+            aoVar5 = this.cTK.cTz;
+            if (aoVar5.asw().Ki() != null) {
+                aoVar6 = this.cTK.cTz;
+                if (aoVar6.asw().Ki().getAuthor() != null) {
+                    aoVar7 = this.cTK.cTz;
+                    str = String.valueOf(aoVar7.asw().Ki().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class v implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.cLc;
-        Activity pageActivity = this.cLc.getPageContext().getPageActivity();
-        aoVar2 = this.cLc.cKR;
-        String id = aoVar2.anR().akZ().getId();
-        aoVar3 = this.cLc.cKR;
-        String name = aoVar3.anR().akZ().getName();
-        aoVar4 = this.cLc.cKR;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, aoVar4.anR().Iv().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.cTK;
+        Activity pageActivity = this.cTK.getPageContext().getPageActivity();
+        aoVar2 = this.cTK.cTz;
+        String id = aoVar2.asw().aoX().getId();
+        aoVar3 = this.cTK.cTz;
+        String name = aoVar3.asw().aoX().getName();
+        aoVar4 = this.cTK.cTz;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, aoVar4.asw().Ki().getId(), str, str2, str3)));
     }
 }

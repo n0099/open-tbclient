@@ -13,13 +13,13 @@ class r extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c fragmentTabStructure;
+        com.baidu.tbadk.mainTab.c Ey;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.c.a)) {
             com.baidu.tbadk.c.a aVar = (com.baidu.tbadk.c.a) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
             aVar.a(threadDelegateStatic);
-            if (aVar.getContext() != null && (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.axv.setArguments(new Bundle());
+            if (aVar.getContext() != null && (Ey = threadDelegateStatic.Ey()) != null) {
+                Ey.ayo.setArguments(new Bundle());
             }
         }
     }

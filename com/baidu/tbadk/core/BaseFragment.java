@@ -17,15 +17,16 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
-    private com.baidu.tbadk.core.util.g customToast;
+    private com.baidu.tbadk.core.util.f customToast;
     private boolean isPrimary;
     private com.baidu.tbadk.f.f loadingView;
     private String mTag;
     private BdUniqueId mId = null;
     protected int mSkinType = 3;
+    protected int mUsedThemeId = 0;
     protected boolean mIsLogin = false;
 
     @Override // android.support.v4.app.Fragment
@@ -41,7 +42,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.g.tP();
+        this.customToast = com.baidu.tbadk.core.util.f.uT();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -128,7 +129,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            bd.dC(getClass().getName());
+            bc.dz(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -143,8 +144,9 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     public void changeSkinType(int i) {
-        if (i != this.mSkinType || TbadkCoreApplication.m411getInst().isUsedThemeChanged()) {
+        if (i != this.mSkinType || this.mUsedThemeId != TbadkCoreApplication.m411getInst().getUsedThemeId()) {
             this.mSkinType = i;
+            this.mUsedThemeId = TbadkCoreApplication.m411getInst().getUsedThemeId();
             onChangeSkinType(this.mSkinType);
         }
     }
@@ -179,7 +181,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.tr();
+            this.loadingView.uv();
         }
     }
 
@@ -242,22 +244,22 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             } else {
                 this.loadingView = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.loadingView.tr();
+            this.loadingView.uv();
         }
-        this.loadingView.b(view, z);
+        this.loadingView.c(view, z);
     }
 
     protected boolean isLoadingViewAttached() {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.CW();
+        return this.loadingView.Eo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.u(view);
+            this.loadingView.H(view);
         }
     }
 

@@ -1,69 +1,20 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class q {
-    protected volatile int dlR;
-    protected volatile HashMap<Long, Integer> dJm = new HashMap<>();
-    private volatile int dJl = 0;
-
+class q extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
     public q(int i) {
-        this.dlR = i;
+        super(i);
     }
 
-    public void mC(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.dJm.size() >= this.dlR) {
-                    atf();
-                }
-                this.dJl++;
-                this.dJm.put(valueOf, Integer.valueOf(this.dJl));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void atf() {
-        synchronized (this) {
-            int i = 134217727;
-            Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.dJm.entrySet()) {
-                if (entry.getValue().intValue() < i) {
-                    i = entry.getValue().intValue();
-                    l = entry.getKey();
-                }
-            }
-            if (l != null) {
-                this.dJm.remove(l);
-            } else {
-                this.dJm.clear();
-            }
-        }
-    }
-
-    public boolean mD(String str) {
-        boolean z = false;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.dJm.get(valueOf) != null) {
-                    z = true;
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        return z;
-    }
-
-    public void aGq() {
-        synchronized (this) {
-            this.dJm.clear();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (TbadkCoreApplication.m411getInst().getPhotoLiveReadThreadHistory() != null) {
+            TbadkCoreApplication.m411getInst().getPhotoLiveReadThreadHistory().aNv();
         }
     }
 }

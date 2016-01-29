@@ -12,8 +12,8 @@ class ah implements com.baidu.adp.lib.f.c<HeadImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vX */
-    public HeadImageView hc() {
+    /* renamed from: xl */
+    public HeadImageView hk() {
         return new HeadImageView(this.val$context);
     }
 

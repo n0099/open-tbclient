@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d DS;
-    private ArrayList<String> DH = new ArrayList<>();
-    private a DU;
+    private static volatile d Eg;
+    private ArrayList<String> DV = new ArrayList<>();
+    private a Eh;
 
-    public static d lq() {
-        if (DS == null) {
+    public static d lB() {
+        if (Eg == null) {
             synchronized (d.class) {
-                if (DS == null) {
-                    DS = new d();
+                if (Eg == null) {
+                    Eg = new d();
                 }
             }
         }
-        return DS;
+        return Eg;
     }
 
     private d() {
@@ -30,7 +30,7 @@ public class d {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.DH.iterator();
+            Iterator<String> it = this.DV.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -43,17 +43,17 @@ public class d {
                 }
             }
             if (!z) {
-                this.DH.add(pluginSetting.packageName);
+                this.DV.add(pluginSetting.packageName);
             }
-            lm();
+            lx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lm() {
-        if (this.DH.size() > 0 && this.DU == null) {
-            this.DU = new a(this.DH.get(0));
-            this.DU.execute(new String[0]);
+    public void lx() {
+        if (this.DV.size() > 0 && this.Eh == null) {
+            this.Eh = new a(this.DV.get(0));
+            this.Eh.execute(new String[0]);
         }
     }
 
@@ -69,7 +69,7 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
+        /* renamed from: m */
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
                 bq(this.packageName);
@@ -83,36 +83,36 @@ public class d {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            d.this.DU = null;
-            if (d.this.DH.size() > 0) {
-                Iterator it = d.this.DH.iterator();
+            d.this.Eh = null;
+            if (d.this.DV.size() > 0) {
+                Iterator it = d.this.DV.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        d.this.DH.remove(str);
+                        d.this.DV.remove(str);
                         break;
                     }
                 }
             }
-            d.this.lm();
+            d.this.lx();
         }
 
         private void bq(String str) {
             File[] listFiles;
-            File lY = Util.lY();
+            File mm = Util.mm();
             String bR = Util.bR(str);
-            if (lY != null && lY.exists() && (listFiles = lY.listFiles()) != null) {
+            if (mm != null && mm.exists() && (listFiles = mm.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bR)) {
                         try {
                             com.baidu.adp.lib.util.e.h(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.lf().d("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.lq().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.lf().e("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
+                            com.baidu.adp.plugin.b.a.lq().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
                         }
                     }
                 }

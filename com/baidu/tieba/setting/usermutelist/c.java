@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ UserMuteListActivity dwl;
+    final /* synthetic */ UserMuteListActivity dMp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(UserMuteListActivity userMuteListActivity, int i) {
         super(i);
-        this.dwl = userMuteListActivity;
+        this.dMp = userMuteListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,26 +29,26 @@ class c extends CustomMessageListener {
         l lVar;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str = (String) customResponsedMessage.getData();
-            arrayList = this.dwl.YA;
+            arrayList = this.dMp.YX;
             if (arrayList != null) {
-                arrayList2 = this.dwl.YA;
+                arrayList2 = this.dMp.YX;
                 if (arrayList2.size() > 0) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        arrayList3 = this.dwl.YA;
+                        arrayList3 = this.dMp.YX;
                         if (i2 < arrayList3.size()) {
-                            arrayList4 = this.dwl.YA;
+                            arrayList4 = this.dMp.YX;
                             MuteUser muteUser = (MuteUser) arrayList4.get(i2);
                             if (muteUser != null && new StringBuilder().append(muteUser.user_id).toString().equals(str)) {
-                                arrayList5 = this.dwl.YA;
+                                arrayList5 = this.dMp.YX;
                                 arrayList5.remove(i2);
-                                hVar = this.dwl.dwe;
+                                hVar = this.dMp.dMi;
                                 hVar.notifyDataSetChanged();
-                                arrayList6 = this.dwl.YA;
+                                arrayList6 = this.dMp.YX;
                                 if (arrayList6.size() == 0) {
-                                    lVar = this.dwl.dwd;
-                                    lVar.showNoData();
+                                    lVar = this.dMp.dMh;
+                                    lVar.Ri();
                                     return;
                                 }
                                 return;

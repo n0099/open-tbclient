@@ -20,15 +20,15 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.c(null);
-        this.mModel.aiV();
-        this.mModel.bh(540000L);
+        this.mModel.amS();
+        this.mModel.bj(540000L);
         this.mModel.a(new i(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m411getInst().getLocationShared() && this.mModel.aiT()) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m411getInst().getLocationShared() && this.mModel.amQ()) {
             findLocationFromLocal();
         }
     }
@@ -41,10 +41,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.e.a.gD().a(true, this.locationCallBack);
+        com.baidu.adp.lib.e.a.gL().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.e.a.gD().a(this.locationCallBack);
+        com.baidu.adp.lib.e.a.gL().a(this.locationCallBack);
     }
 }

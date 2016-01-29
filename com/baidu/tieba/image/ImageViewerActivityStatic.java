@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImageViewerActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new x());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new w());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

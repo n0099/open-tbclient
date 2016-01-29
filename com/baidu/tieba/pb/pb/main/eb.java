@@ -1,28 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eb implements View.OnClickListener {
-    private final /* synthetic */ long bes;
-    final /* synthetic */ dk cKg;
+public class eb implements Animation.AnimationListener {
+    final /* synthetic */ dz cSw;
+    private final /* synthetic */ View cSx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eb(dk dkVar, long j) {
-        this.cKg = dkVar;
-        this.bes = j;
+    public eb(dz dzVar, View view) {
+        this.cSw = dzVar;
+        this.cSx = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10626").aa("obj_id", String.valueOf(this.bes)));
-        pbActivity = this.cKg.cGj;
-        if (pbActivity.cFr.cKm != null) {
-            pbActivity2 = this.cKg.cGj;
-            pbActivity2.cFr.cKm.onClick(view);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.cSw.cQn.setTitleVisibility(false);
+        this.cSx.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.cSw.cQQ;
+        relativeLayout.setVisibility(8);
+        this.cSw.cQn.setTitleVisibility(true);
+        this.cSx.setVisibility(8);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.cSw.fF(true);
         }
+        this.cSw.arG();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -15,16 +15,18 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof HistoryMessage) {
             HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
-            a aVar = new a(historyMessage.Activity);
-            b bVar = new b();
-            bVar.setThreadId(historyMessage.threadId);
-            bVar.setForumName(historyMessage.forumName);
-            bVar.ki(historyMessage.threadName);
-            bVar.kj(historyMessage.postID);
-            bVar.eE(historyMessage.isHostOnly);
-            bVar.eF(historyMessage.isSquence);
-            bVar.setThreadType(historyMessage.threadType);
-            aVar.a((a) bVar);
+            if (historyMessage.Activity != null) {
+                a aVar = new a(historyMessage.Activity.getPageContext());
+                b bVar = new b();
+                bVar.setThreadId(historyMessage.threadId);
+                bVar.setForumName(historyMessage.forumName);
+                bVar.km(historyMessage.threadName);
+                bVar.kn(historyMessage.postID);
+                bVar.eS(historyMessage.isHostOnly);
+                bVar.eT(historyMessage.isSquence);
+                bVar.setThreadType(historyMessage.threadType);
+                aVar.a((a) bVar);
+            }
         }
     }
 }

@@ -3,33 +3,33 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.InterfaceC0055a {
-    final /* synthetic */ e azr;
+public class g implements a.InterfaceC0056a {
+    final /* synthetic */ e aAi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.azr = eVar;
+        this.aAi = eVar;
     }
 
-    @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0055a
-    public void eC(int i) {
+    @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0056a
+    public void eW(int i) {
         int i2;
         int i3;
         int i4;
         a aVar;
         a aVar2;
-        e eVar = this.azr;
-        i2 = eVar.azo;
-        eVar.azo = i2 + 1;
-        i3 = this.azr.azj;
-        i4 = this.azr.azo;
+        e eVar = this.aAi;
+        i2 = eVar.aAf;
+        eVar.aAf = i2 + 1;
+        i3 = this.aAi.aAa;
+        i4 = this.aAi.aAf;
         if (i3 == i4) {
-            aVar = this.azr.azm;
-            aVar.a((a.InterfaceC0055a) null);
-            aVar2 = this.azr.azm;
+            aVar = this.aAi.aAd;
+            aVar.a((a.InterfaceC0056a) null);
+            aVar2 = this.aAi.aAd;
             aVar2.stop();
-            this.azr.Eq();
+            this.aAi.FL();
         }
-        this.azr.eD(i);
+        this.aAi.eX(i);
     }
 }

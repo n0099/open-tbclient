@@ -25,7 +25,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (Fq) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (FD) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -33,6 +33,18 @@ public final class Util {
             VersionCompare[] versionCompareArr = new VersionCompare[length];
             System.arraycopy(valuesCustom, 0, versionCompareArr, 0, length);
             return versionCompareArr;
+        }
+    }
+
+    public static boolean ml() {
+        try {
+            String property = System.getProperty("java.vm.version");
+            if (property != null) {
+                return property.startsWith("2");
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 
@@ -58,21 +70,21 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean j(long j) {
-        long lZ = lZ();
+    public static final boolean k(long j) {
+        long mn = mn();
         if (j <= 0) {
-            return lZ <= 0 || lZ >= 31457280;
+            return mn <= 0 || mn >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < lZ;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mn;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4, 146=4, 147=4, 148=4, 149=4, 151=4, 154=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [159=4, 161=4, 162=4, 163=4, 164=4, 166=4, 169=4] */
     public static String a(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
@@ -203,14 +215,14 @@ public final class Util {
     }
 
     public static File bQ(String str) {
-        PluginSetting bs = PluginPackageManager.ls().bs(str);
+        PluginSetting bs = PluginPackageManager.lD().bs(str);
         if (bs == null || bs.apkPath == null || bs.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(bs.apkPath.substring(0, bs.apkPath.length() - ".apk".length()));
     }
 
-    public static File lY() {
+    public static File mm() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -278,7 +290,14 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("is_third", false);
     }
 
-    public static VersionCompare L(String str, String str2) {
+    public static boolean f(ApplicationInfo applicationInfo) {
+        if (applicationInfo == null || applicationInfo.metaData == null) {
+            return false;
+        }
+        return applicationInfo.metaData.getBoolean("is_patch", false);
+    }
+
+    public static VersionCompare M(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -330,10 +349,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return lY() + File.separator + e(pluginSetting);
+        return mm() + File.separator + e(pluginSetting);
     }
 
-    public static long lZ() {
+    public static long mn() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

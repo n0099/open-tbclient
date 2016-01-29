@@ -7,12 +7,14 @@ import tbclient.Anti;
 import tbclient.PostInfoList;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
+import tbclient.UcCard;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
     private Anti anti_stat;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
+    private UcCard ucCard;
     private User user;
     private UserGodInfo userGodInfo;
 
@@ -46,6 +48,14 @@ public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
 
     public void setPost_list(List<PostInfoList> list) {
         this.post_list = list;
+    }
+
+    public UcCard getUcCard() {
+        return this.ucCard;
+    }
+
+    public void setUcCard(UcCard ucCard) {
+        this.ucCard = ucCard;
     }
 
     public UserGodInfo getUserGodInfo() {

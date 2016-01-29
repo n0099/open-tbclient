@@ -33,6 +33,6 @@ public class DistanceInfo implements Serializable {
     }
 
     public String getTimeFormat() {
-        return this.time != 0 ? com.baidu.tbadk.core.util.ax.r(this.time) : "";
+        return this.time != 0 ? com.baidu.tbadk.core.util.aw.s(this.time) : "";
     }
 }

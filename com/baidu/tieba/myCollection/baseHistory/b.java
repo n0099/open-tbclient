@@ -75,14 +75,14 @@ public class b implements f {
             if (j > 2000) {
                 this.time = j;
             }
-            this.threadType = jSONObject.optInt(PbActivityConfig.KEY_THREAD_TYPE);
+            this.threadType = jSONObject.optInt("thread_type");
             return true;
         } catch (JSONException e) {
             return false;
         }
     }
 
-    public JSONObject HG() {
+    public JSONObject Jk() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -92,7 +92,7 @@ public class b implements f {
             jSONObject.put("post_id", this.postID);
             jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.isHostOnly);
             jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.isSquence);
-            jSONObject.put(PbActivityConfig.KEY_THREAD_TYPE, this.threadType);
+            jSONObject.put("thread_type", this.threadType);
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -110,7 +110,7 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String ajx() {
+    public String anv() {
         return this.threadName;
     }
 
@@ -126,7 +126,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void ki(String str) {
+    public void km(String str) {
         this.threadName = str;
     }
 
@@ -134,27 +134,27 @@ public class b implements f {
         this.forumName = str;
     }
 
-    public String BJ() {
+    public String CZ() {
         return this.postID;
     }
 
-    public void kj(String str) {
+    public void kn(String str) {
         this.postID = str;
     }
 
-    public boolean ajy() {
+    public boolean anw() {
         return this.isHostOnly;
     }
 
-    public void eE(boolean z) {
+    public void eS(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean ajz() {
+    public boolean anx() {
         return this.isSquence;
     }
 
-    public void eF(boolean z) {
+    public void eT(boolean z) {
         this.isSquence = z;
     }
 
@@ -164,12 +164,12 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Di() {
-        return HG().toString();
+    public String ED() {
+        return Jk().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fR(String str) {
+    public boolean fP(String str) {
         if (str != null) {
             try {
                 return o(new JSONObject(str));

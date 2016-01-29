@@ -9,22 +9,22 @@ public class ak extends com.baidu.tbadk.mvc.model.a<aw, bd> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<aw> Du() {
+    public Class<aw> EP() {
         return aw.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dv() {
+    public int EQ() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dw() {
+    public int ER() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Dg() {
+    public String EB() {
         return "tb_user_replyme";
     }
 }

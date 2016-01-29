@@ -1,7 +1,7 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
@@ -14,8 +14,8 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.adp.lib.util.i.iQ()) {
-            this.this$0.showToast(n.j.neterror);
+        if (!com.baidu.adp.lib.util.i.iZ()) {
+            this.this$0.showToast(t.j.neterror);
             return;
         }
         this.this$0.mView.hideNoDataView();

@@ -27,21 +27,21 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float yI;
-    static int yJ;
-    static int yK;
-    private static String yN;
-    static boolean yH = false;
-    private static Toast yL = null;
-    private static a yM = null;
+    private static float yQ;
+    static int yR;
+    static int yS;
+    private static String yV;
+    static boolean yP = false;
+    private static Toast yT = null;
+    private static a yU = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
     /* loaded from: classes.dex */
     public interface a {
-        void aX(String str);
+        void aW(String str);
 
-        View jn();
+        View jw();
     }
 
     public static void J(Context context) {
@@ -50,67 +50,67 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yJ = displayMetrics.heightPixels;
-            yK = displayMetrics.widthPixels;
+            yR = displayMetrics.heightPixels;
+            yS = displayMetrics.widthPixels;
         } else {
-            yJ = displayMetrics.widthPixels;
-            yK = displayMetrics.heightPixels;
+            yR = displayMetrics.widthPixels;
+            yS = displayMetrics.heightPixels;
         }
-        yI = displayMetrics.density;
-        yH = true;
+        yQ = displayMetrics.density;
+        yP = true;
     }
 
     public static int K(Context context) {
-        if (!yH) {
+        if (!yP) {
             J(context);
         }
-        return yJ;
+        return yR;
     }
 
     public static int L(Context context) {
-        if (!yH) {
+        if (!yP) {
             J(context);
         }
-        return yK;
+        return yS;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!yH) {
+        if (!yP) {
             J(context);
         }
-        return (int) ((yI * f) + 0.5f);
+        return (int) ((yQ * f) + 0.5f);
     }
 
     public static float M(Context context) {
-        if (!yH) {
+        if (!yP) {
             J(context);
         }
-        return yI;
+        return yQ;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yL == null) {
-                if (yM == null || yM.jn() == null) {
-                    yL = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (yT == null) {
+                if (yU == null || yU.jw() == null) {
+                    yT = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    yL = new Toast(BdBaseApplication.getInst().getApp());
-                    yL.setDuration(0);
-                    yM.aX(str);
-                    yL.setView(yM.jn());
+                    yT = new Toast(BdBaseApplication.getInst().getApp());
+                    yT.setDuration(0);
+                    yU.aW(str);
+                    yT.setView(yU.jw());
                 }
-                yL.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(yN)) {
-                if (yM == null || yM.jn() == null) {
-                    yL.setText(str);
+                yT.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(yV)) {
+                if (yU == null || yU.jw() == null) {
+                    yT.setText(str);
                 } else {
-                    yM.aX(str);
+                    yU.aW(str);
                 }
             }
-            yN = str;
+            yV = str;
             mHandler.postDelayed(mRunnable, i);
-            yL.show();
+            yT.show();
         }
     }
 
@@ -126,7 +126,7 @@ public class k {
         showToast(context, str, 3500);
     }
 
-    public static void c(Context context, int i) {
+    public static void b(Context context, int i) {
         u(context, context.getResources().getString(i));
     }
 
@@ -309,7 +309,7 @@ public class k {
         return iArr;
     }
 
-    public static int d(Context context, int i) {
+    public static int c(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
@@ -326,9 +326,9 @@ public class k {
         return false;
     }
 
-    public static void jf() {
+    public static void jo() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (jg() ? false : true) {
+            if (jp() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -345,12 +345,12 @@ public class k {
         }
     }
 
-    public static boolean jg() {
+    public static boolean jp() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean jh() {
-        return i.iQ();
+    public static boolean jq() {
+        return i.iZ();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -362,7 +362,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String ji() {
+    public static String jr() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -395,7 +395,7 @@ public class k {
         return str;
     }
 
-    public static String jj() {
+    public static String js() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -428,12 +428,12 @@ public class k {
         return str;
     }
 
-    public static boolean jk() {
-        String aW;
+    public static boolean jt() {
+        String aV;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aW = aW(str)) != null && aW.length() >= 3) {
-            int g = com.baidu.adp.lib.h.b.g(aW(aW.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.h.b.g(aW(aW.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aV = aV(str)) != null && aV.length() >= 3) {
+            int g = com.baidu.adp.lib.h.b.g(aV(aV.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.h.b.g(aV(aV.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -444,18 +444,18 @@ public class k {
         return false;
     }
 
-    public static String aW(String str) {
+    public static String aV(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a jl() {
-        return yM;
+    public static a ju() {
+        return yU;
     }
 
     public static void a(a aVar) {
-        yM = aVar;
+        yU = aVar;
     }
 }

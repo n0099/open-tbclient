@@ -1,21 +1,18 @@
 package com.baidu.tbadk.coreExtra.view;
-
-import android.view.animation.AlphaAnimation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements Runnable {
-    final /* synthetic */ z apF;
+public class aa implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ u aqx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar) {
-        this.apF = zVar;
+    public aa(u uVar) {
+        this.aqx = uVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-        alphaAnimation.setDuration(200L);
-        alphaAnimation.setAnimationListener(new ab(this));
-        this.apF.apq.startAnimation(alphaAnimation);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        this.aqx.aqn = true;
+        this.aqx.mProgressBar.setVisibility(8);
+        this.aqx.b(aVar);
     }
 }

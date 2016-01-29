@@ -9,15 +9,15 @@ import com.baidu.tbadk.mvc.model.a;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0054a<com.baidu.tieba.chosen.posts.request.d> {
-    final /* synthetic */ b aRa;
+public class c implements a.InterfaceC0055a<com.baidu.tieba.chosen.posts.request.d> {
+    final /* synthetic */ b aTh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aRa = bVar;
+        this.aTh = bVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
     public void a(ReadCacheRespMsg<List<com.baidu.tieba.chosen.posts.request.d>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.chosen.posts.request.d> readCacheMessage) {
         com.baidu.tieba.chosen.posts.request.c cVar;
         com.baidu.tieba.chosen.posts.request.b bVar;
@@ -26,17 +26,17 @@ public class c implements a.InterfaceC0054a<com.baidu.tieba.chosen.posts.request
         List<com.baidu.tieba.chosen.posts.request.d> data = readCacheRespMsg.getData();
         if (data != null && !data.isEmpty() && (dVar = data.get(0)) != null) {
             com.baidu.tbadk.mvc.c.b bVar2 = new com.baidu.tbadk.mvc.c.b(FragmentTransaction.TRANSIT_FRAGMENT_FADE, dVar, null, null);
-            bVar2.setUniqueId(this.aRa.getUniqueId());
-            chosenPostActivity = this.aRa.aQT;
-            chosenPostActivity.ok().dispatchMvcEvent(bVar2);
+            bVar2.setUniqueId(this.aTh.getUniqueId());
+            chosenPostActivity = this.aTh.aTa;
+            chosenPostActivity.oF().dispatchMvcEvent(bVar2);
         }
-        cVar = this.aRa.aQX;
-        cVar.IU();
-        bVar = this.aRa.aQU;
-        bVar.Dy();
+        cVar = this.aTh.aTe;
+        cVar.KN();
+        bVar = this.aTh.aTb;
+        bVar.ET();
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0054a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.chosen.posts.request.d>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.chosen.posts.request.d> writeCacheMessage) {
     }
 }

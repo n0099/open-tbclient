@@ -11,7 +11,7 @@ public class FrameHelper {
         SOCKET,
         CUSTOM;
 
-        /* JADX DEBUG: Replace access to removed values field (oc) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (of) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TYPE[] valuesCustom() {
             TYPE[] valuesCustom = values();
@@ -22,7 +22,7 @@ public class FrameHelper {
         }
     }
 
-    public static TYPE u(int i) {
+    public static TYPE E(int i) {
         if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
@@ -36,15 +36,15 @@ public class FrameHelper {
         return null;
     }
 
-    public static boolean v(int i) {
+    public static boolean F(int i) {
         return i >= 1000000 && i < 2000000;
     }
 
-    public static boolean w(int i) {
+    public static boolean G(int i) {
         return i >= 0 && i < 1000000;
     }
 
-    public static boolean x(int i) {
+    public static boolean H(int i) {
         return i >= 2000000 && i < 3000000;
     }
 

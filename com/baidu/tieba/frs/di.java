@@ -1,22 +1,29 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di extends x.a {
-    public int ahf;
-    public TextView bhK;
-    public PhotoLiveCardView bhL;
-    public View bhM;
+public class di implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.core.data.ah biT;
+    final /* synthetic */ df bkk;
 
-    public di(View view) {
-        super(view);
-        this.ahf = 3;
-        this.bhK = (TextView) view.findViewById(n.g.more_live_list);
-        this.bhL = (PhotoLiveCardView) view.findViewById(n.g.photo_live_card);
-        this.bhM = view.findViewById(n.g.make_headlines);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public di(df dfVar, com.baidu.tbadk.core.data.ah ahVar) {
+        this.bkk = dfVar;
+        this.biT = ahVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.bkk.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.biT.getAuthor().getUserId(), this.biT.getAuthor().getName_show(), this.bkk.bfF.aoE().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

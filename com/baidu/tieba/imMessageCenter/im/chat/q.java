@@ -1,31 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import android.view.animation.Animation;
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView cdt;
-    private final /* synthetic */ Animation cdu;
+public class q implements View.OnClickListener {
+    final /* synthetic */ PersonalChatView chS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(PersonalChatView personalChatView, Animation animation) {
-        this.cdt = personalChatView;
-        this.cdu = animation;
+    public q(PersonalChatView personalChatView) {
+        this.chS = personalChatView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TextView textView;
-        textView = this.cdt.cdp;
-        textView.startAnimation(this.cdu);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PersonalChatActivity personalChatActivity;
+        personalChatActivity = this.chS.chJ;
+        personalChatActivity.showToast(t.j.add_friend_cannot_send);
     }
 }

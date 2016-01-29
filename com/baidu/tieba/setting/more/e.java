@@ -2,29 +2,29 @@ package com.baidu.tieba.setting.more;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ AccountSafeActivity dtz;
+    final /* synthetic */ AccountSafeActivity dJD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(AccountSafeActivity accountSafeActivity, int i, int i2) {
         super(i, i2);
-        this.dtz = accountSafeActivity;
+        this.dJD = accountSafeActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (this.dtz.dtv != null) {
-            this.dtz.dtv.setLoading(false);
+        if (this.dJD.dJz != null) {
+            this.dJD.dJz.setLoading(false);
         }
-        this.dtz.closeLoadingDialog();
+        this.dJD.closeLoadingDialog();
         if (responsedMessage != null) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.dtz.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dtz.getResources().getString(n.j.neterror) : responsedMessage.getErrorString());
+                this.dJD.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dJD.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
                 return;
             }
             com.baidu.tieba.setting.im.more.a aVar = null;
@@ -34,15 +34,15 @@ class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                 aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
-            if (aVar != null && aVar.azf() != null) {
-                this.dtz.dtw = aVar.azf().secureemail;
-                this.dtz.dtx = aVar.azf().securemobil;
-                if (this.dtz.dtv != null) {
-                    this.dtz.dtv.gX(true);
+            if (aVar != null && aVar.aGm() != null) {
+                this.dJD.dJA = aVar.aGm().secureemail;
+                this.dJD.dJB = aVar.aGm().securemobil;
+                if (this.dJD.dJz != null) {
+                    this.dJD.dJz.hx(true);
                 }
             }
-            if (this.dtz.dtu != null) {
-                this.dtz.dtu.d(aVar);
+            if (this.dJD.dJy != null) {
+                this.dJD.dJy.d(aVar);
             }
         }
     }

@@ -1,38 +1,92 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.app.Activity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class bg extends CustomMessageListener {
-    final /* synthetic */ WriteActivity dYD;
+class bg implements View.OnFocusChangeListener {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(WriteActivity writeActivity, int i) {
-        super(i);
-        this.dYD = writeActivity;
+    public bg(WriteActivity writeActivity) {
+        this.ets = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        com.baidu.tieba.tbadkCore.location.d dVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.dYD.auc;
-                dVar2.hv(false);
-                dVar3 = this.dYD.auc;
-                dVar3.be(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.dYD.a(2, true, responsedSelectLocation.getName());
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0064, code lost:
+        if (r0.getType() == 4) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
+        if (r4 == r0) goto L24;
+     */
+    @Override // android.view.View.OnFocusChangeListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        EditText editText2;
+        TextView textView;
+        com.baidu.tbadk.editortools.k kVar;
+        EditText editText3;
+        EditText editText4;
+        WriteData writeData;
+        EditText editText5;
+        WriteData writeData2;
+        EditText editText6;
+        com.baidu.tbadk.editortools.k kVar2;
+        EditText editText7;
+        WriteData writeData3;
+        View view2;
+        TextView textView2;
+        editText = this.ets.epr;
+        if (view != editText) {
+            view2 = this.ets.ajk;
+            if (view != view2) {
+                textView2 = this.ets.epw;
+            }
+        }
+        if (!z) {
+            editText2 = this.ets.epr;
+            if (view == editText2) {
+                textView = this.ets.epx;
+                textView.setVisibility(0);
+            }
+        } else {
+            this.ets.etp = true;
+            this.ets.aUI();
+            kVar = this.ets.ath;
+            kVar.Ba();
+            Activity activity = this.ets.getActivity();
+            editText3 = this.ets.epr;
+            com.baidu.adp.lib.util.k.d(activity, editText3);
+        }
+        editText4 = this.ets.epv;
+        if (view == editText4) {
+            if (!z) {
+                writeData = this.ets.dZC;
+                if (writeData.getType() == 0) {
+                    editText5 = this.ets.epv;
+                    editText5.setHint(t.j.content);
+                    return;
+                }
                 return;
             }
-            dVar = this.dYD.auc;
-            dVar.hv(true);
-            this.dYD.a(0, true, (String) null);
+            this.ets.etp = false;
+            writeData2 = this.ets.dZC;
+            if (writeData2.getType() != 0) {
+                writeData3 = this.ets.dZC;
+            }
+            editText6 = this.ets.epv;
+            editText6.setHint((CharSequence) null);
+            this.ets.aUI();
+            kVar2 = this.ets.ath;
+            kVar2.Ba();
+            Activity activity2 = this.ets.getActivity();
+            editText7 = this.ets.epv;
+            com.baidu.adp.lib.util.k.d(activity2, editText7);
         }
     }
 }

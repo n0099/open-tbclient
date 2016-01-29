@@ -11,83 +11,83 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-    private TextView api;
-    private ImageView apm;
-    private LinearLayout container;
-    private HeadImageView dvQ;
+    private LinearLayout aqa;
+    private TextView aqb;
+    private ImageView aqf;
+    private HeadImageView dLU;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        zU();
-        c(attributeSet);
-        dO(TbadkCoreApplication.m411getInst().getSkinType());
+        Bk();
+        d(attributeSet);
+        ej(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        zU();
-        dO(TbadkCoreApplication.m411getInst().getSkinType());
+        Bk();
+        ej(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void dO(int i) {
-        com.baidu.tbadk.core.util.as.b(this.api, n.d.about_tip_color, 1);
-        com.baidu.tbadk.core.util.as.c(this.apm, n.f.icon_arrow_right);
-        this.dvQ.invalidate();
+    public void ej(int i) {
+        com.baidu.tbadk.core.util.ar.b(this.aqb, t.d.about_tip_color, 1);
+        com.baidu.tbadk.core.util.ar.c(this.aqf, t.f.icon_arrow_right);
+        this.dLU.invalidate();
     }
 
-    public void aBm() {
-        if (this.dvQ != null) {
-            this.dvQ.setVisibility(8);
+    public void aIt() {
+        if (this.dLU != null) {
+            this.dLU.setVisibility(8);
         }
     }
 
-    public void aBn() {
-        if (this.dvQ != null) {
-            this.dvQ.setVisibility(0);
+    public void aIu() {
+        if (this.dLU != null) {
+            this.dLU.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.api.setText(str);
+        this.aqb.setText(str);
     }
 
     public void H(String str, boolean z) {
         if (z) {
-            this.dvQ.d(str, 26, false);
+            this.dLU.d(str, 26, false);
         } else {
-            this.dvQ.d(str, 12, false);
+            this.dLU.d(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void zU() {
-        LayoutInflater.from(this.mContext).inflate(n.h.setting_text_image_view, (ViewGroup) this, true);
-        this.container = (LinearLayout) findViewById(n.g.container);
-        this.api = (TextView) findViewById(n.g.text);
-        this.dvQ = (HeadImageView) findViewById(n.g.icon);
-        this.apm = (ImageView) findViewById(n.g.arrow);
+    private void Bk() {
+        LayoutInflater.from(this.mContext).inflate(t.h.setting_text_image_view, (ViewGroup) this, true);
+        this.aqa = (LinearLayout) findViewById(t.g.container);
+        this.aqb = (TextView) findViewById(t.g.text);
+        this.dLU = (HeadImageView) findViewById(t.g.icon);
+        this.aqf = (ImageView) findViewById(t.g.arrow);
     }
 
-    private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, n.l.TbSettingView);
+    private void d(AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, t.l.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.api.setText(string);
+            this.aqb.setText(string);
         }
         if (color > -1) {
-            this.api.setTextColor(color);
+            this.aqb.setTextColor(color);
         }
-        this.container.setClickable(false);
-        this.container.setFocusable(false);
+        this.aqa.setClickable(false);
+        this.aqa.setFocusable(false);
     }
 }

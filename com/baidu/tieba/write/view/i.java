@@ -4,19 +4,19 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements PopupWindow.OnDismissListener {
-    final /* synthetic */ PostCategoryView dVG;
-    private final /* synthetic */ PostCategoryView dVH;
+    private final /* synthetic */ PostCategoryView eqA;
+    final /* synthetic */ PostCategoryView eqz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PostCategoryView postCategoryView, PostCategoryView postCategoryView2) {
-        this.dVG = postCategoryView;
-        this.dVH = postCategoryView2;
+        this.eqz = postCategoryView;
+        this.eqA = postCategoryView2;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        if (this.dVH != null) {
-            this.dVH.aLd();
+        if (this.eqA != null) {
+            this.eqA.aTY();
         }
     }
 }

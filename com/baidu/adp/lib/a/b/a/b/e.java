@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.a.b.a.b;
 /* loaded from: classes.dex */
 public class e implements h {
-    private char rS;
+    private char sa;
 
     public e(char c) {
-        this.rS = c;
+        this.sa = c;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return String.valueOf(this.rS);
+        return String.valueOf(this.sa);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Character.valueOf(this.rS);
+        return Character.valueOf(this.sa);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -24,16 +24,16 @@ public class e implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Character.valueOf(this.rS);
+        return Character.valueOf(this.sa);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object e(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return String.valueOf(this.rS);
+        return String.valueOf(this.sa);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Character.valueOf(this.rS);
+        return Character.valueOf(this.sa);
     }
 }

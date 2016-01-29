@@ -4,40 +4,40 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View awX;
-    private boolean awY;
+    protected View axO;
+    private boolean axP;
 
     public a(View view) {
-        this.awX = view;
+        this.axO = view;
     }
 
-    public boolean CW() {
-        return this.awY;
+    public boolean Eo() {
+        return this.axP;
     }
 
-    public void b(View view, boolean z) {
-        if (view != null && this.awX != null && this.awX.getParent() == null) {
-            this.awY = true;
-            d.w(view).a(view, this.awX, z);
-            CX();
+    public void c(View view, boolean z) {
+        if (view != null && this.axO != null && this.axO.getParent() == null) {
+            this.axP = true;
+            d.J(view).a(view, this.axO, z);
+            Ep();
         }
     }
 
-    public void u(View view) {
-        if (view != null && this.awX != null && this.awX.getParent() != null && (view instanceof ViewGroup)) {
-            CY();
-            ((ViewGroup) view).removeView(this.awX);
-            this.awY = false;
+    public void H(View view) {
+        if (view != null && this.axO != null && this.axO.getParent() != null && (view instanceof ViewGroup)) {
+            Eq();
+            ((ViewGroup) view).removeView(this.axO);
+            this.axP = false;
         }
     }
 
-    public void v(View view) {
-        b(view, false);
+    public void I(View view) {
+        c(view, false);
     }
 
-    protected void CX() {
+    protected void Ep() {
     }
 
-    protected void CY() {
+    protected void Eq() {
     }
 }

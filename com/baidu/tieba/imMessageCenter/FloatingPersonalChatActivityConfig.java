@@ -15,7 +15,6 @@ public class FloatingPersonalChatActivityConfig extends IntentConfig {
     public static final String KEY_USER_ID = "key_user_id";
     public static final String KEY_USER_NAME = "key_user_name";
     public static final String KEY_USER_PORTAIT = "key_user_portait";
-    public static int currIndex;
     private List<UserData> mUserDataList;
 
     public FloatingPersonalChatActivityConfig(Context context, List<UserData> list) {

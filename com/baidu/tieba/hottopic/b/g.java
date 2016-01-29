@@ -1,34 +1,51 @@
 package com.baidu.tieba.hottopic.b;
 
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends x.a {
-    public int ahf;
-    public TextView aoy;
-    public BarImageView bIN;
-    public TextView bIP;
-    public TextView bIU;
-    public TextView bIV;
-    public TextView bIW;
-    public TextView boK;
-    public TextView boL;
-    public View line;
+    public TextView aQR;
+    public int ahU;
+    public View azA;
+    public View bMi;
+    public TextView bMj;
+    public RelativeLayout bMp;
+    public View bMq;
+    public TbImageView bMr;
+    public TextView bMs;
+    public TextView bMt;
+    public TextView bMu;
+    public TextView bMv;
 
     public g(View view) {
         super(view);
-        this.ahf = 3;
-        this.bIP = (TextView) view.findViewById(n.g.forum_name);
-        this.bIN = (BarImageView) view.findViewById(n.g.forum_avatar);
-        this.bIW = (TextView) view.findViewById(n.g.member_num_label);
-        this.bIV = (TextView) view.findViewById(n.g.post_num_label);
-        this.boL = (TextView) view.findViewById(n.g.member_num);
-        this.boK = (TextView) view.findViewById(n.g.post_num);
-        this.aoy = (TextView) view.findViewById(n.g.forum_content);
-        this.bIU = (TextView) view.findViewById(n.g.forum_add_love);
-        this.line = view.findViewById(n.g.forum_item_divider);
+        this.ahU = 3;
+        this.azA = null;
+        this.bMi = null;
+        this.bMj = null;
+        this.bMp = null;
+        this.bMq = null;
+        this.bMr = null;
+        this.azA = view;
+        ai(this.azA);
+    }
+
+    private void ai(View view) {
+        if (view != null) {
+            this.bMi = view.findViewById(t.g.top_divider_line);
+            this.bMj = (TextView) view.findViewById(t.g.quality_item_theme_title);
+            this.bMq = view.findViewById(t.g.divider_line);
+            this.bMp = (RelativeLayout) view.findViewById(t.g.quality_thread_view);
+            this.bMr = (TbImageView) view.findViewById(t.g.img);
+            this.aQR = (TextView) view.findViewById(t.g.title);
+            this.bMs = (TextView) view.findViewById(t.g.desc);
+            this.bMt = (TextView) view.findViewById(t.g.hot_thread_comment).findViewById(t.g.hot_thread_line_tag);
+            this.bMu = (TextView) view.findViewById(t.g.hot_thread_comment).findViewById(t.g.hot_thread_line_praise);
+            this.bMv = (TextView) view.findViewById(t.g.hot_thread_comment).findViewById(t.g.hot_thread_line_comment);
+        }
     }
 }

@@ -1,56 +1,48 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
-import android.os.SystemClock;
-import com.baidu.adp.lib.c.e;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.tbadkCore.videoupload.a.d;
+import com.baidu.tieba.tbadkCore.videoupload.a.a;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.tbadkCore.videoupload.a.b dJn;
+    private static int chunkLength = 512000;
+    private static int dZo = 6144000;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a dZp;
 
-    public VideoFinishResult mE(String str) {
+    public VideoFinishResult a(String str, String str2, a.InterfaceC0088a interfaceC0088a) {
         try {
-            File file = new File(str);
+            File file = new File(str2);
             if (file == null || !file.exists()) {
                 return null;
             }
-            return c(str, file);
+            this.dZp = new com.baidu.tieba.tbadkCore.videoupload.a.a(str, chunkLength, dZo);
+            this.dZp.a(interfaceC0088a);
+            return this.dZp.c(str2, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void aGr() {
-        if (this.dJn != null) {
-            this.dJn.cancel();
+    public void aNw() {
+        if (this.dZp != null) {
+            this.dZp.cancel();
         }
     }
 
-    private VideoFinishResult c(String str, File file) {
-        boolean z = e.gw().aj("movideo_split") == 0 && (file != null ? file.length() : 0L) < 2097152;
-        if (z) {
-            this.dJn = new d();
+    public static void ov(int i) {
+        if (i <= 0) {
+            chunkLength = 512000;
         } else {
-            this.dJn = new com.baidu.tieba.tbadkCore.videoupload.a.c();
+            chunkLength = i;
         }
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        VideoFinishResult d = this.dJn.d(str, file);
-        long elapsedRealtime2 = SystemClock.elapsedRealtime();
-        av avVar = new av("c10659");
-        avVar.aa("obj_duration", String.valueOf(elapsedRealtime2 - elapsedRealtime));
-        if (d != null && d.isSuccess()) {
-            avVar.r("obj_type", 1);
+    }
+
+    public static void ow(int i) {
+        if (i <= 0) {
+            dZo = 6144000;
         } else {
-            avVar.r("obj_type", 0);
+            dZo = i;
         }
-        avVar.r("obj_source", i.iW());
-        avVar.r("obj_name", z ? 0 : 1);
-        TiebaStatic.log(avVar);
-        return d;
     }
 }

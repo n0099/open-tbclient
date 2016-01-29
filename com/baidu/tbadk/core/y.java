@@ -1,16 +1,22 @@
 package com.baidu.tbadk.core;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
-public class y implements com.baidu.adp.framework.client.socket.link.j {
-    final /* synthetic */ TbadkCoreApplication this$0;
+class y implements c.a {
+    final /* synthetic */ x TS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(TbadkCoreApplication tbadkCoreApplication) {
-        this.this$0 = tbadkCoreApplication;
+    public y(x xVar) {
+        this.TS = xVar;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.j
-    public void eQ() {
-        com.baidu.tbadk.util.c.Fc().a(new z(this));
+    @Override // com.baidu.tbadk.util.c.a
+    public void ag(boolean z) {
+        if (z) {
+            BdBaseService.serviceStartFlag = 2;
+        } else {
+            BdBaseService.serviceStartFlag = 1;
+        }
     }
 }

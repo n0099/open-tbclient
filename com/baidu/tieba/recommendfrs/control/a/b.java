@@ -1,26 +1,26 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.tieba.card.a.t;
+import com.baidu.tieba.card.a.w;
 import java.util.Comparator;
 /* loaded from: classes.dex */
-class b implements Comparator<t> {
-    final /* synthetic */ a doQ;
+class b implements Comparator<w> {
+    final /* synthetic */ a dEj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.doQ = aVar;
+        this.dEj = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
-    public int compare(t tVar, t tVar2) {
-        if (tVar == null || tVar2 == null) {
+    public int compare(w wVar, w wVar2) {
+        if (wVar == null || wVar2 == null) {
             return 0;
         }
-        if (tVar.getPosition() > tVar2.getPosition()) {
+        if (wVar.getPosition() > wVar2.getPosition()) {
             return 1;
         }
-        return tVar.getPosition() < tVar2.getPosition() ? -1 : 0;
+        return wVar.getPosition() < wVar2.getPosition() ? -1 : 0;
     }
 }

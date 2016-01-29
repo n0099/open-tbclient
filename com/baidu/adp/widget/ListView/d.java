@@ -8,9 +8,9 @@ import java.security.InvalidParameterException;
 public abstract class d {
     private Context mContext;
     private View mView = null;
-    private boolean HU = true;
-    private int HV = 0;
-    private int HW = 0;
+    private boolean Ih = true;
+    private int Ii = 0;
+    private int Ij = 0;
 
     public abstract void O(boolean z);
 
@@ -18,11 +18,11 @@ public abstract class d {
 
     public abstract void Q(boolean z);
 
-    public abstract View mT();
+    public abstract View ni();
 
-    public abstract void mU();
+    public abstract void nj();
 
-    public abstract void mV();
+    public abstract void nk();
 
     public d(Context context) {
         this.mContext = null;
@@ -38,13 +38,13 @@ public abstract class d {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = mT();
+            this.mView = ni();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
-            f(this.mView);
-            this.HV = this.mView.getMeasuredHeight();
-            this.HW = this.mView.getMeasuredWidth();
+            r(this.mView);
+            this.Ii = this.mView.getMeasuredHeight();
+            this.Ij = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -55,15 +55,15 @@ public abstract class d {
         }
     }
 
-    public boolean isEnable() {
-        return this.HU;
+    public boolean nl() {
+        return this.Ih;
     }
 
     public void R(boolean z) {
-        this.HU = z;
+        this.Ih = z;
     }
 
-    private void f(View view) {
+    private void r(View view) {
         int makeMeasureSpec;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
@@ -79,7 +79,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int mW() {
-        return this.HV;
+    public int nm() {
+        return this.Ii;
     }
 }

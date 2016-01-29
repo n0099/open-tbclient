@@ -1,17 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tieba.pb.pb.main.cm;
+import com.baidu.tieba.t;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class by extends bz {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public by(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class by implements cm.b {
+    final /* synthetic */ PbActivity cNq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(PbActivity pbActivity) {
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bz
-    protected PbRecBaseViewHolder Y(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.axH().l(this.mContext, 3);
+    @Override // com.baidu.tieba.pb.pb.main.cm.b
+    public void h(int i, long j) {
+        cm cmVar;
+        cm cmVar2;
+        dz dzVar;
+        cm cmVar3;
+        if (i == 0) {
+            ds.aqK().reset();
+            cmVar = this.cNq.cMF;
+            cmVar.aqg();
+            cmVar2 = this.cNq.cMF;
+            ArrayList<com.baidu.tieba.tbadkCore.data.r> aoG = cmVar2.getPbData().aoG();
+            if (aoG != null) {
+                Iterator<com.baidu.tieba.tbadkCore.data.r> it = aoG.iterator();
+                boolean z = false;
+                while (it.hasNext()) {
+                    com.baidu.tieba.tbadkCore.data.r next = it.next();
+                    if (dy.g(next) && next.aMF().getTemplateId() == j) {
+                        it.remove();
+                        z = true;
+                    }
+                }
+                if (z) {
+                    dzVar = this.cNq.cMK;
+                    cmVar3 = this.cNq.cMF;
+                    dzVar.j(cmVar3.getPbData());
+                }
+                this.cNq.showToast(t.j.operation_success);
+                return;
+            }
+            return;
+        }
+        this.cNq.showToast(t.j.operation_failed);
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.cm.b
+    public void onError(int i, String str) {
+        this.cNq.showToast(t.j.operation_failed);
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ SelectFriendActivity chx;
+    final /* synthetic */ SelectFriendActivity clY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SelectFriendActivity selectFriendActivity, int i) {
         super(i);
-        this.chx = selectFriendActivity;
+        this.clY = selectFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,13 +29,13 @@ class a extends HttpMessageListener {
                 friendList = new LinkedList<>();
             }
             if (friendList.size() > 0) {
-                oVar2 = this.chx.mNoDataView;
+                oVar2 = this.clY.mNoDataView;
                 oVar2.setVisibility(8);
-                this.chx.chu.setContacts(friendList);
-                this.chx.chu.notifyDataSetChanged();
+                this.clY.clV.setContacts(friendList);
+                this.clY.clV.notifyDataSetChanged();
                 return;
             }
-            oVar = this.chx.mNoDataView;
+            oVar = this.clY.mNoDataView;
             oVar.setVisibility(0);
         }
     }

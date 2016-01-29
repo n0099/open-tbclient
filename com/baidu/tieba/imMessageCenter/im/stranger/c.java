@@ -3,7 +3,6 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,15 +12,15 @@ public class c {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String chG;
-        public int chH;
-        public String chI;
-        public String chJ;
-        public int chK;
-        public String chL;
-        public String chM;
-        public String chN;
-        public String chl;
+        public String clM;
+        public String cmi;
+        public int cmj;
+        public String cmk;
+        public String cml;
+        public int cmm;
+        public String cmn;
+        public String cmo;
+        public String cmp;
         public String postId;
         public String threadId;
         public int threadType;
@@ -29,7 +28,7 @@ public class c {
         public int type;
     }
 
-    public static a jw(String str) {
+    public static a jA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -38,25 +37,25 @@ public class c {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                aVar.chI = optJSONObject.optString("title");
-                aVar.chl = optJSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                aVar.chL = optJSONObject.optString("quote_content");
-                aVar.chN = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                aVar.cmk = optJSONObject.optString("title");
+                aVar.clM = optJSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                aVar.cmn = optJSONObject.optString("quote_content");
+                aVar.cmp = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 aVar.threadId = optJSONObject.optString("thread_id");
                 aVar.postId = optJSONObject.optString("post_id");
                 aVar.type = optJSONObject.optInt("type");
                 aVar.title = optJSONObject.optString("title");
-                aVar.threadType = optJSONObject.optInt(PbActivityConfig.KEY_THREAD_TYPE);
+                aVar.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    aVar.chJ = optJSONObject2.optString("id");
-                    aVar.chM = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    aVar.chK = optJSONObject2.optInt("gender");
+                    aVar.cml = optJSONObject2.optString("id");
+                    aVar.cmo = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    aVar.cmm = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    aVar.chG = optJSONObject3.optString("id");
-                    aVar.chH = optJSONObject3.optInt("gender");
+                    aVar.cmi = optJSONObject3.optString("id");
+                    aVar.cmj = optJSONObject3.optInt("gender");
                 }
             }
             return aVar;

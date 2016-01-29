@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ s dHB;
-    private final /* synthetic */ com.baidu.adp.widget.e dHC;
+    final /* synthetic */ s dXy;
+    private final /* synthetic */ com.baidu.adp.widget.e dXz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, com.baidu.adp.widget.e eVar) {
-        this.dHB = sVar;
-        this.dHC = eVar;
+        this.dXy = sVar;
+        this.dXz = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ class t extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         r rVar;
         super.a((t) aVar, str, i);
-        if (aVar != null && aVar.mF()) {
-            rVar = this.dHB.dHy;
-            this.dHC.setDrawable(rVar.g(aVar));
+        if (aVar != null && aVar.mT()) {
+            rVar = this.dXy.dXv;
+            this.dXz.setDrawable(rVar.g(aVar));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
         }
     }

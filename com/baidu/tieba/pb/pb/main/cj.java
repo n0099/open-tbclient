@@ -1,40 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cf;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj extends HttpMessageListener {
-    final /* synthetic */ cf cHv;
+public class cj implements TbRichTextView.e {
+    final /* synthetic */ ci cOi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj(cf cfVar, int i) {
-        super(i);
-        this.cHv = cfVar;
+    public cj(ci ciVar) {
+        this.cOi = ciVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cf.a aVar;
-        cf.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.cHv.cFR;
-                aVar.f(-1, null, null);
-                return;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
+    public void b(View view, String str) {
+        long j;
+        long j2;
+        com.baidu.tieba.pb.a.c cVar;
+        com.baidu.tieba.pb.a.c cVar2;
+        com.baidu.tieba.pb.a.c cVar3;
+        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.be.wt().c(this.cOi.cNL.getPageContext(), new String[]{str})) {
+            j = this.cOi.cOh;
+            if (j != 0) {
+                j2 = this.cOi.cOh;
+                cVar = this.cOi.cJZ;
+                String id = cVar.aoE().getId();
+                cVar2 = this.cOi.cJZ;
+                String name = cVar2.aoE().getName();
+                cVar3 = this.cOi.cJZ;
+                com.baidu.tieba.pb.a.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, cVar3.aoF().getTid());
             }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.cHv.cFR;
-            aVar2.f(errorCode, errorMessage, tid);
         }
     }
 }

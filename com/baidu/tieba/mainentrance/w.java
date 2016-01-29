@@ -1,35 +1,18 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.widget.TextView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements TextView.OnEditorActionListener {
-    final /* synthetic */ SquareSearchActivity cqu;
+public class w implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity cwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(SquareSearchActivity squareSearchActivity) {
-        this.cqu = squareSearchActivity;
+        this.cwZ = squareSearchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        if (i == 2) {
-            if (this.cqu.mMode != 0) {
-                if (this.cqu.mMode == 3) {
-                    if (TextUtils.isEmpty(this.cqu.cpN) || this.cqu.cpN.trim().length() <= 0) {
-                        return true;
-                    }
-                    this.cqu.gB(this.cqu.cpN);
-                    return true;
-                }
-                this.cqu.I(1, this.cqu.cpN);
-                return true;
-            }
-            this.cqu.agu();
-            return true;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cwZ.cvX.setText("");
     }
 }

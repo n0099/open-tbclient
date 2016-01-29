@@ -1,109 +1,232 @@
 package com.baidu.tieba.recommendfrs;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
-import com.baidu.tieba.recommendfrs.n;
-import java.util.List;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.recommendfrs.p;
+import com.baidu.tieba.t;
+import java.util.ArrayList;
+import tbclient.Personalized.DataRes;
 import tbclient.Personalized.TagInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements n.a {
-    final /* synthetic */ e doc;
+public class f extends FrameLayout {
+    private com.baidu.tbadk.f.f Oj;
+    private ArrayList<com.baidu.adp.widget.ListView.u> YX;
+    private PbListView aXw;
+    private final CustomMessageListener bgq;
+    private TagInfo dDd;
+    private BdTypeListView dDe;
+    private com.baidu.tieba.recommendfrs.personalize.a.l dDf;
+    private c dDg;
+    private p dDh;
+    private com.baidu.tieba.recommendfrs.control.a.f dDi;
+    private long dDj;
+    private p.a dDk;
+    private com.baidu.tbadk.core.view.t mPullView;
+    private TbPageContext<?> pageContext;
+    private com.baidu.tbadk.f.h refreshView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.doc = eVar;
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        if (this.dDf != null) {
+            this.dDf.setPageUniqueId(bdUniqueId);
+        }
+        if (this.dDh != null) {
+            this.dDh.j(bdUniqueId);
+        }
+        if (this.dDi != null) {
+            this.dDi.m(bdUniqueId);
+        }
+        if (this.mPullView != null) {
+            this.mPullView.setTag(bdUniqueId);
+        }
+        if (this.bgq != null) {
+            this.bgq.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.bgq);
+        }
     }
 
-    @Override // com.baidu.tieba.recommendfrs.n.a
-    public void aT(int i, int i2) {
-        b bVar;
-        boolean axV;
-        TagInfo tagInfo;
-        b bVar2;
-        TagInfo tagInfo2;
-        b bVar3;
-        TagInfo tagInfo3;
-        bVar = this.doc.dnY;
-        if (bVar == null) {
-            this.doc.showNetRefreshView(this.doc, TbadkCoreApplication.m411getInst().getString(n.j.neterror), true);
-            this.doc.auH();
-            return;
+    public f(Context context) {
+        super(context);
+        this.YX = new ArrayList<>();
+        this.dDj = 0L;
+        this.dDk = new g(this);
+        this.bgq = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        init(context);
+    }
+
+    private void init(Context context) {
+        this.dDe = new BdTypeListView(context);
+        this.dDe.setDividerHeight(0);
+        this.dDe.setSelector(17170445);
+        this.aXw = new PbListView(context);
+        this.aXw.ni();
+        this.aXw.df(t.d.cp_bg_line_c);
+        this.aXw.setTextColor(ar.getColor(t.d.cp_cont_d));
+        this.aXw.dg(TbadkCoreApplication.m411getInst().getSkinType());
+        this.dDe.setNextPage(this.aXw);
+        com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(context);
+        if (C instanceof TbPageContext) {
+            this.pageContext = (TbPageContext) C;
         }
-        axV = this.doc.axV();
-        this.doc.aqe();
-        if (axV) {
-            this.doc.g(true, 0);
+        this.mPullView = new com.baidu.tbadk.core.view.t(this.pageContext);
+        this.dDe.setPullRefresh(this.mPullView);
+        this.mPullView.R(true);
+        this.mPullView.a(new i(this));
+        this.dDe.setOnSrollToBottomListener(new j(this));
+        this.dDi = new com.baidu.tieba.recommendfrs.control.a.f();
+        this.dDf = new com.baidu.tieba.recommendfrs.personalize.a.l(context, this.dDe);
+        this.dDf.b(this.dDi);
+        this.dDh = new p(this.pageContext, this.dDe, this.dDf, this);
+        this.dDh.a(this.dDk);
+        addView(this.dDe);
+    }
+
+    public void setCallback(c cVar) {
+        this.dDg = cVar;
+    }
+
+    public void setTagInfo(TagInfo tagInfo) {
+        this.dDd = tagInfo;
+    }
+
+    public void a(DataRes dataRes, boolean z) {
+        if (this.aXw != null) {
+            this.aXw.xc();
         }
-        tagInfo = this.doc.dnV;
-        if (tagInfo != null) {
-            tagInfo2 = this.doc.dnV;
-            if (tagInfo2.tag_code != null) {
-                bVar3 = this.doc.dnY;
-                tagInfo3 = this.doc.dnV;
-                bVar3.J(tagInfo3.tag_code.intValue(), i, i2);
-                return;
+        this.dDh.a(z, dataRes, 0, null);
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.Oj != null) {
+            this.Oj.uv();
+        }
+        if (this.refreshView != null) {
+            this.refreshView.uv();
+        }
+        if (this.mPullView != null) {
+            this.mPullView.dg(i);
+        }
+        if (this.aXw != null) {
+            this.aXw.setTextColor(ar.getColor(t.d.cp_cont_d));
+            this.aXw.dg(i);
+        }
+        this.dDf.onChangeSkinType(i);
+    }
+
+    public long getTagCode() {
+        if (this.dDd == null && this.dDd.tag_code == null) {
+            return 0L;
+        }
+        return this.dDd.tag_code.longValue();
+    }
+
+    public void ah(String str, int i) {
+        if (this.aXw != null) {
+            this.aXw.xc();
+        }
+        this.dDh.a(true, null, i, str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showNetRefreshView(View view, String str, boolean z) {
+        if (this.refreshView == null) {
+            this.refreshView = new com.baidu.tbadk.f.h(getContext(), new k(this));
+        }
+        this.refreshView.eP(getContext().getResources().getDimensionPixelSize(t.e.ds160));
+        this.refreshView.fN(str);
+        this.refreshView.c(view, z);
+        this.refreshView.Eu();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void avv() {
+        if (this.refreshView != null) {
+            this.refreshView.H(this);
+            this.refreshView = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aAV() {
+        if (this.Oj != null) {
+            this.Oj.H(this);
+            this.Oj = null;
+        }
+        if (this.dDg != null) {
+            this.dDg.aES();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean aET() {
+        if (this.refreshView != null) {
+            return this.refreshView.Eo();
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void j(boolean z, int i) {
+        if (this.Oj == null) {
+            if (i < 0) {
+                this.Oj = new com.baidu.tbadk.f.f(getContext());
+            } else {
+                this.Oj = new com.baidu.tbadk.f.f(getContext(), i);
             }
+            this.Oj.uv();
         }
-        bVar2 = this.doc.dnY;
-        bVar2.J(0, i, i2);
+        this.Oj.c(this, z);
     }
 
-    @Override // com.baidu.tieba.recommendfrs.n.a
-    public void K(int i, int i2, int i3) {
-        b bVar;
-        TagInfo tagInfo;
-        TagInfo tagInfo2;
-        b bVar2;
-        TagInfo tagInfo3;
-        bVar = this.doc.dnY;
-        if (bVar != null) {
-            tagInfo = this.doc.dnV;
-            if (tagInfo != null) {
-                tagInfo2 = this.doc.dnV;
-                if (tagInfo2.tag_code != null) {
-                    bVar2 = this.doc.dnY;
-                    tagInfo3 = this.doc.dnV;
-                    bVar2.p(tagInfo3.tag_code.intValue(), i, i2, i3);
-                }
-            }
+    public void aEU() {
+        setViewForeground(false);
+    }
+
+    public void setViewForeground(boolean z) {
+        this.dDj = System.currentTimeMillis();
+        if (this.dDh != null) {
+            this.dDh.hm(z);
         }
     }
 
-    @Override // com.baidu.tieba.recommendfrs.n.a
-    public void onError(int i, String str) {
-        BdTypeListView bdTypeListView;
-        TbPageContext tbPageContext;
-        this.doc.auH();
-        if (i != 1) {
-            bdTypeListView = this.doc.dnW;
-            bdTypeListView.setVisibility(8);
-            this.doc.showNetRefreshView(this.doc, str, true);
-        } else if (com.baidu.adp.lib.util.i.iQ()) {
-            tbPageContext = this.doc.pageContext;
-            tbPageContext.showToast(str);
+    public void aEV() {
+        if (this.dDh != null) {
+            this.dDh.update();
         }
     }
 
-    @Override // com.baidu.tieba.recommendfrs.n.a
-    public void onSuccess() {
-        BdTypeListView bdTypeListView;
-        this.doc.auH();
-        this.doc.aqe();
-        bdTypeListView = this.doc.dnW;
-        bdTypeListView.setVisibility(0);
+    public void reload() {
+        if (this.dDe != null) {
+            this.dDe.setSelection(0);
+            this.dDe.ns();
+        }
     }
 
-    @Override // com.baidu.tieba.recommendfrs.n.a
-    public void bD(List<TagInfo> list) {
-        b bVar;
-        b bVar2;
-        bVar = this.doc.dnY;
-        if (bVar != null) {
-            bVar2 = this.doc.dnY;
-            bVar2.bC(list);
+    public void onDestroy() {
+        this.dDh.onDestroy();
+    }
+
+    public void Yc() {
+        if (this.dDf != null) {
+            this.dDf.notifyDataSetChanged();
+        }
+    }
+
+    public void aEW() {
+        if (this.dDj > 0) {
+            TiebaStatic.log(new au("c10794").aa("obj_duration", String.valueOf((System.currentTimeMillis() - this.dDj) / 1000)));
+            this.dDj = 0L;
         }
     }
 }

@@ -1,43 +1,29 @@
 package com.baidu.tieba.frs.frsgood;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements TbImageView.a {
-    final /* synthetic */ x bkz;
+public class ac implements aa.a {
+    final /* synthetic */ y bnw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(x xVar) {
-        this.bkz = xVar;
+    public ac(y yVar) {
+        this.bnw = yVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onComplete(String str, boolean z) {
-        BannerView bannerView;
-        boolean z2;
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void Qs() {
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void Qt() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        BannerView bannerView2;
-        if (z) {
-            bannerView = this.bkz.aRF;
-            if (bannerView.zt()) {
-                z2 = this.bkz.bgW;
-                if (!z2) {
-                    bdTypeListView = this.bkz.bgG;
-                    if (bdTypeListView != null) {
-                        this.bkz.bgW = true;
-                        bdTypeListView2 = this.bkz.bgG;
-                        bannerView2 = this.bkz.aRF;
-                        bdTypeListView2.d(bannerView2, 1);
-                    }
-                }
-            }
+        bdTypeListView = this.bnw.bjt;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.bnw.bjt;
+            bdTypeListView2.setSelection(0);
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
     }
 }

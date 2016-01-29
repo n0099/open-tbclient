@@ -17,7 +17,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
-    private transient c arO;
+    private transient c asH;
     private String check;
     private String description;
     private int errorCode;
@@ -63,7 +63,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.arO = null;
+        this.asH = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -79,7 +79,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.arO = null;
+        this.asH = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -96,7 +96,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.arO = null;
+        this.asH = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -114,7 +114,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.arO = null;
+        this.asH = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -123,7 +123,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.arO = cVar;
+        this.asH = cVar;
         this.status = 5;
     }
 
@@ -224,11 +224,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public c getCallback() {
-        return this.arO;
+        return this.asH;
     }
 
     public void setCallback(c cVar) {
-        this.arO = cVar;
+        this.asH = cVar;
     }
 
     public String getStatusMsg() {

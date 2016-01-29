@@ -1,26 +1,26 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity cqu;
+class o implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity cwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.cqu = squareSearchActivity;
+    public o(SquareSearchActivity squareSearchActivity) {
+        this.cwZ = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.k.c(this.cwZ.getPageContext().getPageActivity(), this.cwZ.cvX);
+        if (view.getTag() instanceof g) {
+            g gVar = (g) view.getTag();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10363").aa("obj_name", gVar.getName()));
+            this.cwZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.cwZ.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(gVar.getId()), gVar.getName(), "")));
         }
-        this.cqu.a(5, (ArrayList) data);
     }
 }

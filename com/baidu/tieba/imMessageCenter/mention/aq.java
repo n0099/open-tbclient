@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.base.e<bd> {
-    private BdUniqueId ciR;
-    private a ciS;
-    private bd ciq;
+    private bd cmQ;
+    private BdUniqueId cnr;
+    private a cns;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -19,9 +19,9 @@ public class aq extends com.baidu.adp.base.e<bd> {
 
     public aq(bd bdVar) {
         super(com.baidu.adp.base.l.C(bdVar.getPageContext().getPageActivity()));
-        this.ciR = BdUniqueId.gen();
-        this.ciq = bdVar;
-        aeI();
+        this.cnr = BdUniqueId.gen();
+        this.cmQ = bdVar;
+        ahR();
     }
 
     public void a(long j, int i, String str) {
@@ -29,15 +29,15 @@ public class aq extends com.baidu.adp.base.e<bd> {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.ciq.getUniqueId());
+        checkPostRequestMessage.setTag(this.cmQ.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aeI() {
+    public void ahR() {
         ar arVar = new ar(this, 303010);
-        arVar.setTag(this.ciq.getUniqueId());
+        arVar.setTag(this.cmQ.getUniqueId());
         arVar.setSelfListener(true);
-        this.ciq.registerListener(arVar);
+        this.cmQ.registerListener(arVar);
     }
 
     @Override // com.baidu.adp.base.e
@@ -51,6 +51,6 @@ public class aq extends com.baidu.adp.base.e<bd> {
     }
 
     public void a(a aVar) {
-        this.ciS = aVar;
+        this.cns = aVar;
     }
 }

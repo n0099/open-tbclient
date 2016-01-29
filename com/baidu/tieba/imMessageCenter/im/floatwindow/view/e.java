@@ -11,119 +11,119 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
-    private ScaleAnimation cfA;
-    private boolean cfB;
-    private boolean cfC;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.e cfD;
-    private Animation cfE;
-    private Animation cfF;
-    private Runnable cfG;
-    private com.baidu.adp.lib.h.d cfH;
-    private LinearLayout cfy;
-    private ScaleAnimation cfz;
-    private ImageView deleteView;
+    private LinearLayout cjX;
+    private ImageView cjY;
+    private ScaleAnimation cjZ;
+    private ScaleAnimation cka;
+    private boolean ckb;
+    private boolean ckc;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.e ckd;
+    private Animation cke;
+    private Animation ckf;
+    private Runnable ckg;
+    private com.baidu.adp.lib.h.d ckh;
 
     public e(Context context) {
-        super(LayoutInflater.from(context).inflate(n.h.im_chat_tip_view, (ViewGroup) null));
-        this.cfB = false;
-        this.cfC = false;
-        this.cfG = new f(this);
-        this.cfH = new g(this);
-        this.deleteView = (ImageView) this.ceR.findViewById(n.g.im_chat_tip_view_delete);
-        this.cfy = (LinearLayout) this.ceR.findViewById(n.g.im_chat_tip_holder);
-        this.cfD = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
+        super(LayoutInflater.from(context).inflate(t.h.im_chat_tip_view, (ViewGroup) null));
+        this.ckb = false;
+        this.ckc = false;
+        this.ckg = new f(this);
+        this.ckh = new g(this);
+        this.cjY = (ImageView) this.cjq.findViewById(t.g.im_chat_tip_view_delete);
+        this.cjX = (LinearLayout) this.cjq.findViewById(t.g.im_chat_tip_holder);
+        this.ckd = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.e adr() {
-        if (this.cfD.isEmpty()) {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.e agA() {
+        if (this.ckd.isEmpty()) {
             int[] iArr = new int[2];
-            this.deleteView.getLocationOnScreen(iArr);
+            this.cjY.getLocationOnScreen(iArr);
             if (iArr[0] != 0 && iArr[1] != 0) {
-                int measuredHeight = (this.deleteView.getMeasuredHeight() / 2) + 15;
-                this.cfD.F(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+                int measuredHeight = (this.cjY.getMeasuredHeight() / 2) + 15;
+                this.ckd.E(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
             }
         }
-        return this.cfD;
+        return this.ckd;
     }
 
     public void b(Handler handler) {
-        if (!adc()) {
-            add();
+        if (!agl()) {
+            agm();
             if (handler != null) {
-                handler.removeCallbacks(this.cfG);
-                handler.post(this.cfG);
+                handler.removeCallbacks(this.ckg);
+                handler.post(this.ckg);
             }
         }
     }
 
     public void c(Handler handler) {
-        handler.removeCallbacks(this.cfG);
-        this.deleteView.clearAnimation();
-        this.cfC = false;
-        this.cfB = false;
-        if (this.cfy.getWindowToken() != null) {
-            this.cfy.clearAnimation();
-            this.cfy.startAnimation(adw());
+        handler.removeCallbacks(this.ckg);
+        this.cjY.clearAnimation();
+        this.ckc = false;
+        this.ckb = false;
+        if (this.cjX.getWindowToken() != null) {
+            this.cjX.clearAnimation();
+            this.cjX.startAnimation(agF());
             return;
         }
-        ade();
+        agn();
     }
 
-    public void ads() {
-        if (!this.cfC && !this.cfB) {
-            this.cfB = true;
-            this.deleteView.startAnimation(adu());
+    public void agB() {
+        if (!this.ckc && !this.ckb) {
+            this.ckb = true;
+            this.cjY.startAnimation(agD());
         }
     }
 
-    public void adt() {
-        if (!this.cfC && this.cfB) {
-            this.cfB = false;
-            this.deleteView.startAnimation(adv());
+    public void agC() {
+        if (!this.ckc && this.ckb) {
+            this.ckb = false;
+            this.cjY.startAnimation(agE());
         }
     }
 
-    private ScaleAnimation adu() {
-        if (this.cfz == null) {
-            this.cfz = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
-            this.cfz.setDuration(150L);
-            this.cfz.setFillAfter(true);
-            this.cfz.setAnimationListener(this.cfH);
+    private ScaleAnimation agD() {
+        if (this.cjZ == null) {
+            this.cjZ = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
+            this.cjZ.setDuration(150L);
+            this.cjZ.setFillAfter(true);
+            this.cjZ.setAnimationListener(this.ckh);
         }
-        return this.cfz;
+        return this.cjZ;
     }
 
-    private ScaleAnimation adv() {
-        if (this.cfA == null) {
-            this.cfA = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
-            this.cfA.setDuration(150L);
-            this.cfA.setFillAfter(true);
-            this.cfA.setAnimationListener(this.cfH);
+    private ScaleAnimation agE() {
+        if (this.cka == null) {
+            this.cka = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
+            this.cka.setDuration(150L);
+            this.cka.setFillAfter(true);
+            this.cka.setAnimationListener(this.ckh);
         }
-        return this.cfA;
+        return this.cka;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation adq() {
-        if (this.cfE == null) {
-            this.cfE = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), n.a.float_window_tip_in_anim);
+    public Animation agz() {
+        if (this.cke == null) {
+            this.cke = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), t.a.float_window_tip_in_anim);
         }
-        return this.cfE;
+        return this.cke;
     }
 
-    private Animation adw() {
-        if (this.cfF == null) {
-            this.cfF = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), n.a.float_window_tip_out_anim);
-            this.cfF.setAnimationListener(this.cfH);
+    private Animation agF() {
+        if (this.ckf == null) {
+            this.ckf = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), t.a.float_window_tip_out_anim);
+            this.ckf.setAnimationListener(this.ckh);
         }
-        return this.cfF;
+        return this.ckf;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams adb() {
+    public WindowManager.LayoutParams agk() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -1;

@@ -14,7 +14,7 @@ public class CdnCacheItem implements Serializable {
     private ArrayList<TBIPListItem> mobileIpList;
     private boolean mobileIsUsedIp;
     private static Object mLock = new Object();
-    private static Object clp = new Object();
+    private static Object cpQ = new Object();
     private boolean isUsedIp = false;
     public long lastTachometerTime = 0;
     public long firstUseIpTime = 0;
@@ -101,7 +101,7 @@ public class CdnCacheItem implements Serializable {
                 this.ipHashMap.remove(tBIPListItem.cdnIp);
                 this.ipList.remove(i2);
                 long currentTimeMillis = System.currentTimeMillis();
-                afA();
+                aiL();
                 this.disableIpMap.put(tBIPListItem.cdnIp, Long.valueOf(currentTimeMillis));
             }
             if (tBIPListItem.ipRank < 0) {
@@ -116,7 +116,7 @@ public class CdnCacheItem implements Serializable {
 
     public int setCdnDomainRank(int i, float f) {
         int i2;
-        synchronized (clp) {
+        synchronized (cpQ) {
             this.cdnDomainRank += i;
             if (this.cdnDomainRank < 0) {
                 this.cdnDomainRank = 0;
@@ -131,7 +131,7 @@ public class CdnCacheItem implements Serializable {
     }
 
     public boolean hasImageProblem() {
-        return i.iR() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp;
+        return i.ja() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp;
     }
 
     public boolean getIsUsedIp() {
@@ -156,7 +156,7 @@ public class CdnCacheItem implements Serializable {
     public void setIpList(ArrayList<String> arrayList, boolean z, boolean z2) {
         if (arrayList != null && arrayList.size() != 0) {
             synchronized (mLock) {
-                afA();
+                aiL();
                 if (z2) {
                     this.ipList.clear();
                     this.ipHashMap.clear();
@@ -166,7 +166,7 @@ public class CdnCacheItem implements Serializable {
                 for (int i = 0; i < size; i++) {
                     String str = arrayList.get(i);
                     Long l = this.disableIpMap.get(str);
-                    if (l != null && System.currentTimeMillis() - l.longValue() >= afB()) {
+                    if (l != null && System.currentTimeMillis() - l.longValue() >= aiM()) {
                         this.disableIpMap.remove(str);
                     }
                     if (this.ipHashMap.get(str) == null && this.disableIpMap.get(str) == null) {
@@ -180,13 +180,13 @@ public class CdnCacheItem implements Serializable {
         }
     }
 
-    private void afA() {
+    private void aiL() {
         if (this.disableIpMap == null) {
             this.disableIpMap = new HashMap<>();
         }
     }
 
-    private int afB() {
+    private int aiM() {
         return this.ipDisableTime < 0 ? TbadkCoreApplication.APP_ENTER_FORE_SEND_PV_INTERNAL : this.ipDisableTime;
     }
 

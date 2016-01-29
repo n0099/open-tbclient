@@ -1,18 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
-    final /* synthetic */ u cVS;
+class ac extends TimerTask {
+    final /* synthetic */ v dhq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(u uVar) {
-        this.cVS = uVar;
+    public ac(v vVar) {
+        this.dhq = vVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cVS.apK();
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        if (this.dhq.getActivity() != null && !this.dhq.getActivity().isFinishing()) {
+            this.dhq.getActivity().finish();
+        }
     }
 }

@@ -1,37 +1,36 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
+import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends HttpMessageListener {
-    final /* synthetic */ j cVA;
+public class m extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ k dhb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(j jVar, int i) {
+    public m(k kVar, int i) {
         super(i);
-        this.cVA = jVar;
+        this.dhb = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         PersonPostModel.a aVar;
         PersonPostModel.a aVar2;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                aVar2 = this.cVA.cVi;
+        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
+                aVar2 = this.dhb.dgJ;
                 aVar2.a(null, false);
                 return;
             }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
             if (!userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                aVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

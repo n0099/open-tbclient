@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.m;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.l;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.util.i;
 import tbclient.GetHotThread.DataReq;
 import tbclient.GetHotThread.GetHotThreadReqIdl;
@@ -26,8 +26,8 @@ public class RequestFrsHotThreadMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(k.K(TbadkCoreApplication.m411getInst()));
         builder.scr_h = Integer.valueOf(k.L(TbadkCoreApplication.m411getInst()));
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density);
-        builder.q_type = Integer.valueOf(ay.va().vc() ? 2 : 1);
-        if (m.qQ().qW()) {
+        builder.q_type = Integer.valueOf(ax.wg().wi() ? 2 : 1);
+        if (l.rn().rt()) {
             builder.rn = 35;
         } else {
             builder.rn = 50;

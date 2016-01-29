@@ -1,42 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ PbActivity cFS;
+public class ar implements a.b {
+    private final /* synthetic */ int bgL;
+    private final /* synthetic */ String bgM;
+    private final /* synthetic */ long bgN;
+    final /* synthetic */ PbActivity cNq;
+    private final /* synthetic */ fm cNu;
+    private final /* synthetic */ ShareFromPBMsgData cNv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+    public ar(PbActivity pbActivity, fm fmVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
+        this.cNq = pbActivity;
+        this.cNu = fmVar;
+        this.bgL = i;
+        this.bgM = str;
+        this.bgN = j;
+        this.cNv = shareFromPBMsgData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: alB */
-    public View hc() {
-        return new PlayVoiceBnt(this.cFS.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aj */
-    public void l(View view) {
-        ((PlayVoiceBnt) view).reset();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ak */
-    public View m(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: al */
-    public View n(View view) {
-        ((PlayVoiceBnt) view).reset();
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.cNq.HidenSoftKeyPad((InputMethodManager) this.cNq.getSystemService("input_method"), this.cNu.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.cNq.getPageContext().getPageActivity(), this.bgL, this.bgM, this.bgN, "from_share", this.cNu.getLeaveMsg(), this.cNv.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.tieba.frs.view;
 
-import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bop;
+    final /* synthetic */ b brj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar) {
-        this.bop = aVar;
+    public d(b bVar) {
+        this.brj = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.bop.bnZ)) {
-            com.baidu.tbadk.browser.f.a(this.bop.mContext.getPageActivity(), this.bop.mContext.getString(n.j.frs_badge_intro), this.bop.bnZ, true, false, false);
+        if (this.brj.MR == null || this.brj.MR.getOrignalPage() == null || this.brj.MR.getOrignalPage().checkUpIsLogin()) {
+            be.wt().c(this.brj.MR, new String[]{(String) view.getTag()});
         }
     }
 }

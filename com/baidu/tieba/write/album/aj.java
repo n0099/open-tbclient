@@ -1,16 +1,16 @@
 package com.baidu.tieba.write.album;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag dTB;
+    final /* synthetic */ ag eog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.dTB = agVar;
+        this.eog = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -22,26 +22,26 @@ class aj implements x {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         o oVar5;
-        oVar = this.dTB.dRW;
+        oVar = this.eog.emG;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.dTB.dRW;
+        oVar2 = this.eog.emG;
         if (oVar2.size() < maxImagesAllowed) {
-            oVar3 = this.dTB.dRW;
-            if (oVar3.aKc()) {
-                oVar5 = this.dTB.dRW;
-                oVar5.nl(String.valueOf(System.currentTimeMillis()));
+            oVar3 = this.eog.emG;
+            if (oVar3.aSN()) {
+                oVar5 = this.eog.emG;
+                oVar5.nA(String.valueOf(System.currentTimeMillis()));
             }
-            oVar4 = this.dTB.dRW;
-            String aKb = oVar4.aKb();
-            if (!StringUtils.isNull(aKb, true)) {
-                albumActivity2 = this.dTB.dSj;
-                ar.b(albumActivity2.getPageContext(), aKb);
+            oVar4 = this.eog.emG;
+            String aSM = oVar4.aSM();
+            if (!StringUtils.isNull(aSM, true)) {
+                albumActivity2 = this.eog.emU;
+                aq.b(albumActivity2.getPageContext(), aSM);
                 return;
             }
-            albumActivity = this.dTB.dSj;
-            ar.c(albumActivity.getPageContext());
+            albumActivity = this.eog.emU;
+            aq.c(albumActivity.getPageContext());
             return;
         }
-        this.dTB.showToast(String.format(this.dTB.getPageContext().getString(n.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.eog.showToast(String.format(this.eog.getPageContext().getString(t.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

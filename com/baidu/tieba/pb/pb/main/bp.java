@@ -1,57 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements a.b {
-    final /* synthetic */ bh cGg;
-    private final /* synthetic */ PbLotteryHttpResponseMessage cGh;
-    private final /* synthetic */ String caQ;
+    final /* synthetic */ bo cNE;
+    private final /* synthetic */ String cfq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bh bhVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage, String str) {
-        this.cGg = bhVar;
-        this.cGh = pbLotteryHttpResponseMessage;
-        this.caQ = str;
+    public bp(bo boVar, String str) {
+        this.cNE = boVar;
+        this.cfq = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         PbActivity pbActivity;
-        cf cfVar;
+        cm cmVar;
         PbActivity pbActivity2;
-        cf cfVar2;
+        cm cmVar2;
         PbActivity pbActivity3;
-        cf cfVar3;
+        cm cmVar3;
         PbActivity pbActivity4;
-        cf cfVar4;
-        PbActivity pbActivity5;
-        PbActivity pbActivity6;
+        cm cmVar4;
         aVar.dismiss();
-        if (this.cGh.getOrginalMessage() instanceof PbLotteryRequestMessage) {
-            pbActivity5 = this.cGg.cFS;
-            pbActivity5.showProgressBar(true, 0, 0);
-            PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) this.cGh.getOrginalMessage();
-            PbLotteryRequestMessage pbLotteryRequestMessage2 = new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), pbLotteryRequestMessage.getForumId(), pbLotteryRequestMessage.getThreadId(), 1, pbLotteryRequestMessage.getActivityId(), pbLotteryRequestMessage.getAwardActId(), pbLotteryRequestMessage.getComponentId());
-            pbActivity6 = this.cGg.cFS;
-            pbActivity6.sendMessage(pbLotteryRequestMessage2);
-        }
-        pbActivity = this.cGg.cFS;
-        cfVar = pbActivity.cFl;
-        if (cfVar != null) {
-            pbActivity2 = this.cGg.cFS;
-            cfVar2 = pbActivity2.cFl;
-            if (cfVar2.getPbData() != null) {
-                com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10398");
-                pbActivity3 = this.cGg.cFS;
-                cfVar3 = pbActivity3.cFl;
-                com.baidu.tbadk.core.util.av aa = avVar.aa(ImageViewerConfig.FORUM_ID, cfVar3.getPbData().getForumId());
-                pbActivity4 = this.cGg.cFS;
-                cfVar4 = pbActivity4.cFl;
-                TiebaStatic.log(aa.aa("tid", cfVar4.getPbData().getThreadId()).aa("uid", this.caQ).aa("is_like", "1"));
+        pbActivity = this.cNE.cNq;
+        cmVar = pbActivity.cMF;
+        if (cmVar != null) {
+            pbActivity2 = this.cNE.cNq;
+            cmVar2 = pbActivity2.cMF;
+            if (cmVar2.getPbData() != null) {
+                com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10506");
+                pbActivity3 = this.cNE.cNq;
+                cmVar3 = pbActivity3.cMF;
+                com.baidu.tbadk.core.util.au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cmVar3.getPbData().getForumId());
+                pbActivity4 = this.cNE.cNq;
+                cmVar4 = pbActivity4.cMF;
+                TiebaStatic.log(aa.aa("tid", cmVar4.getPbData().getThreadId()).aa("uid", this.cfq).aa("obj_locate", "2"));
             }
         }
     }

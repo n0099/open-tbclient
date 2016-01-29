@@ -27,7 +27,7 @@ public class BroadcastReceiverProxy extends BroadcastReceiver {
                 }
                 for (String str : split) {
                     try {
-                        ((BroadcastReceiver) plugin2.kt().loadClass(str).asSubclass(BroadcastReceiver.class).newInstance()).onReceive(context, intent);
+                        ((BroadcastReceiver) plugin2.kD().loadClass(str).asSubclass(BroadcastReceiver.class).newInstance()).onReceive(context, intent);
                     } catch (ClassNotFoundException e) {
                         BdLog.e(e);
                     } catch (IllegalAccessException e2) {

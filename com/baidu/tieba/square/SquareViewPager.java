@@ -7,22 +7,24 @@ import com.baidu.adp.widget.f;
 import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
 public class SquareViewPager extends TbViewPager {
-    private boolean aeY;
-    private f.b afa;
+    private boolean afK;
+    private f.b afM;
+    private float x;
+    private float y;
 
     public SquareViewPager(Context context) {
         super(context);
-        this.aeY = true;
+        this.afK = true;
     }
 
     public SquareViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeY = true;
+        this.afK = true;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aeY) {
+        if (this.afK) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -30,28 +32,35 @@ public class SquareViewPager extends TbViewPager {
         }
         int action = motionEvent.getAction();
         if (action == 3 || action == 1) {
-            if (this.afa != null) {
-                this.afa.nG();
+            if (this.afM != null) {
+                this.afM.oa();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (action) {
             case 0:
-                if (this.afa != null) {
-                    this.afa.nH();
+                this.x = getX();
+                this.y = getY();
+                if (this.afM != null) {
+                    this.afM.ob();
                     break;
                 }
                 break;
             case 1:
             default:
-                if (this.afa != null) {
-                    this.afa.nG();
+                if (this.afM != null) {
+                    this.afM.oa();
                     break;
                 }
                 break;
             case 2:
-                if (this.afa != null) {
-                    this.afa.nH();
+                if (Math.abs(this.x - getX()) > Math.abs(this.y - getY())) {
+                    aA(true);
+                } else {
+                    aA(false);
+                }
+                if (this.afM != null) {
+                    this.afM.ob();
                     break;
                 }
                 break;
@@ -61,7 +70,7 @@ public class SquareViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aeY) {
+        if (this.afK) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -69,26 +78,26 @@ public class SquareViewPager extends TbViewPager {
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.afa != null) {
-                    this.afa.nH();
+                if (this.afM != null) {
+                    this.afM.ob();
                     break;
                 }
                 break;
             case 1:
-                if (this.afa != null) {
-                    this.afa.nG();
+                if (this.afM != null) {
+                    this.afM.oa();
                     break;
                 }
                 break;
             case 2:
-                if (this.afa != null) {
-                    this.afa.nH();
+                if (this.afM != null) {
+                    this.afM.ob();
                     break;
                 }
                 break;
             default:
-                if (this.afa != null) {
-                    this.afa.nG();
+                if (this.afM != null) {
+                    this.afM.oa();
                     break;
                 }
                 break;
@@ -97,10 +106,16 @@ public class SquareViewPager extends TbViewPager {
     }
 
     public void setSwipeControlInterface(f.b bVar) {
-        this.afa = bVar;
+        this.afM = bVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.aeY = z;
+        this.afK = z;
+    }
+
+    private void aA(boolean z) {
+        if (getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
     }
 }

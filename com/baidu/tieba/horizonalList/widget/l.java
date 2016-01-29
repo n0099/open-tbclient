@@ -6,35 +6,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends ArrayAdapter {
-    private int JK;
-    private final ArrayList<p> aDQ;
-    private List<n> ayw;
-    private p bFA;
-    private View.OnTouchListener bFB;
-    private int bFz;
+    private int JZ;
+    private final ArrayList<o> aEG;
+    private List<m> azm;
+    private int bIL;
+    private o bIM;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
 
-    public l(Context context, int i, p pVar, List<String> list) {
+    public l(Context context, int i, o oVar, List<String> list) {
         super(context, i, list);
-        this.aDQ = new ArrayList<>();
+        this.aEG = new ArrayList<>();
         this.mSkinType = 3;
-        this.bFB = new m(this);
         this.mInflater = LayoutInflater.from(context);
-        this.bFz = pVar.bFE;
-        this.JK = i;
-        this.bFA = pVar;
+        this.bIL = oVar.bIO;
+        this.JZ = i;
+        this.bIM = oVar;
     }
 
-    public void setData(List<n> list) {
-        this.ayw = list;
+    public void setData(List<m> list) {
+        this.azm = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -54,30 +52,29 @@ public class l extends ArrayAdapter {
     @Override // android.widget.ArrayAdapter, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.mInflater.inflate(this.JK, viewGroup, false);
-            p y = this.bFA.y(view);
-            y.setOnClickListener(this.mOnClickListener);
-            view.setTag(y);
+            view = this.mInflater.inflate(this.JZ, viewGroup, false);
+            o M = this.bIM.M(view);
+            M.setOnClickListener(this.mOnClickListener);
+            view.setTag(M);
         }
-        p pVar = (p) view.getTag();
-        view.setOnTouchListener(this.bFB);
-        a(pVar, this.ayw.get(i), i);
-        return pVar.getView();
+        o oVar = (o) view.getTag();
+        a(oVar, this.azm.get(i), i);
+        return oVar.getView();
     }
 
-    private void a(p pVar, n nVar, int i) {
-        if (nVar != null && pVar != null) {
-            pVar.a(nVar);
-            this.aDQ.add(pVar);
-            if (TbadkCoreApplication.m411getInst().getSkinType() != pVar.ahf) {
-                pVar.onChangeSkinType(this.mSkinType);
+    private void a(o oVar, m mVar, int i) {
+        if (mVar != null && oVar != null) {
+            oVar.a(mVar);
+            this.aEG.add(oVar);
+            if (TbadkCoreApplication.m411getInst().getSkinType() != oVar.ahU) {
+                oVar.onChangeSkinType(this.mSkinType);
             }
         }
     }
 
-    public void cK(int i) {
-        if (i != this.mSkinType && y.l(this.aDQ) > 0) {
-            Iterator<p> it = this.aDQ.iterator();
+    public void db(int i) {
+        if (i != this.mSkinType && x.o(this.aEG) > 0) {
+            Iterator<o> it = this.aEG.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

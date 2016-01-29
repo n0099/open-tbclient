@@ -1,25 +1,27 @@
 package com.baidu.tieba.recommendfrs.control;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends CustomMessageListener {
+public class i implements View.OnClickListener {
+    final /* synthetic */ a dEd;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(int i) {
-        super(i);
+    public i(a aVar) {
+        this.dEd = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c fragmentTabStructure;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.axv.setArguments(new Bundle());
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.recommendfrs.control.a.j jVar;
+        com.baidu.tieba.recommendfrs.control.a.j jVar2;
+        jVar = this.dEd.dDW;
+        if (jVar != null) {
+            jVar2 = this.dEd.dDW;
+            jVar2.a(1, true, 0, 0, 1, 0);
+            this.dEd.avv();
+            this.dEd.a(this.dEd.getView(), false, this.dEd.getResources().getDimensionPixelSize(t.e.ds360));
         }
     }
 }

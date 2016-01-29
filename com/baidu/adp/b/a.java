@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class a extends i {
-    private static volatile a Fr = null;
-    private static ArrayList<C0000a> Fs = new ArrayList<>();
+    private static volatile a FE = null;
+    private static ArrayList<C0000a> FF = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static a ma() {
-        if (Fr == null) {
+    public static a mo() {
+        if (FE == null) {
             BdLog.e("trafficStatsManaer");
-            Fr = new b();
+            FE = new b();
         }
-        return Fr;
+        return FE;
     }
 
     public static void a(a aVar) {
-        Fr = aVar;
-        if (Fr != null) {
-            Iterator<C0000a> it = Fs.iterator();
+        FE = aVar;
+        if (FE != null) {
+            Iterator<C0000a> it = FF.iterator();
             while (it.hasNext()) {
                 C0000a next = it.next();
-                Fr.a(next.contentType, next.Ft, next.Fu, next.url);
+                FE.a(next.contentType, next.FG, next.FH, next.url);
             }
-            Fs.clear();
+            FF.clear();
         }
     }
 
-    public void b(String str, long j, long j2) {
+    public void a(String str, long j, long j2) {
         a(str, j, j2, null);
     }
 
@@ -39,15 +39,15 @@ public abstract class a extends i {
     /* renamed from: com.baidu.adp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0000a {
-        public long Ft;
-        public long Fu;
+        public long FG;
+        public long FH;
         public String contentType;
         public String url;
 
         public C0000a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.Ft = j;
-            this.Fu = j2;
+            this.FG = j;
+            this.FH = j2;
             this.url = str2;
         }
     }

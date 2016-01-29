@@ -1,17 +1,17 @@
 package com.baidu.adp.framework.c;
 /* loaded from: classes.dex */
 public class a extends d {
-    private static a qE = null;
+    private static a qK = null;
 
-    public static a eS() {
-        if (qE == null) {
+    public static a eY() {
+        if (qK == null) {
             synchronized (a.class) {
-                if (qE == null) {
-                    qE = new a();
+                if (qK == null) {
+                    qK = new a();
                 }
             }
         }
-        return qE;
+        return qK;
     }
 
     private a() {

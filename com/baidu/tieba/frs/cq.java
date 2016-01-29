@@ -1,29 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cq extends CustomMessageListener {
-    final /* synthetic */ FrsMoreFeedForumsActivity bhj;
+public class cq implements View.OnTouchListener {
+    final /* synthetic */ cn bjV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cq(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
-        super(i);
-        this.bhj = frsMoreFeedForumsActivity;
+    public cq(cn cnVar) {
+        this.bjV = cnVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cr crVar;
-        List<FeedForumData> list;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
-            crVar = this.bhj.bhh;
-            list = this.bhj.bfO;
-            crVar.a(list, (com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view.getId() == t.g.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                imageView = this.bjV.bjr;
+                com.baidu.tbadk.core.util.ar.c(imageView, t.f.pic_fresh_n);
+            }
+            if (motionEvent.getAction() == 0) {
+                imageView2 = this.bjV.bjr;
+                com.baidu.tbadk.core.util.ar.c(imageView2, t.f.pic_fresh_s);
+                return false;
+            }
+            return false;
         }
+        return false;
     }
 }

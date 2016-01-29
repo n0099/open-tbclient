@@ -1,42 +1,46 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    final /* synthetic */ n cEc;
-    private final /* synthetic */ String cEd;
-    private final /* synthetic */ String cEe;
-    private final /* synthetic */ String cEf;
+public class o implements a.b {
+    final /* synthetic */ j cKB;
+    private final /* synthetic */ String cfq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar, String str, String str2, String str3) {
-        this.cEc = nVar;
-        this.cEd = str;
-        this.cEe = str2;
-        this.cEf = str3;
+    public o(j jVar, String str) {
+        this.cKB = jVar;
+        this.cfq = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        PbActivity pbActivity;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cEd) && !StringUtils.isNull(this.cEe)) {
-            if (!com.baidu.adp.lib.util.i.iQ()) {
-                pbActivity = this.cEc.cGj;
-                pbActivity.showToast(n.j.neterror);
-                return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.pb.a.c cVar;
+        com.baidu.tieba.pb.a.c cVar2;
+        com.baidu.tieba.tbadkCore.w wVar;
+        com.baidu.tieba.pb.a.c cVar3;
+        com.baidu.tieba.pb.a.c cVar4;
+        com.baidu.tieba.pb.a.c cVar5;
+        com.baidu.tieba.pb.a.c cVar6;
+        aVar.dismiss();
+        cVar = this.cKB.cJZ;
+        if (cVar != null) {
+            cVar2 = this.cKB.cJZ;
+            if (cVar2.aoE() != null) {
+                wVar = this.cKB.MS;
+                cVar3 = this.cKB.cJZ;
+                String name = cVar3.aoE().getName();
+                cVar4 = this.cKB.cJZ;
+                wVar.bl(name, cVar4.aoE().getId());
+                au auVar = new au("c10409");
+                cVar5 = this.cKB.cJZ;
+                au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cVar5.getForumId());
+                cVar6 = this.cKB.cJZ;
+                TiebaStatic.log(aa.aa("tid", cVar6.getThreadId()).aa("uid", this.cfq).aa("is_like", "1"));
             }
-            context = this.cEc.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cEd) + "," + this.cEe, this.cEf, this.cEf, context.getString(n.j.app_info_for_map));
-            context2 = this.cEc.mContext;
-            com.baidu.tbadk.browser.f.B(context2, format);
         }
     }
 }

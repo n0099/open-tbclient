@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.util.MobileQQ;
 public class g extends com.baidu.adp.lib.stats.base.a {
     public g(p pVar) {
         super(pVar);
-        this.wY = 50;
-        this.wZ = MobileQQ.PARAM_PF;
+        this.xh = 50;
+        this.xi = MobileQQ.PARAM_PF;
     }
 }

@@ -27,10 +27,10 @@ class t extends com.baidu.adp.framework.listener.a {
                 } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
                     aVar = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                 }
-                if (aVar != null && aVar.CD() != null) {
-                    String portrait = aVar.CD().getPortrait();
-                    this.this$0.duw.G(com.baidu.tbadk.core.util.r.dm(portrait), false);
-                    moreModel = this.this$0.dux;
+                if (aVar != null && aVar.DU() != null) {
+                    String portrait = aVar.DU().getPortrait();
+                    this.this$0.dKA.G(com.baidu.tbadk.core.util.q.dj(portrait), false);
+                    moreModel = this.this$0.dKB;
                     PersonChangeData personChangeData = moreModel.getPersonChangeData();
                     if (personChangeData != null) {
                         personChangeData.setPhotoChanged(true);

@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class t {
-    private EmotionGroupType aTq;
-    private int aTr;
-    private int aTs;
-    private int aTt;
-    private int aTu;
-    private com.baidu.tbadk.editortools.emotiontool.c aTv;
-    private int aTw;
-    private int aTx;
+    private int aVA;
+    private com.baidu.tbadk.editortools.emotiontool.c aVB;
+    private int aVC;
+    private int aVD;
+    private EmotionGroupType aVw;
+    private int aVx;
+    private int aVy;
+    private int aVz;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.aTv = cVar;
+        this.aVB = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c JC() {
-        return this.aTv;
+    public com.baidu.tbadk.editortools.emotiontool.c Lq() {
+        return this.aVB;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.aTq = emotionGroupType;
+        this.aVw = emotionGroupType;
     }
 
-    public EmotionGroupType JD() {
-        return this.aTq;
+    public EmotionGroupType Lr() {
+        return this.aVw;
     }
 
-    public void ep(int i) {
+    public void eJ(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class t {
         return this.row;
     }
 
-    public void eo(int i) {
+    public void eI(int i) {
         this.column = i;
     }
 
-    public int JE() {
+    public int Ls() {
         return this.column;
     }
 
-    public void fh(int i) {
-        this.aTx = i;
+    public void fG(int i) {
+        this.aVD = i;
     }
 
-    public int JF() {
-        return this.aTx;
+    public int Lt() {
+        return this.aVD;
     }
 
-    public void fi(int i) {
-        this.aTw = i;
+    public void fH(int i) {
+        this.aVC = i;
     }
 
-    public int JG() {
-        return this.aTw;
+    public int Lu() {
+        return this.aVC;
     }
 
-    public void fj(int i) {
-        this.aTr = i;
+    public void fI(int i) {
+        this.aVx = i;
     }
 
-    public int JH() {
-        return this.aTr;
+    public int Lv() {
+        return this.aVx;
     }
 
-    public void fk(int i) {
-        this.aTt = i;
+    public void fJ(int i) {
+        this.aVz = i;
     }
 
-    public int JI() {
-        return this.aTt;
+    public int Lw() {
+        return this.aVz;
     }
 
     public void setEndIndex(int i) {
-        this.aTu = i;
+        this.aVA = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class t {
         return this.index;
     }
 
-    public void fl(int i) {
-        this.aTs = i;
+    public void fK(int i) {
+        this.aVy = i;
     }
 
-    public int JJ() {
-        return this.aTs;
+    public int Lx() {
+        return this.aVy;
     }
 }

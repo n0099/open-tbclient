@@ -59,7 +59,7 @@ public final class GroupInfo extends Message {
     public final Integer isMemberGroup;
     @ProtoField(tag = 32, type = Message.Datatype.INT32)
     public final Integer isNewlyCreate;
-    @ProtoField(tag = 33, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_MY_COLLECT_UPDATE, type = Message.Datatype.INT32)
     public final Integer isRecentlyReply;
     @ProtoField(tag = 21, type = Message.Datatype.INT64)
     public final Long lastMsgId;

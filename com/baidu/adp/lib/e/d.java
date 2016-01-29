@@ -9,5 +9,5 @@ public interface d {
 
     void destroy();
 
-    void gH();
+    void gP();
 }

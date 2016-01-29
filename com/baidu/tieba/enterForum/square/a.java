@@ -7,19 +7,19 @@ import android.widget.AbsListView;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.o;
 import com.baidu.tbadk.core.view.t;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a {
-    private final com.baidu.tieba.enterForum.home.e aUj;
-    public BdTypeListView aVi;
-    public PbListView aVj;
-    private int aVk;
-    private View mFooterView;
+    private final com.baidu.tieba.enterForum.home.e aWq;
+    public BdTypeListView aXu;
+    private View aXv;
+    public PbListView aXw;
+    private int aXx;
     private o mNoDataView;
     public t mPullView;
     private View mRootView;
@@ -29,68 +29,68 @@ public class a {
     }
 
     public a(com.baidu.tieba.enterForum.home.e eVar) {
-        this.aVi = null;
+        this.aXu = null;
         this.mPullView = null;
-        this.aUj = eVar;
-        this.mRootView = LayoutInflater.from(eVar.getActivity()).inflate(n.h.enter_forum_square, (ViewGroup) null);
-        this.aVi = (BdTypeListView) this.mRootView.findViewById(n.g.list_view);
-        this.aVi.setDividerHeight(0);
-        this.mFooterView = new View(eVar.getActivity());
-        this.mFooterView.setLayoutParams(new AbsListView.LayoutParams(-1, k.d(eVar.getActivity(), n.e.ds50)));
-        this.mFooterView.setVisibility(8);
-        this.aVi.addFooterView(this.mFooterView, null, false);
-        this.mPullView = new t(eVar.getPageContext());
-        this.mPullView.setTag(this.aUj.getUniqueId());
-        this.aVi.setPullRefresh(this.mPullView);
-        this.aVj = new PbListView(eVar.getActivity());
-        this.aVj.mT();
-        this.aVj.cO(n.d.cp_bg_line_c);
-        this.aVk = this.aUj.getResources().getDimensionPixelOffset(n.e.ds120);
+        this.aWq = eVar;
+        this.mRootView = LayoutInflater.from(eVar.getActivity()).inflate(t.h.enter_forum_square, (ViewGroup) null);
+        this.aXu = (BdTypeListView) this.mRootView.findViewById(t.g.list_view);
+        this.aXu.setDividerHeight(0);
+        this.aXv = new View(eVar.getActivity());
+        this.aXv.setLayoutParams(new AbsListView.LayoutParams(-1, k.c(eVar.getActivity(), t.e.ds50)));
+        this.aXv.setVisibility(8);
+        this.aXu.addFooterView(this.aXv, null, false);
+        this.mPullView = new com.baidu.tbadk.core.view.t(eVar.getPageContext());
+        this.mPullView.setTag(this.aWq.getUniqueId());
+        this.aXu.setPullRefresh(this.mPullView);
+        this.aXw = new PbListView(eVar.getActivity());
+        this.aXw.ni();
+        this.aXw.df(t.d.cp_bg_line_c);
+        this.aXx = this.aWq.getResources().getDimensionPixelOffset(t.e.ds120);
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.cP(i);
+            this.mPullView.dg(i);
         }
-        if (this.aVj != null) {
-            this.aVj.cP(i);
+        if (this.aXw != null) {
+            this.aXw.dg(i);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.aUj.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.aWq.getPageContext(), i);
         }
-        as.j(this.mFooterView, n.d.cp_bg_line_c);
+        ar.l(this.aXv, t.d.cp_bg_line_c);
     }
 
-    public void nb() {
-        this.aVi.nb();
+    public void ns() {
+        this.aXu.ns();
     }
 
-    public void KK() {
-        this.aVi.completePullRefresh();
+    public void MB() {
+        this.aXu.nr();
     }
 
     public void hideNoDataView() {
-        if (this.mFooterView != null) {
-            this.mFooterView.setVisibility(0);
+        if (this.aXv != null) {
+            this.aXv.setVisibility(0);
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
-            this.aVi.removeHeaderView(this.mNoDataView);
+            this.aXu.removeHeaderView(this.mNoDataView);
         }
     }
 
-    public void fv(int i) {
+    public void fU(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.aUj.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.aVk), NoDataViewFactory.d.cM(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.aWq.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.aXx), NoDataViewFactory.d.dd(i), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.cM(i));
-        this.mNoDataView.onChangeSkinType(this.aUj.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dd(i));
+        this.mNoDataView.onChangeSkinType(this.aWq.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.aVi.removeHeaderView(this.mNoDataView);
-        this.aVi.addHeaderView(this.mNoDataView);
-        if (this.mFooterView != null) {
-            this.mFooterView.setVisibility(8);
+        this.aXu.removeHeaderView(this.mNoDataView);
+        this.aXu.addHeaderView(this.mNoDataView);
+        if (this.aXv != null) {
+            this.aXv.setVisibility(8);
         }
     }
 }

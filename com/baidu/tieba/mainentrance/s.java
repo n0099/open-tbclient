@@ -1,33 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
+import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
+import android.widget.ScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity cqu;
+    final /* synthetic */ SquareSearchActivity cwZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SquareSearchActivity squareSearchActivity) {
-        this.cqu = squareSearchActivity;
+        this.cwZ = squareSearchActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
-        LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
-        if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.cqu.cpo;
-            linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.cqu.cpo;
-            linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            if (this.cqu.cpr.hasFocus()) {
-                com.baidu.adp.lib.util.k.c(this.cqu.getPageContext().getPageActivity(), this.cqu.cpr);
-                return false;
-            }
-            return false;
-        }
+        ScrollView scrollView;
+        Activity pageActivity = this.cwZ.getPageContext().getPageActivity();
+        scrollView = this.cwZ.cwE;
+        com.baidu.adp.lib.util.k.c(pageActivity, scrollView);
         return false;
     }
 }

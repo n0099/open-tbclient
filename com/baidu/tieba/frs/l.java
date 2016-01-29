@@ -1,48 +1,48 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class l implements eu {
-    final /* synthetic */ FrsActivity bed;
+class l implements fe {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.eu
-    public void a(ev evVar) {
+    @Override // com.baidu.tieba.frs.fe
+    public void a(ff ffVar) {
     }
 
-    @Override // com.baidu.tieba.frs.eu
-    public void a(int i, int i2, ex exVar) {
-        com.baidu.tieba.frs.b.o oVar;
-        com.baidu.tieba.frs.b.o oVar2;
-        com.baidu.tieba.frs.b.a aVar;
-        com.baidu.tieba.frs.b.o oVar3;
-        oVar = this.bed.bdA;
-        if (oVar.Qf() != null) {
-            oVar2 = this.bed.bdA;
-            oVar2.Qf().a(this.bed.bdz.Pt(), this.bed.bdz.Pu(), this.bed.bdz.Pv());
-            aVar = this.bed.bdB;
-            if (!aVar.PZ()) {
-                oVar3 = this.bed.bdA;
-                oVar3.Qf().a(i, i2, this.bed.bdz.Pv());
+    @Override // com.baidu.tieba.frs.fe
+    public void a(int i, int i2, fh fhVar) {
+        com.baidu.tieba.frs.c.o oVar;
+        com.baidu.tieba.frs.c.o oVar2;
+        com.baidu.tieba.frs.c.a aVar;
+        com.baidu.tieba.frs.c.o oVar3;
+        oVar = this.bgz.bfR;
+        if (oVar.Sj() != null) {
+            oVar2 = this.bgz.bfR;
+            oVar2.Sj().a(this.bgz.bfQ.Rx(), this.bgz.bfQ.Ry(), this.bgz.bfQ.Rz());
+            aVar = this.bgz.bfS;
+            if (!aVar.Sd()) {
+                oVar3 = this.bgz.bfR;
+                oVar3.Sj().a(i, i2, this.bgz.bfQ.Rz());
             }
         }
-        this.bed.bdm.On();
+        this.bgz.bfD.Qq();
         if (i == 1) {
-            this.bed.bdm.Od();
+            this.bgz.bfD.Qd();
         } else {
-            this.bed.bdm.Oe();
+            this.bgz.bfD.Qe();
         }
-        this.bed.stopVoice();
-        this.bed.bdz.a(i, i2, exVar);
+        this.bgz.Oy();
+        this.bgz.bfQ.a(i, i2, fhVar);
     }
 
-    @Override // com.baidu.tieba.frs.eu
+    @Override // com.baidu.tieba.frs.fe
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.eu
-    public void My() {
+    @Override // com.baidu.tieba.frs.fe
+    public void Op() {
     }
 }

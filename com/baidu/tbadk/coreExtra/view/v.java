@@ -1,22 +1,21 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.tbadk.widget.a;
+import android.view.animation.AlphaAnimation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements a.e {
-    final /* synthetic */ MultiImageView anU;
+public class v implements Runnable {
+    final /* synthetic */ u aqx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(MultiImageView multiImageView) {
-        this.anU = multiImageView;
+    public v(u uVar) {
+        this.aqx = uVar;
     }
 
-    @Override // com.baidu.tbadk.widget.a.e
-    public void a(com.baidu.tbadk.widget.a aVar, boolean z, boolean z2) {
-        i iVar;
-        iVar = this.anU.anN;
-        if (iVar.getSelectedView() == aVar) {
-            this.anU.setZoomButton(aVar);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+        alphaAnimation.setDuration(200L);
+        alphaAnimation.setAnimationListener(new w(this));
+        this.aqx.aqi.startAnimation(alphaAnimation);
     }
 }

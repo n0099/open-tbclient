@@ -1,20 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.o;
+import android.view.animation.Animation;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements View.OnClickListener {
-    final /* synthetic */ o aHw;
+public class r implements Animation.AnimationListener {
+    private final /* synthetic */ GifView aHQ;
+    private final /* synthetic */ TextView aHT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(o oVar) {
-        this.aHw = oVar;
+    public r(GifView gifView, TextView textView) {
+        this.aHQ = gifView;
+        this.aHT = textView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        o.a aVar;
-        aVar = this.aHw.aHr;
-        aVar.GB();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.aHQ.setVisibility(0);
+        this.aHQ.DY();
+        com.baidu.adp.lib.h.h.hr().postDelayed(new s(this, this.aHT), 800L);
     }
 }

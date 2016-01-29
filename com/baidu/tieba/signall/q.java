@@ -2,41 +2,41 @@ package com.baidu.tieba.signall;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.n;
 import com.baidu.tieba.signall.p;
+import com.baidu.tieba.t;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ p dxJ;
-    private final /* synthetic */ e dxK;
-    private final /* synthetic */ p.b dxL;
+    final /* synthetic */ p dNN;
+    private final /* synthetic */ e dNO;
+    private final /* synthetic */ p.b dNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, e eVar, p.b bVar) {
-        this.dxJ = pVar;
-        this.dxK = eVar;
-        this.dxL = bVar;
+        this.dNN = pVar;
+        this.dNO = eVar;
+        this.dNP = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
-        if (!this.dxK.aBS()) {
-            this.dxL.dxW.setVisibility(4);
-            this.dxL.dxX.setVisibility(0);
-            this.dxL.dxY.setText(n.j.signallforum_resigning);
-            this.dxK.hj(true);
-            signAllForumActivity = this.dxJ.dxH;
-            ag agVar = new ag(signAllForumActivity);
-            agVar.a(this.dxJ);
-            String sb = new StringBuilder(String.valueOf(this.dxK.getForumId())).toString();
-            synchronized (this.dxJ) {
-                hashMap = this.dxJ.dxI;
-                hashMap.put(sb, agVar);
+        if (!this.dNO.aIZ()) {
+            this.dNP.dOa.setVisibility(4);
+            this.dNP.dOb.setVisibility(0);
+            this.dNP.dOc.setText(t.j.signallforum_resigning);
+            this.dNO.hJ(true);
+            signAllForumActivity = this.dNN.dNL;
+            ah ahVar = new ah(signAllForumActivity);
+            ahVar.a(this.dNN);
+            String sb = new StringBuilder(String.valueOf(this.dNO.getForumId())).toString();
+            synchronized (this.dNN) {
+                hashMap = this.dNN.dNM;
+                hashMap.put(sb, ahVar);
             }
-            agVar.au(this.dxK.getForumName(), sb);
+            ahVar.au(this.dNO.getForumName(), sb);
             TiebaStatic.log("signall_resign_click");
         }
     }

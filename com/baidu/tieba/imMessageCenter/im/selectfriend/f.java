@@ -4,36 +4,36 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class f implements a.b {
-    private final /* synthetic */ ShareFromGameCenterMsgData bZg;
-    private final /* synthetic */ com.baidu.tieba.im.widget.b bZh;
-    private final /* synthetic */ long ben;
-    private final /* synthetic */ String beo;
-    final /* synthetic */ SelectFriendActivity chx;
+    private final /* synthetic */ long bgI;
+    private final /* synthetic */ String bgJ;
+    private final /* synthetic */ ShareFromGameCenterMsgData cdB;
+    private final /* synthetic */ com.baidu.tieba.im.widget.b cdC;
+    final /* synthetic */ SelectFriendActivity clY;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SelectFriendActivity selectFriendActivity, long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, String str, String str2, com.baidu.tieba.im.widget.b bVar) {
-        this.chx = selectFriendActivity;
-        this.ben = j;
-        this.bZg = shareFromGameCenterMsgData;
+        this.clY = selectFriendActivity;
+        this.bgI = j;
+        this.cdB = shareFromGameCenterMsgData;
         this.val$name = str;
-        this.beo = str2;
-        this.bZh = bVar;
+        this.bgJ = str2;
+        this.cdC = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        long T = com.baidu.tieba.im.memorycache.b.aay().T(String.valueOf(this.ben), 2);
-        MessageUtils.createPersonalChatMessage(T, 9, this.bZg.toChatMessageContent(), this.ben, this.val$name, this.beo);
-        MessageUtils.createPersonalChatMessage(T + 1, 1, this.bZh.getLeaveMsg(), this.ben, this.val$name, this.beo);
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        long U = com.baidu.tieba.im.memorycache.b.ady().U(String.valueOf(this.bgI), 2);
+        MessageUtils.createPersonalChatMessage(U, 9, this.cdB.toChatMessageContent(), this.bgI, this.val$name, this.bgJ);
+        MessageUtils.createPersonalChatMessage(U + 1, 1, this.cdC.getLeaveMsg(), this.bgI, this.val$name, this.bgJ);
         aVar.dismiss();
-        this.chx.setResult(-1);
-        if (!i.iQ()) {
-            this.chx.showToast(this.chx.getPageContext().getString(n.j.no_network_guide));
+        this.clY.setResult(-1);
+        if (!i.iZ()) {
+            this.clY.showToast(this.clY.getPageContext().getString(t.j.no_network_guide));
         }
-        this.chx.finish();
+        this.clY.finish();
     }
 }

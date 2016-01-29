@@ -6,11 +6,11 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ k cis;
+    final /* synthetic */ k cmS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(k kVar) {
-        this.cis = kVar;
+        this.cmS = kVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -23,25 +23,25 @@ public class s implements com.baidu.tieba.im.chat.notify.a {
         ImMessageCenterModel imMessageCenterModel3;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel4;
-        bdListView = this.cis.cdB;
+        bdListView = this.cmS.chZ;
         if (bdListView != null) {
-            imMessageCenterModel = this.cis.cdy;
+            imMessageCenterModel = this.cmS.chW;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.cis.cdB;
-                bdListView2.completePullRefresh();
-                imMessageCenterModel2 = this.cis.cdy;
+                bdListView2 = this.cmS.chZ;
+                bdListView2.nr();
+                imMessageCenterModel2 = this.cmS.chW;
                 if (imMessageCenterModel2.getData() != null) {
-                    imMessageCenterModel3 = this.cis.cdy;
+                    imMessageCenterModel3 = this.cmS.chW;
                     if (!imMessageCenterModel3.getData().isEmpty()) {
-                        imMessageCenterListAdapter = this.cis.cdC;
-                        imMessageCenterModel4 = this.cis.cdy;
+                        imMessageCenterListAdapter = this.cmS.cia;
+                        imMessageCenterModel4 = this.cmS.chW;
                         imMessageCenterListAdapter.setData(imMessageCenterModel4.getData());
                         return;
                     }
                 }
-                k kVar = this.cis;
-                z = this.cis.aUR;
-                kVar.k(z, true);
+                k kVar = this.cmS;
+                z = this.cmS.aXd;
+                kVar.m(z, true);
             }
         }
     }

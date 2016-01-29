@@ -1,20 +1,18 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.n;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad {
-    BdListView mBdListView;
-    com.baidu.tbadk.core.view.o mNoDataView = null;
-
-    public BdListView getBdListView() {
-        return this.mBdListView;
-    }
+public class ad implements View.OnClickListener {
+    final /* synthetic */ v dhq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(Context context, View view) {
-        this.mBdListView = (BdListView) view.findViewById(n.g.list);
+    public ad(v vVar) {
+        this.dhq = vVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.dhq.auX();
     }
 }

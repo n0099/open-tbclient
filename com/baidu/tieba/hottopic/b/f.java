@@ -1,41 +1,32 @@
 package com.baidu.tieba.hottopic.b;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.viewpager.a;
-import com.baidu.tieba.n;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.hottopic.view.HotTopicPkView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class f extends a.C0043a {
-    public int ahf;
-    private View bIL;
-    public LinearLayout bIM;
-    public BarImageView bIN;
-    public LinearLayout bIO;
-    public TextView bIP;
-    public LinearLayout bIQ;
-    public TextView bIR;
-    public TextView bIS;
-    public TextView bIT;
-    public TextView bIU;
+public class f extends x.a {
+    public int ahU;
+    public TextView bMk;
+    public TextView bMl;
+    public HotTopicPkView bMm;
+    public TextView bMn;
+    public TextView bMo;
 
     public f(View view) {
         super(view);
-        this.ahf = 3;
-        this.bIL = view;
-        initView();
+        this.ahU = 3;
+        ai(view);
     }
 
-    private void initView() {
-        this.bIM = (LinearLayout) this.bIL.findViewById(n.g.forum_info_card_root);
-        this.bIN = (BarImageView) this.bIL.findViewById(n.g.forum_avatar);
-        this.bIO = (LinearLayout) this.bIL.findViewById(n.g.forum_text_info);
-        this.bIP = (TextView) this.bIL.findViewById(n.g.forum_name);
-        this.bIQ = (LinearLayout) this.bIL.findViewById(n.g.forum_info_text_center);
-        this.bIR = (TextView) this.bIL.findViewById(n.g.forum_follows_count);
-        this.bIS = (TextView) this.bIL.findViewById(n.g.forum_thread_count);
-        this.bIT = (TextView) this.bIL.findViewById(n.g.forum_intro);
-        this.bIU = (TextView) this.bIL.findViewById(n.g.forum_add_love);
+    private void ai(View view) {
+        if (view != null) {
+            this.bMk = (TextView) view.findViewById(t.g.pk_item_theme_title);
+            this.bMl = (TextView) view.findViewById(t.g.pk_topic_title);
+            this.bMm = (HotTopicPkView) view.findViewById(t.g.pk_topic_view);
+            this.bMn = (TextView) view.findViewById(t.g.pk_topic_positive);
+            this.bMo = (TextView) view.findViewById(t.g.pk_topic_opposing);
+        }
     }
 }

@@ -12,7 +12,7 @@ class b implements KeyEvent.Callback {
 
     @Override // android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (TransportMediator.i(i)) {
+        if (TransportMediator.j(i)) {
             return this.lI.lC.onMediaButtonDown(i, keyEvent);
         }
         return false;
@@ -25,7 +25,7 @@ class b implements KeyEvent.Callback {
 
     @Override // android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        if (TransportMediator.i(i)) {
+        if (TransportMediator.j(i)) {
             return this.lI.lC.onMediaButtonUp(i, keyEvent);
         }
         return false;

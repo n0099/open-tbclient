@@ -6,17 +6,17 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 /* loaded from: classes.dex */
 class ai implements CustomMessageTask.CustomRunnable<MemoryClearUnreadCountMessage.a> {
-    final /* synthetic */ ah bXS;
+    final /* synthetic */ ah ccm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ah ahVar) {
-        this.bXS = ahVar;
+        this.ccm = ahVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<MemoryClearUnreadCountMessage.a> customMessage) {
         MemoryClearUnreadCountMessage.a data = customMessage.getData();
-        com.baidu.tieba.im.db.i.Yr().L(data.id, data.customGroupType);
+        com.baidu.tieba.im.db.i.abc().M(data.id, data.customGroupType);
         return null;
     }
 }

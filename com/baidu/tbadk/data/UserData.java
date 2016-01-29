@@ -27,7 +27,6 @@ public class UserData extends MetaData {
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
-    private int concern_num;
     private String grade;
     private int have_attention;
     private long inTime;
@@ -43,7 +42,6 @@ public class UserData extends MetaData {
     private int like_bars;
     private String lng;
     private long loginTime;
-    private int mFansNum;
     private List<MyGift> mGift;
     private int mGiftNum;
     private List<MyGroup> mGroup;
@@ -187,7 +185,6 @@ public class UserData extends MetaData {
         this.mPhotoAlbum = new ArrayList();
         this.ip = null;
         this.BDUSS = null;
-        this.concern_num = 0;
         this.like_bars = 0;
         this.sex = 1;
         this.intro = null;
@@ -243,8 +240,6 @@ public class UserData extends MetaData {
             super.parserProtobuf(user);
             this.ip = user.ip;
             this.BDUSS = user.BDUSS;
-            this.concern_num = user.concern_num.intValue();
-            this.mFansNum = user.fans_num.intValue();
             this.sex = user.sex.intValue();
             this.like_bars = user.my_like_num.intValue();
             this.intro = user.intro;
@@ -261,17 +256,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             g gVar = new g();
-            gVar.eT(getPortraitH());
-            gVar.eU(getPortrait());
-            gVar.bb(true);
+            gVar.eS(getPortraitH());
+            gVar.eT(getPortrait());
+            gVar.bd(true);
             this.mPhotoAlbum.add(gVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         g gVar2 = new g();
-                        gVar2.eT(userPics.big);
-                        gVar2.eU(userPics.small);
-                        gVar2.bb(false);
+                        gVar2.eS(userPics.big);
+                        gVar2.eT(userPics.small);
+                        gVar2.bd(false);
                         this.mPhotoAlbum.add(gVar2);
                     }
                 }
@@ -376,8 +371,6 @@ public class UserData extends MetaData {
             if (jSONObject != null) {
                 this.ip = jSONObject.optString("ip");
                 this.BDUSS = jSONObject.optString("BDUSS");
-                this.concern_num = jSONObject.optInt("concern_num");
-                this.mFansNum = jSONObject.optInt("fans_num");
                 this.sex = jSONObject.optInt(MyGiftListActivityConfig.USER_SEX, 1);
                 if (this.sex != 2 && this.sex != 1) {
                     this.sex = 1;
@@ -433,9 +426,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 g gVar = new g();
-                gVar.eT(getPortraitH());
-                gVar.eU(getPortrait());
-                gVar.bb(true);
+                gVar.eS(getPortraitH());
+                gVar.eT(getPortrait());
+                gVar.bd(true);
                 this.mPhotoAlbum.add(gVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -444,9 +437,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             g gVar2 = new g();
-                            gVar2.eT(jSONObject2.optString("big"));
-                            gVar2.eU(jSONObject2.optString("small"));
-                            gVar2.bb(false);
+                            gVar2.eS(jSONObject2.optString("big"));
+                            gVar2.eT(jSONObject2.optString("small"));
+                            gVar2.bd(false);
                             this.mPhotoAlbum.add(gVar2);
                         }
                     }
@@ -491,19 +484,6 @@ public class UserData extends MetaData {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-    }
-
-    public void setConcern_num(int i) {
-        this.concern_num = i;
-    }
-
-    public int getConcern_num() {
-        return this.concern_num;
-    }
-
-    @Override // com.baidu.tbadk.data.MetaData
-    public int getFansNum() {
-        return this.mFansNum;
     }
 
     public void setIntro(String str) {

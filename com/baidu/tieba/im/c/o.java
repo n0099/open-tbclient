@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a caF;
+    final /* synthetic */ a cfe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.caF = aVar;
+        this.cfe = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,10 +32,10 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.caF.caA;
+                hashMap = this.cfe.ceZ;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.CO()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ef()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -60,17 +60,17 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.caF.aI(str, str2);
+                        this.cfe.aN(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.abI().n(chatMessage);
-                    aeVar = this.caF.mSendCallback;
+                    a.aeO().n(chatMessage);
+                    aeVar = this.cfe.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.caF.mSendCallback;
-                        aeVar2.iZ(1);
+                        aeVar2 = this.cfe.mSendCallback;
+                        aeVar2.jw(1);
                     }
                 }
             }

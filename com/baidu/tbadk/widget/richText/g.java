@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class g extends ClickableSpan {
-    private String aEP;
+    private String aFF;
     private int mType;
     private String mUrl;
 
@@ -34,8 +34,8 @@ public class g extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gk(String str) {
-        this.aEP = str;
+    public void gh(String str) {
+        this.aFF = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -46,7 +46,7 @@ public class g extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aEP)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aFF)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
@@ -55,25 +55,25 @@ public class g extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    lVar.onLinkClicked(pageActivity, str);
+                    lVar.I(pageActivity, str);
                     return;
                 case 16:
-                    lVar.onAtClicked(pageActivity, str);
+                    lVar.H(pageActivity, str);
                     return;
                 case 32:
-                    lVar.onVideoClicked(pageActivity, str);
+                    lVar.J(pageActivity, str);
                     return;
                 case 64:
-                    lVar.onSongClicked(pageActivity, str);
+                    lVar.K(pageActivity, str);
                     return;
                 case 128:
-                    lVar.onVideoP2PClicked(pageActivity, str);
+                    lVar.L(pageActivity, str);
                     return;
                 case 256:
-                    lVar.onPhoneClicked(pageActivity, str, str2);
+                    lVar.g(pageActivity, str, str2);
                     return;
                 case 1024:
-                    lVar.onLinkButtonClicked(pageActivity, str);
+                    lVar.M(pageActivity, str);
                     return;
                 default:
                     return;

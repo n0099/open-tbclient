@@ -23,7 +23,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (qw) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qC) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();
@@ -53,7 +53,7 @@ public abstract class NetMessage {
         this.httpCmd = i;
         this.socketCmd = i2;
         this.tag = bdUniqueId;
-        this.clientLogID = com.baidu.adp.lib.stats.a.hl().hn();
+        this.clientLogID = com.baidu.adp.lib.stats.a.ht().hv();
     }
 
     public void resetData() {

@@ -1,27 +1,61 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsActivity bed;
+class e extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(FrsActivity frsActivity, int i, int i2) {
-        super(i, i2);
-        this.bed = frsActivity;
+    public e(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bgz = frsActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-            this.bed.a(getMyPostHttpResponseMessage.getError(), StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString()) ? this.bed.getResources().getString(n.j.neterror) : getMyPostHttpResponseMessage.getErrorString(), getMyPostHttpResponseMessage.getResponseData());
-        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-            this.bed.a(getMyPostSocketResponseMessage.getError(), StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString()) ? this.bed.getResources().getString(n.j.neterror) : getMyPostSocketResponseMessage.getErrorString(), getMyPostSocketResponseMessage.getResponseData());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.core.data.c cVar;
+        com.baidu.tieba.tbadkCore.o oVar;
+        com.baidu.tieba.tbadkCore.o oVar2;
+        com.baidu.tieba.frs.c.a aVar;
+        com.baidu.tieba.tbadkCore.o oVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.adkiller.a)) {
+            com.baidu.tieba.adkiller.a aVar2 = (com.baidu.tieba.adkiller.a) customResponsedMessage.getData();
+            if (aVar2.type == 1) {
+                this.bgz.bfP = true;
+                this.bgz.refresh();
+            } else if (aVar2.type == 2) {
+                Iterator<com.baidu.adp.widget.ListView.u> it = this.bgz.bfD.Qi().getDatas().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        cVar = null;
+                        break;
+                    }
+                    com.baidu.adp.widget.ListView.u next = it.next();
+                    if (next instanceof com.baidu.tbadk.core.data.c) {
+                        cVar = (com.baidu.tbadk.core.data.c) next;
+                        if (aVar2.tag != null && aVar2.tag.equals(cVar.UM)) {
+                            break;
+                        }
+                    }
+                }
+                if (cVar != null) {
+                    cVar.UN = false;
+                    this.bgz.bfD.Qi().getDatas().remove(cVar);
+                    oVar = this.bgz.bfF;
+                    int rI = oVar.aoE().getAdKillerData().rI();
+                    int i = rI > 0 ? rI - 1 : 0;
+                    oVar2 = this.bgz.bfF;
+                    oVar2.aoE().getAdKillerData().bE(i);
+                    aVar = this.bgz.bfS;
+                    oVar3 = this.bgz.bfF;
+                    aVar.d(oVar3);
+                    this.bgz.bfD.Qi().notifyDataSetChanged();
+                }
+            }
         }
     }
 }

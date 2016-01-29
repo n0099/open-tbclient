@@ -4,27 +4,27 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes.dex */
 public class k {
-    private static k wc = new k();
-    private final ThreadPoolExecutor wb = new ScheduledThreadPoolExecutor(1);
+    private static k wm = new k();
+    private final ThreadPoolExecutor wl = new ScheduledThreadPoolExecutor(1);
 
-    public static k hk() {
-        return wc;
+    public static k hs() {
+        return wm;
     }
 
     public void b(Runnable runnable) {
         try {
-            this.wb.submit(runnable);
+            this.wl.submit(runnable);
         } catch (Throwable th) {
         }
     }
 
     public void c(Runnable runnable) {
-        if (this.wb.getTaskCount() >= 1) {
+        if (this.wl.getTaskCount() >= 1) {
             new Thread(runnable).start();
             return;
         }
         try {
-            this.wb.submit(runnable);
+            this.wl.submit(runnable);
         } catch (Throwable th) {
         }
     }

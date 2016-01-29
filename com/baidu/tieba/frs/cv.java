@@ -1,40 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv extends bp<cw, cx> {
-    private final int bhn;
+public class cv implements c.b {
+    final /* synthetic */ cn bjV;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cv(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.bhn = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds90);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cv(cn cnVar) {
+        this.bjV = cnVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: t */
-    public cx a(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(n.h.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bhn));
-        return new cx(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, cw cwVar, cx cxVar) {
-        super.a(i, view, viewGroup, (ViewGroup) cwVar, (cw) cxVar);
-        this.bbA.getLayoutMode().ac(this.mSkinType == 1);
-        this.bbA.getLayoutMode().k(view);
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        cVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.bjV.bgW;
+            com.baidu.tbadk.core.util.aq.c(frsActivity2.getPageContext());
+        } else if (i == 1) {
+            frsActivity = this.bjV.bgW;
+            com.baidu.tbadk.core.util.aq.p(frsActivity.getPageContext().getPageActivity());
+        }
     }
 }

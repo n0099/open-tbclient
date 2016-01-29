@@ -6,46 +6,46 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d pV = null;
-    private SecretKey pW = null;
-    private byte[] pX = null;
+    private static d pY = null;
+    private SecretKey pZ = null;
+    private byte[] qa = null;
 
-    public static d eL() {
-        if (pV == null) {
+    public static d eP() {
+        if (pY == null) {
             synchronized (d.class) {
-                if (pV == null) {
-                    pV = new d();
+                if (pY == null) {
+                    pY = new d();
                 }
             }
         }
-        return pV;
+        return pY;
     }
 
     public void v(byte[] bArr) {
         try {
             PublicKey D = v.D(bArr);
-            String ag = v.ag(32);
-            byte[] bArr2 = new byte[ag.length()];
-            for (int i = 0; i < ag.length(); i++) {
-                bArr2[i] = (byte) ag.charAt(i);
+            String ar = v.ar(32);
+            byte[] bArr2 = new byte[ar.length()];
+            for (int i = 0; i < ar.length(); i++) {
+                bArr2[i] = (byte) ar.charAt(i);
             }
-            this.pW = v.aY(ag);
-            this.pX = v.a(D, bArr2);
+            this.pZ = v.aX(ar);
+            this.qa = v.a(D, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.pW = null;
-            this.pX = new byte[0];
+            this.pZ = null;
+            this.qa = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] eM() {
-        return this.pX;
+    public byte[] eQ() {
+        return this.qa;
     }
 
     public SecretKey getSecretKey() {
-        return this.pW;
+        return this.pZ;
     }
 }

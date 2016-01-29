@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.recommendfrs.c {
-    final /* synthetic */ a dpx;
+public class b implements com.baidu.tieba.recommendfrs.d {
+    final /* synthetic */ a dFk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dpx = aVar;
+        this.dFk = aVar;
     }
 
-    @Override // com.baidu.tieba.recommendfrs.c
-    public void e(long j, int i) {
+    @Override // com.baidu.tieba.recommendfrs.d
+    public void g(long j, int i) {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
         if (i >= 0) {
-            arrayList = this.dpx.rN;
+            arrayList = this.dFk.dFf;
             if (arrayList != null) {
-                arrayList2 = this.dpx.rN;
+                arrayList2 = this.dFk.dFf;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.dpx.rN;
+                    arrayList3 = this.dFk.dFf;
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
-                        com.baidu.tieba.recommendfrs.data.f fVar = (com.baidu.tieba.recommendfrs.data.f) it.next();
-                        if (fVar != null && fVar.ayn() != null && j == fVar.ayn().tag_code.longValue()) {
-                            fVar.mo(i);
+                        com.baidu.tieba.recommendfrs.data.h hVar = (com.baidu.tieba.recommendfrs.data.h) it.next();
+                        if (hVar != null && hVar.aFr() != null && j == hVar.aFr().tag_code.longValue()) {
+                            hVar.nz(i);
                             return;
                         }
                     }

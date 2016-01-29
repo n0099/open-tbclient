@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0073a cDl;
+    private InterfaceC0075a cJR;
     private int count = 0;
-    private long cDj = 0;
-    private long cDk = 0;
-    private long cDm = 500;
+    private long cJP = 0;
+    private long cJQ = 0;
+    private long cJS = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0073a {
-        void Op();
+    public interface InterfaceC0075a {
+        void Qs();
 
-        void Oq();
+        void Qt();
     }
 
-    public a(InterfaceC0073a interfaceC0073a) {
-        this.cDl = interfaceC0073a;
+    public a(InterfaceC0075a interfaceC0075a) {
+        this.cJR = interfaceC0075a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.cDl == null) {
+            if (this.cJR == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.cDj = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.cDm);
+                this.cJP = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.cJS);
                 return true;
             } else if (this.count == 2) {
-                this.cDk = System.currentTimeMillis();
-                if (this.cDk - this.cDj < this.cDm) {
-                    this.cDl.Oq();
+                this.cJQ = System.currentTimeMillis();
+                if (this.cJQ - this.cJP < this.cJS) {
+                    this.cJR.Qt();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

@@ -1,109 +1,82 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class ay {
-    private static ay acN = null;
-    private boolean acO = false;
-    private boolean acP = false;
-    private int acQ = TbConfig.POST_IMAGE_SMALL;
-    private String acR = String.valueOf(45);
+    private static final char[] zi = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static ay va() {
-        if (acN == null) {
-            synchronized (ay.class) {
-                acN = new ay();
+    public static String a(PackageInfo packageInfo) {
+        long j = 0;
+        String b = b(packageInfo);
+        if (b == null || b.length() < 32) {
+            return "-1";
+        }
+        String substring = b.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
+        }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
+    }
+
+    private static String b(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
+            return null;
+        }
+        try {
+            return com.baidu.adp.lib.util.t.B(packageInfo.signatures[0].toCharsString().getBytes());
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
+    public static String O(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr[i] = zi[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = zi[b & 15];
+            }
+            return new String(cArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String c(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.t.f(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
         }
-        return acN;
+        return null;
     }
 
-    public ay() {
-        vd();
-        vb();
-    }
-
-    private void vb() {
-        vh();
-        vi();
-        vj();
-    }
-
-    public void ar(boolean z) {
-        this.acP = z;
-    }
-
-    public boolean vc() {
-        return this.acP;
-    }
-
-    public void as(boolean z) {
-        this.acO = z;
-        vb();
-    }
-
-    private void vd() {
-        this.acO = com.baidu.adp.lib.util.i.iR();
-    }
-
-    public boolean ve() {
-        return this.acO;
-    }
-
-    public String vf() {
-        return this.acR;
-    }
-
-    public int vg() {
-        vj();
-        return this.acQ;
-    }
-
-    public void vh() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.m.qQ().getViewImageQuality() != 0 ? com.baidu.tbadk.core.m.qQ().getViewImageQuality() != 1 : !this.acO) {
-            z = false;
-        }
-        ar(z);
-    }
-
-    public void vi() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.m.qQ().getViewImageQuality() == 0) {
-            if (ve()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.m.qQ().getViewImageQuality() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.acR = valueOf;
-    }
-
-    public void vj() {
-        int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.m.qQ().qT()) {
-            case 0:
-                if (!ve()) {
-                    i = 600;
-                    break;
-                }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 750;
-                break;
-            case 3:
-                i = 600;
-                break;
-            default:
-                i = 750;
-                break;
-        }
-        this.acQ = i;
-    }
-
-    public static boolean vk() {
-        return n.fi() && com.baidu.adp.gif.e.fh();
+    public static String dy(String str) {
+        return com.baidu.adp.lib.util.t.toMd5(str);
     }
 }

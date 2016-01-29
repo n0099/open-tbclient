@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tieba.n;
-import java.io.File;
-import java.io.FileFilter;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class i implements FileFilter {
-    final /* synthetic */ LogoActivity aGJ;
+class i implements Runnable {
+    final /* synthetic */ LogoActivity aHJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(LogoActivity logoActivity) {
-        this.aGJ = logoActivity;
+        this.aHJ = logoActivity;
     }
 
-    @Override // java.io.FileFilter
-    public boolean accept(File file) {
-        String name = file.getName();
-        return !TextUtils.isEmpty(name) && name.contains(this.aGJ.getPageContext().getString(n.j.app_name)) && name.endsWith(".apk");
+    @Override // java.lang.Runnable
+    public void run() {
+        RelativeLayout relativeLayout;
+        TbPageContext pageContext = this.aHJ.getPageContext();
+        j jVar = new j(this);
+        relativeLayout = this.aHJ.mRootView;
+        p.a(pageContext, jVar, relativeLayout);
     }
 }

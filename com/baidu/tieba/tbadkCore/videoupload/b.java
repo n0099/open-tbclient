@@ -1,59 +1,57 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
 import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void aGs() {
+    public static void aNx() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
-            mainDBDatabaseManager.E("CREATE TABLE IF NOT EXISTS video_chunk_upload_data('md5' text,'total_length' long ,'chunk_no' integer,'account' text,'time' long)");
+            mainDBDatabaseManager.D("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void mF(String str) {
+    public static void mV(String str) {
+        BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.a("delete from video_chunk_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                mainDBDatabaseManager.b("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             }
         }
     }
 
-    public static boolean c(com.baidu.tbadk.coreExtra.data.c cVar) {
-        if (TbadkCoreApplication.getCurrentAccount() == null) {
-            return false;
-        }
-        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        if (cVar == null || mainDBDatabaseManager == null) {
+    public static boolean k(String str, String str2, int i) {
+        com.baidu.adp.base.a.b mainDBDatabaseManager;
+        if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
             return false;
         }
         Date date = new Date();
-        mainDBDatabaseManager.a("delete from video_chunk_upload_data where md5=? and account=?", new String[]{cVar.wK(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.a("Insert into video_chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.wK(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.wL()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.b("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.b("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.c mG(String str) {
+    public static c mW(String str) {
         Cursor cursor;
         Exception e;
-        com.baidu.tbadk.coreExtra.data.c cVar;
+        c cVar;
         if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
             return null;
         }
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
-            cursor = mainDBDatabaseManager.rawQuery("select * from video_chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            cursor = mainDBDatabaseManager.rawQuery("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             try {
                 try {
                     if (cursor.moveToFirst()) {
-                        cVar = new com.baidu.tbadk.coreExtra.data.c();
+                        cVar = new c();
                         try {
-                            cVar.dW(str);
-                            cVar.dc(cursor.getInt(cursor.getColumnIndex("chunk_no")));
-                            cVar.G(cursor.getLong(cursor.getColumnIndex("total_length")));
+                            cVar.dZq = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.dZr = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.d(e, "getChunkUploadDataByMd5");
@@ -64,14 +62,14 @@ public class b {
                         cVar = null;
                     }
                     com.baidu.adp.lib.h.a.b(cursor);
-                } catch (Exception e3) {
-                    cVar = null;
-                    e = e3;
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.adp.lib.h.a.b(cursor);
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                com.baidu.adp.lib.h.a.b(cursor);
-                throw th;
+            } catch (Exception e3) {
+                cVar = null;
+                e = e3;
             }
         } catch (Exception e4) {
             cursor = null;
@@ -80,6 +78,8 @@ public class b {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
+            com.baidu.adp.lib.h.a.b(cursor);
+            throw th;
         }
         return cVar;
     }

@@ -1,25 +1,18 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ ah aOK;
+public class ai implements FrsCommonImageLayout.b {
+    final /* synthetic */ af aQu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar) {
-        this.aOK = ahVar;
+    public ai(af afVar) {
+        this.aQu = afVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.a.p pVar;
-        com.baidu.tieba.card.a.p pVar2;
-        pVar = this.aOK.aOJ;
-        if (pVar != null) {
-            pVar2 = this.aOK.aOJ;
-            TiebaStatic.log(pVar2.ID());
-        }
+    @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
+    public void dl(int i) {
+        this.aQu.JX();
     }
 }

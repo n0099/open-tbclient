@@ -2,18 +2,18 @@ package com.baidu.tieba.write.selectpoi;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.write.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.write.data.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity dUb;
+    final /* synthetic */ SearchLocationActivity eoG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.dUb = searchLocationActivity;
+        this.eoG = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.dUb.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dUb.getResources().getString(n.j.neterror) : responsedMessage.getErrorString());
+                    this.eoG.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.eoG.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.dUb.dTU = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.eoG.eoz = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.dUb.dTU = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.eoG.eoz = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.dUb.dTV;
-                bVar = this.dUb.dTU;
+                hVar = this.eoG.eoA;
+                bVar = this.eoG.eoz;
                 hVar.a(bVar);
-                hVar2 = this.dUb.dTV;
+                hVar2 = this.eoG.eoA;
                 hVar2.notifyDataSetChanged();
             }
         }

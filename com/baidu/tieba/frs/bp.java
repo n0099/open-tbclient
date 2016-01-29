@@ -2,70 +2,48 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.adp.widget.ListView.x.a;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public abstract class bp<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected BaseActivity<?> bbA;
-    protected int bcm;
-    protected int bcn;
-    protected ListView bcq;
-    protected int bdi;
-    protected com.baidu.tieba.tbadkCore.p bdo;
-    protected bf bfE;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+public class bp extends x.a {
+    public AppDownloadView bgO;
+    public LinearLayout bhK;
+    public View bhL;
+    public HeadImageView bhM;
+    public TextView bhN;
+    public TextView bhO;
+    public TextView bhP;
+    public TextView bhQ;
+    public TbImageView bhR;
+    public TbImageView bhS;
+    public TbImageView bhT;
+    public TextView bhU;
+    public ViewStub bhV;
+    public ViewGroup bhW;
+    public ViewStub bhX;
+    public ViewGroup bhY;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bp(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        e(baseActivity);
-    }
-
-    public void e(BaseActivity<?> baseActivity) {
-        if (baseActivity != null) {
-            this.mContext = baseActivity.getActivity();
-            this.bbA = baseActivity;
-            this.bcm = this.mContext.getResources().getDimensionPixelSize(n.e.ds8);
-            this.bcn = this.mContext.getResources().getDimensionPixelSize(n.e.ds16);
-        }
-    }
-
-    public void release() {
-        this.mContext = null;
-        this.bbA = null;
-        this.bfE = null;
-        this.Hr = null;
-        this.Hs = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.bcq = (ListView) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    public void a(com.baidu.tieba.tbadkCore.p pVar) {
-        this.bdo = pVar;
-    }
-
-    public void a(bf bfVar) {
-        this.bfE = bfVar;
-    }
-
-    public void fT(int i) {
-        this.bdi = i;
+    public bp(View view) {
+        super(view);
+        this.bhK = (LinearLayout) view.findViewById(t.g.frs_app_item_parent);
+        this.bhM = (HeadImageView) view.findViewById(t.g.frs_app_multi_pic_icon);
+        this.bhN = (TextView) view.findViewById(t.g.frs_app_multi_pic_name);
+        this.bhO = (TextView) view.findViewById(t.g.frs_app_multi_pic_time);
+        this.bgO = (AppDownloadView) view.findViewById(t.g.frs_app_download_view);
+        this.bhP = (TextView) view.findViewById(t.g.frs_app_multi_pic_title);
+        this.bhQ = (TextView) view.findViewById(t.g.frs_app_multi_pic_desc);
+        this.bhR = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_left);
+        this.bhS = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_center);
+        this.bhT = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_right);
+        this.bhU = (TextView) view.findViewById(t.g.frs_app_download);
+        this.bhL = view.findViewById(t.g.frs_app_multi_pic_container);
+        this.bhV = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
+        this.bhX = (ViewStub) view.findViewById(t.g.item_adkiller_close);
     }
 }

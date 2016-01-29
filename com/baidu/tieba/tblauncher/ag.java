@@ -1,47 +1,32 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ w dKW;
+public class ag implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqA;
+    final /* synthetic */ y ebe;
+    private final /* synthetic */ int val$type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(w wVar) {
-        this.dKW = wVar;
+    public ag(y yVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.ebe = yVar;
+        this.aqA = aVar;
+        this.val$type = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        FragmentTabHost fragmentTabHost3;
-        int i = 2;
-        mainTabActivity = this.dKW.dKM;
-        mainTabActivity2 = this.dKW.dKM;
-        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        fragmentTabHost = this.dKW.bpf;
-        if (fragmentTabHost.getCurrentTabType() != 6) {
-            fragmentTabHost2 = this.dKW.bpf;
-            if (fragmentTabHost2.getCurrentTabType() == 3) {
-                i = 3;
-            } else {
-                fragmentTabHost3 = this.dKW.bpf;
-                if (fragmentTabHost3.getCurrentTabType() != 2) {
-                    i = 0;
-                } else {
-                    i = 1;
-                }
-            }
+        this.aqA.dismiss();
+        if (this.val$type == 0) {
+            mainTabActivity2 = this.ebe.eaS;
+            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+        } else if (this.val$type == 1) {
+            mainTabActivity = this.ebe.eaS;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
         }
-        TiebaStatic.log(new av("c10378").r("obj_type", i));
     }
 }

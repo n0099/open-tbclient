@@ -3,16 +3,16 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.editortools.emotiontool.a;
 import com.baidu.tieba.emotion.editortool.x;
 /* loaded from: classes.dex */
-class y implements a.InterfaceC0048a {
-    final /* synthetic */ x.a aTH;
+class y implements a.InterfaceC0049a {
+    final /* synthetic */ x.a aVN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x.a aVar) {
-        this.aTH = aVar;
+        this.aVN = aVar;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0048a
+    @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0049a
     public void a(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.aTH.aTE.add(cVar);
+        this.aVN.aVK.add(cVar);
     }
 }

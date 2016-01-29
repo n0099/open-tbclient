@@ -1,24 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.z bgh;
-    private final /* synthetic */ View.OnClickListener bgi;
+public class cb implements a.b {
+    final /* synthetic */ bx biy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(com.baidu.tbadk.core.data.z zVar, View.OnClickListener onClickListener) {
-        this.bgh = zVar;
-        this.bgi = onClickListener;
+    public cb(bx bxVar) {
+        this.biy = bxVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10632").aa("obj_id", this.bgh.getAuthor().getUserId()));
-        if (this.bgi != null) {
-            this.bgi.onClick(view);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        List list;
+        List list2;
+        list = this.biy.biw;
+        if (list != null) {
+            list2 = this.biy.biw;
+            list2.clear();
         }
+        this.biy.hide();
+        aVar.dismiss();
     }
 }

@@ -1,33 +1,13 @@
 package com.baidu.tieba.recommendfrs.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.mvc.b.e {
-    private long dpm;
+public class g implements u {
+    public static final BdUniqueId dEL = BdUniqueId.gen();
 
-    public g(long j) {
-        this.dpm = j;
-    }
-
-    public long ayp() {
-        return this.dpm;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.dpm)).toString();
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String Dg() {
-        return "RecommendFrsCache";
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dh() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return false;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return dEL;
     }
 }

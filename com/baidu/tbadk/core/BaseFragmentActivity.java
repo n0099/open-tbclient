@@ -20,7 +20,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.MainAPKFragmentActivityPageContext;
@@ -30,13 +29,12 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.compatible.menukey.MenuKeyUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport<BaseFragmentActivity> {
@@ -57,7 +55,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     protected int mSkinType = 3;
     protected boolean mIsLogin = false;
     private final int SHOW_SOFT_KEYBOARD_DELAY = 150;
-    private boolean isAddSwipeBackLayout = true;
+    private boolean Tw = true;
     private boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
     private com.baidu.tbadk.core.view.k mKeyboardAdjust = null;
     private final CustomMessageListener nightResourcesChangeListener = new d(this, CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE);
@@ -65,10 +63,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void onChangeSkinType(int i);
-
-    public static void setClazz4GetPageContext(Class<? extends TbPageContext<BaseFragmentActivity>> cls) {
-        mClazz4GetPageContext = cls;
-    }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.base.i
@@ -90,7 +84,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (this.isAddSwipeBackLayout) {
+        if (this.Tw) {
             this.mSwipeBackLayout = new com.baidu.adp.widget.f(getPageContext().getPageActivity());
             this.mSwipeBackLayout.n(getPageContext().getPageActivity());
             this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
@@ -111,7 +105,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bd.dC(getClass().getName());
+        bc.dz(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
@@ -132,8 +126,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         super.onAttachedToWindow();
     }
 
-    public void setIsAddSwipeBackLayout(boolean z) {
-        this.isAddSwipeBackLayout = z;
+    public void ad(boolean z) {
+        this.Tw = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -144,24 +138,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    protected void adjustResizeForSoftInput(int i, boolean z) {
-        if (this.mUseStyleImmersiveSticky) {
-            adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.k.a(getPageContext().getPageActivity(), i, z);
-        }
-    }
-
-    protected void adjustResizeForSoftInput(boolean z) {
-        if (this.mUseStyleImmersiveSticky) {
-            adjustResizeForSoftInputOnDestory();
-            this.mKeyboardAdjust = com.baidu.tbadk.core.view.k.a(getPageContext().getPageActivity(), z);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    public void adjustResizeForSoftInputOnSkinTypeChanged(int i) {
+    public void bu(int i) {
         if (this.mKeyboardAdjust != null) {
-            this.mKeyboardAdjust.cK(i);
+            this.mKeyboardAdjust.db(i);
         }
     }
 
@@ -179,7 +159,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         super.onResume();
         changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         TbadkCoreApplication.m411getInst().AddResumeNum();
-        bd.dC(getClass().getName());
+        bc.dz(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -189,14 +169,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onUserChanged(boolean z) {
-    }
-
-    protected void addGlobalLayoutListener() {
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new f(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onKeyboardHeightChanged(int i) {
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -218,17 +190,13 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     this.mSwipeBackLayout.onChangeSkinType(i);
                 }
                 if (this.loadingView != null) {
-                    this.loadingView.tr();
+                    this.loadingView.uv();
                 }
                 onChangeSkinType(this.mSkinType);
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
-    }
-
-    public void setSkinType(int i) {
-        this.mSkinType = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -262,40 +230,20 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         closeAnimation();
     }
 
-    protected int getSkinType() {
-        return TbadkCoreApplication.m411getInst().getSkinType();
-    }
-
     public c getLayoutMode() {
         return this.mLayoutMode;
     }
 
-    public void setLayoutMode(c cVar) {
-        this.mLayoutMode = cVar;
-    }
-
     public void showLoadingDialog(String str) {
         if (this.mDialogListener == null) {
-            this.mDialogListener = new g(this);
+            this.mDialogListener = new f(this);
         }
         if (!isFinishing() && com.baidu.adp.lib.h.j.a(getPageContext())) {
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", str, true, false, this.mDialogListener);
             } else {
-                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m411getInst().getResources().getString(n.j.Waiting), true, false, this.mDialogListener);
+                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m411getInst().getResources().getString(t.j.Waiting), true, false, this.mDialogListener);
             }
-        }
-    }
-
-    public void DeinitWaitingDialog() {
-        this.mWaitingDialog = null;
-    }
-
-    public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (str != null) {
-            this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", str, true, true, onCancelListener);
-        } else {
-            this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m411getInst().getResources().getString(n.j.Waiting), true, true, onCancelListener);
         }
     }
 
@@ -310,10 +258,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             }
             this.mWaitingDialog = null;
         }
-    }
-
-    public ProgressDialog getLoadingDialog() {
-        return this.mWaitingDialog;
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
@@ -343,19 +287,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).to();
-    }
-
-    protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).to();
-    }
-
-    protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).to();
-    }
-
-    protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).to();
+        BdToast.b(getPageContext().getContext(), str, i).us();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
@@ -379,7 +311,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(n.f.progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(t.f.progressbar));
                 ((FrameLayout) findViewById(16908290)).addView(this.mProgressBar, new FrameLayout.LayoutParams(-2, -2, 17));
             } catch (Throwable th) {
                 return;
@@ -395,10 +327,6 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    public boolean isProgressBarShown() {
-        return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
-    }
-
     public void showLoadingView(View view) {
         showLoadingView(view, false);
     }
@@ -411,25 +339,18 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             } else {
                 this.loadingView = new com.baidu.tbadk.f.f(getPageContext().getPageActivity(), i);
             }
-            this.loadingView.tr();
+            this.loadingView.uv();
         }
-        this.loadingView.b(view, z);
+        this.loadingView.c(view, z);
     }
 
     public void showLoadingView(View view, boolean z) {
         showLoadingView(view, z, -1);
     }
 
-    public boolean isLoadingViewAttached() {
-        if (this.loadingView == null) {
-            return false;
-        }
-        return this.loadingView.CW();
-    }
-
     public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.u(view);
+            this.loadingView.H(view);
         }
     }
 
@@ -463,80 +384,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
-        return (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true;
-    }
-
-    public boolean showDialog(Dialog dialog) {
-        if (com.baidu.adp.lib.h.j.a(dialog, getPageContext())) {
-            if (this.dialogList == null) {
-                this.dialogList = new LinkedList();
-            }
-            this.dialogList.add(dialog);
-            return true;
-        }
-        return false;
-    }
-
-    public void dismissDialogInteface(DialogInterface dialogInterface) {
-        if (dialogInterface instanceof Dialog) {
-            dismissDialog((Dialog) dialogInterface);
-        }
-    }
-
-    public void dismissDialog(Dialog dialog) {
-        if (this.dialogList != null) {
-            this.dialogList.remove(dialog);
-        }
-        com.baidu.adp.lib.h.j.b(dialog, getPageContext());
-    }
-
     public void dismissAllDialog() {
         if (this.dialogList != null) {
             for (Dialog dialog : this.dialogList) {
                 com.baidu.adp.lib.h.j.b(dialog, getPageContext());
             }
             this.dialogList.clear();
-        }
-    }
-
-    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(popupWindow, view)) {
-            if (this.popupWindowList == null) {
-                this.popupWindowList = new LinkedList();
-            }
-            this.popupWindowList.add(popupWindow);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(popupWindow, view, i, i2)) {
-            if (this.popupWindowList == null) {
-                this.popupWindowList = new LinkedList();
-            }
-            this.popupWindowList.add(popupWindow);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (com.baidu.adp.lib.h.j.showPopupWindowAtLocation(popupWindow, view, i, i2, i3)) {
-            if (this.popupWindowList == null) {
-                this.popupWindowList = new LinkedList();
-            }
-            this.popupWindowList.add(popupWindow);
-            return true;
-        }
-        return false;
-    }
-
-    public void dismissPopupWindow(PopupWindow popupWindow) {
-        com.baidu.adp.lib.h.j.a(popupWindow, getPageContext().getPageActivity());
-        if (this.popupWindowList != null) {
-            this.popupWindowList.remove(popupWindow);
         }
     }
 
@@ -606,7 +459,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void startAnimation(View view, Animation animation, Animation.AnimationListener animationListener) {
         if (animation != null && !isFinishing()) {
             WeakReference<View> weakReference = new WeakReference<>(view);
-            animation.setAnimationListener(new h(this, animationListener, weakReference));
+            animation.setAnimationListener(new g(this, animationListener, weakReference));
             if (this.animationList == null) {
                 this.animationList = new ArrayList();
             }
@@ -620,33 +473,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         }
     }
 
-    public boolean isSwipeBackEnabled() {
-        if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK || this.mSwipeBackLayout == null) {
-            return false;
-        }
-        return this.mSwipeBackLayout.isSwipeBackEnabled();
-    }
-
     public void setSwipeBackEnabled(boolean z) {
         if (TbadkCoreApplication.IS_SUPPORT_SWIPEBACK && this.mSwipeBackLayout != null) {
             this.mSwipeBackLayout.setSwipeBackEnabled(z);
         }
-    }
-
-    public void setSwipeBackIsSupportNight(boolean z) {
-        if (this.mSwipeBackLayout != null) {
-            this.mSwipeBackLayout.setIsSupportNight(z);
-        }
-    }
-
-    public void setActivityBgTransparent() {
-        if (this.mSwipeBackLayout != null) {
-            this.mSwipeBackLayout.nF();
-        }
-    }
-
-    public void setUseStyleImmersiveSticky(boolean z) {
-        this.mUseStyleImmersiveSticky = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

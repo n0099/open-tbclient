@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bed;
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(FrsActivity frsActivity, int i) {
         super(i);
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,6 +20,6 @@ class c extends CustomMessageListener {
         if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
             return;
         }
-        this.bed.a((PostWriteCallBackData) customResponsedMessage.getData());
+        this.bgz.a((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

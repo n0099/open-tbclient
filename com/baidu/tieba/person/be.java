@@ -3,25 +3,25 @@ package com.baidu.tieba.person;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 class be implements BdListView.e {
-    final /* synthetic */ ax cPw;
+    final /* synthetic */ ax cYT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(ax axVar) {
-        this.cPw = axVar;
+        this.cYT = axVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
+    public void nv() {
         boolean z;
         bg bgVar;
-        z = this.cPw.cPs;
+        z = this.cYT.cYP;
         if (!z) {
-            this.cPw.cPr = false;
-            ax axVar = this.cPw;
-            bgVar = this.cPw.cPn;
-            axVar.pageNum = bgVar.getData().getPage().rM() + 1;
-            this.cPw.cPs = true;
-            this.cPw.aoX();
+            this.cYT.cYO = false;
+            ax axVar = this.cYT;
+            bgVar = this.cYT.cYK;
+            axVar.pageNum = bgVar.getData().getPage().st() + 1;
+            this.cYT.cYP = true;
+            this.cYT.atQ();
         }
     }
 }

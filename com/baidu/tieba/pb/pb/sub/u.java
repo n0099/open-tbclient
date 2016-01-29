@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements a.InterfaceC0040a {
-    final /* synthetic */ NewSubPbActivity cLc;
+public class u implements a.InterfaceC0041a {
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0040a
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
     public void a(boolean z, boolean z2, String str) {
         com.baidu.tbadk.baseEditMark.a aVar;
         com.baidu.tbadk.baseEditMark.a aVar2;
@@ -29,41 +29,41 @@ public class u implements a.InterfaceC0040a {
         ao aoVar5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.cLc.cFm;
+            aVar = this.cTK.cMG;
             if (aVar != null) {
-                aVar4 = this.cLc.cFm;
+                aVar4 = this.cTK.cMG;
                 aVar4.Y(z2);
             }
-            aVar2 = this.cLc.cFm;
-            MarkData pQ = aVar2.pQ();
-            aq aqVar = new aq();
-            aqVar.setType(2);
+            aVar2 = this.cTK.cMG;
+            MarkData qj = aVar2.qj();
+            com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
+            eVar.setType(2);
             if (z2) {
-                aqVar.setData(pQ);
-                aVar3 = this.cLc.cFm;
+                eVar.setData(qj);
+                aVar3 = this.cTK.cMG;
                 if (aVar3 != null) {
-                    if (pQ != null) {
-                        aoVar3 = this.cLc.cKR;
-                        aoVar3.fy(true);
-                        aoVar4 = this.cLc.cKR;
-                        aoVar5 = this.cLc.cKR;
-                        aoVar4.kP(aoVar5.BJ());
-                        this.cLc.showToast(MessageFormat.format(this.cLc.getPageContext().getString(n.j.add_mark_on_pb), Integer.valueOf(pQ.getFloor())));
+                    if (qj != null) {
+                        aoVar3 = this.cTK.cTz;
+                        aoVar3.fA(true);
+                        aoVar4 = this.cTK.cTz;
+                        aoVar5 = this.cTK.cTz;
+                        aoVar4.kV(aoVar5.CZ());
+                        this.cTK.showToast(MessageFormat.format(this.cTK.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(qj.getFloor())));
                     } else {
-                        this.cLc.showToast(this.cLc.getPageContext().getString(n.j.add_mark));
+                        this.cTK.showToast(this.cTK.getPageContext().getString(t.j.add_mark));
                     }
                 }
             } else {
-                aqVar.setData(null);
-                aoVar = this.cLc.cKR;
-                aoVar.fy(false);
-                aoVar2 = this.cLc.cKR;
-                aoVar2.kP(null);
-                this.cLc.showToast(this.cLc.getPageContext().getString(n.j.remove_mark));
+                eVar.setData(null);
+                aoVar = this.cTK.cTz;
+                aoVar.fA(false);
+                aoVar2 = this.cTK.cTz;
+                aoVar2.kV(null);
+                this.cTK.showToast(this.cTK.getPageContext().getString(t.j.remove_mark));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, aqVar));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
             return;
         }
-        this.cLc.showToast(this.cLc.getPageContext().getString(n.j.update_mark_failed));
+        this.cTK.showToast(this.cTK.getPageContext().getString(t.j.update_mark_failed));
     }
 }

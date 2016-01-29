@@ -1,26 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bed;
+public class ai implements ab.a {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsActivity frsActivity) {
-        this.bed = frsActivity;
+        this.bgz = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bed.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.bed.getPageContext().getPageActivity(), 23007)));
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10125").aa(ImageViewerConfig.FORUM_ID, this.bed.getForumId()).r("obj_type", 1));
+    @Override // com.baidu.tieba.frs.view.ab.a
+    public void go(int i) {
+        switch (i) {
+            case 0:
+                this.bgz.bft = false;
+                this.bgz.gm(0);
+                return;
+            case 1:
+                this.bgz.OX();
+                return;
+            case 2:
+                this.bgz.bft = false;
+                this.bgz.OY();
+                return;
+            case 3:
+                this.bgz.Pc();
+                return;
+            default:
+                return;
+        }
     }
 }

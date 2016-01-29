@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class i {
-    private static ArrayList<i> bEB = new ArrayList<>(5);
-    public int bEF;
-    public int bEG;
-    int bEH;
+    private static ArrayList<i> bHN = new ArrayList<>(5);
+    public int bHR;
+    public int bHS;
+    int bHT;
     public int type;
 
-    private void UT() {
-        this.bEF = 0;
-        this.bEG = 0;
-        this.bEH = 0;
+    private void Xd() {
+        this.bHR = 0;
+        this.bHS = 0;
+        this.bHT = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long UV() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bEF, this.bEG) : ExpandableListView.getPackedPositionForGroup(this.bEF);
+    public long Xf() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bHR, this.bHS) : ExpandableListView.getPackedPositionForGroup(this.bHR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i hL(int i) {
-        return k(2, i, 0, 0);
+    public static i ii(int i) {
+        return j(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i k(int i, int i2, int i3, int i4) {
-        i UW = UW();
-        UW.type = i;
-        UW.bEF = i2;
-        UW.bEG = i3;
-        UW.bEH = i4;
-        return UW;
+    public static i j(int i, int i2, int i3, int i4) {
+        i Xg = Xg();
+        Xg.type = i;
+        Xg.bHR = i2;
+        Xg.bHS = i3;
+        Xg.bHT = i4;
+        return Xg;
     }
 
-    private static i UW() {
+    private static i Xg() {
         i iVar;
-        synchronized (bEB) {
-            if (bEB.size() > 0) {
-                iVar = bEB.remove(0);
-                iVar.UT();
+        synchronized (bHN) {
+            if (bHN.size() > 0) {
+                iVar = bHN.remove(0);
+                iVar.Xd();
             } else {
                 iVar = new i();
             }
@@ -54,9 +54,9 @@ class i {
     }
 
     public void recycle() {
-        synchronized (bEB) {
-            if (bEB.size() < 5) {
-                bEB.add(this);
+        synchronized (bHN) {
+            if (bHN.size() < 5) {
+                bHN.add(this);
             }
         }
     }

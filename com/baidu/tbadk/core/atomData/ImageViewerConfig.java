@@ -16,6 +16,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String COUNT = "count";
     public static final String DATA_NOT_VALID = "data_not_valid";
     public static final String DATA_VALID = "data_valid";
+    public static final String FIXED_COUNT_IN_TITLE = "fixed_count_in_title";
     public static final String FORUM_ID = "fid";
     public static final String FORUM_NAME = "fname";
     public static final String FROM_FRS = "frs";
@@ -36,6 +37,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String START_ACTIVITY_NORMAL = "start_activity_normal";
     public static final String START_ACTIVITY_TYPE = "start_activity_type";
     public static final String THREAD_ID = "tid";
+    public static final String THREAD_TYPE = "thread_type";
     public static final String URL = "url";
     public static final String USER_ID = "user_id";
 
@@ -80,8 +82,43 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2) {
+        Intent intent = getIntent();
+        intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
+        if (arrayList != null && arrayList.size() > 0) {
+            intent.putExtra(IS_DATA_VALID, DATA_VALID);
+            intent.putStringArrayListExtra("url", arrayList);
+            intent.putExtra(INDEX, i);
+            intent.putExtra("is_pv", true);
+            intent.putExtra(PV_TYPE, "pb");
+            intent.putExtra(PARAM_IS_CDN, z);
+            intent.putExtra(FORUM_NAME, str);
+            intent.putExtra(FORUM_ID, str2);
+            intent.putExtra("tid", str3);
+            intent.putExtra(LAST_ID, str4);
+            intent.putExtra(REVERSE_MODE, z2);
+            intent.putExtra(ASSIST_URLS, concurrentHashMap);
+            intent.putExtra(IS_SHOW_AD, z3);
+            intent.putExtra(NEED_BROADCAST, z4);
+            intent.putExtra(SEE_HOST, z5);
+            intent.putExtra("thread_type", i2);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                intent.putExtra("user_id", currentAccountObj.getID());
+            }
+        } else {
+            intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
+        }
+        return this;
+    }
+
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
         return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null);
+    }
+
+    public ImageViewerConfig setFixCountInTitle(int i) {
+        getIntent().putExtra(FIXED_COUNT_IN_TITLE, i);
+        return this;
     }
 
     private void cutAssistUrls(Map<String, ImageUrlData> map) {

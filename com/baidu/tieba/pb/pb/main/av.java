@@ -6,33 +6,33 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
 class av extends CustomMessageListener {
-    final /* synthetic */ PbActivity cFS;
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public av(PbActivity pbActivity, int i) {
         super(i);
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.pb.pb.sub.aq aqVar = (com.baidu.tieba.pb.pb.sub.aq) customResponsedMessage.getData();
-            switch (aqVar.getType()) {
+            com.baidu.tieba.pb.e eVar = (com.baidu.tieba.pb.e) customResponsedMessage.getData();
+            switch (eVar.getType()) {
                 case 0:
-                    this.cFS.b((com.baidu.tieba.pb.a.d) aqVar.getData());
+                    this.cNq.b((com.baidu.tieba.pb.a.d) eVar.getData());
                     return;
                 case 1:
-                    this.cFS.a((a.b) aqVar.getData());
+                    this.cNq.a((a.b) eVar.getData());
                     return;
                 case 2:
-                    if (aqVar.getData() == null) {
-                        this.cFS.a(false, (MarkData) null);
+                    if (eVar.getData() == null) {
+                        this.cNq.a(false, (MarkData) null);
                         return;
                     } else {
-                        this.cFS.a(true, (MarkData) aqVar.getData());
+                        this.cNq.a(true, (MarkData) eVar.getData());
                         return;
                     }
                 default:

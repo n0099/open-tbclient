@@ -96,12 +96,12 @@ public class a implements ab {
         return this.a + "/" + str + ".png";
     }
 
-    public a o(int i) {
+    public a r(int i) {
         this.d = i;
         return this;
     }
 
-    public a p(int i) {
+    public a s(int i) {
         this.c = i;
         return this;
     }

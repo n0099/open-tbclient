@@ -9,50 +9,50 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h {
-    private View afg;
-    private TextView afh;
-    private ImageView afi;
-    private TbPageContext<?> mContext;
-    private Toast yL;
-    private int afe = -1;
-    private int aff = -1;
-    private Runnable afk = new i(this);
-    private Handler afj = new Handler();
+    private TbPageContext<?> MR;
+    private View afS;
+    private TextView afT;
+    private ImageView afU;
+    private Toast yT;
+    private int afQ = -1;
+    private int afR = -1;
+    private Runnable afW = new i(this);
+    private Handler afV = new Handler();
 
     public h(TbPageContext<?> tbPageContext) {
-        this.mContext = null;
-        this.afg = null;
-        this.afh = null;
-        this.afi = null;
-        this.mContext = tbPageContext;
-        this.afg = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(n.h.image_toast_view, (ViewGroup) null);
-        this.afh = (TextView) this.afg.findViewById(n.g.tip_text);
-        this.afi = (ImageView) this.afg.findViewById(n.g.tip_iamge);
+        this.MR = null;
+        this.afS = null;
+        this.afT = null;
+        this.afU = null;
+        this.MR = tbPageContext;
+        this.afS = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(t.h.image_toast_view, (ViewGroup) null);
+        this.afT = (TextView) this.afS.findViewById(t.g.tip_text);
+        this.afU = (ImageView) this.afS.findViewById(t.g.tip_iamge);
     }
 
     public void e(Context context, View view) {
-        this.afj.removeCallbacks(this.afk);
-        if (this.yL == null) {
-            this.yL = new Toast(context);
-            this.afj.postDelayed(this.afk, 3000L);
+        this.afV.removeCallbacks(this.afW);
+        if (this.yT == null) {
+            this.yT = new Toast(context);
+            this.afV.postDelayed(this.afW, 3000L);
         }
-        this.yL.setView(view);
-        this.yL.setGravity(17, 0, 0);
-        this.yL.show();
+        this.yT.setView(view);
+        this.yT.setGravity(17, 0, 0);
+        this.yT.show();
     }
 
     public void c(CharSequence charSequence) {
-        this.afh.setText(charSequence);
-        this.afi.setImageResource(n.f.icon_toast_game_ok);
-        e(this.mContext.getPageActivity(), this.afg);
+        this.afT.setText(charSequence);
+        this.afU.setImageResource(t.f.icon_toast_game_ok);
+        e(this.MR.getPageActivity(), this.afS);
     }
 
     public void d(CharSequence charSequence) {
-        this.afh.setText(charSequence);
-        this.afi.setImageResource(n.f.icon_toast_game_error);
-        e(this.mContext.getPageActivity(), this.afg);
+        this.afT.setText(charSequence);
+        this.afU.setImageResource(t.f.icon_toast_game_error);
+        e(this.MR.getPageActivity(), this.afS);
     }
 }

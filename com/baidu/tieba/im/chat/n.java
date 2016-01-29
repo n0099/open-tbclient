@@ -8,13 +8,13 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ CommonGroupChatActiviy bKl;
+    final /* synthetic */ CommonGroupChatActiviy bNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.bKl = commonGroupChatActiviy;
+        this.bNU = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class n extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE /* 2001109 */:
-                    this.bKl.mListView.refresh();
+                    this.bNU.bPJ.refresh();
                     return;
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS /* 2001130 */:
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT /* 2001132 */:
@@ -36,20 +36,20 @@ class n extends CustomMessageListener {
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.bKl.mListView.refresh();
+                            this.bNU.bPJ.refresh();
                             if (!cmd.equals("apply_join_success")) {
                                 if (!cmd.equals("kick_out")) {
                                     if (!cmd.equals("group_name_change")) {
                                         if (!cmd.equals("dismiss_group")) {
                                             return;
                                         }
-                                        this.bKl.processDismissGroup(p);
+                                        this.bNU.d(p);
                                         return;
                                     }
-                                    this.bKl.processTitleChange(p);
+                                    this.bNU.c(p);
                                     return;
                                 }
-                                this.bKl.processKick(p);
+                                this.bNU.b(p);
                                 return;
                             }
                             return;

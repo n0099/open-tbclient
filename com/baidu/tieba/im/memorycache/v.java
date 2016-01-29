@@ -11,17 +11,17 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ u bXK;
-    private final /* synthetic */ ImMessageCenterPojo bXL;
-    private final /* synthetic */ ChatMessage bXM;
-    private final /* synthetic */ SocketResponsedMessage bXN;
+    final /* synthetic */ u cce;
+    private final /* synthetic */ ImMessageCenterPojo ccf;
+    private final /* synthetic */ ChatMessage ccg;
+    private final /* synthetic */ SocketResponsedMessage cch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.bXK = uVar;
-        this.bXL = imMessageCenterPojo;
-        this.bXM = chatMessage;
-        this.bXN = socketResponsedMessage;
+        this.cce = uVar;
+        this.ccf = imMessageCenterPojo;
+        this.ccg = chatMessage;
+        this.cch = socketResponsedMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -30,14 +30,14 @@ public class v implements CustomMessageTask.CustomRunnable<String> {
             return null;
         }
         try {
-            com.baidu.tieba.im.db.g.Ym().Yn();
-            com.baidu.tieba.im.db.i.Yr().a(this.bXL, 3);
-            com.baidu.tieba.im.db.c.Yi().c(this.bXM.getGroupId(), String.valueOf(this.bXM.getRecordId()), String.valueOf(this.bXM.getMsgId()), this.bXM.getLocalData().getStatus().shortValue());
+            com.baidu.tieba.im.db.g.aaX().aaY();
+            com.baidu.tieba.im.db.i.abc().a(this.ccf, 3);
+            com.baidu.tieba.im.db.c.aaT().c(this.ccg.getGroupId(), String.valueOf(this.ccg.getRecordId()), String.valueOf(this.ccg.getMsgId()), this.ccg.getLocalData().getStatus().shortValue());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.Ym().endTransaction();
+            com.baidu.tieba.im.db.g.aaX().endTransaction();
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.bXN);
+        return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cch);
     }
 }

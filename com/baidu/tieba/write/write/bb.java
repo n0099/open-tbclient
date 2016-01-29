@@ -1,42 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.graphics.drawable.NinePatchDrawable;
-import android.widget.EditText;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.b.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ImageSpan;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
-public class bb extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity dYD;
-    private final /* synthetic */ boolean dYF;
+class bb implements TbFaceManager.a {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(WriteActivity writeActivity, boolean z) {
-        this.dYD = writeActivity;
-        this.dYF = z;
+    public bb(WriteActivity writeActivity) {
+        this.ets = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aMe;
-        EditText aMe2;
-        a.InterfaceC0080a interfaceC0080a;
-        super.a((bb) aVar, str, i);
-        if (aVar != null && aVar.mE() != null && aVar.mI() != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m411getInst().getResources(), aVar.mE(), aVar.mE().getNinePatchChunk(), aVar.mI(), null);
-            if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ad.mAlpha);
-            }
-            aMe = this.dYD.aMe();
-            aMe.setBackgroundDrawable(ninePatchDrawable);
-            if (this.dYF) {
-                WriteActivity writeActivity = this.dYD;
-                aMe2 = this.dYD.aMe();
-                interfaceC0080a = this.dYD.cJS;
-                com.baidu.tieba.tbadkCore.b.a.a(writeActivity, aMe2, true, interfaceC0080a);
-            }
+    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
+    public ImageSpan fE(String str) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
+        com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
+        if (aVar == null) {
+            return null;
         }
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.mS());
+        int width = aVar.getWidth();
+        bitmapDrawable.setBounds(0, 0, width, width);
+        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
+        return new ImageSpan(bitmapDrawable, 0);
     }
 }

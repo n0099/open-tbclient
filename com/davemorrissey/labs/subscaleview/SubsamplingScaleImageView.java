@@ -339,6 +339,7 @@ public class SubsamplingScaleImageView extends View {
         this.detector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.2
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+                Log.e("SubsamplingScaleImageView", "onFling:panEnabled:" + SubsamplingScaleImageView.this.panEnabled + " readySent:" + SubsamplingScaleImageView.this.readySent + " vTranslate:" + SubsamplingScaleImageView.this.vTranslate.toString() + " isZooming:" + SubsamplingScaleImageView.this.isZooming);
                 if (!SubsamplingScaleImageView.this.panEnabled || !SubsamplingScaleImageView.this.readySent || SubsamplingScaleImageView.this.vTranslate == null || motionEvent == null || motionEvent2 == null || ((Math.abs(motionEvent.getX() - motionEvent2.getX()) <= 50.0f && Math.abs(motionEvent.getY() - motionEvent2.getY()) <= 50.0f) || ((Math.abs(f) <= 500.0f && Math.abs(f2) <= 500.0f) || SubsamplingScaleImageView.this.isZooming))) {
                     return super.onFling(motionEvent, motionEvent2, f, f2);
                 }
@@ -426,7 +427,11 @@ public class SubsamplingScaleImageView extends View {
         }
         this.anim = null;
         if (this.vTranslate != null) {
+            Log.e("SubsamplingScaleImageView", "isQuickScaling:" + this.isQuickScaling + " " + motionEvent.getAction());
             if (!this.isQuickScaling && (this.detector == null || this.detector.onTouchEvent(motionEvent))) {
+                if (motionEvent.getAction() == 1) {
+                    Log.e("SubsamplingScaleImageView", "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent));
+                }
                 this.isZooming = false;
                 this.isPanning = false;
                 this.maxTouchCount = 0;
@@ -456,16 +461,12 @@ public class SubsamplingScaleImageView extends View {
                         } else {
                             this.maxTouchCount = 0;
                         }
-                        this.handler.removeMessages(1);
-                        return true;
-                    } else if (this.isQuickScaling) {
-                        return true;
-                    } else {
+                    } else if (!this.isQuickScaling) {
                         this.vTranslateStart.set(this.vTranslate.x, this.vTranslate.y);
                         this.vCenterStart.set(motionEvent.getX(), motionEvent.getY());
-                        this.handler.sendEmptyMessageDelayed(1, 600L);
-                        return true;
                     }
+                    this.handler.sendEmptyMessageDelayed(1, 600L);
+                    return true;
                 case 1:
                 case 6:
                 case 262:
@@ -572,9 +573,15 @@ public class SubsamplingScaleImageView extends View {
                             refreshRequiredTiles(false);
                             z = true;
                         } else if (!this.isZooming) {
-                            float abs3 = Math.abs(motionEvent.getX() - this.vCenterStart.x);
-                            float abs4 = Math.abs(motionEvent.getY() - this.vCenterStart.y);
-                            if (abs3 > 5.0f || abs4 > 5.0f || this.isPanning) {
+                            float x2 = motionEvent.getX();
+                            float y2 = motionEvent.getY();
+                            if (pointerCount >= 2) {
+                                x2 = (motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f;
+                                y2 = (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f;
+                            }
+                            float abs3 = Math.abs(x2 - this.vCenterStart.x);
+                            float abs4 = Math.abs(y2 - this.vCenterStart.y);
+                            if (abs3 > 100.0f || abs4 > 100.0f || this.isPanning) {
                                 this.vTranslate.x = this.vTranslateStart.x + (motionEvent.getX() - this.vCenterStart.x);
                                 this.vTranslate.y = this.vTranslateStart.y + (motionEvent.getY() - this.vCenterStart.y);
                                 float f10 = this.vTranslate.x;
@@ -585,7 +592,7 @@ public class SubsamplingScaleImageView extends View {
                                 boolean z5 = f11 == this.vTranslate.y && abs4 > 15.0f;
                                 if (!z4 && (!z3 || z5 || this.isPanning)) {
                                     this.isPanning = true;
-                                } else if (abs3 > 5.0f) {
+                                } else if (abs3 > 100.0f) {
                                     this.maxTouchCount = 0;
                                     this.handler.removeMessages(1);
                                     getParent().requestDisallowInterceptTouchEvent(false);

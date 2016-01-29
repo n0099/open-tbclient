@@ -16,22 +16,22 @@ public class b extends com.baidu.tbadk.mvc.model.d<c, d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> oB() {
+    protected Class<? extends ChosenPostHttpResponse> oW() {
         return ChosenPostHttpResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> oA() {
+    protected Class<? extends ChosenPostSocketResponse> oV() {
         return ChosenPostSocketResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int ox() {
+    protected int oS() {
         return CmdConfigHttp.CMD_GET_HOT_THREAD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oy() {
+    protected String oT() {
         return "c/f/choiceness/hotthread";
     }
 
@@ -41,7 +41,7 @@ public class b extends com.baidu.tbadk.mvc.model.d<c, d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oz() {
+    protected int oU() {
         return 307008;
     }
 }

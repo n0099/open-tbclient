@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.c;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a Ze = null;
+    private static a ZB = null;
 
-    public static void e(Context context, int i) {
-        if (Ze != null) {
-            Ze.e(context, i);
+    public static void d(Context context, int i) {
+        if (ZB != null) {
+            ZB.d(context, i);
         }
     }
 
     public static void a(Context context, int i, boolean z) {
-        if (Ze != null) {
-            Ze.a(context, i, z);
+        if (ZB != null) {
+            ZB.a(context, i, z);
         }
     }
 
     public static void aa(Context context) {
-        if (Ze != null) {
-            Ze.aa(context);
+        if (ZB != null) {
+            ZB.aa(context);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (Ze != null) {
-            Ze.b(context, i, z);
+        if (ZB != null) {
+            ZB.b(context, i, z);
         }
     }
 
-    public static Class<?> tC() {
-        if (Ze == null) {
+    public static Class<?> uH() {
+        if (ZB == null) {
             return null;
         }
-        return Ze.tC();
+        return ZB.uH();
     }
 
-    public static String tD() {
-        if (Ze == null) {
+    public static String uI() {
+        if (ZB == null) {
             return null;
         }
-        return Ze.tD();
+        return ZB.uI();
     }
 
     public static void a(a aVar) {
-        Ze = aVar;
+        ZB = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (Ze == null) {
+        if (ZB == null) {
             return -1;
         }
-        return Ze.getCurrentTabType();
+        return ZB.getCurrentTabType();
     }
 }

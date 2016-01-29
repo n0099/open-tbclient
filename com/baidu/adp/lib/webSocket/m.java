@@ -13,174 +13,174 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class b extends h {
-        public String Ai;
-        public String Aj;
+        public String Aq;
+        public String Ar;
         public String mPath = "/";
-        public String Ak = null;
-        public String[] Al = null;
-        public List<BasicNameValuePair> Am = null;
+        public String As = null;
+        public String[] At = null;
+        public List<BasicNameValuePair> Au = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
-            this.Ai = str;
+            this.Aq = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class q extends h {
-        public boolean Av;
+        public boolean AD;
         public Map<String, String> mHeaders;
 
         public q(boolean z, Map<String, String> map) {
-            this.Av = z;
+            this.AD = z;
             this.mHeaders = map;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException Ap;
+        public SocketException Ax;
 
         public d(SocketException socketException) {
-            this.Ap = socketException;
+            this.Ax = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
-        public String Aq;
+        public String Ay;
         public int mStatusCode;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.Aq = str;
+            this.Ay = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
-        public String Aq;
+        public String Ay;
         public int mStatusCode;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.Aq = str;
+            this.Ay = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException At;
+        public WebSocketException AB;
 
         public l(WebSocketException webSocketException) {
-            this.At = webSocketException;
+            this.AB = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception Ar;
+        public Exception Az;
 
         public f(Exception exc) {
-            this.Ar = exc;
+            this.Az = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String Aw;
+        public String AE;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.Aw = str;
+            this.AE = str;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.m$m  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0009m extends h {
-        public byte[] Ah;
+        public byte[] Ap;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0009m(byte[] bArr) {
-            this.Ah = bArr;
+            this.Ap = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends h {
-        public byte[] Ah;
+        public byte[] Ap;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr) {
-            this.Ah = bArr;
+            this.Ap = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c As;
+        com.baidu.adp.lib.webSocket.c AA;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.As = cVar;
+            this.AA = cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c extends h {
-        public int An;
-        public String Ao;
+        public int Av;
+        public String Aw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c() {
-            this.An = -1;
-            this.Ao = null;
+            this.Av = -1;
+            this.Aw = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(int i, String str) {
-            this.An = i;
-            this.Ao = str;
+            this.Av = i;
+            this.Aw = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] Ah;
+        public byte[] Ap;
 
         j() {
-            this.Ah = null;
+            this.Ap = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.Ah = bArr;
+            this.Ap = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class k extends h {
-        public byte[] Ah;
+        public byte[] Ap;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public k() {
-            this.Ah = null;
+            this.Ap = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public k(byte[] bArr) {
-            this.Ah = bArr;
+            this.Ap = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c Au;
+        com.baidu.adp.lib.webSocket.c AC;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.Au = null;
-            this.Au = cVar;
+            this.AC = null;
+            this.AC = cVar;
         }
     }
 

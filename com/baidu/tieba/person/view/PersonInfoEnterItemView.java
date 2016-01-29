@@ -8,16 +8,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
 import com.baidu.tieba.person.data.d;
+import com.baidu.tieba.personInfo.b;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu.tieba.person.a.a {
-    private static int cWb = -1;
-    private TbImageView Nm;
-    private ImageView aSn;
-    private TextView ahk;
+    private static int dhA = -1;
+    private TbImageView NM;
+    private TextView apm;
+    private ImageView dhz;
 
     public PersonInfoEnterItemView(Context context) {
         this(context, null);
@@ -25,71 +26,81 @@ public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu
 
     public PersonInfoEnterItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(getContext()).inflate(n.h.personinfo_enter_item, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(t.h.personinfo_enter_item, (ViewGroup) this, true);
         init();
     }
 
     private void init() {
-        this.Nm = (TbImageView) findViewById(n.g.icon);
-        this.ahk = (TextView) findViewById(n.g.title);
-        this.aSn = (ImageView) findViewById(n.g.red_tip);
-        this.Nm.setDefaultBgResource(0);
+        this.NM = (TbImageView) findViewById(t.g.icon);
+        this.apm = (TextView) findViewById(t.g.title);
+        this.dhz = (ImageView) findViewById(t.g.red_tip);
+        this.NM.setDefaultBgResource(0);
     }
 
     public void setTitle(String str) {
-        if (this.ahk != null) {
-            this.ahk.setText(str);
+        if (this.apm != null) {
+            this.apm.setText(str);
         }
     }
 
-    public void bX(boolean z) {
-        if (this.aSn != null) {
+    public void fX(boolean z) {
+        if (this.dhz != null) {
             if (z) {
-                this.aSn.setVisibility(0);
+                this.dhz.setVisibility(0);
             } else {
-                this.aSn.setVisibility(8);
+                this.dhz.setVisibility(8);
             }
         }
     }
 
     public TbImageView getIcon() {
-        return this.Nm;
+        return this.NM;
     }
 
     public TextView getTitle() {
-        return this.ahk;
+        return this.apm;
     }
 
     public void setIcon(int i) {
-        as.c(this.Nm, i);
+        ar.c(this.NM, i);
     }
 
-    public void a(d dVar, int i, com.baidu.tieba.personInfo.a aVar) {
-        cWb = i;
+    @Override // android.view.View
+    public void setBackgroundResource(int i) {
+        ar.k(this.NM, i);
+    }
+
+    public void a(d dVar, int i, b bVar) {
+        dhA = i;
         if (dVar == null) {
             setVisibility(8);
         } else {
             setVisibility(0);
-            this.ahk.setText(dVar.cRT);
-            as.b(this.ahk, n.d.cp_cont_f, 1);
-            as.c(this.Nm, dVar.cRS);
-            as.c(this.aSn, n.f.icon_news_down_bar_one);
+            this.apm.setText(dVar.dbH);
+            ar.b(this.apm, t.d.cp_cont_f, 1);
+            ar.c(this.NM, dVar.dbG);
+            ar.c(this.dhz, t.f.icon_news_down_bar_one);
         }
-        setOnClickListener(new a(this, aVar, dVar));
+        setOnClickListener(new a(this, bVar, dVar));
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        as.b(this.ahk, n.d.cp_cont_f, 1);
-        as.c(this.aSn, n.f.icon_news_down_bar_one);
+        ar.b(this.apm, t.d.cp_cont_f, 1);
+        ar.c(this.dhz, t.f.icon_news_down_bar_one);
+        setBackgroundResource(t.f.bg_icon_mine_selector);
     }
 
     public int getRedTipType() {
-        return cWb;
+        return dhA;
     }
 
     @Override // com.baidu.tieba.person.a.a
     public void setRedTipShow(boolean z) {
-        bX(z);
+        fX(z);
+    }
+
+    @Override // com.baidu.tieba.person.a.a
+    public void e(boolean z, int i) {
     }
 }

@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.eu;
-import com.baidu.tieba.frs.ev;
-import com.baidu.tieba.frs.ex;
-import com.baidu.tieba.frs.ey;
+import com.baidu.tieba.frs.fe;
+import com.baidu.tieba.frs.ff;
+import com.baidu.tieba.frs.fh;
+import com.baidu.tieba.frs.fi;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h implements eu {
-    private ev baG;
+public class h implements fe {
+    private ff bcR;
 
-    @Override // com.baidu.tieba.frs.eu
-    public void a(int i, int i2, ex exVar) {
-        if (i > 100 && this.baG != null && exVar != null && exVar.bji != null && (exVar.bji instanceof String)) {
+    @Override // com.baidu.tieba.frs.fe
+    public void a(int i, int i2, fh fhVar) {
+        if (i > 100 && this.bcR != null && fhVar != null && fhVar.bmd != null && (fhVar.bmd instanceof String)) {
             ArrayList<u> arrayList = new ArrayList<>();
-            g gVar = new g((String) exVar.bji);
-            gVar.stType = exVar.stType;
+            g gVar = new g((String) fhVar.bmd);
+            gVar.stType = fhVar.stType;
             arrayList.add(gVar);
-            ey eyVar = new ey();
-            eyVar.hasMore = false;
-            eyVar.bjj = false;
-            eyVar.bjk = false;
-            eyVar.pn = exVar.pn;
-            eyVar.bji = exVar.bji;
-            this.baG.a(i, i2, eyVar, arrayList);
+            fi fiVar = new fi();
+            fiVar.hasMore = false;
+            fiVar.bme = false;
+            fiVar.bmf = false;
+            fiVar.pn = fhVar.pn;
+            fiVar.bmd = fhVar.bmd;
+            this.bcR.a(i, i2, fiVar, arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.frs.eu
-    public void a(ev evVar) {
-        this.baG = evVar;
+    @Override // com.baidu.tieba.frs.fe
+    public void a(ff ffVar) {
+        this.bcR = ffVar;
     }
 
-    @Override // com.baidu.tieba.frs.eu
+    @Override // com.baidu.tieba.frs.fe
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.eu
-    public void My() {
+    @Override // com.baidu.tieba.frs.fe
+    public void Op() {
     }
 }

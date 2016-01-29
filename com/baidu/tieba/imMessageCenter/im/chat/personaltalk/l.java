@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.util.d<Boolean> {
-    final /* synthetic */ j cdW;
+    final /* synthetic */ j ciw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.cdW = jVar;
+        this.ciw = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class l implements com.baidu.tbadk.util.d<Boolean> {
         PersonalTalkSettingActivity personalTalkSettingActivity2;
         PersonalTalkSettingActivity personalTalkSettingActivity3;
         long j;
-        personalTalkSettingActivity = this.cdW.cdU;
+        personalTalkSettingActivity = this.ciw.ciu;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.cdW.cdU;
-        personalTalkSettingActivity2.showToast(n.j.cash_del_suc, false);
-        personalTalkSettingActivity3 = this.cdW.cdU;
+        personalTalkSettingActivity2 = this.ciw.ciu;
+        personalTalkSettingActivity2.showToast(t.j.cash_del_suc, false);
+        personalTalkSettingActivity3 = this.ciw.ciu;
         j = personalTalkSettingActivity3.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(j), 2, null, 1)));
     }

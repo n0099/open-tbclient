@@ -1,52 +1,26 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class x {
-    protected String img_url = null;
-    protected String link = null;
-    protected String Wz = null;
+public class x extends ah {
+    public static final BdUniqueId VY = BdUniqueId.gen();
+    private PhotoLiveCardData VZ;
 
-    public String sk() {
-        return this.img_url;
+    public PhotoLiveCardData sA() {
+        return this.VZ;
     }
 
-    public void cv(String str) {
-        this.img_url = str;
+    public void a(PhotoLiveCardData photoLiveCardData) {
+        this.VZ = photoLiveCardData;
     }
 
-    public String getLink() {
-        return this.link;
+    @Override // com.baidu.tbadk.core.data.ah, com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return VY;
     }
 
-    public void setLink(String str) {
-        this.link = str;
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
-        }
-    }
-
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cv(banner.pic_url);
-                setLink(banner.link);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public String sl() {
-        return this.Wz;
-    }
-
-    public void cw(String str) {
-        this.Wz = str;
+    @Override // com.baidu.tbadk.core.data.ah
+    public String getTid() {
+        return this.VZ != null ? String.valueOf(this.VZ.getThreadId()) : super.getTid();
     }
 }

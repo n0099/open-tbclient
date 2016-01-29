@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class e {
-    private static e avt;
+    private static e awl;
 
     private e() {
     }
 
-    public static e CC() {
-        if (avt == null) {
-            avt = new e();
+    public static e DT() {
+        if (awl == null) {
+            awl = new e();
         }
-        return avt;
+        return awl;
     }
 
-    public void w(String str, int i) {
+    public void x(String str, int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.UPDATE_PLAYER_NUM_CMD);
         httpMessage.addParam("gameId", str);
         httpMessage.addParam("type", Integer.valueOf(i));

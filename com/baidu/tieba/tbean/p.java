@@ -3,11 +3,11 @@ package com.baidu.tieba.tbean;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class p implements AbsListView.OnScrollListener {
-    final /* synthetic */ j dKq;
+    final /* synthetic */ j eav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(j jVar) {
-        this.dKq = jVar;
+        this.eav = jVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

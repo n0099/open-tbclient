@@ -1,26 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class x implements c.b {
-    final /* synthetic */ PbActivity cFS;
+class x implements BdListView.e {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (this.cFS.cFO != null) {
-            if (i == 0) {
-                this.cFS.cFO.aR(this.cFS.getPageContext().getPageActivity());
-                this.cFS.cFO = null;
-            } else if (i == 1 && this.cFS.checkUpIsLogin()) {
-                this.cFS.c(this.cFS.cFO);
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void nv() {
+        boolean z;
+        cm cmVar;
+        dz dzVar;
+        cm cmVar2;
+        dz dzVar2;
+        z = this.cNq.mIsLogin;
+        if (z) {
+            cmVar = this.cNq.cMF;
+            if (cmVar.fr(false)) {
+                dzVar2 = this.cNq.cMK;
+                dzVar2.ari();
+                TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+                return;
             }
+            dzVar = this.cNq.cMK;
+            cmVar2 = this.cNq.cMF;
+            dzVar.l(cmVar2.getPbData());
         }
     }
 }

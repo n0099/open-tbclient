@@ -1,32 +1,19 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends CustomMessageListener {
-    final /* synthetic */ d cWV;
+public class q implements UserMuteAddAndDelModel.b {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(d dVar, int i) {
-        super(i);
-        this.cWV = dVar;
+    public q(f fVar) {
+        this.diG = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bb bbVar;
-        bb bbVar2;
-        if (customResponsedMessage != null) {
-            Long l = (Long) customResponsedMessage.getData();
-            bbVar = this.cWV.cRx;
-            long c = com.baidu.adp.lib.h.b.c(bbVar.getId(), 0L);
-            if (l != null && c == l.longValue()) {
-                bbVar2 = this.cWV.cRx;
-                bbVar2.aqu();
-            }
-        }
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.b
+    public void a(UserMuteDelResponseMessage userMuteDelResponseMessage) {
+        this.diG.did = 0;
     }
 }

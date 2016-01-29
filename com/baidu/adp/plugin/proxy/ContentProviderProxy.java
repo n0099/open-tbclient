@@ -94,9 +94,9 @@ public class ContentProviderProxy extends ContentProvider {
         }
         try {
             for (a aVar : allPlugins) {
-                ContentProvider bc = aVar.bc(str);
-                if (bc != null) {
-                    return bc;
+                ContentProvider bb = aVar.bb(str);
+                if (bb != null) {
+                    return bb;
                 }
             }
         } catch (Exception e) {

@@ -9,16 +9,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity ccO;
+    final /* synthetic */ ChatMessageActivity chn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.ccO = chatMessageActivity;
+        this.chn = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,17 +35,17 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.ccO.mFragmentManager = this.ccO.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.ccO;
-            fragmentManager = this.ccO.mFragmentManager;
-            chatMessageActivity.ccN = fragmentManager.beginTransaction();
-            fragmentTransaction = this.ccO.ccN;
-            fragmentTransaction.add(n.g.content, fragment);
-            fragmentTransaction2 = this.ccO.ccN;
+            this.chn.mFragmentManager = this.chn.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.chn;
+            fragmentManager = this.chn.mFragmentManager;
+            chatMessageActivity.chm = fragmentManager.beginTransaction();
+            fragmentTransaction = this.chn.chm;
+            fragmentTransaction.add(t.g.content, fragment);
+            fragmentTransaction2 = this.chn.chm;
             fragmentTransaction2.commitAllowingStateLoss();
         }
-        if (this.ccO.getIntent() != null) {
-            int intExtra = this.ccO.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+        if (this.chn.getIntent() != null) {
+            int intExtra = this.chn.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
             Intent intent = new Intent();
             intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
             intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

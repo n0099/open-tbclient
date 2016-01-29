@@ -1,26 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
-public class dy implements DialogInterface.OnCancelListener {
-    final /* synthetic */ dk cKg;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dy(dk dkVar) {
-        this.cKg = dkVar;
+public class dy {
+    public static Intent R(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.cKg.cJP;
-        if (runnable == null) {
-            this.cKg.cJP = new dz(this);
+    public static boolean g(com.baidu.tieba.tbadkCore.data.r rVar) {
+        if (rVar == null || rVar.aMF() == null) {
+            return false;
         }
-        com.baidu.adp.lib.h.h hj = com.baidu.adp.lib.h.h.hj();
-        runnable2 = this.cKg.cJP;
-        hj.postDelayed(runnable2, 150L);
+        com.baidu.tieba.tbadkCore.data.h aMF = rVar.aMF();
+        if (aMF.dWF) {
+            int aLZ = aMF.aLZ();
+            return aLZ == 2 || aLZ == 1;
+        }
+        return false;
     }
 }

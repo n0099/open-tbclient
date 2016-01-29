@@ -39,12 +39,12 @@ public class PluginContextWrapper extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kt();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).kD();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        PluginSetting findPluginSetting = c.lP().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.mc().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
@@ -60,15 +60,15 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        PluginSetting findPluginSetting = c.lP().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.mc().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
                 throw new RuntimeException("third plugin is not loaded");
             }
-            return plugin2.ku();
+            return plugin2.kE();
         }
-        Resources resources = j.dK().getResources();
+        Resources resources = j.dN().getResources();
         return resources == null ? super.getResources() : resources;
     }
 

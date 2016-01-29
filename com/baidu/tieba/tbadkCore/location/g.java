@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ d dIU;
+    final /* synthetic */ d dYU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.dIU = dVar;
+        this.dYU = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class g extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.dIU.hv(false);
-                this.dIU.be(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                bVar3 = this.dIU.dIO;
+                this.dYU.hW(false);
+                this.dYU.bp(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.dYU.dYO;
                 if (bVar3 != null) {
-                    bVar4 = this.dIU.dIO;
-                    bVar4.fx(responsedSelectLocation.getName());
+                    bVar4 = this.dYU.dYO;
+                    bVar4.fv(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.dIU.hv(true);
-            bVar = this.dIU.dIO;
+            this.dYU.hW(true);
+            bVar = this.dYU.dYO;
             if (bVar != null) {
-                bVar2 = this.dIU.dIO;
-                bVar2.Cl();
+                bVar2 = this.dYU.dYO;
+                bVar2.DB();
             }
         }
     }

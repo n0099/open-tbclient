@@ -1,38 +1,22 @@
 package com.baidu.tieba.frs.view;
 
+import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Animation.AnimationListener {
-    final /* synthetic */ a bop;
-    private final /* synthetic */ TbPageContextSupport boq;
-    private final /* synthetic */ float bor;
-    private final /* synthetic */ View yO;
+public class e implements View.OnClickListener {
+    final /* synthetic */ b brj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
-        this.bop = aVar;
-        this.boq = tbPageContextSupport;
-        this.yO = view;
-        this.bor = f;
+    public e(b bVar) {
+        this.brj = bVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
-        scaleAnimation.setFillAfter(true);
-        scaleAnimation.setDuration(300L);
-        com.baidu.tieba.tbadkCore.a.a(this.boq, this.yO, scaleAnimation, new f(this, this.bor, this.yO));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.brj.bqT)) {
+            com.baidu.tbadk.browser.f.a(this.brj.MR.getPageActivity(), this.brj.MR.getString(t.j.frs_badge_intro), this.brj.bqT, true, false, false);
+        }
     }
 }

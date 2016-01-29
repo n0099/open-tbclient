@@ -1,43 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.n;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.data.MuteUser;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
-class k implements a.b {
-    final /* synthetic */ PbActivity cFS;
+class k implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        cf cfVar;
-        dk dkVar;
-        dk dkVar2;
-        dk dkVar3;
-        cf cfVar2;
-        dk dkVar4;
-        this.cFS.Nm();
-        cfVar = this.cFS.cFl;
-        com.baidu.tbadk.core.data.q VB = cfVar.VB();
-        dkVar = this.cFS.cFq;
-        int pageNum = dkVar.getPageNum();
-        if (pageNum <= 0) {
-            this.cFS.showToast(n.j.pb_page_error);
-        } else if (VB == null || pageNum <= VB.rK()) {
-            dkVar2 = this.cFS.cFq;
-            dkVar2.ana();
-            this.cFS.stopVoice();
-            dkVar3 = this.cFS.cFq;
-            dkVar3.amJ();
-            cfVar2 = this.cFS.cFl;
-            dkVar4 = this.cFS.cFq;
-            cfVar2.kq(dkVar4.getPageNum());
-            aVar.dismiss();
-        } else {
-            this.cFS.showToast(n.j.pb_page_error);
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        cm cmVar;
+        String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
+        cmVar = this.cNq.cMF;
+        com.baidu.tieba.pb.a.c pbData = cmVar.getPbData();
+        if (pbData != null) {
+            MuteUser muteUser = new MuteUser();
+            muteUser.setUserId(str);
+            pbData.aoL().add(muteUser);
         }
     }
 }

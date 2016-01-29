@@ -1,75 +1,32 @@
 package com.baidu.tieba.frs.b;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.view.FrsHeaderView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class f implements Runnable {
-    final /* synthetic */ a bmZ;
+public class f extends x.a {
+    TextView aHk;
+    HeadImageView aMs;
+    TextView apm;
+    LinearLayout bon;
+    TbImageView bop;
+    TextView boq;
+    TextView bor;
+    TextView bos;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar) {
-        this.bmZ = aVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        BdListView bdListView;
-        boolean z;
-        int i2;
-        String str;
-        String str2;
-        FrsHeaderView frsHeaderView;
-        FrsHeaderView frsHeaderView2;
-        FrsActivity frsActivity;
-        com.baidu.tieba.frs.view.q qVar;
-        com.baidu.tieba.frs.view.q qVar2;
-        FrsActivity frsActivity2;
-        i = this.bmZ.mScrollState;
-        if (i == 0) {
-            bdListView = this.bmZ.bmG;
-            if (bdListView.nc()) {
-                z = this.bmZ.bmQ;
-                if (!z) {
-                    i2 = this.bmZ.aPS;
-                    if (i2 == 1) {
-                        str = this.bmZ.bmO;
-                        if (str == "frs_page") {
-                            qVar = this.bmZ.bmI;
-                            if (qVar != null) {
-                                qVar2 = this.bmZ.bmI;
-                                if (qVar2.Qi()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.bcV, true);
-                                    this.bmZ.PI();
-                                    frsActivity2 = this.bmZ.blE;
-                                    frsActivity2.bda = true;
-                                    this.bmZ.bmQ = true;
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        str2 = this.bmZ.bmO;
-                        if (str2 == "normal_page") {
-                            frsHeaderView = this.bmZ.bmH;
-                            if (frsHeaderView != null) {
-                                frsHeaderView2 = this.bmZ.bmH;
-                                if (frsHeaderView2.Qi()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.bcV, true);
-                                    this.bmZ.PI();
-                                    frsActivity = this.bmZ.blE;
-                                    frsActivity.bda = true;
-                                    this.bmZ.bmQ = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    public f(View view) {
+        super(view);
+        this.bon = (LinearLayout) view.findViewById(t.g.single_replenish_parent);
+        this.aMs = (HeadImageView) view.findViewById(t.g.single_replenish_locality_head);
+        this.aHk = (TextView) view.findViewById(t.g.single_replenish_locality_name);
+        this.boq = (TextView) view.findViewById(t.g.single_replenish_locality_sub);
+        this.apm = (TextView) view.findViewById(t.g.single_replenish_locality_title);
+        this.bop = (TbImageView) view.findViewById(t.g.single_replenish_locality_pic);
+        this.bor = (TextView) view.findViewById(t.g.single_replenish_locality_brief);
+        this.bos = (TextView) view.findViewById(t.g.single_replenish_desc);
     }
 }

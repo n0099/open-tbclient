@@ -20,8 +20,8 @@ class j extends CustomMessageListener {
                 EditMarkStatic.msgCount = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
                 i = EditMarkStatic.msgCount;
                 if (i > 0) {
-                    e.ajd().ajg();
-                    e.ajd().eA(true);
+                    e.ana().and();
+                    e.ana().eN(true);
                     return;
                 }
                 return;

@@ -4,15 +4,15 @@ import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class e {
-    private int UE;
-    private int ara;
+    private int Ud;
+    private int arT;
     private String expire_remind;
     private String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ara = jSONObject.optInt("props_id");
-            this.UE = jSONObject.optInt("end_time", 0);
+            this.arT = jSONObject.optInt("props_id");
+            this.Ud = jSONObject.optInt("end_time", 0);
             this.url = jSONObject.optString(this.url, "");
             this.expire_remind = jSONObject.optString("expire_remind");
         }
@@ -21,33 +21,33 @@ public class e {
     public void a(PayMemberInfo payMemberInfo) {
         if (payMemberInfo != null) {
             if (payMemberInfo.props_id != null) {
-                this.ara = payMemberInfo.props_id.intValue();
+                this.arT = payMemberInfo.props_id.intValue();
             }
             if (payMemberInfo.end_time != null) {
-                this.UE = payMemberInfo.end_time.intValue();
+                this.Ud = payMemberInfo.end_time.intValue();
             }
             this.url = payMemberInfo.url;
             this.expire_remind = payMemberInfo.expire_remind;
         }
     }
 
-    public int AK() {
-        return this.ara;
+    public int Ca() {
+        return this.arT;
     }
 
-    public int ri() {
-        return this.UE;
+    public int rF() {
+        return this.Ud;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public String AL() {
+    public String Cb() {
         return this.expire_remind;
     }
 
-    public void eS(String str) {
+    public void eR(String str) {
         this.expire_remind = str;
     }
 }

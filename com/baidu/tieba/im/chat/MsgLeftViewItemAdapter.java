@@ -15,36 +15,36 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void dh(boolean z) {
+    public void dj(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: R */
-    public ap.a<MsgleftView> a(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.mPageContext);
-        return new a(msgleftView.getConvertView(), msgleftView);
+    /* renamed from: X */
+    public ap.a<MsgleftView> b(ViewGroup viewGroup) {
+        MsgleftView msgleftView = new MsgleftView(this.Nw);
+        return new a(msgleftView.dM(), msgleftView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgleftView Wt = aVar.Wt();
-        Wt.ih(this.bLd);
-        Wt.dh(this.mNeedShowName);
+        MsgleftView YX = aVar.YX();
+        YX.iE(this.bOR);
+        YX.dj(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        Wt.a(this.bKU);
-        Wt.setOnItemViewLongClickListener(this.bKV);
-        Wt.setPosition(i);
-        Wt.aP(this.mCurrentTime);
-        Wt.aO(chatMessage.getCacheData().getLastMsgTime());
-        Wt.a(viewGroup, chatMessage);
-        Wt.b(viewGroup, chatMessage);
-        this.mPageContext.getLayoutMode().ac(false);
-        this.mPageContext.getLayoutMode().k(view);
+        YX.a(this.bOI);
+        YX.setOnItemViewLongClickListener(this.bOJ);
+        YX.setPosition(i);
+        YX.aQ(this.mCurrentTime);
+        YX.aP(chatMessage.getCacheData().getLastMsgTime());
+        YX.a(viewGroup, chatMessage);
+        YX.b(viewGroup, chatMessage);
+        this.Nw.getLayoutMode().ac(false);
+        this.Nw.getLayoutMode().x(view);
         return view;
     }
 

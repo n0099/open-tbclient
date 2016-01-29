@@ -1,27 +1,22 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.animation.Animation;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class ab implements Animation.AnimationListener {
-    final /* synthetic */ aa apG;
+class ab implements a.b {
+    private final /* synthetic */ String acC;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqA;
+    final /* synthetic */ u aqx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.apG = aaVar;
+    public ab(u uVar, com.baidu.tbadk.core.dialog.a aVar, String str) {
+        this.aqx = uVar;
+        this.aqA = aVar;
+        this.acC = str;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        z zVar;
-        zVar = this.apG.apF;
-        zVar.apq.setVisibility(8);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.aqA.dismiss();
+        this.aqx.eJ(this.acC);
     }
 }

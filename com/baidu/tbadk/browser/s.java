@@ -1,31 +1,22 @@
 package com.baidu.tbadk.browser;
 
-import android.content.Intent;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends CustomMessageListener {
-    final /* synthetic */ XiubaTbJsBridge Te;
+public class s implements j.a {
+    final /* synthetic */ p Sy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(XiubaTbJsBridge xiubaTbJsBridge, int i) {
-        super(i);
-        this.Te = xiubaTbJsBridge;
+    public s(p pVar) {
+        this.Sy = pVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String packageName;
-        Object data = customResponsedMessage.getData();
-        if (data == null || !(data instanceof Intent)) {
-            return;
-        }
-        packageName = XiubaTbJsBridge.getPackageName((Intent) data);
-        if ("com.xiu8.baidu.activity".equals(packageName)) {
-            this.Te.callInstallListener();
-        }
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void qK() {
+        this.Sy.qH();
+    }
+
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void qL() {
     }
 }

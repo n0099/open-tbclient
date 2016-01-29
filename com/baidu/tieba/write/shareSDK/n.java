@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity dUL;
+    final /* synthetic */ WriteShareActivity epq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(WriteShareActivity writeShareActivity) {
-        this.dUL = writeShareActivity;
+        this.epq = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,11 +16,11 @@ class n implements View.OnClickListener {
         o oVar;
         InputMethodManager inputMethodManager;
         o oVar2;
-        oVar = this.dUL.dUv;
-        oVar.auG().requestFocus();
-        WriteShareActivity writeShareActivity = this.dUL;
-        inputMethodManager = this.dUL.mInputManager;
-        oVar2 = this.dUL.dUv;
-        writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar2.auG());
+        oVar = this.epq.epa;
+        oVar.aAU().requestFocus();
+        WriteShareActivity writeShareActivity = this.epq;
+        inputMethodManager = this.epq.mInputManager;
+        oVar2 = this.epq.epa;
+        writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar2.aAU());
     }
 }

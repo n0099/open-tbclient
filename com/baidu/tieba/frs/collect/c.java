@@ -3,136 +3,136 @@ package com.baidu.tieba.frs.collect;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.ew;
-import com.baidu.tieba.n;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tieba.frs.fg;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.o;
 import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ MyCollectFrsActivity bkc;
+    final /* synthetic */ MyCollectFrsActivity bmY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(MyCollectFrsActivity myCollectFrsActivity, int i, int i2) {
         super(i, i2);
-        this.bkc = myCollectFrsActivity;
+        this.bmY = myCollectFrsActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         l lVar;
         l lVar2;
-        p pVar;
+        o oVar;
         a aVar;
         a aVar2;
         l lVar3;
         l lVar4;
         a aVar3;
         a aVar4;
-        p pVar2;
+        o oVar2;
         l lVar5;
         l lVar6;
         l lVar7;
-        p pVar3;
+        o oVar3;
         l lVar8;
-        p pVar4;
+        o oVar4;
         boolean z;
         boolean z2;
         a aVar5;
         a aVar6;
         a aVar7;
         l lVar9;
-        lVar = this.bkc.bjX;
-        lVar.completePullRefresh();
-        MyCollectFrsActivity myCollectFrsActivity = this.bkc;
-        lVar2 = this.bkc.bjX;
+        lVar = this.bmY.bmT;
+        lVar.nr();
+        MyCollectFrsActivity myCollectFrsActivity = this.bmY;
+        lVar2 = this.bmY.bmT;
         myCollectFrsActivity.hideLoadingView(lVar2.getRootView());
         if (responsedMessage.getError() != 0) {
-            String string = TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.bkc.getResources().getString(n.j.neterror) : responsedMessage.getErrorString();
-            this.bkc.mHasMore = false;
-            lVar9 = this.bkc.bjX;
-            lVar9.Om();
-            this.bkc.showToast(string);
-            this.bkc.hv(string);
+            String string = TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.bmY.getResources().getString(t.j.neterror) : responsedMessage.getErrorString();
+            this.bmY.mHasMore = false;
+            lVar9 = this.bmY.bmT;
+            lVar9.Qp();
+            this.bmY.showToast(string);
+            this.bmY.hv(string);
             return;
         }
-        com.baidu.tieba.tbadkCore.n nVar = null;
+        com.baidu.tieba.tbadkCore.m mVar = null;
         int i = -1;
         if (responsedMessage instanceof GetUserForumStoreSocketResponseMessage) {
             GetUserForumStoreSocketResponseMessage getUserForumStoreSocketResponseMessage = (GetUserForumStoreSocketResponseMessage) responsedMessage;
-            nVar = getUserForumStoreSocketResponseMessage.getResponseData();
-            this.bkc.mHasMore = getUserForumStoreSocketResponseMessage.isHasMore();
+            mVar = getUserForumStoreSocketResponseMessage.getResponseData();
+            this.bmY.mHasMore = getUserForumStoreSocketResponseMessage.isHasMore();
             i = getUserForumStoreSocketResponseMessage.getType();
         } else if (responsedMessage instanceof GetUserForumStoreHttpResponseMessage) {
             GetUserForumStoreHttpResponseMessage getUserForumStoreHttpResponseMessage = (GetUserForumStoreHttpResponseMessage) responsedMessage;
-            nVar = getUserForumStoreHttpResponseMessage.getResponseData();
-            this.bkc.mHasMore = getUserForumStoreHttpResponseMessage.isHasMore();
+            mVar = getUserForumStoreHttpResponseMessage.getResponseData();
+            this.bmY.mHasMore = getUserForumStoreHttpResponseMessage.isHasMore();
             i = getUserForumStoreHttpResponseMessage.getType();
         }
-        pVar = this.bkc.bdo;
-        pVar.d(nVar);
-        if (nVar != null) {
-            ArrayList<u> threadList = nVar.getThreadList();
+        oVar = this.bmY.bfF;
+        oVar.d(mVar);
+        if (mVar != null) {
+            ArrayList<u> threadList = mVar.getThreadList();
             if (threadList != null && !threadList.isEmpty()) {
                 if (i == 0) {
-                    aVar6 = this.bkc.bjW;
-                    aVar6.gg(0);
-                    aVar7 = this.bkc.bjW;
+                    aVar6 = this.bmY.bmS;
+                    aVar6.gD(0);
+                    aVar7 = this.bmY.bmS;
                     aVar7.clearData();
                 }
-                aVar = this.bkc.bjW;
-                int OJ = aVar.OJ();
-                aVar2 = this.bkc.bjW;
-                aVar2.gg(OJ + threadList.size());
-                lVar3 = this.bkc.bjX;
+                aVar = this.bmY.bmS;
+                int QL = aVar.QL();
+                aVar2 = this.bmY.bmS;
+                aVar2.gD(QL + threadList.size());
+                lVar3 = this.bmY.bmT;
                 if (lVar3 != null) {
-                    lVar4 = this.bkc.bjX;
-                    Set OA = lVar4.OL().OA();
-                    if (OA != null && !OA.isEmpty()) {
+                    lVar4 = this.bmY.bmT;
+                    Set QC = lVar4.QO().QC();
+                    if (QC != null && !QC.isEmpty()) {
                         for (int size = threadList.size() - 1; size >= 0; size--) {
                             u uVar = threadList.get(size);
-                            if (!OA.contains(uVar.getType())) {
+                            if (!QC.contains(uVar.getType())) {
                                 threadList.remove(uVar);
                             }
                         }
                     }
                 }
                 if (threadList.isEmpty()) {
-                    z2 = this.bkc.mHasMore;
+                    z2 = this.bmY.mHasMore;
                     if (z2) {
-                        aVar5 = this.bkc.bjW;
-                        aVar5.OK();
+                        aVar5 = this.bmY.bmS;
+                        aVar5.QN();
                         return;
                     }
-                    this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
+                    this.bmY.hv(this.bmY.getResources().getString(t.j.no_data_text));
                     return;
                 }
-                aVar3 = this.bkc.bjW;
+                aVar3 = this.bmY.bmS;
                 aVar3.setData(threadList);
-                aVar4 = this.bkc.bjW;
-                ArrayList<u> qs = aVar4.qs();
-                pVar2 = this.bkc.bdo;
-                pVar2.am(qs);
-                lVar5 = this.bkc.bjX;
+                aVar4 = this.bmY.bmS;
+                ArrayList<u> qN = aVar4.qN();
+                oVar2 = this.bmY.bfF;
+                oVar2.an(qN);
+                lVar5 = this.bmY.bmT;
                 if (lVar5 != null) {
-                    lVar6 = this.bkc.bjX;
+                    lVar6 = this.bmY.bmT;
                     lVar6.hideNoDataView();
-                    lVar7 = this.bkc.bjX;
-                    ew OL = lVar7.OL();
-                    pVar3 = this.bkc.bdo;
-                    OL.setFromCDN(pVar3.akM() == 1);
-                    lVar8 = this.bkc.bjX;
-                    pVar4 = this.bkc.bdo;
-                    z = this.bkc.mHasMore;
-                    lVar8.a(qs, pVar4, z);
+                    lVar7 = this.bmY.bmT;
+                    fg QO = lVar7.QO();
+                    oVar3 = this.bmY.bfF;
+                    QO.setFromCDN(oVar3.aoK() == 1);
+                    lVar8 = this.bmY.bmT;
+                    oVar4 = this.bmY.bfF;
+                    z = this.bmY.mHasMore;
+                    lVar8.a(qN, oVar4, z);
                 }
-                this.bkc.Ns();
+                this.bmY.Pp();
                 return;
             }
-            this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
+            this.bmY.hv(this.bmY.getResources().getString(t.j.no_data_text));
             return;
         }
-        this.bkc.hv(this.bkc.getResources().getString(n.j.no_data_text));
+        this.bmY.hv(this.bmY.getResources().getString(t.j.no_data_text));
     }
 }

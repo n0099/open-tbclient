@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc implements a.d {
-    final /* synthetic */ ax cjh;
+    final /* synthetic */ ax cnH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(ax axVar) {
-        this.cjh = axVar;
+        this.cnH = axVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -20,13 +20,13 @@ public class bc implements a.d {
         com.baidu.tbadk.editortools.d.p pVar;
         bd bdVar;
         bd bdVar2;
-        this.cjh.cih.hideProgressBar();
-        pVar = this.cjh.cjc;
-        pVar.Bj().hide();
-        bdVar = this.cjh.ciq;
-        bdVar.aeK();
-        if (postWriteCallBackData != null && nVar == null && !AntiHelper.ne(postWriteCallBackData.getErrorCode())) {
-            bdVar2 = this.cjh.ciq;
+        this.cnH.cmH.hideProgressBar();
+        pVar = this.cnH.cnC;
+        pVar.Cz().hide();
+        bdVar = this.cnH.cmQ;
+        bdVar.ahT();
+        if (postWriteCallBackData != null && nVar == null && !AntiHelper.or(postWriteCallBackData.getErrorCode())) {
+            bdVar2 = this.cnH.cmQ;
             bdVar2.showToast(postWriteCallBackData.getErrorString());
         }
     }

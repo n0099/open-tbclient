@@ -6,80 +6,80 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e {
-    private boolean cyK;
-    private MarkData cyL;
-    private a cyM;
-    private a.InterfaceC0040a cyN;
+    private boolean cFr;
+    private MarkData cFs;
+    private a cFt;
+    private a.InterfaceC0041a cFu;
 
-    public void a(a.InterfaceC0040a interfaceC0040a) {
-        this.cyN = interfaceC0040a;
+    public void a(a.InterfaceC0041a interfaceC0041a) {
+        this.cFu = interfaceC0041a;
     }
 
     public c(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cyK = false;
-        this.cyL = null;
-        this.cyM = null;
-        this.cyN = null;
-        this.cyL = new MarkData();
+        this.cFr = false;
+        this.cFs = null;
+        this.cFt = null;
+        this.cFu = null;
+        this.cFs = new MarkData();
     }
 
-    public boolean pN() {
-        return this.cyK;
+    public boolean qg() {
+        return this.cFr;
     }
 
-    public MarkData pQ() {
-        return this.cyL;
+    public MarkData qj() {
+        return this.cFs;
     }
 
     public void a(MarkData markData) {
-        this.cyL = markData;
+        this.cFs = markData;
     }
 
     public void Y(boolean z) {
-        this.cyK = z;
+        this.cFr = z;
     }
 
-    public String pM() {
-        if (this.cyL != null) {
-            return this.cyL.getPostId();
+    public String qf() {
+        if (this.cFs != null) {
+            return this.cFs.getPostId();
         }
         return null;
     }
 
-    public void pP() {
-        if (this.cyM != null) {
-            this.cyM.cancel();
+    public void qi() {
+        if (this.cFt != null) {
+            this.cFt.cancel();
         }
-        this.cyM = new a(true);
-        this.cyM.setPriority(3);
-        this.cyM.execute(new Boolean[0]);
+        this.cFt = new a(true);
+        this.cFt.setPriority(3);
+        this.cFt.execute(new Boolean[0]);
     }
 
-    public void pO() {
-        if (this.cyM != null) {
-            this.cyM.cancel();
+    public void qh() {
+        if (this.cFt != null) {
+            this.cFt.cancel();
         }
-        this.cyM = new a(false);
-        this.cyM.setPriority(3);
-        this.cyM.execute(new Boolean[0]);
+        this.cFt = new a(false);
+        this.cFt.setPriority(3);
+        this.cFt.execute(new Boolean[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private ab Ua = null;
-        private boolean aRf;
-        private e cyG;
+        private aa Ty = null;
+        private boolean aTm;
+        private e cFn;
 
         public a(boolean z) {
-            this.aRf = true;
-            this.cyG = null;
-            this.aRf = z;
-            this.cyG = new e();
+            this.aTm = true;
+            this.cFn = null;
+            this.aTm = z;
+            this.cFn = new e();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -92,19 +92,19 @@ public class c extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.aRf) {
-                this.Ua = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
+            if (this.aTm) {
+                this.Ty = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.b(c.this.cyL);
-                this.Ua.o("data", aVar.aK(0, 1));
+                aVar.b(c.this.cFs);
+                this.Ty.p("data", aVar.aL(0, 1));
             } else {
-                this.Ua = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
-                this.Ua.o("user_id", c.this.cyL.getAccount());
-                this.Ua.o("tid", c.this.cyL.getId());
+                this.Ty = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
+                this.Ty.p("user_id", c.this.cFs.getAccount());
+                this.Ty.p("tid", c.this.cFs.getId());
             }
-            this.cyG.parserJson(this.Ua.tV());
-            boolean z = this.cyG.getErrorCode() == 0;
-            if (this.Ua.uw().vq().qO() && z) {
+            this.cFn.parserJson(this.Ty.uZ());
+            boolean z = this.cFn.getErrorCode() == 0;
+            if (this.Ty.vB().ww().rl() && z) {
                 return true;
             }
             return false;
@@ -113,10 +113,10 @@ public class c extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.Ua != null) {
-                this.Ua.gL();
+            if (this.Ty != null) {
+                this.Ty.gT();
             }
-            c.this.cyM = null;
+            c.this.cFt = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,17 +126,17 @@ public class c extends com.baidu.adp.base.e {
         public void onPostExecute(Boolean bool) {
             try {
                 if (bool.booleanValue()) {
-                    if (c.this.cyN != null) {
-                        c.this.cyN.a(true, this.aRf, null);
+                    if (c.this.cFu != null) {
+                        c.this.cFu.a(true, this.aTm, null);
                     }
-                } else if (c.this.cyN != null) {
-                    if (this.Ua == null || this.Ua.uw().vq().qO()) {
-                        c.this.cyN.a(false, this.aRf, this.cyG.getErrorString());
+                } else if (c.this.cFu != null) {
+                    if (this.Ty == null || this.Ty.vB().ww().rl()) {
+                        c.this.cFu.a(false, this.aTm, this.cFn.getErrorString());
                     } else {
-                        c.this.cyN.a(false, this.aRf, this.Ua.getErrorString());
+                        c.this.cFu.a(false, this.aTm, this.Ty.getErrorString());
                     }
                 }
-                c.this.cyM = null;
+                c.this.cFt = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -150,8 +150,8 @@ public class c extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.cyM != null) {
-            this.cyM.cancel();
+        if (this.cFt != null) {
+            this.cFt.cancel();
             return false;
         }
         return false;

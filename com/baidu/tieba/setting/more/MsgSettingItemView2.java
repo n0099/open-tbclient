@@ -9,11 +9,11 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private View MV;
-    private CheckBox dvJ;
+    private View Nn;
+    private CheckBox dLN;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -27,39 +27,39 @@ public class MsgSettingItemView2 extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(n.h.msg_setting_item_view2, (ViewGroup) this, true);
-        this.dvJ = (CheckBox) findViewById(n.g.setting_check_view);
-        this.MV = findViewById(n.g.bottom_line_ll);
+        LayoutInflater.from(context).inflate(t.h.msg_setting_item_view2, (ViewGroup) this, true);
+        this.dLN = (CheckBox) findViewById(t.g.setting_check_view);
+        this.Nn = findViewById(t.g.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.dvJ.setText(str);
+        this.dLN.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.dvJ.setText(i);
+            this.dLN.setText(i);
         }
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.MV.setVisibility(0);
+            this.Nn.setVisibility(0);
         } else {
-            this.MV.setVisibility(8);
+            this.Nn.setVisibility(8);
         }
     }
 
     public CheckBox getSwitchView() {
-        return this.dvJ;
+        return this.dLN;
     }
 
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+    public void d(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().ac(i == 1);
-        tbPageContext.getLayoutMode().k(this);
-        com.baidu.tbadk.core.util.as.j(this, n.d.cp_bg_line_d);
+        tbPageContext.getLayoutMode().x(this);
+        com.baidu.tbadk.core.util.ar.l(this, t.d.cp_bg_line_d);
     }
 }

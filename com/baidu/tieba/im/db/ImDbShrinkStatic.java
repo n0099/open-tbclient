@@ -14,25 +14,25 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic bQc;
-    private static long bQf = -1;
-    private static int bQg = 0;
-    private a bQd = new a(null);
-    private b bQe = null;
+    private static ImDbShrinkStatic bUe;
+    private static long bUh = -1;
+    private static int bUi = 0;
+    private a bUf = new a(null);
+    private b bUg = null;
 
     static {
-        Yo();
+        aaZ();
     }
 
-    public static ImDbShrinkStatic Yo() {
-        if (bQc == null) {
+    public static ImDbShrinkStatic aaZ() {
+        if (bUe == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (bQc == null) {
-                    bQc = new ImDbShrinkStatic();
+                if (bUe == null) {
+                    bUe = new ImDbShrinkStatic();
                 }
             }
         }
-        return bQc;
+        return bUe;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,8 +50,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.Yo().bQd.removeMessages(1);
-                    ImDbShrinkStatic.Yo().execute();
+                    ImDbShrinkStatic.aaZ().bUf.removeMessages(1);
+                    ImDbShrinkStatic.aaZ().execute();
                     return;
                 default:
                     return;
@@ -65,21 +65,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.bQe != null) {
-            this.bQe.cancel();
-            this.bQe = null;
+        if (this.bUg != null) {
+            this.bUg.cancel();
+            this.bUg = null;
         }
-        this.bQe = new b(this, null);
-        this.bQe.setParallel(TiebaIMConfig.getParallel());
-        this.bQe.setPriority(4);
-        this.bQe.execute(new String[0]);
+        this.bUg = new b(this, null);
+        this.bUg.setParallel(TiebaIMConfig.getParallel());
+        this.bUg.setPriority(4);
+        this.bUg.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.bQe != null) {
-            this.bQe.cancel();
-            this.bQe = null;
+        if (this.bUg != null) {
+            this.bUg.cancel();
+            this.bUg = null;
         }
     }
 
@@ -97,50 +97,50 @@ public class ImDbShrinkStatic {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
+        /* renamed from: m */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> Yu = i.Yr().Yu();
-            if (Yu == null || Yu.size() == 0) {
+            LinkedList<ImMessageCenterPojo> abf = i.abc().abf();
+            if (abf == null || abf.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.bQf < 0) {
+            if (ImDbShrinkStatic.bUh < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.bQf = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.bQf > 2147483648L) {
-                        ImDbShrinkStatic.bQg = 5000;
-                    } else if (ImDbShrinkStatic.bQf > 1073741824) {
-                        ImDbShrinkStatic.bQg = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+                    ImDbShrinkStatic.bUh = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.bUh > 2147483648L) {
+                        ImDbShrinkStatic.bUi = 5000;
+                    } else if (ImDbShrinkStatic.bUh > 1073741824) {
+                        ImDbShrinkStatic.bUi = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
                     } else {
-                        ImDbShrinkStatic.bQg = 1000;
+                        ImDbShrinkStatic.bUi = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.bQg < 1000) {
-                ImDbShrinkStatic.bQg = 1000;
+            if (ImDbShrinkStatic.bUi < 1000) {
+                ImDbShrinkStatic.bUi = 1000;
             }
             try {
-                g.Ym().Yn();
-                for (ImMessageCenterPojo imMessageCenterPojo : Yu) {
+                g.aaX().aaY();
+                for (ImMessageCenterPojo imMessageCenterPojo : abf) {
                     if (isCancelled()) {
-                        g.Ym().endTransaction();
+                        g.aaX().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.Yi().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bQg);
+                        c.aaT().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.Yx().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bQg);
+                        l.abi().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.Yw().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bQg);
+                        k.abh().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.Yj().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bQg);
+                        d.aaU().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.Ym().endTransaction();
+                g.aaX().endTransaction();
             }
             return true;
         }

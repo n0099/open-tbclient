@@ -4,11 +4,11 @@ import java.util.Calendar;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class f implements Comparator<Calendar> {
-    final /* synthetic */ e cxZ;
+    final /* synthetic */ e cEG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.cxZ = eVar;
+        this.cEG = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

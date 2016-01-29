@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
-    private SapiWebView czF;
+    private SapiWebView cGl;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -15,19 +15,19 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(n.h.layout_sapi_webview_forget_pwd);
-        ajN();
+        setContentView(t.h.layout_sapi_webview_forget_pwd);
+        setupViews();
     }
 
-    protected void ajN() {
-        this.mNavigationBar = (NavigationBar) findViewById(n.g.view_navigation_bar);
+    protected void setupViews() {
+        this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        this.mNavigationBar.setTitleText(getPageContext().getString(n.j.sapi_forget_password_title));
-        this.czF = (SapiWebView) findViewById(n.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.czF);
-        this.czF.setOnBackCallback(new h(this));
-        this.czF.setOnFinishCallback(new i(this));
-        this.czF.loadForgetPwd();
+        this.mNavigationBar.setTitleText(getPageContext().getString(t.j.sapi_forget_password_title));
+        this.cGl = (SapiWebView) findViewById(t.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.cGl);
+        this.cGl.setOnBackCallback(new h(this));
+        this.cGl.setOnFinishCallback(new i(this));
+        this.cGl.loadForgetPwd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

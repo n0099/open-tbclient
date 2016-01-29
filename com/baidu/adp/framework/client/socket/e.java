@@ -9,195 +9,195 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.webSocket.c {
-    private static Handler oz = new Handler();
-    private CoderException oA;
-    private SocketMessage oB;
-    private h oD;
-    private SocketMessageTask ow;
-    private volatile int ov = 0;
-    private Runnable oC = null;
-    private boolean oE = true;
-    private int oF = 0;
-    private int oG = 0;
-    private long oH = 0;
+    private static Handler oC = new Handler();
+    private CoderException oD;
+    private SocketMessage oE;
+    private h oG;
+    private SocketMessageTask oz;
+    private volatile int oy = 0;
+    private Runnable oF = null;
+    private boolean oH = true;
+    private int oI = 0;
+    private int oJ = 0;
+    private long oK = 0;
 
     public e(SocketMessage socketMessage, SocketMessageTask socketMessageTask, h hVar) {
-        this.oB = null;
-        this.oD = null;
-        this.ow = null;
+        this.oE = null;
+        this.oG = null;
+        this.oz = null;
         if (socketMessage == null || socketMessageTask == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
-        this.ow = socketMessageTask;
-        this.oB = socketMessage;
-        this.oD = hVar;
+        this.oz = socketMessageTask;
+        this.oE = socketMessage;
+        this.oG = hVar;
     }
 
-    public int dZ() {
-        int retry = this.ow.getRetry();
+    public int ec() {
+        int retry = this.oz.getRetry();
         if (retry > 1) {
             return retry;
         }
         return 1;
     }
 
-    private void y(int i) {
-        if (this.oD != null && this.oE) {
-            this.oD.a(i, this);
+    private void I(int i) {
+        if (this.oG != null && this.oH) {
+            this.oG.a(i, this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ea() {
-        if (this.oD != null && this.oE) {
-            this.oD.b(this);
+    public void ed() {
+        if (this.oG != null && this.oH) {
+            this.oG.b(this);
         }
     }
 
-    private void eb() {
-        if (this.oD != null && this.oE) {
-            this.oD.c(this);
+    private void ee() {
+        if (this.oG != null && this.oH) {
+            this.oG.c(this);
         }
     }
 
-    private void ec() {
-        if (this.oD != null && this.oE) {
-            this.oD.d(this);
+    private void ef() {
+        if (this.oG != null && this.oH) {
+            this.oG.d(this);
         }
     }
 
-    private Runnable ed() {
-        if (this.oC == null) {
-            this.oC = new f(this);
+    private Runnable eg() {
+        if (this.oF == null) {
+            this.oF = new f(this);
         }
-        return this.oC;
+        return this.oF;
     }
 
-    public void ee() {
-        oz.removeCallbacks(ed());
-    }
-
-    public void onRemove() {
-        ee();
-        this.oE = false;
-    }
-
-    public long ef() {
-        return this.oH;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.p
-    public void eg() {
-        if (this.oH == 0) {
-            this.oH = System.currentTimeMillis();
-        }
-        k.a("SenderData", this.oB.getCmd(), this.oB.getClientLogID(), this.ov, "StartSend", 0, "SenderData: start send size = " + (jx() != null ? jx().length : 0));
-        oz.removeCallbacks(ed());
-        if (this.ow.getTimeOut() != null) {
-            oz.postDelayed(ed(), this.ow.getTimeOut().eX());
-        }
-        ec();
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.p
-    public void z(int i) {
-        oz.removeCallbacks(ed());
-        y(i);
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.p
     public void eh() {
+        oC.removeCallbacks(eg());
+    }
+
+    public void ei() {
+        eh();
+        this.oH = false;
+    }
+
+    public long ej() {
+        return this.oK;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.p
+    public void ek() {
+        if (this.oK == 0) {
+            this.oK = System.currentTimeMillis();
+        }
+        k.a("SenderData", this.oE.getCmd(), this.oE.getClientLogID(), this.oy, "StartSend", 0, "SenderData: start send size = " + (jG() != null ? jG().length : 0));
+        oC.removeCallbacks(eg());
+        if (this.oz.getTimeOut() != null) {
+            oC.postDelayed(eg(), this.oz.getTimeOut().fe());
+        }
+        ef();
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.p
+    public void J(int i) {
+        oC.removeCallbacks(eg());
+        I(i);
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.p
+    public void el() {
         int i;
-        int cmd = this.oB.getCmd();
-        if (jx() != null) {
-            int length = jx().length;
-            this.oB.setEncodedBinarySize(length);
+        int cmd = this.oE.getCmd();
+        if (jG() != null) {
+            int length = jG().length;
+            this.oE.setEncodedBinarySize(length);
             i = length;
         } else {
             i = 0;
         }
-        k.a("SenderData", cmd, this.oB.getClientLogID(), this.ov, "FinishSend", 0, "SenderData: finish send  size = " + i);
-        if (!this.ow.fa()) {
-            oz.removeCallbacks(ed());
+        k.a("SenderData", cmd, this.oE.getClientLogID(), this.oy, "FinishSend", 0, "SenderData: finish send  size = " + i);
+        if (!this.oz.fh()) {
+            oC.removeCallbacks(eg());
         }
-        eb();
+        ee();
     }
 
-    public CoderException ei() {
-        return this.oA;
+    public CoderException em() {
+        return this.oD;
     }
 
-    public boolean ej() {
-        return this.ow.fa();
+    public boolean en() {
+        return this.oz.fh();
     }
 
     public int getPriority() {
-        return this.ow.getPriority();
+        return this.oz.getPriority();
     }
 
-    public SocketMessage ek() {
-        return this.oB;
+    public SocketMessage eo() {
+        return this.oE;
     }
 
-    public SocketMessageTask el() {
-        return this.ow;
+    public SocketMessageTask ep() {
+        return this.oz;
     }
 
     @Override // com.baidu.adp.lib.webSocket.c
-    protected byte[] em() {
-        if (this.oH == 0) {
-            this.oH = System.currentTimeMillis();
+    protected byte[] eq() {
+        if (this.oK == 0) {
+            this.oK = System.currentTimeMillis();
         }
-        this.oA = null;
-        com.baidu.adp.framework.client.socket.coder.b eK = com.baidu.adp.framework.client.socket.coder.b.eK();
-        this.ov = g.et().en();
-        com.baidu.adp.lib.stats.a hl = com.baidu.adp.lib.stats.a.hl();
-        long clientLogID = this.oB == null ? -1L : this.oB.getClientLogID();
-        String valueOf = String.valueOf(this.ov & 4294967295L);
+        this.oD = null;
+        com.baidu.adp.framework.client.socket.coder.b eO = com.baidu.adp.framework.client.socket.coder.b.eO();
+        this.oy = g.ex().er();
+        com.baidu.adp.lib.stats.a ht = com.baidu.adp.lib.stats.a.ht();
+        long clientLogID = this.oE == null ? -1L : this.oE.getClientLogID();
+        String valueOf = String.valueOf(this.oy & 4294967295L);
         Object[] objArr = new Object[2];
         objArr[0] = IntentConfig.CMD;
-        objArr[1] = Integer.valueOf(this.oB == null ? -1 : this.oB.getCmd());
-        hl.a("seqid", clientLogID, valueOf, objArr);
+        objArr[1] = Integer.valueOf(this.oE == null ? -1 : this.oE.getCmd());
+        ht.a("seqid", clientLogID, valueOf, objArr);
         try {
-            return eK.a(this.oB, this.ov, this.ow.fb(), this.ow.getNeedEncrypt());
+            return eO.a(this.oE, this.oy, this.oz.fj(), this.oz.getNeedEncrypt());
         } catch (CoderException e) {
-            this.oA = e;
+            this.oD = e;
             return null;
         }
     }
 
     public int getCmd() {
-        if (this.oB != null) {
-            return this.oB.getCmd();
+        if (this.oE != null) {
+            return this.oE.getCmd();
         }
         return 0;
     }
 
-    public int en() {
-        return this.ov;
+    public int er() {
+        return this.oy;
     }
 
-    public boolean eo() {
-        return this.ow.fc();
+    public boolean es() {
+        return this.oz.fk();
     }
 
-    public int ep() {
-        return this.oG;
+    public int et() {
+        return this.oJ;
     }
 
-    public int eq() {
-        int i = this.oG + 1;
-        this.oG = i;
+    public int eu() {
+        int i = this.oJ + 1;
+        this.oJ = i;
         return i;
     }
 
-    public int er() {
-        return this.oF;
+    public int ev() {
+        return this.oI;
     }
 
-    public int es() {
-        int i = this.oF + 1;
-        this.oF = i;
+    public int ew() {
+        int i = this.oI + 1;
+        this.oI = i;
         return i;
     }
 }

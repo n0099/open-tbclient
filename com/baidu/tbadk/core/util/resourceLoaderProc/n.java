@@ -3,11 +3,14 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean aec;
+    private int acq;
+    private boolean aeC;
 
-    public n(boolean z) {
-        this.aec = true;
-        this.aec = z;
+    public n(boolean z, int i) {
+        this.aeC = true;
+        this.acq = 0;
+        this.aeC = z;
+        this.acq = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -22,16 +25,21 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.aec;
+        return this.aeC;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vC() {
+    public boolean wI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vD() {
+    public boolean wJ() {
         return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int wK() {
+        return this.acq;
     }
 }

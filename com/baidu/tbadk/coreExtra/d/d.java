@@ -18,14 +18,14 @@ import org.json.JSONObject;
 public class d {
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int akz = 0;
-    private VersionData akt = new VersionData();
-    private com.baidu.tbadk.coreExtra.data.e aku = new com.baidu.tbadk.coreExtra.data.e();
-    private f akv = new f();
-    private CombineDownload akw = new CombineDownload();
-    private j akx = new j();
-    private o aky = new o();
-    private g akA = new g();
+    private int alp = 0;
+    private VersionData alj = new VersionData();
+    private com.baidu.tbadk.coreExtra.data.e alk = new com.baidu.tbadk.coreExtra.data.e();
+    private f all = new f();
+    private CombineDownload alm = new CombineDownload();
+    private j aln = new j();
+    private o alo = new o();
+    private g alq = new g();
 
     public void parserJson(String str) {
         try {
@@ -38,17 +38,17 @@ public class d {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.akt.parserJson(jSONObject.optJSONObject("version"));
-                this.aku.parserJson(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.core.util.f.setIp(jSONObject.optString("client_ip", null));
-                this.akv.parserJson(jSONObject.optJSONObject("config"));
-                this.aky.parserJson(jSONObject.optJSONObject("wl_config"));
-                this.akA.parserJson(jSONObject.optJSONObject("consume_path"));
-                TbadkCoreApplication.m411getInst().setConsumePathData(this.akA);
+                this.alj.parserJson(jSONObject.optJSONObject("version"));
+                this.alk.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.core.util.e.setIp(jSONObject.optString("client_ip", null));
+                this.all.parserJson(jSONObject.optJSONObject("config"));
+                this.alo.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.alq.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.m411getInst().setConsumePathData(this.alq);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.akw.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.akx.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.akz = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.alm.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.aln.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.alp = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.m411getInst().getFaceShopVersion()) {
@@ -67,27 +67,27 @@ public class d {
         }
     }
 
-    public f yt() {
-        return this.akv;
+    public f zL() {
+        return this.all;
     }
 
-    public String yu() {
+    public String zM() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload yv() {
-        return this.akw;
+    public CombineDownload zN() {
+        return this.alm;
     }
 
-    public VersionData yw() {
-        return this.akt;
+    public VersionData zO() {
+        return this.alj;
     }
 
-    public com.baidu.tbadk.coreExtra.data.e yx() {
-        return this.aku;
+    public com.baidu.tbadk.coreExtra.data.e zP() {
+        return this.alk;
     }
 
-    public o yy() {
-        return this.aky;
+    public o zQ() {
+        return this.alo;
     }
 }

@@ -8,46 +8,46 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.d;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
+import com.baidu.tieba.tbadkCore.l;
 import com.baidu.tieba.tbadkCore.m;
-import com.baidu.tieba.tbadkCore.n;
 /* loaded from: classes.dex */
-public class c<T> extends d<m, n, T> {
-    public c(TbPageContext<T> tbPageContext, m mVar) {
-        super(tbPageContext, mVar);
+public class c<T> extends d<l, m, T> {
+    public c(TbPageContext<T> tbPageContext, l lVar) {
+        super(tbPageContext, lVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oB() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oW() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oA() {
+    protected Class<? extends MvcSocketResponsedMessage> oV() {
         return FRSPageSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<n> getResponseDataClass() {
-        return n.class;
+    protected Class<m> getResponseDataClass() {
+        return m.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int ox() {
+    protected int oS() {
         return CmdConfigHttp.FRS_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oz() {
+    protected int oU() {
         return 301001;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oy() {
+    protected String oT() {
         return TbConfig.FRS_ADDRESS;
     }
 
-    public void a(m mVar) {
-        this.axR = mVar;
+    public void a(l lVar) {
+        this.ayK = lVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

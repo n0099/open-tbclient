@@ -1,28 +1,24 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.account.AccountActivity;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Runnable {
-    final /* synthetic */ AccountActivity.a aHU;
+public class i implements DialogInterface.OnCancelListener {
+    final /* synthetic */ AccountActivity aIQ;
+    private final /* synthetic */ boolean aIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(AccountActivity.a aVar) {
-        this.aHU = aVar;
+    public i(AccountActivity accountActivity, boolean z) {
+        this.aIQ = accountActivity;
+        this.aIT = z;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AccountActivity accountActivity;
-        AccountActivity accountActivity2;
-        accountActivity = AccountActivity.this;
-        TbadkCoreApplication.setCurrentAccount(null, accountActivity.getPageContext().getPageActivity());
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_MATINTAB, null));
-        accountActivity2 = AccountActivity.this;
-        accountActivity2.finish();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.aIQ.destroyWaitingDialog();
+        if (this.aIT) {
+            this.aIQ.gn("account delete cancel");
+        }
+        this.aIQ.aIO = null;
     }
 }

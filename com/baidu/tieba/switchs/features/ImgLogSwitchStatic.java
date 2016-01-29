@@ -9,7 +9,7 @@ public class ImgLogSwitchStatic extends a {
     public static final int ON_TYPE = 0;
 
     static {
-        e.gw().e(ImgLogSwitchStatic.class);
+        e.gE().e(ImgLogSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

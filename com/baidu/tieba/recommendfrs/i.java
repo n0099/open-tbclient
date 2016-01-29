@@ -1,16 +1,20 @@
 package com.baidu.tieba.recommendfrs;
 
-import android.view.View;
+import com.baidu.tbadk.core.view.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
-    final /* synthetic */ e doc;
+public class i implements r.a {
+    final /* synthetic */ f dDl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(e eVar) {
-        this.doc = eVar;
+    public i(f fVar) {
+        this.dDl = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.view.r.a
+    public void az(boolean z) {
+        p pVar;
+        pVar = this.dDl.dDh;
+        pVar.update();
     }
 }

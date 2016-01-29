@@ -1,29 +1,43 @@
 package com.baidu.tieba.frs.frsgood;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements c.b {
-    final /* synthetic */ x bkz;
+public class ad implements TbImageView.a {
+    final /* synthetic */ y bnw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(x xVar) {
-        this.bkz = xVar;
+    public ad(y yVar) {
+        this.bnw = yVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        FrsGoodActivity frsGoodActivity;
-        FrsGoodActivity frsGoodActivity2;
-        cVar.dismiss();
-        if (i == 0) {
-            frsGoodActivity2 = this.bkz.bgr;
-            ar.c(frsGoodActivity2.getPageContext());
-        } else if (i == 1) {
-            frsGoodActivity = this.bkz.bgr;
-            ar.p(frsGoodActivity.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void t(String str, boolean z) {
+        BannerView bannerView;
+        boolean z2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BannerView bannerView2;
+        if (z) {
+            bannerView = this.bnw.bjI;
+            if (bannerView.AL()) {
+                z2 = this.bnw.bjK;
+                if (!z2) {
+                    bdTypeListView = this.bnw.bjt;
+                    if (bdTypeListView != null) {
+                        this.bnw.bjK = true;
+                        bdTypeListView2 = this.bnw.bjt;
+                        bannerView2 = this.bnw.bjI;
+                        bdTypeListView2.f(bannerView2, 1);
+                    }
+                }
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

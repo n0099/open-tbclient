@@ -3,31 +3,31 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tbadk.editortools.view.b {
-    private SparseIntArray asP;
-    LinkedList<r> asj;
+    private SparseIntArray atI;
+    LinkedList<r> atc;
 
     public s(Context context) {
         super(context);
-        this.asP = new SparseIntArray();
-        setPadding(context.getResources().getDimensionPixelSize(n.e.ds34), 0, context.getResources().getDimensionPixelSize(n.e.ds34), 0);
-        setBackgroundColorId(n.d.pb_editor_tool_view_bg);
+        this.atI = new SparseIntArray();
+        setPadding(context.getResources().getDimensionPixelSize(t.e.ds34), 0, context.getResources().getDimensionPixelSize(t.e.ds34), 0);
+        setBackgroundColorId(t.d.pb_editor_tool_view_bg);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<r> linkedList) {
-        this.asj = linkedList;
+        this.atc = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.z
     public void init() {
         setShowDelete(false);
         t tVar = new t();
-        tVar.i(this.asj);
+        tVar.i(this.atc);
         b(tVar);
     }
 
@@ -36,33 +36,30 @@ public class s extends com.baidu.tbadk.editortools.view.b {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            Bv();
+            CL();
         }
     }
 
     private void c(a aVar) {
-        int i;
-        Integer valueOf = Integer.valueOf(this.asP.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.atI.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
-            i = intValue - 1;
+            intValue = 0;
         } else if (aVar.data instanceof String) {
             String str = (String) aVar.data;
             if (TextUtils.isEmpty(str)) {
-                i = intValue - 1;
+                intValue = 0;
             } else {
-                i = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
+                intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
             }
-        } else {
-            i = intValue;
         }
-        this.asP.put(aVar.id, i >= 0 ? i : 0);
+        this.atI.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void Bv() {
+    private void CL() {
         int i = 0;
-        for (int i2 = 0; i2 < this.asP.size(); i2++) {
-            i += this.asP.valueAt(i2);
+        for (int i2 = 0; i2 < this.atI.size(); i2++) {
+            i += this.atI.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

@@ -2,6 +2,8 @@ package com.baidu.tbadk.browser;
 
 import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,18 +16,22 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import java.util.List;
 /* loaded from: classes.dex */
 public class TbWebViewActivity extends BaseWebViewActivity {
     public static final int FILECHOOSER_RESULTCODE = 1;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private ValueCallback<Uri> mUploadMessage;
     protected BaseWebView mWebView = null;
-    private com.baidu.tieba.tbadkCore.e.c jsCallback = new m(this);
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new n(this);
 
     @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
@@ -38,6 +44,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_WEBVIEW_PROXY, (Class) null);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
+        this.jsBridge.a(new g(getPageContext()));
+        this.jsBridge.a(buildGameDownloadJSPrompt());
         if (this.mNeedCookie) {
             initCookie();
         }
@@ -132,12 +140,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.Ia();
+            this.jsBridge.JG();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.h.h.hj().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.h.h.hr().postDelayed(new o(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -154,7 +162,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.cd(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.cc(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
                 TbWebViewActivity.this.mView.aa(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
@@ -182,20 +190,22 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tbadk.browser.TbWebViewActivity */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int a = com.baidu.tbadk.util.q.a(TbWebViewActivity.this, str);
-            if (a == 0) {
+            int b = be.wt().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
-            } else if (a != 1) {
-                TbWebViewActivity.this.mUrl = str;
-                TbWebViewActivity.this.refresh();
+            } else if (b == 0) {
                 return true;
             } else {
+                TbWebViewActivity.this.mUrl = str;
+                TbWebViewActivity.this.refresh();
                 return true;
             }
         }
@@ -213,7 +223,15 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             if (!StringUtils.isNull(str)) {
-                TbWebViewActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                List<ResolveInfo> list = null;
+                PackageManager packageManager = TbWebViewActivity.this.getPackageManager();
+                if (packageManager != null) {
+                    list = packageManager.queryIntentActivities(intent, 32);
+                }
+                if (x.o(list) > 0) {
+                    TbWebViewActivity.this.startActivity(intent);
+                }
             }
         }
     }
@@ -260,5 +278,13 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     public void setUploadMessage(ValueCallback<Uri> valueCallback) {
         this.mUploadMessage = valueCallback;
+    }
+
+    private com.baidu.tieba.tbadkCore.e.b buildGameDownloadJSPrompt() {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GAME_JS_HANDLER_REGISTER, com.baidu.tieba.tbadkCore.e.b.class, getPageContext());
+        if (runTask == null || runTask.getData() == null) {
+            return null;
+        }
+        return (com.baidu.tieba.tbadkCore.e.b) runTask.getData();
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbLotteryHttpResponseMessage extends JsonHttpResponsedMessage {
@@ -31,7 +31,7 @@ public class PbLotteryHttpResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         setError(-1);
-        setErrorString(TbadkCoreApplication.m411getInst().getString(n.j.lottery_failed));
+        setErrorString(TbadkCoreApplication.m411getInst().getString(t.j.lottery_failed));
     }
 
     public com.baidu.tieba.pb.a.a getLotteryInfo() {

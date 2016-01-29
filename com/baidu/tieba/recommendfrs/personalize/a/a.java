@@ -2,63 +2,57 @@ package com.baidu.tieba.recommendfrs.personalize.a;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.p;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommendfrs.data.a, C0078a> {
-    private BdUniqueId dpv;
-    private p dqb;
-    private TbPageContext<?> mPageContext;
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.d, C0082a> {
+    private TbPageContext<?> Nw;
+    private boolean aeC;
+    private int mSkinType;
 
+    /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.recommendfrs.data.a.dpc);
-        this.mPageContext = tbPageContext;
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dpv = bdUniqueId;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendfrs.data.a aVar, C0078a c0078a) {
-        if (c0078a.dqc == null) {
-            return null;
-        }
-        c0078a.dqc.setFrom("home");
-        c0078a.dqc.a((com.baidu.tieba.card.a.j) aVar);
-        return c0078a.getView();
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.d.aRP);
+        this.mSkinType = 3;
+        this.aeC = false;
+        this.Nw = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ax */
-    public C0078a a(ViewGroup viewGroup) {
-        this.dqb = new p(this.mPageContext);
-        this.dqb.i(this.dpv);
-        this.dqb.h("c10715", "c10741", "c10713", "c10740");
-        return new C0078a(this.dqb);
+    /* renamed from: aR */
+    public C0082a b(ViewGroup viewGroup) {
+        return new C0082a(new com.baidu.tieba.card.c(this.Nw));
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.dqb != null) {
-            this.dqb.onChangeSkinType(this.mPageContext, i);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.d dVar, C0082a c0082a) {
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        this.Nw.getLayoutMode().ac(this.mSkinType == 1);
+        this.Nw.getLayoutMode().x(view);
+        c0082a.dGe.d(this.Nw, TbadkCoreApplication.m411getInst().getSkinType());
+        c0082a.dGe.setFromCDN(this.aeC);
+        c0082a.dGe.a(dVar);
+        return c0082a.getView();
+    }
+
+    public void setFromCDN(boolean z) {
+        this.aeC = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.recommendfrs.personalize.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0078a extends x.a {
-        public p dqc;
+    public class C0082a extends x.a {
+        public com.baidu.tieba.card.c dGe;
 
-        public C0078a(p pVar) {
-            super(pVar.getView());
-            this.dqc = pVar;
+        public C0082a(com.baidu.tieba.card.c cVar) {
+            super(cVar.getView());
+            this.dGe = cVar;
         }
     }
 }

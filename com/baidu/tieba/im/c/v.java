@@ -6,28 +6,28 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends BdAsyncTask<Void, Void, Bitmap> {
-    final /* synthetic */ a caF;
-    private final /* synthetic */ String caO;
-    private final /* synthetic */ String tC;
+    final /* synthetic */ a cfe;
+    private final /* synthetic */ String cfn;
+    private final /* synthetic */ String tL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(a aVar, String str, String str2) {
-        this.caF = aVar;
-        this.caO = str;
-        this.tC = str2;
+        this.cfe = aVar;
+        this.cfn = str;
+        this.tL = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap doInBackground(Void... voidArr) {
-        return BitmapFactory.decodeFile(this.caO);
+        return BitmapFactory.decodeFile(this.cfn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Bitmap bitmap) {
-        this.caF.e(this.tC, new com.baidu.adp.widget.a.a(bitmap, false));
+        this.cfe.e(this.tL, new com.baidu.adp.widget.a.a(bitmap, false));
     }
 }

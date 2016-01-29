@@ -1,27 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
-public class bt implements View.OnClickListener {
-    private final /* synthetic */ String cNJ;
-    final /* synthetic */ WriteImageActivity this$0;
-    private final /* synthetic */ int val$id;
+class bt implements Runnable {
+    final /* synthetic */ WriteImageActivity.a etD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(WriteImageActivity writeImageActivity, String str, int i) {
-        this.this$0 = writeImageActivity;
-        this.cNJ = str;
-        this.val$id = i;
+    public bt(WriteImageActivity.a aVar) {
+        this.etD = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.this$0.mProgress.getVisibility() != 0) {
-            this.this$0.aIx.setImageBitmap(this.this$0.mBitmap);
-            this.this$0.cNE = false;
-            this.this$0.kQ(this.cNJ);
-            this.this$0.cNA = this.val$id;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteImageActivity writeImageActivity;
+        writeImageActivity = WriteImageActivity.this;
+        writeImageActivity.kW(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

@@ -1,34 +1,34 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.tieba.person.post.u;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
 /* loaded from: classes.dex */
-public class x extends CustomMessageListener {
-    final /* synthetic */ u cVS;
+class x extends HttpMessageListener {
+    final /* synthetic */ v dhq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(u uVar, int i) {
+    public x(v vVar, int i) {
         super(i);
-        this.cVS = uVar;
+        this.dhq = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        p pVar;
-        u.a aVar;
-        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && com.baidu.adp.lib.util.i.iQ()) {
-            z = this.cVS.ayk;
-            if (z) {
-                pVar = this.cVS.cVP;
-                pVar.fG(false);
-                aVar = this.cVS.cVR;
-                aVar.Mi();
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonPostModel.a aVar;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                this.dhq.b(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

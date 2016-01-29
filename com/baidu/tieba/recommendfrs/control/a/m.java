@@ -9,65 +9,99 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.recommendfrs.control.a.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements NetModel.b<com.baidu.tieba.recommendfrs.data.i, com.baidu.tieba.recommendfrs.data.h> {
-    final /* synthetic */ j dpb;
+public class m implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.j> {
+    final /* synthetic */ j dEz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.dpb = jVar;
+        this.dEz = jVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.h> mvcHttpResponsedMessage, MvcHttpMessage<com.baidu.tieba.recommendfrs.data.i, com.baidu.tieba.recommendfrs.data.h> mvcHttpMessage, MvcNetMessage<com.baidu.tieba.recommendfrs.data.i, com.baidu.tieba.recommendfrs.data.h> mvcNetMessage) {
+    public void a(MvcHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.j> mvcHttpResponsedMessage, MvcHttpMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.j> mvcHttpMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.j> mvcNetMessage) {
         long a;
         j.a aVar;
         j.a aVar2;
         j.a aVar3;
+        com.baidu.tieba.recommendfrs.data.k kVar;
         j.a aVar4;
-        com.baidu.tieba.recommendfrs.data.i iVar;
-        a = this.dpb.a(mvcNetMessage);
+        j.a aVar5;
+        j.a aVar6;
+        boolean z = false;
+        a = this.dEz.a(mvcNetMessage);
         if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null || a == -1) {
-            aVar = this.dpb.doZ;
+            aVar = this.dEz.dEv;
             if (aVar != null) {
-                aVar2 = this.dpb.doZ;
+                aVar2 = this.dEz.dEv;
                 aVar2.a(a, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
-                return;
             }
-            return;
+        } else {
+            com.baidu.tieba.recommendfrs.data.j data = mvcHttpResponsedMessage.getData();
+            if (data.getThreadList() == null) {
+                aVar5 = this.dEz.dEv;
+                if (aVar5 != null) {
+                    aVar6 = this.dEz.dEv;
+                    aVar6.a(a, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
+                    return;
+                }
+            }
+            aVar3 = this.dEz.dEv;
+            if (aVar3 != null) {
+                kVar = this.dEz.dEt;
+                boolean z2 = kVar.aFw() != 0;
+                if (!(data instanceof com.baidu.tieba.recommendfrs.data.n)) {
+                    z = z2;
+                } else if (((com.baidu.tieba.recommendfrs.data.n) data).getPn() != 1) {
+                    z = true;
+                }
+                aVar4 = this.dEz.dEv;
+                aVar4.a(true, data, z, a);
+            }
         }
-        com.baidu.tieba.recommendfrs.data.h data = mvcHttpResponsedMessage.getData();
-        aVar3 = this.dpb.doZ;
-        if (aVar3 != null) {
-            aVar4 = this.dpb.doZ;
-            iVar = this.dpb.doY;
-            aVar4.a(true, data, iVar.ayr() != 0, a);
-        }
+        this.dEz.a(mvcHttpResponsedMessage, mvcNetMessage);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.h, ?> mvcSocketResponsedMessage, MvcSocketMessage<com.baidu.tieba.recommendfrs.data.i, com.baidu.tieba.recommendfrs.data.h> mvcSocketMessage, MvcNetMessage<com.baidu.tieba.recommendfrs.data.i, com.baidu.tieba.recommendfrs.data.h> mvcNetMessage) {
+    public void a(MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.j, ?> mvcSocketResponsedMessage, MvcSocketMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.j> mvcSocketMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.j> mvcNetMessage) {
         long a;
         j.a aVar;
         j.a aVar2;
         j.a aVar3;
+        com.baidu.tieba.recommendfrs.data.k kVar;
         j.a aVar4;
-        com.baidu.tieba.recommendfrs.data.i iVar;
-        a = this.dpb.a(mvcNetMessage);
+        j.a aVar5;
+        j.a aVar6;
+        boolean z = false;
+        a = this.dEz.a(mvcNetMessage);
         if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null || a == -1) {
-            aVar = this.dpb.doZ;
+            aVar = this.dEz.dEv;
             if (aVar != null) {
-                aVar2 = this.dpb.doZ;
+                aVar2 = this.dEz.dEv;
                 aVar2.a(a, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
-                return;
             }
-            return;
+        } else {
+            com.baidu.tieba.recommendfrs.data.j data = mvcSocketResponsedMessage.getData();
+            if (data.getThreadList() == null) {
+                aVar5 = this.dEz.dEv;
+                if (aVar5 != null) {
+                    aVar6 = this.dEz.dEv;
+                    aVar6.a(a, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
+                    return;
+                }
+            }
+            aVar3 = this.dEz.dEv;
+            if (aVar3 != null) {
+                kVar = this.dEz.dEt;
+                boolean z2 = kVar.aFw() != 0;
+                if (!(data instanceof com.baidu.tieba.recommendfrs.data.n)) {
+                    z = z2;
+                } else if (((com.baidu.tieba.recommendfrs.data.n) data).getPn() != 1) {
+                    z = true;
+                }
+                aVar4 = this.dEz.dEv;
+                aVar4.a(true, data, z, a);
+            }
         }
-        com.baidu.tieba.recommendfrs.data.h data = mvcSocketResponsedMessage.getData();
-        aVar3 = this.dpb.doZ;
-        if (aVar3 != null) {
-            aVar4 = this.dpb.doZ;
-            iVar = this.dpb.doY;
-            aVar4.a(true, data, iVar.ayr() != 0, a);
-        }
+        this.dEz.a(mvcSocketResponsedMessage, mvcNetMessage);
     }
 }

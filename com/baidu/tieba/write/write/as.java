@@ -1,54 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dYD;
+public class as implements a.b {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteActivity writeActivity) {
-        this.dYD = writeActivity;
+        this.ets = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
         WriteData writeData2;
-        InputMethodManager inputMethodManager;
-        EditText aMf;
-        InputMethodManager inputMethodManager2;
-        EditText aMe;
-        com.baidu.tbadk.editortools.k kVar;
-        boolean z;
-        writeData = this.dYD.dJy;
-        if (writeData.getVideoInfo() != null) {
-            TiebaStatic.log("c10063");
+        WriteData writeData3;
+        aVar.dismiss();
+        writeData = this.ets.dZC;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.ets.dZC;
+            com.baidu.tieba.tbadkCore.ad.b(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.ets.dZC;
+            com.baidu.tieba.tbadkCore.ad.c(writeData2.getThreadId(), (WriteData) null);
         }
-        if (!com.baidu.tieba.write.c.a.isFastDoubleClick()) {
-            writeData2 = this.dYD.dJy;
-            if (writeData2.getVideoInfo() != null) {
-                TiebaStatic.log("c10063");
-            }
-            WriteActivity writeActivity = this.dYD;
-            inputMethodManager = this.dYD.mInputManager;
-            aMf = this.dYD.aMf();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, aMf);
-            WriteActivity writeActivity2 = this.dYD;
-            inputMethodManager2 = this.dYD.mInputManager;
-            aMe = this.dYD.aMe();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, aMe);
-            kVar = this.dYD.aso;
-            kVar.zK();
-            this.dYD.aLm();
-            z = this.dYD.dXH;
-            if (z) {
-                com.baidu.adp.lib.stats.a.hl().hu();
-            }
-        }
+        this.ets.finish();
     }
 }

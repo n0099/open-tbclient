@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be extends CustomMessageListener {
-    final /* synthetic */ bd cjr;
+    final /* synthetic */ bd cnR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public be(bd bdVar, int i) {
         super(i);
-        this.cjr = bdVar;
+        this.cnR = bdVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class be extends CustomMessageListener {
         ax axVar2;
         k kVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            kVar = this.cjr.cjm;
+            kVar = this.cnR.cnM;
             if (kVar != null) {
-                kVar2 = this.cjr.cjm;
-                kVar2.ed(true);
+                kVar2 = this.cnR.cnM;
+                kVar2.ek(true);
             }
-            axVar = this.cjr.cjk;
+            axVar = this.cnR.cnK;
             if (axVar != null) {
-                axVar2 = this.cjr.cjk;
-                axVar2.ed(true);
+                axVar2 = this.cnR.cnK;
+                axVar2.ek(true);
             }
-            jVar = this.cjr.cjl;
+            jVar = this.cnR.cnL;
             if (jVar != null) {
-                jVar2 = this.cjr.cjl;
-                jVar2.ed(true);
+                jVar2 = this.cnR.cnL;
+                jVar2.ek(true);
             }
             MentionActivityConfig.newJumpIn = true;
-            zVar = this.cjr.cjj;
+            zVar = this.cnR.cnJ;
             if (zVar != null) {
-                zVar2 = this.cjr.cjj;
-                zVar2.aev();
+                zVar2 = this.cnR.cnJ;
+                zVar2.ahF();
             }
         }
     }

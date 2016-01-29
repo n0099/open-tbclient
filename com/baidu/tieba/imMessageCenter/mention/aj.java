@@ -13,17 +13,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class aj implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Cv;
-    protected ArrayList<FeedData> ciJ = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.q ciK = new com.baidu.tbadk.core.data.q();
-    protected af ciL = new af();
+    protected boolean CF;
+    protected ArrayList<FeedData> cnj = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.u cnk = new com.baidu.tbadk.core.data.u();
+    protected af cnl = new af();
 
-    public ArrayList<FeedData> aeH() {
-        return this.ciJ;
+    public ArrayList<FeedData> ahQ() {
+        return this.cnj;
     }
 
-    public com.baidu.tbadk.core.data.q getPage() {
-        return this.ciK;
+    public com.baidu.tbadk.core.data.u getPage() {
+        return this.cnk;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,18 +37,18 @@ public class aj implements com.baidu.tbadk.mvc.b.j {
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
                         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.ciJ.add(feedData);
+                            this.cnj.add(feedData);
                         }
                     } else {
-                        this.ciJ.add(feedData);
+                        this.cnj.add(feedData);
                     }
                 }
             }
-            this.ciL.parserJson(jSONObject.optJSONObject("message"));
-            this.ciK.parserJson(jSONObject.optJSONObject("page"));
-            this.Cv = true;
+            this.cnl.parserJson(jSONObject.optJSONObject("message"));
+            this.cnk.parserJson(jSONObject.optJSONObject("page"));
+            this.CF = true;
         } catch (Exception e) {
-            this.Cv = false;
+            this.CF = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -65,17 +65,17 @@ public class aj implements com.baidu.tbadk.mvc.b.j {
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.ciJ.add(feedData);
+                                this.cnj.add(feedData);
                             }
                         } else {
-                            this.ciJ.add(feedData);
+                            this.cnj.add(feedData);
                         }
                     }
                 }
-                this.ciK.a(dataRes.page);
-                this.Cv = true;
+                this.cnk.a(dataRes.page);
+                this.CF = true;
             } catch (Exception e) {
-                this.Cv = false;
+                this.CF = false;
                 BdLog.e(e.getMessage());
             }
         }

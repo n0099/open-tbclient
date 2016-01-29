@@ -22,27 +22,27 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a {
-        public boolean Fh;
+        public boolean Fu;
         public String mErrMsg;
     }
 
-    public static C0013a a(ClassLoader classLoader, ClassLoader classLoader2, String str) {
+    public static C0013a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
-        boolean z = true;
+        boolean z2 = true;
         try {
             Class.forName("dalvik.system.BaseDexClassLoader");
         } catch (ClassNotFoundException e) {
-            z = false;
+            z2 = false;
         }
-        if (!z) {
-            return b(classLoader, classLoader2, str);
+        if (!z2) {
+            return b(classLoader, classLoader2, str, z);
         }
-        return c(classLoader, classLoader2, str);
+        return c(classLoader, classLoader2, str, z);
     }
 
-    private static C0013a b(ClassLoader classLoader, ClassLoader classLoader2, String str) {
+    private static C0013a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         C0013a c0013a;
         if (classLoader == null || classLoader2 == null) {
             return null;
@@ -53,9 +53,15 @@ public class a {
                 DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
                 dexClassLoader.loadClass(str);
                 a(pathClassLoader, PathClassLoader.class, "mPaths", d(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
-                a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-                a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-                a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                if (z) {
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                } else {
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
+                }
                 try {
                     ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
                     for (String str2 : (String[]) a(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
@@ -91,8 +97,9 @@ public class a {
         return c0013a;
     }
 
-    private static C0013a c(ClassLoader classLoader, ClassLoader classLoader2, String str) {
+    private static C0013a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         C0013a c0013a;
+        Object c;
         List list;
         if (classLoader == null || classLoader2 == null) {
             return null;
@@ -102,17 +109,22 @@ public class a {
             dexClassLoader.loadClass(str);
             Object t = t((PathClassLoader) classLoader);
             Object t2 = t(dexClassLoader);
-            a(t, t.getClass(), "dexElements", c(u(t), u(t2)));
-            Object c = c(v(t), v(t2));
-            if (c instanceof File[]) {
-                Arrays.sort((File[]) c, lX());
-                list = c;
+            if (z) {
+                c = c(u(t), u(t2));
             } else {
-                boolean z = c instanceof List;
-                list = c;
-                if (z) {
-                    List list2 = (List) c;
-                    Collections.sort(list2, lX());
+                c = c(u(t2), u(t));
+            }
+            a(t, t.getClass(), "dexElements", c);
+            Object c2 = c(v(t), v(t2));
+            if (c2 instanceof File[]) {
+                Arrays.sort((File[]) c2, mk());
+                list = c2;
+            } else {
+                boolean z2 = c2 instanceof List;
+                list = c2;
+                if (z2) {
+                    List list2 = (List) c2;
+                    Collections.sort(list2, mk());
                     list = list2;
                 }
             }
@@ -227,7 +239,7 @@ public class a {
 
     private static C0013a a(boolean z, Throwable th) {
         C0013a c0013a = new C0013a();
-        c0013a.Fh = z;
+        c0013a.Fu = z;
         c0013a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0013a;
     }
@@ -264,12 +276,12 @@ public class a {
         }
     }
 
-    private static final Comparator<File> lX() {
+    private static final Comparator<File> mk() {
         return new c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int J(String str, String str2) {
+    public static final int K(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

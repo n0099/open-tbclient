@@ -1,30 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.baseEditMark.a;
+import com.baidu.tieba.t;
+import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class s implements PbActivity.b {
-    final /* synthetic */ PbActivity cFS;
+class s implements a.InterfaceC0041a {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.cFS = pbActivity;
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.b
-    public void fa(boolean z) {
-        cf cfVar;
-        dk dkVar;
-        cf cfVar2;
-        dk dkVar2;
-        cfVar = this.cFS.cFl;
-        if (cfVar.fd(true)) {
-            dkVar2 = this.cFS.cFq;
-            dkVar2.amM();
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
+    public void a(boolean z, boolean z2, String str) {
+        dz dzVar;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        cm cmVar;
+        cm cmVar2;
+        dz dzVar2;
+        cm cmVar3;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        dzVar = this.cNq.cMK;
+        dzVar.ark();
+        if (z) {
+            aVar = this.cNq.cMG;
+            if (aVar != null) {
+                aVar4 = this.cNq.cMG;
+                aVar4.Y(z2);
+            }
+            cmVar = this.cNq.cMF;
+            cmVar.ft(z2);
+            cmVar2 = this.cNq.cMF;
+            if (!cmVar2.qg()) {
+                dzVar2 = this.cNq.cMK;
+                cmVar3 = this.cNq.cMF;
+                dzVar2.j(cmVar3.getPbData());
+            } else {
+                this.cNq.apv();
+            }
+            if (z2) {
+                aVar2 = this.cNq.cMG;
+                if (aVar2 != null) {
+                    aVar3 = this.cNq.cMG;
+                    MarkData qj = aVar3.qj();
+                    if (qj != null) {
+                        this.cNq.showToast(MessageFormat.format(this.cNq.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(qj.getFloor())));
+                        return;
+                    } else {
+                        this.cNq.showToast(this.cNq.getPageContext().getString(t.j.add_mark));
+                        return;
+                    }
+                }
+                return;
+            }
+            this.cNq.showToast(this.cNq.getPageContext().getString(t.j.remove_mark));
             return;
         }
-        dkVar = this.cFS.cFq;
-        dkVar.ang();
-        cfVar2 = this.cFS.cFl;
-        cfVar2.kq(1);
+        this.cNq.showToast(this.cNq.getPageContext().getString(t.j.update_mark_failed));
     }
 }

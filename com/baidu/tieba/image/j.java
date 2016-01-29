@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,178 +16,189 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j {
-    Map<String, ImageUrlData> amP;
-    private String bde;
-    private ArrayList<String> cjC;
-    private String cjE;
-    private String cjF;
-    private boolean cjK;
+    private String aer;
+    Map<String, ImageUrlData> anI;
+    private String bfv;
+    private ArrayList<String> coc;
+    private String coe;
+    private String cof;
+    private boolean cok;
     private String mForumId;
-    private String mFrom;
+    private int mThreadType;
     private String mUserId;
-    private String cjD = null;
-    private String amV = null;
-    private boolean cjG = false;
+    private String cod = null;
+    private String anO = null;
+    private boolean cog = false;
     private boolean mIsReserver = true;
-    private a cjH = null;
-    private int cjI = 0;
-    private boolean cjJ = false;
-    private b cjL = null;
-    private HashMap<String, String> cjM = new HashMap<>();
-    private com.baidu.tbadk.core.data.b cjN = null;
+    private a coh = null;
+    private int coi = 0;
+    private boolean coj = false;
+    private b col = null;
+
+    /* renamed from: com  reason: collision with root package name */
+    private HashMap<String, String> f127com = new HashMap<>();
+    private com.baidu.tbadk.core.data.c con = null;
+    private boolean coo = false;
 
     /* loaded from: classes.dex */
     public interface b {
-        void G(int i, String str);
+        void I(int i, String str);
 
-        void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, com.baidu.tbadk.core.data.b bVar);
+        void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, com.baidu.tbadk.core.data.c cVar);
     }
 
-    public j(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6) {
-        this.cjC = null;
-        this.cjE = null;
+    public j(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, int i) {
+        this.coc = null;
+        this.coe = null;
         this.mForumId = null;
-        this.bde = null;
-        this.cjF = null;
-        this.cjK = false;
+        this.bfv = null;
+        this.cof = null;
+        this.cok = false;
         this.mUserId = null;
-        this.cjC = arrayList;
-        this.amP = map;
-        if (this.cjC == null) {
-            this.cjC = new ArrayList<>();
+        this.coc = arrayList;
+        this.anI = map;
+        if (this.coc == null) {
+            this.coc = new ArrayList<>();
         }
-        int size = this.cjC.size();
-        for (int i = 0; i < size; i++) {
-            String str7 = this.cjC.get(i);
-            this.cjM.put(jB(str7), str7);
+        int size = this.coc.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            String str7 = this.coc.get(i2);
+            this.f127com.put(jF(str7), str7);
         }
-        this.cjE = str3;
-        this.bde = str2;
+        this.coe = str3;
+        this.bfv = str2;
         this.mForumId = str;
-        this.cjF = str4;
-        if (this.cjF == null) {
-            this.cjK = true;
+        this.cof = str4;
+        this.mThreadType = i;
+        if (this.cof == null) {
+            this.cok = true;
         }
         this.mUserId = str5;
-        this.mFrom = str6;
+        this.aer = str6;
     }
 
-    public void ee(boolean z) {
+    public void el(boolean z) {
         this.mIsReserver = z;
     }
 
-    public void afh() {
-        if (!this.cjG && !this.cjK) {
-            c(this.cjE, this.cjF, 10, 0);
+    public void aiq() {
+        this.coo = false;
+        if (!this.cog && !this.cok) {
+            c(this.coe, this.cof, 10, 0);
         }
     }
 
-    public void afi() {
-        if (!this.cjK) {
-            if (!this.cjG) {
-                afh();
-            } else if (this.cjD != null && this.cjD.length() > 0) {
+    public void air() {
+        this.coo = true;
+        c(this.coe, jF(this.coc.get(0)), 0, 10);
+    }
+
+    public void ais() {
+        if (!this.cok) {
+            if (!this.cog) {
+                aiq();
+            } else if (this.cod != null && this.cod.length() > 0) {
                 this.mIsReserver = true;
-                c(this.cjD, null, 0, 10);
+                c(this.cod, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.cjH != null) {
-            if (str2 == null || !str2.equals(this.cjH.getPicId())) {
-                this.cjH.cancel();
+        if (this.coh != null) {
+            if (str2 == null || !str2.equals(this.coh.getPicId())) {
+                this.coh.cancel();
             } else {
                 return;
             }
         }
-        this.cjH = new a(str, str2, i, i2);
-        this.cjH.setPriority(3);
-        this.cjH.execute(new Object[0]);
+        this.coh = new a(str, str2, i, i2);
+        this.coh.setPriority(3);
+        this.coh.execute(new Object[0]);
     }
 
-    public void ef(boolean z) {
-        this.cjJ = z;
+    public void em(boolean z) {
+        this.coj = z;
     }
 
     public void a(b bVar) {
-        this.cjL = bVar;
+        this.col = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, m> {
-        private ab Ua = null;
-        private String cjE;
-        private String cjO;
-        private int cjP;
-        private int cjQ;
+    public class a extends BdAsyncTask<Object, Integer, l> {
+        private aa Ty = null;
+        private String coe;
+        private String cop;
+        private int coq;
+        private int cor;
 
         public a(String str, String str2, int i, int i2) {
-            this.cjE = null;
-            this.cjO = null;
-            this.cjP = 0;
-            this.cjQ = 0;
-            this.cjO = str2;
-            this.cjE = str;
-            this.cjP = i;
-            this.cjQ = i2;
+            this.coe = null;
+            this.cop = null;
+            this.coq = 0;
+            this.cor = 0;
+            this.cop = str2;
+            this.coe = str;
+            this.coq = i;
+            this.cor = i2;
         }
 
         public String getPicId() {
-            return this.cjO;
+            return this.cop;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: u */
-        public m doInBackground(Object... objArr) {
-            this.Ua = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
-            this.Ua.o("kw", j.this.bde);
-            this.Ua.o("tid", this.cjE);
-            if (this.cjO != null) {
-                this.Ua.o("pic_id", this.cjO);
+        /* renamed from: r */
+        public l doInBackground(Object... objArr) {
+            this.Ty = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
+            this.Ty.p("kw", j.this.bfv);
+            this.Ty.p("tid", this.coe);
+            if (this.cop != null) {
+                this.Ty.p("pic_id", this.cop);
             }
-            this.Ua.o("next", String.valueOf(this.cjP));
-            this.Ua.o("prev", String.valueOf(this.cjQ));
-            this.Ua.o("not_see_lz", String.valueOf(j.this.cjJ ? 0 : 1));
+            this.Ty.p("next", String.valueOf(this.coq));
+            this.Ty.p("prev", String.valueOf(this.cor));
+            this.Ty.p("not_see_lz", String.valueOf(j.this.coj ? 0 : 1));
             BdLog.d("mIsReserver=" + j.this.mIsReserver);
             if (!j.this.mIsReserver) {
-                this.Ua.o("r", String.valueOf(1));
+                this.Ty.p("r", String.valueOf(1));
             }
-            if (!StringUtils.isNull(j.this.mFrom, true)) {
-                this.Ua.o("obj_type", j.this.mFrom);
+            if (!StringUtils.isNull(j.this.aer, true)) {
+                this.Ty.p("obj_type", j.this.aer);
             }
-            afj();
-            this.Ua.uw().vp().adq = false;
-            String tV = this.Ua.tV();
-            if (!this.Ua.uw().vq().qO()) {
+            ait();
+            this.Ty.vB().wv().adM = false;
+            String uZ = this.Ty.uZ();
+            if (!this.Ty.vB().ww().rl()) {
                 return null;
             }
-            m mVar = new m();
-            mVar.z(tV, true);
-            return mVar;
+            l lVar = new l();
+            lVar.z(uZ, true);
+            return lVar;
         }
 
-        private void afj() {
-            this.Ua.o("forum_id", j.this.mForumId);
-            this.Ua.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
-            this.Ua.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ua.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ua.o("q_type", String.valueOf(ay.va().vc() ? 2 : 1));
-            this.Ua.o("_os_version", Build.VERSION.RELEASE);
-            this.Ua.o("net_type", com.baidu.tbadk.core.util.a.i.getNetType());
-            this.Ua.o("page_name", "PB");
-            this.Ua.o("pic_index", String.valueOf(j.this.cjC.size()));
+        private void ait() {
+            this.Ty.p("forum_id", j.this.mForumId);
+            this.Ty.p("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
+            this.Ty.p("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
+            this.Ty.p("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
+            this.Ty.p("q_type", String.valueOf(ax.wg().wi() ? 2 : 1));
+            this.Ty.p("_os_version", Build.VERSION.RELEASE);
+            this.Ty.p("net_type", com.baidu.tbadk.core.util.a.j.getNetType());
+            this.Ty.p("page_name", "PB");
+            this.Ty.p("pic_index", String.valueOf(j.this.coc.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.Ua != null) {
-                this.Ua.gL();
+            if (this.Ty != null) {
+                this.Ty.gT();
             }
-            j.this.cjH = null;
+            j.this.coh = null;
             super.cancel(true);
         }
 
@@ -195,125 +206,128 @@ public class j {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(m mVar) {
+        public void onPostExecute(l lVar) {
+            boolean z;
             int i;
-            int i2;
-            int i3;
-            int i4;
-            String str;
-            boolean z = true;
-            super.onPostExecute(mVar);
-            if (j.this.amP != null) {
-                j.this.cjH = null;
-                if (mVar != null) {
-                    j.this.cjI = mVar.getImageNum();
-                    j.this.cjN = mVar.afn();
-                    if (this.cjO == null) {
-                        j.this.cjC.clear();
-                        j.this.cjM.clear();
+            String str = null;
+            int i2 = 0;
+            super.onPostExecute(lVar);
+            if (j.this.anI != null) {
+                j.this.coh = null;
+                if (lVar != null) {
+                    j.this.coi = lVar.getImageNum();
+                    j.this.con = lVar.aix();
+                    if (this.cop == null) {
+                        j.this.coc.clear();
+                        j.this.f127com.clear();
                     }
-                    LinkedList<l> afm = mVar.afm();
-                    int size = afm.size();
+                    LinkedList<k> aiw = lVar.aiw();
+                    int size = aiw.size();
                     if (size <= 0) {
-                        j.this.cjG = true;
-                        i = 0;
+                        j.this.cog = true;
                     } else {
-                        for (int i5 = 0; i5 < size; i5++) {
-                            l lVar = afm.get(i5);
-                            String a = j.this.a(lVar);
-                            String jB = j.this.jB(a);
-                            if (!j.this.cjM.containsKey(jB)) {
-                                ImageUrlData imageUrlData = new ImageUrlData();
-                                imageUrlData.imageUrl = a;
-                                imageUrlData.urlType = 10;
-                                imageUrlData.originalUrl = lVar.FS();
-                                imageUrlData.originalSize = lVar.getOriginalSize();
-                                imageUrlData.threadId = com.baidu.adp.lib.h.b.c(this.cjE, -1L);
-                                imageUrlData.postId = com.baidu.adp.lib.h.b.c(lVar.afk(), -1L);
-                                imageUrlData.mIsReserver = j.this.mIsReserver;
-                                imageUrlData.mIsSeeHost = j.this.cjJ;
-                                imageUrlData.overAllIndex = lVar.afl();
-                                j.this.cjC.add(a);
-                                j.this.amP.put(a, imageUrlData);
-                                j.this.cjM.put(jB, a);
+                        for (int i3 = 0; i3 < size; i3++) {
+                            k kVar = aiw.get(i3);
+                            String a = j.this.a(kVar);
+                            String jF = j.this.jF(a);
+                            ImageUrlData imageUrlData = new ImageUrlData();
+                            imageUrlData.imageUrl = a;
+                            imageUrlData.urlType = 10;
+                            imageUrlData.originalUrl = kVar.Hk();
+                            imageUrlData.originalSize = kVar.getOriginalSize();
+                            imageUrlData.threadId = com.baidu.adp.lib.h.b.c(this.coe, -1L);
+                            imageUrlData.postId = com.baidu.adp.lib.h.b.c(kVar.aiu(), -1L);
+                            imageUrlData.mIsReserver = j.this.mIsReserver;
+                            imageUrlData.mIsSeeHost = j.this.coj;
+                            imageUrlData.overAllIndex = kVar.aiv();
+                            imageUrlData.mThreadType = j.this.mThreadType;
+                            if (j.this.f127com.containsKey(jF)) {
+                                String str2 = (String) j.this.f127com.get(jF);
+                                ImageUrlData imageUrlData2 = j.this.anI.get(str2);
+                                if (imageUrlData2 == null) {
+                                    j.this.anI.put(str2, imageUrlData);
+                                } else {
+                                    imageUrlData2.overAllIndex = imageUrlData.overAllIndex;
+                                }
+                            } else {
+                                j.this.anI.put(a, imageUrlData);
+                                if (j.this.coo) {
+                                    j.this.coc.add(i3, a);
+                                } else {
+                                    j.this.coc.add(a);
+                                }
+                                j.this.f127com.put(jF, a);
                             }
                         }
-                        l lVar2 = afm.get(size - 1);
-                        j.this.cjF = lVar2.getImageID();
-                        if (j.this.cjI == lVar2.getIndex()) {
-                            j.this.cjG = true;
+                        k kVar2 = aiw.get(size - 1);
+                        j.this.cof = kVar2.getImageID();
+                        if (j.this.coi == kVar2.getIndex()) {
+                            j.this.cog = true;
                         } else {
-                            j.this.cjG = false;
+                            j.this.cog = false;
                         }
-                        if (lVar2.afl() <= 0 || lVar2.afl() > j.this.cjI) {
-                            i3 = 0;
-                        } else {
-                            i3 = j.this.mIsReserver ? (com.baidu.tbadk.core.util.y.l(j.this.cjC) + j.this.cjI) - ((int) lVar2.afl()) : (((int) lVar2.afl()) + com.baidu.tbadk.core.util.y.l(j.this.cjC)) - 1;
-                        }
-                        if (i3 <= 0) {
-                            i3 = j.this.cjI;
-                        }
-                        i = i3;
                     }
-                    boolean z2 = j.this.cjG && j.this.cjD != null && j.this.cjD.length() > 0;
-                    if (this.cjO == null) {
-                        j.this.cjE = this.cjE;
-                        i2 = 0;
+                    boolean z2 = j.this.cog && j.this.cod != null && j.this.cod.length() > 0;
+                    if (this.cop == null) {
+                        j.this.coe = this.coe;
+                        z = true;
                     } else {
                         z = false;
                         i2 = -1;
                     }
-                    if (j.this.cjL != null) {
-                        j.this.cjL.a(j.this.cjC, i2, i, z2, j.this.amV, z, j.this.cjN);
+                    int a2 = j.this.coo ? com.baidu.tbadk.core.util.x.a(j.this.coc, (String) j.this.f127com.get(this.cop)) - 1 : i2;
+                    if (j.this.col != null) {
+                        j.this.col.a(j.this.coc, a2, j.this.coi, z2, j.this.anO, z, j.this.con);
                     }
-                } else if (j.this.cjL != null) {
-                    if (this.Ua != null) {
-                        i4 = this.Ua.uA();
-                        str = this.cjO == null ? this.Ua.getErrorString() : null;
+                } else if (j.this.col != null) {
+                    if (this.Ty != null) {
+                        i = this.Ty.vF();
+                        if (this.cop == null) {
+                            str = this.Ty.getErrorString();
+                        }
                     } else {
-                        i4 = -1;
-                        str = null;
+                        i = -1;
                     }
-                    j.this.cjL.G(i4, str);
+                    j.this.col.I(i, str);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(l lVar) {
-        if (lVar.FO() != null && lVar.FO().length() > 0) {
-            return lVar.FO();
+    public String a(k kVar) {
+        if (kVar.Hg() != null && kVar.Hg().length() > 0) {
+            return kVar.Hg();
         }
         StringBuilder sb = new StringBuilder(150);
-        if (lVar.getHeight() * lVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-            double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (lVar.getHeight() * lVar.getWidth()));
+        if (kVar.getHeight() * kVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+            double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (kVar.getHeight() * kVar.getWidth()));
             sb.append("width=");
-            sb.append(String.valueOf((int) (lVar.getWidth() * sqrt)));
+            sb.append(String.valueOf((int) (kVar.getWidth() * sqrt)));
             sb.append("&height=");
-            sb.append(String.valueOf((int) (sqrt * lVar.getHeight())));
+            sb.append(String.valueOf((int) (sqrt * kVar.getHeight())));
         } else {
             sb.append("width=");
-            sb.append(String.valueOf(lVar.getWidth()));
+            sb.append(String.valueOf(kVar.getWidth()));
             sb.append("&height=");
-            sb.append(String.valueOf(lVar.getHeight()));
+            sb.append(String.valueOf(kVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(ax.aT(lVar.getImageUrl()));
+        sb.append(aw.aS(kVar.getImageUrl()));
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String jB(String str) {
+    public String jF(String str) {
         int lastIndexOf;
         int indexOf;
-        String aU = ax.aU(str);
-        if (aU != null) {
-            if (aU.indexOf(".baidu.com") != -1 && (lastIndexOf = aU.lastIndexOf("/")) != -1 && (indexOf = aU.indexOf(".", lastIndexOf)) != -1) {
-                return aU.substring(lastIndexOf + 1, indexOf);
+        String aT = aw.aT(str);
+        if (aT != null) {
+            if (aT.indexOf(".baidu.com") != -1 && (lastIndexOf = aT.lastIndexOf("/")) != -1 && (indexOf = aT.indexOf(".", lastIndexOf)) != -1) {
+                return aT.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return aU;
+        return aT;
     }
 }

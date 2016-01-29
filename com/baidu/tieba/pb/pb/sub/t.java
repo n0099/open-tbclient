@@ -7,15 +7,15 @@ import com.baidu.tieba.pb.pb.sub.ao;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements ao.a {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0035, code lost:
-        if (r0 != null) goto L22;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
+        if (r0 != null) goto L26;
      */
     @Override // com.baidu.tieba.pb.pb.sub.ao.a
     /*
@@ -31,42 +31,45 @@ public class t implements ao.a {
         w wVar4;
         ao aoVar2;
         ao aoVar3;
+        ao aoVar4;
         w wVar5;
-        wVar = this.cLc.cKT;
+        wVar = this.cTK.cTB;
         if (wVar != null) {
-            wVar5 = this.cLc.cKT;
-            wVar5.anE();
+            wVar5 = this.cTK.cTB;
+            wVar5.ash();
         }
         if (z) {
-            wVar2 = this.cLc.cKT;
+            wVar2 = this.cTK.cTB;
             wVar2.hideNoDataView();
             if (dVar != null) {
-                if (dVar.akS() == null) {
-                    aoVar3 = this.cLc.cKR;
+                if (dVar.aoQ() == null) {
+                    aoVar4 = this.cTK.cTz;
                 }
-                com.baidu.tieba.tbadkCore.data.r akS = dVar.akS();
-                aoVar = this.cLc.cKR;
-                akS.a(aoVar.aoe());
-                wVar3 = this.cLc.cKT;
+                com.baidu.tieba.tbadkCore.data.r aoQ = dVar.aoQ();
+                aoVar = this.cTK.cTz;
+                aoQ.a(aoVar.asK());
+                wVar3 = this.cTK.cTB;
                 if (wVar3 != null) {
-                    wVar4 = this.cLc.cKT;
-                    aoVar2 = this.cLc.cKR;
-                    wVar4.a(dVar, aoVar2.akL());
+                    wVar4 = this.cTK.cTB;
+                    aoVar2 = this.cTK.cTz;
+                    int aoJ = aoVar2.aoJ();
+                    aoVar3 = this.cTK.cTz;
+                    wVar4.a(dVar, aoJ, aoVar3.asM() != null);
                 }
-                aq aqVar = new aq();
-                aqVar.setData(dVar);
-                pVar = this.cLc.cjc;
+                com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
+                eVar.setData(dVar);
+                pVar = this.cTK.cnC;
                 if (pVar != null) {
-                    pVar2 = this.cLc.cjc;
-                    pVar2.a(dVar.ala());
+                    pVar2 = this.cTK.cnC;
+                    pVar2.a(dVar.ajb());
                 }
-                aqVar.setType(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, aqVar));
+                eVar.setType(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
                 return;
             }
             return;
         }
-        this.cLc.showToast(str);
-        this.cLc.M(i, str);
+        this.cTK.showToast(str);
+        this.cTK.O(i, str);
     }
 }

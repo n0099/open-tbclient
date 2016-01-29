@@ -5,49 +5,50 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.q;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> SH = null;
-    protected static boolean SJ = false;
-    protected String SF = "183322726";
-    protected boolean SI = true;
-    protected transient List<String> SG = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> Sa = null;
+    protected static boolean Sc = false;
+    protected String RX = "183322726";
+    protected boolean Sb = true;
+    protected transient List<String> RY = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
-        void b(boolean z, int i, int i2);
+        void a(boolean z, int i, int i2, q qVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aN(int i);
+    public abstract void aY(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void pU();
+    public abstract void qn();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void qa();
+    public abstract void qt();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void qb();
+    public abstract void qu();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void qc();
+    public abstract void qv();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void qd();
+    public abstract void qw();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void qe();
+    public abstract void resetValues();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -69,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (SH == null) {
-            SH = new WeakReference<>(tbPageContext);
+        if (Sa == null) {
+            Sa = new WeakReference<>(tbPageContext);
             return;
         }
-        SH.clear();
-        SH = null;
-        SH = new WeakReference<>(tbPageContext);
+        Sa.clear();
+        Sa = null;
+        Sa = new WeakReference<>(tbPageContext);
     }
 
-    public boolean pZ() {
-        return SJ;
+    public boolean qs() {
+        return Sc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Z(boolean z) {
-        this.SI = z;
+        this.Sb = z;
     }
 
-    public boolean pT() {
-        return this.SI;
+    public boolean qm() {
+        return this.Sb;
     }
 
-    public void pV() {
-        if (SH != null) {
-            SH.get();
-            SH.clear();
-            SH = null;
+    public void qo() {
+        if (Sa != null) {
+            Sa.get();
+            Sa.clear();
+            Sa = null;
         }
     }
 }

@@ -1,153 +1,16 @@
 package com.baidu.tieba.frs.frsgood;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.frs.loadmore.LoadMoreRequestMessage;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.frs.mc.FrsGoodActivityConfig;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
-    public boolean axY;
-    private FrsGoodActivity bgr;
-    public boolean bks;
-    public int bkt;
-    private ArrayList<com.baidu.adp.widget.ListView.u> bku;
-    private ArrayList<com.baidu.adp.widget.ListView.u> bkv;
-    private final com.baidu.adp.framework.listener.a bkw;
-
-    public v(FrsGoodActivity frsGoodActivity) {
-        super(frsGoodActivity.getPageContext());
-        this.axY = false;
-        this.bks = false;
-        this.bkt = 0;
-        this.bku = new ArrayList<>();
-        this.bkv = new ArrayList<>();
-        this.bkw = new w(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.bgr = frsGoodActivity;
-    }
-
-    public void registerListener() {
-        registerListener(this.bkw);
-    }
-
-    public void a(long j, List<Long> list, String str, int i) {
-        if (j == 0 || list == null || list.size() == 0) {
-            this.bks = true;
-            return;
+class v implements CustomMessageTask.CustomRunnable<FrsGoodActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsGoodActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(FrsGoodActivity.class);
         }
-        String ah = ah(list);
-        if (!TextUtils.isEmpty(ah)) {
-            LoadMoreRequestMessage loadMoreRequestMessage = new LoadMoreRequestMessage();
-            loadMoreRequestMessage.setForumId(j);
-            loadMoreRequestMessage.setThreadIds(ah);
-            loadMoreRequestMessage.setNeedAbstract(0);
-            loadMoreRequestMessage.setForumName(str);
-            loadMoreRequestMessage.setPageNumber(i);
-            sendMessage(loadMoreRequestMessage);
-            this.axY = true;
-        }
-    }
-
-    private String ah(List<Long> list) {
-        int i = 30;
-        if (list == null || list.size() == 0) {
-            this.bks = true;
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        int size = list.size();
-        int i2 = 0;
-        if (this.bkt != 0) {
-            if (this.bkt != 1) {
-                return "";
-            }
-            i2 = 30;
-            i = size;
-        }
-        if (i > list.size()) {
-            i = list.size();
-        }
-        if (i2 >= list.size()) {
-            this.bks = true;
-            return "";
-        }
-        for (int i3 = i2; i3 < i; i3++) {
-            if (i3 == list.size() - 1) {
-                this.bks = true;
-            }
-            Long l = list.get(i3);
-            if (l != null) {
-                if (i3 == i - 1) {
-                    sb.append(l);
-                } else {
-                    sb.append(l + ",");
-                }
-            }
-        }
-        return sb.toString();
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void resetData() {
-        this.bkt = 0;
-        this.bks = false;
-        this.bku.clear();
-        this.bkv.clear();
-    }
-
-    public boolean ai(List<Long> list) {
-        if (list != null && list.size() != 0) {
-            return (this.bkt == 2 || this.bks) ? false : true;
-        }
-        this.bks = true;
-        return false;
-    }
-
-    public ArrayList<com.baidu.adp.widget.ListView.u> a(boolean z, ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
-        if (arrayList == null || arrayList.size() == 0) {
-            return null;
-        }
-        if (z) {
-            this.bku.clear();
-            this.bkv.clear();
-        }
-        int wU = TbadkCoreApplication.m411getInst().getListItemRule().wU() - this.bku.size();
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            if (i < wU) {
-                this.bku.add(arrayList.get(i));
-            } else {
-                this.bkv.add(arrayList.get(i));
-            }
-        }
-        ArrayList<com.baidu.adp.widget.ListView.u> arrayList2 = new ArrayList<>();
-        arrayList2.addAll(this.bku);
-        arrayList2.addAll(this.bkv);
-        return arrayList2;
-    }
-
-    public ArrayList<com.baidu.adp.widget.ListView.u> OT() {
-        int i;
-        int size = this.bkv.size() + 30;
-        int wT = TbadkCoreApplication.m411getInst().getListItemRule().wT();
-        if (size > wT && this.bkv.size() > (i = size - wT)) {
-            for (int i2 = 0; i2 < i; i2++) {
-                this.bkv.remove(0);
-            }
-        }
-        ArrayList<com.baidu.adp.widget.ListView.u> arrayList = new ArrayList<>();
-        arrayList.addAll(this.bku);
-        arrayList.addAll(this.bkv);
-        return arrayList;
+        return null;
     }
 }

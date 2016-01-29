@@ -1,6 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     private List<c> mForumInfoList;
     private f mHotSearchInfo;
     private List<g> mTopicInfoList;
+    private String mTopicInfoTitle;
 
     public HotForumHttpResponseMessage(int i) {
         super(i);
@@ -27,6 +29,10 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
 
     public List<g> getTopicInfoList() {
         return this.mTopicInfoList;
+    }
+
+    public String getTopicInfoTitle() {
+        return this.mTopicInfoTitle;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,14 +59,21 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
                     this.mHotSearchInfo = new f();
                     this.mHotSearchInfo.a(hotForumResIdl.data.hot_search);
                 }
-                if (hotForumResIdl.data.hot_topic != null && hotForumResIdl.data.hot_topic.topic_list != null) {
+                if (hotForumResIdl.data.hot_topic != null) {
                     this.mTopicInfoList = new ArrayList();
-                    for (HotTopicList hotTopicList : hotForumResIdl.data.hot_topic.topic_list) {
-                        if (hotTopicList != null) {
-                            g gVar = new g();
-                            gVar.a(hotTopicList);
-                            this.mTopicInfoList.add(gVar);
+                    if (hotForumResIdl.data.hot_topic.topic_list != null) {
+                        for (HotTopicList hotTopicList : hotForumResIdl.data.hot_topic.topic_list) {
+                            if (hotTopicList != null) {
+                                g gVar = new g();
+                                gVar.a(hotTopicList);
+                                this.mTopicInfoList.add(gVar);
+                            }
                         }
+                    }
+                    if (!StringUtils.isNull(hotForumResIdl.data.hot_topic.title)) {
+                        this.mTopicInfoTitle = hotForumResIdl.data.hot_topic.title;
+                    } else {
+                        this.mTopicInfoTitle = "";
                     }
                 }
             }

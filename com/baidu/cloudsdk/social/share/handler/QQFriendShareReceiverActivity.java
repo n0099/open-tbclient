@@ -42,9 +42,9 @@ public class QQFriendShareReceiverActivity extends Activity {
         String string = a2.getString("action");
         if (!TextUtils.isEmpty(string)) {
             if (string.equals("shareToQQ")) {
-                this.b = e.dE();
+                this.b = e.dG();
             } else if (string.equals("shareToQzone")) {
-                this.b = f.dE();
+                this.b = f.dG();
             }
             a(a2);
         } else if (this.b != null) {

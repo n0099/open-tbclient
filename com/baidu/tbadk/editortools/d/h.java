@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.tbadkCore.ad;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.d {
-    final /* synthetic */ e auv;
+    final /* synthetic */ e avn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.auv = eVar;
+        this.avn = eVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -33,43 +33,43 @@ public class h implements a.d {
         String str;
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         if (writeData == null) {
-            aVar2 = this.auv.aud;
-            writeData2 = aVar2.aGz();
+            aVar2 = this.avn.auV;
+            writeData2 = aVar2.aND();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && nVar != null && !TextUtils.isEmpty(nVar.wY())) {
+            if (writeData2 != null && nVar != null && !TextUtils.isEmpty(nVar.yl())) {
                 writeData2.setVcodeMD5(nVar.getVcode_md5());
                 writeData2.setVcodeUrl(nVar.getVcode_pic_url());
-                if (nVar.wY().equals("4")) {
+                if (nVar.yl().equals("4")) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity2 = this.auv.aui;
+                    baseActivity2 = this.avn.ava;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false)));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity = this.auv.aui;
+                    baseActivity = this.avn.ava;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity.getActivity(), writeData2, 12006)));
                 }
             }
         } else {
-            this.auv.bp(true);
-            aVar = this.auv.aud;
-            WriteData aGz = aVar.aGz();
-            this.auv.resetData();
-            str = this.auv.mThreadId;
-            ae.c(str, (WriteData) null);
-            if (aGz != null) {
-                if (aGz != null && aGz.getType() == 2) {
-                    ae.a(aGz.getThreadId(), this.auv);
+            this.avn.br(true);
+            aVar = this.avn.auV;
+            WriteData aND = aVar.aND();
+            this.avn.resetData();
+            str = this.avn.mThreadId;
+            ad.c(str, (WriteData) null);
+            if (aND != null) {
+                if (aND != null && aND.getType() == 2) {
+                    ad.a(aND.getThreadId(), this.avn);
                 }
             } else {
                 return;
             }
         }
-        dVar = this.auv.aum;
+        dVar = this.avn.ave;
         if (dVar != null) {
-            dVar2 = this.auv.aum;
+            dVar2 = this.avn.ave;
             dVar2.a(z, postWriteCallBackData, nVar, writeData2, antiData);
         }
     }

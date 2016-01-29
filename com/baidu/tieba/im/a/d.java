@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ c bWI;
+    final /* synthetic */ c cbc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bWI = cVar;
+        this.cbc = cVar;
     }
 
     @Override // android.os.Handler
@@ -19,82 +19,82 @@ public class d extends Handler {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        long aaw;
+        long adv;
         Handler handler5;
         Handler handler6;
-        long aau;
+        long adt;
         Handler handler7;
         Handler handler8;
         Handler handler9;
-        long aaw2;
+        long adv2;
         Handler handler10;
         Handler handler11;
         Handler handler12;
-        long aau2;
+        long adt2;
         Handler handler13;
-        boolean aas;
+        boolean adr;
         Handler handler14;
         Handler handler15;
-        long aau3;
+        long adt3;
         if (message.what == 2) {
-            handler13 = this.bWI.mHandler;
+            handler13 = this.cbc.mHandler;
             handler13.removeMessages(2);
-            aas = this.bWI.aas();
-            if (aas) {
-                this.bWI.wV = System.currentTimeMillis();
+            adr = this.cbc.adr();
+            if (adr) {
+                this.cbc.xe = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    this.bWI.aap();
+                    this.cbc.ado();
                 }
             }
-            handler14 = this.bWI.mHandler;
-            handler15 = this.bWI.mHandler;
+            handler14 = this.cbc.mHandler;
+            handler15 = this.cbc.mHandler;
             Message obtainMessage = handler15.obtainMessage(2);
-            aau3 = this.bWI.aau();
-            handler14.sendMessageDelayed(obtainMessage, aau3);
+            adt3 = this.cbc.adt();
+            handler14.sendMessageDelayed(obtainMessage, adt3);
         }
         if (message.what == 1) {
-            handler10 = this.bWI.mHandler;
+            handler10 = this.cbc.mHandler;
             handler10.removeMessages(2);
-            this.bWI.wV = System.currentTimeMillis();
+            this.cbc.xe = System.currentTimeMillis();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.bWI.aap();
+                this.cbc.ado();
             }
-            handler11 = this.bWI.mHandler;
-            handler12 = this.bWI.mHandler;
+            handler11 = this.cbc.mHandler;
+            handler12 = this.cbc.mHandler;
             Message obtainMessage2 = handler12.obtainMessage(2);
-            aau2 = this.bWI.aau();
-            handler11.sendMessageDelayed(obtainMessage2, aau2);
+            adt2 = this.cbc.adt();
+            handler11.sendMessageDelayed(obtainMessage2, adt2);
         }
         if (message.what == 3) {
-            handler7 = this.bWI.mHandler;
+            handler7 = this.cbc.mHandler;
             handler7.removeMessages(3);
-            this.bWI.aao();
-            handler8 = this.bWI.mHandler;
-            handler9 = this.bWI.mHandler;
+            this.cbc.adn();
+            handler8 = this.cbc.mHandler;
+            handler9 = this.cbc.mHandler;
             Message obtainMessage3 = handler9.obtainMessage(3);
-            aaw2 = this.bWI.aaw();
-            handler8.sendMessageDelayed(obtainMessage3, aaw2);
+            adv2 = this.cbc.adv();
+            handler8.sendMessageDelayed(obtainMessage3, adv2);
         }
         if (message.what == 4) {
-            handler = this.bWI.mHandler;
+            handler = this.cbc.mHandler;
             handler.removeMessages(3);
-            handler2 = this.bWI.mHandler;
+            handler2 = this.cbc.mHandler;
             handler2.removeMessages(2);
-            this.bWI.wV = System.currentTimeMillis();
-            this.bWI.aao();
+            this.cbc.xe = System.currentTimeMillis();
+            this.cbc.adn();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.bWI.aap();
+                this.cbc.ado();
             }
-            handler3 = this.bWI.mHandler;
-            handler4 = this.bWI.mHandler;
+            handler3 = this.cbc.mHandler;
+            handler4 = this.cbc.mHandler;
             Message obtainMessage4 = handler4.obtainMessage(3);
-            aaw = this.bWI.aaw();
-            handler3.sendMessageDelayed(obtainMessage4, aaw);
-            handler5 = this.bWI.mHandler;
-            handler6 = this.bWI.mHandler;
+            adv = this.cbc.adv();
+            handler3.sendMessageDelayed(obtainMessage4, adv);
+            handler5 = this.cbc.mHandler;
+            handler6 = this.cbc.mHandler;
             Message obtainMessage5 = handler6.obtainMessage(2);
-            aau = this.bWI.aau();
-            handler5.sendMessageDelayed(obtainMessage5, aau);
+            adt = this.cbc.adt();
+            handler5.sendMessageDelayed(obtainMessage5, adt);
         }
     }
 }

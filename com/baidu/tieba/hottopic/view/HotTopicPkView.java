@@ -9,31 +9,31 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class HotTopicPkView extends View {
-    private int[] bJA;
-    private int[] bJB;
-    private com.baidu.tieba.hottopic.data.e bJC;
-    private HotTopicActivity bJD;
-    private boolean bJE;
-    private boolean bJF;
-    private int bJn;
-    private int bJo;
-    private int bJp;
-    private int bJq;
-    private Drawable bJr;
-    private Drawable bJs;
-    private Drawable bJt;
-    private int bJu;
-    private int bJv;
-    private int bJw;
-    private int bJx;
-    private RectF bJy;
-    private RectF bJz;
+    private int bMU;
+    private int bMV;
+    private int bMW;
+    private int bMX;
+    private Drawable bMY;
+    private Drawable bMZ;
+    private Drawable bNa;
+    private int bNb;
+    private int bNc;
+    private int bNd;
+    private int bNe;
+    private RectF bNf;
+    private RectF bNg;
+    private int[] bNh;
+    private int[] bNi;
+    private com.baidu.tieba.hottopic.data.h bNj;
+    private HotTopicActivity bNk;
+    private boolean bNl;
+    private boolean bNm;
     private int ds30;
     private final int offset;
     private Paint paint;
@@ -42,30 +42,30 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.offset = 50;
-        this.bJA = new int[2];
-        this.bJB = new int[2];
-        this.bJE = false;
-        this.bJF = false;
+        this.bNh = new int[2];
+        this.bNi = new int[2];
+        this.bNl = false;
+        this.bNm = false;
         init(context);
     }
 
     public HotTopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.offset = 50;
-        this.bJA = new int[2];
-        this.bJB = new int[2];
-        this.bJE = false;
-        this.bJF = false;
+        this.bNh = new int[2];
+        this.bNi = new int[2];
+        this.bNl = false;
+        this.bNm = false;
         init(context);
     }
 
     public HotTopicPkView(Context context) {
         super(context);
         this.offset = 50;
-        this.bJA = new int[2];
-        this.bJB = new int[2];
-        this.bJE = false;
-        this.bJF = false;
+        this.bNh = new int[2];
+        this.bNi = new int[2];
+        this.bNl = false;
+        this.bNm = false;
         init(context);
     }
 
@@ -74,84 +74,84 @@ public class HotTopicPkView extends View {
         this.paint.setAntiAlias(true);
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
-        this.ds30 = TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(n.e.ds30);
+        this.ds30 = TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(t.e.ds30);
         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-            this.bJr = as.getDrawable(n.f.icon_pk_red_n_1);
-            this.bJs = as.getDrawable(n.f.icon_pk_blule_n_1);
-            this.bJt = as.getDrawable(n.f.icon_pic_vs_1);
-            this.bJA = new int[]{n.d.cp_other_b_1, n.d.topic_pk_agree_disable_1};
-            this.bJB = new int[]{n.d.cp_link_tip_a_1, n.d.topic_pk_oppose_disable_1};
+            this.bMY = ar.getDrawable(t.f.icon_pk_red_n_1);
+            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_n_1);
+            this.bNa = ar.getDrawable(t.f.icon_pic_vs_1);
+            this.bNh = new int[]{t.d.cp_other_b_1, t.d.topic_pk_agree_disable_1};
+            this.bNi = new int[]{t.d.cp_link_tip_a_1, t.d.topic_pk_oppose_disable_1};
         } else {
-            this.bJr = as.getDrawable(n.f.icon_pk_red_n);
-            this.bJs = as.getDrawable(n.f.icon_pk_blule_n);
-            this.bJt = as.getDrawable(n.f.icon_pic_vs);
-            this.bJA = new int[]{n.d.cp_other_b, n.d.topic_pk_agree_disable};
-            this.bJB = new int[]{n.d.cp_link_tip_a, n.d.topic_pk_oppose_disable};
+            this.bMY = ar.getDrawable(t.f.icon_pk_red_n);
+            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_n);
+            this.bNa = ar.getDrawable(t.f.icon_pic_vs);
+            this.bNh = new int[]{t.d.cp_other_b, t.d.topic_pk_agree_disable};
+            this.bNi = new int[]{t.d.cp_link_tip_a, t.d.topic_pk_oppose_disable};
         }
-        this.bJu = this.bJr.getIntrinsicWidth();
-        this.bJv = this.bJr.getIntrinsicHeight();
-        this.bJw = this.bJt.getIntrinsicWidth();
-        this.bJx = this.bJt.getIntrinsicHeight();
-        this.bJy = new RectF(0.0f, 0.0f, this.bJu, this.bJv);
-        this.bJq = (this.bJv - this.bJx) / 2;
+        this.bNb = this.bMY.getIntrinsicWidth();
+        this.bNc = this.bMY.getIntrinsicHeight();
+        this.bNd = this.bNa.getIntrinsicWidth();
+        this.bNe = this.bNa.getIntrinsicHeight();
+        this.bNf = new RectF(0.0f, 0.0f, this.bNb, this.bNc);
+        this.bMX = (this.bNc - this.bNe) / 2;
     }
 
-    public void a(com.baidu.tieba.hottopic.data.e eVar, HotTopicActivity hotTopicActivity) {
-        this.bJC = eVar;
-        this.bJD = hotTopicActivity;
-        if (eVar.bHd == 1) {
+    public void a(com.baidu.tieba.hottopic.data.h hVar, HotTopicActivity hotTopicActivity) {
+        this.bNj = hVar;
+        this.bNk = hotTopicActivity;
+        if (hVar.bKD == 1) {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                this.bJr = as.getDrawable(n.f.icon_pk_red_s_1);
-                this.bJs = as.getDrawable(n.f.icon_pk_blule_d_1);
+                this.bMY = ar.getDrawable(t.f.icon_pk_red_s_1);
+                this.bMZ = ar.getDrawable(t.f.icon_pk_blule_d_1);
                 return;
             }
-            this.bJr = as.getDrawable(n.f.icon_pk_red_s);
-            this.bJs = as.getDrawable(n.f.icon_pk_blule_d);
-        } else if (eVar.bHd == 2) {
+            this.bMY = ar.getDrawable(t.f.icon_pk_red_s);
+            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_d);
+        } else if (hVar.bKD == 2) {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                this.bJs = as.getDrawable(n.f.icon_pk_blule_s_1);
-                this.bJr = as.getDrawable(n.f.icon_pk_red_d_1);
+                this.bMZ = ar.getDrawable(t.f.icon_pk_blule_s_1);
+                this.bMY = ar.getDrawable(t.f.icon_pk_red_d_1);
                 return;
             }
-            this.bJs = as.getDrawable(n.f.icon_pk_blule_s);
-            this.bJr = as.getDrawable(n.f.icon_pk_red_d);
+            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_s);
+            this.bMY = ar.getDrawable(t.f.icon_pk_red_d);
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bJC.bHd == 0) {
+        if (this.bNj.bKD == 0) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    if (this.bJy.contains(motionEvent.getX(), motionEvent.getY())) {
-                        this.bJC.bHy++;
-                        this.bJC.bHd = 1;
+                    if (this.bNf.contains(motionEvent.getX(), motionEvent.getY())) {
+                        this.bNj.bLk++;
+                        this.bNj.bKD = 1;
                         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                            this.bJr = as.getDrawable(n.f.icon_pk_red_s_1);
-                            this.bJs = as.getDrawable(n.f.icon_pk_blule_d_1);
+                            this.bMY = ar.getDrawable(t.f.icon_pk_red_s_1);
+                            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_d_1);
                         } else {
-                            this.bJr = as.getDrawable(n.f.icon_pk_red_s);
-                            this.bJs = as.getDrawable(n.f.icon_pk_blule_d);
+                            this.bMY = ar.getDrawable(t.f.icon_pk_red_s);
+                            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_d);
                         }
-                    } else if (this.bJz.contains(motionEvent.getX(), motionEvent.getY())) {
-                        this.bJC.bHB++;
-                        this.bJC.bHd = 2;
+                    } else if (this.bNg.contains(motionEvent.getX(), motionEvent.getY())) {
+                        this.bNj.bLn++;
+                        this.bNj.bKD = 2;
                         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                            this.bJs = as.getDrawable(n.f.icon_pk_blule_s_1);
-                            this.bJr = as.getDrawable(n.f.icon_pk_red_d_1);
+                            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_s_1);
+                            this.bMY = ar.getDrawable(t.f.icon_pk_red_d_1);
                         } else {
-                            this.bJs = as.getDrawable(n.f.icon_pk_blule_s);
-                            this.bJr = as.getDrawable(n.f.icon_pk_red_d);
+                            this.bMZ = ar.getDrawable(t.f.icon_pk_blule_s);
+                            this.bMY = ar.getDrawable(t.f.icon_pk_red_d);
                         }
                     }
-                    if (this.bJC.bHd != 0) {
-                        if (this.bJC.bHy + this.bJC.bHB > 50) {
-                            this.bJE = true;
-                            new Thread(new g(this)).start();
+                    if (this.bNj.bKD != 0) {
+                        if (this.bNj.bLk + this.bNj.bLn > 50) {
+                            this.bNl = true;
+                            new Thread(new i(this)).start();
                         } else {
                             invalidate();
                         }
-                        this.bJD.Vl();
+                        this.bNk.XA();
                         break;
                     }
                     break;
@@ -163,23 +163,23 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bJr.setCallback(null);
-        this.bJs.setCallback(null);
-        this.bJt.setCallback(null);
-        this.bJr = null;
-        this.bJs = null;
-        this.bJt = null;
+        this.bMY.setCallback(null);
+        this.bMZ.setCallback(null);
+        this.bNa.setCallback(null);
+        this.bMY = null;
+        this.bMZ = null;
+        this.bNa = null;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.bJn = this.bJv;
+        this.bMU = this.bNc;
         this.width = View.MeasureSpec.getSize(i);
-        setMeasuredDimension(this.width, this.bJn + this.ds30);
-        this.bJo = (this.width - (this.bJu * 2)) - 100;
-        if (this.bJz == null) {
-            this.bJz = new RectF(this.width - this.bJu, 0.0f, this.width, this.bJn);
+        setMeasuredDimension(this.width, this.bMU + this.ds30);
+        this.bMV = (this.width - (this.bNb * 2)) - 100;
+        if (this.bNg == null) {
+            this.bNg = new RectF(this.width - this.bNb, 0.0f, this.width, this.bMU);
         }
     }
 
@@ -193,62 +193,62 @@ public class HotTopicPkView extends View {
     }
 
     private void i(Canvas canvas) {
-        if (this.bJC.bHy == 0 && this.bJC.bHB == 0) {
-            this.bJp = (int) ((0.5d * this.bJo) + this.bJu + 50.0d);
+        if (this.bNj.bLk == 0 && this.bNj.bLn == 0) {
+            this.bMW = (int) ((0.5d * this.bMV) + this.bNb + 50.0d);
         } else {
-            this.bJp = (int) (((((float) this.bJC.bHy) / ((float) (this.bJC.bHy + this.bJC.bHB))) * this.bJo) + this.bJu + 50.0f);
+            this.bMW = (int) (((((float) this.bNj.bLk) / ((float) (this.bNj.bLk + this.bNj.bLn))) * this.bMV) + this.bNb + 50.0f);
         }
-        if (this.bJC.bHd == 2) {
-            this.paint.setColor(getContext().getResources().getColor(this.bJA[1]));
+        if (this.bNj.bKD == 2) {
+            this.paint.setColor(getContext().getResources().getColor(this.bNh[1]));
         } else {
-            this.paint.setColor(getContext().getResources().getColor(this.bJA[0]));
+            this.paint.setColor(getContext().getResources().getColor(this.bNh[0]));
         }
-        canvas.drawRect(this.bJu / 2, this.bJq, this.bJp, this.bJn - this.bJq, this.paint);
-        if (this.bJC.bHd == 1) {
-            this.paint.setColor(getContext().getResources().getColor(this.bJB[1]));
+        canvas.drawRect(this.bNb / 2, this.bMX, this.bMW, this.bMU - this.bMX, this.paint);
+        if (this.bNj.bKD == 1) {
+            this.paint.setColor(getContext().getResources().getColor(this.bNi[1]));
         } else {
-            this.paint.setColor(getContext().getResources().getColor(this.bJB[0]));
+            this.paint.setColor(getContext().getResources().getColor(this.bNi[0]));
         }
-        canvas.drawRect(this.bJp, this.bJq, this.width - (this.bJu / 2), this.bJn - this.bJq, this.paint);
+        canvas.drawRect(this.bMW, this.bMX, this.width - (this.bNb / 2), this.bMU - this.bMX, this.paint);
     }
 
     private void j(Canvas canvas) {
-        this.bJr.setBounds(0, 0, this.bJu, this.bJv);
-        this.bJr.draw(canvas);
-        this.bJs.setBounds(this.width - this.bJu, 0, this.width, this.bJv);
-        this.bJs.draw(canvas);
+        this.bMY.setBounds(0, 0, this.bNb, this.bNc);
+        this.bMY.draw(canvas);
+        this.bMZ.setBounds(this.width - this.bNb, 0, this.width, this.bNc);
+        this.bMZ.draw(canvas);
     }
 
     private void k(Canvas canvas) {
-        if (this.bJE) {
-            if (this.bJF) {
-                this.bJt.setBounds((this.bJp - (this.bJw / 2)) - 3, this.bJq, ((this.bJp - (this.bJw / 2)) - 3) + this.bJw, this.bJq + this.bJx);
-                this.bJt.draw(canvas);
+        if (this.bNl) {
+            if (this.bNm) {
+                this.bNa.setBounds((this.bMW - (this.bNd / 2)) - 3, this.bMX, ((this.bMW - (this.bNd / 2)) - 3) + this.bNd, this.bMX + this.bNe);
+                this.bNa.draw(canvas);
             } else {
-                this.bJt.setBounds((this.bJp - (this.bJw / 2)) + 3, this.bJq, (this.bJp - (this.bJw / 2)) + 3 + this.bJw, this.bJq + this.bJx);
-                this.bJt.draw(canvas);
+                this.bNa.setBounds((this.bMW - (this.bNd / 2)) + 3, this.bMX, (this.bMW - (this.bNd / 2)) + 3 + this.bNd, this.bMX + this.bNe);
+                this.bNa.draw(canvas);
             }
-            this.bJF = !this.bJF;
+            this.bNm = !this.bNm;
             return;
         }
-        this.bJt.setBounds(this.bJp - (this.bJw / 2), this.bJq, (this.bJp - (this.bJw / 2)) + this.bJw, this.bJq + this.bJx);
-        this.bJt.draw(canvas);
+        this.bNa.setBounds(this.bMW - (this.bNd / 2), this.bMX, (this.bMW - (this.bNd / 2)) + this.bNd, this.bMX + this.bNe);
+        this.bNa.draw(canvas);
     }
 
     private void drawText(Canvas canvas) {
-        int dimensionPixelSize = TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(n.e.ds25);
-        this.paint.setTextSize(TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(n.e.fontsize28));
-        if (this.bJC.bHd == 2) {
-            this.paint.setColor(getContext().getResources().getColor(this.bJA[1]));
+        int dimensionPixelSize = TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(t.e.ds25);
+        this.paint.setTextSize(TbadkCoreApplication.m411getInst().getContext().getResources().getDimensionPixelSize(t.e.fontsize28));
+        if (this.bNj.bKD == 2) {
+            this.paint.setColor(getContext().getResources().getColor(this.bNh[1]));
         } else {
-            this.paint.setColor(getContext().getResources().getColor(this.bJA[0]));
+            this.paint.setColor(getContext().getResources().getColor(this.bNh[0]));
         }
-        canvas.drawText(ax.w(this.bJC.bHy), this.bJu, this.bJn + dimensionPixelSize, this.paint);
-        if (this.bJC.bHd == 1) {
-            this.paint.setColor(getContext().getResources().getColor(this.bJB[1]));
+        canvas.drawText(aw.x(this.bNj.bLk), this.bNb, this.bMU + dimensionPixelSize, this.paint);
+        if (this.bNj.bKD == 1) {
+            this.paint.setColor(getContext().getResources().getColor(this.bNi[1]));
         } else {
-            this.paint.setColor(getContext().getResources().getColor(this.bJB[0]));
+            this.paint.setColor(getContext().getResources().getColor(this.bNi[0]));
         }
-        canvas.drawText(ax.w(this.bJC.bHB), (this.width - this.bJu) - ((int) this.paint.measureText(ax.w(this.bJC.bHB))), dimensionPixelSize + this.bJn, this.paint);
+        canvas.drawText(aw.x(this.bNj.bLn), (this.width - this.bNb) - ((int) this.paint.measureText(aw.x(this.bNj.bLn))), dimensionPixelSize + this.bMU, this.paint);
     }
 }

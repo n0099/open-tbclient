@@ -1,24 +1,40 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ SearchPageFocusBar cpi;
-    private final /* synthetic */ TbPageContext cpj;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(SearchPageFocusBar searchPageFocusBar, TbPageContext tbPageContext) {
-        this.cpi = searchPageFocusBar;
-        this.cpj = tbPageContext;
+public class j implements CustomMessageTask.CustomRunnable<Object> {
+    public static final List<String> bg(List<o.b<String>> list) {
+        LinkedList linkedList = new LinkedList();
+        if (list != null) {
+            for (o.b<String> bVar : list) {
+                String str = bVar.key;
+                if (!TextUtils.isEmpty(str)) {
+                    linkedList.add(str);
+                }
+            }
+        }
+        return linkedList;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cpj.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.cpj.getPageActivity()).createNormalCfg(1)));
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+            return null;
+        }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null) {
+            currentAccount = "";
+        }
+        List<String> bg = bg(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.ug().Q("tb.searchperson_history", currentAccount)));
+        ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+        responseSearchPersonHistoryReadMessage.datas.addAll(bg);
+        return responseSearchPersonHistoryReadMessage;
     }
 }

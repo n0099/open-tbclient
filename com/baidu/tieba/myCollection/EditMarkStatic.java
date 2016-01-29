@@ -18,7 +18,7 @@ public class EditMarkStatic {
         MessageManager.getInstance().registerListener(new k(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
         MessageManager.getInstance().registerListener(jVar);
         com.baidu.tieba.tbadkCore.a.a.a(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.ak("c/f/livegroup/getStoreRemindTime", 309117));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.am("c/f/livegroup/getStoreRemindTime", 309117));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);

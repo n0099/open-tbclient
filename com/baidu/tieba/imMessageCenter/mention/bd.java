@@ -30,81 +30,81 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter cji;
-    private z cjj;
-    private ax cjk;
-    private j cjl;
-    private k cjm;
-    private as cjn;
-    private e cjo;
+    private ViewEventCenter cnI;
+    private z cnJ;
+    private ax cnK;
+    private j cnL;
+    private k cnM;
+    private as cnN;
+    private e cnO;
     private ProgressBar mProgressBar;
     private boolean mLayoutHasInit = false;
     private int mMaxHeight = 0;
     private int mPreHeight = 0;
     private int currentPageType = -1;
-    private CustomMessageListener cjp = new be(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener cjq = new bf(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private CustomMessageListener cnP = new be(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener cnQ = new bf(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.cjn = new as(this);
-        this.cjn.setUniqueId(getUniqueId());
-        this.cjo = new e(this);
-        this.cjo.setUniqueId(getUniqueId());
-        this.cjj = new z(this);
-        this.cjm = new k(this);
-        this.cjk = new ax(this);
-        this.cjl = new j(this);
+        this.cnN = new as(this);
+        this.cnN.setUniqueId(getUniqueId());
+        this.cnO = new e(this);
+        this.cnO.setUniqueId(getUniqueId());
+        this.cnJ = new z(this);
+        this.cnM = new k(this);
+        this.cnK = new ax(this);
+        this.cnL = new j(this);
         if (bundle != null) {
-            this.cjn.b(bundle);
-            this.cjo.b(bundle);
-            this.cjj.d(bundle);
-            this.cjm.d(bundle);
-            this.cjk.d(bundle);
-            this.cjl.d(bundle);
+            this.cnN.c(bundle);
+            this.cnO.c(bundle);
+            this.cnJ.e(bundle);
+            this.cnM.e(bundle);
+            this.cnK.e(bundle);
+            this.cnL.e(bundle);
         } else {
-            this.cjn.b(null);
-            this.cjo.b(null);
-            this.cjj.d((Bundle) null);
-            this.cjm.d((Bundle) null);
-            this.cjk.d((Bundle) null);
-            this.cjl.d((Bundle) null);
+            this.cnN.c(null);
+            this.cnO.c(null);
+            this.cnJ.e((Bundle) null);
+            this.cnM.e((Bundle) null);
+            this.cnK.e((Bundle) null);
+            this.cnL.e(null);
         }
-        View oE = this.cjj.oE();
-        this.cjj.ov();
-        this.cjj.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.cjj.aew();
+        View pa = this.cnJ.pa();
+        this.cnJ.oQ();
+        this.cnJ.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.cnJ.ahG();
         if (getActivity() != null) {
             UtilHelper.startHardAccelerated(getActivity().getWindow());
         }
         MentionActivityConfig.newJumpIn = true;
-        ok().addEventDelegate(this);
-        registerListener(this.cjp);
-        registerListener(this.cjq);
-        aeR();
-        return oE;
+        oF().addEventDelegate(this);
+        registerListener(this.cnP);
+        registerListener(this.cnQ);
+        aia();
+        return pa;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aeJ() {
+    public void ahS() {
         View findViewById;
-        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(n.g.tabcontainer_wrapper)) != null) {
+        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
             View findViewById2 = getFragmentActivity().getWindow().getDecorView().findViewById(16908290);
             if (findViewById2 != null && findViewById2.getParent() != null) {
-                com.baidu.tbadk.core.util.as.j((View) findViewById2.getParent(), n.d.cp_bg_line_c);
+                com.baidu.tbadk.core.util.ar.l((View) findViewById2.getParent(), t.d.cp_bg_line_c);
             }
             findViewById.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aeK() {
+    public void ahT() {
         View findViewById;
-        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(n.g.tabcontainer_wrapper)) != null) {
+        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
             findViewById.setVisibility(0);
         }
     }
@@ -112,44 +112,44 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.cjk.onSaveInstanceState(bundle);
+        this.cnK.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.cjj != null) {
-            this.cjj.a(getPageContext(), i);
+        if (this.cnJ != null) {
+            this.cnJ.a(getPageContext(), i);
         }
-        if (this.cjm != null) {
-            this.cjm.a(getPageContext(), i);
+        if (this.cnM != null) {
+            this.cnM.a(getPageContext(), i);
         }
-        if (this.cjk != null) {
-            this.cjk.a(getPageContext(), i);
+        if (this.cnK != null) {
+            this.cnK.a(getPageContext(), i);
         }
-        if (this.cjl != null) {
-            this.cjl.a(getPageContext(), i);
+        if (this.cnL != null) {
+            this.cnL.a(getPageContext(), i);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && P(getActivity().getIntent())) {
-            this.cjj.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && S(getActivity().getIntent())) {
+            this.cnJ.onNewIntent(getActivity().getIntent());
         } else {
-            this.cjj.aev();
+            this.cnJ.ahF();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean P(Intent intent) {
+    private boolean S(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!this.cjk.onActivityResult(i, i2, intent) && i2 == -1) {
+        if (!this.cnK.onActivityResult(i, i2, intent) && i2 == -1) {
             switch (i) {
                 case 12011:
                     Bundle extras = intent.getExtras();
@@ -184,30 +184,30 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.cjj.aey() != null && this.cjj.aez() != null) {
+        if (this.cnJ.ahI() != null && this.cnJ.ahJ() != null) {
             if (z) {
-                this.cjj.aey().setScrollable(true);
-                if (this.cjj.aez().getChildCount() == 3) {
-                    this.cjj.aez().getChildAt(1).setEnabled(true);
-                    this.cjj.aez().getChildAt(2).setEnabled(true);
+                this.cnJ.ahI().setScrollable(true);
+                if (this.cnJ.ahJ().getChildCount() == 3) {
+                    this.cnJ.ahJ().getChildAt(1).setEnabled(true);
+                    this.cnJ.ahJ().getChildAt(2).setEnabled(true);
                     return;
                 }
                 return;
             }
-            this.cjj.aey().setScrollable(false);
-            if (this.cjj.aez().getChildCount() == 3) {
-                this.cjj.aez().getChildAt(1).setEnabled(false);
-                this.cjj.aez().getChildAt(2).setEnabled(false);
+            this.cnJ.ahI().setScrollable(false);
+            if (this.cnJ.ahJ().getChildCount() == 3) {
+                this.cnJ.ahJ().getChildAt(1).setEnabled(false);
+                this.cnJ.ahJ().getChildAt(2).setEnabled(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean jw(int i) {
+    public boolean jT(int i) {
         return i == this.currentPageType;
     }
 
-    public void jx(int i) {
+    public void jU(int i) {
         this.currentPageType = i;
     }
 
@@ -229,8 +229,8 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.cjk != null) {
-            this.cjk.destroy();
+        if (this.cnK != null) {
+            this.cnK.destroy();
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT);
     }
@@ -240,23 +240,23 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (bVar == null) {
             return true;
         }
-        if (bVar.Dj() == 9485) {
-            com.baidu.tbadk.mvc.b.a Dk = bVar.Dk();
-            if (Dk instanceof FeedData) {
-                return c((FeedData) Dk);
+        if (bVar.EE() == 9485) {
+            com.baidu.tbadk.mvc.b.a EF = bVar.EF();
+            if (EF instanceof FeedData) {
+                return c((FeedData) EF);
             }
-        } else if (bVar.Dj() == 9484) {
-            com.baidu.tbadk.mvc.b.a Dk2 = bVar.Dk();
-            if (Dk2 instanceof FeedData) {
-                return d((FeedData) Dk2);
+        } else if (bVar.EE() == 9484) {
+            com.baidu.tbadk.mvc.b.a EF2 = bVar.EF();
+            if (EF2 instanceof FeedData) {
+                return d((FeedData) EF2);
             }
-        } else if (bVar.Dj() == 9483) {
-            com.baidu.tbadk.mvc.b.a Dk3 = bVar.Dk();
-            if (Dk3 instanceof FeedData) {
-                return e((FeedData) Dk3);
+        } else if (bVar.EE() == 9483) {
+            com.baidu.tbadk.mvc.b.a EF3 = bVar.EF();
+            if (EF3 instanceof FeedData) {
+                return e((FeedData) EF3);
             }
-        } else if (bVar.Dj() == 9486) {
-            this.cjk.d(bVar);
+        } else if (bVar.EE() == 9486) {
+            this.cnK.d(bVar);
             return true;
         }
         return false;
@@ -271,10 +271,10 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 LikeData likeData = praiseList.get(0);
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getActivity(), likeData.getId(), likeData.getNameShow(), likeData.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
-            } else if (this.cjj.getCurrentTabType() == 1) {
+            } else if (this.cnJ.getCurrentTabType() == 1) {
                 TiebaStatic.eventStat(getActivity(), "chat_2_aio", "click", 1, new Object[0]);
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getActivity(), com.baidu.adp.lib.h.b.c(feedData.getReplyer().getUserId(), 0L), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), 0, feedData.getReplyer().getIsMyFriend(), feedData.toJson())));
-            } else if (this.cjj.getCurrentTabType() == 2) {
+            } else if (this.cnJ.getCurrentTabType() == 2) {
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getActivity(), feedData.getReplyer().getUserId(), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_AT_ME)));
             } else {
                 return false;
@@ -286,9 +286,9 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     private boolean d(FeedData feedData) {
         if (feedData != null) {
             if (feedData.getIsFloor()) {
-                if (this.cjj.getCurrentTabType() == 2) {
+                if (this.cnJ.getCurrentTabType() == 2) {
                     TiebaStatic.log("new_at_me_visit_post");
-                } else if (this.cjj.getCurrentTabType() == 1) {
+                } else if (this.cnJ.getCurrentTabType() == 1) {
                     TiebaStatic.log("new_my_reply_visit_post");
                     if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
                         TiebaStatic.log("zan_mlist");
@@ -301,9 +301,9 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, post_id, "mention", false)));
             }
-            if (this.cjj.getCurrentTabType() == 2) {
+            if (this.cnJ.getCurrentTabType() == 2) {
                 TiebaStatic.log("new_at_me_visit_pb");
-            } else if (this.cjj.getCurrentTabType() == 1) {
+            } else if (this.cnJ.getCurrentTabType() == 1) {
                 TiebaStatic.log("new_my_reply_visit_pb");
                 if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
                     TiebaStatic.log("zan_mlist");
@@ -311,7 +311,7 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             }
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cn(feedData.getPost_id()).co("mention").rf()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cm(feedData.getPost_id()).cn("mention").rC()));
                 return false;
             }
             return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), 1, "mention")));
@@ -341,35 +341,35 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return false;
     }
 
-    public ViewEventCenter ok() {
-        if (this.cji == null) {
-            this.cji = new ViewEventCenter();
+    public ViewEventCenter oF() {
+        if (this.cnI == null) {
+            this.cnI = new ViewEventCenter();
         }
-        return this.cji;
+        return this.cnI;
     }
 
-    public ax aeL() {
-        return this.cjk;
+    public ax ahU() {
+        return this.cnK;
     }
 
-    public j aeM() {
-        return this.cjl;
+    public j ahV() {
+        return this.cnL;
     }
 
-    public as aeN() {
-        return this.cjn;
+    public as ahW() {
+        return this.cnN;
     }
 
-    public e aeO() {
-        return this.cjo;
+    public e ahX() {
+        return this.cnO;
     }
 
-    public k aeP() {
-        return this.cjm;
+    public k ahY() {
+        return this.cnM;
     }
 
-    public z aeQ() {
-        return this.cjj;
+    public z ahZ() {
+        return this.cnJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -380,7 +380,7 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean on() {
+    public boolean oI() {
         return false;
     }
 
@@ -396,7 +396,7 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(n.f.progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m411getInst().getResources().getDrawable(t.f.progressbar));
                 if (getView() instanceof ViewGroup) {
                     ((ViewGroup) getView()).addView(this.mProgressBar, new FrameLayout.LayoutParams(-2, -2, 17));
                 }
@@ -414,7 +414,7 @@ public class bd extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aeR() {
+    private void aia() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new bg(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

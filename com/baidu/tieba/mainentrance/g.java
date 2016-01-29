@@ -5,6 +5,11 @@ import tbclient.HotForum.HotTopicList;
 public class g {
     private long mId;
     private String mName;
+    private int mTag;
+
+    public int getTag() {
+        return this.mTag;
+    }
 
     public long getId() {
         return this.mId;
@@ -18,6 +23,7 @@ public class g {
         if (hotTopicList != null) {
             this.mId = hotTopicList.topic_id.longValue();
             this.mName = hotTopicList.topic_name;
+            this.mTag = hotTopicList.tag.intValue();
         }
     }
 }

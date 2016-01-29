@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.f;
 /* loaded from: classes.dex */
 public interface c<T> {
-    T hc();
+    T hk();
 
     void l(T t);
 

@@ -14,11 +14,11 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements a.d {
-    final /* synthetic */ p auH;
+    final /* synthetic */ p avz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.auH = pVar;
+        this.avz = pVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -29,15 +29,15 @@ public class q implements a.d {
         com.baidu.tieba.tbadkCore.writeModel.a aVar3;
         a aVar4;
         a.d dVar2;
-        dVar = this.auH.auG;
+        dVar = this.avz.avy;
         if (dVar != null) {
-            dVar2 = this.auH.auG;
+            dVar2 = this.avz.avy;
             dVar2.a(z, postWriteCallBackData, nVar, writeData, antiData);
         }
         if (z) {
-            this.auH.atY = null;
-            this.auH.bp(true);
-            this.auH.Cq();
+            this.avz.auQ = null;
+            this.avz.br(true);
+            this.avz.DG();
         }
         int i = -1;
         String str = "";
@@ -46,29 +46,29 @@ public class q implements a.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            aVar = this.auH.aud;
-            WriteData aGz = aVar.aGz();
-            aVar2 = this.auH.aud;
+            aVar = this.avz.auV;
+            WriteData aND = aVar.aND();
+            aVar2 = this.avz.auV;
             aVar2.c((WriteData) null);
-            aVar3 = this.auH.aud;
-            aVar3.hw(false);
-            this.auH.atZ = null;
-            if (aGz != null && aGz != null && aGz.getType() == 2) {
-                aVar4 = this.auH.auE;
-                aVar4.BI();
+            aVar3 = this.avz.auV;
+            aVar3.hX(false);
+            this.avz.auR = null;
+            if (aND != null && aND != null && aND.getType() == 2) {
+                aVar4 = this.avz.avw;
+                aVar4.CY();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.ne(i)) {
-            this.auH.t(i, str);
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.or(i)) {
+            this.avz.t(i, str);
         } else if (nVar != null && writeData != null && !StringUtils.isNull(nVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(nVar.getVcode_md5());
             writeData.setVcodeUrl(nVar.getVcode_pic_url());
-            if (nVar.wY().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.auH.Cm().getPageActivity(), 12006, writeData, false)));
+            if (nVar.yl().equals("4")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.avz.DC().getPageActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.auH.Cm().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.avz.DC().getPageActivity(), writeData, 12006)));
             }
         } else {
-            this.auH.Cm().showToast(str);
+            this.avz.DC().showToast(str);
         }
     }
 }

@@ -1,39 +1,37 @@
 package com.baidu.tieba.hottopic.a;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.card.bb;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ k bGl;
-    private final /* synthetic */ String bGm;
-    private final /* synthetic */ String bGn;
-    private final /* synthetic */ String bGo;
+public class m implements bb<com.baidu.tieba.card.a.q> {
+    final /* synthetic */ l bJB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar, String str, String str2, String str3) {
-        this.bGl = kVar;
-        this.bGm = str;
-        this.bGn = str2;
-        this.bGo = str3;
+    public m(l lVar) {
+        this.bJB = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        HotTopicActivity hotTopicActivity;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.bGl.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(this.bGm), this.bGn)));
-        av aa = new av("c10366").aa("post_id", this.bGo).aa("obj_type", "1");
-        hotTopicActivity = this.bGl.bFY;
-        TiebaStatic.log(aa.aa("obj_id", hotTopicActivity.Vo()));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.bb
+    public void a(View view, com.baidu.tieba.card.a.q qVar) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        if (qVar != null && qVar.Ki() != null && !StringUtils.isNull(qVar.Ki().getTid()) && !StringUtils.isNull(qVar.Kh())) {
+            if ("c10814".equals(qVar.Kh())) {
+                au aa = new au("c10814").aa("tid", qVar.Ki().getId());
+                tbPageContext2 = this.bJB.Nw;
+                TiebaStatic.log(aa.aa("obj_name", ((HotTopicActivity) tbPageContext2.getOrignalPage()).getTopicName()));
+            } else if ("c10816".equals(qVar.Kh())) {
+                au aa2 = new au("c10816").aa("post_id", qVar.Ki().getTid());
+                tbPageContext = this.bJB.Nw;
+                TiebaStatic.log(aa2.aa("obj_name", ((HotTopicActivity) tbPageContext.getOrignalPage()).getTopicName()));
+            }
+        }
     }
 }

@@ -1,69 +1,51 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.os.Handler;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bt extends com.baidu.adp.base.g {
-    final /* synthetic */ br bfQ;
+public class bt extends x.a {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    public int ahU;
+    public LinearLayout bhK;
+    public HeadImageView bhM;
+    public TextView bhN;
+    public TextView bhO;
+    public TextView bhQ;
+    public ViewStub bhV;
+    public ViewGroup bhW;
+    public ViewStub bhX;
+    public ViewGroup bhY;
+    public AppDownloadView bii;
+    public TbImageView bij;
+    public TextView bik;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(br brVar) {
-        this.bfQ = brVar;
+    static {
+        $assertionsDisabled = !bt.class.desiredAssertionStatus();
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.x xVar;
-        com.baidu.tieba.tbadkCore.x xVar2;
-        com.baidu.tieba.tbadkCore.x xVar3;
-        List list;
-        List list2;
-        int i;
-        Handler handler;
-        com.baidu.tieba.tbadkCore.x xVar4;
-        xVar = this.bfQ.MB;
-        if (AntiHelper.ne(xVar.getErrorCode())) {
-            Activity pageActivity = this.bfQ.mTbPageContext.getPageActivity();
-            xVar4 = this.bfQ.MB;
-            AntiHelper.Q(pageActivity, xVar4.getErrorString());
-        } else if (obj == null) {
-            xVar2 = this.bfQ.MB;
-            if (!StringUtils.isNull(xVar2.getErrorString())) {
-                TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                xVar3 = this.bfQ.MB;
-                com.baidu.adp.lib.util.k.showToast(m411getInst, xVar3.getErrorString());
-            }
-        } else {
-            com.baidu.tieba.tbadkCore.y yVar = (com.baidu.tieba.tbadkCore.y) obj;
-            list = this.bfQ.bfO;
-            if (com.baidu.tbadk.core.util.y.l(list) > 0 && yVar != null) {
-                list2 = this.bfQ.bfN;
-                Iterator it = list2.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    bx bxVar = (bx) it.next();
-                    FeedForumData feedForumData = (FeedForumData) bxVar.bfW.getTag();
-                    if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(yVar.getFid())) {
-                        feedForumData.setIsLike(1);
-                        this.bfQ.a(bxVar);
-                        break;
-                    }
-                }
-                i = this.bfQ.mType;
-                if (i == 1) {
-                    handler = this.bfQ.mHandler;
-                    handler.postDelayed(new bu(this, yVar), 1000L);
-                }
-            }
+    public bt(View view) {
+        super(view);
+        this.ahU = 3;
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
+        this.bhK = (LinearLayout) view.findViewById(t.g.frs_app_item_parent);
+        this.bhM = (HeadImageView) view.findViewById(t.g.frs_app_icon);
+        this.bhN = (TextView) view.findViewById(t.g.frs_app_name);
+        this.bhO = (TextView) view.findViewById(t.g.frs_app_time);
+        this.bii = (AppDownloadView) view.findViewById(t.g.frs_app_download_view);
+        this.bhQ = (TextView) view.findViewById(t.g.frs_app_desc);
+        this.bij = (TbImageView) view.findViewById(t.g.frs_app_url);
+        this.bik = (TextView) view.findViewById(t.g.frs_app_download);
+        this.bhV = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
+        this.bhX = (ViewStub) view.findViewById(t.g.item_adkiller_close);
     }
 }

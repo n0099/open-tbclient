@@ -13,24 +13,24 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements c.b {
-    final /* synthetic */ PersonChangeActivity cPi;
+    final /* synthetic */ PersonChangeActivity cYF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PersonChangeActivity personChangeActivity) {
-        this.cPi = personChangeActivity;
+        this.cYF = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         WriteImagesInfo writeImagesInfo;
         if (i == 0) {
-            Activity pageActivity = this.cPi.getPageContext().getPageActivity();
-            writeImagesInfo = this.cPi.mWriteImagesInfo;
+            Activity pageActivity = this.cYF.getPageContext().getPageActivity();
+            writeImagesInfo = this.cYF.cYj;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) pageActivity, writeImagesInfo.toJsonString(), true);
             albumActivityConfig.setRequestCode(12002);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
         } else if (i == 1) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.cPi.getPageContext().getPageActivity(), 12014)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.cYF.getPageContext().getPageActivity(), 12014)));
         }
         cVar.dismiss();
     }

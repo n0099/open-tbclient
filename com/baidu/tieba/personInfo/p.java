@@ -1,26 +1,19 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.person.ChangePortraitResponse;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends HttpMessageListener {
-    final /* synthetic */ d cWV;
+public class p implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(d dVar, int i) {
-        super(i);
-        this.cWV = dVar;
+    public p(f fVar) {
+        this.diG = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ChangePortraitResponse) || ((ChangePortraitResponse) httpResponsedMessage).getErrCode() != 0) {
-            return;
-        }
-        this.cWV.apV();
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        this.diG.did = 1;
     }
 }

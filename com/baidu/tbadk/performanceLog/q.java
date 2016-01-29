@@ -1,37 +1,29 @@
 package com.baidu.tbadk.performanceLog;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.performanceLog.o;
-import java.util.ArrayList;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.tbadk.performanceLog.p;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q extends CustomMessageListener {
-    final /* synthetic */ o azM;
+public class q extends Handler {
+    final /* synthetic */ p aAx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(o oVar, int i) {
-        super(i);
-        this.azM = oVar;
+    public q(p pVar, Looper looper) {
+        super(looper);
+        this.aAx = pVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        o.a aVar;
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        if (customResponsedMessage != null && (aVar = (o.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.azM.mId) {
-            this.azM.fV(aVar.azs);
-            this.azM.eE(aVar.azt);
-            this.azM.fW(aVar.azN);
-            arrayList = this.azM.azh;
-            if (arrayList != null) {
-                arrayList2 = this.azM.azh;
-                if (arrayList2.size() >= 20) {
-                    this.azM.Ew();
-                }
-            }
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        p.a aVar;
+        p.a aVar2;
+        this.aAx.aAv = new p.a();
+        aVar = this.aAx.aAv;
+        aVar.setSelfExecute(true);
+        aVar2 = this.aAx.aAv;
+        aVar2.execute(new String[0]);
     }
 }

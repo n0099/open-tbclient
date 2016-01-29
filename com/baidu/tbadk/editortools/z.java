@@ -9,9 +9,9 @@ public interface z extends b {
 
     void init();
 
-    void ob();
-
     void onChangeSkinType(int i);
+
+    void ow();
 
     void setEditorTools(k kVar);
 

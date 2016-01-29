@@ -3,22 +3,22 @@ package com.baidu.tieba.write.shareSDK;
 import android.view.View;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity dUL;
+    final /* synthetic */ WriteShareActivity epq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(WriteShareActivity writeShareActivity) {
-        this.dUL = writeShareActivity;
+        this.epq = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        this.dUL.aKF();
-        z = this.dUL.dUy;
+        this.epq.aTp();
+        z = this.epq.epd;
         if (z) {
-            this.dUL.setResult(-1);
+            this.epq.setResult(-1);
         }
-        com.baidu.tbadk.core.c.b.b(this.dUL.getPageContext().getPageActivity(), 200, false);
-        this.dUL.finish();
+        com.baidu.tbadk.core.c.b.b(this.epq.getPageContext().getPageActivity(), 200, false);
+        this.epq.finish();
     }
 }

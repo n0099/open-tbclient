@@ -5,20 +5,20 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel dQt;
+    final /* synthetic */ UserMuteAddAndDelModel eld;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.dQt = userMuteAddAndDelModel;
+        this.eld = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,31 +32,31 @@ public class b extends HttpMessageListener {
         String str;
         UserMuteAddAndDelModel.b bVar2;
         UserMuteAddAndDelModel.b bVar3;
-        bVar = this.dQt.aUt;
-        bVar.av(false);
+        bVar = this.eld.aWB;
+        bVar.aw(false);
         if (httpResponsedMessage instanceof UserMuteDelResponseMessage) {
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) httpResponsedMessage;
             if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                hVar3 = this.dQt.dQo;
-                hVar4 = this.dQt.dQl;
-                hVar3.c(hVar4.getResources().getString(n.j.un_mute_success));
+                hVar3 = this.eld.ekY;
+                hVar4 = this.eld.ekV;
+                hVar3.c(hVar4.getResources().getString(t.j.un_mute_success));
                 MessageManager messageManager = MessageManager.getInstance();
-                str = this.dQt.mUserId;
+                str = this.eld.mUserId;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_REMOVE_ITEM, str));
-                bVar2 = this.dQt.cWL;
+                bVar2 = this.eld.diw;
                 if (bVar2 != null) {
-                    bVar3 = this.dQt.cWL;
+                    bVar3 = this.eld.diw;
                     bVar3.a(userMuteDelResponseMessage);
                     return;
                 }
                 return;
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-            if (ax.isEmpty(muteMessage)) {
-                hVar2 = this.dQt.dQl;
-                muteMessage = hVar2.getResources().getString(n.j.un_mute_fail);
+            if (aw.isEmpty(muteMessage)) {
+                hVar2 = this.eld.ekV;
+                muteMessage = hVar2.getResources().getString(t.j.un_mute_fail);
             }
-            hVar = this.dQt.dQo;
+            hVar = this.eld.ekY;
             hVar.d(muteMessage);
         }
     }

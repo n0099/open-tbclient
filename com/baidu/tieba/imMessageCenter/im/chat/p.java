@@ -1,21 +1,35 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import android.view.View;
-import com.baidu.tieba.n;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView cdt;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(PersonalChatView personalChatView) {
-        this.cdt = personalChatView;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PersonalChatActivity personalChatActivity;
-        personalChatActivity = this.cdt.cdk;
-        personalChatActivity.showToast(n.j.add_friend_cannot_send);
+class p implements be.a {
+    @Override // com.baidu.tbadk.core.util.be.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
+            String am = com.baidu.tbadk.util.q.am(str, "userid=");
+            String am2 = com.baidu.tbadk.util.q.am(str, "username=");
+            String am3 = com.baidu.tbadk.util.q.am(str, "portrait=");
+            if (am != null && am.length() > 0) {
+                try {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(am), am2, am3, 0)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.IM_MESSAGE_CENTER_ACTIVITY_START));
+            }
+            return 1;
+        }
+        return 3;
     }
 }

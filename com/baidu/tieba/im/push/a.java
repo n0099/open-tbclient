@@ -12,7 +12,6 @@ import com.baidu.tieba.im.db.i;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.im.util.g;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,39 +21,39 @@ import java.util.concurrent.ConcurrentHashMap;
 import protobuf.NewpushGroupRepair;
 /* loaded from: classes.dex */
 public class a {
-    private static a bZC = null;
-    private final CustomMessageListener bYQ = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private Handler bZD;
-    private ConcurrentHashMap<Long, GroupMsgData> bZE;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> bZF;
-    private ConcurrentHashMap<Long, Runnable> bZG;
-    private Vector<Long> bZH;
+    private static a cdX = null;
+    private Handler cdY;
+    private ConcurrentHashMap<Long, GroupMsgData> cdZ;
+    private final CustomMessageListener cdk = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private ConcurrentHashMap<Long, NewpushGroupRepair> cea;
+    private ConcurrentHashMap<Long, Runnable> ceb;
+    private Vector<Long> cec;
     private Handler mHandler;
 
-    public static a abt() {
-        if (bZC == null) {
+    public static a aet() {
+        if (cdX == null) {
             synchronized (a.class) {
-                if (bZC == null) {
-                    bZC = new a();
+                if (cdX == null) {
+                    cdX = new a();
                 }
             }
         }
-        return bZC;
+        return cdX;
     }
 
     private a() {
         this.mHandler = null;
-        this.bZD = null;
-        this.bZE = null;
-        this.bZF = null;
-        this.bZG = null;
-        this.bZH = null;
+        this.cdY = null;
+        this.cdZ = null;
+        this.cea = null;
+        this.ceb = null;
+        this.cec = null;
         this.mHandler = new c(this, Looper.getMainLooper());
-        this.bZD = new Handler(Looper.myLooper());
-        this.bZE = new ConcurrentHashMap<>();
-        this.bZF = new ConcurrentHashMap<>();
-        this.bZG = new ConcurrentHashMap<>();
-        this.bZH = new Vector<>();
+        this.cdY = new Handler(Looper.myLooper());
+        this.cdZ = new ConcurrentHashMap<>();
+        this.cea = new ConcurrentHashMap<>();
+        this.ceb = new ConcurrentHashMap<>();
+        this.cec = new Vector<>();
         this.mHandler.sendEmptyMessage(10002);
     }
 
@@ -71,21 +70,21 @@ public class a {
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
             BdLog.e("groupId " + groupId + " userType " + groupMsgData.getGroupInfo().getUserType());
-            ImMessageCenterPojo K = i.Yr().K(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (!(K != null)) {
-                if (!this.bZH.contains(Long.valueOf(groupId))) {
+            ImMessageCenterPojo L = i.abc().L(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (!(L != null)) {
+                if (!this.cec.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
                 return;
             }
-            long sid = K.getSid();
-            long bd = g.bd(K.getPulled_msgId());
+            long sid = L.getSid();
+            long bf = com.baidu.tieba.im.util.g.bf(L.getPulled_msgId());
             BdLog.e("pojo lastSid is " + sid);
-            GroupMsgData groupMsgData3 = this.bZE.get(Long.valueOf(groupId));
+            GroupMsgData groupMsgData3 = this.cdZ.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.bZE.put(Long.valueOf(groupId), groupMsgData4);
+                this.cdZ.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -100,29 +99,29 @@ public class a {
                 }
             }
             listMessage.clear();
-            List<ChatMessage> aW = aW(groupId);
-            if (aW != null && aW.size() > 0) {
-                BdLog.e("seriesData.get(0).getSid() " + aW.get(0).getSid());
-                if (z || sid <= 0 || aW.get(0).getSid() == 1 + sid) {
-                    listMessage.addAll(aW);
+            List<ChatMessage> aX = aX(groupId);
+            if (aX != null && aX.size() > 0) {
+                BdLog.e("seriesData.get(0).getSid() " + aX.get(0).getSid());
+                if (z || sid <= 0 || aX.get(0).getSid() == 1 + sid) {
+                    listMessage.addAll(aX);
                     j = listMessage.get(listMessage.size() - 1).getSid();
-                    bd = listMessage.get(listMessage.size() - 1).getMsgId();
+                    bf = listMessage.get(listMessage.size() - 1).getMsgId();
                     if (z) {
-                        this.bZH.remove(Long.valueOf(groupId));
+                        this.cec.remove(Long.valueOf(groupId));
                     }
-                    if (this.bZH.contains(Long.valueOf(groupId))) {
-                        a(j, groupId, groupMsgData.getGroupInfo().getUserType(), bd);
+                    if (this.cec.contains(Long.valueOf(groupId))) {
+                        a(j, groupId, groupMsgData.getGroupInfo().getUserType(), bf);
                         return;
                     }
                     return;
                 }
                 BdLog.e("need repair");
-                groupMsgData2.getListMessage().addAll(aW);
+                groupMsgData2.getListMessage().addAll(aX);
             }
             j = sid;
             if (z) {
             }
-            if (this.bZH.contains(Long.valueOf(groupId))) {
+            if (this.cec.contains(Long.valueOf(groupId))) {
             }
         }
     }
@@ -133,7 +132,7 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.bZF.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.cea.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -141,13 +140,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.bZH.add(Long.valueOf(j));
-            aX(j);
+            this.cec.add(Long.valueOf(j));
+            aY(j);
         }
     }
 
-    private List<ChatMessage> aW(long j) {
-        GroupMsgData groupMsgData = this.bZE.get(Long.valueOf(j));
+    private List<ChatMessage> aX(long j) {
+        GroupMsgData groupMsgData = this.cdZ.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -175,12 +174,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.bZE.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.cdZ.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
-                aZ(j2);
-            } else if (!this.bZG.containsKey(Long.valueOf(j2))) {
+                ba(j2);
+            } else if (!this.ceb.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -188,12 +187,12 @@ public class a {
 
     private void b(long j, long j2, int i, long j3) {
         d dVar = new d(this, j2, j, i, j3);
-        this.bZD.postDelayed(dVar, e.abu().eW().eX());
-        this.bZG.put(Long.valueOf(j2), dVar);
+        this.cdY.postDelayed(dVar, e.aeu().fc().fe());
+        this.ceb.put(Long.valueOf(j2), dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aX(long j) {
+    public void aY(long j) {
         Message message = new Message();
         message.what = 10003;
         Bundle bundle = new Bundle();
@@ -202,18 +201,18 @@ public class a {
         this.mHandler.sendMessageDelayed(message, 3000L);
     }
 
-    public NewpushGroupRepair aY(long j) {
-        if (this.bZF.containsKey(Long.valueOf(j))) {
-            return this.bZF.remove(Long.valueOf(j));
+    public NewpushGroupRepair aZ(long j) {
+        if (this.cea.containsKey(Long.valueOf(j))) {
+            return this.cea.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZ(long j) {
-        Runnable remove = this.bZG.remove(Long.valueOf(j));
+    public void ba(long j) {
+        Runnable remove = this.ceb.remove(Long.valueOf(j));
         if (remove != null) {
-            this.bZD.removeCallbacks(remove);
+            this.cdY.removeCallbacks(remove);
         }
     }
 
@@ -247,20 +246,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.bZD != null) {
-            this.bZD.removeCallbacksAndMessages(null);
+        if (this.cdY != null) {
+            this.cdY.removeCallbacksAndMessages(null);
         }
-        if (this.bZG != null) {
-            for (Map.Entry<Long, Runnable> entry : this.bZG.entrySet()) {
-                aZ(entry.getKey().longValue());
+        if (this.ceb != null) {
+            for (Map.Entry<Long, Runnable> entry : this.ceb.entrySet()) {
+                ba(entry.getKey().longValue());
             }
-            this.bZG.clear();
+            this.ceb.clear();
         }
-        if (this.bZE != null) {
-            this.bZE.clear();
+        if (this.cdZ != null) {
+            this.cdZ.clear();
         }
-        if (this.bZH != null) {
-            this.bZH.clear();
+        if (this.cec != null) {
+            this.cec.clear();
         }
     }
 }

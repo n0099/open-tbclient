@@ -1,25 +1,25 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x {
-    public static void gI(String str) {
-        com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && !readThreadHistory.mD(str)) {
-            readThreadHistory.mC(str);
+public class x extends CustomMessageListener {
+    final /* synthetic */ w aQe;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(w wVar, int i) {
+        super(i);
+        this.aQe = wVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
+            return;
         }
-    }
-
-    public static boolean gJ(String str) {
-        com.baidu.tieba.tbadkCore.util.q readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        return readThreadHistory != null && readThreadHistory.mD(str);
-    }
-
-    public static String Im() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
-    }
-
-    public static String In() {
-        return "personalize_page";
+        this.aQe.a(((Long) customResponsedMessage.getData()).longValue(), false);
     }
 }

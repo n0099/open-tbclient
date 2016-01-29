@@ -14,7 +14,7 @@ public class i {
         this.url = str;
     }
 
-    public void gb(String str) {
+    public void fY(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class i {
         this.num = i;
     }
 
-    public void eK(int i) {
+    public void ff(int i) {
         this.myItem = i;
     }
 }

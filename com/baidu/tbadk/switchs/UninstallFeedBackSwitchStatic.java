@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class UninstallFeedBackSwitchStatic extends a {
     static {
-        e.gw().e(UninstallFeedBackSwitchStatic.class);
+        e.gE().e(UninstallFeedBackSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

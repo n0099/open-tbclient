@@ -1,23 +1,22 @@
 package com.baidu.tieba.account;
 
+import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 /* loaded from: classes.dex */
-class n implements com.baidu.tieba.tbadkCore.e.c {
-    final /* synthetic */ AccountRestoreActivity aIb;
+class n implements com.baidu.tieba.tbadkCore.e.b {
+    final /* synthetic */ AccountRestoreActivity aJe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(AccountRestoreActivity accountRestoreActivity) {
-        this.aIb = accountRestoreActivity;
+        this.aJe = accountRestoreActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.e.c
-    public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-        com.baidu.tieba.tbadkCore.e.a aVar;
-        com.baidu.tieba.tbadkCore.e.a aVar2;
-        aVar = this.aIb.jsBridge;
-        if (aVar != null) {
-            aVar2 = this.aIb.jsBridge;
-            return aVar2.a(str, jsPromptResult);
+    @Override // com.baidu.tieba.tbadkCore.e.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if (TextUtils.equals("AccountJsBridge", str) && TextUtils.equals("exit", str2)) {
+            jsPromptResult.confirm();
+            this.aJe.exitPage();
+            return true;
         }
         return false;
     }

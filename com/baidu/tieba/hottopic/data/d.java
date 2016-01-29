@@ -1,32 +1,83 @@
 package com.baidu.tieba.hottopic.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.u;
-import tbclient.Hottopic.TopicInfo;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.u;
+import com.baidu.tieba.card.a.q;
+import com.baidu.tieba.card.a.r;
+import com.baidu.tieba.card.a.s;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTopicRelateThread.DataRes;
+import tbclient.Hottopic.HotThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
-public class d implements u {
-    public static final BdUniqueId aQD = BdUniqueId.gen();
-    public String aQB;
-    public String bGN;
-    public String bHt;
-    public String bHu;
-    public String bHv;
-    public long postNum;
+public class d extends ah {
+    public String bKP;
+    public u bKQ;
+    public List<com.baidu.tieba.card.a.c> bfi;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return aQD;
+    public void a(HotThread hotThread) {
+        if (hotThread != null) {
+            this.bKP = hotThread.hot_title;
+            if (hotThread.thread_list != null) {
+                this.bfi = new ArrayList();
+                for (ThreadInfo threadInfo : hotThread.thread_list) {
+                    if (threadInfo != null) {
+                        ah ahVar = new ah();
+                        ahVar.a(threadInfo);
+                        r rVar = null;
+                        if (r.b(ahVar)) {
+                            rVar = new r(ahVar);
+                        } else if (s.b(ahVar)) {
+                            rVar = new s(ahVar);
+                        } else if (q.b(ahVar)) {
+                            q qVar = new q();
+                            qVar.aSc = ahVar;
+                            rVar = qVar;
+                        }
+                        if (rVar != null && rVar.isValid()) {
+                            rVar.gT("c10816");
+                            this.bfi.add(rVar);
+                        }
+                    }
+                }
+            }
+            if (hotThread.page != null) {
+                this.bKQ = new u();
+                this.bKQ.a(hotThread.page);
+            }
+        }
     }
 
-    public void a(TopicInfo topicInfo) {
-        if (topicInfo != null) {
-            this.bGN = String.valueOf(topicInfo.topic_id);
-            this.aQB = topicInfo.topic_name;
-            this.bHt = topicInfo.desc;
-            this.postNum = topicInfo.total_post_num.longValue();
-            this.bHu = topicInfo.head_photo_url;
-            this.bHv = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            if (dataRes.thread_list != null) {
+                this.bfi = new ArrayList();
+                for (ThreadInfo threadInfo : dataRes.thread_list) {
+                    if (threadInfo != null) {
+                        ah ahVar = new ah();
+                        ahVar.a(threadInfo);
+                        r rVar = null;
+                        if (r.b(ahVar)) {
+                            rVar = new r(ahVar);
+                        } else if (s.b(ahVar)) {
+                            rVar = new s(ahVar);
+                        } else if (q.b(ahVar)) {
+                            q qVar = new q();
+                            qVar.aSc = ahVar;
+                            rVar = qVar;
+                        }
+                        if (rVar != null && rVar.isValid()) {
+                            rVar.gT("c10816");
+                            this.bfi.add(rVar);
+                        }
+                    }
+                }
+            }
+            if (dataRes.page != null) {
+                this.bKQ = new u();
+                this.bKQ.a(dataRes.page);
+            }
         }
     }
 }

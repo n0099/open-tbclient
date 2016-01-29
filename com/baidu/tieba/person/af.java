@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cPi;
+    final /* synthetic */ PersonChangeActivity cYF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PersonChangeActivity personChangeActivity) {
-        this.cPi = personChangeActivity;
+        this.cYF = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,27 +17,27 @@ class af implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.cPi.cOZ.aoU().getSex();
-        i = this.cPi.mSex;
+        int sex = this.cYF.cYw.atN().getSex();
+        i = this.cYF.mSex;
         if (sex != i) {
-            this.cPi.cNE = true;
+            this.cYF.cWY = true;
         }
-        z = this.cPi.cNE;
+        z = this.cYF.cWY;
         if (!z) {
-            if (this.cPi.cOZ != null && this.cPi.cOZ.aoU().getPhotoChanged()) {
+            if (this.cYF.cYw != null && this.cYF.cYw.atN().getPhotoChanged()) {
                 Intent intent = new Intent();
-                if (this.cPi.cON.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cPi.cOZ.aoU());
+                if (this.cYF.cYi.booleanValue()) {
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cYF.cYw.atN());
                 } else {
-                    intent.putExtra("data", this.cPi.cOZ.aoU());
+                    intent.putExtra("data", this.cYF.cYw.atN());
                 }
-                this.cPi.sendUpdateMessage();
-                this.cPi.setResult(-1, intent);
+                this.cYF.atM();
+                this.cYF.setResult(-1, intent);
             }
-            this.cPi.finish();
+            this.cYF.finish();
             return;
         }
-        aVar = this.cPi.cPe;
-        aVar.tf();
+        aVar = this.cYF.cYB;
+        aVar.uj();
     }
 }

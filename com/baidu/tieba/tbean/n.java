@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnFocusChangeListener {
-    final /* synthetic */ j dKq;
+    final /* synthetic */ j eav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.dKq = jVar;
+        this.eav = jVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -17,10 +17,10 @@ public class n implements View.OnFocusChangeListener {
         TBeanEditText tBeanEditText;
         TBeanEditText tBeanEditText2;
         if (z) {
-            this.dKq.dKk = true;
-            tBeanEditText = this.dKq.dKf;
+            this.eav.eap = true;
+            tBeanEditText = this.eav.eak;
             tBeanEditText.setSelectAllOnFocus(true);
-            tBeanEditText2 = this.dKq.dKf;
+            tBeanEditText2 = this.eav.eak;
             Selection.selectAll(tBeanEditText2.getEditableText());
         }
     }

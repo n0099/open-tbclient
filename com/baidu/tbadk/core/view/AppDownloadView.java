@@ -12,15 +12,15 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AppDownloadView extends LinearLayout {
-    private DownloadData aeu;
-    public ProgressBar aev;
-    public ImageView aew;
-    public TextView aex;
+    private DownloadData aeV;
+    public ProgressBar aeW;
+    public ImageView aeX;
+    public TextView aeY;
     private final CustomMessageListener downloadListener;
 
     public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
@@ -44,17 +44,17 @@ public class AppDownloadView extends LinearLayout {
     private void init(Context context) {
         setOrientation(0);
         setGravity(16);
-        View inflate = LayoutInflater.from(context).inflate(n.h.app_download_layout, (ViewGroup) this, true);
-        this.aev = (ProgressBar) inflate.findViewById(n.g.frs_app_push_progress);
-        this.aew = (ImageView) inflate.findViewById(n.g.frs_app_push_control);
-        this.aex = (TextView) inflate.findViewById(n.g.frs_app_push_percent);
+        View inflate = LayoutInflater.from(context).inflate(t.h.app_download_layout, (ViewGroup) this, true);
+        this.aeW = (ProgressBar) inflate.findViewById(t.g.frs_app_push_progress);
+        this.aeX = (ImageView) inflate.findViewById(t.g.frs_app_push_control);
+        this.aeY = (TextView) inflate.findViewById(t.g.frs_app_push_percent);
     }
 
     public void a(BdUniqueId bdUniqueId, DownloadData downloadData) {
         if (downloadData != null) {
-            this.aeu = (DownloadData) downloadData.clone();
-            if (this.aeu != null) {
-                setTag(this.aeu);
+            this.aeV = (DownloadData) downloadData.clone();
+            if (this.aeV != null) {
+                setTag(this.aeV);
                 a(downloadData);
             }
         }
@@ -65,7 +65,7 @@ public class AppDownloadView extends LinearLayout {
             switch (downloadData.getStatus()) {
                 case 1:
                     setVisibility(0);
-                    as.c(this.aew, n.f.icon_download_play);
+                    ar.c(this.aeX, t.f.icon_download_play);
                     break;
                 case 3:
                     setVisibility(8);
@@ -78,36 +78,36 @@ public class AppDownloadView extends LinearLayout {
                     break;
                 case 7:
                     setVisibility(0);
-                    as.c(this.aew, n.f.icon_download_pause);
+                    ar.c(this.aeX, t.f.icon_download_pause);
                     break;
             }
-            int ah = com.baidu.tbadk.download.b.Bb().ah(downloadData.getId(), downloadData.getName());
+            int ah = com.baidu.tbadk.download.b.Cr().ah(downloadData.getId(), downloadData.getName());
             if (ah >= 0) {
-                cC(ah);
+                cT(ah);
             } else {
-                cC(0);
+                cT(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cC(int i) {
+    public void cT(int i) {
         int max = Math.max(0, i);
-        this.aev.setProgress(max);
-        this.aex.setText(String.valueOf(max) + "%");
+        this.aeW.setProgress(max);
+        this.aeY.setText(String.valueOf(max) + "%");
     }
 
     public static int b(DownloadData downloadData) {
-        if (com.baidu.tbadk.download.b.Bb().fa(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Cr().eZ(downloadData.getId())) {
             return 3;
         }
-        if (com.baidu.tbadk.download.b.Bb().eY(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Cr().eX(downloadData.getId())) {
             return 5;
         }
-        if (com.baidu.tbadk.download.b.Bb().eX(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Cr().eW(downloadData.getId())) {
             return 1;
         }
-        if (!com.baidu.tbadk.download.b.Bb().aj(downloadData.getId(), downloadData.getName())) {
+        if (!com.baidu.tbadk.download.b.Cr().aj(downloadData.getId(), downloadData.getName())) {
             return 6;
         }
         return 7;

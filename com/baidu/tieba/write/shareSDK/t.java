@@ -2,35 +2,35 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.write.write.cf;
+import com.baidu.tieba.write.write.cc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements cf.a {
-    final /* synthetic */ o dVe;
+public class t implements cc.a {
+    final /* synthetic */ o epJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(o oVar) {
-        this.dVe = oVar;
+        this.epJ = oVar;
     }
 
-    @Override // com.baidu.tieba.write.write.cf.a
-    public void ok(int i) {
+    @Override // com.baidu.tieba.write.write.cc.a
+    public void pF(int i) {
         WriteShareActivity writeShareActivity;
         TextView textView;
         PostPrefixData postPrefixData;
-        cf cfVar;
-        cf cfVar2;
+        cc ccVar;
+        cc ccVar2;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.dVe.dVb;
-        writeShareActivity.oj(i);
-        textView = this.dVe.dUS;
-        postPrefixData = this.dVe.mPrefixData;
+        writeShareActivity = this.epJ.epG;
+        writeShareActivity.pE(i);
+        textView = this.epJ.epx;
+        postPrefixData = this.epJ.mPrefixData;
         textView.setText(postPrefixData.getPrefixs().get(i));
-        cfVar = this.dVe.dUT;
-        cfVar.od(i);
-        this.dVe.aKN();
-        cfVar2 = this.dVe.dUT;
-        writeShareActivity2 = this.dVe.dVb;
-        com.baidu.adp.lib.h.j.a(cfVar2, writeShareActivity2.getPageContext().getPageActivity());
+        ccVar = this.epJ.epy;
+        ccVar.py(i);
+        this.epJ.aTx();
+        ccVar2 = this.epJ.epy;
+        writeShareActivity2 = this.epJ.epG;
+        com.baidu.adp.lib.h.j.a(ccVar2, writeShareActivity2.getPageContext().getPageActivity());
     }
 }

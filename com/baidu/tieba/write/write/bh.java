@@ -1,27 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bh extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity dYD;
+class bh extends CustomMessageListener {
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(WriteActivity writeActivity) {
-        this.dYD = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bh(WriteActivity writeActivity, int i) {
+        super(i);
+        this.ets = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.dYD.aub;
-        com.baidu.tbadk.core.util.n.q(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.ets.aOa();
+        }
     }
 }

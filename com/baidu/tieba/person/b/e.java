@@ -2,23 +2,30 @@ package com.baidu.tieba.person.b;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e extends x.a {
-    public int ahf;
-    public View bfI;
-    public ImageView cSG;
-    public TextView cSH;
-    public ImageView cSI;
+    public View aHm;
+    public View aOS;
+    public int ahU;
+    public TextView ddG;
+    public ImageView ddH;
+    public LinearLayout ddR;
+    public TextView ddS;
+    public TextView ddT;
 
     public e(View view) {
         super(view);
-        this.ahf = 3;
-        this.bfI = view.findViewById(n.g.friendfeed_divider);
-        this.cSG = (ImageView) view.findViewById(n.g.forum_feed_icon);
-        this.cSH = (TextView) view.findViewById(n.g.forum_feed_title);
-        this.cSI = (ImageView) view.findViewById(n.g.nav_indicator);
+        this.ahU = 3;
+        this.ddR = (LinearLayout) view;
+        this.aOS = view.findViewById(t.g.top_divider);
+        this.ddS = (TextView) view.findViewById(t.g.fans_title);
+        this.ddT = (TextView) view.findViewById(t.g.fans_num);
+        this.aHm = view.findViewById(t.g.fan_divider);
+        this.ddH = (ImageView) view.findViewById(t.g.bar_head_arrow);
+        this.ddG = (TextView) view.findViewById(t.g.fans_none_msg);
     }
 }

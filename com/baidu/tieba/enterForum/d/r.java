@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class r extends LinearLayout {
-    private ViewEventCenter aUs;
-    private View aWF;
-    private BannerView aWG;
-    private TextView aWH;
-    private View aWI;
+    private ViewEventCenter aWA;
+    private View aYT;
+    private BannerView aYU;
+    private TextView aYV;
+    private View aYW;
 
     public r(Context context) {
         this(context, null);
@@ -33,32 +33,32 @@ public class r extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aUs = viewEventCenter;
+        this.aWA = viewEventCenter;
     }
 
     public void init() {
-        LayoutInflater.from(getContext()).inflate(n.h.enter_forum_header_view, this);
+        LayoutInflater.from(getContext()).inflate(t.h.enter_forum_header_view, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.aWH = (TextView) findViewById(n.g.search_root);
-        this.aWH.setOnClickListener(new s(this));
+        this.aYV = (TextView) findViewById(t.g.search_root);
+        this.aYV.setOnClickListener(new s(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
-            if (this.aWF == null) {
-                Ld();
+            if (this.aYT == null) {
+                MV();
             }
-            com.baidu.tbadk.i.a.a(tbPageContext, this.aWF);
-            this.aWF.setVisibility(0);
-        } else if (this.aWF != null) {
-            this.aWF.setVisibility(8);
+            com.baidu.tbadk.i.a.a(tbPageContext, this.aYT);
+            this.aYT.setVisibility(0);
+        } else if (this.aYT != null) {
+            this.aYT.setVisibility(8);
         }
     }
 
-    public void Ld() {
-        this.aWF = ((ViewStub) findViewById(n.g.viewstub_guide)).inflate();
-        View findViewById = this.aWF.findViewById(n.g.enterforum_guide_find_interest);
+    public void MV() {
+        this.aYT = ((ViewStub) findViewById(t.g.viewstub_guide)).inflate();
+        View findViewById = this.aYT.findViewById(t.g.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));
         if (!TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
             findViewById.setVisibility(8);
@@ -69,28 +69,28 @@ public class r extends LinearLayout {
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        if (this.aWG != null) {
-            this.aWG.ot();
+        if (this.aYU != null) {
+            this.aYU.oO();
         }
-        if (this.aWI != null) {
-            com.baidu.tbadk.i.a.a(tbPageContext, this.aWI);
+        if (this.aYW != null) {
+            com.baidu.tbadk.i.a.a(tbPageContext, this.aYW);
         }
     }
 
     public void setSearchHint(String str) {
-        this.aWH.setText(UtilHelper.getFixedText(str, 20));
+        this.aYV.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public View getBannerView() {
-        return this.aWI;
+        return this.aYW;
     }
 
-    public void E(View view) {
+    public void S(View view) {
         if (view != null) {
-            if (this.aWI != null) {
-                removeView(this.aWI);
+            if (this.aYW != null) {
+                removeView(this.aYW);
             }
-            this.aWI = view;
+            this.aYW = view;
             addView(view, 0);
         }
     }

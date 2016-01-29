@@ -16,7 +16,7 @@ class a implements c {
     }
 
     @Override // android.support.v4.media.c
-    public void j(int i) {
+    public void m(int i) {
         this.lI.lC.onAudioFocusChange(i);
     }
 }

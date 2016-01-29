@@ -13,13 +13,13 @@ public class c implements a.InterfaceC0007a {
     }
 
     @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0007a
-    public void hz() {
+    public void hH() {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.wj = true;
-        if (this.this$0.wh) {
-            com.baidu.adp.lib.stats.b.i.ip().iw();
+        this.this$0.ws = true;
+        if (this.this$0.wr) {
+            com.baidu.adp.lib.stats.b.i.iz().iG();
         }
         handler = a.mHandler;
         handler.removeMessages(2);

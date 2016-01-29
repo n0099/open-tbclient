@@ -16,11 +16,11 @@ class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                a.ajA().destroy();
+                a.any().destroy();
             } else if (TbadkCoreApplication.isLogin()) {
-                a.ajA().start();
+                a.any().start();
             } else {
-                a.ajA().destroy();
+                a.any().destroy();
             }
         }
     }

@@ -1,22 +1,25 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements View.OnTouchListener {
-    final /* synthetic */ FrsHeaderView bow;
+public class o implements a.b {
+    final /* synthetic */ FrsHeaderView brq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsHeaderView frsHeaderView) {
-        this.bow = frsHeaderView;
+        this.brq = frsHeaderView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 4) {
-            com.baidu.adp.lib.h.j.a(this.bow.bnN);
-            this.bow.beB.bda = false;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.brq.MR.getPageActivity(), this.brq.mMemberType, "exp_acce", 2);
+        memberPayActivityConfig.setSceneId("4004001000");
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
+        aVar.dismiss();
     }
 }

@@ -1,17 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dh extends CustomMessageListener {
+public class dh implements View.OnClickListener {
+    final /* synthetic */ de cPG;
+    private final /* synthetic */ String cPH;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(int i) {
-        super(i);
+    public dh(de deVar, String str) {
+        this.cPG = deVar;
+        this.cPH = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dd.amq().a(0, customResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!StringUtils.isNull(this.cPH) && com.baidu.adp.lib.util.k.jq()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.C(this.cPG.cNL.getActivity(), this.cPH);
+        }
     }
 }

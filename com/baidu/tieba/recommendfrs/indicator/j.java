@@ -1,33 +1,43 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.baidu.tieba.recommendfrs.indicator.h;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ h dpQ;
+    final /* synthetic */ i dFB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar) {
-        this.dpQ = hVar;
+    public j(i iVar) {
+        this.dFB = iVar;
     }
 
-    @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        h.a aVar;
-        ViewGroup viewGroup;
-        View view;
-        h.a aVar2;
-        this.dpQ.atU = false;
-        aVar = this.dpQ.dpO;
-        if (aVar != null) {
-            aVar2 = this.dpQ.dpO;
-            aVar2.ayG();
+    @Override // com.baidu.adp.lib.h.d
+    public void b(Animation animation) {
+        TextView textView;
+        Animation animation2;
+        Animation animation3;
+        TextView textView2;
+        TextView textView3;
+        TextView textView4;
+        TextView textView5;
+        textView = this.dFB.dFv;
+        if (textView != null) {
+            animation2 = this.dFB.dFy;
+            if (animation == animation2) {
+                textView4 = this.dFB.dFv;
+                textView4.setVisibility(0);
+                textView5 = this.dFB.dFv;
+                textView5.setClickable(true);
+                return;
+            }
+            animation3 = this.dFB.dFz;
+            if (animation == animation3) {
+                textView2 = this.dFB.dFv;
+                textView2.setVisibility(8);
+                textView3 = this.dFB.dFv;
+                textView3.setClickable(false);
+            }
         }
-        viewGroup = this.dpQ.dpN;
-        view = this.dpQ.rootView;
-        viewGroup.removeView(view);
     }
 }

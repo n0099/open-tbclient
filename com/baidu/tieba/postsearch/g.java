@@ -6,11 +6,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements TextWatcher {
-    final /* synthetic */ a djJ;
+    final /* synthetic */ a dxD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.djJ = aVar;
+        this.dxD = aVar;
     }
 
     @Override // android.text.TextWatcher
@@ -27,15 +27,15 @@ public class g implements TextWatcher {
         TextView textView;
         TextView textView2;
         String editable2 = editable.toString();
-        postSearchActivity = this.djJ.djG;
-        postSearchActivity.cpN = editable2;
+        postSearchActivity = this.dxD.dxA;
+        postSearchActivity.cws = editable2;
         if (editable2.trim().length() != 0) {
-            textView = this.djJ.cps;
+            textView = this.dxD.cvY;
             textView.setVisibility(0);
             return;
         }
-        this.djJ.awo();
-        textView2 = this.djJ.cps;
+        this.dxD.aCJ();
+        textView2 = this.dxD.cvY;
         textView2.setVisibility(8);
     }
 }

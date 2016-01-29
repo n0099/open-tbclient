@@ -10,17 +10,17 @@ import android.widget.ListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private com.baidu.adp.lib.f.b<TbImageView> agI;
-    private a agJ;
-    private LinearLayout.LayoutParams agK;
-    private boolean agL;
-    private int agM;
-    private boolean agN;
-    com.baidu.tbadk.imageManager.b agO;
+    private boolean ahA;
+    private int ahB;
+    private boolean ahC;
+    com.baidu.tbadk.imageManager.b ahD;
+    private com.baidu.adp.lib.f.b<TbImageView> ahx;
+    private a ahy;
+    private LinearLayout.LayoutParams ahz;
     private Context mContext;
     private int mIconWidth;
 
@@ -28,30 +28,30 @@ public class UserIconBox extends LinearLayout {
     public interface b {
         ListView getListView();
 
-        int vU();
+        int xi();
 
-        com.baidu.adp.lib.f.b<TbImageView> vV();
+        com.baidu.adp.lib.f.b<TbImageView> xj();
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.agL = z;
+        this.ahA = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.agI = null;
-        this.agJ = null;
-        this.agL = true;
-        this.agO = new z(this);
+        this.ahx = null;
+        this.ahy = null;
+        this.ahA = true;
+        this.ahD = new z(this);
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.agI = null;
-        this.agJ = null;
-        this.agL = true;
-        this.agO = new z(this);
+        this.ahx = null;
+        this.ahy = null;
+        this.ahA = true;
+        this.ahD = new z(this);
         init(context);
     }
 
@@ -61,53 +61,77 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.agI = bVar.vV();
-            if (bVar.getListView() != null && this.agJ == null) {
-                this.agJ = new a(bVar.vU());
-                bVar.getListView().setRecyclerListener(this.agJ);
+            this.ahx = bVar.xj();
+            if (bVar.getListView() != null && this.ahy == null) {
+                this.ahy = new a(bVar.xi());
+                bVar.getListView().setRecyclerListener(this.ahy);
             }
         }
         setOnHierarchyChangeListener(new ab(this));
     }
 
-    private LinearLayout.LayoutParams q(int i, int i2, int i3) {
-        this.agK = new LinearLayout.LayoutParams(i, i2);
-        this.agK.leftMargin = i3;
-        return this.agK;
+    private LinearLayout.LayoutParams p(int i, int i2, int i3) {
+        this.ahz = new LinearLayout.LayoutParams(i, i2);
+        this.ahz.leftMargin = i3;
+        return this.ahz;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
+        TbImageView tbImageView;
+        if (list == null) {
+            setVisibility(8);
+            return;
+        }
+        int min = Math.min(i, com.baidu.tbadk.core.util.x.o(list));
+        if (min == 1 && TextUtils.isEmpty(list.get(0).getIcon())) {
+            setVisibility(8);
+            return;
+        }
         this.mIconWidth = i2;
-        this.agM = i4;
-        this.agN = z;
-        removeAllViews();
+        this.ahB = i4;
+        this.ahC = z;
         this.mIconWidth = i2;
-        if (list == null || list.size() != 1 || !TextUtils.isEmpty(list.get(0).getIcon())) {
-            if (list != null && list.size() > 0) {
-                LinearLayout.LayoutParams q = q(i2, i3, i4);
-                LinearLayout.LayoutParams q2 = q(i2, i3, 0);
-                setVisibility(0);
-                for (int i5 = 0; i5 < i && i5 < list.size(); i5++) {
-                    TbImageView ai = ai(this.mContext);
-                    if (ai != null) {
-                        ai.setDefaultResource(n.f.icon_moren);
-                        if (i5 == 0 && z) {
-                            ai.setLayoutParams(q2);
-                        } else {
-                            ai.setLayoutParams(q);
-                        }
-                        ai.setTag(list.get(i5).getIcon());
-                        ai.setClickable(false);
-                        ai.setAutoChangeStyle(this.agL);
-                        ai.a(list.get(i5).getIcon(), 21, i2, i3, false);
-                        addView(ai);
-                        ai.invalidate();
+        if (!dj(min)) {
+            setVisibility(8);
+        } else if (min > 0) {
+            setVisibility(0);
+            for (int i5 = 0; i5 < min; i5++) {
+                View childAt = getChildAt(i5);
+                if ((childAt instanceof TbImageView) && (tbImageView = (TbImageView) childAt) != null) {
+                    tbImageView.setDefaultResource(t.f.icon_moren);
+                    if (i5 == 0 && z) {
+                        tbImageView.setLayoutParams(p(i2, i3, 0));
+                    } else {
+                        tbImageView.setLayoutParams(p(i2, i3, i4));
                     }
+                    tbImageView.setTag(list.get(i5).getIcon());
+                    tbImageView.setClickable(false);
+                    tbImageView.setAutoChangeStyle(this.ahA);
+                    tbImageView.a(list.get(i5).getIcon(), 21, i2, i3, false);
                 }
-                return;
             }
+        } else {
             setVisibility(8);
         }
+    }
+
+    private boolean dj(int i) {
+        if (i <= 0) {
+            return false;
+        }
+        int childCount = getChildCount();
+        if (i == childCount) {
+            return true;
+        }
+        int i2 = i - childCount;
+        if (i2 > 0) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                addView(ai(this.mContext));
+            }
+        } else {
+            removeViews(i, Math.abs(i2));
+        }
+        return true;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4) {
@@ -118,15 +142,16 @@ public class UserIconBox extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         int measuredWidth = getMeasuredWidth();
+        int childCount = getChildCount();
         boolean z2 = false;
         int i5 = 0;
-        for (int i6 = 0; i6 < getChildCount(); i6++) {
+        for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             if (!z2) {
-                if (i6 == 0 && this.agN) {
+                if (i6 == 0 && this.ahC) {
                     i5 += this.mIconWidth;
                 } else {
-                    i5 += this.mIconWidth + this.agM;
+                    i5 += this.mIconWidth + this.ahB;
                 }
                 if (i5 > measuredWidth) {
                     z2 = true;
@@ -138,7 +163,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void cR(int i) {
+    public void dk(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -150,8 +175,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView ai(Context context) {
         TbImageView tbImageView = null;
-        if (this.agI != null) {
-            tbImageView = this.agI.hb();
+        if (this.ahx != null) {
+            tbImageView = this.ahx.hj();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);
@@ -159,7 +184,7 @@ public class UserIconBox extends LinearLayout {
         return tbImageView;
     }
 
-    public static com.baidu.adp.lib.f.b<TbImageView> g(Context context, int i) {
+    public static com.baidu.adp.lib.f.b<TbImageView> e(Context context, int i) {
         return new com.baidu.adp.lib.f.b<>(new ac(context), i, 0);
     }
 

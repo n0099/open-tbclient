@@ -2,14 +2,14 @@ package com.baidu.tieba.pb.chosen;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cBV;
+    final /* synthetic */ PbChosenActivity cIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbChosenActivity pbChosenActivity) {
-        this.cBV = pbChosenActivity;
+        this.cIA = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,29 +23,29 @@ class p implements View.OnClickListener {
         com.baidu.tieba.pb.chosen.net.a aVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
-        aVar = this.cBV.chosenData;
+        aVar = this.cIA.chosenData;
         if (aVar != null) {
-            aVar3 = this.cBV.chosenData;
+            aVar3 = this.cIA.chosenData;
             if (aVar3.getThreadInfo() != null) {
-                av avVar = new av("pb_new_share");
-                aVar4 = this.cBV.chosenData;
-                av r = avVar.r("obj_source", aVar4.getThreadInfo().source.intValue());
-                aVar5 = this.cBV.chosenData;
+                au auVar = new au("pb_new_share");
+                aVar4 = this.cIA.chosenData;
+                au r = auVar.r("obj_source", aVar4.getThreadInfo().source.intValue());
+                aVar5 = this.cIA.chosenData;
                 TiebaStatic.log(r.aa("abtest", aVar5.getThreadInfo().abtest));
             }
         }
-        if (this.cBV.checkUpIsLogin()) {
-            i = this.cBV.from;
+        if (this.cIA.checkUpIsLogin()) {
+            i = this.cIA.from;
             if (i == 2) {
                 TiebaStatic.log("c10148");
             }
-            tVar = this.cBV.cBH;
+            tVar = this.cIA.cIn;
             if (tVar == null) {
-                this.cBV.cBH = new t(this.cBV);
+                this.cIA.cIn = new t(this.cIA);
             }
-            tVar2 = this.cBV.cBH;
-            aVar2 = this.cBV.chosenData;
-            str = this.cBV.shareUrl;
+            tVar2 = this.cIA.cIn;
+            aVar2 = this.cIA.chosenData;
+            str = this.cIA.shareUrl;
             tVar2.a(aVar2, str);
         }
     }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends CustomMessageListener {
-    final /* synthetic */ t dkk;
+    final /* synthetic */ t dyf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(t tVar, int i) {
         super(i);
-        this.dkk = tVar;
+        this.dyf = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class v extends CustomMessageListener {
         Object data;
         PostSearchActivity postSearchActivity;
         if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-            this.dkk.dkh = (ArrayList) data;
-            postSearchActivity = this.dkk.djG;
-            postSearchActivity.awp();
+            this.dyf.dyc = (ArrayList) data;
+            postSearchActivity = this.dyf.dxA;
+            postSearchActivity.aCK();
         }
     }
 }

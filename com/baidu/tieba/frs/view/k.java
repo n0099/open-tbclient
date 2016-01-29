@@ -1,21 +1,45 @@
 package com.baidu.tieba.frs.view;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.frs.ck;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView bow;
+public class k {
+    private View MQ;
+    private GoodGridView brn;
+    private ImageView bro;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(FrsHeaderView frsHeaderView) {
-        this.bow = frsHeaderView;
+    public k(Context context) {
+        this.MQ = null;
+        this.brn = null;
+        this.bro = null;
+        this.MQ = LayoutInflater.from(context).inflate(t.h.dialog_good, (ViewGroup) null);
+        this.brn = (GoodGridView) this.MQ.findViewById(t.g.good_gridview);
+        this.bro = (ImageView) this.MQ.findViewById(t.g.divider_line);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(this.bow.mContext.getContext(), this.bow.mForumId, ForumDetailActivityConfig.FromType.FRS)));
+    public void a(ck ckVar) {
+        this.brn.setAdapter((ListAdapter) ckVar);
+    }
+
+    public void c(AdapterView.OnItemClickListener onItemClickListener) {
+        this.brn.setOnItemClickListener(onItemClickListener);
+    }
+
+    public View getView() {
+        return this.MQ;
+    }
+
+    public void changeSkinType(int i) {
+        ar.l(this.brn, t.d.cp_bg_line_d);
+        ar.k(this.bro, t.d.frs_goodheader_line_end);
     }
 }

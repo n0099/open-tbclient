@@ -1,37 +1,55 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
-public class s extends b implements t {
-    public static final BdUniqueId aQI = BdUniqueId.gen();
-    public boolean aQE;
-    public long aQJ;
-    public String aQK;
-    public String aQL;
-    public String aQM;
-    public String aQN;
-    public String aQO;
-    public long aQP;
-    public String aQQ;
-    public String userName;
+public class s extends c {
+    public ah aSu;
+    public static final BdUniqueId aSz = BdUniqueId.gen();
+    public static String aSA = "";
+    public static String aSB = "";
+    public static String aSC = "";
+    public static String aSD = "";
+    public static String aSE = "";
+    public boolean aSt = false;
+    public boolean aSF = true;
+
+    public s(ah ahVar) {
+        this.aSu = ahVar;
+    }
+
+    public static boolean b(ah ahVar) {
+        return (ahVar == null || ahVar.tz() == null) ? false : true;
+    }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aQI;
+        return aSz;
     }
 
-    @Override // com.baidu.tieba.card.a.t
-    public int getPosition() {
-        return (int) this.aQP;
+    @Override // com.baidu.tieba.card.a.c
+    public ah Ki() {
+        return this.aSu;
     }
 
-    @Override // com.baidu.tieba.card.a.t
-    public boolean IM() {
-        return false;
+    public au Kt() {
+        return gU(aSD);
     }
 
-    @Override // com.baidu.tieba.card.a.t
-    public void bO(boolean z) {
-        this.aQE = z;
+    public au Ku() {
+        return gU(aSE);
+    }
+
+    public au Kv() {
+        return gU(aSB);
+    }
+
+    public au Kw() {
+        return gU(aSA);
+    }
+
+    public au KE() {
+        return gU(aSC);
     }
 }

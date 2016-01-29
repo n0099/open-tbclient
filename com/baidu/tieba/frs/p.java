@@ -1,35 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.adkiller.SubmitCloseNetMessage;
 /* loaded from: classes.dex */
-class p extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bed;
+class p implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bgz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bed = frsActivity;
+    public p(FrsActivity frsActivity) {
+        this.bgz = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001124) {
-                if (customResponsedMessage.getCmd() != 2001122) {
-                    return;
-                }
-                this.bed.f(customResponsedMessage);
-                return;
-            }
-            this.bed.e(customResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.widget.ListView.u aG = this.bgz.bfD.Qi().aG(((Integer) view.getTag()).intValue());
+        if (aG instanceof com.baidu.tbadk.core.data.c) {
+            SubmitCloseNetMessage submitCloseNetMessage = new SubmitCloseNetMessage();
+            submitCloseNetMessage.setKillTag(((com.baidu.tbadk.core.data.c) aG).UM);
+            submitCloseNetMessage.setType(2);
+            this.bgz.sendMessage(submitCloseNetMessage);
         }
     }
 }

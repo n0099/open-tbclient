@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class b {
     public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         d dVar = new d();
-        dVar.e(IntentConfig.CMD, Integer.valueOf(i));
+        dVar.b(IntentConfig.CMD, Integer.valueOf(i));
         if (!TextUtils.isEmpty(str2)) {
-            dVar.q("action", str2);
+            dVar.r("action", str2);
         }
-        dVar.q("errNo", String.valueOf(i2));
+        dVar.r("errNo", String.valueOf(i2));
         if (!TextUtils.isEmpty(str3) && i2 != 0) {
-            dVar.q("errMsg", str3);
+            dVar.r("errMsg", str3);
         }
         if (objArr != null && objArr.length > 0) {
-            dVar.e(objArr);
+            dVar.b(objArr);
         }
         if (i2 == 0) {
-            com.baidu.adp.lib.stats.a.hl().a(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.ht().a(str, j, (String) null, dVar);
         } else {
-            com.baidu.adp.lib.stats.a.hl().b(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.ht().b(str, j, (String) null, dVar);
         }
     }
 }

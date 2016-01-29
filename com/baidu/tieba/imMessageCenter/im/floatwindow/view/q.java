@@ -4,19 +4,19 @@ import android.os.Handler;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class q extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FloatingPersonalChatActivity cfW;
+    final /* synthetic */ FloatingPersonalChatActivity ckw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(FloatingPersonalChatActivity floatingPersonalChatActivity, int i, boolean z) {
         super(i, z);
-        this.cfW = floatingPersonalChatActivity;
+        this.ckw = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ class q extends com.baidu.adp.framework.listener.e {
         FloatingPersonalChatView floatingPersonalChatView;
         com.baidu.tbadk.coreExtra.relationship.b bVar2;
         com.baidu.tbadk.coreExtra.relationship.b bVar3;
-        long jd;
+        long jf;
         long j;
         String str;
         com.baidu.tbadk.coreExtra.relationship.b bVar4;
@@ -36,41 +36,41 @@ class q extends com.baidu.adp.framework.listener.e {
         long j2;
         MsglistModel msglistModel2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.cfW.ccX = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.cfW.ccX;
+            this.ckw.chw = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.ckw.chw;
             if (bVar != null) {
                 UserData userData = null;
-                msglistModel = this.cfW.mListModel;
+                msglistModel = this.ckw.bPK;
                 if (msglistModel instanceof PersonalMsglistModel) {
-                    msglistModel2 = this.cfW.mListModel;
+                    msglistModel2 = this.ckw.bPK;
                     userData = ((PersonalMsglistModel) msglistModel2).getUser();
                 }
                 if (userData == null) {
                     return;
                 }
-                floatingPersonalChatView = this.cfW.cfU;
+                floatingPersonalChatView = this.ckw.cku;
                 String userName = userData.getUserName();
-                bVar2 = this.cfW.ccX;
+                bVar2 = this.ckw.chw;
                 floatingPersonalChatView.a(userName, bVar2);
-                FloatingPersonalChatActivity floatingPersonalChatActivity = this.cfW;
-                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.cfW;
-                bVar3 = this.cfW.ccX;
-                jd = floatingPersonalChatActivity2.jd(ax.r(bVar3.getTime()));
-                floatingPersonalChatActivity.ccW = jd;
-                j = this.cfW.ccW;
+                FloatingPersonalChatActivity floatingPersonalChatActivity = this.ckw;
+                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.ckw;
+                bVar3 = this.ckw.chw;
+                jf = floatingPersonalChatActivity2.jf(aw.s(bVar3.getTime()));
+                floatingPersonalChatActivity.chv = jf;
+                j = this.ckw.chv;
                 if (j != 0) {
-                    handler = this.cfW.mHandler;
-                    runnable = this.cfW.cdb;
-                    j2 = this.cfW.ccW;
+                    handler = this.ckw.mHandler;
+                    runnable = this.ckw.chA;
+                    j2 = this.ckw.chv;
                     handler.postDelayed(runnable, j2);
                 }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e adB = FloatingPersonalChatActivityStatic.adB();
-                str = this.cfW.ccY;
+                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e agK = FloatingPersonalChatActivityStatic.agK();
+                str = this.ckw.chx;
                 String str2 = String.valueOf(str) + "&" + userData.getUserId();
-                bVar4 = this.cfW.ccX;
-                adB.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                bVar4 = this.ckw.chw;
+                agK.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().pK();
+            TbadkCoreApplication.m411getInst().getAlarmManager().qd();
         }
     }
 }

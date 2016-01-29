@@ -9,6 +9,7 @@ import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
+import tbclient.UcCard;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
@@ -20,6 +21,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
+    private UcCard ucCard;
     private User user;
     private UserGodInfo userGodInfo;
 
@@ -59,6 +61,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
         return this.post_list;
     }
 
+    public UcCard getUcCard() {
+        return this.ucCard;
+    }
+
+    public void setUcCard(UcCard ucCard) {
+        this.ucCard = ucCard;
+    }
+
     public boolean isSelf() {
         return this.isSelf;
     }
@@ -83,13 +93,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
             this.anti_stat = profileResIdl.data.anti_stat;
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
+            this.ucCard = profileResIdl.data.uc_card;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> P = com.baidu.tbadk.core.b.a.tc().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> P = com.baidu.tbadk.core.b.a.ug().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             P.f(PROFILE_CACHE_KEY, bArr);
         }

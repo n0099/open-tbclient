@@ -1,68 +1,35 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
-import java.util.LinkedList;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dz extends bp<ea, eb> {
-    private final LinkedList<com.baidu.tbadk.f.f> biv;
-    private final LinkedList<RelativeLayout> biw;
+public class dz implements View.OnClickListener {
+    final /* synthetic */ dx blc;
+    private final /* synthetic */ com.baidu.tbadk.core.data.y bld;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dz(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.biv = new LinkedList<>();
-        this.biw = new LinkedList<>();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dz(dx dxVar, com.baidu.tbadk.core.data.y yVar) {
+        this.blc = dxVar;
+        this.bld = yVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
-    public eb a(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
-        relativeLayout.setLayoutParams(new AbsListView.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(n.e.ds90)));
-        relativeLayout.setGravity(17);
-        com.baidu.tbadk.f.f fVar = new com.baidu.tbadk.f.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(n.e.ds140));
-        fVar.v(relativeLayout);
-        this.biv.add(fVar);
-        this.biw.add(relativeLayout);
-        eb ebVar = new eb(relativeLayout);
-        ebVar.biy = fVar;
-        return ebVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bp, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ea eaVar, eb ebVar) {
-        if (ebVar != null && ebVar.biy != null) {
-            ebVar.biy.tr();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        com.baidu.tbadk.core.data.aa sE = this.bld.sE();
+        if (com.baidu.adp.lib.util.i.iZ()) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.blc.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(sE.getUserId()), sE.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            return;
         }
-        return view;
-    }
-
-    @Override // com.baidu.tieba.frs.bp
-    public void release() {
-        super.release();
-        if (this.biv.size() != 0 && this.biw.size() == this.biv.size()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.biv.size()) {
-                    break;
-                }
-                this.biv.get(i2).u(this.biw.get(i2));
-                i = i2 + 1;
-            }
-        }
-        this.biv.clear();
-        this.biw.clear();
+        this.blc.bdK.showToast(t.j.im_error_default);
     }
 }

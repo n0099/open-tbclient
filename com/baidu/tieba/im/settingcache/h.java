@@ -7,26 +7,26 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.n;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h cbf = new h();
+    private static h cfF = new h();
 
     private h() {
     }
 
-    public static h abN() {
-        return cbf;
+    public static h aeT() {
+        return cfF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: aM */
-    public OfficialSettingItemData aJ(String str, String str2) {
+    /* renamed from: aR */
+    public OfficialSettingItemData aO(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.caX) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.caX.get(str3);
+        synchronized (this.cfx) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.cfx.get(str3);
             officialSettingItemData = (aVar == null || !(aVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) aVar;
         }
         if (officialSettingItemData == null) {
@@ -34,7 +34,7 @@ public class h extends a {
             officialSettingItemData2.setMyUid(str);
             officialSettingItemData2.setToUid(str2);
             officialSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.k.jg()) {
+            if (com.baidu.adp.lib.util.k.jp()) {
                 a(officialSettingItemData2, null);
                 return officialSettingItemData2;
             }
@@ -44,23 +44,23 @@ public class h extends a {
         return officialSettingItemData;
     }
 
-    public void Yh() {
+    public void aaS() {
         super.l(OfficialSettingItemData.class);
     }
 
     public void b(String str, String str2, UserData userData) {
-        OfficialSettingItemData aJ;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aJ = aJ(str, str2)) != null) {
-            aJ.setToPortrait(userData.getPortrait());
-            aJ.setToName(userData.getUserName());
-            a(aJ);
+        OfficialSettingItemData aO;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aO = aO(str, str2)) != null) {
+            aO.setToPortrait(userData.getPortrait());
+            aO.setToName(userData.getUserName());
+            a(aO);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> abK() {
-        return com.baidu.tbadk.core.b.a.tc().cC("tb.im_official_chat_setting");
+    public o<String> aeQ() {
+        return com.baidu.tbadk.core.b.a.ug().cB("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +75,13 @@ public class h extends a {
                 }
                 return;
             }
-            o<String> abK = abK();
+            o<String> aeQ = aeQ();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.caX) {
-                this.caX.put(str, officialSettingItemData);
+            synchronized (this.cfx) {
+                this.cfx.put(str, officialSettingItemData);
             }
-            abK.f(str, jsonStrWithObject);
+            aeQ.f(str, jsonStrWithObject);
         }
     }
 
@@ -98,8 +98,8 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.caX) {
-                this.caX.put(str, officialSettingItemData);
+            synchronized (this.cfx) {
+                this.cfx.put(str, officialSettingItemData);
             }
             n.b(new i(this, officialSettingItemData, str), dVar);
         }

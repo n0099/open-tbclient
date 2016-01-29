@@ -7,8 +7,6 @@ public interface ak extends com.baidu.adp.lib.voice.j {
 
     void showRecordCancel();
 
-    void showRecordTooShort();
-
     void startRecordVoice();
 
     void stopRecordVoice();

@@ -4,24 +4,24 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.base.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
 import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    private static g dnu;
+    private static g dCx;
 
-    public static final g axK() {
-        if (dnu != null) {
-            return dnu;
+    public static final g aEH() {
+        if (dCx != null) {
+            return dCx;
         }
         synchronized (g.class) {
-            if (dnu == null) {
-                dnu = new g();
+            if (dCx == null) {
+                dCx = new g();
             }
         }
-        return dnu;
+        return dCx;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,9 +30,9 @@ public class g implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof BaseAppViewHolder) {
                 q appData = ((BaseAppViewHolder) tag).getAppData();
-                if (!ax.isEmpty(appData.aFf().url)) {
+                if (!aw.isEmpty(appData.aMl().url)) {
                     a(view.getContext(), appData);
-                    bf.vn().a((TbPageContext) l.C(view.getContext()), new String[]{appData.aFf().url}, true);
+                    be.wt().a((TbPageContext) l.C(view.getContext()), new String[]{appData.aMl().url}, true);
                 }
             }
         }
@@ -40,9 +40,9 @@ public class g implements View.OnClickListener {
 
     private void a(Context context, q qVar) {
         if (qVar != null) {
-            com.baidu.tbadk.distribute.a.AV().a(context, qVar.aFk(), "btn_click", "pb", qVar.dHa, qVar.threadId);
-            com.baidu.tbadk.distribute.a.AV().a(qVar.aFk(), qVar.dHa, qVar.threadId, "PB", "click", qVar.pageNumber);
-            com.baidu.tieba.recapp.report.b.axN().a(com.baidu.tieba.recapp.report.e.a(qVar, "click"));
+            com.baidu.tbadk.distribute.a.Cl().a(context, qVar.aMq(), "btn_click", "pb", qVar.dWW, qVar.threadId);
+            com.baidu.tbadk.distribute.a.Cl().a(qVar.aMq(), qVar.dWW, qVar.threadId, "PB", "click", qVar.pageNumber);
+            com.baidu.tieba.recapp.report.b.aEK().a(com.baidu.tieba.recapp.report.e.a(qVar, "click"));
         }
     }
 }

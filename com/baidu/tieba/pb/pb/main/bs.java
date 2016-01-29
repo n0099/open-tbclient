@@ -1,20 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bs implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-            } else {
-                customMessage.getData().startActivity(PbActivity.class);
+public class bs implements a.b {
+    final /* synthetic */ bo cNE;
+    private final /* synthetic */ PbLotteryHttpResponseMessage cNF;
+    private final /* synthetic */ String cfq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bs(bo boVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage, String str) {
+        this.cNE = boVar;
+        this.cNF = pbLotteryHttpResponseMessage;
+        this.cfq = str;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        PbActivity pbActivity;
+        cm cmVar;
+        PbActivity pbActivity2;
+        cm cmVar2;
+        PbActivity pbActivity3;
+        cm cmVar3;
+        PbActivity pbActivity4;
+        cm cmVar4;
+        PbActivity pbActivity5;
+        PbActivity pbActivity6;
+        if (this.cNF.getOrginalMessage() instanceof PbLotteryRequestMessage) {
+            pbActivity5 = this.cNE.cNq;
+            pbActivity5.showProgressBar(true, 0, 0);
+            PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) this.cNF.getOrginalMessage();
+            PbLotteryRequestMessage pbLotteryRequestMessage2 = new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), pbLotteryRequestMessage.getForumId(), pbLotteryRequestMessage.getThreadId(), 0, pbLotteryRequestMessage.getActivityId(), pbLotteryRequestMessage.getAwardActId(), pbLotteryRequestMessage.getComponentId());
+            pbActivity6 = this.cNE.cNq;
+            pbActivity6.sendMessage(pbLotteryRequestMessage2);
+        }
+        aVar.dismiss();
+        pbActivity = this.cNE.cNq;
+        cmVar = pbActivity.cMF;
+        if (cmVar != null) {
+            pbActivity2 = this.cNE.cNq;
+            cmVar2 = pbActivity2.cMF;
+            if (cmVar2.getPbData() != null) {
+                com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10504");
+                pbActivity3 = this.cNE.cNq;
+                cmVar3 = pbActivity3.cMF;
+                com.baidu.tbadk.core.util.au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cmVar3.getPbData().getForumId());
+                pbActivity4 = this.cNE.cNq;
+                cmVar4 = pbActivity4.cMF;
+                TiebaStatic.log(aa.aa("tid", cmVar4.getPbData().getThreadId()).aa("uid", this.cfq).aa("obj_locate", "1"));
             }
         }
-        return null;
     }
 }

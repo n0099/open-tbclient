@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c Ym;
-    private final /* synthetic */ TextView Yn;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int YA;
+    private final /* synthetic */ TextView YB;
+    final /* synthetic */ c Yz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, int i, TextView textView) {
-        this.Ym = cVar;
-        this.val$position = i;
-        this.Yn = textView;
+        this.Yz = cVar;
+        this.YA = i;
+        this.YB = textView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         c.b bVar;
-        bVar = this.Ym.Yf;
-        bVar.itemClick(this.Ym, this.val$position, this.Yn);
+        bVar = this.Yz.Ys;
+        bVar.a(this.Yz, this.YA, this.YB);
     }
 }

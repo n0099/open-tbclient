@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import android.os.Build;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a {
     public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
         if (TbadkCoreApplication.m411getInst().appResponseToCmd(i)) {
             return true;
         }
-        c(baseFragmentActivity);
+        f(baseFragmentActivity);
         return false;
     }
 
@@ -18,16 +18,16 @@ public class a {
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(cls)) {
             return true;
         }
-        c(baseFragmentActivity);
+        f(baseFragmentActivity);
         return false;
     }
 
-    private static void c(BaseFragmentActivity baseFragmentActivity) {
+    private static void f(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
-                baseFragmentActivity.showToast(n.j.plugin_not_exit_for_2_3);
+                baseFragmentActivity.showToast(t.j.plugin_not_exit_for_2_3);
             } else {
-                baseFragmentActivity.showToast(n.j.plugin_not_exit);
+                baseFragmentActivity.showToast(t.j.plugin_not_exit);
             }
         }
     }

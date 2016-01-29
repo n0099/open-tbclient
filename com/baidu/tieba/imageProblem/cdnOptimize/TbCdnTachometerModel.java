@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.a.f;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.u;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class TbCdnTachometerModel<T> extends e<T> {
-    public static final String ckY = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
-    private TbCdnTachometerModelCallBack ckX;
-    private HttpMessageListener ckZ;
+    public static final String cpz = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
+    private HttpMessageListener cpA;
+    private TbCdnTachometerModelCallBack cpy;
 
     /* loaded from: classes.dex */
     public interface TbCdnTachometerModelCallBack {
@@ -25,8 +25,8 @@ public class TbCdnTachometerModel<T> extends e<T> {
 
     public TbCdnTachometerModel(TbPageContext<T> tbPageContext) {
         super(tbPageContext);
-        this.ckX = null;
-        this.ckZ = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.cpy = null;
+        this.cpA = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class TbCdnTachometerModel<T> extends e<T> {
                 if (httpResponsedMessage != null && TbCdnTachometerModel.this.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                     TbCdnIpListData tbCdnIpListData = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
                     if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.errorNum != 0) {
-                        if (TbCdnTachometerModel.this.ckX != null) {
+                        if (TbCdnTachometerModel.this.cpy != null) {
                             int error = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
@@ -57,10 +57,10 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         z = true;
                         i = -1;
                     } else {
-                        if (TbCdnTachometerModel.this.ckX != null) {
-                            TbCdnTachometerModel.this.ckX.callBack(tbCdnIpListData);
+                        if (TbCdnTachometerModel.this.cpy != null) {
+                            TbCdnTachometerModel.this.cpy.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.ckO.size() == 0) {
+                        if (tbCdnIpListData.cpp.size() == 0) {
                             str = "noList";
                             z2 = false;
                             z = true;
@@ -71,20 +71,20 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         z = true;
                         i = -1;
                     }
-                    v.a(z, z2, String.valueOf(i), str);
+                    u.a(z, z2, String.valueOf(i), str);
                 }
             }
         };
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, ckY);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, cpz);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.ckZ);
-        MessageManager.getInstance().registerListener(this.ckZ);
+        MessageManager.getInstance().unRegisterListener(this.cpA);
+        MessageManager.getInstance().registerListener(this.cpA);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-        MessageManager.getInstance().unRegisterListener(this.ckZ);
+        MessageManager.getInstance().unRegisterListener(this.cpA);
     }
 
     @Override // com.baidu.adp.base.e
@@ -98,7 +98,7 @@ public class TbCdnTachometerModel<T> extends e<T> {
     }
 
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
-        this.ckX = tbCdnTachometerModelCallBack;
+        this.cpy = tbCdnTachometerModelCallBack;
     }
 
     public void getCDNIPList() {
@@ -110,16 +110,16 @@ public class TbCdnTachometerModel<T> extends e<T> {
         if (str == null || str2 == null || str3 == null || str4 == null) {
             return false;
         }
-        if (com.baidu.tbadk.util.e.ge(str)) {
+        if (com.baidu.tbadk.util.e.gb(str)) {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
                 f fVar = new f(eVar);
-                eVar.gS().setUrl(str);
+                eVar.ha().setUrl(str);
                 fVar.e(str2, str3, 1);
-                byte[] bArr = eVar.gT().vn;
+                byte[] bArr = eVar.hb().vx;
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                boolean z2 = eVar.gT().responseCode == 200;
+                boolean z2 = eVar.hb().responseCode == 200;
                 String str5 = "";
                 if (z2) {
                     if (bArr != null) {
@@ -127,8 +127,8 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         String B = t.B(bArr);
                         if (!str4.equalsIgnoreCase(B)) {
                             String str6 = "MD5Error_" + B + "_" + str4;
-                            if (eVar.gV() != null && eVar.gV().uZ != null && eVar.gV().uZ.length() != 0) {
-                                str6 = String.valueOf(str6) + ":" + eVar.gT().responseCode + "-" + eVar.gV().uZ;
+                            if (eVar.hd() != null && eVar.hd().vi != null && eVar.hd().vi.length() != 0) {
+                                str6 = String.valueOf(str6) + ":" + eVar.hb().responseCode + "-" + eVar.hd().vi;
                                 eVar.b(null);
                             }
                             str5 = str6;
@@ -136,19 +136,19 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         }
                     } else {
                         str5 = "downSizeZero";
-                        if (eVar.gV() == null || eVar.gV().uZ == null || eVar.gV().uZ.length() == 0) {
+                        if (eVar.hd() == null || eVar.hd().vi == null || eVar.hd().vi.length() == 0) {
                             i = 0;
                         } else {
-                            str5 = String.valueOf("downSizeZero") + ":" + eVar.gT().responseCode + "-" + eVar.gV().uZ;
+                            str5 = String.valueOf("downSizeZero") + ":" + eVar.hb().responseCode + "-" + eVar.hd().vi;
                             eVar.b(null);
                             i = 0;
                         }
                     }
                 } else {
-                    str5 = "NETError_" + eVar.gT().responseCode + "-" + (eVar.gV() != null ? eVar.gV().uZ : null);
+                    str5 = "NETError_" + eVar.hb().responseCode + "-" + (eVar.hd() != null ? eVar.hd().vi : null);
                     i = 0;
                 }
-                v.a(z2, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
+                u.a(z2, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
                 return z2;
             } catch (Exception e) {
                 StringBuffer stringBuffer = new StringBuffer();
@@ -156,7 +156,7 @@ public class TbCdnTachometerModel<T> extends e<T> {
                 stringBuffer.append(e.getClass());
                 stringBuffer.append(" message");
                 stringBuffer.append(e.getMessage());
-                v.a(false, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
+                u.a(false, str, str2, "-1", stringBuffer.toString(), "0", 0L, z);
                 return false;
             }
         }

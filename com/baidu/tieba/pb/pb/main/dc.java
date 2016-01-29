@@ -1,147 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.n;
-import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.pb.view.BaobaoTailView;
-import com.baidu.tieba.pb.view.PbGiftListView;
-import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class dc extends x.a {
-    public TextView aLp;
-    UserIconBox agT;
-    public TextView bIB;
-    public UserIconBox bnP;
-    public TbRichTextView cDC;
-    public View cDE;
-    public FrsPraiseView cDF;
-    public ImageView cDG;
-    public PbGiftListView cDH;
-    public TextView cEA;
-    public LinearLayout cEB;
-    public Button cEC;
-    public LinearLayout cED;
-    public TextView cEE;
-    public View cEF;
-    public View cEG;
-    public LinearLayout cEH;
-    public ImageView cEI;
-    public TextView cEJ;
-    public LinearLayout cEK;
-    public ImageView cEL;
-    public TextView cEM;
-    public TextView cEN;
-    public View cEi;
-    public View cEj;
-    public View cEk;
-    public View cEl;
-    public View cEm;
-    public HeadImageView cEn;
-    public ImageView cEo;
-    public ImageView cEp;
-    public ImageView cEq;
-    public TextView cEr;
-    public ImageView cEs;
-    public ImageView cEt;
-    public RelativeLayout cEu;
-    public LinearLayout cEv;
-    public ImageView cEw;
-    public SubPbLayout cEx;
-    public BaobaoTailView cEy;
-    public LinearLayout cEz;
-    public ImageView cGF;
-    public RelativeLayout cHY;
-    public int mSkinType;
+    public TextView cPE;
+    public View cPF;
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [136=5] */
-    public dc(View view, boolean z, boolean z2, int i, boolean z3) {
+    public dc(View view) {
         super(view);
-        this.mSkinType = 3;
-        this.cEm = view.findViewById(n.g.sub_pb_more);
-        this.cEn = (HeadImageView) view.findViewById(n.g.photo);
-        this.aLp = (TextView) view.findViewById(n.g.user_name);
-        this.cEo = (ImageView) view.findViewById(n.g.user_rank);
-        this.cEp = (ImageView) view.findViewById(n.g.user_bawu);
-        this.cEq = (ImageView) view.findViewById(n.g.user_gender);
-        this.cEt = (ImageView) view.findViewById(n.g.reply);
-        this.cDC = (TbRichTextView) view.findViewById(n.g.richText);
-        this.cDH = (PbGiftListView) view.findViewById(n.g.gift_list_view);
-        this.cDE = view.findViewById(n.g.pb_item_praise_topline);
-        this.cDF = (FrsPraiseView) view.findViewById(n.g.pb_item_praise_view);
-        this.cDG = (ImageView) view.findViewById(n.g.pb_item_praise_bottomline);
-        this.cEH = (LinearLayout) view.findViewById(n.g.pb_item_location_container);
-        this.cEJ = (TextView) view.findViewById(n.g.pb_item_location_address);
-        this.cEI = (ImageView) view.findViewById(n.g.pb_item_location_img);
-        this.cEK = (LinearLayout) view.findViewById(n.g.pb_reply_location_container);
-        this.cEM = (TextView) view.findViewById(n.g.pb_reply_location_address);
-        this.cEL = (ImageView) view.findViewById(n.g.pb_reply_location_img);
-        this.cEs = (ImageView) view.findViewById(n.g.floor_owner);
-        this.cEr = (TextView) view.findViewById(n.g.floor);
-        this.bIB = (TextView) view.findViewById(n.g.time);
-        this.cEu = (RelativeLayout) view.findViewById(n.g.pb_post_header_layout);
-        this.cEx = (SubPbLayout) view.findViewById(n.g.pb_post_footer_layout);
-        this.cEv = (LinearLayout) view.findViewById(n.g.pb_subpb_layout_root);
-        this.cEw = (ImageView) view.findViewById(n.g.pb_post_footer_layout_line_top);
-        this.cEi = view;
-        this.cEj = view.findViewById(n.g.new_pb_list_item_line_top);
-        this.cEk = view.findViewById(n.g.new_pb_list_item_line_top_full);
-        this.cEl = view.findViewById(n.g.new_pb_list_item_blank_top);
-        this.cDC.Gd();
-        this.cDC.setImageViewStretch(true);
-        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.cDC.getPaddingLeft()) - this.cDC.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.e.ds60)), i);
-        this.cDC.setMaxImageWidth(min);
-        this.cDC.setMaxImageHeight((int) (min * 1.618f));
-        this.cDC.setTextSize(TbConfig.getContentSize());
-        if (z) {
-            ViewGroup.LayoutParams layoutParams = this.cEn.getLayoutParams();
-            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.e.ds60);
-            this.cEn.setLayoutParams(layoutParams);
-            this.cEn.setVisibility(0);
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = this.cEn.getLayoutParams();
-            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.e.ds30);
-            this.cEn.setLayoutParams(layoutParams2);
-            this.cEn.setVisibility(4);
-        }
-        this.cDC.g(z2, false);
-        this.cDC.setVoiceViewRes(n.h.voice_play_btn);
-        this.bnP = (UserIconBox) view.findViewById(n.g.user_icon_box);
-        this.agT = (UserIconBox) view.findViewById(n.g.user_tshow_icon_box);
-        this.cEz = (LinearLayout) view.findViewById(n.g.add_post_footer_layout);
-        if (z3) {
-            this.cEu.setVisibility(8);
-            this.cEt.setVisibility(8);
-            this.cDC.setPadding(0, 0, 0, 0);
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.cDC.getLayoutParams();
-            layoutParams3.leftMargin = 0;
-            layoutParams3.rightMargin = 0;
-            layoutParams3.topMargin = 0;
-            layoutParams3.bottomMargin = 0;
-            this.cDC.setLayoutParams(layoutParams3);
-            view.findViewById(n.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
-            this.cEB = (LinearLayout) view.findViewById(n.g.add_time_container);
-            this.cEA = (TextView) view.findViewById(n.g.add_time);
-            this.cEC = (Button) view.findViewById(n.g.manage_btn);
-            this.cEB.setVisibility(0);
-        }
-        this.cED = (LinearLayout) view.findViewById(n.g.addition_more_container);
-        this.cEE = (TextView) this.cED.findViewById(n.g.addition_more);
-        this.cEF = this.cED.findViewById(n.g.addition_divider1);
-        this.cEG = this.cED.findViewById(n.g.addition_divider2);
-        this.cEy = (BaobaoTailView) view.findViewById(n.g.baobao_tail);
-        this.cEN = (TextView) view.findViewById(n.g.pb_item_tail_content);
-        this.cGF = (ImageView) view.findViewById(n.g.replybtn);
+        this.cPE = (TextView) view.findViewById(t.g.pb_u9_text_view);
+        this.cPF = view.findViewById(t.g.divide_line_up_pb_u9);
     }
 }

@@ -9,7 +9,7 @@ public class u<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public o.b<T> aa(String str) {
+    public o.b<T> Z(String str) {
         return null;
     }
 
@@ -38,6 +38,6 @@ public class u<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public void ab(String str) {
+    public void aa(String str) {
     }
 }

@@ -3,35 +3,38 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean aec;
-    private boolean aed;
-    private boolean aee;
-    private int aeg;
-    private int aeh;
+    private int acq;
+    private boolean aeC;
+    private boolean aeD;
+    private boolean aeE;
+    private int aeG;
+    private int aeH;
 
-    public e(boolean z, boolean z2, boolean z3) {
-        this.aec = true;
-        this.aed = false;
-        this.aee = false;
-        this.aeg = 0;
-        this.aeh = 0;
-        this.aec = z;
-        this.aed = z2;
-        this.aee = z3;
+    public e(boolean z, boolean z2, boolean z3, int i) {
+        this.aeC = true;
+        this.aeD = false;
+        this.aeE = false;
+        this.acq = 0;
+        this.aeG = 0;
+        this.aeH = 0;
+        this.aeC = z;
+        this.aeD = z2;
+        this.aeE = z3;
+        this.acq = i;
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
-        this.aeg = K <= 0 ? 200 : K;
-        if (this.aeg > 480) {
-            this.aeg = 480;
+        this.aeG = K <= 0 ? 200 : K;
+        if (this.aeG > 480) {
+            this.aeG = 480;
         }
-        if (this.aeg > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 320.0f)) {
-            this.aeg = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 320.0f);
+        if (this.aeG > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 320.0f)) {
+            this.aeG = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 320.0f);
         }
-        this.aeh = (int) (this.aeg * 0.4f);
+        this.aeH = (int) (this.aeG * 0.4f);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getWidth() {
-        return com.baidu.adp.lib.util.i.iR() ? this.aeg : this.aeh;
+        return com.baidu.adp.lib.util.i.ja() ? this.aeG : this.aeH;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -41,16 +44,21 @@ public class e extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.aec;
+        return this.aeC;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vC() {
-        return this.aee;
+    public boolean wI() {
+        return this.aeE;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vD() {
-        return this.aed;
+    public boolean wJ() {
+        return this.aeD;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int wK() {
+        return this.acq;
     }
 }

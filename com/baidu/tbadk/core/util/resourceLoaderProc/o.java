@@ -1,6 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 /* loaded from: classes.dex */
 public class o extends a {
+    private int acq;
+
+    public o(int i) {
+        this.acq = i;
+    }
+
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getWidth() {
         return 0;
@@ -17,12 +23,17 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vC() {
+    public boolean wI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vD() {
+    public boolean wJ() {
         return true;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int wK() {
+        return this.acq;
     }
 }

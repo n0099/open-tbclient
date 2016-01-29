@@ -1,25 +1,38 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.adp.lib.util.BdLog;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ PhotoLiveCardView aph;
+public class x implements SubsamplingScaleImageView.OnImageEventListener {
+    final /* synthetic */ u aqx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(PhotoLiveCardView photoLiveCardView) {
-        this.aph = photoLiveCardView;
+    public x(u uVar) {
+        this.aqx = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PhotoLiveCardView.b bVar;
-        PhotoLiveCardView.b bVar2;
-        bVar = this.aph.anW;
-        if (bVar != null) {
-            bVar2 = this.aph.anW;
-            bVar2.onPortraitClick(view);
-        }
+    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+    public void onImageLoadError(Exception exc) {
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+    public void onImageLoaded() {
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+    public void onPreviewLoadError(Exception exc) {
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+    public void onReady() {
+        this.aqx.mProgressBar.setVisibility(8);
+        this.aqx.aqh.restoreSize();
+        this.aqx.aqh.setVisibility(4);
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+    public void onTileLoadError(Exception exc) {
+        BdLog.e(exc);
     }
 }

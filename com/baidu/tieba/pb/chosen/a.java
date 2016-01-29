@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.chosen;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class a implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbChosenActivity cBV;
+    final /* synthetic */ PbChosenActivity cIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PbChosenActivity pbChosenActivity) {
-        this.cBV = pbChosenActivity;
+        this.cIA = pbChosenActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -21,13 +21,13 @@ class a implements AbsListView.OnScrollListener {
         com.baidu.tbadk.editortools.d.e eVar3;
         com.baidu.tieba.pb.chosen.a.l lVar;
         if (i != 0) {
-            eVar = this.cBV.bbY;
+            eVar = this.cIA.bej;
             if (eVar != null) {
-                eVar2 = this.cBV.bbY;
-                if (eVar2.Bj() != null) {
-                    eVar3 = this.cBV.bbY;
-                    eVar3.Bj().hide();
-                    lVar = this.cBV.cBA;
+                eVar2 = this.cIA.bej;
+                if (eVar2.Cz() != null) {
+                    eVar3 = this.cIA.bej;
+                    eVar3.Cz().hide();
+                    lVar = this.cIA.cIg;
                     lVar.setVisible(true);
                 }
             }

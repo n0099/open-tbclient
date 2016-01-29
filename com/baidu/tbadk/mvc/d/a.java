@@ -1,44 +1,44 @@
 package com.baidu.tbadk.mvc.d;
 /* loaded from: classes.dex */
 public class a implements b {
-    private boolean ayh = false;
-    private boolean ayi = true;
-    private boolean ayj = false;
-    private boolean ayk = true;
-    private boolean ayl = true;
-    private boolean aym = false;
-    private boolean ayn = true;
-    private boolean ayo = true;
+    private boolean ayX = false;
+    private boolean ayY = true;
+    private boolean ayZ = false;
+    private boolean aza = true;
+    private boolean azb = true;
+    private boolean azc = false;
+    private boolean azd = true;
+    private boolean aze = true;
 
     public boolean isPullRefreshing() {
-        return this.ayh;
-    }
-
-    public void bu(boolean z) {
-        this.ayh = z;
-    }
-
-    public boolean DH() {
-        return this.ayj;
-    }
-
-    public void bv(boolean z) {
-        this.ayj = z;
-    }
-
-    public boolean DI() {
-        return this.ayk;
+        return this.ayX;
     }
 
     public void bw(boolean z) {
-        this.ayk = z;
+        this.ayX = z;
     }
 
-    public boolean DJ() {
-        return this.ayl;
+    public boolean Fb() {
+        return this.ayZ;
     }
 
     public void bx(boolean z) {
-        this.ayl = z;
+        this.ayZ = z;
+    }
+
+    public boolean Fc() {
+        return this.aza;
+    }
+
+    public void by(boolean z) {
+        this.aza = z;
+    }
+
+    public boolean Fd() {
+        return this.azb;
+    }
+
+    public void bz(boolean z) {
+        this.azb = z;
     }
 }

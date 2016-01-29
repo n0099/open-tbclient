@@ -1,11 +1,9 @@
 package com.baidu.tieba.image;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
-public class o implements Animation.AnimationListener {
+class o implements c.b {
     final /* synthetic */ ImageViewerActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,27 +11,17 @@ public class o implements Animation.AnimationListener {
         this.this$0 = imageViewerActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        NavigationBar navigationBar;
-        this.this$0.bJX = true;
-        z = this.this$0.bJY;
-        if (z) {
-            this.this$0.bJY = false;
-            navigationBar = this.this$0.boZ;
-            navigationBar.setVisibility(8);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.this$0.ckq.setSystemUiVisibility(4);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        com.baidu.tbadk.core.dialog.c listMenu;
+        listMenu = this.this$0.getListMenu();
+        if (cVar == listMenu) {
+            switch (i) {
+                case 0:
+                    this.this$0.acm();
+                    break;
             }
+            cVar.dismiss();
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
     }
 }

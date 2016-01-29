@@ -1,6 +1,7 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
@@ -122,6 +123,13 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
+            int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
+            int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
+            int viewImageQuality = com.baidu.tbadk.core.l.rn().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(K);
+            builder.scr_h = Integer.valueOf(L);
+            builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.M(TbadkCoreApplication.m411getInst().getApp()));
+            builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 com.baidu.tbadk.util.i.a(builder, true);
             }

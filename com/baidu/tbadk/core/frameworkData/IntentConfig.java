@@ -17,6 +17,7 @@ import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class IntentConfig extends i {
+    public static final String CALL_FROM = "call_from";
     public static final String CLOSE = "close";
     public static final String CMD = "cmd";
     public static final String DATAS = "datas";
@@ -41,6 +42,7 @@ public class IntentConfig extends i {
     public static final String IS_NEED_MULTIPLE = "is_need_multiple";
     private static final long LAUNCH_ACTIVITY_INTERVAL_TIME = 500;
     public static final String LIST = "list";
+    public static final String LIST_TYPE = "list_type";
     public static final String MASK_TYPE = "maskType";
     public static final String MEMBER_BUY_SHOW = "member_buy_show";
     public static final String NAME_SHOW = "name_show";
@@ -190,7 +192,7 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
@@ -204,10 +206,10 @@ public class IntentConfig extends i {
                         startActivityForResult(i);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -229,17 +231,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.startService(this.mIntent);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -270,7 +272,7 @@ public class IntentConfig extends i {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e);
                     return false;
                 }
@@ -291,11 +293,11 @@ public class IntentConfig extends i {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().bJ(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -314,17 +316,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lP().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }
@@ -348,7 +350,7 @@ public class IntentConfig extends i {
 
     private static boolean checkStartActivityInterval(Class<?> cls) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (cls == lastStartActivityClass && currentTimeMillis - lastStartActivityTime < LAUNCH_ACTIVITY_INTERVAL_TIME) {
+        if (cls == lastStartActivityClass && Math.abs(currentTimeMillis - lastStartActivityTime) < LAUNCH_ACTIVITY_INTERVAL_TIME) {
             return false;
         }
         lastStartActivityTime = currentTimeMillis;

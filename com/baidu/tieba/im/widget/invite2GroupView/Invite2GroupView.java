@@ -10,33 +10,33 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView ahk;
-    private TbImageView ccG;
-    private TextView ccH;
-    private TextView ccI;
-    private InviteMsgData ccJ;
+    private TextView Ox;
+    private TextView apm;
+    private TbImageView chg;
+    private TextView chh;
+    private InviteMsgData chi;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI();
+        qD();
     }
 
     public Invite2GroupView(Context context) {
         super(context);
-        initUI();
+        qD();
     }
 
-    private void initUI() {
-        LayoutInflater.from(getContext()).inflate(n.h.invite_to_group_view, this);
+    private void qD() {
+        LayoutInflater.from(getContext()).inflate(t.h.invite_to_group_view, this);
         setOrientation(1);
-        this.ahk = (TextView) findViewById(n.g.chat_title);
-        this.ccG = (TbImageView) findViewById(n.g.chat_group_img);
-        this.ccH = (TextView) findViewById(n.g.chat_group_desc);
-        this.ccI = (TextView) findViewById(n.g.invite_btn);
-        this.ccG.setIsRound(false);
+        this.apm = (TextView) findViewById(t.g.chat_title);
+        this.chg = (TbImageView) findViewById(t.g.chat_group_img);
+        this.chh = (TextView) findViewById(t.g.chat_group_desc);
+        this.Ox = (TextView) findViewById(t.g.invite_btn);
+        this.chg.setIsRound(false);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -45,29 +45,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void a(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.ccJ = inviteMsgData;
+        this.chi = inviteMsgData;
         k(tbPageContext);
     }
 
     private void k(TbPageContext<?> tbPageContext) {
-        this.ccI.setEnabled(true);
-        this.ccI.setTag(String.valueOf(this.ccJ.getGroupId()));
-        this.ccI.setText(n.j.i_want_attent);
-        this.ccI.setTextColor(getContext().getResources().getColor(n.d.cp_bg_line_d));
-        this.ccI.setOnClickListener(new a(this));
-        this.ahk.setText(this.ccJ.getTitle());
-        this.ccG.setTag(this.ccJ.getPortrait());
-        this.ccG.d(this.ccJ.getPortrait(), 10, false);
-        this.ccH.setText(this.ccJ.getNotice());
+        this.Ox.setEnabled(true);
+        this.Ox.setTag(String.valueOf(this.chi.getGroupId()));
+        this.Ox.setText(t.j.i_want_attent);
+        this.Ox.setTextColor(getContext().getResources().getColor(t.d.cp_bg_line_d));
+        this.Ox.setOnClickListener(new a(this));
+        this.apm.setText(this.chi.getTitle());
+        this.chg.setTag(this.chi.getPortrait());
+        this.chg.d(this.chi.getPortrait(), 10, false);
+        this.chh.setText(this.chi.getNotice());
         setOnClickListener(new b(this, tbPageContext));
-        if (com.baidu.tieba.im.memorycache.b.aay().O(String.valueOf(this.ccJ.getGroupId()), 1) != null) {
-            if (String.valueOf(this.ccJ.getGroupId()).equals(this.ccI.getTag())) {
-                this.ccI.setText(n.j.i_want_talk);
-                this.ccI.setOnClickListener(new c(this));
+        if (com.baidu.tieba.im.memorycache.b.ady().P(String.valueOf(this.chi.getGroupId()), 1) != null) {
+            if (String.valueOf(this.chi.getGroupId()).equals(this.Ox.getTag())) {
+                this.Ox.setText(t.j.i_want_talk);
+                this.Ox.setOnClickListener(new c(this));
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.c.abL().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.ccJ.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
+        com.baidu.tieba.im.settingcache.c.aeR().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.chi.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
     }
 }

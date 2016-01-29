@@ -1,121 +1,50 @@
 package com.baidu.tieba.tbadkCore.d;
 
-import com.baidu.adp.lib.util.i;
-import com.baidu.location.LocationClientOption;
+import android.os.Build;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.adp.lib.stats.d dHN;
-    private final int dHO = 10;
-    private final int dHP = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String dHQ = null;
-    public boolean adO = false;
-
-    public a(String str) {
-        J(str, false);
-    }
-
-    public void J(String str, boolean z) {
-        this.dHQ = str;
-        this.adO = z;
-        this.dHN = new com.baidu.adp.lib.stats.d("dbg");
-        b.h(str, getNetType(), z);
-    }
-
-    public void start() {
-        this.dHN.hB();
-    }
-
-    public void a(boolean z, boolean z2, int i, String str, long j) {
-        long hC = this.dHN.hC();
-        long j2 = 0;
-        long j3 = 0;
-        if (z) {
-            j2 = hC;
-        } else {
-            j3 = hC;
+    public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        au auVar = new au("ad_tpoint");
+        if (str != null) {
+            auVar = auVar.aa("page", str);
         }
-        a(z, z2, i, str, j, j2, j3);
+        if (str2 != null) {
+            auVar = auVar.aa("loc_param", str2);
+        }
+        if (str3 != null) {
+            auVar = auVar.aa("action_type", str3);
+        }
+        if (str4 != null) {
+            auVar = auVar.aa(ImageViewerConfig.FORUM_ID, str4);
+        }
+        if (str5 != null) {
+            auVar = auVar.aa(ImageViewerConfig.FORUM_NAME, str5);
+        }
+        if (str6 != null) {
+            auVar = auVar.aa("tid", str6);
+        }
+        if (str8 != null) {
+            auVar = auVar.aa("obj_url", str8);
+        }
+        au aa = auVar.aa("task", "ad_plat").aa("line", "PT").aa("locate", "c0112").r("obj_cpid", 0).r("obj_good_id", 0).aa("obj_throw_type", "BY_POST").aa(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").aa("user_timestamp", String.valueOf(System.currentTimeMillis())).aa("os", SocialConstants.ANDROID_CLIENT_TYPE).aa("os_version", Build.VERSION.RELEASE).aa("log_ver", "1.1");
+        if (str7 != null) {
+            aa = aa.aa("link", str7);
+        }
+        TiebaStatic.log(aa);
     }
 
-    public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e aFI;
-        if (this.dHN != null && (aFI = aFI()) != null) {
-            if (z) {
-                if (aFI.dHV != null) {
-                    aFI.dHV.num++;
-                    if (z2) {
-                        aFI.dHV.dHS += j2;
-                        aFI.dHV.size += j;
-                    } else {
-                        aFI.dHV.dHT++;
-                    }
-                } else {
-                    return;
-                }
-            } else if (aFI.dHW != null) {
-                aFI.dHW.num++;
-                if (z2) {
-                    aFI.dHW.dHS += j3;
-                    aFI.dHW.size += j;
-                    j2 = j3;
-                } else {
-                    aFI.dHW.dHT++;
-                    j2 = j3;
-                }
-            } else {
-                return;
+    public static void bn(String str, String str2) {
+        if (!aw.isEmpty(str)) {
+            au auVar = new au(str);
+            if (str2 != null) {
+                auVar = auVar.aa("obj_type", str2);
             }
-            this.dHN = null;
-            if (z2) {
-                b.a(aFI, 10);
-            }
-            if (this.dHQ == "frsStat") {
-                if (!z2 || j2 > 3000) {
-                    com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
-                    dVar.q("act", "frs");
-                    dVar.q("result", z2 ? "0" : "1");
-                    dVar.q("isHttp", z ? "1" : "0");
-                    dVar.q("timeCost", String.valueOf(j2));
-                    dVar.q("errCode", String.valueOf(i));
-                    dVar.q("errMsg", str);
-                    dVar.q("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.hl().b("frs", dVar);
-                }
-            }
+            TiebaStatic.log(auVar);
         }
-    }
-
-    public void destory() {
-        e aFI;
-        if (this.dHN != null && (aFI = aFI()) != null && aFI.dHX != null) {
-            long hC = this.dHN.hC();
-            if (hC > 3000) {
-                d dVar = aFI.dHX;
-                dVar.dHS = hC + dVar.dHS;
-                aFI.dHX.num++;
-                b.a(aFI, 10);
-            }
-        }
-    }
-
-    private e aFI() {
-        return b.i(this.dHQ, getNetType(), this.adO);
-    }
-
-    private String getNetType() {
-        int iW = i.iW();
-        if (iW == 0) {
-            return "N";
-        }
-        if (iW == 1) {
-            return "WIFI";
-        }
-        if (iW == 3) {
-            return "3G";
-        }
-        if (iW != 2) {
-            return "N";
-        }
-        return "2G";
     }
 }

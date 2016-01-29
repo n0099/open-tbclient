@@ -10,7 +10,7 @@ public class a {
             return false;
         }
         tbPageContext.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().k(view);
+        tbPageContext.getLayoutMode().x(view);
         return true;
     }
 }

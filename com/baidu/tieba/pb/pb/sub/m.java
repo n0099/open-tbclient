@@ -1,31 +1,31 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class m implements com.baidu.adp.lib.f.c<ImageView> {
-    final /* synthetic */ NewSubPbActivity cLc;
+    final /* synthetic */ NewSubPbActivity cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.cLc = newSubPbActivity;
+        this.cTK = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: alz */
-    public ImageView hc() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.cLc.getPageContext().getPageActivity());
-        boolean qW = com.baidu.tbadk.core.m.qQ().qW();
-        foreDrawableImageView.setDefaultBg(as.getDrawable(n.d.pb_default_image_bg));
-        if (qW) {
+    /* renamed from: apD */
+    public ImageView hk() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.cTK.getPageContext().getPageActivity());
+        boolean rt = com.baidu.tbadk.core.l.rn().rt();
+        foreDrawableImageView.setDefaultBg(ar.getDrawable(t.d.pb_default_image_bg));
+        if (rt) {
             foreDrawableImageView.setAdjustViewBounds(false);
             foreDrawableImageView.setInterceptOnClick(false);
         } else {
-            foreDrawableImageView.setDefaultResource(n.f.icon_click);
+            foreDrawableImageView.setDefaultResource(t.f.icon_click);
             foreDrawableImageView.setAdjustViewBounds(true);
             foreDrawableImageView.setInterceptOnClick(true);
         }
@@ -44,7 +44,7 @@ class m implements com.baidu.adp.lib.f.c<ImageView> {
             ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
             ((ForeDrawableImageView) imageView).stopLoading();
             foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(n.d.cp_bg_line_c);
+            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
         }
     }
 
@@ -55,11 +55,11 @@ class m implements com.baidu.adp.lib.f.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.m.qQ().qW()) {
+            if (com.baidu.tbadk.core.l.rn().rt()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {
-                tbImageView.setDefaultResource(n.f.icon_click);
+                tbImageView.setDefaultResource(t.f.icon_click);
                 tbImageView.setAdjustViewBounds(true);
                 tbImageView.setInterceptOnClick(true);
             }
@@ -79,7 +79,7 @@ class m implements com.baidu.adp.lib.f.c<ImageView> {
             ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
             ((ForeDrawableImageView) imageView).stopLoading();
             foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(n.d.cp_bg_line_c);
+            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
         }
         return imageView;
     }

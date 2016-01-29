@@ -174,7 +174,7 @@ public class e extends c {
         }
     }
 
-    public static IBaiduListener dE() {
+    public static IBaiduListener dG() {
         int latestRequestCode = RequestCodeManager.getLatestRequestCode(MediaType.QQFRIEND.toString());
         if (latestRequestCode != 0) {
             return a(latestRequestCode);

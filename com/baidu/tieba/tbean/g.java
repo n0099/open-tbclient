@@ -3,20 +3,20 @@ package com.baidu.tieba.tbean;
 import android.text.TextUtils;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbean.e;
 import java.util.List;
 import tbclient.GetIconList.UserInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ e dJX;
+    final /* synthetic */ e eac;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.dJX = eVar;
+        this.eac = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,36 +33,36 @@ public class g extends HttpMessageListener {
         BuyTBeanActivity buyTBeanActivity3;
         e.a aVar5;
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-            aVar = this.dJX.dJW;
-            buyTBeanActivity = this.dJX.dJV;
-            aVar.ht(buyTBeanActivity.getPageContext().getString(n.j.neterror));
+            aVar = this.eac.eab;
+            buyTBeanActivity = this.eac.eaa;
+            aVar.ht(buyTBeanActivity.getPageContext().getString(t.j.neterror));
             return;
         }
         GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
         if (getYinJiHttpResponseMessage.getError() != 0) {
             if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                aVar5 = this.dJX.dJW;
+                aVar5 = this.eac.eab;
                 aVar5.ht(getYinJiHttpResponseMessage.getErrorString());
                 return;
             }
-            aVar4 = this.dJX.dJW;
-            buyTBeanActivity3 = this.dJX.dJV;
-            aVar4.ht(buyTBeanActivity3.getPageContext().getString(n.j.neterror));
+            aVar4 = this.eac.eab;
+            buyTBeanActivity3 = this.eac.eaa;
+            aVar4.ht(buyTBeanActivity3.getPageContext().getString(t.j.neterror));
             return;
         }
-        this.dJX.userInfo = getYinJiHttpResponseMessage.getUserInfo();
-        this.dJX.iconInfoList = getYinJiHttpResponseMessage.getIconInfoList();
-        userInfo = this.dJX.userInfo;
+        this.eac.userInfo = getYinJiHttpResponseMessage.getUserInfo();
+        this.eac.iconInfoList = getYinJiHttpResponseMessage.getIconInfoList();
+        userInfo = this.eac.userInfo;
         if (userInfo != null) {
-            list = this.dJX.iconInfoList;
+            list = this.eac.iconInfoList;
             if (list != null) {
-                aVar3 = this.dJX.dJW;
+                aVar3 = this.eac.eab;
                 aVar3.onSuccess();
                 return;
             }
         }
-        aVar2 = this.dJX.dJW;
-        buyTBeanActivity2 = this.dJX.dJV;
-        aVar2.ht(buyTBeanActivity2.getPageContext().getString(n.j.no_data_tip));
+        aVar2 = this.eac.eab;
+        buyTBeanActivity2 = this.eac.eaa;
+        aVar2.ht(buyTBeanActivity2.getPageContext().getString(t.j.no_data_tip));
     }
 }

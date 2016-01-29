@@ -1,23 +1,17 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
-    final /* synthetic */ NotLoginGuideActivity aIE;
+class t implements Runnable {
+    final /* synthetic */ ActivationActivity aJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(NotLoginGuideActivity notLoginGuideActivity, int i) {
-        super(i);
-        this.aIE = notLoginGuideActivity;
+    public t(ActivationActivity activationActivity) {
+        this.aJA = activationActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001392 && customResponsedMessage.getData() != null) {
-            this.aIE.finish();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.m411getInst().setUsed();
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public interface p {
-    void eg();
+    void J(int i);
 
-    void eh();
+    void ek();
 
-    void z(int i);
+    void el();
 }

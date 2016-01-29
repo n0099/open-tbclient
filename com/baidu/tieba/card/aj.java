@@ -1,25 +1,24 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements View.OnClickListener {
-    final /* synthetic */ ah aOK;
+    final /* synthetic */ af aQu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ah ahVar) {
-        this.aOK = ahVar;
+    public aj(af afVar) {
+        this.aQu = afVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.card.a.p pVar;
-        com.baidu.tieba.card.a.p pVar2;
-        pVar = this.aOK.aOJ;
-        if (pVar != null) {
-            pVar2 = this.aOK.aOJ;
-            TiebaStatic.log(pVar2.IC());
+        com.baidu.tieba.card.a.q qVar;
+        bb<com.baidu.tieba.card.a.q> JL = this.aQu.JL();
+        if (JL != null) {
+            view.setTag("1");
+            qVar = this.aQu.aQn;
+            JL.a(view, qVar);
         }
     }
 }

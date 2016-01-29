@@ -2,30 +2,23 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
+import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.n;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb implements a.b {
-    private final /* synthetic */ TbPageContext aBy;
-    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aRU;
+public class bb implements a.b {
+    private final /* synthetic */ TbPageContext aCn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(TbPageContext tbPageContext, PluginNetConfigInfos.PluginConfig pluginConfig) {
-        this.aBy = tbPageContext;
-        this.aRU = pluginConfig;
+    public bb(TbPageContext tbPageContext) {
+        this.aCn = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (com.baidu.adp.lib.util.i.iQ()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.aBy.getPageActivity(), this.aRU)));
-        } else {
-            com.baidu.adp.lib.util.k.showToast(this.aBy.getPageActivity(), n.j.neterror);
-        }
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aCn.getPageActivity(), "com.baidu.tieba.pluginHomework")));
         aVar.dismiss();
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,9 +16,21 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.e)) {
-            this.this$0.a((com.baidu.tbadk.data.e) customResponsedMessage.getData());
-            TbadkCoreApplication.m411getInst().setPaymemberInfo((com.baidu.tbadk.data.e) customResponsedMessage.getData());
+        y yVar;
+        boolean z;
+        y yVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            yVar = this.this$0.eaD;
+            if (booleanValue) {
+                yVar2 = this.this$0.eaD;
+                if (yVar2.aOk()) {
+                    z = true;
+                    yVar.ie(z);
+                }
+            }
+            z = false;
+            yVar.ie(z);
         }
     }
 }

@@ -3,38 +3,56 @@ package com.baidu.tieba.pb.pb.main;
 import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.n;
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ac implements c.b {
-    final /* synthetic */ PbActivity cFS;
-    private final /* synthetic */ SparseArray cFT;
-    private final /* synthetic */ boolean cFU;
-    private final /* synthetic */ String cFV;
+class ac implements View.OnLongClickListener {
+    final /* synthetic */ PbActivity cNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str) {
-        this.cFS = pbActivity;
-        this.cFT = sparseArray;
-        this.cFU = z;
-        this.cFV = str;
+    public ac(PbActivity pbActivity) {
+        this.cNq = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        UserMuteAddAndDelModel userMuteAddAndDelModel;
-        dk dkVar;
-        switch (i) {
-            case 0:
-                dkVar = this.cFS.cFq;
-                dkVar.a(((Integer) this.cFT.get(n.g.tag_del_post_type)).intValue(), (String) this.cFT.get(n.g.tag_del_post_id), ((Integer) this.cFT.get(n.g.tag_manage_user_identity)).intValue(), ((Boolean) this.cFT.get(n.g.tag_del_post_is_self)).booleanValue());
-                break;
-            case 1:
-                userMuteAddAndDelModel = this.cFS.cFo;
-                userMuteAddAndDelModel.a(this.cFU, this.cFV, (String) this.cFT.get(n.g.tag_user_mute_mute_username), (String) this.cFT.get(n.g.tag_user_mute_thread_id), (String) this.cFT.get(n.g.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB);
-                break;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        boolean z;
+        dz dzVar;
+        c.b bVar;
+        cm cmVar;
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
         }
-        cVar.dismiss();
+        if (sparseArray != null) {
+            this.cNq.cNm = (com.baidu.tieba.tbadkCore.data.r) sparseArray.get(t.g.tag_clip_board);
+            if (this.cNq.cNm != null) {
+                aVar = this.cNq.cMG;
+                if (aVar != null) {
+                    aVar2 = this.cNq.cMG;
+                    if (aVar2.qg() && this.cNq.cNm.getId() != null) {
+                        String id = this.cNq.cNm.getId();
+                        cmVar = this.cNq.cMF;
+                        if (id.equals(cmVar.ts())) {
+                            z = true;
+                            boolean booleanValue = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
+                            dzVar = this.cNq.cMK;
+                            bVar = this.cNq.cNn;
+                            dzVar.a(bVar, z, booleanValue);
+                        }
+                    }
+                    z = false;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
+                    dzVar = this.cNq.cMK;
+                    bVar = this.cNq.cNn;
+                    dzVar.a(bVar, z, booleanValue2);
+                }
+            }
+        }
+        return true;
     }
 }

@@ -6,69 +6,69 @@ import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.n;
 import com.baidu.tieba.pb.chosen.a.d;
+import com.baidu.tieba.t;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private TextView aLp;
-    private d.a cBM;
-    private HeadImageView cCe;
-    private TbRichTextView cCf;
-    private ViewStub cCg;
-    private ImageView cCh;
-    private View line;
-    private View rootView;
+    private View aHm;
+    private TextView aMu;
+    private View azA;
+    private HeadImageView cIJ;
+    private TbRichTextView cIK;
+    private ViewStub cIL;
+    private ImageView cIM;
+    private d.a cIs;
 
     public b(ViewStub viewStub, d.a aVar) {
-        this.cCg = viewStub;
-        this.cBM = aVar;
+        this.cIL = viewStub;
+        this.cIs = aVar;
     }
 
     private void initView() {
-        if (this.rootView == null) {
-            this.rootView = this.cCg.inflate();
-            this.cCe = (HeadImageView) this.rootView.findViewById(n.g.chosen_pb_comment_head);
-            this.aLp = (TextView) this.rootView.findViewById(n.g.chosen_pb_comment_name);
-            this.cCf = (TbRichTextView) this.rootView.findViewById(n.g.chosen_pb_comment_content);
-            this.cCh = (ImageView) this.rootView.findViewById(n.g.chosen_pb_comment_reply);
-            this.line = this.rootView.findViewById(n.g.chosen_pb_comment_line);
-            this.cCf.setTextSize(TbConfig.getContentSize());
-            tr();
+        if (this.azA == null) {
+            this.azA = this.cIL.inflate();
+            this.cIJ = (HeadImageView) this.azA.findViewById(t.g.chosen_pb_comment_head);
+            this.aMu = (TextView) this.azA.findViewById(t.g.chosen_pb_comment_name);
+            this.cIK = (TbRichTextView) this.azA.findViewById(t.g.chosen_pb_comment_content);
+            this.cIM = (ImageView) this.azA.findViewById(t.g.chosen_pb_comment_reply);
+            this.aHm = this.azA.findViewById(t.g.chosen_pb_comment_line);
+            this.cIK.setTextSize(TbConfig.getContentSize());
+            uv();
         }
     }
 
-    public void eN(boolean z) {
-        if (this.rootView != null) {
-            this.rootView.setVisibility(z ? 0 : 8);
+    public void fb(boolean z) {
+        if (this.azA != null) {
+            this.azA.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void tr() {
-        as.b(this.aLp, n.d.cp_cont_f, 1);
-        as.c(this.cCh, n.f.btn_comment_list);
-        as.j(this.line, n.d.cp_bg_line_b);
-        if (this.cCf != null) {
-            this.cCf.setTextColor(as.getColor(n.d.cp_cont_b));
+    public void uv() {
+        ar.b(this.aMu, t.d.cp_cont_f, 1);
+        ar.c(this.cIM, t.f.btn_comment_list);
+        ar.l(this.aHm, t.d.cp_bg_line_b);
+        if (this.cIK != null) {
+            this.cIK.setTextColor(ar.getColor(t.d.cp_cont_b));
         }
     }
 
     public boolean a(Context context, Post post, User user) {
         if (post == null || user == null || post.content == null || post.content.isEmpty()) {
-            eN(false);
+            fb(false);
             return false;
         }
         initView();
-        eN(true);
-        this.aLp.setText(user.name_show);
-        this.cCh.setOnClickListener(new c(this, post));
-        this.cCe.d(user.portrait, 12, false);
-        this.cCf.setVisibility(0);
-        this.cCf.setText(TbRichTextView.b(context, post.content, false));
+        fb(true);
+        this.aMu.setText(user.name_show);
+        this.cIM.setOnClickListener(new c(this, post));
+        this.cIJ.d(user.portrait, 12, false);
+        this.cIK.setVisibility(0);
+        this.cIK.setText(TbRichTextView.b(context, post.content, false));
         return true;
     }
 }

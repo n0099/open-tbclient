@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "FragmentPagerAdapter";
     private FragmentTransaction mCurTransaction = null;
     private Fragment mCurrentPrimaryItem = null;
     private final FragmentManager mFragmentManager;

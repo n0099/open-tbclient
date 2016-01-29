@@ -30,7 +30,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        com.baidu.adp.base.a.dF().g(getActivity());
+        com.baidu.adp.base.a.dH().g(getActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -139,8 +139,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.hd().d(this.mId);
-        com.baidu.adp.base.a.dF().h(getActivity());
+        c.hl().d(this.mId);
+        com.baidu.adp.base.a.dH().h(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -148,7 +148,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.hd().e(this.mId);
+        c.hl().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -165,7 +165,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.na();
+            onGetPreLoadListView.nq();
         }
     }
 

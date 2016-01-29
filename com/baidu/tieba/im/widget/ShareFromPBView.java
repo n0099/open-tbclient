@@ -7,52 +7,52 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView aFP;
-    private TextView ahk;
-    private HeadImageView boJ;
-    private ShareFromPBMsgData ccw;
+    private TextView aGI;
+    private TextView apm;
+    private HeadImageView brG;
+    private ShareFromPBMsgData cgW;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI();
+        qD();
     }
 
     public ShareFromPBView(Context context) {
         super(context);
-        initUI();
+        qD();
     }
 
-    private void initUI() {
-        LayoutInflater.from(getContext()).inflate(n.h.share_from_pb_view, this);
+    private void qD() {
+        LayoutInflater.from(getContext()).inflate(t.h.share_from_pb_view, this);
         setOrientation(1);
-        this.ahk = (TextView) findViewById(n.g.chat_title);
-        this.boJ = (HeadImageView) findViewById(n.g.chat_group_img);
-        this.aFP = (TextView) findViewById(n.g.chat_group_desc);
+        this.apm = (TextView) findViewById(t.g.chat_title);
+        this.brG = (HeadImageView) findViewById(t.g.chat_group_img);
+        this.aGI = (TextView) findViewById(t.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.ahk.setTextColor(getContext().getResources().getColor(n.d.cp_cont_b));
-            this.aFP.setTextColor(getContext().getResources().getColor(n.d.cp_cont_f));
+            this.apm.setTextColor(getContext().getResources().getColor(t.d.cp_cont_b));
+            this.aGI.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
             return;
         }
-        this.ahk.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
-        this.aFP.setTextColor(getContext().getResources().getColor(n.d.cp_cont_g));
+        this.apm.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.aGI.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.ccw = shareFromPBMsgData;
-        vN();
+        this.cgW = shareFromPBMsgData;
+        wV();
     }
 
-    private void vN() {
-        this.ahk.setText(this.ccw.getTitle());
-        this.boJ.setDefaultResource(n.f.icon_default_ba_120);
-        this.boJ.setAutoChangeStyle(false);
-        this.boJ.d(this.ccw.getImageUrl(), 10, false);
-        this.aFP.setText(this.ccw.getContent());
+    private void wV() {
+        this.apm.setText(this.cgW.getTitle());
+        this.brG.setDefaultResource(t.f.icon_default_ba_120);
+        this.brG.setAutoChangeStyle(false);
+        this.brG.d(this.cgW.getImageUrl(), 10, false);
+        this.aGI.setText(this.cgW.getContent());
     }
 }

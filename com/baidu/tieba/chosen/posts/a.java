@@ -11,7 +11,7 @@ public class a extends com.baidu.tbadk.mvc.g.b<tinfo, com.baidu.tbadk.mvc.d.b, c
     }
 
     @Override // com.baidu.tbadk.mvc.g.b
-    public int ey(int i) {
+    public int eS(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;
@@ -26,22 +26,22 @@ public class a extends com.baidu.tbadk.mvc.g.b<tinfo, com.baidu.tbadk.mvc.d.b, c
         return 1;
     }
 
-    public void ao(long j) {
-        List<tinfo> DS;
+    public void ar(long j) {
+        List<tinfo> Fm;
         tinfo tinfoVar;
-        if (j > 0 && (DS = DS()) != null && DS.size() > 0) {
-            int size = DS.size();
+        if (j > 0 && (Fm = Fm()) != null && Fm.size() > 0) {
+            int size = Fm.size();
             int i = 0;
             while (true) {
                 if (i >= size) {
                     tinfoVar = null;
                     break;
                 }
-                tinfo tinfoVar2 = DS.get(i);
+                tinfo tinfoVar2 = Fm.get(i);
                 if (tinfoVar2 == null || tinfoVar2.thread_id == null || tinfoVar2.thread_id.longValue() != j) {
                     i++;
                 } else {
-                    tinfoVar = DS.get(i);
+                    tinfoVar = Fm.get(i);
                     break;
                 }
             }

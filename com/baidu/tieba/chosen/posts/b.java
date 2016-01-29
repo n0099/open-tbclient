@@ -20,15 +20,15 @@ import com.baidu.tieba.chosen.unlike.UnlikeSocketReponse;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetModel.b<com.baidu.tieba.chosen.posts.request.c, com.baidu.tieba.chosen.posts.request.d> {
-    private ChosenPostActivity aQT;
-    private com.baidu.tieba.chosen.posts.request.b aQU;
-    private com.baidu.tieba.chosen.posts.request.a aQV;
-    private com.baidu.tbadk.mvc.d.a aQW;
-    private com.baidu.tieba.chosen.posts.request.c aQX;
-    private a.InterfaceC0054a<com.baidu.tieba.chosen.posts.request.d> aQY;
-    private com.baidu.adp.framework.listener.a aQZ;
+    private ChosenPostActivity aTa;
+    private com.baidu.tieba.chosen.posts.request.b aTb;
+    private com.baidu.tieba.chosen.posts.request.a aTc;
+    private com.baidu.tbadk.mvc.d.a aTd;
+    private com.baidu.tieba.chosen.posts.request.c aTe;
+    private a.InterfaceC0055a<com.baidu.tieba.chosen.posts.request.d> aTf;
+    private com.baidu.adp.framework.listener.a aTg;
 
-    private void IP() {
+    private void KH() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(307007);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -36,37 +36,37 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void IQ() {
+    private void KI() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.ak(TbConfig.HOT_THREAD_UNLIKE, 307007));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.am(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ap(long j) {
+    public void as(long j) {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4102, null, null, null);
         bVar.setExtra(Long.valueOf(j));
         bVar.setUniqueId(getUniqueId());
-        this.aQT.ok().dispatchMvcEvent(bVar);
+        this.aTa.oF().dispatchMvcEvent(bVar);
     }
 
     public b(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.aQW = new com.baidu.tbadk.mvc.d.a();
-        this.aQY = new c(this);
-        this.aQZ = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.aQT = chosenPostActivity;
-        IQ();
-        IP();
-        registerListener(this.aQZ);
+        this.aTd = new com.baidu.tbadk.mvc.d.a();
+        this.aTf = new c(this);
+        this.aTg = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
+        this.aTa = chosenPostActivity;
+        KI();
+        KH();
+        registerListener(this.aTg);
     }
 
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.Dj() == 4100) {
-            this.aQU.Dy();
+        if (bVar.EE() == 4100) {
+            this.aTb.ET();
             return false;
-        } else if (bVar.Dj() == 4101) {
+        } else if (bVar.EE() == 4101) {
             Object extra = bVar.getExtra();
             if (extra instanceof tinfo) {
                 tinfo tinfoVar = (tinfo) extra;
@@ -83,52 +83,52 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ow() {
-        this.aQV.Do();
+    public boolean oR() {
+        this.aTc.EJ();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.c cVar, com.baidu.tieba.chosen.posts.request.d dVar) {
-        this.aQT.IO().a(dVar);
+        this.aTa.KG().a(dVar);
         if (dVar != null) {
-            this.aQW.bu(false);
-            this.aQW.bv(false);
-            this.aQT.IO().d(this.aQW);
+            this.aTd.bw(false);
+            this.aTd.bx(false);
+            this.aTa.KG().d(this.aTd);
             return true;
         }
         return true;
     }
 
-    public void b(Bundle bundle) {
-        this.aQX = new com.baidu.tieba.chosen.posts.request.c();
-        this.aQU = new com.baidu.tieba.chosen.posts.request.b(this.aQT.getPageContext(), this.aQX);
-        this.aQU.a(this);
-        this.aQV = new com.baidu.tieba.chosen.posts.request.a(this.aQT.getPageContext());
-        this.aQV.a(this.aQY);
+    public void c(Bundle bundle) {
+        this.aTe = new com.baidu.tieba.chosen.posts.request.c();
+        this.aTb = new com.baidu.tieba.chosen.posts.request.b(this.aTa.getPageContext(), this.aTe);
+        this.aTb.a(this);
+        this.aTc = new com.baidu.tieba.chosen.posts.request.a(this.aTa.getPageContext());
+        this.aTc.a(this.aTf);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bP(boolean z) {
-        this.aQW.bu(true);
-        this.aQT.IO().d(this.aQW);
-        bQ(true);
-        this.aQX.IU();
-        this.aQU.Dy();
+    public boolean bU(boolean z) {
+        this.aTd.bw(true);
+        this.aTa.KG().d(this.aTd);
+        bV(true);
+        this.aTe.KN();
+        this.aTb.ET();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean IR() {
-        this.aQX.IU();
-        this.aQU.Dy();
-        this.aQW.bv(true);
-        this.aQW.bx(true);
-        bQ(false);
-        this.aQT.IO().d(this.aQW);
+    public boolean KJ() {
+        this.aTe.KN();
+        this.aTb.ET();
+        this.aTd.bx(true);
+        this.aTd.bz(true);
+        bV(false);
+        this.aTa.KG().d(this.aTd);
         return true;
     }
 
-    private void bQ(boolean z) {
+    private void bV(boolean z) {
         com.baidu.tbadk.mvc.c.b bVar;
         if (z) {
             bVar = new com.baidu.tbadk.mvc.c.b(4097, null, null, null);
@@ -136,7 +136,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
             bVar = new com.baidu.tbadk.mvc.c.b(4098, null, null, null);
         }
         bVar.setUniqueId(getUniqueId());
-        this.aQT.ok().dispatchMvcEvent(bVar);
+        this.aTa.oF().dispatchMvcEvent(bVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
@@ -159,8 +159,8 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.aQT.a(errorData);
-            this.aQT.IO().a(errorData);
+            this.aTa.a(errorData);
+            this.aTa.KG().a(errorData);
         }
     }
 
@@ -184,8 +184,8 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.aQT.a(errorData);
-            this.aQT.IO().a(errorData);
+            this.aTa.a(errorData);
+            this.aTa.KG().a(errorData);
         }
     }
 

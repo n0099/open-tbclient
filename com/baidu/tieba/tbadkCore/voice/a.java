@@ -10,11 +10,11 @@ public interface a {
 
     void bT(String str);
 
-    void nY();
+    void ot();
 
-    boolean nZ();
+    boolean ou();
 
-    void oa();
+    void ov();
 
     void release();
 }

@@ -11,65 +11,65 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
     private long mStartTime;
     public String mType;
-    public long wn;
-    public long wo;
-    boolean wp;
-    private ArrayList<BasicNameValuePair> wq;
-    private StringBuilder wr;
+    private StringBuilder wA;
+    public long ww;
+    public long wx;
+    boolean wy;
+    private ArrayList<BasicNameValuePair> wz;
 
     public d(String str) {
-        this.wn = 1L;
-        this.wo = -1L;
-        this.wp = false;
+        this.ww = 1L;
+        this.wx = -1L;
+        this.wy = false;
         this.mType = null;
-        this.wr = new StringBuilder(100);
+        this.wA = new StringBuilder(100);
         this.mType = str;
-        this.wp = false;
-        this.wn = -1L;
-        this.wo = -1L;
+        this.wy = false;
+        this.ww = -1L;
+        this.wx = -1L;
     }
 
     public d() {
-        this.wn = 1L;
-        this.wo = -1L;
-        this.wp = false;
+        this.ww = 1L;
+        this.wx = -1L;
+        this.wy = false;
         this.mType = null;
-        this.wr = new StringBuilder(100);
+        this.wA = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wq == null) {
-                this.wq = new ArrayList<>();
+            if (this.wz == null) {
+                this.wz = new ArrayList<>();
             }
-            this.wq.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wz.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.wq != null) {
-            Iterator<BasicNameValuePair> it = this.wq.iterator();
+        if (this.wz != null) {
+            Iterator<BasicNameValuePair> it = this.wz.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.wr.length() > 0) {
-                        this.wr.append('&');
+                    if (this.wA.length() > 0) {
+                        this.wA.append('&');
                     }
-                    this.wr.append(next.getName());
-                    this.wr.append('=');
+                    this.wA.append(next.getName());
+                    this.wA.append('=');
                     try {
-                        this.wr.append(URLEncoder.encode(as(next.getValue()), "utf-8"));
+                        this.wA.append(URLEncoder.encode(ar(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.wr.append(as(next.getValue()));
+                        this.wA.append(ar(next.getValue()));
                     }
                 }
             }
         }
-        return this.wr.toString();
+        return this.wA.toString();
     }
 
-    public void e(Object... objArr) {
+    public void b(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
@@ -79,48 +79,34 @@ public class d {
         }
     }
 
-    public void q(String str, String str2) {
+    public void r(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wr.length() > 0) {
-                this.wr.append('&');
+            if (this.wA.length() > 0) {
+                this.wA.append('&');
             }
-            this.wr.append(str);
-            this.wr.append("=");
+            this.wA.append(str);
+            this.wA.append("=");
             try {
-                this.wr.append(URLEncoder.encode(as(str2), "utf-8"));
+                this.wA.append(URLEncoder.encode(ar(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wr.append(as(str2));
+                this.wA.append(ar(str2));
             }
         }
     }
 
-    public String getValue(String str) {
-        if (this.wq == null || this.wq.size() == 0 || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        Iterator<BasicNameValuePair> it = this.wq.iterator();
-        while (it.hasNext()) {
-            BasicNameValuePair next = it.next();
-            if (next != null && next.getName() != null && next.getName().equals(str)) {
-                return next.getValue();
-            }
-        }
-        return null;
-    }
-
-    public void hB() {
+    public void hJ() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long hC() {
+    public long hK() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String as(String str) {
+    public static String ar(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

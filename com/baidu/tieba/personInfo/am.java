@@ -1,26 +1,37 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends CustomMessageListener {
-    final /* synthetic */ d cWV;
+public class am implements c.b {
+    private final /* synthetic */ int cEl;
+    final /* synthetic */ f diG;
+    private final /* synthetic */ com.baidu.tbadk.data.g diH;
+    private final /* synthetic */ List diI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(d dVar, int i) {
-        super(i);
-        this.cWV = dVar;
+    public am(f fVar, com.baidu.tbadk.data.g gVar, List list, int i) {
+        this.diG = fVar;
+        this.diH = gVar;
+        this.diI = list;
+        this.cEl = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
-            return;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.diG.e(this.diH, this.diI, this.cEl);
+                }
+            } else {
+                this.diG.a(this.diH);
+            }
+        } else {
+            this.diG.d(this.diH, this.diI, this.cEl);
         }
-        this.cWV.a((PersonChangeData) customResponsedMessage.getData());
+        cVar.dismiss();
     }
 }

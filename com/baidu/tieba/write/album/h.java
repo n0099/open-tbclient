@@ -19,14 +19,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    private final String dSn = TbConfig.getTempDirName();
-    private a dSo;
-    private c dSp;
+    private final String emY = TbConfig.getTempDirName();
+    private a emZ;
+    private c ena;
     private final Context mContext;
 
     /* loaded from: classes.dex */
     public interface b {
-        void bZ(List<ImageFileInfo> list);
+        void cm(List<ImageFileInfo> list);
     }
 
     public h(Context context) {
@@ -37,10 +37,10 @@ public class h {
         if (nVar == null) {
             return false;
         }
-        aJT();
-        this.dSo = new a(nVar);
-        this.dSo.setPriority(3);
-        this.dSo.execute(new Object[0]);
+        aSH();
+        this.emZ = new a(nVar);
+        this.emZ.setPriority(3);
+        this.emZ.execute(new Object[0]);
         return true;
     }
 
@@ -48,69 +48,69 @@ public class h {
         if (apVar == null) {
             return false;
         }
-        aJU();
-        this.dSp = new c(str, apVar);
-        this.dSp.setPriority(3);
-        this.dSp.execute(new Void[0]);
+        aPR();
+        this.ena = new c(str, apVar);
+        this.ena.setPriority(3);
+        this.ena.execute(new Void[0]);
         return true;
     }
 
-    public void aJT() {
-        if (this.dSo != null) {
-            this.dSo.cancel();
-            this.dSo = null;
+    public void aSH() {
+        if (this.emZ != null) {
+            this.emZ.cancel();
+            this.emZ = null;
         }
     }
 
-    public void aJU() {
-        if (this.dSp != null) {
-            this.dSp.cancel();
-            this.dSp = null;
+    public void aPR() {
+        if (this.ena != null) {
+            this.ena.cancel();
+            this.ena = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, List<d>> {
-        private final n dSq;
+        private final n enb;
 
         public a(n nVar) {
-            this.dSq = nVar;
+            this.enb = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: B */
         public List<d> doInBackground(Object... objArr) {
-            return h.this.aJV();
+            return h.this.aPS();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.dSq != null) {
-                this.dSq.mZ();
+            if (this.enb != null) {
+                this.enb.np();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: p */
+        /* renamed from: t */
         public void onPostExecute(List<d> list) {
             super.onPostExecute(list);
-            if (this.dSq != null) {
-                this.dSq.ca(list);
+            if (this.enb != null) {
+                this.enb.cn(list);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<d> aJV() {
+    public List<d> aPS() {
         HashSet<String> hashSet = new HashSet<>();
-        return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
+        return c(this.mContext, c(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x010e */
@@ -118,7 +118,7 @@ public class h {
     /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v7, types: [android.database.Cursor] */
-    private List<d> a(Context context, List<d> list, Uri uri, HashSet<String> hashSet) {
+    private List<d> c(Context context, List<d> list, Uri uri, HashSet<String> hashSet) {
         Cursor cursor;
         File[] listFiles;
         Matcher matcher;
@@ -154,8 +154,8 @@ public class h {
                             File file = new File(substring);
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String nj = nj(file2.getAbsolutePath());
-                                    if (nj != null && (matcher = compile.matcher(nj)) != null && matcher.matches()) {
+                                    String nm = nm(file2.getAbsolutePath());
+                                    if (nm != null && (matcher = compile.matcher(nm)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -163,13 +163,13 @@ public class h {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 d dVar = new d();
-                                dVar.nh(string);
-                                dVar.ni(sb);
+                                dVar.nl(string);
+                                dVar.ny(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 dVar.d(imageFileInfo);
                                 dVar.setName(string2);
-                                if (string2 != null && string2.equals(this.dSn)) {
+                                if (string2 != null && string2.equals(this.emY)) {
                                     list.add(0, dVar);
                                 } else {
                                     list.add(dVar);
@@ -203,7 +203,7 @@ public class h {
         }
     }
 
-    public String nj(String str) {
+    public String nm(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;
@@ -236,16 +236,16 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final ap dSs;
-        private final String dSt;
-        private String dSu;
-        private List<d> dSv;
-        private int dSw = 1;
-        private b dSx = new i(this);
+        private List<d> efG;
+        private final String ehp;
+        private String ehq;
+        private final ap ene;
+        private int ehr = 1;
+        private b enf = new i(this);
 
         public c(String str, ap apVar) {
-            this.dSs = apVar;
-            this.dSt = str;
+            this.ene = apVar;
+            this.ehp = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -253,23 +253,23 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: k */
         public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.dSt)) {
+            if (TextUtils.isEmpty(this.ehp)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.dSt.equals("-1")) {
-                this.dSv = h.this.aJV();
-                if (this.dSv != null) {
-                    for (d dVar : this.dSv) {
+            if (this.ehp.equals("-1")) {
+                this.efG = h.this.aPS();
+                if (this.efG != null) {
+                    for (d dVar : this.efG) {
                         String albumId = dVar.getAlbumId();
                         if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.dSx, albumId);
+                            a(arrayList, this.enf, albumId);
                         }
                     }
                 }
                 return arrayList;
             }
-            a(arrayList, this.dSx, this.dSt);
+            a(arrayList, this.enf, this.ehp);
             return arrayList;
         }
 
@@ -286,8 +286,8 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (this.dSs != null) {
-                this.dSs.mZ();
+            if (this.ene != null) {
+                this.ene.np();
             }
         }
 
@@ -297,36 +297,36 @@ public class h {
         /* renamed from: c */
         public void onProgressUpdate(List<ImageFileInfo>... listArr) {
             super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.dSs != null) {
-                this.dSs.a(this.dSv, listArr[0], this.dSu);
+            if (listArr.length > 0 && this.ene != null) {
+                this.ene.a(this.efG, listArr[0], this.ehq);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: p */
+        /* renamed from: t */
         public void onPostExecute(List<ImageFileInfo> list) {
             super.onPostExecute(list);
-            if (this.dSs != null) {
-                this.dSs.a(this.dSv, list, this.dSu);
+            if (this.ene != null) {
+                this.ene.a(this.efG, list, this.ehq);
             }
         }
 
         private void a(List<ImageFileInfo> list, b bVar) {
             if (list != null && bVar != null) {
-                if (this.dSw == 1 || this.dSw == 2) {
-                    if (list.size() / this.dSw > 50) {
+                if (this.ehr == 1 || this.ehr == 2) {
+                    if (list.size() / this.ehr > 50) {
                         if (bVar != null) {
-                            bVar.bZ(list);
+                            bVar.cm(list);
                         }
-                        this.dSw++;
+                        this.ehr++;
                     }
-                } else if (list.size() / this.dSw > 500) {
+                } else if (list.size() / this.ehr > 500) {
                     if (bVar != null) {
-                        bVar.bZ(list);
+                        bVar.cm(list);
                     }
-                    this.dSw++;
+                    this.ehr++;
                 }
             }
         }
@@ -349,7 +349,7 @@ public class h {
                                 int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    this.dSu = cursor.getString(columnIndex2);
+                                    this.ehq = cursor.getString(columnIndex2);
                                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                                     imageFileInfo.setAlbumnId(str);
                                     imageFileInfo.setFilePath(string);

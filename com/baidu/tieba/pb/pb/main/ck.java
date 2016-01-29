@@ -1,48 +1,97 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cf;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ck extends HttpMessageListener {
-    final /* synthetic */ cf cHv;
+public class ck extends x.a {
+    public TextView aMu;
+    UserIconBox ahI;
+    public UserIconBox bqH;
+    public TbRichTextView cKi;
+    public View cLA;
+    public View cLB;
+    public View cLC;
+    public HeadImageView cLD;
+    public ImageView cLE;
+    public ImageView cLG;
+    public TextView cLH;
+    public TextView cLI;
+    public ImageView cLJ;
+    public ImageView cLK;
+    public RelativeLayout cLL;
+    public LinearLayout cLM;
+    public ImageView cLN;
+    public SubPbLayout cLO;
+    public View cLy;
+    public View cLz;
+    public TextView cMe;
+    public ImageView cOj;
+    public RelativeLayout cOk;
+    public LinearLayout cOl;
+    public ImageView cOm;
+    public TextView cOn;
+    public ImageView cOo;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ck(cf cfVar, int i) {
-        super(i);
-        this.cHv = cfVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cf.b bVar;
-        cf.b bVar2;
-        cf.b bVar3;
-        cf.b bVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            bVar = this.cHv.cHg;
-            if (bVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                String errorString = httpResponsedMessage.getErrorString();
-                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    bVar4 = this.cHv.cHg;
-                    bVar4.onError(error, errorString);
-                    return;
-                }
-                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    bVar2 = this.cHv.cHg;
-                    bVar2.onError(error, errorString);
-                    return;
-                }
-                hideChudianPostResponseMessage.getResultFlag();
-                bVar3 = this.cHv.cHg;
-                bVar3.g(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
-            }
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [99=5] */
+    public ck(View view, boolean z, boolean z2, int i) {
+        super(view);
+        this.cLC = view.findViewById(t.g.sub_pb_more);
+        this.cLD = (HeadImageView) view.findViewById(t.g.photo);
+        this.aMu = (TextView) view.findViewById(t.g.user_name);
+        this.cLE = (ImageView) view.findViewById(t.g.user_rank);
+        this.cLG = (ImageView) view.findViewById(t.g.user_gender);
+        this.cLK = (ImageView) view.findViewById(t.g.reply);
+        this.cKi = (TbRichTextView) view.findViewById(t.g.richText);
+        this.cLJ = (ImageView) view.findViewById(t.g.floor_owner);
+        this.cLH = (TextView) view.findViewById(t.g.floor);
+        this.cLI = (TextView) view.findViewById(t.g.time);
+        this.cLL = (RelativeLayout) view.findViewById(t.g.pb_post_header_layout);
+        this.cLO = (SubPbLayout) view.findViewById(t.g.pb_post_footer_layout);
+        this.cLM = (LinearLayout) view.findViewById(t.g.pb_subpb_layout_root);
+        this.cLN = (ImageView) view.findViewById(t.g.pb_post_footer_layout_line_top);
+        this.cLy = view;
+        this.cLz = view.findViewById(t.g.new_pb_list_item_line_top);
+        this.cLA = view.findViewById(t.g.new_pb_list_item_line_top_full);
+        this.cLB = view.findViewById(t.g.new_pb_list_item_blank_top);
+        this.cOk = (RelativeLayout) view.findViewById(t.g.chudian_info_container);
+        this.cOl = (LinearLayout) view.findViewById(t.g.landmark_container);
+        this.cOm = (ImageView) view.findViewById(t.g.landmark_icon);
+        this.cOn = (TextView) view.findViewById(t.g.landmark_content);
+        this.cOo = (ImageView) view.findViewById(t.g.ad_icon);
+        this.cKi.HC();
+        this.cKi.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.cKi.getPaddingLeft()) - this.cKi.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60)), i);
+        this.cKi.setMaxImageWidth(min);
+        this.cKi.setMaxImageHeight((int) (min * 1.618f));
+        this.cKi.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.cLD.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60);
+            this.cLD.setLayoutParams(layoutParams);
+            this.cLD.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.cLD.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds30);
+            this.cLD.setLayoutParams(layoutParams2);
+            this.cLD.setVisibility(4);
         }
+        this.cKi.g(z2, false);
+        this.cKi.setVoiceViewRes(t.h.voice_play_btn);
+        this.bqH = (UserIconBox) view.findViewById(t.g.user_icon_box);
+        this.ahI = (UserIconBox) view.findViewById(t.g.user_tshow_icon_box);
+        this.cMe = (TextView) view.findViewById(t.g.pb_item_tail_content);
+        this.cOj = (ImageView) view.findViewById(t.g.replybtn);
     }
 }

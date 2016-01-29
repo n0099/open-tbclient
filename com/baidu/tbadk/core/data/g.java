@@ -1,35 +1,16 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import tbclient.FrsPage.ColorEgg;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g {
-    private ArrayList<String> Vw = new ArrayList<>();
-    private int Vx;
+public abstract class g {
+    public abstract void parserJson(JSONObject jSONObject);
 
-    public ArrayList<String> rq() {
-        return this.Vw;
-    }
-
-    public int rr() {
-        return this.Vx;
-    }
-
-    public boolean a(ColorEgg colorEgg) {
-        this.Vx = 0;
-        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
-            return false;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        for (String str : colorEgg.holiday_words) {
-            if (!StringUtils.isNull(str)) {
-                this.Vw.add(str);
-            }
-        }
-        if (this.Vw.size() <= 0) {
-            return false;
-        }
-        this.Vx = colorEgg.style_flag.intValue();
-        return true;
     }
 }

@@ -1,18 +1,14 @@
 package com.baidu.tieba.recommendfrs.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.x;
+import tbclient.App;
 /* loaded from: classes.dex */
-public class a extends b {
-    public static final BdUniqueId dpc = BdUniqueId.gen();
-
-    @Override // com.baidu.tieba.card.a.j, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return dpc;
-    }
-
-    public a() {
-        setStType(x.In());
-        setYuelaouLocate("ptrcard#");
+public class a extends com.baidu.tieba.card.a.d {
+    public void b(App app) {
+        if (app != null) {
+            if (this.aRR == null) {
+                this.aRR = new com.baidu.tbadk.core.data.c();
+            }
+            this.aRR.a(app);
+        }
     }
 }

@@ -2,10 +2,9 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbSettingTextNewDotView extends TbSettingTextTipView {
     public TbSettingTextNewDotView(Context context, AttributeSet attributeSet) {
@@ -17,11 +16,11 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
     }
 
     public void refresh() {
-        if (PluginPackageManager.ls().lB()) {
-            this.apj.setVisibility(0);
-            com.baidu.tbadk.core.util.as.i((View) this.apj, n.f.icon_news_head_new);
+        if (PluginPackageManager.lD().lO()) {
+            this.aqc.setVisibility(0);
+            com.baidu.tbadk.core.util.ar.k(this.aqc, t.f.icon_news_head_new);
             return;
         }
-        this.apj.setVisibility(4);
+        this.aqc.setVisibility(4);
     }
 }

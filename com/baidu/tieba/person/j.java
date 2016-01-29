@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.a;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class j implements a.c {
-    final /* synthetic */ i cNI;
+    final /* synthetic */ i cXc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.cNI = iVar;
+        this.cXc = iVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -22,14 +22,14 @@ class j implements a.c {
         EditHeadActivity editHeadActivity3;
         EditHeadActivity editHeadActivity4;
         EditHeadActivity editHeadActivity5;
-        editHeadActivity = this.cNI.this$0;
+        editHeadActivity = this.cXc.this$0;
         editHeadActivity.closeLoadingDialog();
-        editHeadActivity2 = this.cNI.this$0;
+        editHeadActivity2 = this.cXc.this$0;
         Intent intent = editHeadActivity2.getIntent();
         if (imageUploadResult != null) {
             if (imageUploadResult.error_code != 0) {
-                editHeadActivity5 = this.cNI.this$0;
-                editHeadActivity5.showToast(n.j.upload_pic_error, false);
+                editHeadActivity5 = this.cXc.this$0;
+                editHeadActivity5.showToast(t.j.upload_pic_error, false);
             } else {
                 PhotoUrlData photoUrlData = new PhotoUrlData();
                 photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -48,9 +48,9 @@ class j implements a.c {
                 intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
             }
         }
-        editHeadActivity3 = this.cNI.this$0;
+        editHeadActivity3 = this.cXc.this$0;
         editHeadActivity3.setResult(-1, intent);
-        editHeadActivity4 = this.cNI.this$0;
+        editHeadActivity4 = this.cXc.this$0;
         editHeadActivity4.finish();
     }
 }

@@ -3,10 +3,9 @@ package com.baidu.adp.plugin.pluginBase;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import com.baidu.adp.plugin.a.b;
 /* loaded from: classes.dex */
 public class PluginBaseFragmentActivity extends PluginBaseActivity {
-    private b mProxyActivity = null;
+    private com.baidu.adp.plugin.a.b mProxyActivity = null;
 
     public FragmentManager getSupportFragmentManager() {
         if (this.mProxyActivity == null) {
@@ -15,7 +14,7 @@ public class PluginBaseFragmentActivity extends PluginBaseActivity {
         return this.mProxyActivity.proxyGetSupportFragmentManager();
     }
 
-    public void setActivityProxy(b bVar) {
+    public void setActivityProxy(com.baidu.adp.plugin.a.b bVar) {
         super.setActivityProxy((com.baidu.adp.plugin.a.a) bVar);
         this.mProxyActivity = bVar;
     }

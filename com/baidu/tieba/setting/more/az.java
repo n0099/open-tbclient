@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class az extends CustomMessageListener {
-    final /* synthetic */ ay dwc;
+    final /* synthetic */ ay dMg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public az(ay ayVar, int i) {
         super(i);
-        this.dwc = ayVar;
+        this.dMg = ayVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

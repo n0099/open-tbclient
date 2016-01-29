@@ -1,13 +1,10 @@
 package com.baidu.tieba.image;
 
-import android.content.Intent;
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.sapi2.shell.SapiErrorCode;
+import com.baidu.tieba.image.j;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes.dex */
-class t implements ViewPager.OnPageChangeListener {
+class t implements j.b {
     final /* synthetic */ ImageViewerActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,71 +12,64 @@ class t implements ViewPager.OnPageChangeListener {
         this.this$0 = imageViewerActivity;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        boolean z;
-        j jVar;
-        j jVar2;
-        int i2;
+    @Override // com.baidu.tieba.image.j.b
+    public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, com.baidu.tbadk.core.data.c cVar) {
         int i3;
-        int i4;
-        boolean afq;
+        this.this$0.hideProgressBar();
+        if (z2 && this.this$0.coR.getCurrentItem() <= 4) {
+            int itemNum = this.this$0.coR.getItemNum();
+            this.this$0.coR.setTempSize(itemNum + 100);
+            this.this$0.coR.setCurrentItem(itemNum + 90, false);
+            this.this$0.coR.setTempSize(0);
+        }
+        this.this$0.coR.setUrlData(arrayList);
+        this.this$0.coR.setAssistUrls(this.this$0.coM);
+        this.this$0.coR.setHasNext(z);
+        this.this$0.coR.setNextTitle(str);
+        if (i >= 0 && i < this.this$0.coR.getItemNum()) {
+            this.this$0.coR.setCurrentItem(i, false);
+        }
+        if (i2 != 0) {
+            this.this$0.wS = i2;
+        }
+        if (arrayList.size() >= 400 && this.this$0.coR.getCurrentItem() > 200) {
+            for (int i4 = 0; i4 < 200; i4++) {
+                arrayList.remove(0);
+            }
+            this.this$0.coR.setUrlData(arrayList);
+            ImageViewerActivity imageViewerActivity = this.this$0;
+            i3 = imageViewerActivity.coH;
+            imageViewerActivity.coH = i3 + 200;
+            this.this$0.coR.setCurrentItem(this.this$0.coR.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
+        }
+        this.this$0.aiA();
+        a(arrayList, cVar);
+    }
+
+    private void a(ArrayList<String> arrayList, com.baidu.tbadk.core.data.c cVar) {
         a aVar;
-        int i5;
-        z = this.this$0.cky;
-        if (!z) {
-            jVar = this.this$0.cks;
-            if (jVar != null && i > this.this$0.ckq.getItemNum() - 5) {
-                jVar2 = this.this$0.cks;
-                jVar2.afh();
-            }
+        a aVar2;
+        if (cVar == null || arrayList == null) {
+            this.this$0.coR.setAddSize(0);
+            return;
+        }
+        aVar = this.this$0.cpb;
+        aVar.e(cVar, arrayList.size());
+        aVar2 = this.this$0.cpb;
+        if (aVar2.aib()) {
+            this.this$0.coR.setAddSize(1);
         } else {
-            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
-            intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
-        }
-        ImageViewerActivity imageViewerActivity = this.this$0;
-        i2 = this.this$0.mIndex;
-        imageViewerActivity.at(i2, i);
-        this.this$0.mIndex = i;
-        this.this$0.afp();
-        this.this$0.afv();
-        i3 = this.this$0.ckF;
-        i4 = this.this$0.mIndex;
-        if (i3 < i4) {
-            ImageViewerActivity imageViewerActivity2 = this.this$0;
-            i5 = this.this$0.mIndex;
-            imageViewerActivity2.ckF = i5;
-        }
-        afq = this.this$0.afq();
-        if (afq) {
-            aVar = this.this$0.ckA;
-            aVar.aeW();
+            this.this$0.coR.setAddSize(0);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        long j;
-        int i2;
-        HashMap hashMap;
-        int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.this$0.ckt;
-            if (nanoTime - j > 300000000 && this.this$0.cki != null) {
-                i2 = this.this$0.mIndex;
-                if (i2 < this.this$0.cki.size()) {
-                    hashMap = this.this$0.cku;
-                    ArrayList arrayList = this.this$0.cki;
-                    i3 = this.this$0.mIndex;
-                    hashMap.put((String) arrayList.get(i3), true);
-                }
-            }
+    @Override // com.baidu.tieba.image.j.b
+    public void I(int i, String str) {
+        this.this$0.hideProgressBar();
+        this.this$0.showToast(str);
+        if (i == 40) {
+            this.this$0.wS = this.this$0.coJ.size();
+            this.this$0.aiA();
         }
     }
 }

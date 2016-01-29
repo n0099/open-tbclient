@@ -1,38 +1,36 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.widget.ProgressBar;
+import com.baidu.tieba.person.bv;
 /* loaded from: classes.dex */
-public class bo implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity cPT;
+class bo implements bv.a {
+    final /* synthetic */ PersonListActivity cZq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(PersonListActivity personListActivity) {
-        this.cPT = personListActivity;
+        this.cZq = personListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bt btVar;
-        bt btVar2;
-        bt btVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        btVar = this.cPT.cPO;
-        if (btVar != null) {
-            btVar2 = this.cPT.cPO;
-            if (btVar2.getItemViewType(intValue) == 0) {
-                btVar3 = this.cPT.cPO;
-                UserData userData = (UserData) btVar3.getItem(intValue);
-                if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cPT.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
-                }
+    @Override // com.baidu.tieba.person.bv.a
+    public void F(String str, boolean z) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (!z) {
+            progressBar = this.cZq.aNo;
+            if (progressBar.isShown()) {
+                progressBar2 = this.cZq.aNo;
+                progressBar2.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.cZq.showToast(str);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.person.bv.a
+    public com.baidu.tieba.person.data.r d(com.baidu.tieba.person.data.r rVar, boolean z) {
+        this.cZq.a(rVar, z);
+        return null;
     }
 }

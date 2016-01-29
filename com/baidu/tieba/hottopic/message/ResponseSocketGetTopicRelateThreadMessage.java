@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.hottopic.data.b;
+import com.baidu.tieba.hottopic.data.d;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
@@ -9,7 +9,7 @@ import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
-    private b hotThreadItemListData;
+    private d hotThreadItemListData;
     private Page page;
     private List<ThreadInfo> thread_list;
 
@@ -25,7 +25,7 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         return this.page;
     }
 
-    public b getHotThreadItemListData() {
+    public d getHotThreadItemListData() {
         return this.hotThreadItemListData;
     }
 
@@ -39,7 +39,7 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
             if (getError() == 0) {
                 this.thread_list = getTopicRelateThreadResIdl.data.thread_list;
                 this.page = getTopicRelateThreadResIdl.data.page;
-                this.hotThreadItemListData = new b();
+                this.hotThreadItemListData = new d();
                 this.hotThreadItemListData.a(getTopicRelateThreadResIdl.data);
             }
         }

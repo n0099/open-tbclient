@@ -9,58 +9,58 @@ import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> aga;
-    private TextView chY;
-    private ImageView chZ;
-    private TextView cia;
-    private TextView cib;
-    private boolean cic;
+    private ArrayList<a> agN;
+    private ImageView cmA;
+    private TextView cmB;
+    private TextView cmC;
+    private boolean cmD;
+    private TextView cmz;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ax(boolean z);
+        void ay(boolean z);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aga = new ArrayList<>();
+        this.agN = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aga = new ArrayList<>();
+        this.agN = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.aga = new ArrayList<>();
+        this.agN = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
-        addView(LayoutInflater.from(context).inflate(n.h.shut_down_validate_tip, (ViewGroup) null));
-        this.chZ = (ImageView) findViewById(n.g.no_network_icon);
-        this.cia = (TextView) findViewById(n.g.no_network_guide1);
-        this.cib = (TextView) findViewById(n.g.no_network_guide2);
-        this.chY = (TextView) findViewById(n.g.no_network_showmore);
+        addView(LayoutInflater.from(context).inflate(t.h.shut_down_validate_tip, (ViewGroup) null));
+        this.cmA = (ImageView) findViewById(t.g.no_network_icon);
+        this.cmB = (TextView) findViewById(t.g.no_network_guide1);
+        this.cmC = (TextView) findViewById(t.g.no_network_guide2);
+        this.cmz = (TextView) findViewById(t.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.chY != null) {
-            this.chY.setOnClickListener(onClickListener);
+        if (this.cmz != null) {
+            this.cmz.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.cic) {
-            this.cic = z;
+        if (z != this.cmD) {
+            this.cmD = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -68,8 +68,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation.setAnimationListener(new com.baidu.tieba.imMessageCenter.im.view.a(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.aga.size(); i++) {
-                    this.aga.get(i).ax(false);
+                for (int i = 0; i < this.agN.size(); i++) {
+                    this.agN.get(i).ay(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -77,8 +77,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation2.setDuration(500L);
                 alphaAnimation2.setAnimationListener(new b(this));
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.aga.size(); i2++) {
-                    this.aga.get(i2).ax(true);
+                for (int i2 = 0; i2 < this.agN.size(); i2++) {
+                    this.agN.get(i2).ay(true);
                 }
             }
         }
@@ -92,20 +92,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aga.clear();
+        this.agN.clear();
     }
 
     public void onChangeSkinType(int i) {
-        as.c(this.chZ, n.f.icon_error);
-        as.i(findViewById(n.g.no_network_parent), n.f.bg_no_network);
+        ar.c(this.cmA, t.f.icon_error);
+        ar.k(findViewById(t.g.no_network_parent), t.f.bg_no_network);
         if (i == 1) {
-            this.cia.setTextColor(-10523526);
-            this.cib.setTextColor(-8682095);
-            this.chY.setTextColor(-10523526);
+            this.cmB.setTextColor(-10523526);
+            this.cmC.setTextColor(-8682095);
+            this.cmz.setTextColor(-10523526);
             return;
         }
-        this.cia.setTextColor(-14277082);
-        this.cib.setTextColor(-5065030);
-        this.chY.setTextColor(-14277082);
+        this.cmB.setTextColor(-14277082);
+        this.cmC.setTextColor(-5065030);
+        this.cmz.setTextColor(-14277082);
     }
 }

@@ -7,20 +7,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.n;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel dQt;
+    final /* synthetic */ UserMuteAddAndDelModel eld;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.dQt = userMuteAddAndDelModel;
+        this.eld = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,46 +36,46 @@ public class a extends HttpMessageListener {
         UserMuteAddAndDelModel.From from2;
         UserMuteAddAndDelModel.a aVar;
         UserMuteAddAndDelModel.a aVar2;
-        bVar = this.dQt.aUt;
-        bVar.av(false);
+        bVar = this.eld.aWB;
+        bVar.aw(false);
         if (httpResponsedMessage instanceof UserMuteAddResponseMessage) {
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) httpResponsedMessage;
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_NEED_REFRESH));
-                hVar4 = this.dQt.dQp;
-                hVar5 = this.dQt.dQl;
-                hVar4.c(hVar5.getResources().getString(n.j.mute_success));
-                from = this.dQt.dQm;
+                hVar4 = this.eld.ekZ;
+                hVar5 = this.eld.ekV;
+                hVar4.c(hVar5.getResources().getString(t.j.mute_success));
+                from = this.eld.ekW;
                 if (from != UserMuteAddAndDelModel.From.PB) {
-                    from2 = this.dQt.dQm;
+                    from2 = this.eld.ekW;
                     if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                         TiebaStatic.log("c10043");
                     }
                 } else {
                     TiebaStatic.log("c10034");
                 }
-                aVar = this.dQt.dQn;
+                aVar = this.eld.ekX;
                 if (aVar != null) {
-                    aVar2 = this.dQt.dQn;
+                    aVar2 = this.eld.ekX;
                     aVar2.a(userMuteAddResponseMessage);
                 }
             } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                 String errorString = userMuteAddResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    hVar3 = this.dQt.dQl;
-                    errorString = hVar3.getResources().getString(n.j.mute_error_beyond_limit);
+                    hVar3 = this.eld.ekV;
+                    errorString = hVar3.getResources().getString(t.j.mute_error_beyond_limit);
                 }
-                this.dQt.fy(errorString);
+                this.eld.fw(errorString);
             } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                 String errorString2 = userMuteAddResponseMessage.getErrorString();
-                if (ax.isEmpty(errorString2)) {
-                    hVar2 = this.dQt.dQl;
-                    errorString2 = hVar2.getResources().getString(n.j.mute_fail);
+                if (aw.isEmpty(errorString2)) {
+                    hVar2 = this.eld.ekV;
+                    errorString2 = hVar2.getResources().getString(t.j.mute_fail);
                 }
-                hVar = this.dQt.dQp;
+                hVar = this.eld.ekZ;
                 hVar.d(errorString2);
             } else {
-                this.dQt.aIZ();
+                this.eld.aRP();
             }
         }
     }

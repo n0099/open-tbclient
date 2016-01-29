@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.e.a.gD().a(c.agf());
+        com.baidu.adp.lib.e.a.gL().a(c.akh());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.e.a.gD().a(a.age());
+            com.baidu.adp.lib.e.a.gL().a(a.akg());
         }
         MessageManager.getInstance().registerListener(new i(CmdConfigCustom.EDITOR_COLLECT_TOOL));
     }

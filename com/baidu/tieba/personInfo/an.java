@@ -1,20 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ d cWV;
+public class an extends CustomMessageListener {
+    final /* synthetic */ f diG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(d dVar) {
-        this.cWV = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an(f fVar, int i) {
+        super(i);
+        this.diG = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.eventStat(this.cWV.getActivity(), "notlogin_10", "click", 1, new Object[0]);
-        com.baidu.tbadk.core.util.bj.af(this.cWV.getActivity());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
+            return;
+        }
+        this.diG.a((PersonChangeData) customResponsedMessage.getData());
     }
 }

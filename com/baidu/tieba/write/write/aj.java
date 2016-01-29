@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
@@ -16,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class aj implements a.d {
-    final /* synthetic */ WriteActivity dYD;
+    final /* synthetic */ WriteActivity ets;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.dYD = writeActivity;
+        this.ets = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -34,84 +33,67 @@ class aj implements a.d {
         WriteData writeData8;
         WriteData writeData9;
         WriteData writeData10;
-        WriteData writeData11;
-        WriteData writeData12;
-        WriteData writeData13;
-        WriteData writeData14;
-        this.dYD.stopVoice();
-        this.dYD.closeLoadingDialog();
+        this.ets.Oy();
+        this.ets.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.dYD.dJy;
+            writeData2 = this.ets.dZC;
             if (writeData2 != null) {
                 if (!z) {
                     if (nVar != null && writeData != null && nVar.getVcode_pic_url() != null) {
-                        if (!AntiHelper.f(antiData)) {
+                        if (!AntiHelper.h(antiData)) {
                             writeData.setVcodeMD5(nVar.getVcode_md5());
                             writeData.setVcodeUrl(nVar.getVcode_pic_url());
-                            if (nVar.wY().equals("4")) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dYD.getPageContext().getPageActivity(), 12006, writeData, false)));
+                            if (nVar.yl().equals("4")) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.ets.getPageContext().getPageActivity(), 12006, writeData, false)));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dYD.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.ets.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         }
-                        this.dYD.a(false, postWriteCallBackData);
+                        this.ets.a(false, postWriteCallBackData);
                         return;
                     }
-                    this.dYD.a(false, postWriteCallBackData);
+                    this.ets.a(false, postWriteCallBackData);
                     return;
                 }
-                this.dYD.bp(z);
-                this.dYD.a(true, postWriteCallBackData);
-                writeData3 = this.dYD.dJy;
+                this.ets.br(z);
+                this.ets.a(true, postWriteCallBackData);
+                writeData3 = this.ets.dZC;
                 if (writeData3.getType() == 0) {
-                    writeData12 = this.dYD.dJy;
-                    if (writeData12.getLiveCardData() == null) {
-                        writeData14 = this.dYD.dJy;
-                        com.baidu.tieba.tbadkCore.ae.b(writeData14.getForumId(), (WriteData) null);
-                    } else {
-                        writeData13 = this.dYD.dJy;
-                        com.baidu.tieba.tbadkCore.ae.a(writeData13.getLiveCardData().getGroupId(), (WriteData) null);
-                    }
+                    writeData10 = this.ets.dZC;
+                    com.baidu.tieba.tbadkCore.ad.b(writeData10.getForumId(), (WriteData) null);
                     if (postWriteCallBackData != null && postWriteCallBackData.getIsCopyTWZhibo() == 3) {
-                        this.dYD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dYD.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE_TARGET, 18003)));
+                        this.ets.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.ets.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE_TARGET, 18003)));
                     }
                 } else {
-                    writeData4 = this.dYD.dJy;
+                    writeData4 = this.ets.dZC;
                     if (writeData4.getType() == 1) {
-                        writeData9 = this.dYD.dJy;
-                        com.baidu.tieba.tbadkCore.ae.c(writeData9.getThreadId(), (WriteData) null);
+                        writeData9 = this.ets.dZC;
+                        com.baidu.tieba.tbadkCore.ad.c(writeData9.getThreadId(), (WriteData) null);
                     } else {
-                        writeData5 = this.dYD.dJy;
+                        writeData5 = this.ets.dZC;
                         if (writeData5.getType() == 4) {
-                            writeData8 = this.dYD.dJy;
-                            com.baidu.tieba.tbadkCore.ae.b(String.valueOf(writeData8.getForumId()) + "photolive", (WriteData) null);
+                            writeData8 = this.ets.dZC;
+                            com.baidu.tieba.tbadkCore.ad.b(String.valueOf(writeData8.getForumId()) + "photolive", (WriteData) null);
                             if (postWriteCallBackData != null) {
-                                this.dYD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dYD.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
+                                this.ets.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.ets.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
                             }
                         } else {
-                            writeData6 = this.dYD.dJy;
+                            writeData6 = this.ets.dZC;
                             if (writeData6.getType() == 5) {
-                                writeData7 = this.dYD.dJy;
-                                com.baidu.tieba.tbadkCore.ae.c(String.valueOf(writeData7.getThreadId()) + "updatephotolive", (WriteData) null);
+                                writeData7 = this.ets.dZC;
+                                com.baidu.tieba.tbadkCore.ad.c(String.valueOf(writeData7.getThreadId()) + "updatephotolive", (WriteData) null);
                             }
                         }
                     }
-                }
-                writeData10 = this.dYD.dJy;
-                if (writeData10.getLiveCardData() != null) {
-                    WriteActivity writeActivity = this.dYD;
-                    FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dYD.getPageContext().getPageActivity());
-                    writeData11 = this.dYD.dJy;
-                    writeActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, frsActivityConfig.createRefreshCfgShowContent(writeData11.getForumName(), "post live's thread")));
                 }
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                this.dYD.setResult(-1, intent);
-                this.dYD.finish();
+                this.ets.setResult(-1, intent);
+                this.ets.finish();
             }
         }
     }

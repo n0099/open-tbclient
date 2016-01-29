@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.a {
-    private ay dvR = null;
-    private com.baidu.tieba.setting.model.j dvS = null;
-    private com.baidu.tbadk.core.dialog.a dvT;
+    private ay dLV = null;
+    private com.baidu.tieba.setting.model.j dLW = null;
+    private com.baidu.tbadk.core.dialog.a dLX;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dvR = new ay(this);
-        this.dvS = new com.baidu.tieba.setting.model.j(this);
+        this.dLV = new ay(this);
+        this.dLW = new com.baidu.tieba.setting.model.j(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.dvR.aBp().me();
+            this.dLV.aIw().ms();
         } else {
-            this.dvR.aBp().mf();
+            this.dLV.aIw().mt();
         }
-        this.dvR.aBq().setTip(getPageContext().getString(n.j.calc_cache_size));
-        this.dvR.aBq().displayTip();
-        this.dvS.a(new as(this, this));
+        this.dLV.aIx().setTip(getPageContext().getString(t.j.calc_cache_size));
+        this.dLV.aIx().displayTip();
+        this.dLW.a(new as(this, this));
         registerListener(new at(this, CmdConfigCustom.IM_CLEAR_MSG));
     }
 
@@ -39,57 +39,57 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dvS != null) {
-            this.dvS.azz();
+        if (this.dLW != null) {
+            this.dLW.aGG();
         }
-        azB();
+        aGI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dvR.onChangeSkinType(i);
+        this.dLV.onChangeSkinType(i);
     }
 
-    private void azB() {
-        this.dvR.aBt().refresh();
+    private void aGI() {
+        this.dLV.aIA().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dvR != null) {
-            if (view == this.dvR.aBq()) {
-                if (this.dvS != null) {
-                    if (TextUtils.isEmpty(this.dvR.aBq().getTip())) {
-                        showToast(n.j.no_cache_delete);
+        if (this.dLV != null) {
+            if (view == this.dLV.aIx()) {
+                if (this.dLW != null) {
+                    if (TextUtils.isEmpty(this.dLV.aIx().getTip())) {
+                        showToast(t.j.no_cache_delete);
                     } else {
-                        this.dvT = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bG(n.j.alert_clear_all_cache).a(n.j.alert_yes_button, new au(this)).b(n.j.alert_no_button, new av(this)).b(getPageContext()).tf();
+                        this.dLX = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bY(t.j.alert_clear_all_cache).a(t.j.alert_yes_button, new au(this)).b(t.j.alert_no_button, new av(this)).b(getPageContext()).uj();
                     }
                 }
-            } else if (view == this.dvR.aBr()) {
-                if (this.dvS != null) {
-                    this.dvT = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bG(n.j.alert_clear_cache).a(n.j.alert_yes_button, new aw(this)).b(n.j.alert_no_button, new ax(this)).b(getPageContext()).tf();
+            } else if (view == this.dLV.aIy()) {
+                if (this.dLW != null) {
+                    this.dLX = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bY(t.j.alert_clear_cache).a(t.j.alert_yes_button, new aw(this)).b(t.j.alert_no_button, new ax(this)).b(getPageContext()).uj();
                 }
-            } else if (view == this.dvR.aBt()) {
+            } else if (view == this.dLV.aIA()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.dvR.aBs()) {
-                aBo();
+            } else if (view == this.dLV.aIz()) {
+                aIv();
             }
         }
     }
 
-    private void aBo() {
+    private void aIv() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_MY_WALLET, new IntentConfig(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.dvR.aBp())) {
+        if (view != null && view.equals(this.dLV.aIw())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.dvS.setHeadsetModeOn(true);
+                this.dLW.setHeadsetModeOn(true);
             } else {
-                this.dvS.setHeadsetModeOn(false);
+                this.dLW.setHeadsetModeOn(false);
             }
         }
     }
@@ -97,8 +97,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.dvT != null && this.dvT.isShowing()) {
-            this.dvT.dismiss();
+        if (this.dLX != null && this.dLX.isShowing()) {
+            this.dLX.dismiss();
         }
         super.onDestroy();
     }

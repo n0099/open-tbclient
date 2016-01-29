@@ -4,28 +4,28 @@ import android.app.Activity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.g {
-    final /* synthetic */ b cBW;
+    final /* synthetic */ b cIB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cBW = bVar;
+        this.cIB = bVar;
     }
 
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
         PbChosenActivity pbChosenActivity;
-        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.w wVar;
         PbChosenActivity pbChosenActivity2;
         PbChosenActivity pbChosenActivity3;
-        com.baidu.tieba.tbadkCore.x xVar2;
-        pbChosenActivity = this.cBW.cBV;
-        xVar = pbChosenActivity.cBE;
-        if (AntiHelper.ne(xVar.getErrorCode())) {
-            pbChosenActivity2 = this.cBW.cBV;
+        com.baidu.tieba.tbadkCore.w wVar2;
+        pbChosenActivity = this.cIB.cIA;
+        wVar = pbChosenActivity.cIk;
+        if (AntiHelper.or(wVar.getErrorCode())) {
+            pbChosenActivity2 = this.cIB.cIA;
             Activity activity = pbChosenActivity2.getActivity();
-            pbChosenActivity3 = this.cBW.cBV;
-            xVar2 = pbChosenActivity3.cBE;
-            AntiHelper.Q(activity, xVar2.getErrorString());
+            pbChosenActivity3 = this.cIB.cIA;
+            wVar2 = pbChosenActivity3.cIk;
+            AntiHelper.X(activity, wVar2.getErrorString());
         }
     }
 }

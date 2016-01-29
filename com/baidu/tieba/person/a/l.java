@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.data.MyLikeForum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ i cQF;
-    private final /* synthetic */ MyLikeForum cQG;
+    final /* synthetic */ i daj;
+    private final /* synthetic */ MyLikeForum dak;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar, MyLikeForum myLikeForum) {
-        this.cQF = iVar;
-        this.cQG = myLikeForum;
+        this.daj = iVar;
+        this.dak = myLikeForum;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,27 +32,27 @@ public class l implements View.OnClickListener {
         String str2;
         Context context2;
         Context context3;
-        context = this.cQF.mContext;
-        if (bj.ah(context)) {
-            String forumName = this.cQG.getForumName();
-            String.valueOf(this.cQG.getForumId());
-            if (ax.aR(forumName)) {
-                z = this.cQF.isSelf;
+        context = this.daj.mContext;
+        if (bi.ah(context)) {
+            String forumName = this.dak.getForumName();
+            String.valueOf(this.dak.getForumId());
+            if (aw.aQ(forumName)) {
+                z = this.daj.isSelf;
                 if (!z) {
-                    str = this.cQF.userId;
+                    str = this.daj.userId;
                     if (str != null) {
-                        av r = new av("c10619").r("obj_type", 2);
-                        str2 = this.cQF.userId;
+                        au r = new au("c10619").r("obj_type", 2);
+                        str2 = this.daj.userId;
                         TiebaStatic.log(r.aa("obj_id", str2));
                     }
                 } else {
-                    TiebaStatic.log(new av("c10593").r("obj_type", 2));
+                    TiebaStatic.log(new au("c10593").r("obj_type", 2));
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                context2 = this.cQF.mContext;
+                context2 = this.daj.mContext;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context2.getApplicationContext()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                 if (!TbadkCoreApplication.isLogin()) {
-                    context3 = this.cQF.mContext;
+                    context3 = this.daj.mContext;
                     TiebaStatic.eventStat(context3.getApplicationContext(), "notlogin_5", "click", 1, new Object[0]);
                 }
             }

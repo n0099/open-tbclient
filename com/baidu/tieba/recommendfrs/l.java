@@ -1,24 +1,38 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class l extends CustomMessageListener {
-    final /* synthetic */ k dom;
+public class l extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
+    private static final Class<?>[] dDm = {com.baidu.tieba.recommendfrs.b.c.class, com.baidu.tieba.recommendfrs.b.g.class, com.baidu.tieba.recommendfrs.b.a.class};
+    private static final int[] dnR = {t.h.recommend_frs_item_pic, t.h.recommend_frs_item_pics, t.h.recommend_frs_item_photo_live};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(k kVar, int i) {
-        super(i);
-        this.dom = kVar;
+    public l(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, dDm, dnR, viewEventCenter);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.dom.dok = true;
+    @Override // com.baidu.tbadk.mvc.g.b
+    public int eS(int i) {
+        Object item = getItem(i);
+        if (item instanceof com.baidu.tieba.recommendfrs.data.l) {
+            com.baidu.tieba.recommendfrs.data.l lVar = (com.baidu.tieba.recommendfrs.data.l) item;
+            if (lVar.aFC() == 33) {
+                return 2;
+            }
+            return lVar.getType() == 2 ? 1 : 0;
         }
+        return 0;
+    }
+
+    public com.baidu.tieba.recommendfrs.data.l aEX() {
+        com.baidu.tieba.recommendfrs.data.l lVar;
+        for (int count = getCount() - 1; count >= 0; count--) {
+            Object item = getItem(count);
+            if ((item instanceof com.baidu.tieba.recommendfrs.data.l) && (lVar = (com.baidu.tieba.recommendfrs.data.l) item) != null) {
+                return lVar;
+            }
+        }
+        return null;
     }
 }

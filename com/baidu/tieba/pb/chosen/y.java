@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements a.b {
-    private final /* synthetic */ PbChosenActivity cCa;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.m cCb;
+    private final /* synthetic */ PbChosenActivity cIF;
+    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.m cIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.m mVar) {
-        this.cCa = pbChosenActivity;
-        this.cCb = mVar;
+        this.cIF = pbChosenActivity;
+        this.cIG = mVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.adp.lib.util.k.c(this.cCa.getPageContext().getPageActivity(), this.cCb.getChatMsgView());
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.adp.lib.util.k.c(this.cIF.getPageContext().getPageActivity(), this.cIG.getChatMsgView());
         aVar.dismiss();
     }
 }

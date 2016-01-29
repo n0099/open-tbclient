@@ -1,74 +1,50 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
+import android.os.Handler;
+import android.widget.TextView;
 import com.baidu.tieba.account.ActivationActivity;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aIw;
+class p implements Runnable {
+    final /* synthetic */ ActivationActivity aJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ActivationActivity activationActivity) {
-        this.aIw = activationActivity;
+        this.aJA = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        ImageView imageView;
-        ActivationActivity.b bVar;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        TextView textView;
+        Handler handler;
+        Runnable runnable;
+        TextView textView2;
         ActivationActivity.a aVar;
-        ActivationActivity.b bVar2;
-        ActivationActivity.b bVar3;
-        ActivationActivity.a aVar2;
-        ActivationActivity.b bVar4;
-        ActivationActivity.a aVar3;
-        ActivationActivity.a aVar4;
-        view2 = this.aIw.mBack;
-        if (view != view2) {
-            if (view != this.aIw.aIj) {
-                if (view != this.aIw.aIk) {
-                    imageView = this.aIw.aIe;
-                    if (view == imageView) {
-                        this.aIw.aIi.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                } else if (this.aIw.aIn) {
-                    bVar = this.aIw.aIl;
-                    if (bVar == null) {
-                        aVar = this.aIw.aIm;
-                        if (aVar == null) {
-                            this.aIw.aIl = new ActivationActivity.b(this.aIw, null);
-                            bVar2 = this.aIw.aIl;
-                            bVar2.setPriority(3);
-                            bVar3 = this.aIw.aIl;
-                            bVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
-                }
-            }
-            aVar2 = this.aIw.aIm;
-            if (aVar2 == null) {
-                bVar4 = this.aIw.aIl;
-                if (bVar4 == null) {
-                    this.aIw.aIm = new ActivationActivity.a(this.aIw, null);
-                    aVar3 = this.aIw.aIm;
-                    aVar3.setPriority(3);
-                    aVar4 = this.aIw.aIm;
-                    aVar4.execute(new String[0]);
-                    return;
-                }
+        ActivationActivity activationActivity = this.aJA;
+        i = activationActivity.FC;
+        activationActivity.FC = i - 1;
+        i2 = this.aJA.FC;
+        if (i2 <= 0) {
+            this.aJA.aJq = true;
+            textView2 = this.aJA.aJk;
+            textView2.setText(this.aJA.getPageContext().getString(t.j.resend_code));
+            aVar = this.aJA.aJp;
+            if (aVar == null) {
+                this.aJA.aJn.setEnabled(true);
                 return;
             }
             return;
         }
-        this.aIw.setResult(0);
-        this.aIw.finish();
+        String string = this.aJA.getPageContext().getString(t.j.resend_code_second);
+        i3 = this.aJA.FC;
+        String format = String.format(string, Integer.valueOf(i3));
+        textView = this.aJA.aJk;
+        textView.setText(format);
+        handler = this.aJA.mHandler;
+        runnable = this.aJA.mRunnable;
+        handler.postDelayed(runnable, 1000L);
     }
 }

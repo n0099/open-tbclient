@@ -12,27 +12,27 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends h {
-    private LinearLayout aDP;
-    private final ArrayList<C0057a> aDQ;
-    private View.OnClickListener aDR;
-    private View aDS;
-    private String aDT;
-    private String aDU;
-    private CustomMessageListener aDV;
-    private CustomMessageListener aDW;
-    private View.OnClickListener aDX;
-    private View.OnClickListener aDY;
-    private String mFrom;
+    private LinearLayout aEF;
+    private final ArrayList<C0058a> aEG;
+    private View.OnClickListener aEH;
+    private View aEI;
+    private String aEJ;
+    private String aEK;
+    private CustomMessageListener aEL;
+    private CustomMessageListener aEM;
+    private View.OnClickListener aEN;
+    private View.OnClickListener aEO;
+    private String aer;
     private int mSkinType;
     private BdUniqueId mTag;
     private TbPageContext<?> mTbPageContext;
@@ -46,161 +46,161 @@ public class a extends h {
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
         if (this.mTag != null) {
-            if (this.aDW != null) {
-                this.aDW.setTag(this.mTag);
+            if (this.aEM != null) {
+                this.aEM.setTag(this.mTag);
             }
-            if (this.aDV != null) {
-                this.aDV.setTag(this.mTag);
+            if (this.aEL != null) {
+                this.aEL.setTag(this.mTag);
             }
         }
     }
 
     public String getFrom() {
-        return this.mFrom;
+        return this.aer;
     }
 
     public void setFrom(String str) {
-        this.mFrom = str;
+        this.aer = str;
     }
 
     public void an(String str, String str2) {
-        this.aDT = str;
-        this.aDU = str2;
+        this.aEJ = str;
+        this.aEK = str2;
     }
 
     public a(Context context) {
         super(context);
-        this.aDQ = new ArrayList<>();
+        this.aEG = new ArrayList<>();
         this.mSkinType = 3;
-        this.aDR = null;
+        this.aEH = null;
         this.mTag = null;
-        this.aDV = new b(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
-        this.aDW = new c(this, CmdConfigCustom.CMD_LIKE_FORUM);
-        this.aDX = new d(this);
-        this.aDY = new f(this);
-        am(context);
+        this.aEL = new b(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
+        this.aEM = new c(this, CmdConfigCustom.CMD_LIKE_FORUM);
+        this.aEN = new d(this);
+        this.aEO = new f(this);
+        an(context);
     }
 
-    private void am(Context context) {
+    private void an(Context context) {
         setHorizontalFadingEdgeEnabled(false);
         setVerticalFadingEdgeEnabled(false);
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);
-        this.aDP = new LinearLayout(context);
-        this.aDP.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        this.aDP.setOrientation(0);
-        addView(this.aDP);
+        this.aEF = new LinearLayout(context);
+        this.aEF.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        this.aEF.setOrientation(0);
+        addView(this.aEF);
     }
 
     public void a(List<g> list, TbPageContext<?> tbPageContext) {
-        if (y.l(list) > 0 && tbPageContext != null) {
+        if (x.o(list) > 0 && tbPageContext != null) {
             this.mTbPageContext = tbPageContext;
             list.add(new g());
-            int l = y.l(this.aDQ);
-            int l2 = y.l(list);
-            if (l > l2) {
-                for (int i = 0; i < l - l2; i++) {
-                    x.a aVar = (x.a) y.b(this.aDQ, i);
+            int o = x.o(this.aEG);
+            int o2 = x.o(list);
+            if (o > o2) {
+                for (int i = 0; i < o - o2; i++) {
+                    x.a aVar = (x.a) com.baidu.tbadk.core.util.x.b(this.aEG, i);
                     if (aVar != null) {
-                        this.aDP.removeView(aVar.getView());
+                        this.aEF.removeView(aVar.getView());
                     }
-                    this.aDQ.remove(aVar);
+                    this.aEG.remove(aVar);
                 }
             }
-            for (int i2 = 0; i2 < l2; i2++) {
-                g gVar = (g) y.b(list, i2);
-                C0057a c0057a = (C0057a) y.b(this.aDQ, i2);
-                if (c0057a != null) {
-                    b(c0057a.getView(), gVar);
+            for (int i2 = 0; i2 < o2; i2++) {
+                g gVar = (g) com.baidu.tbadk.core.util.x.b(list, i2);
+                C0058a c0058a = (C0058a) com.baidu.tbadk.core.util.x.b(this.aEG, i2);
+                if (c0058a != null) {
+                    b(c0058a.getView(), gVar);
                 } else {
-                    View mT = mT();
-                    if (mT != null) {
-                        C0057a c0057a2 = new C0057a(mT);
-                        this.aDQ.add(c0057a2);
-                        b(c0057a2.getView(), gVar);
-                        this.aDP.addView(mT);
+                    View ni = ni();
+                    if (ni != null) {
+                        C0058a c0058a2 = new C0058a(ni);
+                        this.aEG.add(c0058a2);
+                        b(c0058a2.getView(), gVar);
+                        this.aEF.addView(ni);
                     }
                 }
-                if (i2 == l2 - 1) {
-                    a(this.aDQ.get(l2 - 1));
+                if (i2 == o2 - 1) {
+                    a(this.aEG.get(o2 - 1));
                 }
             }
-            this.mTbPageContext.registerListener(this.aDV);
-            this.mTbPageContext.registerListener(this.aDW);
+            this.mTbPageContext.registerListener(this.aEL);
+            this.mTbPageContext.registerListener(this.aEM);
             if (getTag() != null) {
-                this.aDV.setTag(getTag());
-                this.aDW.setTag(getTag());
+                this.aEL.setTag(getTag());
+                this.aEM.setTag(getTag());
             }
-            cK(this.mSkinType);
+            db(this.mSkinType);
         }
     }
 
-    private void a(C0057a c0057a) {
-        if (c0057a != null) {
-            this.aDS = c0057a.getView();
-            c0057a.aEg.setVisibility(8);
-            c0057a.aEe.setText(this.mTbPageContext.getPageActivity().getResources().getString(n.j.recommend_frs_hot_thread_more));
-            c0057a.aEf.setVisibility(8);
-            c0057a.aEd.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            as.c(c0057a.aEd, n.f.icon_pic_more);
-            as.b(c0057a.aEe, n.d.cp_cont_b, 1);
-            as.i(c0057a.aEd, n.f.selector_load_more_bg);
-            this.aDS.setClickable(true);
-            this.aDS.setOnClickListener(this.aDR);
+    private void a(C0058a c0058a) {
+        if (c0058a != null) {
+            this.aEI = c0058a.getView();
+            c0058a.aEW.setVisibility(8);
+            c0058a.aEU.setText(this.mTbPageContext.getPageActivity().getResources().getString(t.j.recommend_frs_hot_thread_more));
+            c0058a.aEV.setVisibility(8);
+            c0058a.aET.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            ar.c(c0058a.aET, t.f.icon_pic_more);
+            ar.b(c0058a.aEU, t.d.cp_cont_b, 1);
+            ar.k(c0058a.aET, t.f.selector_load_more_bg);
+            this.aEI.setClickable(true);
+            this.aEI.setOnClickListener(this.aEH);
         }
     }
 
     public void setLoadMoreClickListener(View.OnClickListener onClickListener) {
-        this.aDR = onClickListener;
+        this.aEH = onClickListener;
     }
 
     public View getLastItemView() {
-        return this.aDS;
+        return this.aEI;
     }
 
     private void a(View view, g gVar) {
         if (view != null && view.getTag() != null && gVar != null) {
-            C0057a c0057a = (C0057a) view.getTag();
-            c0057a.aEg.setClickable(true);
-            c0057a.aEg.setOnClickListener(this.aDX);
+            C0058a c0058a = (C0058a) view.getTag();
+            c0058a.aEW.setClickable(true);
+            c0058a.aEW.setOnClickListener(this.aEN);
             view.setClickable(true);
-            view.setOnClickListener(this.aDY);
+            view.setOnClickListener(this.aEO);
         }
     }
 
-    private View mT() {
-        return View.inflate(this.mTbPageContext.getPageActivity(), n.h.widget_hot_forum_list_item, null);
+    private View ni() {
+        return View.inflate(this.mTbPageContext.getPageActivity(), t.h.widget_hot_forum_list_item, null);
     }
 
     private void b(View view, g gVar) {
         if (gVar != null && view != null && view.getTag() != null) {
-            C0057a c0057a = (C0057a) view.getTag();
-            c0057a.aEd.setTag(gVar.forumAvatar);
-            c0057a.aEd.d(gVar.forumAvatar, 10, false);
-            c0057a.aEe.setText(gVar.forumName);
-            c0057a.aEe.setTag(n.g.tag_forum_id, Long.valueOf(gVar.forumId));
-            c0057a.aEf.setDefaultBgResource(0);
-            c0057a.aEf.setDefaultResource(0);
-            c0057a.aEg.setTag(n.g.tag_forum_id, Long.valueOf(gVar.forumId));
-            c0057a.aEg.setTag(n.g.tag_forum_name, gVar.forumName);
-            c0057a.getView().setTag(n.g.tag_forum_id, Long.valueOf(gVar.forumId));
-            c0057a.getView().setTag(n.g.tag_forum_name, gVar.forumName);
-            a(c0057a.aEg, gVar.isLiked);
+            C0058a c0058a = (C0058a) view.getTag();
+            c0058a.aET.setTag(gVar.forumAvatar);
+            c0058a.aET.d(gVar.forumAvatar, 10, false);
+            c0058a.aEU.setText(gVar.forumName);
+            c0058a.aEU.setTag(t.g.tag_forum_id, Long.valueOf(gVar.forumId));
+            c0058a.aEV.setDefaultBgResource(0);
+            c0058a.aEV.setDefaultResource(0);
+            c0058a.aEW.setTag(t.g.tag_forum_id, Long.valueOf(gVar.forumId));
+            c0058a.aEW.setTag(t.g.tag_forum_name, gVar.forumName);
+            c0058a.getView().setTag(t.g.tag_forum_id, Long.valueOf(gVar.forumId));
+            c0058a.getView().setTag(t.g.tag_forum_name, gVar.forumName);
+            a(c0058a.aEW, gVar.isLiked);
             switch (gVar.rank) {
                 case 1:
-                    c0057a.aEf.setVisibility(0);
-                    as.c(c0057a.aEf, n.f.icon_grade_shaitu1);
+                    c0058a.aEV.setVisibility(0);
+                    ar.c(c0058a.aEV, t.f.icon_grade_shaitu1);
                     break;
                 case 2:
-                    c0057a.aEf.setVisibility(0);
-                    as.c(c0057a.aEf, n.f.icon_grade_shaitu2);
+                    c0058a.aEV.setVisibility(0);
+                    ar.c(c0058a.aEV, t.f.icon_grade_shaitu2);
                     break;
                 case 3:
-                    c0057a.aEf.setVisibility(0);
-                    as.c(c0057a.aEf, n.f.icon_grade_shaitu3);
+                    c0058a.aEV.setVisibility(0);
+                    ar.c(c0058a.aEV, t.f.icon_grade_shaitu3);
                     break;
                 default:
-                    c0057a.aEf.setVisibility(8);
+                    c0058a.aEV.setVisibility(8);
                     break;
             }
             a(view, gVar);
@@ -209,51 +209,51 @@ public class a extends h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TextView textView, boolean z) {
-        textView.setTag(n.g.forum_follow, Boolean.valueOf(z));
+        textView.setTag(t.g.forum_follow, Boolean.valueOf(z));
         if (z) {
             textView.setEnabled(false);
-            as.b(textView, n.d.cp_cont_d, 1);
-            textView.setText(TbadkCoreApplication.m411getInst().getString(n.j.relate_forum_is_followed));
+            ar.b(textView, t.d.cp_cont_d, 1);
+            textView.setText(TbadkCoreApplication.m411getInst().getString(t.j.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             return;
         }
-        as.b(textView, n.d.cp_cont_i, 1);
-        textView.setText(TbadkCoreApplication.m411getInst().getString(n.j.forum_list_attention_tv));
-        as.i((View) textView, n.f.btn_appdownload);
+        ar.b(textView, t.d.cp_cont_i, 1);
+        textView.setText(TbadkCoreApplication.m411getInst().getString(t.j.forum_list_attention_tv));
+        ar.k(textView, t.f.btn_appdownload);
         textView.setEnabled(true);
     }
 
-    public void cK(int i) {
+    public void db(int i) {
         if (this.mSkinType != i) {
-            Iterator<C0057a> it = this.aDQ.iterator();
+            Iterator<C0058a> it = this.aEG.iterator();
             while (it.hasNext()) {
-                C0057a next = it.next();
+                C0058a next = it.next();
                 if (next != null) {
                     a(next, i);
                 }
             }
-            if (this.aDS != null) {
-                BarImageView barImageView = (BarImageView) this.aDS.findViewById(n.g.forum_avatar);
-                as.i(barImageView, n.f.selector_load_more_bg);
-                as.c(barImageView, n.f.icon_pic_more);
-                as.b((TextView) this.aDS.findViewById(n.g.m_forum_name_textview), n.d.cp_cont_b, 1);
+            if (this.aEI != null) {
+                BarImageView barImageView = (BarImageView) this.aEI.findViewById(t.g.forum_avatar);
+                ar.k(barImageView, t.f.selector_load_more_bg);
+                ar.c(barImageView, t.f.icon_pic_more);
+                ar.b((TextView) this.aEI.findViewById(t.g.m_forum_name_textview), t.d.cp_cont_b, 1);
             }
-            int l = y.l(this.aDQ);
+            int o = com.baidu.tbadk.core.util.x.o(this.aEG);
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < 3 && i3 < l) {
-                    C0057a c0057a = (C0057a) y.b(this.aDQ, i3);
-                    if (c0057a != null) {
+                if (i3 < 3 && i3 < o) {
+                    C0058a c0058a = (C0058a) com.baidu.tbadk.core.util.x.b(this.aEG, i3);
+                    if (c0058a != null) {
                         switch (i3 + 1) {
                             case 1:
-                                as.c(c0057a.aEf, n.f.icon_grade_shaitu1);
+                                ar.c(c0058a.aEV, t.f.icon_grade_shaitu1);
                                 continue;
                             case 2:
-                                as.c(c0057a.aEf, n.f.icon_grade_shaitu2);
+                                ar.c(c0058a.aEV, t.f.icon_grade_shaitu2);
                                 continue;
                             case 3:
-                                as.c(c0057a.aEf, n.f.icon_grade_shaitu3);
+                                ar.c(c0058a.aEV, t.f.icon_grade_shaitu3);
                                 continue;
                         }
                     }
@@ -264,23 +264,23 @@ public class a extends h {
         }
     }
 
-    private void a(C0057a c0057a, int i) {
-        if (c0057a != null && c0057a.getView() != null) {
-            if (c0057a.aEg.getTag(n.g.forum_follow) != null && (c0057a.aEg.getTag(n.g.forum_follow) instanceof Boolean)) {
-                a(c0057a.aEg, ((Boolean) c0057a.aEg.getTag(n.g.forum_follow)).booleanValue());
+    private void a(C0058a c0058a, int i) {
+        if (c0058a != null && c0058a.getView() != null) {
+            if (c0058a.aEW.getTag(t.g.forum_follow) != null && (c0058a.aEW.getTag(t.g.forum_follow) instanceof Boolean)) {
+                a(c0058a.aEW, ((Boolean) c0058a.aEW.getTag(t.g.forum_follow)).booleanValue());
             }
-            as.b(c0057a.aEe, n.d.cp_cont_b, 1);
+            ar.b(c0058a.aEU, t.d.cp_cont_b, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, boolean z) {
-        Iterator<C0057a> it = this.aDQ.iterator();
+        Iterator<C0058a> it = this.aEG.iterator();
         while (it.hasNext()) {
-            C0057a next = it.next();
-            if (next != null && next.getView() != null && next.aEe.getTag(n.g.tag_forum_id) != null) {
-                TextView textView = next.aEg;
-                if (((Long) next.aEe.getTag(n.g.tag_forum_id)).longValue() == j) {
+            C0058a next = it.next();
+            if (next != null && next.getView() != null && next.aEU.getTag(t.g.tag_forum_id) != null) {
+                TextView textView = next.aEW;
+                if (((Long) next.aEU.getTag(t.g.tag_forum_id)).longValue() == j) {
                     a(textView, z);
                     return;
                 }
@@ -290,23 +290,23 @@ public class a extends h {
 
     /* renamed from: com.baidu.tbadk.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0057a extends x.a {
-        public BarImageView aEd;
-        public TextView aEe;
-        public TbImageView aEf;
-        public TextView aEg;
+    public static class C0058a extends x.a {
+        public BarImageView aET;
+        public TextView aEU;
+        public TbImageView aEV;
+        public TextView aEW;
 
-        public C0057a(View view) {
+        public C0058a(View view) {
             super(view);
-            this.aEd = null;
-            this.aEe = null;
-            this.aEf = null;
-            this.aEg = null;
-            this.aEd = (BarImageView) view.findViewById(n.g.forum_avatar);
-            this.aEd.setGifIconSupport(false);
-            this.aEe = (TextView) view.findViewById(n.g.m_forum_name_textview);
-            this.aEf = (TbImageView) view.findViewById(n.g.hot_rank);
-            this.aEg = (TextView) view.findViewById(n.g.forum_add_love);
+            this.aET = null;
+            this.aEU = null;
+            this.aEV = null;
+            this.aEW = null;
+            this.aET = (BarImageView) view.findViewById(t.g.forum_avatar);
+            this.aET.setGifIconSupport(false);
+            this.aEU = (TextView) view.findViewById(t.g.m_forum_name_textview);
+            this.aEV = (TbImageView) view.findViewById(t.g.hot_rank);
+            this.aEW = (TextView) view.findViewById(t.g.forum_add_love);
         }
     }
 }

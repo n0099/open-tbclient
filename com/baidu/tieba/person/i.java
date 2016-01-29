@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.n;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
@@ -24,28 +24,28 @@ public class i implements View.OnClickListener {
         int i3;
         boolean z2;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.cbu;
+        i = this.this$0.cfU;
         if (i == 0) {
-            z = this.this$0.aBO;
+            z = this.this$0.aCE;
             if (!z) {
                 str = TbConfig.PERSON_USER_PIC_TEMP_FILE;
             }
         } else {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.cNk;
-        i2 = this.this$0.cbu;
-        Bitmap fB = editHeadsImageView.fB(i2 == 0);
-        if (fB == null) {
+        EditHeadsImageView editHeadsImageView = this.this$0.cWE;
+        i2 = this.this$0.cfU;
+        Bitmap fQ = editHeadsImageView.fQ(i2 == 0);
+        if (fQ == null) {
             return;
         }
-        b = this.this$0.b(str, fB);
+        b = this.this$0.b(str, fQ);
         if (b) {
-            i3 = this.this$0.cbu;
+            i3 = this.this$0.cfU;
             if (i3 == 0) {
-                z2 = this.this$0.aBO;
+                z2 = this.this$0.aCE;
                 if (z2) {
-                    this.this$0.aox();
+                    this.this$0.ato();
                     return;
                 }
                 Intent intent = this.this$0.getIntent();
@@ -54,11 +54,11 @@ public class i implements View.OnClickListener {
                 this.this$0.closeActivity();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cT(str), "head");
-            aVar.CP();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.m.cQ(str), "head");
+            aVar.Eg();
             aVar.a(new j(this));
-            aVar.br(false);
-            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(n.j.uploading));
+            aVar.bt(false);
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(t.j.uploading));
         }
     }
 }

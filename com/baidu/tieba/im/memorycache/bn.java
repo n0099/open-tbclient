@@ -21,45 +21,45 @@ public class bn implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage != null && (customMessage instanceof ImMemoryCacheRegisterStatic.OnlineToDbCustomMessage)) {
             ImMemoryCacheRegisterStatic.OnlineToDbCustomMessage onlineToDbCustomMessage = (ImMemoryCacheRegisterStatic.OnlineToDbCustomMessage) customMessage;
             try {
-                com.baidu.tieba.im.db.g.Ym().Yn();
+                com.baidu.tieba.im.db.g.aaX().aaY();
                 if (onlineToDbCustomMessage.needCreateGroupList != null) {
-                    com.baidu.tieba.im.db.c.Yi().aS(onlineToDbCustomMessage.needCreateGroupList);
+                    com.baidu.tieba.im.db.c.aaT().aT(onlineToDbCustomMessage.needCreateGroupList);
                     for (ImMessageCenterPojo imMessageCenterPojo : onlineToDbCustomMessage.needCreateGroupList) {
-                        com.baidu.tieba.im.db.i.Yr().c(imMessageCenterPojo);
+                        com.baidu.tieba.im.db.i.abc().c(imMessageCenterPojo);
                     }
                 }
                 if (onlineToDbCustomMessage.systemGroup != null) {
-                    com.baidu.tieba.im.db.i.Yr().c(onlineToDbCustomMessage.systemGroup);
+                    com.baidu.tieba.im.db.i.abc().c(onlineToDbCustomMessage.systemGroup);
                 }
                 if (onlineToDbCustomMessage.privateChatGroup != null) {
-                    com.baidu.tieba.im.db.i.Yr().c(onlineToDbCustomMessage.privateChatGroup);
+                    com.baidu.tieba.im.db.i.abc().c(onlineToDbCustomMessage.privateChatGroup);
                 }
                 if (onlineToDbCustomMessage.officialChatGroup != null) {
-                    com.baidu.tieba.im.db.i.Yr().c(onlineToDbCustomMessage.officialChatGroup);
+                    com.baidu.tieba.im.db.i.abc().c(onlineToDbCustomMessage.officialChatGroup);
                 }
                 if (onlineToDbCustomMessage.notifyGroup != null) {
-                    com.baidu.tieba.im.db.i.Yr().c(onlineToDbCustomMessage.notifyGroup);
+                    com.baidu.tieba.im.db.i.abc().c(onlineToDbCustomMessage.notifyGroup);
                 }
                 if (onlineToDbCustomMessage.yyGroupList != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo2 : onlineToDbCustomMessage.yyGroupList) {
                         if (imMessageCenterPojo2.getCustomGroupType() == 6) {
-                            com.baidu.tieba.im.db.i.Yr().c(imMessageCenterPojo2);
+                            com.baidu.tieba.im.db.i.abc().c(imMessageCenterPojo2);
                         } else {
-                            com.baidu.tieba.im.chat.receiveChatMsgHandler.p.WF().k(imMessageCenterPojo2.getGid(), com.baidu.tieba.im.util.g.bd(imMessageCenterPojo2.getPulled_msgId()));
+                            com.baidu.tieba.im.chat.receiveChatMsgHandler.p.Zp().k(imMessageCenterPojo2.getGid(), com.baidu.tieba.im.util.g.bf(imMessageCenterPojo2.getPulled_msgId()));
                         }
                     }
                 }
                 if (onlineToDbCustomMessage.needDeleteGroupList != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo3 : onlineToDbCustomMessage.needDeleteGroupList) {
                         if (imMessageCenterPojo3 != null) {
-                            com.baidu.tieba.im.db.i.Yr().J(imMessageCenterPojo3.getGid(), imMessageCenterPojo3.getCustomGroupType());
+                            com.baidu.tieba.im.db.i.abc().K(imMessageCenterPojo3.getGid(), imMessageCenterPojo3.getCustomGroupType());
                         }
                     }
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.Ym().endTransaction();
+                com.baidu.tieba.im.db.g.aaX().endTransaction();
             }
         }
         return null;
