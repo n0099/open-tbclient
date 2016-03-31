@@ -6,11 +6,11 @@ import com.baidu.tieba.setting.im.more.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ i dIO;
+    final /* synthetic */ i ebi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.dIO = iVar;
+        this.ebi = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,49 +30,49 @@ public class j implements View.OnClickListener {
         i.a aVar6;
         i.a aVar7;
         i.a aVar8;
-        aVar = this.dIO.dIN;
+        aVar = this.ebi.ebh;
         if (aVar != null) {
-            view2 = this.dIO.ajk;
+            view2 = this.ebi.ajA;
             if (view != view2) {
-                tbSettingTextTipView = this.dIO.dIy;
+                tbSettingTextTipView = this.ebi.eaS;
                 if (view != tbSettingTextTipView) {
-                    tbSettingTextTipView2 = this.dIO.dIz;
+                    tbSettingTextTipView2 = this.ebi.eaT;
                     if (view != tbSettingTextTipView2) {
-                        tbSettingTextTipView3 = this.dIO.dIA;
+                        tbSettingTextTipView3 = this.ebi.eaU;
                         if (view != tbSettingTextTipView3) {
-                            tbSettingTextTipView4 = this.dIO.dID;
+                            tbSettingTextTipView4 = this.ebi.eaX;
                             if (view != tbSettingTextTipView4) {
-                                tbSettingTextTipView5 = this.dIO.dII;
+                                tbSettingTextTipView5 = this.ebi.ebc;
                                 if (view != tbSettingTextTipView5) {
-                                    tbSettingTextTipView6 = this.dIO.dIB;
+                                    tbSettingTextTipView6 = this.ebi.eaV;
                                     if (view != tbSettingTextTipView6) {
                                         return;
                                     }
-                                    aVar2 = this.dIO.dIN;
-                                    aVar2.aGw();
+                                    aVar2 = this.ebi.ebh;
+                                    aVar2.aNg();
                                     return;
                                 }
-                                aVar3 = this.dIO.dIN;
-                                aVar3.aGx();
+                                aVar3 = this.ebi.ebh;
+                                aVar3.aNh();
                                 return;
                             }
-                            aVar4 = this.dIO.dIN;
-                            aVar4.aGt();
+                            aVar4 = this.ebi.ebh;
+                            aVar4.aNd();
                             return;
                         }
-                        aVar5 = this.dIO.dIN;
-                        aVar5.aGu();
+                        aVar5 = this.ebi.ebh;
+                        aVar5.aNe();
                         return;
                     }
-                    aVar6 = this.dIO.dIN;
-                    aVar6.aGv();
+                    aVar6 = this.ebi.ebh;
+                    aVar6.aNf();
                     return;
                 }
-                aVar7 = this.dIO.dIN;
-                aVar7.aGs();
+                aVar7 = this.ebi.ebh;
+                aVar7.aNc();
                 return;
             }
-            aVar8 = this.dIO.dIN;
+            aVar8 = this.ebi.ebh;
             aVar8.onBackPressed();
         }
     }

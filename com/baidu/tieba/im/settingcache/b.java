@@ -1,27 +1,27 @@
 package com.baidu.tieba.im.settingcache;
 
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.p;
 /* loaded from: classes.dex */
-class b extends m<Boolean> {
-    private final /* synthetic */ String cfq;
-    final /* synthetic */ a cfy;
-    private final /* synthetic */ String cfz;
+class b extends p<Boolean> {
+    private final /* synthetic */ String cpV;
+    final /* synthetic */ a cqd;
+    private final /* synthetic */ String cqe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, String str2) {
-        this.cfy = aVar;
-        this.cfq = str;
-        this.cfz = str2;
+        this.cqd = aVar;
+        this.cpV = str;
+        this.cqe = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.m
+    @Override // com.baidu.tbadk.util.p
     public Boolean doInBackground() {
-        com.baidu.tieba.im.pushNotify.a aO = this.cfy.aO(this.cfq, this.cfz);
-        if (aO == null) {
+        com.baidu.tieba.im.pushNotify.a bb = this.cqd.bb(this.cpV, this.cqe);
+        if (bb == null) {
             return false;
         }
-        return Boolean.valueOf(aO.isAcceptNotify());
+        return Boolean.valueOf(bb.isAcceptNotify());
     }
 }

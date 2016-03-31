@@ -72,9 +72,9 @@ public class ShareMenu extends PopupWindow implements View.OnClickListener, Adap
         setBackgroundDrawable(null);
         setWidth(-1);
         setHeight(-1);
-        int t = p.t(context, "bdsocialsahre_sharemenu_animation");
-        if (t != 0) {
-            setAnimationStyle(t);
+        int k = p.k(context, "bdsocialsahre_sharemenu_animation");
+        if (k != 0) {
+            setAnimationStyle(k);
         }
         this.c = context;
         LayoutInflater from = LayoutInflater.from(context.getApplicationContext());
@@ -95,14 +95,14 @@ public class ShareMenu extends PopupWindow implements View.OnClickListener, Adap
             this.g = 0;
             view = from.inflate(p.a(context, "bdsocialshare_sharemenulistlayout"), (ViewGroup) null);
             setContentView(view);
-            ListView listView = (ListView) view.findViewById(p.s(context, "sharemenulistview"));
+            ListView listView = (ListView) view.findViewById(p.i(context, "sharemenulistview"));
             if (z) {
                 listView.setAdapter((ListAdapter) new ag(context, this.f));
             } else {
                 listView.setAdapter((ListAdapter) new af(context, this.f));
             }
             listView.setCacheColorHint(0);
-            listView.setDivider(context.getApplicationContext().getResources().getDrawable(p.b(context, "bdsocialshare_list_divider")));
+            listView.setDivider(context.getApplicationContext().getResources().getDrawable(p.g(context, "bdsocialshare_list_divider")));
             listView.setOnItemClickListener(this);
         } else {
             this.g = 0;
@@ -122,10 +122,10 @@ public class ShareMenu extends PopupWindow implements View.OnClickListener, Adap
                 gridView.setOnItemClickListener(this);
                 arrayList.add(gridView);
             }
-            ViewPager viewPager = (ViewPager) inflate.findViewById(p.s(context, "sharemenuviewpager"));
+            ViewPager viewPager = (ViewPager) inflate.findViewById(p.i(context, "sharemenuviewpager"));
             viewPager.setOnPageChangeListener(new a(this, null));
             viewPager.setAdapter(new ShareMenuPagerAdapter(context, arrayList));
-            CirclePageIndicator circlePageIndicator = (CirclePageIndicator) inflate.findViewById(p.s(context, "sharemenuindicator"));
+            CirclePageIndicator circlePageIndicator = (CirclePageIndicator) inflate.findViewById(p.i(context, "sharemenuindicator"));
             if (ceil > 1) {
                 circlePageIndicator.setVisibility(0);
                 circlePageIndicator.setViewPager(viewPager);
@@ -135,18 +135,18 @@ public class ShareMenu extends PopupWindow implements View.OnClickListener, Adap
                 view = inflate;
             }
         }
-        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(p.s(context, "sharemenulistrootlayout"));
+        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(p.i(context, "sharemenulistrootlayout"));
         setFocusable(true);
         relativeLayout.setOnClickListener(this);
         relativeLayout.setFocusableInTouchMode(true);
         relativeLayout.setOnKeyListener(new ac(this));
-        ((LinearLayout) view.findViewById(p.s(context, "sharemenulistlinearlayout"))).setBackgroundColor(Color.parseColor(p.b(context)));
-        ((RelativeLayout) view.findViewById(p.s(context, "sharemenulistcancelbar"))).setBackgroundResource(p.b(context, "bdsocialshare_cancelbar_bg"));
-        this.e = p.s(context, "sharemenulistcancelbutton");
+        ((LinearLayout) view.findViewById(p.i(context, "sharemenulistlinearlayout"))).setBackgroundColor(Color.parseColor(p.b(context)));
+        ((RelativeLayout) view.findViewById(p.i(context, "sharemenulistcancelbar"))).setBackgroundResource(p.g(context, "bdsocialshare_cancelbar_bg"));
+        this.e = p.i(context, "sharemenulistcancelbutton");
         Button button = (Button) view.findViewById(this.e);
         button.setText(SocialShareConfig.getInstance(context).getString("cancel"));
         button.setTextColor(Color.parseColor(p.c(context)));
-        button.setBackgroundResource(p.b(context, "bdsocialshare_sharemenu_cancelbutton"));
+        button.setBackgroundResource(p.g(context, "bdsocialshare_sharemenu_cancelbutton"));
         button.setOnClickListener(this);
     }
 

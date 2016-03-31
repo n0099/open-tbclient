@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends HttpMessageListener {
-    final /* synthetic */ d cTk;
+    final /* synthetic */ d dof;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.cTk = dVar;
+        this.dof = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,67 +39,61 @@ public class e extends HttpMessageListener {
         int i7;
         List list3;
         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
-            aVar = this.cTk.cTi;
+            aVar = this.dof.dod;
             if (aVar != null) {
-                aVar2 = this.cTk.cTi;
-                aVar2.bN(null);
-                return;
+                aVar2 = this.dof.dod;
+                aVar2.bL(null);
             }
-            return;
-        }
-        int statusCode = httpResponsedMessage.getStatusCode();
-        int error = httpResponsedMessage.getError();
-        if (statusCode != 200 || error != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-            aVar3 = this.cTk.cTi;
+        } else if (httpResponsedMessage.getError() != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
+            aVar3 = this.dof.dod;
             if (aVar3 != null) {
-                aVar4 = this.cTk.cTi;
-                aVar4.bN(null);
+                aVar4 = this.dof.dod;
+                aVar4.bL(null);
+            }
+        } else {
+            PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
+            if (praiseListResponsedMessage.getError() != 0) {
+                aVar5 = this.dof.dod;
+                if (aVar5 != null) {
+                    aVar6 = this.dof.dod;
+                    aVar6.bL(praiseListResponsedMessage.getErrMsg());
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
-        if (praiseListResponsedMessage.getError() != 0) {
-            aVar5 = this.cTk.cTi;
-            if (aVar5 != null) {
-                aVar6 = this.cTk.cTi;
-                aVar6.bN(praiseListResponsedMessage.getErrMsg());
-                return;
+            List<a> list4 = praiseListResponsedMessage.getmZanItemDataList();
+            if (list4 != null) {
+                for (a aVar9 : list4) {
+                    list3 = this.dof.dob;
+                    list3.add(aVar9);
+                }
             }
-            return;
-        }
-        List<a> list4 = praiseListResponsedMessage.getmZanItemDataList();
-        if (list4 != null) {
-            for (a aVar9 : list4) {
-                list3 = this.cTk.cTh;
-                list3.add(aVar9);
+            d dVar = this.dof;
+            list = this.dof.dob;
+            dVar.doa = list.size();
+            this.dof.dnZ = praiseListResponsedMessage.getTotalNum();
+            d dVar2 = this.dof;
+            i = dVar2.dnY;
+            dVar2.dnY = i + 1;
+            int i8 = BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES;
+            i2 = this.dof.dnY;
+            if (i2 > 5) {
+                i8 = 1003;
             }
-        }
-        d dVar = this.cTk;
-        list = this.cTk.cTh;
-        dVar.cTg = list.size();
-        this.cTk.cTf = praiseListResponsedMessage.getTotalNum();
-        d dVar2 = this.cTk;
-        i = dVar2.cTe;
-        dVar2.cTe = i + 1;
-        int i8 = BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES;
-        i2 = this.cTk.cTe;
-        if (i2 > 5) {
-            i8 = 1003;
-        }
-        i3 = this.cTk.cTg;
-        i4 = this.cTk.cTf;
-        if (i3 >= i4) {
-            i8 = BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE;
-        }
-        aVar7 = this.cTk.cTi;
-        if (aVar7 != null) {
-            aVar8 = this.cTk.cTi;
-            i5 = this.cTk.cTf;
-            list2 = this.cTk.cTh;
-            i6 = this.cTk.cTf;
-            i7 = this.cTk.cTg;
-            aVar8.a(i5, list2, i8, i6 - i7);
+            i3 = this.dof.doa;
+            i4 = this.dof.dnZ;
+            if (i3 >= i4) {
+                i8 = BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE;
+            }
+            aVar7 = this.dof.dod;
+            if (aVar7 != null) {
+                aVar8 = this.dof.dod;
+                i5 = this.dof.dnZ;
+                list2 = this.dof.dob;
+                i6 = this.dof.dnZ;
+                i7 = this.dof.doa;
+                aVar8.a(i5, list2, i8, i6 - i7);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
@@ -14,13 +14,13 @@ public class p {
 
     /* loaded from: classes.dex */
     public interface a {
-        void HZ();
+        void Jv();
     }
 
     public static void a(TbPageContext<?> tbPageContext, a aVar, RelativeLayout relativeLayout) {
-        if (com.baidu.tbadk.core.sharedPref.b.uO().getInt("logo_animation_overtime_count", 0) >= 2) {
+        if (com.baidu.tbadk.core.sharedPref.b.vk().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
             if (aVar != null) {
-                aVar.HZ();
+                aVar.Jv();
                 return;
             }
             return;
@@ -37,7 +37,7 @@ public class p {
         layoutParams.addRule(12);
         relativeLayout.addView(textView, layoutParams);
         ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-        ar.k(imageView, t.f.circle_shape);
+        at.k(imageView, t.f.circle_shape);
         int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(t.e.ds140);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(t.e.ds374);

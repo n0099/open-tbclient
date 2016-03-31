@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.tab;
 /* loaded from: classes.dex */
 public class r {
-    public static f gQ(int i) {
+    public static f hi(int i) {
         switch (i) {
             case 0:
                 return new m();

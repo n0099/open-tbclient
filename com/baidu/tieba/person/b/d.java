@@ -9,28 +9,28 @@ import com.baidu.tieba.person.view.PersonInfoEnterItemView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class d extends x.a {
-    public int ahU;
-    public PersonInfoBaseGodView ddI;
-    public PersonInfoGodEnterView ddJ;
-    public LinearLayout ddK;
-    public PersonInfoEnterItemView ddL;
-    public PersonInfoEnterItemView ddM;
-    public PersonInfoEnterItemView ddN;
-    public PersonInfoEnterItemView ddO;
-    public PersonInfoEnterItemView ddP;
-    public PersonInfoEnterItemView ddQ;
+    public int aik;
+    public PersonInfoBaseGodView dyj;
+    public PersonInfoGodEnterView dyk;
+    public LinearLayout dyl;
+    public PersonInfoEnterItemView dym;
+    public PersonInfoEnterItemView dyn;
+    public PersonInfoEnterItemView dyo;
+    public PersonInfoEnterItemView dyp;
+    public PersonInfoEnterItemView dyq;
+    public PersonInfoEnterItemView dyr;
 
     public d(View view) {
         super(view);
-        this.ahU = 3;
-        this.ddK = (LinearLayout) view.findViewById(t.g.normal_root_layout);
-        this.ddL = (PersonInfoEnterItemView) view.findViewById(t.g.enter_histroy);
-        this.ddM = (PersonInfoEnterItemView) view.findViewById(t.g.enter_collect);
-        this.ddN = (PersonInfoEnterItemView) view.findViewById(t.g.enter_attention);
-        this.ddO = (PersonInfoEnterItemView) view.findViewById(t.g.enter_fans);
-        this.ddP = (PersonInfoEnterItemView) view.findViewById(t.g.enter_friends);
-        this.ddQ = (PersonInfoEnterItemView) view.findViewById(t.g.enter_feeds);
-        this.ddI = (PersonInfoBaseGodView) view.findViewById(t.g.base_god_info);
-        this.ddJ = (PersonInfoGodEnterView) view.findViewById(t.g.menbership_view);
+        this.aik = 3;
+        this.dyl = (LinearLayout) view.findViewById(t.g.normal_root_layout);
+        this.dym = (PersonInfoEnterItemView) view.findViewById(t.g.enter_histroy);
+        this.dyn = (PersonInfoEnterItemView) view.findViewById(t.g.enter_collect);
+        this.dyo = (PersonInfoEnterItemView) view.findViewById(t.g.enter_attention);
+        this.dyp = (PersonInfoEnterItemView) view.findViewById(t.g.enter_fans);
+        this.dyq = (PersonInfoEnterItemView) view.findViewById(t.g.enter_friends);
+        this.dyr = (PersonInfoEnterItemView) view.findViewById(t.g.enter_feeds);
+        this.dyj = (PersonInfoBaseGodView) view.findViewById(t.g.base_god_info);
+        this.dyk = (PersonInfoGodEnterView) view.findViewById(t.g.menbership_view);
     }
 }

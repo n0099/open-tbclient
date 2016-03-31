@@ -9,59 +9,59 @@ import android.view.View;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int YQ = 360;
-    private static int YR = 100;
-    private int YS;
-    private int YT;
-    private Paint YU;
-    private Paint YV;
-    private RectF YW;
-    private int mValue;
+    private static int Xi = 360;
+    private static int Xj = 100;
+    private int Xk;
+    private int Xl;
+    private Paint Xm;
+    private Paint Xn;
+    private RectF Xo;
+    private int Xp;
     private int mWidth;
 
     public CircleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mValue = 0;
+        this.Xp = 0;
         init();
     }
 
     public CircleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mValue = 0;
+        this.Xp = 0;
         init();
     }
 
     public CircleView(Context context) {
         super(context);
-        this.mValue = 0;
+        this.Xp = 0;
         init();
     }
 
     public void setProgress(int i) {
-        this.mValue = i;
+        this.Xp = i;
         invalidate();
     }
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(t.e.ds100);
-        this.YS = getResources().getDimensionPixelSize(t.e.ds4);
-        this.YT = getResources().getDimensionPixelSize(t.e.ds2);
-        this.YU = new Paint();
-        this.YU.setStrokeWidth(this.YS);
-        this.YU.setColor(getResources().getColor(t.d.white_alpha100));
-        this.YU.setStyle(Paint.Style.STROKE);
-        this.YU.setAntiAlias(true);
-        this.YV = new Paint();
-        this.YV.setStrokeWidth(this.YT);
-        this.YV.setColor(getResources().getColor(t.d.white_alpha40));
-        this.YV.setStyle(Paint.Style.STROKE);
-        this.YV.setAntiAlias(true);
-        this.YW = new RectF(this.YS, this.YS, this.mWidth + this.YS, this.mWidth + this.YS);
+        this.Xk = getResources().getDimensionPixelSize(t.e.ds4);
+        this.Xl = getResources().getDimensionPixelSize(t.e.ds2);
+        this.Xm = new Paint();
+        this.Xm.setStrokeWidth(this.Xk);
+        this.Xm.setColor(getResources().getColor(t.d.white_alpha100));
+        this.Xm.setStyle(Paint.Style.STROKE);
+        this.Xm.setAntiAlias(true);
+        this.Xn = new Paint();
+        this.Xn.setStrokeWidth(this.Xl);
+        this.Xn.setColor(getResources().getColor(t.d.white_alpha40));
+        this.Xn.setStyle(Paint.Style.STROKE);
+        this.Xn.setAntiAlias(true);
+        this.Xo = new RectF(this.Xk, this.Xk, this.mWidth + this.Xk, this.mWidth + this.Xk);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.YW, 0.0f, YQ, false, this.YV);
-        canvas.drawArc(this.YW, 270.0f, (YQ * this.mValue) / YR, false, this.YU);
+        canvas.drawArc(this.Xo, 0.0f, Xi, false, this.Xn);
+        canvas.drawArc(this.Xo, 270.0f, (Xi * this.Xp) / Xj, false, this.Xm);
     }
 }

@@ -1,93 +1,108 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.a;
-import java.util.ArrayList;
-import java.util.HashSet;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.cache.o;
+import com.baidu.location.BDLocationStatusCodes;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class cx implements a.InterfaceC0074a {
-    final /* synthetic */ cw cPA;
+public class cx {
+    private static cx dih;
+    private com.baidu.adp.lib.cache.o<byte[]> dii = null;
+    private com.baidu.adp.lib.cache.o<byte[]> dij = null;
+    private long dik = 0;
+    private long dil = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cw cwVar) {
-        this.cPA = cwVar;
+    public static synchronized cx awR() {
+        cx cxVar;
+        synchronized (cx.class) {
+            if (dih == null) {
+                dih = new cx();
+            }
+            cxVar = dih;
+        }
+        return cxVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.pb.a.InterfaceC0074a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void u(String str, String str2, String str3) {
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.tbadkCore.data.r rVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        com.baidu.tieba.tbadkCore.data.r rVar2;
-        com.baidu.tieba.tbadkCore.data.r rVar3;
-        com.baidu.tieba.tbadkCore.data.r rVar4;
-        boolean z;
-        com.baidu.tieba.pb.a.c cVar3;
-        com.baidu.tieba.pb.a.c cVar4;
-        com.baidu.tieba.pb.a.c cVar5;
-        cVar = this.cPA.cJZ;
-        if (cVar != null) {
-            rVar = this.cPA.cJH;
-            if (rVar != null) {
-                cVar2 = this.cPA.cJZ;
-                if (cVar2.aoE() != null) {
-                    rVar2 = this.cPA.cJH;
-                    if (rVar2.aMF() != null) {
-                        rVar3 = this.cPA.cJH;
-                        long templateId = rVar3.aMF().getTemplateId();
-                        rVar4 = this.cPA.cJH;
-                        String aMa = rVar4.aMF().aMa();
-                        if ("VIEW_TRUE".equals(str3) || "VIEW_CAROUSEL".equals(str3)) {
-                            if (this.cPA.cPz.containsKey(Long.valueOf(templateId))) {
-                                HashSet<String> hashSet = this.cPA.cPz.get(Long.valueOf(templateId));
-                                if (hashSet.add(str2)) {
-                                    this.cPA.cPz.put(Long.valueOf(templateId), hashSet);
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                if (!z) {
-                                    cVar3 = this.cPA.cJZ;
-                                    String id = cVar3.aoE().getId();
-                                    cVar4 = this.cPA.cJZ;
-                                    String name = cVar4.aoE().getName();
-                                    cVar5 = this.cPA.cJZ;
-                                    com.baidu.tieba.pb.a.a(templateId, aMa, str, "PB", str2, str3, "tpoint", id, name, cVar5.getThreadId());
-                                    return;
-                                }
-                                return;
-                            }
-                            HashSet<String> hashSet2 = new HashSet<>();
-                            hashSet2.add(str2);
-                            this.cPA.cPz.put(Long.valueOf(templateId), hashSet2);
-                        }
-                        z = true;
-                        if (!z) {
-                        }
-                    }
-                }
-            }
+    private cx() {
+        PX();
+    }
+
+    private void PX() {
+        if (this.dii == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.dii = com.baidu.tbadk.core.b.a.um().cy("tb.pb_mark");
+            this.dil = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.dij == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.dij = com.baidu.tbadk.core.b.a.um().cy("tb.pb_normal");
+            this.dik = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
 
-    @Override // com.baidu.tieba.pb.a.InterfaceC0074a
-    public int aoo() {
-        com.baidu.tieba.tbadkCore.data.r rVar;
-        com.baidu.tieba.tbadkCore.data.r rVar2;
-        rVar = this.cPA.cJH;
-        if (dy.g(rVar)) {
-            rVar2 = this.cPA.cJH;
-            ArrayList<com.baidu.tieba.tbadkCore.data.j> aLX = rVar2.aMF().aLX();
-            if (aLX == null) {
-                return 0;
+    public void B(String str, boolean z) {
+        if (z) {
+            if (this.dii != null && str != null) {
+                this.dii.b(str, new byte[0], 0L);
             }
-            return aLX.size();
+        } else if (this.dij != null && str != null) {
+            this.dij.b(str, new byte[0], 0L);
         }
-        return 0;
+    }
+
+    public byte[] C(String str, boolean z) {
+        o.b<byte[]> Z;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.dii != null && str != null) {
+                Z = this.dii.Z(str);
+                j = this.dil;
+            }
+            Z = null;
+        } else {
+            if (this.dij != null && str != null) {
+                Z = this.dij.Z(str);
+                j = this.dik;
+            }
+            Z = null;
+        }
+        if (Z == null || Z.sI == null) {
+            return null;
+        }
+        com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+        vVar.fh(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        vVar.aBD = (System.currentTimeMillis() - currentTimeMillis) + j;
+        vVar.GQ();
+        return Z.sI;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            PX();
+            if (z) {
+                this.dii.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.dij.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+            vVar.fh(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            vVar.aBE = currentTimeMillis2;
+            vVar.GR();
+        }
+    }
+
+    public void l(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            PX();
+            this.dii.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+            vVar.fh(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            vVar.aBE = currentTimeMillis2;
+            vVar.GR();
+        }
     }
 }

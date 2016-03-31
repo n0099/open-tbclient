@@ -1,10 +1,11 @@
 package com.baidu.tieba.frs.hot;
 
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.data.u;
+import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
@@ -17,13 +18,13 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
     private final a mCache;
-    private final u mPage;
-    private final ArrayList<com.baidu.adp.widget.ListView.u> mThreadList;
+    private final ac mPage;
+    private final ArrayList<u> mThreadList;
 
     public ResponsedFrsHotHttpMessage() {
         super(CmdConfigHttp.FRS_HOT_TAB_CMD);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new u();
+        this.mPage = new ac();
         this.mCache = new a();
     }
 
@@ -51,17 +52,17 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        ah ahVar = new ah();
-                        ahVar.setUserMap(hashMap);
-                        ahVar.a(list2.get(i3));
-                        ahVar.bU(0);
-                        ahVar.parser_title();
-                        if (ahVar.getThreadType() == 33) {
+                        as asVar = new as();
+                        asVar.setUserMap(hashMap);
+                        asVar.a(list2.get(i3));
+                        asVar.bW(0);
+                        asVar.parser_title();
+                        if (asVar.getThreadType() == 33) {
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.mThreadList.add(ahVar);
+                                this.mThreadList.add(asVar);
                             }
                         } else {
-                            this.mThreadList.add(ahVar);
+                            this.mThreadList.add(asVar);
                         }
                     }
                 }
@@ -74,16 +75,16 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         RequestFrsHotThreadMessage requestFrsHotThreadMessage;
-        if (this.mThreadList.size() > 0 && this.mPage.st() == 1 && getOrginalMessage() != null && getOrginalMessage().getExtra() != null && (requestFrsHotThreadMessage = (RequestFrsHotThreadMessage) getOrginalMessage().getExtra()) != null) {
-            this.mCache.k(String.valueOf(requestFrsHotThreadMessage.getForumId()), bArr);
+        if (this.mThreadList.size() > 0 && this.mPage.so() == 1 && getOrginalMessage() != null && getOrginalMessage().getExtra() != null && (requestFrsHotThreadMessage = (RequestFrsHotThreadMessage) getOrginalMessage().getExtra()) != null) {
+            this.mCache.j(String.valueOf(requestFrsHotThreadMessage.getForumId()), bArr);
         }
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.u> getThreadList() {
+    public ArrayList<u> getThreadList() {
         return this.mThreadList;
     }
 
-    public u getPage() {
+    public ac getPage() {
         return this.mPage;
     }
 }

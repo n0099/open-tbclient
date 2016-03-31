@@ -6,8 +6,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class HistoryMessage extends CustomResponsedMessage<Boolean> {
     public BaseActivity Activity;
+    public long cartoonId;
+    public int chapterId;
     public String forumName;
     public boolean isHostOnly;
+    public boolean isManga;
     public boolean isSquence;
     public String postID;
     public String threadId;
@@ -25,6 +28,7 @@ public class HistoryMessage extends CustomResponsedMessage<Boolean> {
         this.postID = "";
         this.isHostOnly = false;
         this.isSquence = false;
+        this.isManga = false;
         this.threadType = 0;
     }
 }

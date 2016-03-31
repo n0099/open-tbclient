@@ -6,30 +6,30 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements TbImageView.a {
-    final /* synthetic */ y bnw;
+    final /* synthetic */ y bst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(y yVar) {
-        this.bnw = yVar;
+        this.bst = yVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
+    public void s(String str, boolean z) {
         BannerView bannerView;
         boolean z2;
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         BannerView bannerView2;
         if (z) {
-            bannerView = this.bnw.bjI;
-            if (bannerView.AL()) {
-                z2 = this.bnw.bjK;
+            bannerView = this.bst.boS;
+            if (bannerView.Bo()) {
+                z2 = this.bst.boU;
                 if (!z2) {
-                    bdTypeListView = this.bnw.bjt;
+                    bdTypeListView = this.bst.boD;
                     if (bdTypeListView != null) {
-                        this.bnw.bjK = true;
-                        bdTypeListView2 = this.bnw.bjt;
-                        bannerView2 = this.bnw.bjI;
+                        this.bst.boU = true;
+                        bdTypeListView2 = this.bst.boD;
+                        bannerView2 = this.bst.boS;
                         bdTypeListView2.f(bannerView2, 1);
                     }
                 }

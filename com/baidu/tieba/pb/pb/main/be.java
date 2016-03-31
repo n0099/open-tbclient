@@ -1,28 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.t;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ PbActivity cNq;
+public class be implements c.b {
+    final /* synthetic */ PbActivity dht;
+    private final /* synthetic */ SparseArray dhw;
+    private final /* synthetic */ boolean dhx;
+    private final /* synthetic */ String dhy;
+    private final /* synthetic */ String dhz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    public be(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
+        this.dht = pbActivity;
+        this.dhw = sparseArray;
+        this.dhx = z;
+        this.dhy = str;
+        this.dhz = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cm cmVar;
-        this.cNq.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.cNq.getPageContext().getPageActivity(), 23003)));
-        com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10125");
-        cmVar = this.cNq.cMF;
-        TiebaStatic.log(auVar.aa("tid", cmVar.getThreadID()).r("obj_type", 2));
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        UserMuteAddAndDelModel userMuteAddAndDelModel;
+        eu euVar;
+        switch (i) {
+            case 0:
+                euVar = this.dht.dgF;
+                euVar.a(((Integer) this.dhw.get(t.g.tag_del_post_type)).intValue(), (String) this.dhw.get(t.g.tag_del_post_id), ((Integer) this.dhw.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) this.dhw.get(t.g.tag_del_post_is_self)).booleanValue());
+                break;
+            case 1:
+                userMuteAddAndDelModel = this.dht.dgD;
+                userMuteAddAndDelModel.a(this.dhx, this.dhy, (String) this.dhw.get(t.g.tag_user_mute_mute_username), (String) this.dhw.get(t.g.tag_user_mute_thread_id), (String) this.dhw.get(t.g.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB, this.dhz);
+                break;
+        }
+        cVar.dismiss();
     }
 }

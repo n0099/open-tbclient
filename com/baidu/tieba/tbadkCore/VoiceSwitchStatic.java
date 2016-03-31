@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 public class VoiceSwitchStatic extends com.baidu.adp.lib.c.a {
-    public static final String[] dWc;
+    public static final String[] eoJ;
 
     static {
-        com.baidu.adp.lib.c.e.gE().e(VoiceSwitchStatic.class);
-        dWc = new String[]{"com.baidu.tieba.voice"};
+        com.baidu.adp.lib.c.e.gE().f(VoiceSwitchStatic.class);
+        eoJ = new String[]{"com.baidu.tieba.voice"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -16,7 +16,7 @@ public class VoiceSwitchStatic extends com.baidu.adp.lib.c.a {
     @Override // com.baidu.adp.lib.c.a
     protected void initData() {
         this.mName = "voice";
-        this.mKey = dWc;
+        this.mKey = eoJ;
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -26,7 +26,7 @@ public class VoiceSwitchStatic extends com.baidu.adp.lib.c.a {
 
     @Override // com.baidu.adp.lib.c.a
     protected String[] getCrashKeys() {
-        return dWc;
+        return eoJ;
     }
 
     @Override // com.baidu.adp.lib.c.a

@@ -9,6 +9,7 @@ import com.baidu.cloudsdk.common.util.CommonParam;
 import com.baidu.cloudsdk.common.util.CoordinateManager;
 import com.baidu.cloudsdk.common.util.Validator;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes.dex */
 public abstract class WidgetStatisticsManager {
     protected String mClientId;
@@ -34,7 +35,7 @@ public abstract class WidgetStatisticsManager {
     }
 
     public static void setCommonParams(Context context, RequestParams requestParams) {
-        Validator.notNull(requestParams, "params");
+        Validator.notNull(requestParams, LegoListActivityConfig.PARAMS);
         requestParams.put(SocialConstants.PARAM_CUID, CommonParam.getCUID(context));
         requestParams.put(SocialConstants.PARAM_CUA, CommonParam.getUA(context, getWidgetName(), getWidgetVersionFlag(), getWidgetVersion()));
         requestParams.put(SocialConstants.PARAM_CUT, CommonParam.getDeviceInfo());

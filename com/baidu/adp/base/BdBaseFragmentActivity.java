@@ -27,7 +27,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.dH().g(getPageContext().getPageActivity());
+        a.dH().b(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -133,16 +133,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.g.c.hl().d(this.mId);
+        com.baidu.adp.lib.g.c.hr().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.dH().h(getPageContext().getPageActivity());
+        a.dH().c(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.g.c.hl().e(this.mId);
+        com.baidu.adp.lib.g.c.hr().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -159,7 +159,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.nq();
+            onGetPreLoadListView.ni();
         }
     }
 

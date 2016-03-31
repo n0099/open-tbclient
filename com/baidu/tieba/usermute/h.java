@@ -1,17 +1,18 @@
 package com.baidu.tieba.usermute;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UserMuteAddAndDelModel eld;
+public class h implements a.b {
+    final /* synthetic */ UserMuteAddAndDelModel eED;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.eld = userMuteAddAndDelModel;
+        this.eED = userMuteAddAndDelModel;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.eld.cancelLoadData();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

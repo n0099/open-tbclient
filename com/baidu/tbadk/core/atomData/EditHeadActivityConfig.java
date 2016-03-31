@@ -11,6 +11,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";
+    public static final String FROM_MISSON_SET_COVER = "from_misson_set_cover";
     public static final String FROM_PHOTO_LIVE = "from_photo_live";
     public static final String FROM_WHERE = "from_where";
     public static final int GROUP_PHOTO_WALL = 2;
@@ -24,6 +25,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static String PHOTO_RESOURCE = "resourceid";
     public static String PIC_INFO = "pic_info";
     public static String FILE_NAME = "file_name";
+    public static String ACTION_UPLOAD_SUCCESS = "upload.image.success";
 
     public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f) {
         super(context);

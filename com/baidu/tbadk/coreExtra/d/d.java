@@ -18,14 +18,14 @@ import org.json.JSONObject;
 public class d {
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int alp = 0;
-    private VersionData alj = new VersionData();
-    private com.baidu.tbadk.coreExtra.data.e alk = new com.baidu.tbadk.coreExtra.data.e();
-    private f all = new f();
-    private CombineDownload alm = new CombineDownload();
-    private j aln = new j();
-    private o alo = new o();
-    private g alq = new g();
+    private int alG = 0;
+    private VersionData alA = new VersionData();
+    private com.baidu.tbadk.coreExtra.data.e alB = new com.baidu.tbadk.coreExtra.data.e();
+    private f alC = new f();
+    private CombineDownload alD = new CombineDownload();
+    private j alE = new j();
+    private o alF = new o();
+    private g alH = new g();
 
     public void parserJson(String str) {
         try {
@@ -38,17 +38,17 @@ public class d {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.alj.parserJson(jSONObject.optJSONObject("version"));
-                this.alk.parserJson(jSONObject.optJSONObject("client"));
+                this.alA.parserJson(jSONObject.optJSONObject("version"));
+                this.alB.parserJson(jSONObject.optJSONObject("client"));
                 com.baidu.tbadk.core.util.e.setIp(jSONObject.optString("client_ip", null));
-                this.all.parserJson(jSONObject.optJSONObject("config"));
-                this.alo.parserJson(jSONObject.optJSONObject("wl_config"));
-                this.alq.parserJson(jSONObject.optJSONObject("consume_path"));
-                TbadkCoreApplication.m411getInst().setConsumePathData(this.alq);
+                this.alC.parserJson(jSONObject.optJSONObject("config"));
+                this.alF.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.alH.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.m411getInst().setConsumePathData(this.alH);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.alm.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.aln.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.alp = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.alD.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.alE.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.alG = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.m411getInst().getFaceShopVersion()) {
@@ -59,7 +59,7 @@ public class d {
                 if (optJSONObject != null) {
                     TbadkCoreApplication.m411getInst().setLcsSwitchStratgy(optJSONObject.toString());
                 }
-                new b().j(jSONObject.optJSONObject("dis_adv_config"));
+                new b().k(jSONObject.optJSONObject("dis_adv_config"));
                 new WhiteListData().saveJson(jSONObject.optJSONArray("whitelist"));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -67,27 +67,27 @@ public class d {
         }
     }
 
-    public f zL() {
-        return this.all;
+    public f Ao() {
+        return this.alC;
     }
 
-    public String zM() {
+    public String Ap() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload zN() {
-        return this.alm;
+    public CombineDownload Aq() {
+        return this.alD;
     }
 
-    public VersionData zO() {
-        return this.alj;
+    public VersionData Ar() {
+        return this.alA;
     }
 
-    public com.baidu.tbadk.coreExtra.data.e zP() {
-        return this.alk;
+    public com.baidu.tbadk.coreExtra.data.e As() {
+        return this.alB;
     }
 
-    public o zQ() {
-        return this.alo;
+    public o At() {
+        return this.alF;
     }
 }

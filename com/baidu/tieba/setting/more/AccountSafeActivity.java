@@ -10,43 +10,43 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.setting.SapiWebViewActivityConfig;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
-    private String dJA;
-    private String dJB;
-    private com.baidu.adp.framework.listener.a dJC = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-    private f dJy;
-    private com.baidu.tieba.setting.model.b dJz;
+    private f ebS;
+    private com.baidu.tieba.setting.model.b ebT;
+    private String ebU;
+    private String ebV;
+    private com.baidu.adp.framework.listener.a ebW = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dJy = new f(this);
-        aGJ();
-        registerListener(this.dJC);
-        this.dJz = new com.baidu.tieba.setting.model.b();
-        if (com.baidu.adp.lib.util.i.iZ()) {
-            this.dJz.aGC();
+        this.ebS = new f(this);
+        aNt();
+        registerListener(this.ebW);
+        this.ebT = new com.baidu.tieba.setting.model.b();
+        if (com.baidu.adp.lib.util.i.jf()) {
+            this.ebT.aNm();
         } else {
             showToast(t.j.neterror);
         }
     }
 
-    private void aGJ() {
-        if (this.dJy != null && this.dJy.UM() != null) {
-            this.dJy.UM().a(new a());
+    private void aNt() {
+        if (this.ebS != null && this.ebS.WG() != null) {
+            this.ebS.WG().a(new a());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aGK() {
-        if (this.dJz != null && !this.dJz.isLoading()) {
-            this.dJz.aGC();
+    public void aNu() {
+        if (this.ebT != null && !this.ebT.isLoading()) {
+            this.ebT.aNm();
         }
     }
 
@@ -55,11 +55,11 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
     public void onDestroy() {
         super.onDestroy();
         closeLoadingDialog();
-        if (this.dJz != null) {
-            this.dJz.cancelLoadData();
+        if (this.ebT != null) {
+            this.ebT.cancelLoadData();
         }
-        if (this.dJy != null) {
-            this.dJy.release();
+        if (this.ebS != null) {
+            this.ebS.release();
         }
     }
 
@@ -67,8 +67,8 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dJy != null) {
-            this.dJy.ej(i);
+        if (this.ebS != null) {
+            this.ebS.em(i);
         }
     }
 
@@ -77,47 +77,47 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
         if (view.getId() != t.g.voicelogin_lock_layout) {
             if (view.getId() == t.g.secure_mobil) {
                 TiebaStatic.log("c10020");
-                if (aGL()) {
-                    if (!TextUtils.isEmpty(this.dJB)) {
-                        nK(3);
+                if (aNv()) {
+                    if (!TextUtils.isEmpty(this.ebV)) {
+                        oP(3);
                     } else {
-                        nK(1);
+                        oP(1);
                     }
                 }
             } else if (view.getId() == t.g.secure_email) {
                 TiebaStatic.log("c10022");
-                if (aGL()) {
-                    if (!TextUtils.isEmpty(this.dJA)) {
-                        nK(4);
+                if (aNv()) {
+                    if (!TextUtils.isEmpty(this.ebU)) {
+                        oP(4);
                     } else {
-                        nK(2);
+                        oP(2);
                     }
                 }
             } else if (view.getId() == t.g.modify_pwd) {
                 TiebaStatic.log("c10018");
-                if (!com.baidu.adp.lib.util.i.iZ()) {
+                if (!com.baidu.adp.lib.util.i.jf()) {
                     showToast(t.j.neterror);
                 } else {
-                    nK(0);
+                    oP(0);
                 }
             } else if (view.getId() == t.g.bar_record) {
                 TiebaStatic.log("c10013");
-                if (!com.baidu.adp.lib.util.i.iZ()) {
+                if (!com.baidu.adp.lib.util.i.jf()) {
                     showToast(t.j.neterror);
                 } else {
-                    be.wt().c(getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                    bg.wM().c(getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
             } else if (view.getId() == t.g.account_status) {
-                com.baidu.tbadk.browser.f.B(getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/userappeal");
+                com.baidu.tbadk.browser.f.s(getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
 
-    private boolean aGL() {
-        if (!com.baidu.adp.lib.util.i.iZ()) {
+    private boolean aNv() {
+        if (!com.baidu.adp.lib.util.i.jf()) {
             showToast(t.j.neterror);
             return false;
-        } else if (this.dJz != null && !this.dJz.isFinished()) {
+        } else if (this.ebT != null && !this.ebT.isFinished()) {
             showToast(t.j.data_load_error);
             return false;
         } else {
@@ -125,7 +125,7 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
         }
     }
 
-    private void nK(int i) {
+    private void oP(int i) {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SapiWebViewActivityConfig(getPageContext().getPageActivity(), 11039, i, SapiAccountManager.getInstance().getSession("bduss"), true)));
     }
 
@@ -133,7 +133,7 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 11039 && i2 == -1) {
-            aGK();
+            aNu();
         }
     }
 
@@ -144,11 +144,11 @@ public class AccountSafeActivity extends BaseActivity<AccountSafeActivity> {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void ay(boolean z) {
-            if (AccountSafeActivity.this.dJy != null && AccountSafeActivity.this.dJz != null && AccountSafeActivity.this.dJy.UM() != null) {
+        public void aA(boolean z) {
+            if (AccountSafeActivity.this.ebS != null && AccountSafeActivity.this.ebT != null && AccountSafeActivity.this.ebS.WG() != null) {
                 if (z) {
-                    if (!AccountSafeActivity.this.dJz.isFinished()) {
-                        AccountSafeActivity.this.aGK();
+                    if (!AccountSafeActivity.this.ebT.isFinished()) {
+                        AccountSafeActivity.this.aNu();
                         return;
                     }
                     return;

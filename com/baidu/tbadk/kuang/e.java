@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0042a {
-    private final /* synthetic */ boolean axJ;
+    private final /* synthetic */ boolean ayq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(boolean z) {
-        this.axJ = z;
+        this.ayq = z;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0042a
-    public void cj(String str) {
+    public void cg(String str) {
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0042a
     public void a(AccountData accountData) {
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            if (this.axJ) {
-                if (l.C(com.baidu.adp.base.a.dH().dI()) != null) {
-                    b.a((TbPageContext) l.C(com.baidu.adp.base.a.dH().dI()), accountData);
+            if (this.ayq) {
+                if (l.s(com.baidu.adp.base.a.dH().dI()) != null) {
+                    b.a((TbPageContext) l.s(com.baidu.adp.base.a.dH().dI()), accountData);
                     return;
                 }
                 return;
@@ -45,7 +45,7 @@ public class e implements a.InterfaceC0042a {
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0042a
-    public void c(String str, int i, String str2) {
+    public void b(String str, int i, String str2) {
         k.showToast(TbadkCoreApplication.m411getInst().getApp(), str2);
         b.c(new ReLoginFromKuangMessage(false));
     }

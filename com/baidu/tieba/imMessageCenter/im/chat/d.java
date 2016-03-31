@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ PersonalChatActivity chF;
+    final /* synthetic */ PersonalChatActivity csk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonalChatActivity personalChatActivity) {
-        this.chF = personalChatActivity;
+        this.csk = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,16 +21,16 @@ class d implements Runnable {
         Handler handler;
         Runnable runnable;
         long j2;
-        absMsglistView = this.chF.bPJ;
-        userData = this.chF.mUser;
+        absMsglistView = this.csk.cab;
+        userData = this.csk.mUser;
         String userName = userData.getUserName();
-        bVar = this.chF.chw;
+        bVar = this.csk.csb;
         absMsglistView.refreshPersonalHeadFooter(userName, bVar);
-        j = this.chF.chv;
+        j = this.csk.csa;
         if (j != 0) {
-            handler = this.chF.mHandler;
-            runnable = this.chF.chA;
-            j2 = this.chF.chv;
+            handler = this.csk.mHandler;
+            runnable = this.csk.csf;
+            j2 = this.csk.csa;
             handler.postDelayed(runnable, j2);
         }
     }

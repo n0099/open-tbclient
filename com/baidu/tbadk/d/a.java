@@ -4,20 +4,20 @@ import android.content.Context;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<c> SO;
-    private Context asc;
+    private ArrayList<c> Ql;
+    private Context asw;
 
-    public ArrayList<c> Ci() {
-        return this.SO;
+    public ArrayList<c> CN() {
+        return this.Ql;
     }
 
     public void a(c cVar) {
         if (cVar != null) {
-            this.SO.add(cVar);
+            this.Ql.add(cVar);
         }
     }
 
     public Context getContext() {
-        return this.asc;
+        return this.asw;
     }
 }

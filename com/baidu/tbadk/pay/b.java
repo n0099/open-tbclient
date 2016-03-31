@@ -9,14 +9,14 @@ import com.baidu.tieba.t;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a azF;
-    private final com.baidu.adp.framework.listener.a azG;
+    private a aAu;
+    private final com.baidu.adp.framework.listener.a aAv;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.azG = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.azF = aVar;
-        registerListener(this.azG);
+        this.aAv = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.aAu = aVar;
+        registerListener(this.aAv);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void FA() {
-        if (!e.FB().FC()) {
-            if (this.azF != null) {
-                this.azF.Fy();
+    public void Gw() {
+        if (!e.Gx().Gy()) {
+            if (this.aAu != null) {
+                this.aAu.Gu();
                 return;
             }
             return;
@@ -50,19 +50,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.azF != null) {
-                this.azF.onError(TbadkCoreApplication.m411getInst().getString(t.j.data_load_error));
+            if (this.aAu != null) {
+                this.aAu.onError(TbadkCoreApplication.m411getInst().getString(t.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.azF != null) {
-                this.azF.Fz();
+            if (this.aAu != null) {
+                this.aAu.Gv();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.azF != null) {
-                this.azF.Fy();
+            if (this.aAu != null) {
+                this.aAu.Gu();
             }
-        } else if (this.azF != null) {
-            this.azF.onError("");
+        } else if (this.aAu != null) {
+            this.aAu.onError("");
         }
     }
 }

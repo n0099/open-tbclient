@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class y implements View.OnClickListener {
-    final /* synthetic */ s cXR;
+    final /* synthetic */ s dst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(s sVar) {
-        this.cXR = sVar;
+        this.dst = sVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,34 +26,34 @@ class y implements View.OnClickListener {
         TextView textView4;
         int i;
         ad adVar6;
-        adVar = this.cXR.cXB;
+        adVar = this.dst.dsd;
         if (adVar != null) {
-            adVar2 = this.cXR.cXB;
-            if (!adVar2.Il()) {
-                adVar5 = this.cXR.cXB;
+            adVar2 = this.dst.dsd;
+            if (!adVar2.JH()) {
+                adVar5 = this.dst.dsd;
                 adVar5.setEditState(true);
-                textView3 = this.cXR.aIL;
+                textView3 = this.dst.aLH;
                 textView3.setText(t.j.done);
                 if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    this.cXR.cXM = t.d.navi_op_text;
+                    this.dst.dso = t.d.navi_op_text;
                 } else {
-                    this.cXR.cXM = t.d.cp_link_tip_a;
+                    this.dst.dso = t.d.cp_link_tip_a;
                 }
-                textView4 = this.cXR.aIL;
-                i = this.cXR.cXM;
-                com.baidu.tbadk.core.util.ar.b(textView4, i, 1);
-                adVar6 = this.cXR.cXB;
+                textView4 = this.dst.aLH;
+                i = this.dst.dso;
+                com.baidu.tbadk.core.util.at.b(textView4, i, 1);
+                adVar6 = this.dst.dsd;
                 adVar6.notifyDataSetChanged();
                 return;
             }
-            adVar3 = this.cXR.cXB;
+            adVar3 = this.dst.dsd;
             adVar3.setEditState(false);
-            textView = this.cXR.aIL;
+            textView = this.dst.aLH;
             textView.setText(t.j.edit);
-            this.cXR.cXM = t.d.navi_op_text;
-            textView2 = this.cXR.aIL;
-            com.baidu.tbadk.core.util.ar.b(textView2, t.d.navi_op_text, 1);
-            adVar4 = this.cXR.cXB;
+            this.dst.dso = t.d.navi_op_text;
+            textView2 = this.dst.aLH;
+            com.baidu.tbadk.core.util.at.b(textView2, t.d.navi_op_text, 1);
+            adVar4 = this.dst.dsd;
             adVar4.notifyDataSetChanged();
         }
     }

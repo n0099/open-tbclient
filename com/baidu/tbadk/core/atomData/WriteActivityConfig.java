@@ -21,6 +21,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String FLOOR_NUM = "floor_num";
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
+    public static final String FROM_ADD_PHOTO_LIVE_IN_MISSON = "from_add_photo_live_in_misson";
     public static final String IS_AD = "is_ad";
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";
@@ -43,9 +44,40 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String SUB_USER_NAME = "sub_user_name";
     public static final String THREAD_ID = "thread_id";
     public static final String TYPE = "type";
+    public static final String VCODE_FEED_BACK = "vcode_feed_back";
     public static final String WRITE_IMAGES = "write_images";
 
     public WriteActivityConfig(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6, AdditionData additionData, PostPrefixData postPrefixData, int i4) {
+        this(activity, i, str, str2, str3, str4, i2, antiData, i3, z, z2, str5, z3, z4, str6, additionData, postPrefixData, i4, "");
+    }
+
+    public void toLivePost(int i, String str, String str2, int i2, int i3, String str3, String str4, String str5) {
+        getIntent().putExtra(IS_LIVE_POST, true);
+        getIntent().putExtra(LIVE_GROUP_ID, i);
+        if (str != null) {
+            getIntent().putExtra(LIVE_GROUP_HEAD, str);
+        }
+        if (str2 != null) {
+            getIntent().putExtra(LIVE_GROUP_NAME, str2);
+        }
+        if (str4 != null) {
+            getIntent().putExtra(LIVE_GROUP_PUBLISH_HEAD, str4);
+        }
+        getIntent().putExtra(LIVE_GROUP_MEMBER_COUNT, i2);
+        getIntent().putExtra(LIVE_GROUP_ZAN_COUNT, i3);
+        if (str3 != null) {
+            getIntent().putExtra(LIVE_GROUP_PUBLISH_NAME, str3);
+        }
+        if (str5 != null) {
+            getIntent().putExtra(LIVE_GROUP_INTRO, str5);
+        }
+    }
+
+    public void setCategroyId(int i) {
+        getIntent().putExtra("category_id", i);
+    }
+
+    public WriteActivityConfig(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6, AdditionData additionData, PostPrefixData postPrefixData, int i4, String str7) {
         super(activity);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
@@ -88,31 +120,12 @@ public class WriteActivityConfig extends IntentConfig {
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
         }
+        getIntent().putExtra("from", str7);
     }
 
-    public void toLivePost(int i, String str, String str2, int i2, int i3, String str3, String str4, String str5) {
-        getIntent().putExtra(IS_LIVE_POST, true);
-        getIntent().putExtra(LIVE_GROUP_ID, i);
-        if (str != null) {
-            getIntent().putExtra(LIVE_GROUP_HEAD, str);
+    public void setIsVcodeFeedBack() {
+        if (getIntent() != null) {
+            getIntent().putExtra(VCODE_FEED_BACK, true);
         }
-        if (str2 != null) {
-            getIntent().putExtra(LIVE_GROUP_NAME, str2);
-        }
-        if (str4 != null) {
-            getIntent().putExtra(LIVE_GROUP_PUBLISH_HEAD, str4);
-        }
-        getIntent().putExtra(LIVE_GROUP_MEMBER_COUNT, i2);
-        getIntent().putExtra(LIVE_GROUP_ZAN_COUNT, i3);
-        if (str3 != null) {
-            getIntent().putExtra(LIVE_GROUP_PUBLISH_NAME, str3);
-        }
-        if (str5 != null) {
-            getIntent().putExtra(LIVE_GROUP_INTRO, str5);
-        }
-    }
-
-    public void setCategroyId(int i) {
-        getIntent().putExtra("category_id", i);
     }
 }

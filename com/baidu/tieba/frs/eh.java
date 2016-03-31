@@ -2,28 +2,30 @@ package com.baidu.tieba.frs;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class eh implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.ah biT;
-    final /* synthetic */ ee blm;
+    final /* synthetic */ ee bqs;
+    private final /* synthetic */ com.baidu.tbadk.core.data.ai bqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eh(ee eeVar, com.baidu.tbadk.core.data.ah ahVar) {
-        this.blm = eeVar;
-        this.biT = ahVar;
+    public eh(ee eeVar, com.baidu.tbadk.core.data.ai aiVar) {
+        this.bqs = eeVar;
+        this.bqu = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.blm.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.biT.getAuthor().getUserId(), this.biT.getAuthor().getName_show(), this.blm.bfF.aoE().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        com.baidu.tbadk.core.data.ai aiVar = (com.baidu.tbadk.core.data.ai) view.getTag(t.g.tag_first);
+        int intValue = ((Integer) view.getTag(t.g.tag_second)).intValue();
+        BaseActivity<?> baseActivity = this.bqs.bix;
+        context = this.bqs.mContext;
+        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.bqu.sB(), intValue, this.bqu.sx(), "", "", true, aiVar.sB().get(this.bqu.sB().size() - 1), true)));
     }
 }

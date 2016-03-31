@@ -8,29 +8,29 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class f extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ HorizontalListView afP;
+    final /* synthetic */ HorizontalListView afo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(HorizontalListView horizontalListView) {
-        this.afP = horizontalListView;
+        this.afo = horizontalListView;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        return this.afP.onDown(motionEvent);
+        return this.afo.onDown(motionEvent);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return this.afP.onFling(motionEvent, motionEvent2, f, f2);
+        return this.afo.onFling(motionEvent, motionEvent2, f, f2);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        synchronized (this.afP) {
-            this.afP.afz += (int) f;
+        synchronized (this.afo) {
+            this.afo.aeY += (int) f;
         }
-        this.afP.requestLayout();
+        this.afo.requestLayout();
         return true;
     }
 
@@ -47,25 +47,25 @@ class f extends GestureDetector.SimpleOnGestureListener {
         int i5 = 0;
         while (true) {
             int i6 = i5;
-            if (i6 < this.afP.getChildCount()) {
-                View childAt = this.afP.getChildAt(i6);
+            if (i6 < this.afo.getChildCount()) {
+                View childAt = this.afo.getChildAt(i6);
                 if (a(motionEvent, childAt)) {
-                    onItemClickListener = this.afP.afF;
+                    onItemClickListener = this.afo.afe;
                     if (onItemClickListener != null) {
-                        onItemClickListener2 = this.afP.afF;
-                        HorizontalListView horizontalListView = this.afP;
-                        i3 = this.afP.afw;
-                        ListAdapter listAdapter = this.afP.mAdapter;
-                        i4 = this.afP.afw;
+                        onItemClickListener2 = this.afo.afe;
+                        HorizontalListView horizontalListView = this.afo;
+                        i3 = this.afo.aeV;
+                        ListAdapter listAdapter = this.afo.mAdapter;
+                        i4 = this.afo.aeV;
                         onItemClickListener2.onItemClick(horizontalListView, childAt, i3 + 1 + i6, listAdapter.getItemId(i4 + 1 + i6));
                     }
-                    onItemSelectedListener = this.afP.afE;
+                    onItemSelectedListener = this.afo.afd;
                     if (onItemSelectedListener != null) {
-                        onItemSelectedListener2 = this.afP.afE;
-                        HorizontalListView horizontalListView2 = this.afP;
-                        i = this.afP.afw;
-                        ListAdapter listAdapter2 = this.afP.mAdapter;
-                        i2 = this.afP.afw;
+                        onItemSelectedListener2 = this.afo.afd;
+                        HorizontalListView horizontalListView2 = this.afo;
+                        i = this.afo.aeV;
+                        ListAdapter listAdapter2 = this.afo.mAdapter;
+                        i2 = this.afo.aeV;
                         onItemSelectedListener2.onItemSelected(horizontalListView2, childAt, i + 1 + i6, listAdapter2.getItemId(i2 + 1 + i6));
                         return true;
                     }
@@ -84,17 +84,17 @@ class f extends GestureDetector.SimpleOnGestureListener {
         AdapterView.OnItemLongClickListener onItemLongClickListener2;
         int i;
         int i2;
-        int childCount = this.afP.getChildCount();
+        int childCount = this.afo.getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = this.afP.getChildAt(i3);
+            View childAt = this.afo.getChildAt(i3);
             if (a(motionEvent, childAt)) {
-                onItemLongClickListener = this.afP.afG;
+                onItemLongClickListener = this.afo.aff;
                 if (onItemLongClickListener != null) {
-                    onItemLongClickListener2 = this.afP.afG;
-                    HorizontalListView horizontalListView = this.afP;
-                    i = this.afP.afw;
-                    ListAdapter listAdapter = this.afP.mAdapter;
-                    i2 = this.afP.afw;
+                    onItemLongClickListener2 = this.afo.aff;
+                    HorizontalListView horizontalListView = this.afo;
+                    i = this.afo.aeV;
+                    ListAdapter listAdapter = this.afo.mAdapter;
+                    i2 = this.afo.aeV;
                     onItemLongClickListener2.onItemLongClick(horizontalListView, childAt, i + 1 + i3, listAdapter.getItemId(i3 + i2 + 1));
                     return;
                 }

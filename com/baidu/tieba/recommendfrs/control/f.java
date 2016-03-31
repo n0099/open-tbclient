@@ -12,11 +12,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0055a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ a dEd;
+    final /* synthetic */ a dVV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.dEd = aVar;
+        this.dVV = aVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a

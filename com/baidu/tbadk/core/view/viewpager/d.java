@@ -5,11 +5,11 @@ import com.baidu.adp.widget.IndicatorView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ b aij;
+    final /* synthetic */ b aiz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aij = bVar;
+        this.aiz = bVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -20,28 +20,28 @@ public class d implements ViewPager.OnPageChangeListener {
         ViewPager viewPager2;
         ViewPager viewPager3;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.aij.aif;
+        onPageChangeListener = this.aiz.aiv;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.aij.aif;
+            onPageChangeListener2 = this.aiz.aiv;
             onPageChangeListener2.onPageScrollStateChanged(i);
         }
         if (i == 1) {
-            this.aij.xp();
+            this.aiz.xP();
         } else if (i == 0) {
-            aVar = this.aij.ahZ;
+            aVar = this.aiz.aip;
             int count = aVar.getCount();
             if (count >= 2) {
-                viewPager = this.aij.ahW;
+                viewPager = this.aiz.aim;
                 int currentItem = viewPager.getCurrentItem();
                 int i2 = count - 2;
                 if (currentItem < 1) {
-                    viewPager3 = this.aij.ahW;
+                    viewPager3 = this.aiz.aim;
                     viewPager3.setCurrentItem(i2, false);
                 } else if (currentItem > i2) {
-                    viewPager2 = this.aij.ahW;
+                    viewPager2 = this.aiz.aim;
                     viewPager2.setCurrentItem(1, false);
                 }
-                this.aij.xo();
+                this.aiz.xO();
             }
         }
     }
@@ -50,9 +50,9 @@ public class d implements ViewPager.OnPageChangeListener {
     public void onPageScrolled(int i, float f, int i2) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.aij.aif;
+        onPageChangeListener = this.aiz.aiv;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.aij.aif;
+            onPageChangeListener2 = this.aiz.aiv;
             onPageChangeListener2.onPageScrolled(i, f, i2);
         }
     }
@@ -67,21 +67,21 @@ public class d implements ViewPager.OnPageChangeListener {
         f fVar3;
         IndicatorView indicatorView2;
         f fVar4;
-        fVar = this.aij.aia;
+        fVar = this.aiz.aiq;
         if (fVar != null) {
-            fVar2 = this.aij.aia;
-            if (fVar2.dp(i) == i) {
-                indicatorView = this.aij.ahX;
+            fVar2 = this.aiz.aiq;
+            if (fVar2.ds(i) == i) {
+                indicatorView = this.aiz.ain;
                 if (indicatorView != null) {
-                    indicatorView2 = this.aij.ahX;
-                    fVar4 = this.aij.aia;
-                    indicatorView2.setPosition(fVar4.dq(i));
+                    indicatorView2 = this.aiz.ain;
+                    fVar4 = this.aiz.aiq;
+                    indicatorView2.setPosition(fVar4.dt(i));
                 }
-                onPageChangeListener = this.aij.aif;
+                onPageChangeListener = this.aiz.aiv;
                 if (onPageChangeListener != null) {
-                    onPageChangeListener2 = this.aij.aif;
-                    fVar3 = this.aij.aia;
-                    onPageChangeListener2.onPageSelected(fVar3.dq(i));
+                    onPageChangeListener2 = this.aiz.aiv;
+                    fVar3 = this.aiz.aiq;
+                    onPageChangeListener2.onPageSelected(fVar3.dt(i));
                 }
             }
         }

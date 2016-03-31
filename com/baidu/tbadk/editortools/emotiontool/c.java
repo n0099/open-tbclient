@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a atW;
-    private com.baidu.adp.widget.a.a atX;
-    private int atY;
+    private com.baidu.adp.widget.a.a auw;
+    private com.baidu.adp.widget.a.a aux;
+    private int auy;
     private int rows;
 
-    public abstract boolean CS();
+    public abstract boolean DA();
 
-    public abstract EmotionGroupType CT();
+    public abstract EmotionGroupType DB();
 
-    public abstract String eA(int i);
+    public abstract String eF(int i);
 
-    public abstract boolean fg(String str);
+    public abstract boolean fo(String str);
 
-    public abstract com.baidu.adp.widget.a.a fh(String str);
+    public abstract com.baidu.adp.widget.a.a fp(String str);
 
-    public abstract com.baidu.adp.widget.a.a fi(String str);
+    public abstract com.baidu.adp.widget.a.a fq(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,35 +30,35 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a CU() {
-        return this.atW;
+    public com.baidu.adp.widget.a.a DC() {
+        return this.auw;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mS();
+            aVar.mK();
         }
-        this.atW = aVar;
+        this.auw = aVar;
     }
 
-    public com.baidu.adp.widget.a.a CV() {
-        return this.atX;
+    public com.baidu.adp.widget.a.a DD() {
+        return this.aux;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mS();
+            aVar.mK();
         }
-        this.atX = aVar;
+        this.aux = aVar;
     }
 
-    public int CW() {
-        return this.atY;
+    public int DE() {
+        return this.auy;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eB(int i) {
-        this.atY = i;
+    public void eG(int i) {
+        this.auy = i;
     }
 
     public int getRows() {

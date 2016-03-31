@@ -1,35 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tieba.pb.a.c;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class x implements BdListView.e {
-    final /* synthetic */ PbActivity cNq;
+class x implements c.a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void nv() {
-        boolean z;
-        cm cmVar;
-        dz dzVar;
-        cm cmVar2;
-        dz dzVar2;
-        z = this.cNq.mIsLogin;
-        if (z) {
-            cmVar = this.cNq.cMF;
-            if (cmVar.fr(false)) {
-                dzVar2 = this.cNq.cMK;
-                dzVar2.ari();
-                TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-                return;
-            }
-            dzVar = this.cNq.cMK;
-            cmVar2 = this.cNq.cMF;
-            dzVar.l(cmVar2.getPbData());
+    @Override // com.baidu.tieba.pb.a.c.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        eu euVar;
+        com.baidu.tbadk.editortools.d.e eVar;
+        eu euVar2;
+        eu euVar3;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        eu euVar4;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        euVar = this.dht.dgF;
+        euVar.go(false);
+        eVar = this.dht.dgP;
+        if (eVar != null) {
+            euVar4 = this.dht.dgF;
+            eVar3 = this.dht.dgP;
+            euVar4.eL(eVar3.DT());
         }
+        euVar2 = this.dht.dgF;
+        euVar2.aM(view);
+        euVar3 = this.dht.dgF;
+        euVar3.go(true);
+        eVar2 = this.dht.dgP;
+        eVar2.DW();
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.a.c.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.c.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.editortools.d.e eVar;
+        eu euVar;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        eu euVar2;
+        eu euVar3;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        boolean aJ;
+        if (view != null && view.getId() == t.g.richText) {
+            aJ = this.dht.aJ(view);
+            if (aJ) {
+                return true;
+            }
+        }
+        eVar = this.dht.dgP;
+        if (eVar != null) {
+            euVar3 = this.dht.dgF;
+            eVar3 = this.dht.dgP;
+            euVar3.eL(eVar3.DT());
+        }
+        euVar = this.dht.dgF;
+        euVar.ayk();
+        eVar2 = this.dht.dgP;
+        eVar2.DW();
+        euVar2 = this.dht.dgF;
+        euVar2.amI();
+        return false;
     }
 }

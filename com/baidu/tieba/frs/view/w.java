@@ -1,22 +1,25 @@
 package com.baidu.tieba.frs.view;
 
 import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ t brL;
+    final /* synthetic */ u bwT;
+    private final /* synthetic */ com.baidu.tbadk.core.data.b bwz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(t tVar) {
-        this.brL = tVar;
+    public w(u uVar, com.baidu.tbadk.core.data.b bVar) {
+        this.bwT = uVar;
+        this.bwz = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.h.j.a(this.brL.bqF, this.brL.MR.getPageActivity());
-        this.brL.bgW.bfr = false;
-        com.baidu.tbadk.browser.f.a(this.brL.MR.getPageActivity(), this.brL.MR.getResources().getString(t.j.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+        aw awVar = new aw("c10826");
+        awVar.ac("obj_id", this.bwT.bvU.avu().getId());
+        TiebaStatic.log(awVar);
+        com.baidu.tbadk.browser.f.a(this.bwT.blH.getPageContext().getPageActivity(), true, this.bwz.rf());
     }
 }

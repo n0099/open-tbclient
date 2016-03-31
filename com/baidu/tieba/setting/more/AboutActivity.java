@@ -15,26 +15,26 @@ import com.baidu.tieba.t;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private c dJf;
-    private com.baidu.tieba.setting.model.a dJg;
-    private a dJh = null;
-    private String dJi = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private com.baidu.tieba.setting.model.a ebA;
+    private a ebB = null;
+    private String ebC = String.valueOf(com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private c ebz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dJf = new c(this, new com.baidu.tieba.setting.more.a(this));
-        this.dJf.aGI();
-        Jq();
+        this.ebz = new c(this, new com.baidu.tieba.setting.more.a(this));
+        this.ebz.aNs();
+        KL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dJf != null) {
-            this.dJf.aGI();
+        if (this.ebz != null) {
+            this.ebz.aNs();
         }
     }
 
@@ -42,12 +42,12 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Ys();
-        if (this.dJg != null) {
-            this.dJg.cancelLoadData();
+        abL();
+        if (this.ebA != null) {
+            this.ebA.cancelLoadData();
         }
-        if (this.dJf != null) {
-            this.dJf.Oz();
+        if (this.ebz != null) {
+            this.ebz.Qo();
         }
     }
 
@@ -55,47 +55,47 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dJf != null) {
-            this.dJf.ej(i);
+        if (this.ebz != null) {
+            this.ebz.em(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.dJg == null) {
-            this.dJg = new com.baidu.tieba.setting.model.a(this, new b(this));
+        if (this.ebA == null) {
+            this.ebA = new com.baidu.tieba.setting.model.a(this, new b(this));
         } else {
-            this.dJg.cancelLoadData();
+            this.ebA.cancelLoadData();
         }
-        this.dJg.aGA();
-        if (this.dJf != null) {
-            this.dJf.aGH();
+        this.ebA.aNk();
+        if (this.ebz != null) {
+            this.ebz.aNr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void K(Object obj) {
-        if (this.dJf != null) {
-            this.dJf.Oz();
+    public void O(Object obj) {
+        if (this.ebz != null) {
+            this.ebz.Qo();
         }
         com.baidu.tbadk.coreExtra.d.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.d.d) obj : null;
         if (dVar != null) {
-            TbadkCoreApplication.m411getInst().setVersionData(dVar.zO());
+            TbadkCoreApplication.m411getInst().setVersionData(dVar.Ar());
             TbadkCoreApplication.m411getInst().refreshNewVersion(false);
-            if (dVar.zO().hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (dVar.zO().forceUpdate()) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.zO(), dVar.zN())));
+            if (dVar.Ar().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (dVar.Ar().forceUpdate()) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.Ar(), dVar.Aq())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.zO(), dVar.zN()));
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.Ar(), dVar.Aq()));
                     TbadkCoreApplication.m411getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             } else {
                 showToast(getResources().getString(t.j.neednot_update));
             }
-            if (this.dJf != null) {
-                this.dJf.aGI();
+            if (this.ebz != null) {
+                this.ebz.aNs();
                 return;
             }
             return;
@@ -115,22 +115,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.dJf != null) {
-                AboutActivity.this.dJf.aGI();
+            if (AboutActivity.this.ebz != null) {
+                AboutActivity.this.ebz.aNs();
             }
         }
     }
 
-    private void Jq() {
-        this.dJh = new a(this, null);
+    private void KL() {
+        this.ebB = new a(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.dJh, intentFilter);
+        registerReceiver(this.ebB, intentFilter);
     }
 
-    private void Ys() {
-        if (this.dJh != null) {
-            unregisterReceiver(this.dJh);
+    private void abL() {
+        if (this.ebB != null) {
+            unregisterReceiver(this.ebB);
         }
     }
 }

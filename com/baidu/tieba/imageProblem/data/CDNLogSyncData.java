@@ -5,63 +5,63 @@ import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.stats.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.v;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CDNLogSyncData {
-    private boolean Vb;
-    private int Vc;
-    private int Vd;
-    private int Ve = 25;
-    private int Vf = 25;
-    private int Vg = 10;
+    private boolean SK;
+    private int SL;
+    private int SM;
+    private int SN = 25;
+    private int SO = 25;
+    private int SQ = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.Ve;
+        return this.SN;
     }
 
     public void setSuccRank(int i) {
-        this.Ve = i;
+        this.SN = i;
     }
 
     public int getErrRank() {
-        return this.Vf;
+        return this.SO;
     }
 
     public void setErrRank(int i) {
-        this.Vf = i;
+        this.SO = i;
     }
 
     public int getSlowRank() {
-        return this.Vg;
+        return this.SQ;
     }
 
     public void setSlowRank(int i) {
-        this.Vg = i;
+        this.SQ = i;
     }
 
     public boolean ismSwitch() {
-        return this.Vb;
+        return this.SK;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.Vb != z) {
-            d hm = u.hm();
-            hm.r("act", "fallback");
-            hm.r("result", z ? "1" : "0");
-            hm.r("type", "switch");
-            a.ht().b("img", hm);
+        if (this.SK != z) {
+            d hs = v.hs();
+            hs.r("act", "fallback");
+            hs.r("result", z ? "1" : "0");
+            hs.r("type", "switch");
+            a.hz().b("img", hs);
         }
-        this.Vb = z;
+        this.SK = z;
     }
 
     public int getSlowNumber() {
-        return this.Vc;
+        return this.SL;
     }
 
     public void setSlowNumber(int i) {
-        this.Vc = i;
+        this.SL = i;
     }
 
     public int getTime() {
@@ -73,11 +73,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.Vd;
+        return this.SM;
     }
 
     public void setErrNumber(int i) {
-        this.Vd = i;
+        this.SM = i;
     }
 
     public void parseJson(String str) {
@@ -86,7 +86,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.Vb = false;
+            this.SK = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -95,30 +95,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.Vb = true;
+                    this.SK = true;
                 } else {
-                    this.Vb = false;
+                    this.SK = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.Vd = optJSONObject.optInt("num");
+                    this.SM = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.Vc = optJSONObject2.optInt("num");
+                    this.SL = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.Ve = optJSONObject3.optInt("succ");
-                    this.Vf = optJSONObject3.optInt("err");
-                    this.Vg = optJSONObject3.optInt("slow");
+                    this.SN = optJSONObject3.optInt("succ");
+                    this.SO = optJSONObject3.optInt("err");
+                    this.SQ = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.Vc <= 0 || this.Vd <= 0) {
-                    this.Vb = false;
+                if (this.time <= 0 || this.SL <= 0 || this.SM <= 0) {
+                    this.SK = false;
                 }
             } catch (Exception e) {
-                this.Vb = false;
+                this.SK = false;
                 BdLog.e(e.getMessage());
             }
         }

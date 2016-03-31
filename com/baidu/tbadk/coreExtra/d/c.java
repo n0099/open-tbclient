@@ -5,13 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int alf;
-    private int alg;
-    private int alh;
-    private int[] ali;
-    private int lcsTimeout2G;
-    private int lcsTimeout3G;
-    private int lcsTimeoutwifi;
+    private int alw;
+    private int alx;
+    private int aly;
+    private int[] alz;
 
     public void parserJson(String str) {
         try {
@@ -23,49 +20,34 @@ public class c {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.alf = jSONObject.optInt("conn_conf");
-            this.alg = jSONObject.optInt("continuous_fail_count");
-            this.alh = jSONObject.optInt("restart_time_interval");
-            this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
-            this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
-            this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
+            this.alw = jSONObject.optInt("conn_conf");
+            this.alx = jSONObject.optInt("continuous_fail_count");
+            this.aly = jSONObject.optInt("restart_time_interval");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.ali = new int[optJSONArray.length()];
+                this.alz = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.ali[i] = optJSONArray.optInt(i);
+                    this.alz[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.ali = new int[0];
+            this.alz = new int[0];
         }
     }
 
-    public int zH() {
-        return this.alf;
+    public int Ak() {
+        return this.alw;
     }
 
-    public int zI() {
-        return this.alg;
+    public int Al() {
+        return this.alx;
     }
 
-    public int zJ() {
-        return this.alh;
+    public int Am() {
+        return this.aly;
     }
 
-    public int[] zK() {
-        return this.ali;
-    }
-
-    public int getLcsTimeout2G() {
-        return this.lcsTimeout2G;
-    }
-
-    public int getLcsTimeout3G() {
-        return this.lcsTimeout3G;
-    }
-
-    public int getLcsTimeoutwifi() {
-        return this.lcsTimeoutwifi;
+    public int[] An() {
+        return this.alz;
     }
 }

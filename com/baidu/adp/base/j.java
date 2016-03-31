@@ -41,7 +41,7 @@ public class j {
                 this.nA = new HashSet<>();
             }
             if (this.nA.contains(str)) {
-                com.baidu.adp.plugin.b.a.lq().e("plugin_load", "repeat_inject_res", str, str2);
+                com.baidu.adp.plugin.b.a.lf().e("plugin_load", "repeat_inject_res", str, str2);
             }
             this.nA.add(str);
         }

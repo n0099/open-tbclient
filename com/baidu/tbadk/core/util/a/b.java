@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.t;
 /* loaded from: classes.dex */
 public class b {
-    private final i adL = new i();
+    private final i ada = new i();
     public boolean mIsNeedTbs = false;
-    public boolean adM = true;
+    public boolean adb = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean adN = false;
-    public int adO = 0;
+    public boolean adc = false;
+    public int ade = 0;
 
-    public i wy() {
-        return this.adL;
+    public i wR() {
+        return this.ada;
     }
 
     public void a(t tVar) {
@@ -53,27 +53,27 @@ public class b {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            String xT = com.baidu.tbadk.coreExtra.b.a.xQ().xT();
+            String yu = com.baidu.tbadk.coreExtra.b.a.yr().yu();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    str = String.valueOf(xT) + "ka=open";
+                    str = String.valueOf(yu) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ak(str);
+                    com.baidu.adp.lib.network.a.a.al(str);
                 }
                 z = false;
-                str = xT;
+                str = yu;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ak(str);
+                com.baidu.adp.lib.network.a.a.al(str);
             } else {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                    str = String.valueOf(xT) + "ka=open";
+                    str = String.valueOf(yu) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ak(str);
+                    com.baidu.adp.lib.network.a.a.al(str);
                 }
                 z = false;
-                str = xT;
+                str = yu;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ak(str);
+                com.baidu.adp.lib.network.a.a.al(str);
             }
         }
         if (this.mIsNeedTbs) {
@@ -84,18 +84,18 @@ public class b {
         tVar.p("model", Build.MODEL);
     }
 
-    public String wz() {
-        if (this.adL.mUrl == null) {
+    public String wS() {
+        if (this.ada.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.adL.mUrl.startsWith(str)) {
-            int indexOf = this.adL.mUrl.indexOf(63);
+        if (this.ada.mUrl.startsWith(str)) {
+            int indexOf = this.ada.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.adL.mUrl.length();
+                indexOf = this.ada.mUrl.length();
             }
-            return this.adL.mUrl.substring(str.length(), indexOf);
+            return this.ada.mUrl.substring(str.length(), indexOf);
         }
-        return this.adL.mUrl;
+        return this.ada.mUrl;
     }
 }

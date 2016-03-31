@@ -4,72 +4,60 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d dXN;
-    private final int dXO = 10;
-    private final int dXP = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String dXQ = null;
-    public boolean aeo = false;
+    private com.baidu.adp.lib.stats.d eqE;
+    private final int eqF = 10;
+    private final int eqG = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String eqH = null;
+    public boolean adE = false;
 
     public b(String str) {
-        J(str, false);
+        K(str, false);
     }
 
-    public void J(String str, boolean z) {
-        this.dXQ = str;
-        this.aeo = z;
-        this.dXN = new com.baidu.adp.lib.stats.d("dbg");
+    public void K(String str, boolean z) {
+        this.eqH = str;
+        this.adE = z;
+        this.eqE = new com.baidu.adp.lib.stats.d("dbg");
         c.h(str, getNetType(), z);
     }
 
     public void start() {
-        this.dXN.hJ();
-    }
-
-    public void a(boolean z, boolean z2, int i, String str, long j) {
-        long hK = this.dXN.hK();
-        long j2 = 0;
-        long j3 = 0;
-        if (z) {
-            j2 = hK;
-        } else {
-            j3 = hK;
-        }
-        a(z, z2, i, str, j, j2, j3);
+        this.eqE.hP();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f aMN;
-        if (this.dXN != null && (aMN = aMN()) != null) {
+        f aTO;
+        if (this.eqE != null && (aTO = aTO()) != null) {
             if (z) {
-                if (aMN.dXV != null) {
-                    aMN.dXV.num++;
+                if (aTO.eqM != null) {
+                    aTO.eqM.num++;
                     if (z2) {
-                        aMN.dXV.dXS += j2;
-                        aMN.dXV.size += j;
+                        aTO.eqM.eqJ += j2;
+                        aTO.eqM.size += j;
                     } else {
-                        aMN.dXV.dXT++;
+                        aTO.eqM.eqK++;
                     }
                 } else {
                     return;
                 }
-            } else if (aMN.dXW != null) {
-                aMN.dXW.num++;
+            } else if (aTO.eqN != null) {
+                aTO.eqN.num++;
                 if (z2) {
-                    aMN.dXW.dXS += j3;
-                    aMN.dXW.size += j;
+                    aTO.eqN.eqJ += j3;
+                    aTO.eqN.size += j;
                     j2 = j3;
                 } else {
-                    aMN.dXW.dXT++;
+                    aTO.eqN.eqK++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.dXN = null;
+            this.eqE = null;
             if (z2) {
-                c.a(aMN, 10);
+                c.a(aTO, 10);
             }
-            if (this.dXQ == "frsStat") {
+            if (this.eqH == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.r("act", "frs");
@@ -79,41 +67,41 @@ public class b {
                     dVar.r("errCode", String.valueOf(i));
                     dVar.r("errMsg", str);
                     dVar.r("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.ht().b("frs", dVar);
+                    com.baidu.adp.lib.stats.a.hz().b("frs", dVar);
                 }
             }
         }
     }
 
     public void destory() {
-        f aMN;
-        if (this.dXN != null && (aMN = aMN()) != null && aMN.dXX != null) {
-            long hK = this.dXN.hK();
-            if (hK > 3000) {
-                e eVar = aMN.dXX;
-                eVar.dXS = hK + eVar.dXS;
-                aMN.dXX.num++;
-                c.a(aMN, 10);
+        f aTO;
+        if (this.eqE != null && (aTO = aTO()) != null && aTO.eqO != null) {
+            long hQ = this.eqE.hQ();
+            if (hQ > 3000) {
+                e eVar = aTO.eqO;
+                eVar.eqJ = hQ + eVar.eqJ;
+                aTO.eqO.num++;
+                c.a(aTO, 10);
             }
         }
     }
 
-    private f aMN() {
-        return c.i(this.dXQ, getNetType(), this.aeo);
+    private f aTO() {
+        return c.i(this.eqH, getNetType(), this.adE);
     }
 
     private String getNetType() {
-        int jf = i.jf();
-        if (jf == 0) {
+        int jl = i.jl();
+        if (jl == 0) {
             return "N";
         }
-        if (jf == 1) {
+        if (jl == 1) {
             return "WIFI";
         }
-        if (jf == 3) {
+        if (jl == 3) {
             return "3G";
         }
-        if (jf != 2) {
+        if (jl != 2) {
             return "N";
         }
         return "2G";

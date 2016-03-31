@@ -1,33 +1,39 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
-class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ e cil;
+class j implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ ImMessageCenterShowItemData csR;
+    final /* synthetic */ i csS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(e eVar) {
-        this.cil = eVar;
+    public j(i iVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.csS = iVar;
+        this.csR = imMessageCenterShowItemData;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterListAdapter imMessageCenterListAdapter;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        if (i < 0) {
-            return false;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && this.csR != null) {
+            this.csR.setUnReadCount(0);
+            if (this.csR.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.d.aeq().je("apply_join_group");
+            } else if (this.csR.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+                com.baidu.tieba.im.db.d.aeq().je("group_intro_change");
+                com.baidu.tieba.im.db.d.aeq().je("group_name_change");
+                com.baidu.tieba.im.db.d.aeq().je("group_notice_change");
+                com.baidu.tieba.im.db.d.aeq().je("group_level_up");
+                com.baidu.tieba.im.db.d.aeq().je("dismiss_group");
+                com.baidu.tieba.im.db.d.aeq().je("kick_out");
+                com.baidu.tieba.im.db.d.aeq().je("group_activitys_change");
+            } else if (this.csR.getOwnerName().equals("6")) {
+                com.baidu.tieba.im.db.d.aeq().je("live_notify");
+            }
         }
-        e eVar = this.cil;
-        imMessageCenterListAdapter = this.cil.cia;
-        eVar.chY = imMessageCenterListAdapter.getItem(i);
-        e eVar2 = this.cil;
-        imMessageCenterShowItemData = this.cil.chY;
-        eVar2.c(imMessageCenterShowItemData);
-        if (this.cil.cie != null) {
-            this.cil.cie.un();
-        }
-        return true;
+        return null;
     }
 }

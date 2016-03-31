@@ -25,8 +25,8 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final int XIUBA_VERSION_FIRST = 3;
     private static final int XIUBA_VERSION_SECOND = 2;
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new t(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
-    private final CustomMessageListener downloadListener = new u(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+    private final CustomMessageListener installListener = new z(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
+    private final CustomMessageListener downloadListener = new aa(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
 
     public XiubaTbJsBridge(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -111,7 +111,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Cr().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.CX().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

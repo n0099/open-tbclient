@@ -6,11 +6,11 @@ import com.baidu.tieba.mainentrance.SquareSearchActivity;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ar implements Runnable {
-    final /* synthetic */ SquareSearchActivity cwZ;
+    final /* synthetic */ SquareSearchActivity cLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SquareSearchActivity squareSearchActivity) {
-        this.cwZ = squareSearchActivity;
+        this.cLU = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,16 +18,16 @@ class ar implements Runnable {
         SquareSearchActivity.a aVar;
         SquareSearchActivity.a aVar2;
         try {
-            if (this.cwZ.cws != null && this.cwZ.cws.length() > 0) {
+            if (this.cLU.cLn != null && this.cLU.cLn.length() > 0) {
                 StringBuffer stringBuffer = new StringBuffer(30);
                 stringBuffer.append(TbConfig.SERVER_ADDRESS);
                 stringBuffer.append("c/f/forum/search");
-                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.cwZ.cws.trim());
-                this.cwZ.akn();
-                this.cwZ.cwp = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
-                aVar = this.cwZ.cwp;
+                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.cLU.cLn.trim());
+                this.cLU.aow();
+                this.cLU.cLk = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
+                aVar = this.cLU.cLk;
                 aVar.setPriority(3);
-                aVar2 = this.cwZ.cwp;
+                aVar2 = this.cLU.cLk;
                 aVar2.execute(stringBuffer.toString(), basicNameValuePair);
             }
         } catch (Exception e) {

@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private View Nn;
-    private CheckBox dLN;
+    private View Nu;
+    private CheckBox een;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -28,38 +28,38 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(t.h.msg_setting_item_view2, (ViewGroup) this, true);
-        this.dLN = (CheckBox) findViewById(t.g.setting_check_view);
-        this.Nn = findViewById(t.g.bottom_line_ll);
+        this.een = (CheckBox) findViewById(t.g.setting_check_view);
+        this.Nu = findViewById(t.g.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.dLN.setText(str);
+        this.een.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.dLN.setText(i);
+            this.een.setText(i);
         }
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.Nn.setVisibility(0);
+            this.Nu.setVisibility(0);
         } else {
-            this.Nn.setVisibility(8);
+            this.Nu.setVisibility(8);
         }
     }
 
     public CheckBox getSwitchView() {
-        return this.dLN;
+        return this.een;
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ac(i == 1);
+        tbPageContext.getLayoutMode().ab(i == 1);
         tbPageContext.getLayoutMode().x(this);
-        com.baidu.tbadk.core.util.ar.l(this, t.d.cp_bg_line_d);
+        com.baidu.tbadk.core.util.at.l(this, t.d.cp_bg_line_d);
     }
 }

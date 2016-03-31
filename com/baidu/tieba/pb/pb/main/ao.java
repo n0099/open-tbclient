@@ -1,21 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class ao implements Runnable {
-    final /* synthetic */ PbActivity cNq;
+class ao implements BdListView.h {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        cm cmVar;
-        cm cmVar2;
-        cmVar = this.cNq.cMF;
-        if (cmVar != null) {
-            cmVar2 = this.cNq.cMF;
-            cmVar2.LoadData();
-        }
+    @Override // com.baidu.adp.widget.ListView.BdListView.h
+    public void nn() {
     }
 }

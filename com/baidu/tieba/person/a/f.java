@@ -5,30 +5,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.personInfo.bf;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f extends c<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.d> {
-    private com.baidu.tieba.personInfo.f cZH;
-    private com.baidu.tieba.personInfo.b dad;
-    private int dae;
-    private int daf;
+    private com.baidu.tieba.personInfo.b duH;
+    private int duI;
+    private int duJ;
+    private com.baidu.tieba.personInfo.f duk;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(com.baidu.tieba.personInfo.f fVar, BdUniqueId bdUniqueId) {
         super(fVar.getBaseFragmentActivity().getPageContext().getPageActivity(), bdUniqueId);
-        this.dae = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds26);
-        this.daf = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds26);
-        this.cZH = fVar;
+        this.duI = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds26);
+        this.duJ = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds26);
+        this.duk = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: as */
+    /* renamed from: aC */
     public com.baidu.tieba.person.b.d b(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(t.h.personinfo_enter_view, viewGroup, false));
     }
@@ -38,103 +38,103 @@ public class f extends c<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.d dVar) {
         a(dVar, view);
-        if (cVar != null && this.aXE) {
+        if (cVar != null && this.bcn) {
             a(dVar, cVar);
             a(dVar);
-            this.aXE = false;
+            this.bcn = false;
         }
         return view;
     }
 
     private void a(com.baidu.tieba.person.b.d dVar, com.baidu.tieba.person.data.c cVar) {
-        bf avb;
-        if (cVar != null && dVar != null && dVar.ddI != null && this.cZH != null && (avb = this.cZH.avb()) != null) {
-            if (avb.avS() && !avb.getIsSelf()) {
-                dVar.ddK.setVisibility(8);
+        bf aCH;
+        if (cVar != null && dVar != null && dVar.dyj != null && this.duk != null && (aCH = this.duk.aCH()) != null) {
+            if (aCH.aDx() && !aCH.getIsSelf()) {
+                dVar.dyl.setVisibility(8);
                 b(dVar);
-            } else if (cVar.dbF != null && cVar.dbF.size() > 0) {
-                dVar.ddK.setVisibility(0);
-                dVar.ddJ.setVisibility(8);
-                dVar.ddL.a(b(cVar.dbF, 2), -1, this.dad);
-                dVar.ddM.a(b(cVar.dbF, 1), 1, this.dad);
-                dVar.ddN.a(b(cVar.dbF, 4), -1, this.dad);
-                dVar.ddO.a(b(cVar.dbF, 3), 2, this.dad);
-                dVar.ddP.a(b(cVar.dbF, 0), 3, this.dad);
-                dVar.ddQ.a(b(cVar.dbF, 5), -1, this.dad);
-                this.cZH.avq().a(1, dVar.ddM);
-                if (avb.getIsSelf() && !avb.avS()) {
-                    this.cZH.avq().a(2, dVar.ddO);
-                    if (this.cZH.dii > 0) {
-                        this.cZH.avq().f(true, 2);
+            } else if (cVar.dwi != null && cVar.dwi.size() > 0) {
+                dVar.dyl.setVisibility(0);
+                dVar.dyk.setVisibility(8);
+                dVar.dym.a(b(cVar.dwi, 2), -1, this.duH);
+                dVar.dyn.a(b(cVar.dwi, 1), 1, this.duH);
+                dVar.dyo.a(b(cVar.dwi, 4), -1, this.duH);
+                dVar.dyp.a(b(cVar.dwi, 3), 2, this.duH);
+                dVar.dyq.a(b(cVar.dwi, 0), 3, this.duH);
+                dVar.dyr.a(b(cVar.dwi, 5), -1, this.duH);
+                this.duk.aCW().a(1, dVar.dyn);
+                if (aCH.getIsSelf() && !aCH.aDx()) {
+                    this.duk.aCW().a(2, dVar.dyp);
+                    if (this.duk.dCK > 0) {
+                        this.duk.aCW().h(true, 2);
                     }
                 }
-                if (avb.getIsSelf()) {
-                    this.cZH.avq().a(3, dVar.ddP);
+                if (aCH.getIsSelf()) {
+                    this.duk.aCW().a(3, dVar.dyq);
                 }
-                if (!avb.avS()) {
-                    dVar.ddK.setPadding(0, 0, 0, this.daf);
+                if (!aCH.aDx()) {
+                    dVar.dyl.setPadding(0, 0, 0, this.duJ);
                 } else {
-                    dVar.ddK.setPadding(0, this.dae, 0, this.daf);
+                    dVar.dyl.setPadding(0, this.duI, 0, this.duJ);
                 }
             } else {
-                dVar.ddK.setVisibility(8);
-                dVar.ddJ.setVisibility(8);
+                dVar.dyl.setVisibility(8);
+                dVar.dyk.setVisibility(8);
             }
         }
     }
 
     private void a(com.baidu.tieba.person.b.d dVar) {
-        if (dVar != null && dVar.ddI != null && this.cZH != null) {
-            bf avb = this.cZH.avb();
-            if (avb != null && avb.avS()) {
-                dVar.ddI.setVisibility(0);
-                dVar.ddI.a(this.cZH.avb(), this.cZH.avc());
+        if (dVar != null && dVar.dyj != null && this.duk != null) {
+            bf aCH = this.duk.aCH();
+            if (aCH != null && aCH.aDx()) {
+                dVar.dyj.setVisibility(0);
+                dVar.dyj.a(this.duk.aCH(), this.duk.aCI());
                 return;
             }
-            dVar.ddI.setVisibility(8);
+            dVar.dyj.setVisibility(8);
         }
     }
 
     private void b(com.baidu.tieba.person.b.d dVar) {
-        if (dVar != null && dVar.ddJ != null && this.cZH != null && this.cZH.avb() != null) {
-            bf avb = this.cZH.avb();
-            if (avb.avS() && !avb.getIsSelf()) {
-                dVar.ddJ.setVisibility(0);
-                dVar.ddJ.setData(avb);
+        if (dVar != null && dVar.dyk != null && this.duk != null && this.duk.aCH() != null) {
+            bf aCH = this.duk.aCH();
+            if (aCH.aDx() && !aCH.getIsSelf()) {
+                dVar.dyk.setVisibility(0);
+                dVar.dyk.setData(aCH);
                 return;
             }
-            dVar.ddJ.setVisibility(8);
+            dVar.dyk.setVisibility(8);
         }
     }
 
     private void a(com.baidu.tieba.person.b.d dVar, View view) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (dVar.ahU != skinType) {
-            dVar.ddL.setIcon(t.f.icon_mine_history);
-            dVar.ddL.f(this.cZH.getPageContext());
-            dVar.ddM.setIcon(t.f.icon_mine_collect);
-            dVar.ddM.f(this.cZH.getPageContext());
-            dVar.ddN.setIcon(t.f.icon_mine_follow);
-            dVar.ddN.f(this.cZH.getPageContext());
-            dVar.ddO.setIcon(t.f.icon_mine_fans);
-            dVar.ddO.f(this.cZH.getPageContext());
-            dVar.ddP.setIcon(t.f.icon_mine_friend);
-            dVar.ddP.f(this.cZH.getPageContext());
-            dVar.ddQ.setIcon(t.f.icon_mine_trends);
-            dVar.ddQ.f(this.cZH.getPageContext());
-            dVar.ddI.f(this.cZH.getPageContext());
-            dVar.ddJ.f(this.cZH.getPageContext());
-            ar.l(view, t.d.cp_bg_line_d);
-            dVar.ahU = skinType;
+        if (dVar.aik != skinType) {
+            dVar.dym.setIcon(t.f.icon_mine_history);
+            dVar.dym.f(this.duk.getPageContext());
+            dVar.dyn.setIcon(t.f.icon_mine_collect);
+            dVar.dyn.f(this.duk.getPageContext());
+            dVar.dyo.setIcon(t.f.icon_mine_follow);
+            dVar.dyo.f(this.duk.getPageContext());
+            dVar.dyp.setIcon(t.f.icon_mine_fans);
+            dVar.dyp.f(this.duk.getPageContext());
+            dVar.dyq.setIcon(t.f.icon_mine_friend);
+            dVar.dyq.f(this.duk.getPageContext());
+            dVar.dyr.setIcon(t.f.icon_mine_trends);
+            dVar.dyr.f(this.duk.getPageContext());
+            dVar.dyj.f(this.duk.getPageContext());
+            dVar.dyk.f(this.duk.getPageContext());
+            at.l(view, t.d.cp_bg_line_d);
+            dVar.aik = skinType;
         }
     }
 
     public void a(com.baidu.tieba.personInfo.b bVar) {
-        this.dad = bVar;
+        this.duH = bVar;
     }
 
     private com.baidu.tieba.person.data.d b(ArrayList<com.baidu.tieba.person.data.d> arrayList, int i) {
-        if (com.baidu.tbadk.core.util.x.o(arrayList) > 0) {
+        if (com.baidu.tbadk.core.util.y.p(arrayList) > 0) {
             Iterator<com.baidu.tieba.person.data.d> it = arrayList.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.person.data.d next = it.next();

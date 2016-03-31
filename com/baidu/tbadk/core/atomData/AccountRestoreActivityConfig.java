@@ -9,6 +9,6 @@ public class AccountRestoreActivityConfig extends IntentConfig {
 
     public AccountRestoreActivityConfig(Context context, PageType pageType) {
         super(context);
-        getIntent().putExtra(PAGE_TYPE, pageType.toString());
+        getIntent().putExtra("page_type", pageType.toString());
     }
 }

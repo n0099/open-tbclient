@@ -71,11 +71,11 @@ public class LocalPicModel extends e implements Serializable {
             String h = m.h(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, String.valueOf(str) + "_send");
             String str2 = String.valueOf(str) + "_display";
             String h2 = m.h(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-            Bitmap W = m.W(TiebaIMConfig.POST_IMAGE_PATH, str2);
-            if (h == null || h2 == null || W == null) {
+            Bitmap Y = m.Y(TiebaIMConfig.POST_IMAGE_PATH, str2);
+            if (h == null || h2 == null || Y == null) {
                 return null;
             }
-            return new ResponseData(W, h, h2);
+            return new ResponseData(Y, h, h2);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

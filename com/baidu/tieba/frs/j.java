@@ -1,91 +1,94 @@
 package com.baidu.tieba.frs;
 
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class j implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity bgz;
+class j implements View.OnClickListener {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+        this.blk = frsActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        com.baidu.tieba.frs.c.a aVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.frs.c.l lVar;
+        com.baidu.tieba.frs.c.l lVar2;
+        ei eiVar;
+        com.baidu.tieba.frs.c.l lVar3;
+        ei eiVar2;
+        com.baidu.tieba.frs.c.l lVar4;
         com.baidu.tieba.tbadkCore.o oVar;
-        com.baidu.tieba.tbadkCore.o oVar2;
-        com.baidu.tieba.tbadkCore.data.e eVar;
-        com.baidu.tieba.tbadkCore.data.e eVar2;
-        com.baidu.tieba.tbadkCore.o oVar3;
-        com.baidu.tieba.tbadkCore.o oVar4;
-        com.baidu.tieba.tbadkCore.data.e eVar3;
-        com.baidu.tieba.tbadkCore.data.e eVar4;
-        aVar = this.bgz.bfS;
-        aVar.onScroll(absListView, i, i2, i3);
-        oVar = this.bgz.bfF;
-        if (oVar != null && this.bgz.bfD != null && this.bgz.bfD.Qi() != null) {
-            oVar2 = this.bgz.bfF;
-            int aLp = oVar2.aLp();
-            int Pw = ((i + i2) - this.bgz.bfD.Qi().Pw()) - aLp;
-            int i4 = (Pw - 1) + aLp;
-            eVar = this.bgz.bfA;
-            if (eVar != null) {
-                eVar2 = this.bgz.bfA;
-                int of = eVar2.of(Pw);
-                if (of >= 0 && i4 >= 0) {
-                    oVar3 = this.bgz.bfF;
-                    if (i4 < oVar3.getThreadList().size()) {
-                        oVar4 = this.bgz.bfF;
-                        com.baidu.adp.widget.ListView.u uVar = oVar4.getThreadList().get(i4);
-                        if (uVar instanceof com.baidu.tbadk.core.data.c) {
-                            eVar4 = this.bgz.bfA;
-                            eVar4.c(Pw, 1, this.bgz.forumId, of);
-                            com.baidu.tieba.recapp.report.b.aEK().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.c) uVar, "show", this.bgz.mPn));
-                            return;
-                        }
-                        eVar3 = this.bgz.bfA;
-                        eVar3.c(Pw, 2, this.bgz.forumId, of);
-                        com.baidu.tieba.recapp.report.b.aEK().a(com.baidu.tieba.recapp.report.e.g("store", of, this.bgz.mPn));
+        if (view != this.blk.bko.RK()) {
+            if (view != this.blk.bko.RM()) {
+                if (view == this.blk.bko.RL()) {
+                    cs csVar = this.blk.bko;
+                    eiVar = this.blk.bkr;
+                    csVar.a(eiVar);
+                    lVar3 = this.blk.bkE;
+                    eiVar2 = this.blk.bkr;
+                    lVar3.a(eiVar2);
+                    TiebaStatic.log("c10529");
+                    TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                    this.blk.bko.RU();
+                    FrsActivityStatic.blC = false;
+                    lVar4 = this.blk.bkE;
+                    lVar4.showMenu(true);
+                } else if (view == this.blk.bko.RH()) {
+                    this.blk.bko.RG();
+                    lVar2 = this.blk.bkE;
+                    lVar2.TV();
+                    if (this.blk.Rd().Tg()) {
+                        this.blk.Qn();
+                        this.blk.Rd().Td();
+                    }
+                } else if (view != this.blk.bko.RI()) {
+                    if (view == this.blk.bko.RJ()) {
+                        this.blk.QT();
+                        this.blk.bko.RG();
+                    }
+                } else {
+                    TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_good_threads", "frsclick", 1, new Object[0]);
+                    this.blk.bko.RG();
+                    lVar = this.blk.bkE;
+                    lVar.TV();
+                    if (!this.blk.Rd().Tg()) {
+                        this.blk.Qn();
+                        this.blk.Rd().gX(0);
                     }
                 }
+            } else {
+                this.blk.closeActivity();
             }
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.frs.c.a aVar;
-        boolean z;
-        com.baidu.adp.widget.ListView.w wVar;
-        com.baidu.tieba.frs.c.a aVar2;
-        aVar = this.bgz.bfS;
-        if (aVar != null) {
-            aVar2 = this.bgz.bfS;
-            aVar2.setScrollState(i);
-        }
-        if (i == 2 || i == 1) {
-            z = this.bgz.bfM;
-            if (!z) {
-                this.bgz.bfM = true;
-                this.bgz.bfD.Qm();
-            }
-        }
-        if (this.bgz.bfN == null) {
-            this.bgz.bfN = new com.baidu.tbadk.performanceLog.e();
-            this.bgz.bfN.eZ(1000);
-        }
-        if (i == 0) {
-            cn cnVar = this.bgz.bfD;
-            wVar = this.bgz.bgv;
-            cnVar.a(wVar);
-            this.bgz.bfD.cv(false);
-            this.bgz.Kg = false;
         } else {
-            this.bgz.bfD.a((com.baidu.adp.widget.ListView.w) null);
-            this.bgz.bfD.cv(true);
-            this.bgz.Kg = true;
+            TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_post_thread", "frsclick", 1, new Object[0]);
+            com.baidu.tbadk.core.sharedPref.b.vk().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "frs_write_has_click", true);
+            this.blk.bko.RD();
+            this.blk.QQ();
         }
-        this.bgz.bfN.FF();
+        if (view.getId() == t.g.refresh_layout) {
+            TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
+            if (!this.blk.bko.Ra()) {
+                this.blk.bko.nk();
+            } else {
+                return;
+            }
+        }
+        if (view.getId() == t.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.jw()) {
+            TiebaStatic.log("c10853");
+            if (this.blk.bko.RY()) {
+                this.blk.bko.RZ();
+                return;
+            }
+            oVar = this.blk.bkq;
+            String activityUrl = oVar.avu().getYuleData().uj().getActivityUrl();
+            if (!StringUtils.isNull(activityUrl)) {
+                com.baidu.tbadk.browser.f.t(this.blk.getPageContext().getPageActivity(), activityUrl);
+            }
+        }
     }
 }

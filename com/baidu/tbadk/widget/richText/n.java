@@ -1,48 +1,70 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-class n implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aGA;
+public class n {
+    private String TA;
+    private int aIC;
+    private String aID;
+    private int aIE;
+    private int aIF;
+    private int duration;
+    private int height;
+    private String videoUrl;
+    private int width;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(TbRichTextView tbRichTextView) {
-        this.aGA = tbRichTextView;
+    public void a(PbContent pbContent) {
+        if (pbContent != null) {
+            this.videoUrl = pbContent.link;
+            this.TA = pbContent.src;
+            this.width = pbContent.width.intValue();
+            this.height = pbContent.height.intValue();
+            this.aIC = pbContent.e_type.intValue();
+            this.aID = pbContent.text;
+            this.duration = pbContent.during_time.intValue();
+            this.aIE = pbContent.count.intValue();
+            this.aIF = pbContent.origin_size.intValue();
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbRichTextView.d dVar;
-        String str;
-        TbRichTextView.d dVar2;
-        boolean K;
-        dVar = this.aGA.aGi;
-        if (dVar != null && (view instanceof ImageView)) {
-            Object tag = view.getTag();
-            if (tag != null && (tag instanceof String)) {
-                str = (String) tag;
-            } else if (!(view instanceof TbImageView)) {
-                str = null;
-            } else {
-                str = ((TbImageView) view).getUrl();
-            }
-            int childCount = this.aGA.getChildCount();
-            int i = -1;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.aGA.getChildAt(i2);
-                K = this.aGA.K(childAt);
-                if (K) {
-                    i++;
-                }
-                if (view == childAt) {
-                    break;
-                }
-            }
-            dVar2 = this.aGA.aGi;
-            dVar2.a(view, str, i);
-        }
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public String rV() {
+        return this.TA;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String IU() {
+        return this.aID;
+    }
+
+    public boolean IV() {
+        return this.aIC == 15;
+    }
+
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public int IW() {
+        return this.aIE;
+    }
+
+    public void fA(int i) {
+        this.aIE = i;
     }
 }

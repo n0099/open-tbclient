@@ -1,46 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bg extends CustomMessageListener {
-    final /* synthetic */ bf bhA;
+class bg implements a.b {
+    private final /* synthetic */ TbPageContext aDl;
+    private final /* synthetic */ PluginNetConfigInfos.PluginConfig blG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(bf bfVar, int i) {
-        super(i);
-        this.bhA = bfVar;
+    public bg(TbPageContext tbPageContext, PluginNetConfigInfos.PluginConfig pluginConfig) {
+        this.aDl = tbPageContext;
+        this.blG = pluginConfig;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        FrsActivity frsActivity;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-            AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-            Iterator it = absDelegateAdapterList.iterator();
-            while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                if (aVar instanceof bv) {
-                    frsActivity = this.bhA.bgW;
-                    ((bv) aVar).e(frsActivity);
-                }
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(absDelegateAdapterList);
-            this.bhA.ad(arrayList);
-            bdTypeListView = this.bhA.aXu;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.bhA.aXu;
-                bdTypeListView2.g(arrayList);
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        if (com.baidu.adp.lib.util.i.jf()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.aDl.getPageActivity(), this.blG)));
+        } else {
+            com.baidu.adp.lib.util.k.showToast(this.aDl.getPageActivity(), t.j.neterror);
         }
+        aVar.dismiss();
     }
 }

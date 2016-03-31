@@ -11,12 +11,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class c extends ListView implements AdapterView.OnItemLongClickListener {
-    private int aYe;
-    private int aYf;
-    private int aYg;
-    private com.baidu.tieba.enterForum.a.c aYh;
-    private int aYi;
-    private Runnable aYj;
+    private int bcN;
+    private int bcO;
+    private int bcP;
+    private com.baidu.tieba.enterForum.a.c bcQ;
+    private int bcR;
+    private Runnable bcS;
     private int mOffset;
 
     public c(Context context) {
@@ -25,7 +25,7 @@ public class c extends ListView implements AdapterView.OnItemLongClickListener {
 
     public c(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aYj = new d(this);
+        this.bcS = new d(this);
         setOnItemLongClickListener(this);
     }
 
@@ -33,38 +33,38 @@ public class c extends ListView implements AdapterView.OnItemLongClickListener {
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
         if (listAdapter instanceof com.baidu.tieba.enterForum.a.c) {
-            this.aYh = (com.baidu.tieba.enterForum.a.c) listAdapter;
+            this.bcQ = (com.baidu.tieba.enterForum.a.c) listAdapter;
         } else {
             BdLog.e("the adapter must be implements IDragAdapter");
         }
     }
 
-    private void U(int i, int i2) {
+    private void S(int i, int i2) {
         int pointToPosition = pointToPosition(i, i2);
-        if (pointToPosition != this.aYe && pointToPosition != -1) {
-            this.aYh.fL(pointToPosition);
-            this.aYh.R(this.aYe, pointToPosition);
-            this.aYe = pointToPosition;
+        if (pointToPosition != this.bcN && pointToPosition != -1) {
+            this.bcQ.gb(pointToPosition);
+            this.bcQ.P(this.bcN, pointToPosition);
+            this.bcN = pointToPosition;
         }
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.aYf = (int) motionEvent.getRawX();
-        this.aYg = (int) motionEvent.getRawY();
-        if (com.baidu.tieba.enterForum.c.a.Mf().Mg()) {
+        this.bcO = (int) motionEvent.getRawX();
+        this.bcP = (int) motionEvent.getRawY();
+        if (com.baidu.tieba.enterForum.c.a.NT().NU()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    com.baidu.adp.lib.h.h.hr().removeCallbacks(this.aYj);
-                    com.baidu.tieba.enterForum.c.a.Mf().Mj();
-                    this.aYh.fL(-1);
-                    this.aYh.LD();
+                    com.baidu.adp.lib.h.h.hx().removeCallbacks(this.bcS);
+                    com.baidu.tieba.enterForum.c.a.NT().NX();
+                    this.bcQ.gb(-1);
+                    this.bcQ.Nr();
                     break;
                 case 2:
-                    this.mOffset = com.baidu.tieba.enterForum.c.b.Mk().a(motionEvent.getY(), this.aYi, getHeight());
-                    com.baidu.tieba.enterForum.c.a.Mf().S(this.aYf, this.aYg - this.mOffset);
-                    U((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
+                    this.mOffset = com.baidu.tieba.enterForum.c.b.NY().a(motionEvent.getY(), this.bcR, getHeight());
+                    com.baidu.tieba.enterForum.c.a.NT().Q(this.bcO, this.bcP - this.mOffset);
+                    S((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
             return true;
@@ -75,12 +75,12 @@ public class c extends ListView implements AdapterView.OnItemLongClickListener {
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
-        this.aYe = i;
-        com.baidu.tieba.enterForum.c.a.Mf().a(getContext(), view, this.aYf, this.aYg);
-        this.aYh.fL(i);
-        this.aYh.LD();
-        this.aYi = view.getHeight();
-        com.baidu.adp.lib.h.h.hr().postDelayed(this.aYj, 200L);
+        this.bcN = i;
+        com.baidu.tieba.enterForum.c.a.NT().a(getContext(), view, this.bcO, this.bcP);
+        this.bcQ.gb(i);
+        this.bcQ.Nr();
+        this.bcR = view.getHeight();
+        com.baidu.adp.lib.h.h.hx().postDelayed(this.bcS, 200L);
         return true;
     }
 }

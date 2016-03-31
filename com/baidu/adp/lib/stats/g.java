@@ -5,8 +5,8 @@ import android.support.v4.os.EnvironmentCompat;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class g {
-    public static String F(Context context) {
-        if (com.baidu.adp.lib.util.i.ja()) {
+    public static String v(Context context) {
+        if (com.baidu.adp.lib.util.i.jg()) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
         if (com.baidu.adp.lib.util.i.isWap()) {
@@ -15,17 +15,17 @@ public class g {
         return "1";
     }
 
-    public static String getNetType(Context context) {
+    public static String w(Context context) {
         if (context == null) {
             return null;
         }
-        if (com.baidu.adp.lib.util.i.ja()) {
+        if (com.baidu.adp.lib.util.i.jg()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.jb()) {
-            int ji = com.baidu.adp.lib.util.i.ji();
+        if (com.baidu.adp.lib.util.i.jh()) {
+            int jo = com.baidu.adp.lib.util.i.jo();
             StringBuilder sb = new StringBuilder();
-            switch (ji) {
+            switch (jo) {
                 case 1:
                     sb.append('M');
                     break;
@@ -44,11 +44,11 @@ public class g {
             } else {
                 sb.append("_NET_");
             }
-            if (com.baidu.adp.lib.util.i.jd()) {
+            if (com.baidu.adp.lib.util.i.jj()) {
                 sb.append("3G");
-            } else if (com.baidu.adp.lib.util.i.jc()) {
+            } else if (com.baidu.adp.lib.util.i.ji()) {
                 sb.append("4G");
-            } else if (com.baidu.adp.lib.util.i.je()) {
+            } else if (com.baidu.adp.lib.util.i.jk()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

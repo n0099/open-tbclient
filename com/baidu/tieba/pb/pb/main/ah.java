@@ -1,40 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tieba.t;
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.text.MessageFormat;
 /* loaded from: classes.dex */
-public class ah implements c.b {
-    final /* synthetic */ PbActivity cNq;
-    private final /* synthetic */ SparseArray cNr;
-    private final /* synthetic */ boolean cNs;
-    private final /* synthetic */ String cNt;
+class ah implements a.InterfaceC0041a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str) {
-        this.cNq = pbActivity;
-        this.cNr = sparseArray;
-        this.cNs = z;
-        this.cNt = str;
+    public ah(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        UserMuteAddAndDelModel userMuteAddAndDelModel;
-        dz dzVar;
-        switch (i) {
-            case 0:
-                dzVar = this.cNq.cMK;
-                dzVar.a(((Integer) this.cNr.get(t.g.tag_del_post_type)).intValue(), (String) this.cNr.get(t.g.tag_del_post_id), ((Integer) this.cNr.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) this.cNr.get(t.g.tag_del_post_is_self)).booleanValue());
-                break;
-            case 1:
-                userMuteAddAndDelModel = this.cNq.cMI;
-                userMuteAddAndDelModel.a(this.cNs, this.cNt, (String) this.cNr.get(t.g.tag_user_mute_mute_username), (String) this.cNr.get(t.g.tag_user_mute_thread_id), (String) this.cNr.get(t.g.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB);
-                break;
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
+    public void a(boolean z, boolean z2, String str) {
+        eu euVar;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        df dfVar;
+        df dfVar2;
+        eu euVar2;
+        df dfVar3;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        euVar = this.dht.dgF;
+        euVar.ayH();
+        if (z) {
+            aVar = this.dht.cOZ;
+            if (aVar != null) {
+                aVar4 = this.dht.cOZ;
+                aVar4.X(z2);
+            }
+            dfVar = this.dht.dfV;
+            dfVar.gd(z2);
+            dfVar2 = this.dht.dfV;
+            if (!dfVar2.pu()) {
+                euVar2 = this.dht.dgF;
+                dfVar3 = this.dht.dfV;
+                euVar2.j(dfVar3.getPbData());
+            } else {
+                this.dht.awv();
+            }
+            if (z2) {
+                aVar2 = this.dht.cOZ;
+                if (aVar2 != null) {
+                    aVar3 = this.dht.cOZ;
+                    MarkData px = aVar3.px();
+                    if (px != null) {
+                        this.dht.showToast(MessageFormat.format(this.dht.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(px.getFloor())));
+                        return;
+                    } else {
+                        this.dht.showToast(this.dht.getPageContext().getString(t.j.add_mark));
+                        return;
+                    }
+                }
+                return;
+            }
+            this.dht.showToast(this.dht.getPageContext().getString(t.j.remove_mark));
+            return;
         }
-        cVar.dismiss();
+        this.dht.showToast(this.dht.getPageContext().getString(t.j.update_mark_failed));
     }
 }

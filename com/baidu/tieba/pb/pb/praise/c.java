@@ -4,19 +4,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity cTa;
-    private volatile boolean cTb;
+    private PraiseListActivity dnU;
+    private volatile boolean dnV;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.cTa = null;
-        this.cTa = praiseListActivity;
+        this.dnU = null;
+        this.dnU = praiseListActivity;
     }
 
-    public void bn(List<a> list) {
+    public void bJ(List<a> list) {
         this.mZanItemDataList = list;
     }
 
@@ -30,7 +31,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ld */
+    /* renamed from: ml */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -51,11 +52,11 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            this.cTb = false;
+            this.dnV = false;
             notifyDataSetChanged();
             return;
         }
-        this.cTb = true;
+        this.dnV = true;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -63,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b h = b.h(this.cTa.getPageContext().getPageActivity(), view);
+        b h = b.h(this.dnU.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        h.a(item.getUserName(), item.getPortrait(), item.arQ(), this.cTb);
-        this.cTa.changSkinType(h.getView());
+        h.a(StringUtils.isNull(item.ask()) ? item.getUserName() : item.ask(), item.getPortrait(), item.azz(), this.dnV);
+        this.dnU.changSkinType(h.getView());
         return h.getView();
     }
 }

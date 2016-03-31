@@ -1,21 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
-
-import com.baidu.adp.BdUniqueId;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm {
-    public boolean cJN;
-    public boolean cPM;
-    public int cPN;
-    public boolean cPO;
-    public boolean isAlive;
-    public boolean isSquence;
-    public int loadType;
-    public com.baidu.tieba.pb.a.c pbData;
-    public String postId;
-    public BdUniqueId tag;
-    public String threadId;
+public class dm implements Runnable {
+    final /* synthetic */ df dju;
+    private final /* synthetic */ com.baidu.tieba.pb.data.e djy;
 
-    public dm(BdUniqueId bdUniqueId) {
-        this.tag = bdUniqueId;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dm(df dfVar, com.baidu.tieba.pb.data.e eVar) {
+        this.dju = dfVar;
+        this.djy = eVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.dju.a(this.djy, 3, false, 0, "", false, 0, 0L, 0L, true);
+        this.dju.azx = false;
     }
 }

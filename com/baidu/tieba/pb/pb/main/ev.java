@@ -1,30 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ev implements View.OnClickListener {
-    final /* synthetic */ dz cSw;
+public class ev implements a.InterfaceC0081a {
+    final /* synthetic */ eu dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ev(dz dzVar) {
-        this.cSw = dzVar;
+    public ev(eu euVar) {
+        this.dnc = euVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        boolean z;
-        pbActivity = this.cSw.cNL;
-        if (pbActivity.checkUpIsLogin()) {
-            this.cSw.agV();
-            if (this.cSw.cNh != null) {
-                PbActivity.c cVar = this.cSw.cNh;
-                z = this.cSw.cKa;
-                cVar.fp(z);
-            }
-            this.cSw.arr();
-        }
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0081a
+    public void mY() {
     }
 }

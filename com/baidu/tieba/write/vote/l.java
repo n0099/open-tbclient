@@ -1,24 +1,19 @@
 package com.baidu.tieba.write.vote;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ WriteVoteActivity erf;
-    private final /* synthetic */ ImageFileInfo erg;
+public class l implements DialogInterface.OnCancelListener {
+    final /* synthetic */ WriteVoteActivity eKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(WriteVoteActivity writeVoteActivity, ImageFileInfo imageFileInfo) {
-        this.erf = writeVoteActivity;
-        this.erg = imageFileInfo;
+    public l(WriteVoteActivity writeVoteActivity) {
+        this.eKX = writeVoteActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        n nVar;
-        if (aVar != null) {
-            nVar = this.erf.eqX;
-            nVar.b(this.erg, aVar);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.eKX.destroyWaitingDialog();
+        this.eKX.aZP();
     }
 }

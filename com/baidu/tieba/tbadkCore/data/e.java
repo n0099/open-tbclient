@@ -1,73 +1,190 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.util.SparseIntArray;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ay;
+import java.util.ArrayList;
+import tbclient.App;
+import tbclient.GoodsInfo;
+import tbclient.ThreadPicList;
 /* loaded from: classes.dex */
-public class e {
-    public static final int[] dWw = {3, 8, 13};
-    public static final int[] dWx = {2, 7, 12, 17};
-    public static final int[] dWy = {-1};
-    public static final int[] dWz = {3, 13, 23};
-    private SparseIntArray dWA = new SparseIntArray();
-    private String dWB;
-    private final int[] dWC;
+public class e extends com.baidu.adp.lib.a.b.a.a.i {
+    public final int Si;
+    public final String abtest;
+    public final String apk_name;
+    public final String apk_url;
+    public final int eoW;
+    public final int eoX;
+    public final int eoY;
+    public final a[] eoZ;
+    public a epa;
+    public final String ext_info;
+    public final String first_name;
+    public final String id;
+    public final String ios_url;
+    public final String name;
+    public final String pos_name;
+    public final String price;
+    public final String second_name;
+    public final String url;
+    public final String user_id;
+    public final String verify;
 
-    public e(String str, int[] iArr) {
-        this.dWC = iArr;
-        this.dWB = str;
+    public e() {
+        this.id = null;
+        this.name = null;
+        this.eoW = 0;
+        this.url = null;
+        this.ios_url = null;
+        this.apk_url = null;
+        this.apk_name = null;
+        this.pos_name = null;
+        this.first_name = null;
+        this.second_name = null;
+        this.price = null;
+        this.Si = 0;
+        this.abtest = null;
+        this.eoX = 0;
+        this.user_id = null;
+        this.verify = null;
+        this.ext_info = null;
+        this.eoY = 0;
+        this.eoZ = null;
+        this.epa = null;
     }
 
-    public void oe(int i) {
-        int[] iArr;
-        if (i < 0) {
-            i = 0;
+    public e(App app) {
+        if (app == null) {
+            this.id = null;
+            this.name = null;
+            this.eoW = 0;
+            this.url = null;
+            this.ios_url = null;
+            this.apk_url = null;
+            this.apk_name = null;
+            this.pos_name = null;
+            this.first_name = null;
+            this.second_name = null;
+            this.Si = 0;
+            this.price = null;
+            this.abtest = null;
+            this.eoX = 0;
+            this.user_id = null;
+            this.verify = null;
+            this.ext_info = null;
+            this.eoY = 0;
+            this.eoZ = null;
+            this.epa = null;
+            return;
         }
-        if (this.dWA != null) {
-            this.dWA.clear();
-            if (this.dWC != null) {
-                for (int i2 : this.dWC) {
-                    if (i2 >= 0) {
-                        this.dWA.append(i2 + i, i2);
-                    }
+        this.id = app.id;
+        this.name = app.name;
+        this.eoW = app.url_type.intValue();
+        this.url = app.url;
+        this.apk_url = app.apk_url;
+        this.apk_name = app.apk_name;
+        this.ios_url = app.ios_url;
+        this.pos_name = app.pos_name;
+        this.first_name = app.first_name;
+        this.second_name = app.second_name;
+        this.Si = app.cpid.intValue();
+        this.price = app.price;
+        this.abtest = app.abtest;
+        this.eoX = app.plan_id.intValue();
+        this.user_id = app.user_id;
+        this.verify = app.verify;
+        this.ext_info = app.ext_info;
+        this.eoY = app.app_time.intValue();
+        this.eoZ = null;
+        if (app.goods_info != null) {
+            for (GoodsInfo goodsInfo : app.goods_info) {
+                if (goodsInfo != null) {
+                    this.epa = new a(goodsInfo);
+                    return;
                 }
             }
         }
     }
 
-    public void aLU() {
-        oe(0);
-    }
-
-    public void ba(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.dWA != null) {
-            this.dWA.append(i2, i);
+    public boolean rk() {
+        if (this.eoW == 2) {
+            return false;
         }
+        return rl() || rm();
     }
 
-    public int of(int i) {
-        if (i >= 0 && this.dWA != null) {
-            return this.dWA.get(i, -1);
+    public boolean rl() {
+        return (this.eoW != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
+    }
+
+    public boolean rm() {
+        return this.eoW == 1 && !StringUtils.isNull(this.url);
+    }
+
+    /* loaded from: classes.dex */
+    public static class a extends com.baidu.adp.lib.a.b.a.a.i {
+        public final boolean SC;
+        public final String epb;
+        public final int epc;
+        public final ArrayList<String> epd;
+        public final int height;
+        public final int id;
+        public final String pop_window_text;
+        public final String thread_pic;
+        public final String thread_title;
+        public final String user_name;
+        public final String user_portrait;
+        public final int width;
+
+        public a() {
+            this.id = 0;
+            this.user_name = null;
+            this.user_portrait = null;
+            this.thread_title = null;
+            this.thread_pic = null;
+            this.pop_window_text = null;
+            this.epb = null;
+            this.epc = 0;
+            this.epd = null;
+            this.SC = false;
+            this.width = 0;
+            this.height = 0;
         }
-        return -1;
-    }
 
-    public void og(int i) {
-        if (this.dWA != null) {
-            this.dWA.delete(i);
-        }
-    }
-
-    public void c(int i, int i2, String str, int i3) {
-        if (this.dWA != null && i3 >= 0) {
-            og(i);
-            au auVar = new au("c10376");
-            auVar.aa("da_page", this.dWB);
-            auVar.r("position", i3);
-            auVar.r("view_true", i2);
-            auVar.aa(ImageViewerConfig.FORUM_ID, str);
-            TiebaStatic.log(auVar);
+        public a(GoodsInfo goodsInfo) {
+            if (goodsInfo == null) {
+                this.id = 0;
+                this.user_name = null;
+                this.user_portrait = null;
+                this.thread_title = null;
+                this.thread_pic = null;
+                this.pop_window_text = null;
+                this.epc = 0;
+                this.epd = null;
+                this.epb = null;
+                this.SC = false;
+                this.width = 0;
+                this.height = 0;
+                return;
+            }
+            this.id = goodsInfo.id.intValue();
+            this.user_name = goodsInfo.user_name;
+            this.user_portrait = goodsInfo.user_portrait;
+            this.thread_title = ay.c(goodsInfo.thread_title, 29, "...");
+            this.thread_pic = goodsInfo.thread_pic;
+            this.pop_window_text = goodsInfo.pop_window_text;
+            this.epc = goodsInfo.goods_style.intValue();
+            this.epb = goodsInfo.thread_content;
+            this.SC = goodsInfo.label_measure.intValue() == 2;
+            this.width = goodsInfo.width.intValue();
+            this.height = goodsInfo.height.intValue();
+            this.epd = new ArrayList<>();
+            if (goodsInfo.thread_pic_list != null) {
+                for (ThreadPicList threadPicList : goodsInfo.thread_pic_list) {
+                    if (threadPicList != null && !StringUtils.isNull(threadPicList.pic)) {
+                        this.epd.add(threadPicList.pic);
+                    }
+                }
+            }
         }
     }
 }

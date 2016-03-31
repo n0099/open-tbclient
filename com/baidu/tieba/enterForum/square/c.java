@@ -8,13 +8,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b aXD;
+    final /* synthetic */ b bcm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i, int i2) {
         super(i, i2);
-        this.aXD = bVar;
+        this.bcm = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,40 +25,40 @@ public class c extends com.baidu.adp.framework.listener.a {
         boolean d;
         BaseFragmentActivity baseFragmentActivity2;
         BaseFragmentActivity baseFragmentActivity3;
-        aVar = this.aXD.aXz;
+        aVar = this.bcm.bci;
         if (aVar != null) {
-            baseFragmentActivity = this.aXD.aKq;
+            baseFragmentActivity = this.bcm.aNm;
             if (baseFragmentActivity != null) {
-                this.aXD.aXB = false;
-                aVar2 = this.aXD.aXz;
-                aVar2.MB();
-                d = this.aXD.d(responsedMessage);
+                this.bcm.bck = false;
+                aVar2 = this.bcm.bci;
+                aVar2.Op();
+                d = this.bcm.d(responsedMessage);
                 if (!d) {
-                    if (!this.aXD.Fq()) {
+                    if (!this.bcm.Gd()) {
                         return;
                     }
-                    this.aXD.fV(t.j.no_data_text);
+                    this.bcm.gl(t.j.no_data_text);
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     String errorString = responsedMessage.getErrorString();
-                    baseFragmentActivity2 = this.aXD.aKq;
+                    baseFragmentActivity2 = this.bcm.aNm;
                     String string = baseFragmentActivity2.getResources().getString(t.j.no_data_text);
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
-                    baseFragmentActivity3 = this.aXD.aKq;
+                    baseFragmentActivity3 = this.bcm.aNm;
                     baseFragmentActivity3.showToast(string);
-                    if (k.jq()) {
-                        this.aXD.fV(t.j.no_data_text);
+                    if (k.jw()) {
+                        this.bcm.gl(t.j.no_data_text);
                     } else {
-                        this.aXD.fV(t.j.neterror);
+                        this.bcm.gl(t.j.neterror);
                     }
                 } else if (!(responsedMessage instanceof ForumClassSocketResponseMessage)) {
                     if (!(responsedMessage instanceof ForumClassHttpResponseMessage)) {
                         return;
                     }
-                    this.aXD.a(((ForumClassHttpResponseMessage) responsedMessage).getData());
+                    this.bcm.a(((ForumClassHttpResponseMessage) responsedMessage).getData());
                 } else {
-                    this.aXD.a(((ForumClassSocketResponseMessage) responsedMessage).getData());
+                    this.bcm.a(((ForumClassSocketResponseMessage) responsedMessage).getData());
                 }
             }
         }

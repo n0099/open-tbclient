@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ b awk;
+    final /* synthetic */ b awR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.awk = bVar;
+        this.awR = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class c extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
             ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
             if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                this.awk.awi = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                this.awR.awP = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
             }
         }
     }

@@ -3,15 +3,15 @@ package com.baidu.tieba;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class y implements View.OnClickListener {
-    final /* synthetic */ u aIy;
+    final /* synthetic */ u aLu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(u uVar) {
-        this.aIy = uVar;
+        this.aLu = uVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,24 +20,24 @@ class y implements View.OnClickListener {
         boolean z2;
         TextView textView;
         TextView textView2;
-        z = this.aIy.aHZ;
+        z = this.aLu.aKV;
         if (!z) {
-            z2 = this.aIy.aHY;
+            z2 = this.aLu.aKU;
             if (z2) {
-                Drawable drawable = ar.getDrawable(t.f.btn_dailog_choose_n);
+                Drawable drawable = at.getDrawable(t.f.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                textView2 = this.aIy.aIg;
+                textView2 = this.aLu.aLc;
                 textView2.setCompoundDrawables(drawable, null, null, null);
-                this.aIy.aHX = false;
-                this.aIy.aHY = false;
+                this.aLu.aKT = false;
+                this.aLu.aKU = false;
                 return;
             }
-            Drawable drawable2 = ar.getDrawable(t.f.btn_dailog_choose_s);
+            Drawable drawable2 = at.getDrawable(t.f.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            textView = this.aIy.aIg;
+            textView = this.aLu.aLc;
             textView.setCompoundDrawables(drawable2, null, null, null);
-            this.aIy.aHX = true;
-            this.aIy.aHY = true;
+            this.aLu.aKT = true;
+            this.aLu.aKU = true;
         }
     }
 }

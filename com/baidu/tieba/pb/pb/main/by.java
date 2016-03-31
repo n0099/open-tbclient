@@ -1,55 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cm;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class by implements cm.b {
-    final /* synthetic */ PbActivity cNq;
+public class by implements a.b {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cm.b
-    public void h(int i, long j) {
-        cm cmVar;
-        cm cmVar2;
-        dz dzVar;
-        cm cmVar3;
-        if (i == 0) {
-            ds.aqK().reset();
-            cmVar = this.cNq.cMF;
-            cmVar.aqg();
-            cmVar2 = this.cNq.cMF;
-            ArrayList<com.baidu.tieba.tbadkCore.data.r> aoG = cmVar2.getPbData().aoG();
-            if (aoG != null) {
-                Iterator<com.baidu.tieba.tbadkCore.data.r> it = aoG.iterator();
-                boolean z = false;
-                while (it.hasNext()) {
-                    com.baidu.tieba.tbadkCore.data.r next = it.next();
-                    if (dy.g(next) && next.aMF().getTemplateId() == j) {
-                        it.remove();
-                        z = true;
-                    }
-                }
-                if (z) {
-                    dzVar = this.cNq.cMK;
-                    cmVar3 = this.cNq.cMF;
-                    dzVar.j(cmVar3.getPbData());
-                }
-                this.cNq.showToast(t.j.operation_success);
-                return;
-            }
-            return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.dht.dgo;
+        aVar2.dismiss();
+        str = this.dht.dgp;
+        if (!TextUtils.isEmpty(str)) {
+            Activity pageActivity = this.dht.getPageContext().getPageActivity();
+            str2 = this.dht.dgp;
+            com.baidu.tbadk.browser.f.a(pageActivity, false, str2);
         }
-        this.cNq.showToast(t.j.operation_failed);
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cm.b
-    public void onError(int i, String str) {
-        this.cNq.showToast(t.j.operation_failed);
     }
 }

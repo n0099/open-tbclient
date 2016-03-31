@@ -28,50 +28,50 @@ import com.baidu.adp.lib.util.BlockingLinkedDeque;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-    private boolean aDA;
-    private int aDB;
-    private volatile com.baidu.adp.gif.b aDC;
-    private Bitmap aDD;
-    private int aDE;
-    private int aDF;
-    private int aDG;
-    private boolean aDH;
-    private boolean aDI;
-    private float aDJ;
-    private Interpolator aDK;
-    private int aDL;
-    private c aDM;
-    private BlockingLinkedDeque<c> aDN;
-    private BlockingLinkedDeque<c> aDO;
-    private volatile int aDP;
-    private b aDQ;
-    private volatile long aDR;
-    private volatile boolean aDS;
-    private float aDl;
-    private float aDm;
-    private ArrayList<Float> aDn;
-    private float aDo;
-    private float aDp;
-    private float aDq;
-    private float aDr;
-    private boolean aDs;
-    private int aDt;
-    private int aDu;
-    private e aDv;
-    private View.OnClickListener aDw;
-    private C0057a aDx;
-    private float aDy;
-    private boolean aDz;
-    private int adO;
-    private View.OnLongClickListener anJ;
-    private d anL;
-    private int anM;
+    private float aEB;
+    private float aEC;
+    private ArrayList<Float> aED;
+    private float aEE;
+    private float aEF;
+    private float aEG;
+    private float aEH;
+    private boolean aEI;
+    private int aEJ;
+    private int aEK;
+    private e aEL;
+    private View.OnClickListener aEM;
+    private C0057a aEN;
+    private float aEO;
+    private boolean aEP;
+    private boolean aEQ;
+    private int aER;
+    private volatile com.baidu.adp.gif.b aES;
+    private Bitmap aET;
+    private int aEU;
+    private int aEV;
+    private int aEW;
+    private boolean aEX;
+    private boolean aEY;
+    private float aEZ;
+    private Interpolator aFa;
+    private int aFb;
+    private c aFc;
+    private BlockingLinkedDeque<c> aFd;
+    private BlockingLinkedDeque<c> aFe;
+    private volatile int aFf;
+    private b aFg;
+    private volatile long aFh;
+    private volatile boolean aFi;
+    private int ade;
+    private View.OnLongClickListener aoa;
+    private d aoc;
+    private int aod;
     private int height;
     private int mBottom;
     private GestureDetector mGestureDetector;
@@ -97,7 +97,7 @@ public class a extends ImageView {
     }
 
     public void setIsHeadImage(boolean z) {
-        this.aDI = z;
+        this.aEY = z;
     }
 
     public a(Context context) {
@@ -105,40 +105,40 @@ public class a extends ImageView {
         this.mMatrix = new Matrix();
         this.mViewWidth = 0;
         this.mViewHeight = 0;
-        this.aDs = false;
+        this.aEI = false;
         this.mImageData = null;
-        this.anM = 0;
-        this.aDt = 1300;
-        this.aDu = 0;
-        this.aDv = null;
-        this.aDw = null;
-        this.anJ = null;
-        this.anL = null;
-        this.aDy = 1.0f;
-        this.adO = 0;
+        this.aod = 0;
+        this.aEJ = 1300;
+        this.aEK = 0;
+        this.aEL = null;
+        this.aEM = null;
+        this.aoa = null;
+        this.aoc = null;
+        this.aEO = 1.0f;
+        this.ade = 0;
         this.mMode = 0;
-        this.aDz = false;
-        this.aDA = false;
-        this.aDB = 0;
-        this.aDC = null;
-        this.aDD = null;
+        this.aEP = false;
+        this.aEQ = false;
+        this.aER = 0;
+        this.aES = null;
+        this.aET = null;
         this.mPaint = new Paint((int) ViewCompat.MEASURED_STATE_MASK);
         this.mTop = 0;
         this.mBottom = 0;
-        this.aDE = 0;
-        this.aDF = 0;
-        this.aDG = 0;
-        this.aDK = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.aEU = 0;
+        this.aEV = 0;
+        this.aEW = 0;
+        this.aFa = AnimationUtils.loadInterpolator(getContext(), 17432582);
         this.width = 0;
         this.height = 0;
-        this.aDL = 0;
-        this.aDM = null;
-        this.aDN = new BlockingLinkedDeque<>(5);
-        this.aDO = new BlockingLinkedDeque<>(6);
-        this.aDP = 0;
-        this.aDR = 0L;
+        this.aFb = 0;
+        this.aFc = null;
+        this.aFd = new BlockingLinkedDeque<>(5);
+        this.aFe = new BlockingLinkedDeque<>(6);
+        this.aFf = 0;
+        this.aFh = 0L;
         this.mState = 0;
-        this.aDS = true;
+        this.aFi = true;
         this.mHandler = new Handler(new com.baidu.tbadk.widget.b(this));
         initData();
     }
@@ -148,40 +148,40 @@ public class a extends ImageView {
         this.mMatrix = new Matrix();
         this.mViewWidth = 0;
         this.mViewHeight = 0;
-        this.aDs = false;
+        this.aEI = false;
         this.mImageData = null;
-        this.anM = 0;
-        this.aDt = 1300;
-        this.aDu = 0;
-        this.aDv = null;
-        this.aDw = null;
-        this.anJ = null;
-        this.anL = null;
-        this.aDy = 1.0f;
-        this.adO = 0;
+        this.aod = 0;
+        this.aEJ = 1300;
+        this.aEK = 0;
+        this.aEL = null;
+        this.aEM = null;
+        this.aoa = null;
+        this.aoc = null;
+        this.aEO = 1.0f;
+        this.ade = 0;
         this.mMode = 0;
-        this.aDz = false;
-        this.aDA = false;
-        this.aDB = 0;
-        this.aDC = null;
-        this.aDD = null;
+        this.aEP = false;
+        this.aEQ = false;
+        this.aER = 0;
+        this.aES = null;
+        this.aET = null;
         this.mPaint = new Paint((int) ViewCompat.MEASURED_STATE_MASK);
         this.mTop = 0;
         this.mBottom = 0;
-        this.aDE = 0;
-        this.aDF = 0;
-        this.aDG = 0;
-        this.aDK = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.aEU = 0;
+        this.aEV = 0;
+        this.aEW = 0;
+        this.aFa = AnimationUtils.loadInterpolator(getContext(), 17432582);
         this.width = 0;
         this.height = 0;
-        this.aDL = 0;
-        this.aDM = null;
-        this.aDN = new BlockingLinkedDeque<>(5);
-        this.aDO = new BlockingLinkedDeque<>(6);
-        this.aDP = 0;
-        this.aDR = 0L;
+        this.aFb = 0;
+        this.aFc = null;
+        this.aFd = new BlockingLinkedDeque<>(5);
+        this.aFe = new BlockingLinkedDeque<>(6);
+        this.aFf = 0;
+        this.aFh = 0L;
         this.mState = 0;
-        this.aDS = true;
+        this.aFi = true;
         this.mHandler = new Handler(new com.baidu.tbadk.widget.b(this));
         initData();
     }
@@ -191,50 +191,50 @@ public class a extends ImageView {
         this.mMatrix = new Matrix();
         this.mViewWidth = 0;
         this.mViewHeight = 0;
-        this.aDs = false;
+        this.aEI = false;
         this.mImageData = null;
-        this.anM = 0;
-        this.aDt = 1300;
-        this.aDu = 0;
-        this.aDv = null;
-        this.aDw = null;
-        this.anJ = null;
-        this.anL = null;
-        this.aDy = 1.0f;
-        this.adO = 0;
+        this.aod = 0;
+        this.aEJ = 1300;
+        this.aEK = 0;
+        this.aEL = null;
+        this.aEM = null;
+        this.aoa = null;
+        this.aoc = null;
+        this.aEO = 1.0f;
+        this.ade = 0;
         this.mMode = 0;
-        this.aDz = false;
-        this.aDA = false;
-        this.aDB = 0;
-        this.aDC = null;
-        this.aDD = null;
+        this.aEP = false;
+        this.aEQ = false;
+        this.aER = 0;
+        this.aES = null;
+        this.aET = null;
         this.mPaint = new Paint((int) ViewCompat.MEASURED_STATE_MASK);
         this.mTop = 0;
         this.mBottom = 0;
-        this.aDE = 0;
-        this.aDF = 0;
-        this.aDG = 0;
-        this.aDK = AnimationUtils.loadInterpolator(getContext(), 17432582);
+        this.aEU = 0;
+        this.aEV = 0;
+        this.aEW = 0;
+        this.aFa = AnimationUtils.loadInterpolator(getContext(), 17432582);
         this.width = 0;
         this.height = 0;
-        this.aDL = 0;
-        this.aDM = null;
-        this.aDN = new BlockingLinkedDeque<>(5);
-        this.aDO = new BlockingLinkedDeque<>(6);
-        this.aDP = 0;
-        this.aDR = 0L;
+        this.aFb = 0;
+        this.aFc = null;
+        this.aFd = new BlockingLinkedDeque<>(5);
+        this.aFe = new BlockingLinkedDeque<>(6);
+        this.aFf = 0;
+        this.aFh = 0L;
         this.mState = 0;
-        this.aDS = true;
+        this.aFi = true;
         this.mHandler = new Handler(new com.baidu.tbadk.widget.b(this));
         initData();
     }
 
     public int getImageType() {
-        return this.adO;
+        return this.ade;
     }
 
     public void setImageMode(int i) {
-        this.aDu = i;
+        this.aEK = i;
     }
 
     public void setOffset(int i, int i2, int i3, int i4) {
@@ -243,17 +243,17 @@ public class a extends ImageView {
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.anM = i;
+        this.aod = i;
     }
 
     public void actionUp() {
-        this.aDA = false;
-        this.aDs = false;
+        this.aEQ = false;
+        this.aEI = false;
         this.mMode = 0;
-        GJ();
-        if (this.aDq < this.aDo) {
-            this.aDq = this.aDo;
-            GK();
+        HL();
+        if (this.aEG < this.aEE) {
+            this.aEG = this.aEE;
+            HM();
         }
     }
 
@@ -263,9 +263,9 @@ public class a extends ImageView {
         switch (action) {
             case 0:
                 this.mMode = 0;
-                this.aDs = true;
-                this.aDz = false;
-                this.aDA = false;
+                this.aEI = true;
+                this.aEP = false;
+                this.aEQ = false;
                 break;
             case 1:
                 actionUp();
@@ -280,8 +280,8 @@ public class a extends ImageView {
         if (action == CompatibleUtile.getInstance().getActionPointerUp()) {
             this.mMode = 1;
         } else if (action == CompatibleUtile.getInstance().getActionPointerDown()) {
-            this.aDy = spacing(motionEvent);
-            if (this.aDy > 10.0f) {
+            this.aEO = spacing(motionEvent);
+            if (this.aEO > 10.0f) {
                 this.mMode = 2;
             }
         }
@@ -289,26 +289,26 @@ public class a extends ImageView {
             switch (action) {
                 case 2:
                     if (this.mMode == 2) {
-                        this.aDz = true;
-                        this.aDA = true;
-                        if (this.adO != 1 && this.adO != 2) {
+                        this.aEP = true;
+                        this.aEQ = true;
+                        if (this.ade != 1 && this.ade != 2) {
                             float spacing = spacing(motionEvent);
-                            if (spacing >= 0.0f && Math.abs(this.aDy - spacing) >= 10.0f) {
-                                if (Math.abs(this.aDy - spacing) > 100.0f) {
-                                    this.aDy = spacing;
+                            if (spacing >= 0.0f && Math.abs(this.aEO - spacing) >= 10.0f) {
+                                if (Math.abs(this.aEO - spacing) > 100.0f) {
+                                    this.aEO = spacing;
                                     break;
                                 } else {
-                                    float f = spacing / this.aDy;
-                                    this.aDy = spacing;
-                                    this.aDr = this.aDq;
-                                    this.aDq *= f;
-                                    if (this.aDq > this.aDp) {
-                                        this.aDq = this.aDp;
+                                    float f = spacing / this.aEO;
+                                    this.aEO = spacing;
+                                    this.aEH = this.aEG;
+                                    this.aEG *= f;
+                                    if (this.aEG > this.aEF) {
+                                        this.aEG = this.aEF;
                                     }
-                                    if (this.aDq < this.aDo / 4.0f) {
-                                        this.aDq = this.aDo / 4.0f;
+                                    if (this.aEG < this.aEE / 4.0f) {
+                                        this.aEG = this.aEE / 4.0f;
                                     }
-                                    GK();
+                                    HM();
                                     break;
                                 }
                             }
@@ -337,55 +337,55 @@ public class a extends ImageView {
     }
 
     public boolean pagerCantScroll() {
-        return this.aDo == this.aDq;
+        return this.aEE == this.aEG;
     }
 
     private void reInitBitmap() {
         Bitmap imageBitmap = getImageBitmap();
         if (imageBitmap != null && !imageBitmap.isRecycled() && imageBitmap.getWidth() > 0 && imageBitmap.getHeight() > 0) {
-            if (this.aDu == 0) {
+            if (this.aEK == 0) {
                 float width = this.mViewWidth / imageBitmap.getWidth();
                 float height = this.mViewHeight / imageBitmap.getHeight();
-                if (this.aDI) {
-                    if (this.adO == 2) {
-                        this.aDo = 2.5f;
+                if (this.aEY) {
+                    if (this.ade == 2) {
+                        this.aEE = 2.5f;
                     } else {
-                        this.aDo = Math.min(width, height);
+                        this.aEE = Math.min(width, height);
                     }
-                } else if (this.adO == 2) {
-                    this.aDo = 1.0f;
+                } else if (this.ade == 2) {
+                    this.aEE = 1.0f;
                 } else {
-                    float f = this.aDJ;
+                    float f = this.aEZ;
                     float f2 = f >= 1.0f ? f : 1.0f;
                     if (imageBitmap.getWidth() * f2 < this.mViewWidth && imageBitmap.getHeight() * f2 < this.mViewHeight) {
-                        this.aDo = f2;
+                        this.aEE = f2;
                     } else {
-                        this.aDo = Math.min(width, height);
+                        this.aEE = Math.min(width, height);
                     }
                 }
             } else {
-                this.aDo = Math.max(this.mViewWidth / imageBitmap.getWidth(), ((this.mViewHeight - this.mTop) - this.mBottom) / imageBitmap.getHeight());
+                this.aEE = Math.max(this.mViewWidth / imageBitmap.getWidth(), ((this.mViewHeight - this.mTop) - this.mBottom) / imageBitmap.getHeight());
             }
-            this.aDp = this.aDt / (imageBitmap.getWidth() * imageBitmap.getHeight());
-            this.aDp = FloatMath.sqrt(this.aDp);
-            if (this.aDp > 10.0f) {
-                this.aDp = 10.0f;
+            this.aEF = this.aEJ / (imageBitmap.getWidth() * imageBitmap.getHeight());
+            this.aEF = FloatMath.sqrt(this.aEF);
+            if (this.aEF > 10.0f) {
+                this.aEF = 10.0f;
             }
-            this.aDn.clear();
-            this.aDn.add(Float.valueOf(this.aDo));
-            this.aDq = this.aDo;
-            this.aDr = this.aDq;
-            GK();
-            GI();
+            this.aED.clear();
+            this.aED.add(Float.valueOf(this.aEE));
+            this.aEG = this.aEE;
+            this.aEH = this.aEG;
+            HM();
+            HK();
             return;
         }
-        this.aDl = 0.0f;
-        this.aDm = 0.0f;
-        this.aDo = 1.0f;
-        this.aDp = 1.0f;
-        this.aDq = 1.0f;
-        this.aDr = this.aDq;
-        this.aDn.clear();
+        this.aEB = 0.0f;
+        this.aEC = 0.0f;
+        this.aEE = 1.0f;
+        this.aEF = 1.0f;
+        this.aEG = 1.0f;
+        this.aEH = this.aEG;
+        this.aED.clear();
     }
 
     public Bitmap getImageBitmap() {
@@ -397,14 +397,14 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GI() {
-        if (this.aDv != null) {
-            this.aDv.a(this, canZoomIn(), canZoomOut());
+    public void HK() {
+        if (this.aEL != null) {
+            this.aEL.a(this, canZoomIn(), canZoomOut());
         }
     }
 
     public void setOnSizeChangedListener(e eVar) {
-        this.aDv = eVar;
+        this.aEL = eVar;
     }
 
     public byte[] getImageData() {
@@ -416,11 +416,11 @@ public class a extends ImageView {
     }
 
     public Bitmap getGifCache() {
-        return this.aDD;
+        return this.aET;
     }
 
     public void setGifCache(Bitmap bitmap) {
-        this.aDD = bitmap;
+        this.aET = bitmap;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -431,7 +431,7 @@ public class a extends ImageView {
         int i3;
         boolean z;
         int i4;
-        if (this.adO == 2 && this.aDG != 0 && !this.aDx.GO()) {
+        if (this.ade == 2 && this.aEW != 0 && !this.aEN.HQ()) {
             int width = getWidth();
             int height = getHeight();
             Drawable drawable = getDrawable();
@@ -439,7 +439,7 @@ public class a extends ImageView {
             float f2 = height * 0.3f;
             float f3 = width;
             float f4 = (1.0f - 0.3f) * height;
-            if (this.aDI && drawable != null) {
+            if (this.aEY && drawable != null) {
                 Rect bounds = drawable.getBounds();
                 int i5 = bounds.right - bounds.left;
                 int i6 = bounds.bottom - bounds.top;
@@ -448,19 +448,19 @@ public class a extends ImageView {
                 f3 = (i5 * 2.5f) + (width / 2);
                 f4 = (i6 * 2.5f) + (height / 2);
             }
-            this.mPaint.setColor(ar.getColor(this.aDG));
+            this.mPaint.setColor(at.getColor(this.aEW));
             canvas.drawRect(f, f2, f3, f4, this.mPaint);
             this.mPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         }
         super.onDraw(canvas);
-        if (this.adO == 1 && this.aDD != null && !this.aDD.isRecycled()) {
-            int width2 = this.aDD.getWidth();
-            int height2 = this.aDD.getHeight();
+        if (this.ade == 1 && this.aET != null && !this.aET.isRecycled()) {
+            int width2 = this.aET.getWidth();
+            int height2 = this.aET.getHeight();
             int width3 = getWidth();
             int height3 = getHeight();
             int i7 = (width3 - width2) >> 1;
             int i8 = (height3 - height2) >> 1;
-            float f5 = this.aDJ;
+            float f5 = this.aEZ;
             if (f5 < 1.0f) {
                 f5 = 1.0f;
             }
@@ -487,60 +487,60 @@ public class a extends ImageView {
             }
             canvas.clipRect(i3, i2, i + i3, i4 + i2);
             canvas.drawColor(-1);
-            if (this.aDB == 1 && this.aDC != null && this.aDM != null && this.aDM.aEb != null) {
+            if (this.aER == 1 && this.aES != null && this.aFc != null && this.aFc.aFr != null) {
                 if (z) {
-                    canvas.drawBitmap(this.aDM.aEb, i3, i2, (Paint) null);
+                    canvas.drawBitmap(this.aFc.aFr, i3, i2, (Paint) null);
                 } else {
-                    canvas.drawBitmap(this.aDM.aEb, this.mMatrix, this.mPaint);
+                    canvas.drawBitmap(this.aFc.aFr, this.mMatrix, this.mPaint);
                 }
                 invalidate();
             } else if (z) {
-                canvas.drawBitmap(this.aDD, i3, i2, (Paint) null);
+                canvas.drawBitmap(this.aET, i3, i2, (Paint) null);
             } else {
-                canvas.drawBitmap(this.aDD, this.mMatrix, this.mPaint);
+                canvas.drawBitmap(this.aET, this.mMatrix, this.mPaint);
             }
         }
     }
 
     public void play() {
         com.baidu.adp.widget.a.a d2;
-        if (this.adO == 1) {
-            if (this.aDC == null) {
-                if (this.aDQ != null) {
-                    this.aDQ.interrupt();
-                    this.aDQ = null;
+        if (this.ade == 1) {
+            if (this.aES == null) {
+                if (this.aFg != null) {
+                    this.aFg.interrupt();
+                    this.aFg = null;
                 }
-                if (this.mImageData != null && (d2 = a.C0003a.fm().d(this.mImageData, 0, this.mImageData.length)) != null && d2.getGif() != null) {
-                    this.aDC = d2.getGif();
-                    if (this.aDC != null) {
-                        this.aDB = 1;
-                        this.width = this.aDC.getWidth();
-                        this.height = this.aDC.getHeight();
-                        this.aDP = 0;
-                        this.aDL = this.aDC.fn();
+                if (this.mImageData != null && (d2 = a.C0004a.fn().d(this.mImageData, 0, this.mImageData.length)) != null && d2.getGif() != null) {
+                    this.aES = d2.getGif();
+                    if (this.aES != null) {
+                        this.aER = 1;
+                        this.width = this.aES.getWidth();
+                        this.height = this.aES.getHeight();
+                        this.aFf = 0;
+                        this.aFb = this.aES.fo();
                     } else {
-                        this.aDB = 0;
+                        this.aER = 0;
                     }
                 } else {
                     return;
                 }
             }
-            if (this.aDC != null && this.mState == 0) {
-                this.aDS = true;
-                this.aDQ = new b(this, null);
-                this.aDN.clear();
-                this.aDO.clear();
+            if (this.aES != null && this.mState == 0) {
+                this.aFi = true;
+                this.aFg = new b(this, null);
+                this.aFd.clear();
+                this.aFe.clear();
                 this.mState = 1;
-                this.aDQ.start();
+                this.aFg.start();
             }
         }
     }
 
     public void pause() {
-        if (this.adO == 1) {
+        if (this.ade == 1) {
             this.mState = 0;
-            if (this.aDQ != null) {
-                this.aDQ.interrupt();
+            if (this.aFg != null) {
+                this.aFg.interrupt();
             }
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);
@@ -549,45 +549,45 @@ public class a extends ImageView {
     }
 
     public void stop() {
-        if (this.adO == 1) {
+        if (this.ade == 1) {
             this.mState = 0;
-            if (this.aDQ != null) {
-                this.aDQ.interrupt();
-                this.aDQ = null;
+            if (this.aFg != null) {
+                this.aFg.interrupt();
+                this.aFg = null;
             }
             this.mHandler.removeMessages(0);
             this.mHandler.removeMessages(1);
             this.mHandler.removeMessages(2);
-            this.aDS = true;
-            this.aDM = null;
-            this.aDO.clear();
-            this.aDN.clear();
+            this.aFi = true;
+            this.aFc = null;
+            this.aFe.clear();
+            this.aFd.clear();
             this.width = 0;
             this.height = 0;
-            this.aDP = 0;
-            this.aDL = 0;
-            if (this.aDC != null) {
-                this.aDC = null;
+            this.aFf = 0;
+            this.aFb = 0;
+            if (this.aES != null) {
+                this.aES = null;
             }
         }
     }
 
     private void initData() {
-        this.aDJ = k.M(getContext());
-        this.aDt = k.L(getContext()) * k.K(getContext()) * 2;
-        if (this.aDt < 1690000) {
-            this.aDt = 1690000;
+        this.aEZ = k.D(getContext());
+        this.aEJ = k.C(getContext()) * k.B(getContext()) * 2;
+        if (this.aEJ < 1690000) {
+            this.aEJ = 1690000;
         }
-        this.aDl = 0.0f;
-        this.aDm = 0.0f;
-        this.aDn = new ArrayList<>();
-        this.aDo = 1.0f;
-        this.aDp = 1.0f;
-        this.aDq = 1.0f;
-        this.aDr = this.aDq;
+        this.aEB = 0.0f;
+        this.aEC = 0.0f;
+        this.aED = new ArrayList<>();
+        this.aEE = 1.0f;
+        this.aEF = 1.0f;
+        this.aEG = 1.0f;
+        this.aEH = this.aEG;
         setClickable(true);
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.aDx = new C0057a();
+        this.aEN = new C0057a();
         setHorizontalFadingEdgeEnabled(false);
         setVerticalFadingEdgeEnabled(false);
         setHorizontalScrollBarEnabled(false);
@@ -597,22 +597,22 @@ public class a extends ImageView {
         this.mGestureDetector = new GestureDetector(getContext(), new com.baidu.tbadk.widget.c(this));
     }
 
-    private void GJ() {
+    private void HL() {
         int i = 0;
         int scrollX = getScrollX();
-        if (this.aDl >= getWidth()) {
+        if (this.aEB >= getWidth()) {
             if (scrollX < 0) {
                 scrollX = 0;
             }
-            if (getWidth() + scrollX > this.aDl) {
-                scrollX = (int) (this.aDl - getWidth());
+            if (getWidth() + scrollX > this.aEB) {
+                scrollX = (int) (this.aEB - getWidth());
             }
         }
         int scrollY = getScrollY();
-        if (this.aDm + this.mTop + this.mBottom >= getHeight()) {
-            i = scrollY < (-this.aDE) ? -this.aDE : scrollY;
-            if (getHeight() + i > this.aDm + this.mBottom + this.aDF) {
-                i = (int) ((this.aDm - getHeight()) + this.mBottom + this.aDF);
+        if (this.aEC + this.mTop + this.mBottom >= getHeight()) {
+            i = scrollY < (-this.aEU) ? -this.aEU : scrollY;
+            if (getHeight() + i > this.aEC + this.mBottom + this.aEV) {
+                i = (int) ((this.aEC - getHeight()) + this.mBottom + this.aEV);
             }
         }
         if (scrollX != getScrollX() || i != getScrollY()) {
@@ -623,37 +623,37 @@ public class a extends ImageView {
 
     @Override // android.view.View
     protected int computeHorizontalScrollRange() {
-        return (int) this.aDl;
+        return (int) this.aEB;
     }
 
     @Override // android.view.View
     protected int computeVerticalScrollRange() {
-        return (int) this.aDm;
+        return (int) this.aEC;
     }
 
     public boolean onRightSide() {
-        if (this.adO == 1 || this.adO == 2) {
+        if (this.ade == 1 || this.ade == 2) {
             return true;
         }
-        return !this.aDA && getScrollX() >= ((int) (this.aDl - ((float) getWidth()))) + (-1);
+        return !this.aEQ && getScrollX() >= ((int) (this.aEB - ((float) getWidth()))) + (-1);
     }
 
     public boolean onLeftSide() {
-        if (this.adO == 1 || this.adO == 2) {
+        if (this.ade == 1 || this.ade == 2) {
             return true;
         }
-        return !this.aDA && getScrollX() <= 0;
+        return !this.aEQ && getScrollX() <= 0;
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        if (this.aDx.GO()) {
-            this.aDx.stopAnimation();
+        if (this.aEN.HQ()) {
+            this.aEN.stopAnimation();
         }
-        this.aDG = 0;
+        this.aEW = 0;
         super.setImageBitmap(bitmap);
         reInitBitmap();
-        this.adO = 0;
+        this.ade = 0;
     }
 
     public void replaceImageBitmap(Bitmap bitmap) {
@@ -663,122 +663,122 @@ public class a extends ImageView {
                 setImageBitmap(bitmap);
                 return;
             }
-            if (this.aDx.GO()) {
-                this.aDx.stopAnimation();
+            if (this.aEN.HQ()) {
+                this.aEN.stopAnimation();
             }
             int scrollX = getScrollX();
             int scrollY = getScrollY();
             super.setImageBitmap(bitmap);
             super.setImageMatrix(this.mMatrix);
             scrollTo(scrollX, scrollY);
-            this.adO = 0;
+            this.ade = 0;
         }
     }
 
     public void a(byte[] bArr, Bitmap bitmap) {
-        if (this.aDx.GO()) {
-            this.aDx.stopAnimation();
+        if (this.aEN.HQ()) {
+            this.aEN.stopAnimation();
         }
         super.setImageDrawable(null);
         stop();
         reInitBitmap();
-        this.adO = 1;
-        this.aDD = bitmap;
+        this.ade = 1;
+        this.aET = bitmap;
         this.mImageData = bArr;
-        if (this.anL != null) {
-            this.anL.a(this);
+        if (this.aoc != null) {
+            this.aoc.a(this);
         }
     }
 
     public void onDestroy() {
-        if (this.aDx.GO()) {
-            this.aDx.stopAnimation();
+        if (this.aEN.HQ()) {
+            this.aEN.stopAnimation();
         }
         super.setImageDrawable(null);
         this.mImageData = null;
-        this.aDD = null;
+        this.aET = null;
         stop();
-        if (this.aDC != null) {
-            this.aDC.close();
-            this.aDC = null;
+        if (this.aES != null) {
+            this.aES.close();
+            this.aES = null;
         }
     }
 
     public void release() {
-        if (this.aDx.GO()) {
-            this.aDx.stopAnimation();
+        if (this.aEN.HQ()) {
+            this.aEN.stopAnimation();
         }
         stop();
         super.setImageDrawable(null);
-        this.aDD = null;
+        this.aET = null;
     }
 
     public void setDefaultBitmap() {
-        if (this.aDx.GO()) {
-            this.aDx.stopAnimation();
+        if (this.aEN.HQ()) {
+            this.aEN.stopAnimation();
         }
-        if (this.aDI) {
+        if (this.aEY) {
             super.setImageBitmap(BitmapHelper.getCashBitmap(t.f.icon_default_avatar100));
         } else {
             super.setImageBitmap(BitmapHelper.getCashBitmap(t.f.btn_see_default));
         }
-        this.adO = 2;
+        this.ade = 2;
         reInitBitmap();
     }
 
     public void zoomInBitmap() {
-        if (this.adO != 1 && this.adO != 2) {
-            int size = this.aDn.size();
+        if (this.ade != 1 && this.ade != 2) {
+            int size = this.aED.size();
             if (size > 0) {
-                this.aDn.add(Float.valueOf(this.aDn.get(size - 1).floatValue() * 1.25f));
+                this.aED.add(Float.valueOf(this.aED.get(size - 1).floatValue() * 1.25f));
             } else {
-                this.aDn.add(Float.valueOf(this.aDo));
+                this.aED.add(Float.valueOf(this.aEE));
             }
-            GK();
-            GI();
+            HM();
+            HK();
         }
     }
 
     public void zoomOutBitmap() {
-        if (this.adO != 1 && this.adO != 2) {
-            int size = this.aDn.size();
+        if (this.ade != 1 && this.ade != 2) {
+            int size = this.aED.size();
             if (size > 1) {
-                this.aDn.remove(size - 1);
+                this.aED.remove(size - 1);
             }
-            GK();
-            GI();
+            HM();
+            HK();
         }
     }
 
     public void restoreSize() {
-        GI();
-        if (this.adO != 1 && this.adO != 2 && this.aDq != this.aDo) {
-            this.aDn.clear();
-            this.aDn.add(Float.valueOf(this.aDo));
-            this.aDq = this.aDo;
-            this.aDr = this.aDq;
-            GK();
+        HK();
+        if (this.ade != 1 && this.ade != 2 && this.aEG != this.aEE) {
+            this.aED.clear();
+            this.aED.add(Float.valueOf(this.aEE));
+            this.aEG = this.aEE;
+            this.aEH = this.aEG;
+            HM();
         }
     }
 
     public boolean canZoomIn() {
-        if (this.adO == 1 || this.adO == 2) {
+        if (this.ade == 1 || this.ade == 2) {
             return false;
         }
-        int size = this.aDn.size();
+        int size = this.aED.size();
         Bitmap imageBitmap = getImageBitmap();
         if (imageBitmap == null || imageBitmap.isRecycled() || size <= 0) {
             return false;
         }
-        float floatValue = this.aDn.get(size - 1).floatValue();
-        return (((float) ((int) ((((float) (imageBitmap.getHeight() * imageBitmap.getWidth())) * floatValue) * floatValue))) * 1.25f) * 1.25f <= ((float) this.aDt) && floatValue <= 5.0f;
+        float floatValue = this.aED.get(size - 1).floatValue();
+        return (((float) ((int) ((((float) (imageBitmap.getHeight() * imageBitmap.getWidth())) * floatValue) * floatValue))) * 1.25f) * 1.25f <= ((float) this.aEJ) && floatValue <= 5.0f;
     }
 
     public boolean canZoomOut() {
-        if (this.adO == 1 || this.adO == 2) {
+        if (this.ade == 1 || this.ade == 2) {
             return false;
         }
-        int size = this.aDn.size();
+        int size = this.aED.size();
         Bitmap imageBitmap = getImageBitmap();
         if (imageBitmap == null || imageBitmap.isRecycled()) {
             return false;
@@ -787,7 +787,7 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GK() {
+    public void HM() {
         e(false, -1, -1);
     }
 
@@ -799,29 +799,29 @@ public class a extends ImageView {
         if (imageBitmap != null && !imageBitmap.isRecycled()) {
             try {
                 if (this.mMode != 2) {
-                    int size = this.aDn.size();
+                    int size = this.aED.size();
                     if (size > 0) {
-                        f2 = this.aDn.get(size - 1).floatValue();
+                        f2 = this.aED.get(size - 1).floatValue();
                     } else {
-                        f2 = this.aDo;
+                        f2 = this.aEE;
                     }
-                    this.aDq = f2;
+                    this.aEG = f2;
                 }
-                this.mMatrix.setScale(this.aDq, this.aDq);
-                this.aDl = imageBitmap.getWidth() * this.aDq;
-                this.aDm = imageBitmap.getHeight() * this.aDq;
-                float width = this.aDr * imageBitmap.getWidth();
-                float height = imageBitmap.getHeight() * this.aDr;
-                this.aDE = this.mTop;
-                this.aDF = 0;
-                float f3 = this.aDl < ((float) this.mViewWidth) ? (int) ((this.mViewWidth - this.aDl) / 2.0f) : 0.0f;
-                if (this.aDm < this.mViewHeight) {
-                    f = (int) ((this.mViewHeight - this.aDm) / 2.0f);
-                    if (this.aDu == 1 && f > this.mTop) {
+                this.mMatrix.setScale(this.aEG, this.aEG);
+                this.aEB = imageBitmap.getWidth() * this.aEG;
+                this.aEC = imageBitmap.getHeight() * this.aEG;
+                float width = this.aEH * imageBitmap.getWidth();
+                float height = imageBitmap.getHeight() * this.aEH;
+                this.aEU = this.mTop;
+                this.aEV = 0;
+                float f3 = this.aEB < ((float) this.mViewWidth) ? (int) ((this.mViewWidth - this.aEB) / 2.0f) : 0.0f;
+                if (this.aEC < this.mViewHeight) {
+                    f = (int) ((this.mViewHeight - this.aEC) / 2.0f);
+                    if (this.aEK == 1 && f > this.mTop) {
                         f = this.mTop;
                     }
-                    this.aDE = (int) (this.mTop - f);
-                    this.aDF = this.mTop - this.aDE;
+                    this.aEU = (int) (this.mTop - f);
+                    this.aEV = this.mTop - this.aEU;
                 } else {
                     f = 0.0f;
                 }
@@ -831,31 +831,31 @@ public class a extends ImageView {
                 if (z) {
                     int screenWidth = getScreenWidth();
                     scrollX = i > getWidth() ? getWidth() : i;
-                    if (this.aDl <= screenWidth) {
+                    if (this.aEB <= screenWidth) {
                         scrollX = 0;
-                    } else if (this.aDl > screenWidth && this.aDl / 2.0f < screenWidth) {
-                        scrollX = (int) (scrollX - (this.aDl / 4.0f));
+                    } else if (this.aEB > screenWidth && this.aEB / 2.0f < screenWidth) {
+                        scrollX = (int) (scrollX - (this.aEB / 4.0f));
                     }
                 } else {
                     if (this.mMode == 2) {
-                        scrollX += (int) ((this.aDl - width) / 2.0f);
+                        scrollX += (int) ((this.aEB - width) / 2.0f);
                     }
-                    if (this.aDl <= getWidth()) {
+                    if (this.aEB <= getWidth()) {
                         scrollX = 0;
-                    } else if (getWidth() + scrollX > this.aDl) {
-                        scrollX = (int) (this.aDl - getWidth());
+                    } else if (getWidth() + scrollX > this.aEB) {
+                        scrollX = (int) (this.aEB - getWidth());
                     }
                 }
-                if (scrollX > 0 && this.aDl - scrollX < getWidth()) {
-                    scrollX = (int) (this.aDl - getWidth());
+                if (scrollX > 0 && this.aEB - scrollX < getWidth()) {
+                    scrollX = (int) (this.aEB - getWidth());
                 }
                 if (this.mMode == 2) {
-                    scrollY += (int) ((this.aDm - height) / 2.0f);
+                    scrollY += (int) ((this.aEC - height) / 2.0f);
                 }
-                if (this.aDm <= getHeight()) {
+                if (this.aEC <= getHeight()) {
                     scrollY = 0;
-                } else if (getHeight() + scrollY > this.aDm) {
-                    scrollY = (int) (this.aDm - getHeight());
+                } else if (getHeight() + scrollY > this.aEC) {
+                    scrollY = (int) (this.aEC - getHeight());
                 }
                 setHorizontalScrollBarEnabled(false);
                 setVerticalScrollBarEnabled(false);
@@ -877,19 +877,19 @@ public class a extends ImageView {
     /* renamed from: com.baidu.tbadk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0057a extends Animation {
-        private int IX;
-        private boolean aDU = false;
-        private boolean aDV = false;
-        private long aDW;
-        private long aDX;
-        private int aDY;
-        private long aDZ;
-        private long aEa;
+        private int Jd;
+        private boolean aFk = false;
+        private boolean aFl = false;
+        private long aFm;
+        private long aFn;
+        private int aFo;
+        private long aFp;
+        private long aFq;
 
         public C0057a() {
         }
 
-        public void d(float f, float f2) {
+        public void b(float f, float f2) {
             if (f > 1500.0f) {
                 f = 1500.0f;
             } else if (f < -1500.0f) {
@@ -900,15 +900,15 @@ public class a extends ImageView {
             } else if (f2 < -1500.0f) {
                 f2 = -1500.0f;
             }
-            this.aDW = f;
-            this.aDX = f2;
-            this.aDZ = Math.abs((f * 1000.0f) / 2500.0f);
-            this.aEa = Math.abs((f2 * 1000.0f) / 2500.0f);
-            setDuration(Math.max(this.aDZ, this.aEa));
-            setInterpolator(a.this.aDK);
-            this.aDY = a.this.getScrollX();
-            this.IX = a.this.getScrollY();
-            this.aDU = true;
+            this.aFm = f;
+            this.aFn = f2;
+            this.aFp = Math.abs((f * 1000.0f) / 2500.0f);
+            this.aFq = Math.abs((f2 * 1000.0f) / 2500.0f);
+            setDuration(Math.max(this.aFp, this.aFq));
+            setInterpolator(a.this.aFa);
+            this.aFo = a.this.getScrollX();
+            this.Jd = a.this.getScrollY();
+            this.aFk = true;
         }
 
         @Override // android.view.animation.Animation
@@ -920,38 +920,38 @@ public class a extends ImageView {
             if (f > 1.0f) {
                 f = 1.0f;
             }
-            if (this.aDZ > this.aEa) {
-                j = ((float) this.aDZ) * f;
+            if (this.aFp > this.aFq) {
+                j = ((float) this.aFp) * f;
             } else {
-                j = ((float) this.aEa) * f;
+                j = ((float) this.aFq) * f;
             }
-            float f2 = ((float) (j > this.aDZ ? this.aDZ : j)) / 1000.0f;
-            if (this.aDW > 0) {
-                i = this.aDY - ((int) (f2 * (((float) this.aDW) - ((2500.0f * f2) / 2.0f))));
+            float f2 = ((float) (j > this.aFp ? this.aFp : j)) / 1000.0f;
+            if (this.aFm > 0) {
+                i = this.aFo - ((int) (f2 * (((float) this.aFm) - ((2500.0f * f2) / 2.0f))));
             } else {
-                i = this.aDY - ((int) (f2 * (((float) this.aDW) + ((2500.0f * f2) / 2.0f))));
+                i = this.aFo - ((int) (f2 * (((float) this.aFm) + ((2500.0f * f2) / 2.0f))));
             }
-            if (j > this.aEa) {
-                j = this.aEa;
+            if (j > this.aFq) {
+                j = this.aFq;
             }
             float f3 = ((float) j) / 1000.0f;
-            if (this.aDX > 0) {
-                i2 = this.IX - ((int) (f3 * (((float) this.aDX) - ((2500.0f * f3) / 2.0f))));
+            if (this.aFn > 0) {
+                i2 = this.Jd - ((int) (f3 * (((float) this.aFn) - ((2500.0f * f3) / 2.0f))));
             } else {
-                i2 = this.IX - ((int) (f3 * (((float) this.aDX) + ((2500.0f * f3) / 2.0f))));
+                i2 = this.Jd - ((int) (f3 * (((float) this.aFn) + ((2500.0f * f3) / 2.0f))));
             }
-            if (a.this.aDm + a.this.mTop + a.this.mBottom > a.this.getHeight()) {
-                if (i2 < (-a.this.aDE)) {
-                    i2 = -a.this.aDE;
+            if (a.this.aEC + a.this.mTop + a.this.mBottom > a.this.getHeight()) {
+                if (i2 < (-a.this.aEU)) {
+                    i2 = -a.this.aEU;
                 }
-                if (a.this.getHeight() + i2 > a.this.aDm + a.this.mBottom + a.this.aDF) {
-                    i2 = (int) ((a.this.aDm - a.this.getHeight()) + a.this.mBottom + a.this.aDF);
+                if (a.this.getHeight() + i2 > a.this.aEC + a.this.mBottom + a.this.aEV) {
+                    i2 = (int) ((a.this.aEC - a.this.getHeight()) + a.this.mBottom + a.this.aEV);
                 }
             } else {
                 i2 = 0;
             }
-            if (a.this.aDl > a.this.getWidth()) {
-                int width = ((float) (a.this.getWidth() + i)) > a.this.aDl ? (int) (a.this.aDl - a.this.getWidth()) : i;
+            if (a.this.aEB > a.this.getWidth()) {
+                int width = ((float) (a.this.getWidth() + i)) > a.this.aEB ? (int) (a.this.aEB - a.this.getWidth()) : i;
                 if (width >= 0) {
                     i3 = width;
                 }
@@ -962,46 +962,46 @@ public class a extends ImageView {
 
         @Override // android.view.animation.Animation
         public boolean getTransformation(long j, Transformation transformation) {
-            if (!this.aDV) {
-                if (a.this.aDs) {
-                    this.aDU = false;
+            if (!this.aFl) {
+                if (a.this.aEI) {
+                    this.aFk = false;
                     return false;
                 }
                 try {
                     if (!super.getTransformation(j, transformation)) {
-                        this.aDU = false;
+                        this.aFk = false;
                         return false;
                     }
                     return true;
                 } catch (Exception e) {
-                    this.aDU = false;
+                    this.aFk = false;
                     return false;
                 }
             }
-            this.aDV = false;
-            this.aDU = false;
+            this.aFl = false;
+            this.aFk = false;
             return false;
         }
 
-        public boolean GO() {
-            return this.aDU;
+        public boolean HQ() {
+            return this.aFk;
         }
 
         public void stopAnimation() {
-            this.aDV = true;
+            this.aFl = true;
         }
     }
 
     public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.aDw = onClickListener;
+        this.aEM = onClickListener;
     }
 
     public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.anJ = onLongClickListener;
+        this.aoa = onLongClickListener;
     }
 
     public void setGifSetListener(d dVar) {
-        this.anL = dVar;
+        this.aoc = dVar;
     }
 
     public Bitmap getVisableBitmap() {
@@ -1022,31 +1022,31 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GL() {
+    public void HN() {
         long j;
-        c poll = this.aDN.poll();
+        c poll = this.aFd.poll();
         if (poll == null) {
-            this.aDS = true;
+            this.aFi = true;
             return;
         }
-        this.aDS = false;
+        this.aFi = false;
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.aDM != null) {
-            j = this.aDM.delay - (currentTimeMillis - this.aDR);
-            this.aDO.offer(this.aDM);
+        if (this.aFc != null) {
+            j = this.aFc.delay - (currentTimeMillis - this.aFh);
+            this.aFe.offer(this.aFc);
         } else {
             j = 0;
         }
-        this.aDM = poll;
+        this.aFc = poll;
         this.mHandler.sendEmptyMessageDelayed(2, j > 0 ? j : 0L);
     }
 
-    public c GM() {
-        c poll = this.aDO.poll();
+    public c HO() {
+        c poll = this.aFe.poll();
         if (poll == null) {
             poll = new c(null);
             try {
-                poll.aEb = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
+                poll.aFr = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
             } catch (OutOfMemoryError e2) {
                 TbadkCoreApplication.m411getInst().onAppMemoryLow();
             } catch (Throwable th) {
@@ -1071,7 +1071,7 @@ public class a extends ImageView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c {
-        public Bitmap aEb;
+        public Bitmap aFr;
         public int delay;
 
         private c() {
@@ -1094,17 +1094,17 @@ public class a extends ImageView {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            while (a.this.mState == 1 && a.this.aDC != null && a.this.aDL > 0 && a.this.width > 0 && a.this.height > 0) {
+            while (a.this.mState == 1 && a.this.aES != null && a.this.aFb > 0 && a.this.width > 0 && a.this.height > 0) {
                 try {
-                    a.this.aDC.R(a.this.aDP);
-                    c GM = a.this.GM();
-                    if (GM.aEb == null || (GM.aEb.getWidth() != a.this.width && GM.aEb.getHeight() != a.this.height)) {
+                    a.this.aES.Q(a.this.aFf);
+                    c HO = a.this.HO();
+                    if (HO.aFr == null || (HO.aFr.getWidth() != a.this.width && HO.aFr.getHeight() != a.this.height)) {
                         try {
-                            GM.aEb = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_8888);
+                            HO.aFr = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_8888);
                         } catch (OutOfMemoryError e) {
                             TbadkCoreApplication.m411getInst().onAppMemoryLow();
                             try {
-                                GM.aEb = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_4444);
+                                HO.aFr = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_4444);
                             } catch (OutOfMemoryError e2) {
                                 TbadkCoreApplication.m411getInst().onAppMemoryLow();
                             } catch (Throwable th) {
@@ -1114,15 +1114,15 @@ public class a extends ImageView {
                             BdLog.e(th2.getMessage());
                         }
                     }
-                    a.this.aDC.a(GM.aEb, null);
-                    GM.delay = a.this.aDC.S(a.this.aDP);
-                    a.this.aDP++;
-                    if (GM.aEb == null) {
-                        a.this.aDP++;
+                    a.this.aES.a(HO.aFr, null);
+                    HO.delay = a.this.aES.R(a.this.aFf);
+                    a.this.aFf++;
+                    if (HO.aFr == null) {
+                        a.this.aFf++;
                     }
-                    a.this.aDP %= a.this.aDL;
-                    a.this.aDN.put(GM);
-                    if (a.this.aDS) {
+                    a.this.aFf %= a.this.aFb;
+                    a.this.aFd.put(HO);
+                    if (a.this.aFi) {
                         a.this.mHandler.sendEmptyMessage(1);
                     }
                 } catch (Exception e3) {
@@ -1132,11 +1132,11 @@ public class a extends ImageView {
         }
     }
 
-    public boolean GN() {
-        return this.aDH;
+    public boolean HP() {
+        return this.aEX;
     }
 
     public void setLoadBigImage(boolean z) {
-        this.aDH = z;
+        this.aEX = z;
     }
 }

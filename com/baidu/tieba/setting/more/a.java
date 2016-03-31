@@ -17,7 +17,7 @@ class a implements s {
     }
 
     @Override // com.baidu.tieba.setting.more.s
-    public void nI(int i) {
+    public void oN(int i) {
         String str;
         if (i == 0) {
             this.this$0.finish();
@@ -25,10 +25,10 @@ class a implements s {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.uO().putBoolean(ar.dLT, true);
+                com.baidu.tbadk.core.sharedPref.b.vk().putBoolean(at.eet, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(t.j.setting_funtion_intro);
-                str = this.this$0.dJi;
+                str = this.this$0.ebC;
                 com.baidu.tbadk.browser.f.a(pageActivity, string, str, true, false, false);
             } else if (i == 4) {
                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_TRAFFICS_STATS, new IntentConfig(this.this$0.getPageContext().getPageActivity())));

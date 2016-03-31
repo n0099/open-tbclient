@@ -5,21 +5,21 @@ import com.baidu.tieba.person.data.d;
 import com.baidu.tieba.personInfo.b;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ PersonInfoEnterItemView dhB;
-    private final /* synthetic */ b dhC;
-    private final /* synthetic */ d dhD;
+    final /* synthetic */ PersonInfoEnterItemView dCc;
+    private final /* synthetic */ b dCd;
+    private final /* synthetic */ d dCe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PersonInfoEnterItemView personInfoEnterItemView, b bVar, d dVar) {
-        this.dhB = personInfoEnterItemView;
-        this.dhC = bVar;
-        this.dhD = dVar;
+        this.dCc = personInfoEnterItemView;
+        this.dCd = bVar;
+        this.dCe = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dhC != null) {
-            this.dhC.a(this.dhD);
+        if (this.dCd != null) {
+            this.dCd.a(this.dCe);
         }
     }
 }

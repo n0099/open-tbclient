@@ -5,11 +5,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean al(String str) {
+    public static boolean an(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static byte[] d(InputStream inputStream) {
+    public static byte[] b(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         copy(inputStream, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();

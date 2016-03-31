@@ -1,22 +1,23 @@
 package com.baidu.tbadk.browser;
-
-import com.baidu.tbadk.core.view.j;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements j.a {
-    final /* synthetic */ p Sy;
+class s extends com.baidu.tbadk.core.c.o {
+    final /* synthetic */ TbWebViewActivity PH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(p pVar) {
-        this.Sy = pVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.m mVar) {
+        super(mVar);
+        this.PH = tbWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void qK() {
-        this.Sy.qH();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.c.o
+    public String pT() {
+        return "TBHY_COMMON_Performance";
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void qL() {
+    @com.baidu.tbadk.core.c.p(uY = false, value = "trackFPS")
+    private void trackFPS() {
+        this.PH.trackFPS();
     }
 }

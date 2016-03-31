@@ -1,52 +1,61 @@
 package com.baidu.tieba.recommendfrs.personalize.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.a.v;
-import com.baidu.tieba.card.aw;
-import com.baidu.tieba.card.ax;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.au;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.cj;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.widget.ListView.a<v, a> {
-    private TbPageContext<?> Nw;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public k(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.aSL);
-        this.Nw = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aY */
-    public a b(ViewGroup viewGroup) {
-        aw awVar = new aw(this.Nw);
-        awVar.n("c10718", "c10719", "c10742");
-        return new a(awVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, v vVar, a aVar) {
-        aVar.dGq.d(this.Nw, TbadkCoreApplication.m411getInst().getSkinType());
-        aVar.dGq.a(vVar);
-        ax.Kc().a(new au("c10718").aa("obj_id", String.valueOf(vVar.aSM)));
-        return aVar.getView();
-    }
+public class k implements cj {
+    final /* synthetic */ j dYf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a extends x.a {
-        public aw dGq;
+    public k(j jVar) {
+        this.dYf = jVar;
+    }
 
-        public a(aw awVar) {
-            super(awVar.getView());
-            this.dGq = awVar;
+    @Override // com.baidu.tieba.card.cj
+    public void a(View view, com.baidu.tieba.card.a.b bVar) {
+        au auVar;
+        com.baidu.tieba.recommendfrs.control.a.f fVar;
+        au auVar2;
+        au auVar3;
+        com.baidu.tieba.recommendfrs.control.a.f fVar2;
+        cf.Lx().cc(true);
+        auVar = this.dYf.dYe;
+        if (auVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.a.v)) {
+            fVar = this.dYf.dXZ;
+            if (fVar != null) {
+                com.baidu.tieba.card.a.v vVar = (com.baidu.tieba.card.a.v) bVar;
+                if (vVar.aWf != null) {
+                    if ((view.getTag() instanceof String) && vVar.LC() != null && vVar.LC().getId() != null && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L))) {
+                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L));
+                        fVar2 = this.dYf.dXZ;
+                        fVar2.a(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L), vVar.getWeight(), vVar.getSource(), vVar.Ly(), vVar.LA(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                    }
+                    if (view instanceof TbImageView) {
+                        TiebaStatic.log(new aw("c11004").ac("tid", vVar.aWf.getTid()));
+                        return;
+                    }
+                    int id = view.getId();
+                    auVar2 = this.dYf.dYe;
+                    if (id == auVar2.aSy.getId()) {
+                        TiebaStatic.log(new aw("c10803").r("obj_locate", 7).ac("tid", vVar.aWf.getTid()));
+                        return;
+                    }
+                    int id2 = view.getId();
+                    auVar3 = this.dYf.dYe;
+                    if (id2 == auVar3.getView().getId()) {
+                        TiebaStatic.log(new aw("c11004").ac("tid", vVar.aWf.getTid()));
+                        TiebaStatic.log(new aw("c10806").r("obj_locate", 1).ac("tid", vVar.aWf.getId()));
+                        return;
+                    }
+                    TiebaStatic.log(new aw("c11004").ac("tid", vVar.aWf.getTid()));
+                }
+            }
         }
     }
 }

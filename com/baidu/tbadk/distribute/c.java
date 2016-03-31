@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a asy;
+    final /* synthetic */ a asQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i, int i2) {
         super(i, i2);
-        this.asy = aVar;
+        this.asQ = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.framework.listener.a {
             if (!(extra instanceof DistributeRequest)) {
                 return;
             }
-            this.asy.r(((DistributeRequest) extra).getAdReqList());
+            this.asQ.s(((DistributeRequest) extra).getAdReqList());
         }
     }
 }

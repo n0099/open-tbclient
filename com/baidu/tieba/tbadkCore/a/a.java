@@ -10,7 +10,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class a {
-    private static int dVO = 1;
+    private static int eov = 1;
 
     public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public static String am(String str, int i) {
+    public static String au(String str, int i) {
         return String.valueOf(TbConfig.SERVER_ADDRESS) + str + "?cmd=" + i;
     }
 
@@ -41,9 +41,9 @@ public class a {
     public static b a(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
         b bVar = new b(i);
         bVar.setResponsedClass(cls);
-        bVar.j(z);
+        bVar.i(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(dVO);
+        bVar.setRetry(eov);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);
@@ -51,7 +51,7 @@ public class a {
     }
 
     public static TbHttpMessageTask a(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, am(str, i));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, au(str, i));
         tbHttpMessageTask.setIsNeedLogin(z);
         tbHttpMessageTask.setIsNeedTbs(z2);
         tbHttpMessageTask.setIsNeedAddCommenParam(z3);
@@ -60,5 +60,10 @@ public class a {
         MessageManager.getInstance().unRegisterTask(i2);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         return tbHttpMessageTask;
+    }
+
+    public static void b(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
+        a(i2, cls2, false, false);
+        a(i2, i, str, cls, false, true, true, false);
     }
 }

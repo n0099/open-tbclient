@@ -10,6 +10,6 @@ public abstract class b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void am(String str) {
+    public void ao(String str) {
     }
 }

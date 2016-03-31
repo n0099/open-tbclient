@@ -3,63 +3,64 @@ package com.baidu.tieba.frs.frsgood;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class i implements com.baidu.adp.widget.ListView.w {
-    final /* synthetic */ FrsGoodActivity bnm;
+    final /* synthetic */ FrsGoodActivity bsj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsGoodActivity frsGoodActivity) {
-        this.bnm = frsGoodActivity;
+        this.bsj = frsGoodActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
     public boolean b(View view, com.baidu.adp.widget.ListView.u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        com.baidu.tbadk.core.data.ah ahVar;
-        com.baidu.tbadk.core.data.ah ahVar2;
-        com.baidu.tbadk.core.data.ah ahVar3;
-        com.baidu.tbadk.core.data.ah ahVar4;
-        com.baidu.tbadk.core.data.ah ahVar5;
+        as asVar;
+        as asVar2;
+        as asVar3;
+        as asVar4;
+        as asVar5;
         if (bdUniqueId == null) {
             return false;
         }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Um.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Un.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Uo.getId()) {
-            this.bnm.bfH = (com.baidu.tbadk.core.data.ah) uVar;
-            ahVar = this.bnm.bfH;
-            if (ahVar instanceof com.baidu.tbadk.core.data.c) {
-                ahVar2 = this.bnm.bfH;
-                com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) ahVar2;
-                if (cVar.rO()) {
+        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RS.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RT.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RU.getId()) {
+            this.bsj.bks = (as) uVar;
+            asVar = this.bsj.bks;
+            if (asVar instanceof com.baidu.tbadk.core.data.c) {
+                asVar2 = this.bsj.bks;
+                com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) asVar2;
+                if (cVar.rm()) {
                     return false;
                 }
-                if (cVar.Us == 0) {
-                    this.bnm.a(cVar, i, true);
+                if (cVar.RY == 0) {
+                    this.bsj.a(cVar, i, true);
                 }
-                TiebaStatic.eventStat(this.bnm.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.bsj.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
-        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.c.Up.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.c.Uq.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.c.Ur.getId()) {
-            this.bnm.bfH = (com.baidu.tbadk.core.data.ah) uVar;
-            FrsGoodActivity frsGoodActivity = this.bnm;
-            ahVar3 = this.bnm.bfH;
-            frsGoodActivity.mThreadId = ahVar3.getId();
-            ahVar4 = this.bnm.bfH;
-            String tq = ahVar4.tq();
-            if (tq == null || tq.equals("")) {
-                this.bnm.bfB = false;
+        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.c.RV.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.c.RW.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.c.RX.getId()) {
+            this.bsj.bks = (as) uVar;
+            FrsGoodActivity frsGoodActivity = this.bsj;
+            asVar3 = this.bsj.bks;
+            frsGoodActivity.mThreadId = asVar3.getId();
+            asVar4 = this.bsj.bks;
+            String tt = asVar4.tt();
+            if (tt == null || tt.equals("")) {
+                this.bsj.bkm = false;
             } else {
-                this.bnm.bfB = true;
+                this.bsj.bkm = true;
             }
-            FrsGoodActivity frsGoodActivity2 = this.bnm;
-            ahVar5 = this.bnm.bfH;
-            frsGoodActivity2.c(ahVar5);
-            this.bnm.bng.PU();
+            FrsGoodActivity frsGoodActivity2 = this.bsj;
+            asVar5 = this.bsj.bks;
+            frsGoodActivity2.c(asVar5);
+            this.bsj.bsd.RN();
         } else if (uVar instanceof com.baidu.tbadk.core.data.c) {
             com.baidu.tbadk.core.data.c cVar2 = (com.baidu.tbadk.core.data.c) uVar;
-            if (cVar2.rN()) {
-                if (cVar2.Us == 0) {
-                    this.bnm.a(cVar2, i, true);
+            if (cVar2.rl()) {
+                if (cVar2.RY == 0) {
+                    this.bsj.a(cVar2, i, true);
                 }
-                TiebaStatic.eventStat(this.bnm.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.bsj.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
         }
         return true;

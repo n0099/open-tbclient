@@ -5,77 +5,77 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private q cXp = null;
-    private ae cXq = null;
+    private q drR = null;
+    private ae drS = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.cWu && this.requestCode != 23011) {
+        if (this.dqW && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.cXq = new ae(getPageContext(), aen());
-        this.cXq.setSex(getSex());
-        this.cXq.setId(getUid());
-        this.cXq.setUniqueId(getUniqueId());
+        this.drS = new ae(getPageContext(), ahG());
+        this.drS.setSex(getSex());
+        this.drS.setId(getUid());
+        this.drS.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public e a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.cXp == null) {
-            this.cXp = new q(this, aen());
+        if (this.drR == null) {
+            this.drR = new q(this, ahG());
         }
-        return this.cXp;
+        return this.drR;
     }
 
-    public ae atq() {
-        return this.cXq;
+    public ae aAW() {
+        return this.drS;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ata() {
+    public String aAG() {
         return getPageContext().getString(t.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String atc() {
+    public String aAI() {
         return getPageContext().getString(t.j.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String atd() {
+    public String aAJ() {
         return getPageContext().getString(t.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ate() {
+    public String aAK() {
         return getPageContext().getString(t.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String atf() {
+    public String aAL() {
         return getPageContext().getString(t.j.person_bar_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String atj() {
+    public String aAP() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int atk() {
+    public int aAQ() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        ad atA;
+        ad aBg;
         super.onPageSelected(i);
-        if (this.cXp != null && this.cXp.getItem(i) != null && (baseFragment = (BaseFragment) this.cXp.getItem(i)) != null && (baseFragment instanceof s) && (atA = ((s) baseFragment).atA()) != null) {
-            atA.setEditState(false);
-            atA.notifyDataSetChanged();
+        if (this.drR != null && this.drR.getItem(i) != null && (baseFragment = (BaseFragment) this.drR.getItem(i)) != null && (baseFragment instanceof s) && (aBg = ((s) baseFragment).aBg()) != null) {
+            aBg.setEditState(false);
+            aBg.notifyDataSetChanged();
         }
     }
 

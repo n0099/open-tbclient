@@ -8,48 +8,48 @@ import com.baidu.tieba.im.model.BlackListModel;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
 public class r {
-    private PersonalTalkSettingActivity ciA;
-    private a ciB;
-    private final BlackListModel ciz;
+    private final BlackListModel cte;
+    private PersonalTalkSettingActivity ctf;
+    private a ctg;
     private DataRes data;
-    private com.baidu.tbadk.coreExtra.d.a aPE = new com.baidu.tbadk.coreExtra.d.a(null);
-    private boolean akv = false;
-    private boolean cix = false;
-    private boolean ciy = false;
+    private com.baidu.tbadk.coreExtra.d.a ahY = new com.baidu.tbadk.coreExtra.d.a(null);
+    private boolean akM = false;
+    private boolean ctc = false;
+    private boolean ctd = false;
     private BdUniqueId tag = BdUniqueId.gen();
-    private com.baidu.adp.framework.listener.e ber = new s(this, 0);
+    private com.baidu.adp.framework.listener.e bje = new s(this, 0);
     private CustomMessageListener mCustomListener = new t(this, 0);
 
     /* loaded from: classes.dex */
     public interface a {
-        void wV();
+        void xo();
     }
 
-    public boolean afJ() {
-        return this.ciy;
+    public boolean ajd() {
+        return this.ctd;
     }
 
-    public void eb(boolean z) {
-        this.ciy = z;
+    public void ex(boolean z) {
+        this.ctd = z;
     }
 
-    public DataRes afK() {
+    public DataRes aje() {
         return this.data;
     }
 
-    public boolean afL() {
-        return this.cix;
+    public boolean ajf() {
+        return this.ctc;
     }
 
     public r(PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, long j) {
-        this.ciA = personalTalkSettingActivity;
-        this.ciB = aVar;
-        this.ciz = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.ctf = personalTalkSettingActivity;
+        this.ctg = aVar;
+        this.cte = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
-        com.baidu.tbadk.util.n.b(new u(this, j), new v(this, j, personalTalkSettingActivity));
+        com.baidu.tbadk.util.q.b(new u(this, j), new v(this, j, personalTalkSettingActivity));
     }
 
-    public void ec(boolean z) {
+    public void ey(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
         requestUpdateMaskInfoMessage.setList(String.valueOf(this.data.id));
@@ -59,29 +59,29 @@ public class r {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public void ed(boolean z) {
-        this.ciA.showLoadingDialog(null);
+    public void ez(boolean z) {
+        this.ctf.showLoadingDialog(null);
         if (z) {
-            this.ciz.addToBlackList(this.data.id.longValue());
+            this.cte.addToBlackList(this.data.id.longValue());
         } else {
-            this.ciz.removeFromBlackList(this.data.id.longValue());
+            this.cte.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.aPE != null) {
-            this.aPE.cancel();
+        if (this.ahY != null) {
+            this.ahY.cancel();
         }
-        if (this.ciz != null) {
-            this.ciz.cancelLoadData();
+        if (this.cte != null) {
+            this.cte.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.e afM() {
-        return this.ber;
+    public com.baidu.adp.framework.listener.e ajg() {
+        return this.bje;
     }
 
-    public CustomMessageListener afN() {
+    public CustomMessageListener ajh() {
         return this.mCustomListener;
     }
 }

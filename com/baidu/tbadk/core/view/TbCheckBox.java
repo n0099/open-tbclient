@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a agX;
+    private a agy;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        xf();
+        xy();
     }
 
     public TbCheckBox(Context context) {
@@ -37,28 +37,30 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new q(this));
-        xf();
+        setOnClickListener(new r(this));
+        xy();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.agX = aVar;
+        this.agy = aVar;
     }
 
-    public void xf() {
-        if (xg()) {
-            ar.c(this, t.f.icon_set_list_ok_s);
-        } else {
-            ar.c(this, t.f.icon_set_list_ok_n);
+    public void xy() {
+        if (xz()) {
+            at.c(this, t.f.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(t.j.check_box_checked));
+            return;
         }
+        at.c(this, t.f.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(t.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return xg();
+        return xz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean xg() {
+    public boolean xz() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -71,9 +73,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        xf();
-        if (this.agX != null) {
-            this.agX.a(this, z, getTag());
+        xy();
+        if (this.agy != null) {
+            this.agy.a(this, z, getTag());
         }
     }
 }

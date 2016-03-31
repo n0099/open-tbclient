@@ -20,9 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private static Pattern adw = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern acK = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String y(String str, boolean z) {
+    public static String z(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -126,7 +126,7 @@ public class h {
         }
     }
 
-    private static final String iZ(String str) {
+    private static final String jI(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,7 +155,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String ja(String str) {
+    private static final String jJ(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -178,28 +178,28 @@ public class h {
     }
 
     public static String w(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : G(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : y(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String G(int i, String str) {
+    public static String y(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String iZ = (str.length() <= 1 || str.charAt(0) != '[') ? null : iZ(str);
-            if (TextUtils.isEmpty(iZ)) {
-                iZ = str;
+            String jI = (str.length() <= 1 || str.charAt(0) != '[') ? null : jI(str);
+            if (TextUtils.isEmpty(jI)) {
+                jI = str;
             }
-            if (iZ == null) {
+            if (jI == null) {
                 return null;
             }
-            Matcher matcher = adw.matcher(iZ);
+            Matcher matcher = acK.matcher(jI);
             while (matcher.find()) {
                 String group = matcher.group();
-                iZ = iZ.replace(group, group.replace("#(", "[").replace(")", "]"));
+                jI = jI.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return iZ;
+            return jI;
         } else if (i == 2) {
             return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_pic);
         } else {
@@ -207,7 +207,7 @@ public class h {
                 return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_voice);
             }
             if (i == 11) {
-                return jb(str);
+                return jK(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_reply_card);
@@ -296,7 +296,7 @@ public class h {
                         return TbadkCoreApplication.m411getInst().getApp().getString(t.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return ja(str);
+                    return jJ(str);
                 } else {
                     return null;
                 }
@@ -328,7 +328,7 @@ public class h {
         return w(chatMessage);
     }
 
-    private static String jb(String str) {
+    private static String jK(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -442,25 +442,25 @@ public class h {
         }
     }
 
-    public static int i(Context context, int i) {
+    public static int k(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
     public static e a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return jc(commonMsgPojo.getContent());
+            return jL(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static e jc(String str) {
+    public static e jL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return jd(jSONArray.getJSONObject(0).optString("msg_src"));
+                return jM(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -469,13 +469,13 @@ public class h {
         }
     }
 
-    public static e jd(String str) {
+    public static e jM(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         e eVar = new e();
-        eVar.bTV = split[0];
+        eVar.cey = split[0];
         eVar.taskId = split[1];
         return eVar;
     }

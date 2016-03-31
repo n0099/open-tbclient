@@ -1,18 +1,18 @@
 package com.baidu.tieba.recommendfrs.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.ae;
+import com.baidu.tieba.card.bc;
 /* loaded from: classes.dex */
 public class b extends c {
-    public static final BdUniqueId dEI = BdUniqueId.gen();
+    public static final BdUniqueId dWF = BdUniqueId.gen();
 
-    @Override // com.baidu.tieba.card.a.m, com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.tieba.card.a.n, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dEI;
+        return dWF;
     }
 
     public b() {
-        setStType(ae.JV());
+        setStType(bc.Ls());
         setYuelaouLocate("ptrcard#");
     }
 }

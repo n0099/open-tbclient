@@ -1,53 +1,115 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import java.util.List;
+import tbclient.GraffitiRankItem;
+import tbclient.GraffitiRankListInfo;
 /* loaded from: classes.dex */
-public class v {
-    private int VU;
-    private ArrayList<a> VV;
+public class v extends com.baidu.tieba.tbadkCore.data.s {
+    public static final BdUniqueId TC = BdUniqueId.gen();
+    private int TD;
+    private int TE;
+    private int TG;
+    private int TH;
+    private boolean TI;
+    private int TL;
+    private String mForumId;
+    private String mThreadId;
+    private boolean TJ = false;
+    private boolean TK = false;
+    private List<u> TF = new ArrayList();
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String Oy;
-        public int giftId;
-        public int num;
-        public String thumbnailUrl;
+    public void setThreadId(String str) {
+        this.mThreadId = str;
     }
 
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.VU = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.VV = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.Oy = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.VV.add(aVar);
+    public String getForumId() {
+        return this.mForumId;
+    }
+
+    public void setForumId(String str) {
+        this.mForumId = str;
+    }
+
+    public String getThreadId() {
+        return this.mThreadId;
+    }
+
+    public List<u> getItems() {
+        return this.TF;
+    }
+
+    public void setItems(List<u> list) {
+        this.TF = list;
+    }
+
+    public int rY() {
+        return this.TG;
+    }
+
+    public int rZ() {
+        return this.TH;
+    }
+
+    public boolean sa() {
+        return this.TI;
+    }
+
+    public void ah(boolean z) {
+        this.TI = z;
+    }
+
+    public int getRole() {
+        return this.TL;
+    }
+
+    public void bL(int i) {
+        this.TL = i;
+    }
+
+    public boolean sb() {
+        return this.TJ;
+    }
+
+    public void ai(boolean z) {
+        this.TJ = z;
+    }
+
+    public boolean sc() {
+        return this.TK;
+    }
+
+    public void aj(boolean z) {
+        this.TK = z;
+    }
+
+    public void a(GraffitiRankListInfo graffitiRankListInfo) {
+        if (graffitiRankListInfo != null) {
+            this.TD = graffitiRankListInfo.has_more.intValue();
+            this.TE = graffitiRankListInfo.total.intValue();
+            this.TG = graffitiRankListInfo.show_list_count.intValue();
+            this.TH = graffitiRankListInfo.quick_list_count.intValue();
+            this.TI = graffitiRankListInfo.has_state.intValue() == 1;
+            if (this.TF == null) {
+                this.TF = new ArrayList();
+            }
+            this.TF.clear();
+            List<GraffitiRankItem> list = graffitiRankListInfo.list;
+            if (list != null) {
+                for (GraffitiRankItem graffitiRankItem : list) {
+                    u uVar = new u();
+                    uVar.a(graffitiRankItem);
+                    if (uVar.rX()) {
+                        this.TF.add(uVar);
                     }
                 }
             }
         }
     }
 
-    public int sx() {
-        return this.VU;
-    }
-
-    public void bR(int i) {
-        this.VU = i;
-    }
-
-    public ArrayList<a> sy() {
-        return this.VV;
-    }
-
-    public void j(ArrayList<a> arrayList) {
-        this.VV = arrayList;
+    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return TC;
     }
 }

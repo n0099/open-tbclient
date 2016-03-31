@@ -1,17 +1,28 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.animation.Animation;
+import android.view.View;
+import com.baidu.tieba.frs.view.ac;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ ab brV;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ ac bxd;
+    private final /* synthetic */ ac.b bxe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar) {
-        this.brV = abVar;
+    public ae(ac acVar, ac.b bVar) {
+        this.bxd = acVar;
+        this.bxe = bVar;
     }
 
-    @Override // com.baidu.adp.lib.h.d
-    public void b(Animation animation) {
-        com.baidu.adp.lib.h.j.a(this.brV);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac.a aVar;
+        ac.a aVar2;
+        aVar = this.bxd.bwZ;
+        if (aVar != null) {
+            aVar2 = this.bxd.bwZ;
+            aVar2.gF(this.bxe.bxf);
+        }
+        this.bxd.dismiss();
     }
 }

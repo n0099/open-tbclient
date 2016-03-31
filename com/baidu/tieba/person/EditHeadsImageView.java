@@ -10,44 +10,44 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
-    private int cXk;
-    private int cXl;
-    private float cXm;
-    private float cXn;
-    private int cXo;
+    private int drM;
+    private int drN;
+    private float drO;
+    private float drP;
+    private int drQ;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cXk = 0;
-        this.cXl = 0;
-        this.cXm = 0.42857143f;
-        this.cXo = 0;
-        this.cXn = 1.0f;
+        this.drM = 0;
+        this.drN = 0;
+        this.drO = 0.42857143f;
+        this.drQ = 0;
+        this.drP = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cXk = 0;
-        this.cXl = 0;
-        this.cXm = 0.42857143f;
-        this.cXo = 0;
-        this.cXn = 1.0f;
+        this.drM = 0;
+        this.drN = 0;
+        this.drO = 0.42857143f;
+        this.drQ = 0;
+        this.drP = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.cXk = 0;
-        this.cXl = 0;
-        this.cXm = 0.42857143f;
-        this.cXo = 0;
-        this.cXn = 1.0f;
+        this.drM = 0;
+        this.drN = 0;
+        this.drO = 0.42857143f;
+        this.drQ = 0;
+        this.drP = 1.0f;
         init();
     }
 
     private void init() {
-        this.cXo = getResources().getColor(t.d.editimage_bg);
+        this.drQ = getResources().getColor(t.d.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -62,29 +62,29 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.cXn * getWidth();
+        float width = this.drP * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.cXk = (int) (((i4 - i2) - width) * this.cXm);
-        this.cXl = (int) (((i4 - i2) - width) * (1.0f - this.cXm));
-        setOffset(0, this.cXk, 0, this.cXl);
+        this.drM = (int) (((i4 - i2) - width) * this.drO);
+        this.drN = (int) (((i4 - i2) - width) * (1.0f - this.drO));
+        setOffset(0, this.drM, 0, this.drN);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(this.cXo);
+        canvas.drawColor(this.drQ);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap fQ(boolean z) {
+    public Bitmap gD(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.cXk, getWidth(), (getHeight() - this.cXl) - this.cXk);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.drM, getWidth(), (getHeight() - this.drN) - this.drM);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -97,7 +97,7 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.cXn = f;
+        this.drP = f;
         invalidate();
     }
 }

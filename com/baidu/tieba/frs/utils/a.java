@@ -20,17 +20,17 @@ import java.io.File;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    public static void N(Context context, String str) {
+    public static void E(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             k.showToast(context, t.j.pb_app_error);
             return;
         }
-        File cR = m.cR(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cR != null) {
+        File cU = m.cU(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cU != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cR), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(cU), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -41,7 +41,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean O(Context context, String str) {
+    public static boolean F(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    public static boolean P(Context context, String str) {
+    public static boolean G(Context context, String str) {
         String str2;
         String str3 = Build.MODEL;
         if (!TextUtils.isEmpty(str3) && str3.startsWith("MI")) {
@@ -70,11 +70,11 @@ public class a {
         }
         Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(t.j.bar)}, null);
         boolean z = query != null && query.getCount() > 0;
-        o.b(query);
+        o.a(query);
         return z;
     }
 
-    public static Intent Q(Context context, String str) {
+    public static Intent H(Context context, String str) {
         Class<?> intentClass;
         if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m411getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
@@ -90,7 +90,7 @@ public class a {
         return intent;
     }
 
-    public static Intent R(Context context, String str) {
+    public static Intent I(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }

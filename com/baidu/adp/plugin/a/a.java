@@ -18,6 +18,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -47,7 +48,11 @@ public interface a {
 
     PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2);
 
+    boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent);
+
     boolean proxyDispatchKeyEvent(KeyEvent keyEvent);
+
+    boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent);
 
     boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent);
 
@@ -136,6 +141,10 @@ public interface a {
     boolean proxyOnCreatePanelMenu(int i, Menu menu);
 
     boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas);
+
+    View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet);
+
+    View proxyOnCreateView(String str, Context context, AttributeSet attributeSet);
 
     void proxyOnDestroy();
 

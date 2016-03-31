@@ -1,71 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.HeadImgs;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.CartoonThread;
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String Vm;
-    private String Vn;
-    private String Vo;
-    private boolean Vp;
-    private String mImageUrl;
-    private String mTitle;
+public class k {
+    private long cartoonId;
+    private int chapterId;
 
-    public k(String str, String str2, String str3) {
-        this.mImageUrl = str;
-        this.Vm = str2;
-        this.mTitle = str3;
+    public void a(CartoonThread cartoonThread) {
+        if (cartoonThread != null) {
+            this.cartoonId = cartoonThread.cartoon_id.longValue();
+            this.chapterId = cartoonThread.chapter_id.intValue();
+        }
     }
 
-    public k() {
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.mImageUrl;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String rX() {
-        return this.Vm;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rY */
-    public k clone() {
-        k kVar = new k();
-        kVar.mImageUrl = this.mImageUrl;
-        kVar.Vm = this.Vm;
-        kVar.mTitle = this.mTitle;
-        kVar.Vn = this.Vn;
-        kVar.Vo = this.Vo;
-        return kVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.mImageUrl = headImgs.img_url;
-            this.Vm = headImgs.pc_url;
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.Vn = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.Vo = headImgs.btn_text.trim();
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.cartoonId = jSONObject.optLong("cartoon_id");
+                this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public boolean rZ() {
-        return this.Vp;
+    public long getCartoonId() {
+        return this.cartoonId;
     }
 
-    public void ah(boolean z) {
-        this.Vp = z;
+    public int getChapterId() {
+        return this.chapterId;
     }
 }

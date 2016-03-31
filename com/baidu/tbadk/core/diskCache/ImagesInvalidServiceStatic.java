@@ -8,7 +8,7 @@ import com.baidu.adp.lib.h.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean Ze = false;
+    private static boolean Xx = false;
     private static Handler oC = new a();
 
     static {
@@ -17,14 +17,14 @@ public class ImagesInvalidServiceStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void startService() {
-        i.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.c(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
     public static void stopService() {
-        i.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.d(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void aq(boolean z) {
-        Ze = z;
+    public static void as(boolean z) {
+        Xx = z;
     }
 }

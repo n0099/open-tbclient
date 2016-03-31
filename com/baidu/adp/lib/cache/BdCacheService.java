@@ -10,14 +10,14 @@ import com.baidu.adp.lib.cache.o;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService extends CustomMessageListener {
-    private static volatile BdCacheService tz;
+    private static volatile BdCacheService tI;
     private Context context;
-    private com.baidu.adp.base.a.b sZ;
-    private v tA;
-    private final String tB;
-    private HashMap<String, o<String>> tC;
-    private HashMap<String, o<byte[]>> tD;
-    private boolean tE;
+    private v tJ;
+    private final String tK;
+    private HashMap<String, o<String>> tL;
+    private HashMap<String, o<byte[]>> tM;
+    private boolean tN;
+    private com.baidu.adp.base.a.b tj;
 
     /* loaded from: classes.dex */
     public enum CacheEvictPolicy {
@@ -25,7 +25,7 @@ public class BdCacheService extends CustomMessageListener {
         LRU_ON_COUNT,
         LRU_ON_INSERT;
 
-        /* JADX DEBUG: Replace access to removed values field (tF) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (tO) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static CacheEvictPolicy[] valuesCustom() {
             CacheEvictPolicy[] valuesCustom = values();
@@ -41,7 +41,7 @@ public class BdCacheService extends CustomMessageListener {
         SQLite_CACHE_PER_TABLE,
         SQLite_CACHE_All_IN_ONE_TABLE;
 
-        /* JADX DEBUG: Replace access to removed values field (tG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (tP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static CacheStorage[] valuesCustom() {
             CacheStorage[] valuesCustom = values();
@@ -53,16 +53,16 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public boolean isDebugMode() {
-        return this.tE;
+        return this.tN;
     }
 
     private BdCacheService(String str) {
         super(2000998);
-        this.tC = new HashMap<>();
-        this.tD = new HashMap<>();
-        this.tB = str;
+        this.tL = new HashMap<>();
+        this.tM = new HashMap<>();
+        this.tK = str;
         if (BdBaseApplication.getInst() != null) {
-            this.tE = BdBaseApplication.getInst().isDebugMode();
+            this.tN = BdBaseApplication.getInst().isDebugMode();
         }
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
@@ -72,14 +72,14 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public static BdCacheService gs() {
-        if (tz == null) {
+        if (tI == null) {
             synchronized (BdCacheService.class) {
-                if (tz == null) {
-                    tz = new BdCacheService("baidu_adp.db");
+                if (tI == null) {
+                    tI = new BdCacheService("baidu_adp.db");
                 }
             }
         }
-        return tz;
+        return tI;
     }
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
@@ -89,24 +89,24 @@ public class BdCacheService extends CustomMessageListener {
         ab = gt.ab(str);
         if (ab == null) {
             ab = new i();
-            ab.tp = str;
-            ab.tu = gg;
-            ab.tt = str2;
+            ab.ty = str;
+            ab.tD = gg;
+            ab.tC = str2;
             ab.maxSize = i;
-            ab.tv = System.currentTimeMillis();
-            ab.tb = cVar.M(str);
+            ab.tE = System.currentTimeMillis();
+            ab.tk = cVar.M(str);
             gt.a(ab);
-        } else if (!str2.equalsIgnoreCase(ab.tt)) {
-            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + ab.tt);
+        } else if (!str2.equalsIgnoreCase(ab.tC)) {
+            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + ab.tC);
         } else {
             ab.maxSize = i;
-            ab.tv = System.currentTimeMillis();
-            if (gg != ab.tu) {
-                cVar.a(str, ab.tb, gg, ab.tu);
+            ab.tE = System.currentTimeMillis();
+            if (gg != ab.tD) {
+                cVar.a(str, ab.tk, gg, ab.tD);
             }
             gt.a(ab);
         }
-        return ab.tb;
+        return ab.tk;
     }
 
     public synchronized o<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
@@ -114,7 +114,7 @@ public class BdCacheService extends CustomMessageListener {
         f gq;
         x wVar;
         boolean z;
-        oVar = this.tC.get(str);
+        oVar = this.tL.get(str);
         if (oVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
                 gq = g.a(i, false);
@@ -141,7 +141,7 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized o<String> a(String str, n<String> nVar) {
         t tVar;
         t tVar2;
-        o<String> oVar = this.tC.get(str);
+        o<String> oVar = this.tL.get(str);
         tVar2 = oVar;
         if (oVar != null) {
             if (nVar != null) {
@@ -161,7 +161,7 @@ public class BdCacheService extends CustomMessageListener {
             } else {
                 tVar = new t(str, nVar);
             }
-            this.tC.put(str, tVar);
+            this.tL.put(str, tVar);
             tVar.gx();
             tVar2 = tVar;
         }
@@ -173,7 +173,7 @@ public class BdCacheService extends CustomMessageListener {
         f gq;
         b aVar;
         boolean z;
-        oVar = this.tD.get(str);
+        oVar = this.tM.get(str);
         if (oVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
                 gq = g.a(i, false);
@@ -200,7 +200,7 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized o<byte[]> b(String str, n<byte[]> nVar) {
         t tVar;
         t tVar2;
-        o<byte[]> oVar = this.tD.get(str);
+        o<byte[]> oVar = this.tM.get(str);
         tVar2 = oVar;
         if (oVar != null) {
             if (nVar != null) {
@@ -220,7 +220,7 @@ public class BdCacheService extends CustomMessageListener {
             } else {
                 tVar = new t(str, nVar);
             }
-            this.tD.put(str, tVar);
+            this.tM.put(str, tVar);
             tVar.gx();
             tVar2 = tVar;
         }
@@ -233,32 +233,32 @@ public class BdCacheService extends CustomMessageListener {
             synchronized (cVar) {
                 String gu = cVar.gu();
                 cVar.gw();
-                this.tC.remove(gu);
+                this.tL.remove(gu);
             }
         }
     }
 
     public v gt() {
-        if (this.tA == null) {
-            this.tA = new v(getContext(), gj());
+        if (this.tJ == null) {
+            this.tJ = new v(getContext(), gj());
         }
-        return this.tA;
+        return this.tJ;
     }
 
     public com.baidu.adp.base.a.b gj() {
-        if (this.sZ == null) {
-            this.sZ = new com.baidu.adp.base.a.b(new j(getContext(), this.tB));
+        if (this.tj == null) {
+            this.tj = new com.baidu.adp.base.a.b(new j(getContext(), this.tK));
         }
-        return this.sZ;
+        return this.tj;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String databaseFile;
-        if ((customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.tB)) {
-            this.tC.clear();
-            this.tD.clear();
+        if ((customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.tK)) {
+            this.tL.clear();
+            this.tM.clear();
         }
     }
 }

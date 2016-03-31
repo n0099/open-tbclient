@@ -1,39 +1,31 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ String cKW;
-    private final /* synthetic */ String cKX;
-    private final /* synthetic */ String cKY;
+    final /* synthetic */ r dej;
+    private final /* synthetic */ an dek;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s del;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(q qVar, String str, String str2, String str3) {
-        this.cKS = qVar;
-        this.cKW = str;
-        this.cKX = str2;
-        this.cKY = str3;
+    public x(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dej = rVar;
+        this.dek = anVar;
+        this.del = sVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cKW) && !StringUtils.isNull(this.cKX)) {
-            if (!com.baidu.adp.lib.util.i.iZ()) {
-                this.cKS.cNL.showToast(t.j.neterror);
-                return;
-            }
-            context = this.cKS.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cKW) + "," + this.cKX, this.cKY, this.cKY, context.getString(t.j.app_info_for_map));
-            context2 = this.cKS.mContext;
-            com.baidu.tbadk.browser.f.B(context2, format);
+        if (this.dek.deA.isPlaying()) {
+            this.dek.deA.pause();
+            this.dek.deF.setVisibility(0);
+        } else {
+            this.dej.a(this.dek, this.del);
         }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

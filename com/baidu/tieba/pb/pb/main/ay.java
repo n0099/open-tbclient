@@ -1,40 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay implements com.baidu.adp.lib.f.c<GifView> {
-    final /* synthetic */ PbActivity cNq;
+public class ay implements a.b {
+    final /* synthetic */ PbActivity dht;
+    private final /* synthetic */ boolean dhu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    public ay(PbActivity pbActivity, boolean z) {
+        this.dht = pbActivity;
+        this.dhu = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: apE */
-    public GifView hk() {
-        return new GifView(this.cNq.getPageContext().getPageActivity());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: g */
-    public void l(GifView gifView) {
-        gifView.onDestroy();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: h */
-    public GifView m(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: i */
-    public GifView n(GifView gifView) {
-        return gifView;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        df dfVar;
+        df dfVar2;
+        df dfVar3;
+        df dfVar4;
+        aVar.dismiss();
+        if (this.dhu) {
+            this.dht.awa();
+        }
+        com.baidu.tieba.pb.data.e pbData = this.dht.awj().getPbData();
+        if (pbData.avu() != null && pbData.avv() != null && pbData.avv().tw() != null && pbData.avv().tw().size() > 0 && pbData.avv().tw().get(0) != null) {
+            PbLotteryRequestMessage pbLotteryRequestMessage = new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), pbData.avu().getId(), pbData.avv().getId(), 1, pbData.avv().tw().get(0).getActivityId(), pbData.avv().tw().get(0).qY(), pbData.avv().tw().get(0).qZ());
+            if (!this.dhu) {
+                this.dht.showProgressBar(true, 0, 0);
+            }
+            this.dht.sendMessage(pbLotteryRequestMessage);
+        }
+        dfVar = this.dht.dfV;
+        if (dfVar != null) {
+            dfVar2 = this.dht.dfV;
+            if (dfVar2.getPbData() != null) {
+                com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10398");
+                dfVar3 = this.dht.dfV;
+                com.baidu.tbadk.core.util.aw ac = awVar.ac("fid", dfVar3.getPbData().getForumId());
+                dfVar4 = this.dht.dfV;
+                TiebaStatic.log(ac.ac("tid", dfVar4.getPbData().getThreadId()).ac("is_like", "1"));
+            }
+        }
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import java.io.File;
 /* loaded from: classes.dex */
 class i implements AsyncImageLoader.IAsyncImageLoaderListener {
-    final /* synthetic */ Uri a;
+    final /* synthetic */ Uri mP;
     final /* synthetic */ h mQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, Uri uri) {
         this.mQ = hVar;
-        this.a = uri;
+        this.mP = uri;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
@@ -22,6 +22,6 @@ class i implements AsyncImageLoader.IAsyncImageLoaderListener {
             this.mQ.doShare(null);
             return;
         }
-        this.mQ.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.a))));
+        this.mQ.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.mP))));
     }
 }

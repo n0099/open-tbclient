@@ -1,34 +1,39 @@
 package com.baidu.tieba.pb.pb.a;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ PraiseData cKZ;
+    final /* synthetic */ r dej;
+    private final /* synthetic */ String den;
+    private final /* synthetic */ String deo;
+    private final /* synthetic */ String dep;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(q qVar, PraiseData praiseData) {
-        this.cKS = qVar;
-        this.cKZ = praiseData;
+    public y(r rVar, String str, String str2, String str3) {
+        this.dej = rVar;
+        this.den = str;
+        this.deo = str2;
+        this.dep = str3;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        if ((this.cKZ == null || this.cKZ.getIsLike() != 1) && this.cKS.cNL != null && bi.ah(this.cKS.cNL.getPageContext().getPageActivity())) {
-            this.cKS.cNL.api();
-            cVar = this.cKS.cJZ;
-            if (cVar != null) {
-                au auVar = new au("c10797");
-                cVar2 = this.cKS.cJZ;
-                TiebaStatic.log(auVar.aa("tid", cVar2.getThreadId()));
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.den) && !StringUtils.isNull(this.deo)) {
+            if (!com.baidu.adp.lib.util.i.jf()) {
+                com.baidu.adp.lib.util.k.showToast(this.dej.dfw.getPageContext().getPageActivity(), t.j.neterror);
+                return;
             }
+            context = this.dej.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.den) + "," + this.deo, this.dep, this.dep, context.getString(t.j.app_info_for_map));
+            context2 = this.dej.mContext;
+            com.baidu.tbadk.browser.f.s(context2, format);
         }
     }
 }

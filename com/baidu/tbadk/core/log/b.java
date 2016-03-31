@@ -19,9 +19,9 @@ public class b {
             dVar.b(objArr);
         }
         if (i2 == 0) {
-            com.baidu.adp.lib.stats.a.ht().a(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.hz().a(str, j, (String) null, dVar);
         } else {
-            com.baidu.adp.lib.stats.a.ht().b(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.hz().b(str, j, (String) null, dVar);
         }
     }
 }

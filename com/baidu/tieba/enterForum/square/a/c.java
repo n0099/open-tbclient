@@ -5,60 +5,60 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.a.k;
-import com.baidu.tieba.card.s;
+import com.baidu.tieba.card.a.l;
+import com.baidu.tieba.card.u;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.enterForum.square.a.a<k, a> {
-    private s aXI;
+public class c extends com.baidu.tieba.enterForum.square.a.a<l, a> {
+    private u bcr;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, k.aRS);
+        super(tbPageContext, l.TC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: g */
+    /* renamed from: h */
     public a b(ViewGroup viewGroup) {
-        this.aXI = new s(this.Nw);
-        this.aXI.setTag(getTag());
-        this.aXE = true;
-        this.aXI.an("c10580", "c10581");
-        return new a(this.aXI);
+        this.bcr = new u(this.ND);
+        this.bcr.setTag(getTag());
+        this.bcn = true;
+        this.bcr.at("c10580", "c10581");
+        return new a(this.bcr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, k kVar, a aVar) {
-        if (aVar.aXJ == null) {
+    public View a(int i, View view, ViewGroup viewGroup, l lVar, a aVar) {
+        if (aVar.bcs == null) {
             return null;
         }
         TiebaStatic.log("c10579");
-        if (this.aXE) {
-            aVar.aXJ.a(kVar);
-            this.aXE = false;
+        if (this.bcn) {
+            aVar.bcs.a(lVar);
+            this.bcn = false;
             return view;
         }
         return view;
     }
 
     @Override // com.baidu.tieba.enterForum.square.a.a
-    public void db(int i) {
-        if (this.aXI != null) {
-            this.aXI.d(this.Nw, i);
+    public void de(int i) {
+        if (this.bcr != null) {
+            this.bcr.d(this.ND, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public s aXJ;
+        public u bcs;
 
-        public a(s sVar) {
-            super(sVar.getView());
-            this.aXJ = sVar;
+        public a(u uVar) {
+            super(uVar.getView());
+            this.bcs = uVar;
         }
     }
 }

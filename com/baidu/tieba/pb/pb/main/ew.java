@@ -1,30 +1,20 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ew implements Animation.AnimationListener {
-    final /* synthetic */ dz cSw;
+public class ew implements Runnable {
+    final /* synthetic */ eu dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ew(dz dzVar) {
-        this.cSw = dzVar;
+    public ew(eu euVar) {
+        this.dnc = euVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // java.lang.Runnable
+    public void run() {
         LinearLayout linearLayout;
-        linearLayout = this.cSw.cSd;
+        linearLayout = this.dnc.dlf;
         linearLayout.setVisibility(0);
-        this.cSw.cSa = false;
     }
 }

@@ -1,85 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ax implements com.baidu.adp.lib.f.c<ImageView> {
-    final /* synthetic */ PbActivity cNq;
+class ax extends CustomMessageListener {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ax(PbActivity pbActivity, int i) {
+        super(i);
+        this.dht = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: apD */
-    public ImageView hk() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.cNq.getPageContext().getPageActivity());
-        boolean rt = com.baidu.tbadk.core.l.rn().rt();
-        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.ar.getDrawable(t.d.pb_default_image_bg));
-        if (rt) {
-            foreDrawableImageView.setAdjustViewBounds(false);
-            foreDrawableImageView.setInterceptOnClick(false);
-        } else {
-            foreDrawableImageView.setDefaultResource(t.f.icon_click);
-            foreDrawableImageView.setAdjustViewBounds(true);
-            foreDrawableImageView.setInterceptOnClick(true);
-        }
-        return foreDrawableImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public void l(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public ImageView m(ImageView imageView) {
-        if (imageView instanceof TbImageView) {
-            TbImageView tbImageView = (TbImageView) imageView;
-            tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.l.rn().rt()) {
-                tbImageView.setAdjustViewBounds(false);
-                tbImageView.setInterceptOnClick(false);
-            } else {
-                tbImageView.setDefaultResource(t.f.icon_click);
-                tbImageView.setAdjustViewBounds(true);
-                tbImageView.setInterceptOnClick(true);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        eu euVar;
+        eu euVar2;
+        eu euVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            euVar = this.dht.dgF;
+            if (euVar != null) {
+                if (booleanValue) {
+                    euVar3 = this.dht.dgF;
+                    euVar3.agh();
+                    return;
+                }
+                euVar2 = this.dht.dgF;
+                euVar2.agg();
             }
         }
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public ImageView n(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
-        }
-        return imageView;
     }
 }

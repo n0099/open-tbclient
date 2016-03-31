@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends b {
-    public static final BdUniqueId aRS = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.u> aQh = new ArrayList();
-    private long aRA;
+    public static final BdUniqueId TC = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.u> aTc = new ArrayList();
+    private long aVi;
 
-    public long Kq() {
-        return this.aRA;
+    public long LK() {
+        return this.aVi;
     }
 
-    public void aq(long j) {
-        this.aRA = j;
+    public void au(long j) {
+        this.aVi = j;
     }
 
-    public List<com.baidu.adp.widget.ListView.u> Fm() {
-        return this.aQh;
+    public List<com.baidu.adp.widget.ListView.u> FZ() {
+        return this.aTc;
     }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aRS;
+        return TC;
     }
 
     /* loaded from: classes.dex */
@@ -34,8 +34,14 @@ public class e extends b {
         public int type;
         public String url;
 
+        @Override // com.baidu.tbadk.core.view.viewpager.a.a
         public String getImageUrl() {
             return this.url;
+        }
+
+        @Override // com.baidu.tbadk.core.view.viewpager.a.a
+        public Object xX() {
+            return this.link;
         }
     }
 }

@@ -33,8 +33,8 @@ public class ag extends ArrayAdapter {
         if (view == null || view.getTag() == null) {
             aVar = new a();
             view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.a(getContext(), "bdsocialshare_sharemenuweixinitem"), (ViewGroup) null);
-            view.setBackgroundResource(p.b(getContext(), "bdsocialshare_sharemenu_item_click"));
-            aVar.a = (TextView) view.findViewById(p.s(getContext(), "sharemenuweixin_itemtext"));
+            view.setBackgroundResource(p.g(getContext(), "bdsocialshare_sharemenu_item_click"));
+            aVar.a = (TextView) view.findViewById(p.i(getContext(), "sharemenuweixin_itemtext"));
             aVar.a.setTextColor(Color.parseColor(p.a(getContext())));
         } else {
             aVar = (a) view.getTag();

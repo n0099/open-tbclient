@@ -1,17 +1,17 @@
 package com.baidu.tbadk.widget.vote;
 /* loaded from: classes.dex */
 public interface a {
-    String HI();
+    String Je();
 
-    String HJ();
+    String Jf();
 
-    String HK();
+    String Jg();
 
-    int HL();
+    int Jh();
 
-    int HM();
+    int Ji();
 
-    String HN();
+    String Jj();
 
     int getId();
 

@@ -1,10 +1,18 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class fi extends fh {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean bme = true;
-    public boolean bmf = true;
+public class fi extends x.a {
+    TextView aSh;
+    LinearLayout bmO;
+
+    public fi(View view) {
+        super(view);
+        this.bmO = (LinearLayout) view.findViewById(t.g.frs_top_item);
+        this.aSh = (TextView) view.findViewById(t.g.frs_top_title);
+    }
 }

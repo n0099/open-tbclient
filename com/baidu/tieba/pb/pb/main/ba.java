@@ -1,37 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.pb.FileDownloader;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements a.b {
-    final /* synthetic */ PbActivity cNq;
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.cNq.cMu;
-        aVar2.dismiss();
-        if (com.baidu.tbadk.core.util.m.fq()) {
-            str = this.cNq.baG;
-            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.ja()) {
-                Activity pageActivity = this.cNq.getPageContext().getPageActivity();
-                str2 = this.cNq.baG;
-                FileDownloader.download(pageActivity, str2, null, this.cNq.getPageContext().getString(t.j.download_iqiyi_app));
-                return;
+        df dfVar;
+        df dfVar2;
+        df dfVar3;
+        df dfVar4;
+        aVar.dismiss();
+        dfVar = this.dht.dfV;
+        if (dfVar != null) {
+            dfVar2 = this.dht.dfV;
+            if (dfVar2.getPbData() != null) {
+                com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10504");
+                dfVar3 = this.dht.dfV;
+                com.baidu.tbadk.core.util.aw ac = awVar.ac("fid", dfVar3.getPbData().getForumId());
+                dfVar4 = this.dht.dfV;
+                TiebaStatic.log(ac.ac("tid", dfVar4.getPbData().getThreadId()).ac("obj_locate", "2"));
             }
-            return;
         }
-        this.cNq.showToast(com.baidu.tbadk.core.util.m.uU());
     }
 }

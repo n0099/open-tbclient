@@ -1,24 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bgz;
+class o extends CustomMessageListener {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(FrsActivity frsActivity, int i) {
+        super(i);
+        this.blk = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aG = this.bgz.bfD.Qi().aG(((Integer) view.getTag()).intValue());
-        if (aG instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aG;
-            if (!cVar.rO()) {
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (updateAttentionMessage.getData().CK) {
+                    if (updateAttentionMessage.isAttention()) {
+                        this.blk.showToast(t.j.like_success);
+                    }
+                    this.blk.a(updateAttentionMessage);
+                } else if (updateAttentionMessage.getData().errorString != null) {
+                    this.blk.showToast(updateAttentionMessage.getData().errorString);
+                }
             }
-            this.bgz.b(cVar);
         }
     }
 }

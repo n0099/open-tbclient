@@ -16,18 +16,18 @@ public class MsgMidViewItemAdapter extends ap<aq> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<aq> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        aVar.YX().setData(chatMessage);
-        this.Nw.getLayoutMode().ac(false);
-        this.Nw.getLayoutMode().x(view);
+        aVar.acq().setData(chatMessage);
+        this.ND.getLayoutMode().ab(false);
+        this.ND.getLayoutMode().x(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: ac */
     public ap.a<aq> b(ViewGroup viewGroup) {
-        aq aqVar = new aq(this.Nw);
+        aq aqVar = new aq(this.ND);
         return new a(aqVar.dM(), aqVar);
     }
 

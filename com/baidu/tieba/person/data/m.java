@@ -5,8 +5,8 @@ import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class m implements u {
-    public static final BdUniqueId dbY = BdUniqueId.gen();
-    private boolean bDM;
+    public static final BdUniqueId dwB = BdUniqueId.gen();
+    private boolean bJj;
     private String mContent;
     private String mLink;
     private UserData mUserData;
@@ -21,11 +21,11 @@ public class m implements u {
     }
 
     public boolean getIsSelf() {
-        return this.bDM;
+        return this.bJj;
     }
 
     public void setIsSelf(boolean z) {
-        this.bDM = z;
+        this.bJj = z;
     }
 
     public void setVipIcon(String str) {
@@ -54,6 +54,6 @@ public class m implements u {
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dbY;
+        return dwB;
     }
 }

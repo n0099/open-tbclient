@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements a.b {
-    final /* synthetic */ SquareSearchActivity cwZ;
+    final /* synthetic */ SquareSearchActivity cLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(SquareSearchActivity squareSearchActivity) {
-        this.cwZ = squareSearchActivity;
+        this.cLU = squareSearchActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

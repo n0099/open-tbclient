@@ -11,8 +11,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView dEe;
-    private CustomMessageListener dEf;
+    private ImageView dVW;
+    private CustomMessageListener dVX;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -20,44 +20,44 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Ex() {
+    public com.baidu.tbadk.mainTab.c Fk() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.ayo = new a();
+        cVar.ayV = new a();
         cVar.type = 2;
-        cVar.ayp = t.j.recommend;
-        cVar.ayq = t.f.s_icon_tabbar_essence;
+        cVar.ayW = t.j.recommend;
+        cVar.ayX = t.f.s_tabbar_icon_one_bg;
         return cVar;
     }
 
     static {
-        j jVar = new j(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        jVar.setPriority(3);
-        MessageManager.getInstance().registerListener(jVar);
+        k kVar = new k(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        kVar.setPriority(3);
+        MessageManager.getInstance().registerListener(kVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Ew() {
-        this.dEf = new k(this, CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW);
-        MessageManager.getInstance().registerListener(this.dEf);
+    public void Fj() {
+        this.dVX = new l(this, CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW);
+        MessageManager.getInstance().registerListener(this.dVX);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator am(Context context) {
-        this.ayb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
-        this.dEe = new ImageView(context);
+    public FragmentTabIndicator aj(Context context) {
+        this.ayI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
+        this.dVW = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.ayn = this.ayb;
-        aVar.uF = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.dEe;
-        aVar.ayl = t.f.icon_news_down_bar_one;
-        this.dEe.setVisibility(8);
-        this.ayb.a("godFeed", aVar);
-        return this.ayb;
+        aVar.ayU = this.ayI;
+        aVar.uO = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.view = this.dVW;
+        aVar.ayS = t.f.icon_news_down_bar_one;
+        this.dVW.setVisibility(8);
+        this.ayI.a("godFeed", aVar);
+        return this.ayI;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ei() {
         super.ei();
-        MessageManager.getInstance().unRegisterListener(this.dEf);
+        MessageManager.getInstance().unRegisterListener(this.dVX);
     }
 }

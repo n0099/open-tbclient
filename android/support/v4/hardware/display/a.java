@@ -5,7 +5,7 @@ import android.hardware.display.DisplayManager;
 import android.view.Display;
 /* loaded from: classes.dex */
 final class a {
-    public static Object y(Context context) {
+    public static Object o(Context context) {
         return context.getSystemService("display");
     }
 

@@ -15,6 +15,8 @@ public class TbErrInfo {
     public static final int ERR_FILE_SD_FULL = -26;
     public static final int ERR_FILE_SHARED_SD = -24;
     public static final int ERR_FILE_UNKNOWN = -27;
+    public static final int ERR_GRAFFITI_CHECK_MD5 = -1131;
+    public static final int ERR_GRAFFITI_IS_OVER_LIMIT = -1132;
     public static final int ERR_GROUP_ACTIVITY_NOT_EXIST = 2230504;
     public static final int ERR_GROUP_NOT_EXIST = 2230101;
     public static final int ERR_HTTP_DATA_FORMAT = -3;
@@ -55,6 +57,7 @@ public class TbErrInfo {
     public static final int ERR_REUPLOAD_FILE = 320033;
     public static final int ERR_SEND_FAIL = -53;
     public static final int ERR_SERVER_UNKNOW = -51;
+    public static final int ERR_SOKCET_SWITCH_HTTP = 110005;
     public static final int ERR_SQLITE_ABORT = -11;
     public static final int ERR_SQLITE_CONSTRAINT = -12;
     public static final int ERR_SQLITE_DATABASE_CORRUPT = -14;
@@ -95,6 +98,7 @@ public class TbErrInfo {
     public static final int PIC_IMG_TIME = -1114;
     public static final int PIC_NOT_RESULT = -1115;
     public static final int PIC_REQUEST_FAIL = -1117;
+    public static final int STATS_FAILED = -7999;
     public static final int STATS_OK = 0;
 
     public static String getErrMsg(int i) {
@@ -167,7 +171,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.e.iI()) {
+        switch (com.baidu.adp.lib.util.e.iO()) {
             case 1:
                 return -23;
             case 2:

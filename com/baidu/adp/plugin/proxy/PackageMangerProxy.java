@@ -18,8 +18,8 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PackageMangerProxy extends PackageManager {
@@ -42,8 +42,8 @@ public class PackageMangerProxy extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageInfo(String str, int i) {
-        a plugin2;
-        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPackageName)) == null) ? this.mPm.getPackageInfo(str, i) : plugin2.kF();
+        Plugin plugin2;
+        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPackageName)) == null) ? this.mPm.getPackageInfo(str, i) : plugin2.getPluginPackageInfo();
     }
 
     @Override // android.content.pm.PackageManager

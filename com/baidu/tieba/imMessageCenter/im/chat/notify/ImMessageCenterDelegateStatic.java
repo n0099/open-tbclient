@@ -9,14 +9,15 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.imMessageCenter.mention.bd;
+import com.baidu.tieba.imMessageCenter.mention.be;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView aqc;
-    private CustomMessageListener chU;
+    private TextView aqt;
+    private com.baidu.adp.framework.listener.e csA = new d(this, 104106);
+    private CustomMessageListener csz;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -24,30 +25,30 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Ex() {
+    public com.baidu.tbadk.mainTab.c Fk() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        bd bdVar = new bd();
-        bdVar.jU(1);
-        cVar.ayo = bdVar;
+        be beVar = new be();
+        beVar.setPageType(1);
+        cVar.ayV = beVar;
         cVar.type = 3;
-        cVar.ayp = t.j.enter_message;
-        cVar.ayq = t.f.s_icon_tabbar_imcenter;
+        cVar.ayW = t.j.enter_message;
+        cVar.ayX = t.f.s_tabbar_icon_three_bg;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator am(Context context) {
-        this.ayb = (FragmentTabIndicator) LayoutInflater.from(context).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
-        this.aqc = (TextView) LayoutInflater.from(context).inflate(t.h.message_tip_item, (ViewGroup) null);
+    public FragmentTabIndicator aj(Context context) {
+        this.ayI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
+        this.aqt = (TextView) LayoutInflater.from(context).inflate(t.h.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.ayn = this.ayb;
-        aVar.uF = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.aqc;
-        aVar.ayl = t.f.icon_dot_orange;
-        aVar.aym = t.d.frs_slidebar_message_text;
-        this.aqc.setVisibility(8);
-        this.ayb.a(AddFriendActivityConfig.MSG, aVar);
-        return this.ayb;
+        aVar.ayU = this.ayI;
+        aVar.uO = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.view = this.aqt;
+        aVar.ayS = t.f.icon_dot_orange;
+        aVar.ayT = t.d.frs_slidebar_message_text;
+        this.aqt.setVisibility(8);
+        this.ayI.a(AddFriendActivityConfig.MSG, aVar);
+        return this.ayI;
     }
 
     static {
@@ -57,32 +58,36 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Ew() {
-        this.chU = new d(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        MessageManager.getInstance().registerListener(this.chU);
+    public void Fj() {
+        this.csz = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        MessageManager.getInstance().registerListener(this.csz);
+        MessageManager.getInstance().registerListener(this.csA);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ei() {
         super.ei();
-        MessageManager.getInstance().unRegisterListener(this.chU);
+        MessageManager.getInstance().unRegisterListener(this.csz);
+        MessageManager.getInstance().unRegisterListener(this.csA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void r(TextView textView, int i) {
-        textView.setVisibility(0);
-        ar.b(textView, t.d.frs_slidebar_message_text, 1);
-        if (i <= 0) {
-            textView.setVisibility(8);
-        } else if (i < 10) {
-            textView.setText(String.valueOf(i));
-            ar.k(textView, t.f.icon_news_head_prompt_one);
-        } else if (i < 100) {
-            textView.setText(String.valueOf(i));
-            ar.k(textView, t.f.icon_news_head_prompt_two);
-        } else {
-            textView.setText("   ");
-            ar.k(textView, t.f.icon_news_head_prompt_more);
+        if (textView != null) {
+            textView.setVisibility(0);
+            at.b(textView, t.d.frs_slidebar_message_text, 1);
+            if (i <= 0) {
+                textView.setVisibility(8);
+            } else if (i < 10) {
+                textView.setText(String.valueOf(i));
+                at.k(textView, t.f.icon_news_head_prompt_one);
+            } else if (i < 100) {
+                textView.setText(String.valueOf(i));
+                at.k(textView, t.f.icon_news_head_prompt_two);
+            } else {
+                textView.setText("   ");
+                at.k(textView, t.f.icon_news_head_prompt_more);
+            }
         }
     }
 }

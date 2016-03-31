@@ -1,5 +1,6 @@
 package com.baidu.tieba.tblauncher.alarmRemind;
 
+import android.app.Application;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
@@ -12,11 +13,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean aFW() {
+    public static boolean aMG() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage mZ(String str) {
+    public static RemindRecommendMessage om(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -50,7 +51,7 @@ public class a {
         }
     }
 
-    public static long bR(long j) {
+    public static long cb(long j) {
         int i;
         int i2;
         int i3;
@@ -80,7 +81,8 @@ public class a {
         calendar.setTimeInMillis(j);
         calendar.set(12, i2);
         calendar.set(13, i);
-        if (TbadkCoreApplication.m411getInst().getApp() != null && DateFormat.is24HourFormat(TbadkCoreApplication.m411getInst().getApp())) {
+        Application app = TbadkCoreApplication.m411getInst().getApp();
+        if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
             calendar.set(11, i4);
         } else {
             if (i4 >= 12) {
@@ -94,11 +96,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long aOp() {
-        return bR(System.currentTimeMillis());
+    public static long aVr() {
+        return cb(System.currentTimeMillis());
     }
 
-    public static boolean bS(long j) {
+    public static boolean cc(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -108,7 +110,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean aOq() {
-        return com.baidu.tbadk.core.sharedPref.b.uO().getInt("sync_local_dialog", 1) == 1;
+    public static boolean aVs() {
+        return com.baidu.tbadk.core.sharedPref.b.vk().getInt("sync_local_dialog", 1) == 1;
     }
 }

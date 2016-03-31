@@ -28,7 +28,7 @@ class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                 while (it.hasNext()) {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    dVar.a(dVar.C(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), (View.OnClickListener) ((Pair) next.second).second);
+                    dVar.a(dVar.z(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), (View.OnClickListener) ((Pair) next.second).second);
                 }
             }
             dVar.show();

@@ -216,7 +216,7 @@ public class b {
         return String.valueOf(str) + " = " + g(obj) + "\n";
     }
 
-    private static String c(String str, Object obj) {
+    private static String b(String str, Object obj) {
         if (obj == null) {
             return String.valueOf(str) + ": null\n";
         }
@@ -229,11 +229,11 @@ public class b {
         return String.valueOf(str) + " = " + obj.toString() + "\n\r";
     }
 
-    public static void d(String str, Object obj) {
+    public static void c(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
         if (d.nV) {
             stringBuffer.append("Message_Type: " + str + "\n");
-            stringBuffer.append(c("", obj));
+            stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
             String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {

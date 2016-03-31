@@ -4,48 +4,49 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class e extends FragmentPagerAdapter {
-    private ArrayList<BaseFragment> cWz;
-    private int[] cdE;
+    private int[] coj;
+    private ArrayList<BaseFragment> drb;
 
-    protected abstract BaseFragment atm();
+    protected abstract BaseFragment aAS();
 
     public e(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.cWz = new ArrayList<>();
+        this.drb = new ArrayList<>();
         Bundle bundle = new Bundle();
-        bundle.putInt("page_type", 0);
-        BaseFragment atm = atm();
-        atm.setArguments(bundle);
-        this.cWz.add(atm);
+        bundle.putInt(LegoListActivityConfig.PAGE_TYPE, 0);
+        BaseFragment aAS = aAS();
+        aAS.setArguments(bundle);
+        this.drb.add(aAS);
         if (z) {
-            this.cdE = new int[1];
+            this.coj = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
-        bundle2.putInt("page_type", 1);
-        BaseFragment atm2 = atm();
-        atm2.setArguments(bundle2);
-        this.cWz.add(atm2);
-        this.cdE = new int[]{0, 1};
+        bundle2.putInt(LegoListActivityConfig.PAGE_TYPE, 1);
+        BaseFragment aAS2 = aAS();
+        aAS2.setArguments(bundle2);
+        this.drb.add(aAS2);
+        this.coj = new int[]{0, 1};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.cdE.length || i < 0) {
+        if (i >= this.coj.length || i < 0) {
             return null;
         }
-        return this.cWz.get(i);
+        return this.drb.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.cdE.length;
+        return this.coj.length;
     }
 
-    public int js(int i) {
-        return this.cdE[i];
+    public int jY(int i) {
+        return this.coj[i];
     }
 }

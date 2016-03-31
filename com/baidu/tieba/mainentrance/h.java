@@ -10,31 +10,31 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private ArrayList<String> YX;
-    private final String bfv;
-    private boolean cvw = true;
+    private ArrayList<String> Xq;
+    private final String bkf;
+    private boolean cKr = true;
     private final Context mContext;
 
     public h(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.YX = arrayList;
-        this.bfv = this.mContext.getText(t.j.forum).toString();
+        this.Xq = arrayList;
+        this.bkf = this.mContext.getText(t.j.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.YX = arrayList;
+        this.Xq = arrayList;
     }
 
-    public void ey(boolean z) {
-        this.cvw = z;
+    public void eV(boolean z) {
+        this.cKr = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.YX == null) {
+        if (this.Xq == null) {
             return 0;
         }
-        return this.YX.size();
+        return this.Xq.size();
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class h extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.YX.get(i);
+        return this.Xq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,8 +57,8 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(t.h.home_dialog_search_item, (ViewGroup) null);
             aVar = new a(this, null);
-            aVar.aPa = (TextView) view.findViewById(t.g.home_lv_search_forum);
-            aVar.aIj = view.findViewById(t.g.home_dialog_lv_search_forum_divider);
+            aVar.aRQ = (TextView) view.findViewById(t.g.home_lv_search_forum);
+            aVar.aLf = view.findViewById(t.g.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -66,22 +66,22 @@ public class h extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.cvw) {
-                aVar.aPa.setText(str.concat(this.bfv));
+            if (this.cKr) {
+                aVar.aRQ.setText(str.concat(this.bkf));
             } else {
-                aVar.aPa.setText(str);
+                aVar.aRQ.setText(str);
             }
-            com.baidu.tbadk.core.util.ar.b(aVar.aPa, t.d.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.ar.l(aVar.aIj, t.d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.ar.k(view, t.f.addresslist_item_bg);
+            com.baidu.tbadk.core.util.at.b(aVar.aRQ, t.d.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.at.l(aVar.aLf, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.at.k(view, t.f.addresslist_item_bg);
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        View aIj;
-        TextView aPa;
+        View aLf;
+        TextView aRQ;
 
         private a() {
         }

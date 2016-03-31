@@ -1,28 +1,23 @@
 package com.baidu.tieba.frs.view;
 
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.frs.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ ab brV;
-    private final /* synthetic */ ab.b brW;
+public class ad implements View.OnKeyListener {
+    final /* synthetic */ ac bxd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar, ab.b bVar) {
-        this.brV = abVar;
-        this.brW = bVar;
+    public ad(ac acVar) {
+        this.bxd = acVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ab.a aVar;
-        ab.a aVar2;
-        aVar = this.brV.brR;
-        if (aVar != null) {
-            aVar2 = this.brV.brR;
-            aVar2.go(this.brW.brX);
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            this.bxd.Ut();
+            return true;
         }
-        this.brV.dismiss();
+        return false;
     }
 }

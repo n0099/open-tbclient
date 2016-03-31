@@ -5,30 +5,30 @@ import com.baidu.tieba.im.memorycache.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.InterfaceC0064a {
-    final /* synthetic */ b cbn;
-    private final /* synthetic */ ImMessageCenterPojo cbp;
+public class g implements a.InterfaceC0065a {
+    final /* synthetic */ b clR;
+    private final /* synthetic */ ImMessageCenterPojo clT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.cbn = bVar;
-        this.cbp = imMessageCenterPojo;
+        this.clR = bVar;
+        this.clT = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0065a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0 && next.getIs_hidden() == 0) {
-                if (this.cbp.getLast_content_time() < next.getLast_content_time()) {
-                    this.cbp.setLast_content(next.getLast_content());
-                    this.cbp.setLast_content_time(next.getLast_content_time());
-                    this.cbp.setLast_rid(next.getLast_rid());
-                    this.cbp.setLast_user_name(next.getLast_user_name());
-                    this.cbp.setSend_status(next.getSend_status());
+                if (this.clT.getLast_content_time() < next.getLast_content_time()) {
+                    this.clT.setLast_content(next.getLast_content());
+                    this.clT.setLast_content_time(next.getLast_content_time());
+                    this.clT.setLast_rid(next.getLast_rid());
+                    this.clT.setLast_user_name(next.getLast_user_name());
+                    this.clT.setSend_status(next.getSend_status());
                 }
-                this.cbp.setUnread_count(next.getUnread_count() + this.cbp.getUnread_count());
-                this.cbp.setIs_hidden(0);
+                this.clT.setUnread_count(next.getUnread_count() + this.clT.getUnread_count());
+                this.clT.setIs_hidden(0);
             }
         }
     }

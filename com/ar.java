@@ -30,7 +30,7 @@ public class ar extends ax {
         Intent intent = new Intent();
         intent.setClassName(MobileQQ.PACKAGE_NAME, MobileQQ.SSO_ACTIVITY_NAME);
         intent.putExtra(MobileQQ.KEY_REQUEST_CODE, getSSORequestCode());
-        intent.putExtra(MobileQQ.KEY_ACTION, "action_login");
+        intent.putExtra("key_action", "action_login");
         intent.putExtra(MobileQQ.KEY_PARAMS, bundle);
         return intent;
     }

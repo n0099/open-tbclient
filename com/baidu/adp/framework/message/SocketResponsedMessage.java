@@ -2,6 +2,7 @@ package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
 public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
     private int mRetry;
+    public long sequenceID;
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public boolean hasError() {

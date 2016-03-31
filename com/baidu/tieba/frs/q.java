@@ -1,24 +1,24 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import com.baidu.tieba.adkiller.SubmitCloseNetMessage;
 /* loaded from: classes.dex */
-class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FrsActivity bgz;
+class q implements View.OnClickListener {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+        this.blk = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.frs.c.a aVar;
-        if (i >= 0) {
-            aVar = this.bgz.bfS;
-            aVar.gt(i);
-            this.bgz.Po().gG(((com.baidu.tbadk.core.data.p) ((GridView) adapterView).getAdapter().getItem(i)).sl());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.widget.ListView.u aF = this.blk.bko.Sb().aF(((Integer) view.getTag()).intValue());
+        if (aF instanceof com.baidu.tbadk.core.data.c) {
+            SubmitCloseNetMessage submitCloseNetMessage = new SubmitCloseNetMessage();
+            submitCloseNetMessage.setKillTag(((com.baidu.tbadk.core.data.c) aF).Sr);
+            submitCloseNetMessage.setType(2);
+            this.blk.sendMessage(submitCloseNetMessage);
         }
     }
 }

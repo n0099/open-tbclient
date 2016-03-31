@@ -8,7 +8,7 @@ public class q extends e {
     }
 
     @Override // com.baidu.tieba.person.e
-    protected BaseFragment atm() {
+    protected BaseFragment aAS() {
         return new s();
     }
 }

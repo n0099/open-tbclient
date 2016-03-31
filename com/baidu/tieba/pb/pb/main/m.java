@@ -1,43 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.t;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.GraffitiPaintActivityConfig;
+import com.baidu.tbadk.core.atomData.GraffitiTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.util.List;
 /* loaded from: classes.dex */
-class m implements a.b {
-    final /* synthetic */ PbActivity cNq;
+public class m {
+    private final df dfV;
+    private final PbActivity dfw;
+    private final CustomMessageListener bOr = new n(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
+    private final CustomMessageListener dfW = new o(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    public m(df dfVar, PbActivity pbActivity) {
+        this.dfV = dfVar;
+        this.dfw = pbActivity;
+        this.dfw.registerListener(this.bOr);
+        this.dfw.registerListener(this.dfW);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        cm cmVar;
-        dz dzVar;
-        dz dzVar2;
-        dz dzVar3;
-        cm cmVar2;
-        dz dzVar4;
-        this.cNq.Pj();
-        cmVar = this.cNq.cMF;
-        com.baidu.tbadk.core.data.u XU = cmVar.XU();
-        dzVar = this.cNq.cMK;
-        int pageNum = dzVar.getPageNum();
-        if (pageNum <= 0) {
-            this.cNq.showToast(t.j.pb_page_error);
-        } else if (XU == null || pageNum <= XU.sq()) {
-            dzVar2 = this.cNq.cMK;
-            dzVar2.ajp();
-            this.cNq.Oy();
-            dzVar3 = this.cNq.cMK;
-            dzVar3.arh();
-            cmVar2 = this.cNq.cMF;
-            dzVar4 = this.cNq.cMK;
-            cmVar2.kQ(dzVar4.getPageNum());
-            aVar.dismiss();
-        } else {
-            this.cNq.showToast(t.j.pb_page_error);
+    /* JADX INFO: Access modifiers changed from: private */
+    public int d(long j, List<com.baidu.tbadk.core.data.u> list) {
+        if (com.baidu.tbadk.core.util.y.q(list)) {
+            return -1;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            com.baidu.tbadk.core.data.u uVar = list.get(i);
+            if (uVar != null && uVar.getType() == 1 && uVar.getGid() > 0 && uVar.getGid() == j) {
+                return i;
+            }
+        }
+        return -2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int e(long j, List<com.baidu.tbadk.core.data.u> list) {
+        if (com.baidu.tbadk.core.util.y.q(list)) {
+            return -1;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            com.baidu.tbadk.core.data.u uVar = list.get(i);
+            if (uVar != null && uVar.getType() == 1 && uVar.getGid() > 0 && uVar.getUid() > 0 && uVar.getUid() == j) {
+                return i;
+            }
+        }
+        return -2;
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (i == 25001 && intent != null) {
+            String stringExtra = intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME);
+            int intExtra = intent.getIntExtra("from", -1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new com.baidu.tieba.graffiti.j(stringExtra, intExtra)));
+            if (!TextUtils.isEmpty(stringExtra) && this.dfV != null && this.dfV.getPbData() != null) {
+                if (intExtra == 3 || intExtra == 2) {
+                    new GraffitiTabActivityConfig(this.dfw.getPageContext().getPageActivity(), this.dfV.getPbData().getThreadId(), this.dfV.getPbData().getForumId(), stringExtra).start();
+                }
+            }
+        }
+    }
+
+    public void destroy() {
+        com.baidu.tieba.tbadkCore.util.p pVar;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, com.baidu.tieba.tbadkCore.util.p.class);
+        if (runTask != null && (pVar = (com.baidu.tieba.tbadkCore.util.p) runTask.getData()) != null) {
+            pVar.destroy();
         }
     }
 }

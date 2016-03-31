@@ -9,18 +9,18 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.util.d<LinkedHashMap<String, String>> {
-    final /* synthetic */ a cfe;
-    private final /* synthetic */ ad cfp;
+public class x implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> {
+    final /* synthetic */ a cpJ;
+    private final /* synthetic */ ad cpU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(a aVar, ad adVar) {
-        this.cfe = aVar;
-        this.cfp = adVar;
+        this.cpJ = aVar;
+        this.cpU = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.d
+    @Override // com.baidu.tbadk.util.g
     /* renamed from: a */
     public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
         LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
@@ -35,19 +35,19 @@ public class x implements com.baidu.tbadk.util.d<LinkedHashMap<String, String>> 
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 String str3 = linkedHashMap.get(str2);
-                String y = com.baidu.tieba.im.util.h.y(str3, true);
-                if (y != null) {
-                    linkedHashMap2.put(str2, y);
+                String z = com.baidu.tieba.im.util.h.z(str3, true);
+                if (z != null) {
+                    linkedHashMap2.put(str2, z);
                 }
-                String y2 = com.baidu.tieba.im.util.h.y(str3, false);
-                if (!TextUtils.isEmpty(y2) && !TextUtils.isEmpty(y)) {
+                String z2 = com.baidu.tieba.im.util.h.z(str3, false);
+                if (!TextUtils.isEmpty(z2) && !TextUtils.isEmpty(z)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = y2;
+                    imageUrlData.imageUrl = z2;
                     imageUrlData.urlType = 10;
-                    hashMap.put(y, imageUrlData);
+                    hashMap.put(z, imageUrlData);
                 }
             }
         }
-        this.cfp.a(linkedHashMap2, hashMap);
+        this.cpU.a(linkedHashMap2, hashMap);
     }
 }

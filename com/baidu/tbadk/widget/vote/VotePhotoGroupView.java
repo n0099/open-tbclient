@@ -13,30 +13,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VotePhotoGroupView extends LinearLayout {
-    private List<e> aGL;
-    private LinearLayout aGM;
-    private LinearLayout aGN;
-    private b aGO;
-    private int aGP;
-    private com.baidu.tbadk.widget.vote.a aGQ;
-    private e.a aGR;
+    private List<e> aJH;
+    private LinearLayout aJI;
+    private LinearLayout aJJ;
+    private b aJK;
+    private int aJL;
+    private com.baidu.tbadk.widget.vote.a aJM;
+    private e.a aJN;
     private int mode;
 
     public VotePhotoGroupView(Context context) {
         super(context);
         this.mode = 1;
-        this.aGP = -1;
-        this.aGQ = null;
-        this.aGR = new d(this);
+        this.aJL = -1;
+        this.aJM = null;
+        this.aJN = new d(this);
         init(context);
     }
 
     public VotePhotoGroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mode = 1;
-        this.aGP = -1;
-        this.aGQ = null;
-        this.aGR = new d(this);
+        this.aJL = -1;
+        this.aJM = null;
+        this.aJN = new d(this);
         init(context);
     }
 
@@ -44,13 +44,13 @@ public class VotePhotoGroupView extends LinearLayout {
         setOrientation(0);
         setGravity(1);
         LayoutInflater.from(context).inflate(t.h.vote_photo_layout, this);
-        this.aGM = (LinearLayout) findViewById(t.g.vote_select_pic_left);
-        this.aGN = (LinearLayout) findViewById(t.g.vote_select_pic_right);
-        this.aGL = new ArrayList();
+        this.aJI = (LinearLayout) findViewById(t.g.vote_select_pic_left);
+        this.aJJ = (LinearLayout) findViewById(t.g.vote_select_pic_right);
+        this.aJH = new ArrayList();
     }
 
     public void setOnVoteCheckedChangedListener(b bVar) {
-        this.aGO = bVar;
+        this.aJK = bVar;
     }
 
     public void setMode(int i) {
@@ -61,9 +61,9 @@ public class VotePhotoGroupView extends LinearLayout {
 
     public void setData(List<com.baidu.tbadk.widget.vote.a> list, boolean z) {
         e eVar;
-        this.aGM.removeAllViews();
-        this.aGN.removeAllViews();
-        this.aGL.clear();
+        this.aJI.removeAllViews();
+        this.aJJ.removeAllViews();
+        this.aJH.clear();
         if (list != null && !list.isEmpty()) {
             com.baidu.tbadk.widget.vote.a aVar = null;
             e eVar2 = null;
@@ -73,16 +73,16 @@ public class VotePhotoGroupView extends LinearLayout {
                     int i2 = (i % 2) + 1;
                     boolean isSelected = aVar2.isSelected();
                     e eVar3 = new e(getContext());
-                    eVar3.setOnItemCheckChangeListener(this.aGR);
+                    eVar3.setOnItemCheckChangeListener(this.aJN);
                     eVar3.a(aVar2, i, this.mode, isSelected);
                     if (i2 == 1) {
-                        this.aGM.addView(eVar3);
+                        this.aJI.addView(eVar3);
                         eVar = eVar3;
                     } else {
-                        this.aGN.addView(eVar3);
+                        this.aJJ.addView(eVar3);
                         if (aVar != null && eVar2 != null) {
-                            boolean isNull = StringUtils.isNull(aVar.HI());
-                            boolean isNull2 = StringUtils.isNull(aVar2.HI());
+                            boolean isNull = StringUtils.isNull(aVar.Je());
+                            boolean isNull2 = StringUtils.isNull(aVar2.Je());
                             if (isNull && isNull2) {
                                 eVar2.setNameVisibility(8);
                                 eVar3.setNameVisibility(8);
@@ -91,13 +91,13 @@ public class VotePhotoGroupView extends LinearLayout {
                         aVar2 = aVar;
                         eVar = eVar2;
                     }
-                    this.aGL.add(eVar3);
+                    this.aJH.add(eVar3);
                     eVar2 = eVar;
                     i++;
                     aVar = aVar2;
                 }
             }
-            if (i % 2 != 0 && aVar != null && eVar2 != null && StringUtils.isNull(aVar.HI())) {
+            if (i % 2 != 0 && aVar != null && eVar2 != null && StringUtils.isNull(aVar.Je())) {
                 eVar2.setNameVisibility(8);
             }
             if (z) {
@@ -112,14 +112,14 @@ public class VotePhotoGroupView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(int i, boolean z) {
-        if (this.aGL != null) {
-            int size = this.aGL.size();
+        if (this.aJH != null) {
+            int size = this.aJH.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.aGL.get(i2) != null) {
+                if (this.aJH.get(i2) != null) {
                     if (z || i == i2) {
-                        this.aGL.get(i2).setSelected(true);
+                        this.aJH.get(i2).setSelected(true);
                     } else {
-                        this.aGL.get(i2).setSelected(false);
+                        this.aJH.get(i2).setSelected(false);
                     }
                 }
             }
@@ -128,8 +128,8 @@ public class VotePhotoGroupView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aGL != null) {
-            for (e eVar : this.aGL) {
+        if (f >= 0.0f && this.aJH != null) {
+            for (e eVar : this.aJH) {
                 if (eVar != null) {
                     eVar.setProgress(f);
                 }

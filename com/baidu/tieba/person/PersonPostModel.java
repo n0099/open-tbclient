@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -18,11 +19,11 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int cZE = 0;
-    private static String cZF = "";
+    private static int duh = 0;
+    private static String dui = "";
     public int hide_post;
     private int mLastChooseStyle;
-    public List<PostInfoList> post_list;
+    public final List<PostInfoList> post_list;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -57,29 +58,26 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i) {
-        if (z || !str.equals(cZF)) {
-            cZE = 1;
-            cZF = str;
+        if (z || !str.equals(dui)) {
+            duh = 1;
+            dui = str;
         } else {
-            cZE++;
-        }
-        if (tbPageContext != null) {
-            this.unique_id = tbPageContext.getUniqueId();
+            duh++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(cZF);
-        userPostPageRequestMessage.setPn(cZE);
+        userPostPageRequestMessage.setUid(dui);
+        userPostPageRequestMessage.setPn(duh);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
-        int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
+        int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m411getInst().getApp());
+        int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m411getInst().getApp());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.ax.wg().wi() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(K);
-        userPostPageRequestMessage.set_scr_h(L);
+        int i2 = com.baidu.tbadk.core.util.az.wz().wB() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(B);
+        userPostPageRequestMessage.set_scr_h(C);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(aVar));
@@ -129,7 +127,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     /* loaded from: classes.dex */
-    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.ai, Serializable {
+    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.ak, Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -203,16 +201,16 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ai
-        public ArrayList<com.baidu.tbadk.core.util.ah> getImages() {
+        @Override // com.baidu.tbadk.core.util.ak
+        public ArrayList<com.baidu.tbadk.core.util.aj> getImages() {
             Media[] mediaArr;
-            ArrayList<com.baidu.tbadk.core.util.ah> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tbadk.core.util.aj> arrayList = new ArrayList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    com.baidu.tbadk.core.util.ah ahVar = new com.baidu.tbadk.core.util.ah();
-                    ahVar.imgUrl = media.big_pic;
-                    ahVar.acq = 10;
-                    arrayList.add(ahVar);
+                    com.baidu.tbadk.core.util.aj ajVar = new com.baidu.tbadk.core.util.aj();
+                    ajVar.imgUrl = media.big_pic;
+                    ajVar.abD = 10;
+                    arrayList.add(ajVar);
                 }
             }
             return arrayList;
@@ -482,5 +480,10 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                 this.town = lbsInfo.town;
             }
         }
+    }
+
+    @Override // com.baidu.adp.base.e
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.unique_id = bdUniqueId;
     }
 }

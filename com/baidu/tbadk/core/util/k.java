@@ -7,10 +7,10 @@ public class k extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        aa aaVar = new aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
-        aaVar.p("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-        aaVar.p("os_version", Build.VERSION.RELEASE);
-        aaVar.p("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        aaVar.uZ();
+        ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
+        abVar.p("st_type", TbConfig.ST_TYPE_ENTER_FORE);
+        abVar.p("os_version", Build.VERSION.RELEASE);
+        abVar.p("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+        abVar.vw();
     }
 }

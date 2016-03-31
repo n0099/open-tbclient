@@ -11,11 +11,16 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private Context context;
     private boolean hasNetworkError;
     private boolean isFromMark;
-    private com.baidu.tieba.pb.a.c pbData;
+    private com.baidu.tieba.pb.data.d mAppealInfo;
+    private com.baidu.tieba.pb.data.e pbData;
     private int updateType;
 
     public pbPageHttpResponseMessage(int i) {
         super(i);
+    }
+
+    public com.baidu.tieba.pb.data.d getAppealInfo() {
+        return this.mAppealInfo;
     }
 
     public boolean hasNetworkError() {
@@ -30,7 +35,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         return this.isFromMark;
     }
 
-    public com.baidu.tieba.pb.a.c getPbData() {
+    public com.baidu.tieba.pb.data.e getPbData() {
         return this.pbData;
     }
 
@@ -60,11 +65,24 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.pbData = new com.baidu.tieba.pb.a.c();
-            this.pbData.a(pbPageResIdl.data, this.context);
-            BdLog.detailException(null);
+        if (getError() != 0) {
+            if (getError() == 4 && pbPageResIdl.data != null) {
+                this.mAppealInfo = new com.baidu.tieba.pb.data.d();
+                if (pbPageResIdl.data.appeal_info != null) {
+                    this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
+                    this.mAppealInfo.dcF = pbPageResIdl.data.appeal_info.appeal_url;
+                }
+                if (pbPageResIdl.data.forum != null) {
+                    this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
+                    return;
+                }
+                return;
+            }
+            return;
         }
+        this.pbData = new com.baidu.tieba.pb.data.e();
+        this.pbData.a(pbPageResIdl.data, this.context);
+        BdLog.detailException(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,10 +90,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                ch.apK().a(this.cacheKey, this.isFromMark, bArr);
+                cx.awR().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                ch.apK().m(this.cacheKey, bArr);
+                cx.awR().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

@@ -8,13 +8,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity cWy;
+    final /* synthetic */ BasePersonInfoActivity dra;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BasePersonInfoActivity basePersonInfoActivity, int i) {
         super(i);
-        this.cWy = basePersonInfoActivity;
+        this.dra = basePersonInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,24 +29,24 @@ public class b extends HttpMessageListener {
         int i3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int atk = this.cWy.atk();
-                iArr = BasePersonInfoActivity.cdx;
-                i = this.cWy.cdo;
-                com.baidu.tbadk.core.a.h.r(atk, iArr[i]);
-                imageView = this.cWy.cdr;
-                iArr2 = BasePersonInfoActivity.cdv;
-                i2 = this.cWy.cdo;
-                com.baidu.tbadk.core.util.ar.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.cWy;
-                TbPageContext pageContext = this.cWy.getPageContext();
-                iArr3 = BasePersonInfoActivity.cdw;
-                i3 = this.cWy.cdo;
+                int aAQ = this.dra.aAQ();
+                iArr = BasePersonInfoActivity.coc;
+                i = this.dra.cnT;
+                com.baidu.tbadk.core.a.h.n(aAQ, iArr[i]);
+                imageView = this.dra.cnW;
+                iArr2 = BasePersonInfoActivity.coa;
+                i2 = this.dra.cnT;
+                com.baidu.tbadk.core.util.at.c(imageView, iArr2[i2]);
+                BasePersonInfoActivity basePersonInfoActivity = this.dra;
+                TbPageContext pageContext = this.dra.getPageContext();
+                iArr3 = BasePersonInfoActivity.cob;
+                i3 = this.dra.cnT;
                 basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), t.f.icon_toast_info);
                 return;
             }
-            this.cWy.showToast(httpResponsedMessage.getErrorString());
+            this.dra.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.cWy.showToast(this.cWy.getPageContext().getString(t.j.neterror));
+        this.dra.showToast(this.dra.getPageContext().getString(t.j.neterror));
     }
 }

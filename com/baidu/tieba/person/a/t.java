@@ -8,26 +8,26 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.b.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.t;
 import tbclient.TwAnchorProfitItem;
 import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
 public class t extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b.k> {
-    private View.OnClickListener OS;
+    private View.OnClickListener OZ;
     protected int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public t(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.OS = new u(this);
+        this.OZ = new u(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: az */
+    /* renamed from: aJ */
     public com.baidu.tieba.person.b.k b(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.k(LayoutInflater.from(this.mContext).inflate(t.h.person_info_live_thread_card, viewGroup, false));
     }
@@ -38,39 +38,41 @@ public class t extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.l lVar, com.baidu.tieba.person.b.k kVar) {
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
         a(kVar);
-        if (lVar != null && this.aXE) {
+        if (lVar != null) {
             a(kVar, lVar);
-            this.aXE = false;
         }
         return view;
     }
 
     private void a(com.baidu.tieba.person.b.k kVar, com.baidu.tieba.person.data.l lVar) {
-        kVar.dfb.setOnClickListener(this.OS);
-        com.baidu.tbadk.core.data.q auo = lVar.auo();
-        if (auo == null || auo.sm() == null || auo.sn() == null) {
-            kVar.dff.setVisibility(8);
+        kVar.dzA.setOnClickListener(this.OZ);
+        com.baidu.tbadk.core.data.w aBU = lVar.aBU();
+        if (aBU == null || aBU.sd() == null || aBU.se() == null) {
+            kVar.dzE.setVisibility(8);
             return;
         }
-        TwZhiBoUser sm = auo.sm();
-        if (auo.sn().size() == 0 || sm.in_black_list.intValue() == 1) {
-            kVar.dff.setVisibility(8);
+        TwZhiBoUser sd = aBU.sd();
+        if (aBU.se().size() == 0 || sd.in_black_list.intValue() == 1) {
+            kVar.dzE.setVisibility(8);
             return;
         }
-        kVar.dff.setOnClickListener(this.OS);
-        kVar.dff.setTag(lVar);
-        kVar.dff.setVisibility(0);
-        kVar.dfi.setText(String.format(this.mContext.getString(t.j.host_level_unlock), Integer.valueOf(a.C0040a.aX(sm.anchor_level.intValue()) + 1)));
-        kVar.dfj.removeAllViews();
-        for (TwAnchorProfitItem twAnchorProfitItem : auo.sn()) {
-            HeadImageView headImageView = new HeadImageView(this.mContext);
-            headImageView.setAutoChangeStyle(true);
-            int c = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds32);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(c, c);
-            layoutParams.leftMargin = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds4);
-            headImageView.setLayoutParams(layoutParams);
-            headImageView.d(twAnchorProfitItem.icon_lock_url, 10, false);
-            kVar.dfj.addView(headImageView);
+        kVar.dzE.setOnClickListener(this.OZ);
+        kVar.dzE.setTag(lVar);
+        kVar.dzE.setVisibility(0);
+        kVar.dzH.setText(String.format(this.mContext.getString(t.j.host_level_unlock), Integer.valueOf(a.C0040a.aW(sd.anchor_level.intValue()) + 1)));
+        kVar.dzI.removeAllViews();
+        int c = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds4);
+        int c2 = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds32);
+        for (TwAnchorProfitItem twAnchorProfitItem : aBU.se()) {
+            com.baidu.tieba.view.f fVar = new com.baidu.tieba.view.f(this.mContext);
+            HeadImageView icon = fVar.getIcon();
+            icon.setAutoChangeStyle(true);
+            icon.c(twAnchorProfitItem.icon_unlock_url, 10, false);
+            kVar.dzI.addView(fVar);
+            ((LinearLayout.LayoutParams) fVar.getLayoutParams()).leftMargin = c;
+            fVar.bi(c2, c2);
+            fVar.bj(c2, c2);
+            fVar.bk(c2 / 2, c2 / 2);
         }
     }
 
@@ -78,17 +80,17 @@ public class t extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b
         int skinType;
         if (kVar != null && (skinType = TbadkCoreApplication.m411getInst().getSkinType()) != kVar.mSkinType) {
             kVar.mSkinType = skinType;
-            ar.k(kVar.dfb, t.f.addresslist_item_bg);
-            ar.c(kVar.dfe, t.f.icon_pl_live_telecast);
-            ar.c(kVar.dfd, t.f.icon_arrow_tab);
-            ar.l(kVar.deo, t.d.cp_bg_line_c);
-            ar.b(kVar.dfc, t.d.cp_cont_f, 1);
-            ar.k(kVar.dff, t.f.addresslist_item_bg);
-            ar.c(kVar.dfg, t.f.icon_mine_anchor);
-            ar.b(kVar.dfh, t.d.cp_cont_f, 1);
-            ar.b(kVar.dfi, t.d.cp_cont_d, 1);
-            ar.c(kVar.dfk, t.f.icon_arrow_tab);
-            ar.l(kVar.dfl, t.d.cp_bg_line_c);
+            at.k(kVar.dzA, t.f.addresslist_item_bg);
+            at.c(kVar.dzD, t.f.icon_pl_live_telecast);
+            at.c(kVar.dzC, t.f.icon_arrow_tab);
+            at.l(kVar.dyN, t.d.cp_bg_line_c);
+            at.b(kVar.dzB, t.d.cp_cont_f, 1);
+            at.k(kVar.dzE, t.f.addresslist_item_bg);
+            at.c(kVar.dzF, t.f.icon_mine_anchor);
+            at.b(kVar.dzG, t.d.cp_cont_f, 1);
+            at.b(kVar.dzH, t.d.cp_cont_d, 1);
+            at.c(kVar.dzJ, t.f.icon_arrow_tab);
+            at.l(kVar.dzK, t.d.cp_bg_line_c);
         }
     }
 }

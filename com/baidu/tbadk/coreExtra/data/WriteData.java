@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import android.text.TextUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -18,6 +19,9 @@ public class WriteData implements Serializable {
     public static int SHARE_SDK_NET_IMAGE = 0;
     public static final String THREAD_TYPE_LBS = "7";
     public static final int UPDATE_PHOTO_LIVE = 5;
+    public static final int VIDEO_REVIEW_TYPE_DEFAULT = 0;
+    public static final int VIDEO_REVIEW_TYPE_NEED = 1;
+    public static final int VIDEO_REVIEW_TYPE_NOT_NEED = 2;
     private WriteImagesInfo baobaoImagesInfo;
     private boolean isAd;
     private boolean isBabaoPosted;
@@ -30,6 +34,9 @@ public class WriteData implements Serializable {
     private int mFloorNum;
     private String mForumId;
     private String mForumName;
+    private String mGraffitiFileName;
+    private String mGraffitiId;
+    private String mGraffitiWriteCode;
     private boolean mHasLocationData;
     private boolean mHaveDraft;
     private boolean mIsAddition;
@@ -38,6 +45,7 @@ public class WriteData implements Serializable {
     private boolean mIsGiftPost;
     private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
+    private String mReplyUid;
     private String mRepostId;
     private String mReturnVoiceMd5;
     private String mShareApiKey;
@@ -61,6 +69,7 @@ public class WriteData implements Serializable {
     private String mVcodeMD5;
     private String mVcodeUrl;
     private VideoInfo mVideoInfo;
+    private int mVideoReviewType;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
     private WriteImagesInfo writeImagesInfo;
@@ -77,6 +86,7 @@ public class WriteData implements Serializable {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
+        this.mVideoReviewType = 0;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -85,6 +95,7 @@ public class WriteData implements Serializable {
         this.mFloorNum = 0;
         this.mTitle = null;
         this.mContent = null;
+        this.mReplyUid = null;
         this.mVcode = null;
         this.mVcodeMD5 = null;
         this.mVcodeUrl = null;
@@ -111,16 +122,18 @@ public class WriteData implements Serializable {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
+        this.mVideoReviewType = 0;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
+        this.mReplyUid = null;
     }
 
     public boolean hasContentToSave() {
         if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
-                    return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
+                    return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0 || !TextUtils.isEmpty(this.mGraffitiFileName);
                 }
                 return true;
             }
@@ -135,6 +148,7 @@ public class WriteData implements Serializable {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
             jSONObject.put("mContent", this.mContent);
+            jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsBaobao", this.mIsBaobao);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
@@ -151,6 +165,7 @@ public class WriteData implements Serializable {
             if (this.mTaskId != null) {
                 jSONObject.put("mTaskId", this.mTaskId);
             }
+            jSONObject.put("mGraffitiFileName", this.mGraffitiFileName);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -166,6 +181,7 @@ public class WriteData implements Serializable {
             writeData.mType = jSONObject.optInt("mType");
             writeData.mTitle = jSONObject.optString("mTitle", null);
             writeData.mContent = jSONObject.optString("mContent", null);
+            writeData.mReplyUid = jSONObject.optString("mReplyUid", null);
             writeData.mThreadId = jSONObject.optString("mThreadId", null);
             writeData.mIsBaobao = jSONObject.optBoolean("mIsBaobao");
             writeData.mIsInterviewLivew = jSONObject.optBoolean("mIsInterviewLive");
@@ -184,6 +200,7 @@ public class WriteData implements Serializable {
                 writeData.baobaoImagesInfo = new WriteImagesInfo();
                 writeData.baobaoImagesInfo.parseJson(optJSONObject3);
             }
+            writeData.mGraffitiFileName = jSONObject.optString("mGraffitiFileName");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -212,6 +229,14 @@ public class WriteData implements Serializable {
 
     public void setContent(String str) {
         this.mContent = str;
+    }
+
+    public String getReplyId() {
+        return this.mReplyUid;
+    }
+
+    public void setReplyId(String str) {
+        this.mReplyUid = str;
     }
 
     public void setThreadId(String str) {
@@ -371,6 +396,14 @@ public class WriteData implements Serializable {
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         this.writeImagesInfo = writeImagesInfo;
+    }
+
+    public String getGraffitiWriteCode() {
+        return this.mGraffitiWriteCode;
+    }
+
+    public void setGraffitiWriteCode(String str) {
+        this.mGraffitiWriteCode = str;
     }
 
     public void setVideoInfo(VideoInfo videoInfo) {
@@ -648,6 +681,14 @@ public class WriteData implements Serializable {
         return this.mVoteInfo;
     }
 
+    public void setGraffitiFileName(String str) {
+        this.mGraffitiFileName = str;
+    }
+
+    public String getGraffitiFileName() {
+        return this.mGraffitiFileName;
+    }
+
     public int getCategoryFrom() {
         return this.mCategoryFrom;
     }
@@ -662,5 +703,21 @@ public class WriteData implements Serializable {
 
     public void setCategoryTo(int i) {
         this.mCategoryTo = i;
+    }
+
+    public void setVideoReviewType(int i) {
+        this.mVideoReviewType = i;
+    }
+
+    public int getVideoReviewType() {
+        return this.mVideoReviewType;
+    }
+
+    public void setGraffitiId(String str) {
+        this.mGraffitiId = str;
+    }
+
+    public String getGraffitiId() {
+        return this.mGraffitiId;
     }
 }

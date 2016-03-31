@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class LoginPassV6SwitchStatic extends a {
     static {
-        e.gE().e(LoginPassV6SwitchStatic.class);
+        e.gE().f(LoginPassV6SwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

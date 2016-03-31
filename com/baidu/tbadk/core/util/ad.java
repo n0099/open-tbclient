@@ -1,34 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
 /* loaded from: classes.dex */
-public class ad {
-    private static ad abW;
-    private static volatile int abX = 0;
-    private static int abY = 300000;
-    private static int abZ = 10;
-    public static int aca;
+class ad implements com.baidu.adp.lib.network.http.i {
+    int abc = 0;
+    int abd = 0;
+    int abe = 0;
+    final /* synthetic */ ac abf;
+    private final /* synthetic */ Handler abg;
+    private final /* synthetic */ int abh;
 
-    private ad() {
-        aca = TbadkCoreApplication.m411getInst().getNetWorkCoreType();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(ac acVar, Handler handler, int i) {
+        this.abf = acVar;
+        this.abg = handler;
+        this.abh = i;
     }
 
-    public static synchronized ad vK() {
-        ad adVar;
-        synchronized (ad.class) {
-            if (abW == null) {
-                abW = new ad();
-            }
-            adVar = abW;
+    @Override // com.baidu.adp.lib.network.http.i
+    public void d(int i, int i2) {
+        if (i2 > 0) {
+            this.abc = i2 / 50;
         }
-        return adVar;
-    }
-
-    public t a(com.baidu.tbadk.core.util.a.a aVar) {
-        return new ab(aVar);
-    }
-
-    public static void cE(int i) {
-        aca = i;
+        this.abd += i - this.abe;
+        this.abe = i;
+        if (this.abg != null) {
+            if (this.abd > this.abc || i == i2) {
+                this.abd = 0;
+                this.abg.sendMessage(this.abg.obtainMessage(this.abh, i, i2));
+            }
+        }
     }
 }

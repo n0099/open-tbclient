@@ -7,16 +7,16 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     private DiskFileOperate mDiskFileOperate;
-    private b rl;
-    private volatile e rm = null;
+    private b rv;
+    private volatile e rw = null;
 
     public c(b bVar, DiskFileOperate diskFileOperate) {
-        this.rl = null;
+        this.rv = null;
         this.mDiskFileOperate = null;
         if (bVar == null || diskFileOperate == null) {
             throw new InvalidParameterException("DiskFileTask parameter null");
         }
-        this.rl = bVar;
+        this.rv = bVar;
         this.mDiskFileOperate = diskFileOperate;
     }
 
@@ -25,8 +25,8 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        this.rm = new e(this.rl, this.mDiskFileOperate);
-        this.rm.fs();
+        this.rw = new e(this.rv, this.mDiskFileOperate);
+        this.rw.ft();
         return this.mDiskFileOperate;
     }
 
@@ -37,9 +37,9 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public void onPostExecute(DiskFileOperate diskFileOperate) {
         super.onPostExecute(diskFileOperate);
         if (diskFileOperate != null) {
-            this.mDiskFileOperate.l(diskFileOperate.isSuccess());
+            this.mDiskFileOperate.k(diskFileOperate.isSuccess());
         } else {
-            this.mDiskFileOperate.l(false);
+            this.mDiskFileOperate.k(false);
         }
     }
 
@@ -47,14 +47,14 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        this.mDiskFileOperate.l(false);
+        this.mDiskFileOperate.k(false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        if (this.rm != null) {
-            this.rm.cancel();
+        if (this.rw != null) {
+            this.rw.cancel();
         }
     }
 }

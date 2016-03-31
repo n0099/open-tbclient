@@ -9,30 +9,30 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a implements TextWatcher {
-    private EditText cfX;
-    private int eqE;
-    private boolean eqF = false;
+    private EditText cqC;
+    private boolean eKA = false;
+    private int eKz;
 
     public a(int i, EditText editText) {
-        this.eqE = 0;
-        this.cfX = null;
-        this.eqE = i;
-        this.cfX = editText;
+        this.eKz = 0;
+        this.cqC = null;
+        this.eKz = i;
+        this.cqC = editText;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         Editable text;
-        if (this.cfX != null && (text = this.cfX.getText()) != null) {
-            int length = this.cfX.getText().toString().trim().length();
-            if (length > 0 && !this.eqF) {
+        if (this.cqC != null && (text = this.cqC.getText()) != null) {
+            int length = this.cqC.getText().toString().trim().length();
+            if (length > 0 && !this.eKA) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TEXT_CHANGED));
-                this.eqF = true;
+                this.eKA = true;
             }
-            if (length > this.eqE) {
+            if (length > this.eKz) {
                 int selectionEnd = Selection.getSelectionEnd(text);
-                this.cfX.setText(text.toString().substring(0, this.eqE));
-                Editable text2 = this.cfX.getText();
+                this.cqC.setText(text.toString().substring(0, this.eKz));
+                Editable text2 = this.cqC.getText();
                 if (selectionEnd > text2.length()) {
                     selectionEnd = text2.length();
                 }

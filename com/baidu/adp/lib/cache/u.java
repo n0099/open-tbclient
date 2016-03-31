@@ -18,7 +18,7 @@ public class u<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public void f(String str, T t) {
+    public void e(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.o
@@ -34,7 +34,7 @@ public class u<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public void g(String str, T t) {
+    public void f(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.o

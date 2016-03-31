@@ -6,10 +6,10 @@ import com.baidu.tieba.personInfo.bp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q implements u {
-    public static final BdUniqueId dce = BdUniqueId.gen();
-    private String dcf;
-    private String dcg;
-    private List<bp.a> dch;
+    public static final BdUniqueId dwH = BdUniqueId.gen();
+    private String dwI;
+    private String dwJ;
+    private List<bp.a> dwK;
     private String icon;
     private String name;
 
@@ -29,32 +29,32 @@ public class q implements u {
         this.icon = str;
     }
 
-    public String aut() {
-        return this.dcf;
+    public String aBZ() {
+        return this.dwI;
     }
 
-    public void lb(String str) {
-        this.dcf = str;
+    public void mq(String str) {
+        this.dwI = str;
     }
 
-    public String auu() {
-        return this.dcg;
+    public String aCa() {
+        return this.dwJ;
     }
 
-    public void lc(String str) {
-        this.dcg = str;
+    public void mr(String str) {
+        this.dwJ = str;
     }
 
-    public List<bp.a> auv() {
-        return this.dch;
+    public List<bp.a> aCb() {
+        return this.dwK;
     }
 
-    public void bp(List<bp.a> list) {
-        this.dch = list;
+    public void bL(List<bp.a> list) {
+        this.dwK = list;
     }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dce;
+        return dwH;
     }
 }

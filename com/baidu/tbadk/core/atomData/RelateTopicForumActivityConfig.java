@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RelateTopicForumActivityConfig extends IntentConfig {
-    public RelateTopicForumActivityConfig(Context context, List list) {
+    public RelateTopicForumActivityConfig(Context context, List list, String str) {
         super(context);
         getIntent().putExtra("data_list", (ArrayList) list);
+        getIntent().putExtra(IntentConfig.TOPIC_ID, str);
     }
 }

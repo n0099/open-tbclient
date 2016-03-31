@@ -6,49 +6,49 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h extends FrameLayout {
-    private int asV;
-    private LinkedList<r> atc;
-    private LinkedList<z> atd;
-    private z ate;
-    private boolean atf;
-    private boolean atg;
-    private k ath;
-    private Runnable ati;
+    private LinkedList<s> atB;
+    private LinkedList<ab> atC;
+    private ab atD;
+    private boolean atE;
+    private boolean atF;
+    private l atG;
+    private Runnable atH;
+    private int atu;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h(Context context, k kVar) {
+    public h(Context context, l lVar) {
         super(context);
-        this.asV = t.d.editor_background;
-        this.ate = null;
-        this.atf = true;
-        this.atg = false;
-        this.ati = new i(this);
-        this.atc = new LinkedList<>();
-        this.atd = new LinkedList<>();
-        this.ath = kVar;
+        this.atu = t.d.editor_background;
+        this.atD = null;
+        this.atE = true;
+        this.atF = false;
+        this.atH = new i(this);
+        this.atB = new LinkedList<>();
+        this.atC = new LinkedList<>();
+        this.atG = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(r rVar) {
-        this.atc.add(rVar);
+    public void a(s sVar) {
+        this.atB.add(sVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(z zVar) {
-        this.atd.add(zVar);
+    public void a(ab abVar) {
+        this.atC.add(abVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void CA() {
-        Iterator<z> it = this.atd.iterator();
+    public void Di() {
+        Iterator<ab> it = this.atC.iterator();
         while (it.hasNext()) {
-            z next = it.next();
+            ab next = it.next();
             if (next.getToolId() == 2) {
                 b(next);
             }
@@ -62,75 +62,75 @@ public class h extends FrameLayout {
         invalidate();
     }
 
-    private void b(z zVar) {
-        if (zVar instanceof s) {
-            ((s) zVar).i(this.atc);
-            zVar.init();
+    private void b(ab abVar) {
+        if (abVar instanceof t) {
+            ((t) abVar).i(this.atB);
+            abVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.ate = null;
-        this.atc.clear();
-        this.atd.clear();
+        this.atD = null;
+        this.atB.clear();
+        this.atC.clear();
     }
 
-    protected void ow() {
+    protected void op() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.ate != null) {
-            this.ate.hide();
+        if (this.atD != null) {
+            this.atD.hide();
         }
-        this.ate = null;
+        this.atD = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void et(int i) {
-        if (ew(i)) {
-            if (CD()) {
-                this.atf = true;
+    public void ey(int i) {
+        if (eB(i)) {
+            if (Dl()) {
+                this.atE = true;
             } else {
-                this.atf = false;
+                this.atE = false;
             }
-            boolean z = this.atg;
-            Iterator<z> it = this.atd.iterator();
+            boolean z = this.atF;
+            Iterator<ab> it = this.atC.iterator();
             while (it.hasNext()) {
-                z next = it.next();
+                ab next = it.next();
                 if (!z && TbadkCoreApplication.m411getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
                     View view = (View) next;
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.m411getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.atg = true;
+                    this.atF = true;
                 }
                 if (next.getToolId() == i) {
-                    this.ate = next;
-                    if (this.atf) {
-                        next.ow();
+                    this.atD = next;
+                    if (this.atE) {
+                        next.op();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.atf && (getContext() instanceof Activity)) {
-                if (this.ath != null) {
-                    this.ath.CH();
+            if (!this.atE && (getContext() instanceof Activity)) {
+                if (this.atG != null) {
+                    this.atG.Dp();
                 } else {
                     com.baidu.adp.lib.util.k.c(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.h.h.hr().postDelayed(this.ati, 250L);
+                com.baidu.adp.lib.h.h.hx().postDelayed(this.atH, 250L);
             }
-            ow();
+            op();
         }
     }
 
-    private boolean ew(int i) {
-        Iterator<z> it = this.atd.iterator();
+    private boolean eB(int i) {
+        Iterator<ab> it = this.atC.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -139,10 +139,10 @@ public class h extends FrameLayout {
         return false;
     }
 
-    public r ev(int i) {
-        Iterator<r> it = this.atc.iterator();
+    public s eA(int i) {
+        Iterator<s> it = this.atB.iterator();
         while (it.hasNext()) {
-            r next = it.next();
+            s next = it.next();
             if (next.getToolId() == i) {
                 return next;
             }
@@ -151,28 +151,28 @@ public class h extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.asV > 0) {
-            ar.d(this, this.asV, i);
+        if (this.atu > 0) {
+            at.d(this, this.atu, i);
         }
-        Iterator<r> it = this.atc.iterator();
+        Iterator<s> it = this.atB.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<z> it2 = this.atd.iterator();
+        Iterator<ab> it2 = this.atC.iterator();
         while (it2.hasNext()) {
-            z next = it2.next();
+            ab next = it2.next();
             if (next != null) {
                 next.onChangeSkinType(i);
             }
         }
     }
 
-    public boolean CC() {
-        return getVisibility() == 0 && CD();
+    public boolean Dk() {
+        return getVisibility() == 0 && Dl();
     }
 
-    private boolean CD() {
-        Iterator<z> it = this.atd.iterator();
+    private boolean Dl() {
+        Iterator<ab> it = this.atC.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;
@@ -183,20 +183,20 @@ public class h extends FrameLayout {
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.asV = i;
+        this.atu = i;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            aA(true);
+            aF(true);
         }
         super.requestDisallowInterceptTouchEvent(false);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        aA(true);
+        aF(true);
         return super.onInterceptTouchEvent(motionEvent);
     }
 
@@ -205,7 +205,7 @@ public class h extends FrameLayout {
         return true;
     }
 
-    private void aA(boolean z) {
+    private void aF(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

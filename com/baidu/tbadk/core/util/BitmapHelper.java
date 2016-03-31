@@ -220,6 +220,36 @@ public class BitmapHelper {
         return bitmap;
     }
 
+    public static Bitmap getResizedBitmap(Bitmap bitmap, int i, int i2, boolean z) {
+        float f;
+        Bitmap createBitmap;
+        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (z) {
+            if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
+                return bitmap;
+            }
+        } else if (bitmap.getWidth() <= i && bitmap.getHeight() <= i2) {
+            return bitmap;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (i2 / height < i / width) {
+            f = i / width;
+        } else {
+            f = i2 / height;
+        }
+        synchronized (lockForSyncImageDecoder) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f, f);
+            matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
+            createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
+            new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
+        }
+        return createBitmap;
+    }
+
     public static Bitmap getResizedBitmapFillCenter(Bitmap bitmap, int i, int i2) {
         float f;
         Bitmap createBitmap;
@@ -292,7 +322,7 @@ public class BitmapHelper {
             android.graphics.BitmapFactory.decodeStream(r3, r2, r6)     // Catch: java.lang.Throwable -> L70
             android.graphics.Bitmap$Config r2 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
             r6.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L70
-            com.baidu.adp.lib.util.o.e(r3)     // Catch: java.lang.Throwable -> L70
+            com.baidu.adp.lib.util.o.c(r3)     // Catch: java.lang.Throwable -> L70
         L35:
             int r2 = r6.outWidth     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
@@ -310,7 +340,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r6)     // Catch: java.lang.Throwable -> L73
             monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             r0 = r1
             goto Le
         L58:
@@ -325,14 +355,14 @@ public class BitmapHelper {
         L5f:
             r1 = move-exception
         L60:
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             goto Le
         L64:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L67:
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             throw r0
         L6b:
             r0 = move-exception
@@ -386,7 +416,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             r0 = r1
             goto L9
         L34:
@@ -398,14 +428,14 @@ public class BitmapHelper {
         L38:
             r1 = move-exception
         L39:
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.adp.lib.util.o.e(r2)
+            com.baidu.adp.lib.util.o.c(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -431,19 +461,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream cX = m.cX(str);
-                BitmapFactory.decodeStream(cX, null, options);
+                InputStream da = m.da(str);
+                BitmapFactory.decodeStream(da, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.e(cX);
+                com.baidu.adp.lib.util.o.c(da);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream cX2 = m.cX(str);
-                        decodeStream = BitmapFactory.decodeStream(cX2, null, options);
-                        com.baidu.adp.lib.util.o.e(cX2);
+                        InputStream da2 = m.da(str);
+                        decodeStream = BitmapFactory.decodeStream(da2, null, options);
+                        com.baidu.adp.lib.util.o.c(da2);
                     }
                 }
             }
@@ -589,7 +619,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [650=4, 683=5, 684=5, 685=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [728=5, 729=5, 730=5, 695=4] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -686,7 +716,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [730=5, 731=5, 732=5, 734=5, 736=5, 737=5, 738=5, 703=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [775=5, 776=5, 777=5, 779=5, 781=5, 782=5, 783=5, 748=4] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

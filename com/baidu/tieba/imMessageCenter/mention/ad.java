@@ -1,56 +1,43 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.CustomViewPager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends PagerAdapter {
-    private bd cmH;
+public class ad implements FragmentTabWidget.a {
+    final /* synthetic */ z cxE;
 
-    public ad(bd bdVar) {
-        this.cmH = bdVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(z zVar) {
+        this.cxE = zVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return 3;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i == 0) {
-            k ahY = this.cmH.ahY();
-            if (ahY.getView() == null) {
-                View pa = ahY.pa();
-                viewGroup.addView(pa);
-                return pa;
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
+    public void c(int i, boolean z) {
+        be beVar;
+        CustomViewPager customViewPager;
+        FragmentTabWidget fragmentTabWidget;
+        int i2;
+        int i3;
+        beVar = this.cxE.cxj;
+        beVar.aln();
+        customViewPager = this.cxE.cxB;
+        customViewPager.setCurrentItem(i);
+        fragmentTabWidget = this.cxE.cxA;
+        fragmentTabWidget.d(i, true);
+        this.cxE.cxD = i;
+        i2 = this.cxE.cxD;
+        if (i2 != 0) {
+            i3 = this.cxE.cxD;
+            if (i3 == 1) {
+                TiebaStatic.log("c10526");
+                return;
+            } else {
+                TiebaStatic.log("c10527");
+                return;
             }
-            return ahY.getView();
-        } else if (i == 1) {
-            ax ahU = this.cmH.ahU();
-            if (ahU.getView() == null) {
-                View pa2 = ahU.pa();
-                viewGroup.addView(pa2);
-                return pa2;
-            }
-            return ahU.getView();
-        } else {
-            j ahV = this.cmH.ahV();
-            if (ahV.getView() == null) {
-                View pa3 = ahV.pa();
-                viewGroup.addView(pa3);
-                return pa3;
-            }
-            return ahV.getView();
         }
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
+        TiebaStatic.log("c10525");
     }
 }

@@ -5,32 +5,32 @@ import android.widget.ProgressBar;
 import com.baidu.tieba.person.bv;
 /* loaded from: classes.dex */
 class bo implements bv.a {
-    final /* synthetic */ PersonListActivity cZq;
+    final /* synthetic */ PersonListActivity dtT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(PersonListActivity personListActivity) {
-        this.cZq = personListActivity;
+        this.dtT = personListActivity;
     }
 
     @Override // com.baidu.tieba.person.bv.a
-    public void F(String str, boolean z) {
+    public void G(String str, boolean z) {
         ProgressBar progressBar;
         ProgressBar progressBar2;
         if (!z) {
-            progressBar = this.cZq.aNo;
+            progressBar = this.dtT.aQj;
             if (progressBar.isShown()) {
-                progressBar2 = this.cZq.aNo;
+                progressBar2 = this.dtT.aQj;
                 progressBar2.setVisibility(8);
             }
             if (!TextUtils.isEmpty(str)) {
-                this.cZq.showToast(str);
+                this.dtT.showToast(str);
             }
         }
     }
 
     @Override // com.baidu.tieba.person.bv.a
     public com.baidu.tieba.person.data.r d(com.baidu.tieba.person.data.r rVar, boolean z) {
-        this.cZq.a(rVar, z);
+        this.dtT.a(rVar, z);
         return null;
     }
 }

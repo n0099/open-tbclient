@@ -6,90 +6,90 @@ import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.frs.fe;
-import com.baidu.tieba.frs.ff;
-import com.baidu.tieba.frs.fh;
-import com.baidu.tieba.frs.fi;
+import com.baidu.tieba.frs.fo;
+import com.baidu.tieba.frs.fp;
+import com.baidu.tieba.frs.fq;
+import com.baidu.tieba.frs.fr;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d implements fe {
-    private ff bnX;
-    private boolean bcS = true;
-    private boolean bnV = false;
-    private int bnW = 0;
-    private fi bnY = new fi();
-    private final ArrayList<u> bnZ = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a aTO = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
-    private CustomMessageListener boa = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
+public class d implements fo {
+    private fp bsU;
+    private boolean bhD = true;
+    private boolean bsS = false;
+    private int bsT = 0;
+    private fr bsV = new fr();
+    private final ArrayList<u> bsW = new ArrayList<>();
+    private com.baidu.adp.framework.listener.a aXA = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
+    private CustomMessageListener bsX = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
 
-    @Override // com.baidu.tieba.frs.fe
-    public void a(int i, int i2, fh fhVar) {
-        if (i == 2 && fhVar != null) {
-            if (fhVar.pn == -1) {
-                fhVar.pn = 1;
-                this.bnV = true;
+    @Override // com.baidu.tieba.frs.fo
+    public void a(int i, int i2, fq fqVar) {
+        if (i == 2 && fqVar != null) {
+            if (fqVar.pn == -1) {
+                fqVar.pn = 1;
+                this.bsS = true;
             } else {
-                this.bnV = false;
+                this.bsS = false;
             }
-            if (this.bcS) {
-                this.bnY.forumId = fhVar.forumId;
-                this.bnY.pn = fhVar.pn;
-                ho(fhVar.forumId);
-            } else if (fhVar.pn == this.bnW && !this.bnV) {
-                Rk();
+            if (this.bhD) {
+                this.bsV.forumId = fqVar.forumId;
+                this.bsV.pn = fqVar.pn;
+                hE(fqVar.forumId);
+            } else if (fqVar.pn == this.bsT && !this.bsS) {
+                SX();
             } else {
-                c(com.baidu.adp.lib.h.b.c(fhVar.forumId, 0L), true);
+                c(com.baidu.adp.lib.h.b.c(fqVar.forumId, 0L), true);
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.fe
-    public void a(ff ffVar) {
-        this.bnX = ffVar;
+    @Override // com.baidu.tieba.frs.fo
+    public void a(fp fpVar) {
+        this.bsU = fpVar;
     }
 
-    @Override // com.baidu.tieba.frs.fe
+    @Override // com.baidu.tieba.frs.fo
     public void init() {
         registerListener();
-        DW();
+        EH();
     }
 
-    @Override // com.baidu.tieba.frs.fe
-    public void Op() {
+    @Override // com.baidu.tieba.frs.fo
+    public void Qe() {
         unRegisterListener();
     }
 
-    private void ho(String str) {
+    private void hE(String str) {
         MessageManager.getInstance().sendMessage(new FrsHotThreadRequestCacheMessage(str));
     }
 
-    private void Rk() {
-        if (this.bnX != null) {
-            if (this.bnZ == null || this.bnZ.size() == 0) {
-                this.bnY.bmf = false;
+    private void SX() {
+        if (this.bsU != null) {
+            if (this.bsW == null || this.bsW.size() == 0) {
+                this.bsV.bru = false;
             } else {
-                this.bnY.bmf = true;
+                this.bsV.bru = true;
             }
-            this.bnX.a(2, 0, this.bnY, this.bnZ);
+            this.bsU.a(2, 0, this.bsV, this.bsW);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(long j, boolean z) {
-        MessageManager.getInstance().sendMessage(new RequestFrsHotThreadMessage(j, this.bnY.pn));
+        MessageManager.getInstance().sendMessage(new RequestFrsHotThreadMessage(j, this.bsV.pn));
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.aTO);
-        MessageManager.getInstance().registerListener(this.boa);
+        MessageManager.getInstance().registerListener(this.aXA);
+        MessageManager.getInstance().registerListener(this.bsX);
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aTO);
-        MessageManager.getInstance().unRegisterListener(this.boa);
+        MessageManager.getInstance().unRegisterListener(this.aXA);
+        MessageManager.getInstance().unRegisterListener(this.bsX);
     }
 
-    private void DW() {
+    private void EH() {
         com.baidu.tieba.tbadkCore.a.a.a(301003, ResponsedFrsHotSocketMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(301003, CmdConfigHttp.FRS_HOT_TAB_CMD, TbConfig.GET_FRS_HOT, ResponsedFrsHotHttpMessage.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_FRS_HOT_CACHE, b.class);

@@ -6,8 +6,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements CustomMessageTask.CustomRunnable<IntentConfig> {
@@ -24,7 +24,7 @@ public class z implements CustomMessageTask.CustomRunnable<IntentConfig> {
             IntentConfig data = customMessage.getData();
             Class<?> intentClass = this.this$0.getIntentClass(data.getClass());
             if (this.this$0.getIntentClass(AlbumActivityConfig.class) == null) {
-                TiebaStatic.log(new au("inter_config_disappear").r("obj_param1", ap.vW().vX()));
+                TiebaStatic.log(new aw("inter_config_disappear").r("obj_param1", ar.wp().wq()));
             }
             if (intentClass != null) {
                 data.setComponentClass(intentClass);

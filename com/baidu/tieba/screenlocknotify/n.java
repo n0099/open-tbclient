@@ -16,9 +16,9 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
     private Context mContext;
-    private boolean dHB = false;
-    private boolean dHC = false;
-    private List<p> dHA = new ArrayList();
+    private boolean dZV = false;
+    private boolean dZW = false;
+    private List<p> dZU = new ArrayList();
 
     public n(Context context) {
         this.mContext = context;
@@ -26,15 +26,15 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dHA != null) {
-            return this.dHA.size();
+        if (this.dZU != null) {
+            return this.dZU.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.dHA.get(i);
+        return this.dZU.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -44,13 +44,13 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        p pVar = this.dHA.get(i);
-        if (this.dHB) {
-            if (this.dHC && pVar.customGroupType == 4) {
+        p pVar = this.dZU.get(i);
+        if (this.dZV) {
+            if (this.dZW && pVar.customGroupType == 4) {
                 return b(pVar, view, viewGroup, false);
             }
             return a(pVar, view, viewGroup, true);
-        } else if (this.dHC) {
+        } else if (this.dZW) {
             return b(pVar, view, viewGroup, getCount() == 1);
         } else if (i == 0) {
             return a(pVar, view, viewGroup);
@@ -66,17 +66,17 @@ public class n extends BaseAdapter {
         }
         if (aVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_1, viewGroup, false);
-            aVar = aW(view);
+            aVar = bb(view);
             view.setTag(aVar);
         }
-        aVar.dHD.setText(pVar.content);
-        aVar.dHa.setText(pVar.groupName);
-        aVar.dHE.setText(nC(pVar.dHO));
-        aVar.dHb.setText(bO(pVar.dHQ));
+        aVar.dZX.setText(pVar.content);
+        aVar.dZu.setText(pVar.groupName);
+        aVar.dZY.setText(oH(pVar.eai));
+        aVar.dZv.setText(bY(pVar.eak));
         if (z) {
-            aVar.amq.setVisibility(0);
+            aVar.amH.setVisibility(0);
         } else {
-            aVar.amq.setVisibility(8);
+            aVar.amH.setVisibility(8);
         }
         return view;
     }
@@ -88,10 +88,10 @@ public class n extends BaseAdapter {
         }
         if (bVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_2, viewGroup, false);
-            bVar = aX(view);
+            bVar = bc(view);
             view.setTag(bVar);
         }
-        bVar.dHD.setText(pVar.content);
+        bVar.dZX.setText(pVar.content);
         return view;
     }
 
@@ -102,10 +102,10 @@ public class n extends BaseAdapter {
         }
         if (cVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_3, viewGroup, false);
-            cVar = aY(view);
+            cVar = bd(view);
             view.setTag(cVar);
         }
-        cVar.dHG.setText(pVar.content);
+        cVar.eaa.setText(pVar.content);
         return view;
     }
 
@@ -116,46 +116,46 @@ public class n extends BaseAdapter {
         }
         if (dVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_4, viewGroup, false);
-            dVar = aZ(view);
+            dVar = be(view);
             view.setTag(dVar);
         }
-        dVar.dHH.setText(pVar.groupName);
-        dVar.dHb.setText(bO(pVar.dHQ));
-        dVar.dHI.setText(pVar.title);
-        dVar.dHG.setText(pVar.content);
-        dVar.dHJ.setDefaultResource(t.f.icon_default_bear);
-        dVar.dHJ.d(pVar.pic, 10, false);
+        dVar.eab.setText(pVar.groupName);
+        dVar.dZv.setText(bY(pVar.eak));
+        dVar.eac.setText(pVar.title);
+        dVar.eaa.setText(pVar.content);
+        dVar.ead.setDefaultResource(t.f.icon_default_bear);
+        dVar.ead.c(pVar.pic, 10, false);
         if (z) {
-            dVar.dHK.setVisibility(0);
-            dVar.amq.setVisibility(8);
+            dVar.eae.setVisibility(0);
+            dVar.amH.setVisibility(8);
         } else {
-            dVar.dHK.setVisibility(8);
-            dVar.amq.setVisibility(0);
+            dVar.eae.setVisibility(8);
+            dVar.amH.setVisibility(0);
         }
         return view;
     }
 
-    public String bO(long j) {
+    public String bY(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String nC(int i) {
+    public String oH(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public void setData(List<p> list) {
-        this.dHA = list;
+        this.dZU = list;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        View amq;
-        TextView dHD;
-        TextView dHE;
-        TextView dHa;
-        TextView dHb;
+        View amH;
+        TextView dZX;
+        TextView dZY;
+        TextView dZu;
+        TextView dZv;
 
         private a() {
         }
@@ -168,7 +168,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        TextView dHD;
+        TextView dZX;
 
         private b() {
         }
@@ -181,7 +181,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c {
-        TextView dHG;
+        TextView eaa;
 
         private c() {
         }
@@ -194,13 +194,13 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d {
-        View amq;
-        TextView dHG;
-        TextView dHH;
-        TextView dHI;
-        TbImageView dHJ;
-        TextView dHK;
-        TextView dHb;
+        View amH;
+        TextView dZv;
+        TextView eaa;
+        TextView eab;
+        TextView eac;
+        TbImageView ead;
+        TextView eae;
 
         private d() {
         }
@@ -210,45 +210,45 @@ public class n extends BaseAdapter {
         }
     }
 
-    private a aW(View view) {
+    private a bb(View view) {
         a aVar = new a(this, null);
-        aVar.dHa = (TextView) view.findViewById(t.g.friend_name_show1);
-        aVar.dHb = (TextView) view.findViewById(t.g.last_msg_time_show1);
-        aVar.dHD = (TextView) view.findViewById(t.g.one_msg_content_show1);
-        aVar.dHE = (TextView) view.findViewById(t.g.unread_msg_count_show1);
-        aVar.amq = view.findViewById(t.g.line);
+        aVar.dZu = (TextView) view.findViewById(t.g.friend_name_show1);
+        aVar.dZv = (TextView) view.findViewById(t.g.last_msg_time_show1);
+        aVar.dZX = (TextView) view.findViewById(t.g.one_msg_content_show1);
+        aVar.dZY = (TextView) view.findViewById(t.g.unread_msg_count_show1);
+        aVar.amH = view.findViewById(t.g.line);
         return aVar;
     }
 
-    private b aX(View view) {
+    private b bc(View view) {
         b bVar = new b(this, null);
-        bVar.dHD = (TextView) view.findViewById(t.g.msg_content_2);
+        bVar.dZX = (TextView) view.findViewById(t.g.msg_content_2);
         return bVar;
     }
 
-    private c aY(View view) {
+    private c bd(View view) {
         c cVar = new c(this, null);
-        cVar.dHG = (TextView) view.findViewById(t.g.one_msg_content);
+        cVar.eaa = (TextView) view.findViewById(t.g.one_msg_content);
         return cVar;
     }
 
-    private d aZ(View view) {
+    private d be(View view) {
         d dVar = new d(this, null);
-        dVar.dHH = (TextView) view.findViewById(t.g.push_msg_name);
-        dVar.dHI = (TextView) view.findViewById(t.g.push_msg_title);
-        dVar.dHb = (TextView) view.findViewById(t.g.push_msg_time);
-        dVar.dHG = (TextView) view.findViewById(t.g.push_msg_content);
-        dVar.dHK = (TextView) view.findViewById(t.g.push_msg_go);
-        dVar.dHJ = (TbImageView) view.findViewById(t.g.push_msg_pic);
-        dVar.amq = view.findViewById(t.g.line);
+        dVar.eab = (TextView) view.findViewById(t.g.push_msg_name);
+        dVar.eac = (TextView) view.findViewById(t.g.push_msg_title);
+        dVar.dZv = (TextView) view.findViewById(t.g.push_msg_time);
+        dVar.eaa = (TextView) view.findViewById(t.g.push_msg_content);
+        dVar.eae = (TextView) view.findViewById(t.g.push_msg_go);
+        dVar.ead = (TbImageView) view.findViewById(t.g.push_msg_pic);
+        dVar.amH = view.findViewById(t.g.line);
         return dVar;
     }
 
-    public void hq(boolean z) {
-        this.dHB = z;
+    public void id(boolean z) {
+        this.dZV = z;
     }
 
-    public void hr(boolean z) {
-        this.dHC = z;
+    public void ie(boolean z) {
+        this.dZW = z;
     }
 }

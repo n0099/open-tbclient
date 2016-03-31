@@ -5,15 +5,16 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
 import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x extends HttpMessageListener {
-    final /* synthetic */ v dhq;
+public class x extends HttpMessageListener {
+    final /* synthetic */ v dBQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(v vVar, int i) {
         super(i);
-        this.dhq = vVar;
+        this.dBQ = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +24,7 @@ class x extends HttpMessageListener {
         if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
             UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
             if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.dhq.b(null, false);
+                this.dBQ.b(null, false);
                 return;
             }
             UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();

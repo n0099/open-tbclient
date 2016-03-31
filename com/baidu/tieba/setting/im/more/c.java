@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ SecretSettingActivity dIu;
+    final /* synthetic */ SecretSettingActivity eaO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SecretSettingActivity secretSettingActivity, int i, boolean z) {
         super(i, z);
-        this.dIu = secretSettingActivity;
+        this.eaO = secretSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,33 +26,33 @@ class c extends HttpMessageListener {
         i iVar3;
         i iVar4;
         if (httpResponsedMessage != null) {
-            this.dIu.hideProgressBar();
+            this.eaO.hideProgressBar();
             if (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage) {
                 PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                 String operation = privacySettingMessage.getOperation();
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    this.dIu.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dIu.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
+                    this.eaO.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.eaO.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
                     if (TextUtils.equals("location", operation)) {
-                        iVar = this.dIu.dIi;
-                        this.dIu.mHandler.postDelayed(new d(this, iVar.aGz()), 500L);
+                        iVar = this.eaO.eaC;
+                        this.eaO.mHandler.postDelayed(new d(this, iVar.aNj()), 500L);
                         return;
                     }
                     return;
                 }
-                this.dIu.showToast(t.j.success);
+                this.eaO.showToast(t.j.success);
                 if (!TextUtils.equals("location", operation)) {
-                    aVar = this.dIu.dIj;
-                    aVar.ai(operation, type);
-                    iVar2 = this.dIu.dIi;
-                    iVar2.ak(operation, type);
+                    aVar = this.eaO.eaD;
+                    aVar.aq(operation, type);
+                    iVar2 = this.eaO.eaC;
+                    iVar2.as(operation, type);
                     return;
                 }
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                iVar3 = this.dIu.dIi;
-                m411getInst.setLocationShared(iVar3.aGz());
-                iVar4 = this.dIu.dIi;
-                iVar4.hu(TbadkCoreApplication.m411getInst().getLocationShared());
+                iVar3 = this.eaO.eaC;
+                m411getInst.setLocationShared(iVar3.aNj());
+                iVar4 = this.eaO.eaC;
+                iVar4.ii(TbadkCoreApplication.m411getInst().getLocationShared());
             }
         }
     }

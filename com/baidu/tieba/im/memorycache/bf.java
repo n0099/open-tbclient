@@ -22,15 +22,15 @@ public class bf implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.ady().g(imMessageCenterPojo);
-        b.ady().a(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.agR().g(imMessageCenterPojo);
+        b.agR().a(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(1));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void f(String str, List<CommonMsgPojo> list) {
+    public void d(String str, List<CommonMsgPojo> list) {
         if (list != null && list.size() != 0) {
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (commonMsgPojo.getMsg_type() == 11) {

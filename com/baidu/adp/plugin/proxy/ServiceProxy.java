@@ -10,8 +10,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.IBinder;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a;
 import com.baidu.adp.plugin.a.c;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.megapp.ma.MAService;
@@ -23,14 +23,14 @@ public class ServiceProxy extends MAService implements c {
 
     public void loadTargetService(Intent intent) {
         if (this.mEntity == null) {
-            String stringExtra = intent.getStringExtra("intent_extra_package_name");
+            String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
             if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
                 super.stopSelf();
                 BdLog.e("plugin not loaded. pluginname is " + stringExtra);
                 return;
             }
             try {
-                this.mEntity = (PluginBaseService) PluginCenter.getInstance().getPlugin(stringExtra).kD().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(PluginBaseService.class).newInstance();
+                this.mEntity = (PluginBaseService) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE)).asSubclass(PluginBaseService.class).newInstance();
                 this.mEntity.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
@@ -142,8 +142,8 @@ public class ServiceProxy extends MAService implements c {
 
     @Override // com.baidu.adp.plugin.a.c
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
-        if (plugin2 != null && plugin2.C(intent)) {
+        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        if (plugin2 != null && plugin2.remapStartServiceIntent(intent)) {
             return super.bindService(intent, serviceConnection, i);
         }
         return false;
@@ -201,16 +201,16 @@ public class ServiceProxy extends MAService implements c {
 
     @Override // com.baidu.adp.plugin.a.c
     public void proxyStartActivity(Intent intent) {
-        a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
-        if (plugin2 != null && plugin2.E(intent)) {
+        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
             super.startActivity(intent);
         }
     }
 
     @Override // com.baidu.adp.plugin.a.c
     public ComponentName proxyStartService(Intent intent) {
-        a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
-        if (plugin2 != null && plugin2.E(intent)) {
+        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
             return super.startService(intent);
         }
         return null;
@@ -218,8 +218,8 @@ public class ServiceProxy extends MAService implements c {
 
     @Override // com.baidu.adp.plugin.a.c
     public boolean proxyStopService(Intent intent) {
-        a plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
-        if (plugin2 != null && plugin2.E(intent)) {
+        Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
+        if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
             return super.stopService(intent);
         }
         return false;

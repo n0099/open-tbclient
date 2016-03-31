@@ -1,21 +1,25 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements NoNetworkView.a {
-    final /* synthetic */ z cnc;
+public class ab extends CustomMessageListener {
+    final /* synthetic */ z cxE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar) {
-        this.cnc = zVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(z zVar, int i) {
+        super(i);
+        this.cxE = zVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ay(boolean z) {
-        com.baidu.tbadk.mvc.f.a.a jS = this.cnc.jS(this.cnc.getCurrentTabIndex());
-        if (jS != null) {
-            jS.bA(z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
+            return;
         }
+        this.cxE.e(customResponsedMessage);
     }
 }

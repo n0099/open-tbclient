@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.j;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
@@ -39,14 +40,14 @@ public class PluginContextWrapper extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kD();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).getDexClassLoader();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        PluginSetting findPluginSetting = c.mc().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.lU().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
-            com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
+            Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
                 throw new RuntimeException("third plugin is not loaded");
             }
@@ -60,13 +61,13 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        PluginSetting findPluginSetting = c.mc().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.lU().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
-            com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
+            Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
                 throw new RuntimeException("third plugin is not loaded");
             }
-            return plugin2.kE();
+            return plugin2.getPluginResources();
         }
         Resources resources = j.dN().getResources();
         return resources == null ? super.getResources() : resources;

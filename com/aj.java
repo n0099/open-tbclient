@@ -8,16 +8,16 @@ import com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache;
 import com.baidu.cloudsdk.common.util.Utils;
 /* loaded from: classes.dex */
 public class aj implements AsyncImageLoader.IAsyncImageLoaderListener {
-    final /* synthetic */ Uri a;
     final /* synthetic */ String b;
     final /* synthetic */ ImageManager d;
-    final /* synthetic */ AsyncImageLoader.IAsyncImageLoaderListener euT;
+    final /* synthetic */ AsyncImageLoader.IAsyncImageLoaderListener eOK;
+    final /* synthetic */ Uri mP;
 
     public aj(ImageManager imageManager, Uri uri, String str, AsyncImageLoader.IAsyncImageLoaderListener iAsyncImageLoaderListener) {
         this.d = imageManager;
-        this.a = uri;
+        this.mP = uri;
         this.b = str;
-        this.euT = iAsyncImageLoaderListener;
+        this.eOK = iAsyncImageLoaderListener;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
@@ -25,7 +25,7 @@ public class aj implements AsyncImageLoader.IAsyncImageLoaderListener {
         MemoryBitmapCache memoryBitmapCache;
         a aVar;
         if (bitmap != null) {
-            if (Utils.isUrl(this.a)) {
+            if (Utils.isUrl(this.mP)) {
                 aVar = this.d.b;
                 aVar.a(this.b, bitmap);
             } else {
@@ -33,6 +33,6 @@ public class aj implements AsyncImageLoader.IAsyncImageLoaderListener {
                 memoryBitmapCache.a(this.b, bitmap);
             }
         }
-        this.euT.onComplete(bitmap);
+        this.eOK.onComplete(bitmap);
     }
 }

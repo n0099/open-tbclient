@@ -1,22 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class as implements a.b {
-    final /* synthetic */ PbActivity cNq;
-    private final /* synthetic */ fm cNu;
+class as implements NoNetworkView.a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(PbActivity pbActivity, fm fmVar) {
-        this.cNq = pbActivity;
-        this.cNu = fmVar;
+    public as(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.cNq.HidenSoftKeyPad((InputMethodManager) this.cNq.getSystemService("input_method"), this.cNu.getChatMsgView());
-        aVar.dismiss();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aA(boolean z) {
+        boolean z2;
+        df dfVar;
+        z2 = this.dht.dgn;
+        if (!z2 && z) {
+            dfVar = this.dht.dfV;
+            if (dfVar.axj()) {
+                return;
+            }
+            this.dht.amr();
+        }
     }
 }

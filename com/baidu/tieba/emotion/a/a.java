@@ -20,19 +20,19 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a implements e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.g.e
-    public boolean ho() {
-        return l.rn().rt();
+    public boolean hu() {
+        return l.qE().qK();
     }
 
-    private String v(String str, boolean z) {
+    private String w(String str, boolean z) {
         return String.valueOf(str) + (z ? "_gif" : "");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.g.e
-    /* renamed from: f */
-    public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        return c.Ed().fH(v(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+    /* renamed from: c */
+    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
+        return c.EO().fP(w(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,30 +50,30 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> LB = x.Lz().LB();
+        ArrayList<com.baidu.tbadk.editortools.emotiontool.c> Np = x.Nn().Np();
         if (valueOf3.booleanValue()) {
-            String w = x.Lz().w(valueOf2, true);
-            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = LB.iterator();
+            String x = x.Nn().x(valueOf2, true);
+            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = Np.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar2 = null;
                     break;
                 }
                 com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                if (next.fg(valueOf2)) {
-                    if (next.CS()) {
-                        aVar2 = next.fi(valueOf2);
+                if (next.fo(valueOf2)) {
+                    if (next.DA()) {
+                        aVar2 = next.fq(valueOf2);
                     } else {
-                        aVar2 = a(next.getGroupId(), w, aVar);
+                        aVar2 = a(next.getGroupId(), x, aVar);
                     }
                 }
             }
             if (aVar2 == null && valueOf != null) {
-                aVar2 = a(valueOf, w, aVar);
+                aVar2 = a(valueOf, x, aVar);
             }
         } else {
-            String w2 = x.Lz().w(valueOf2, false);
-            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = LB.iterator();
+            String x2 = x.Nn().x(valueOf2, false);
+            Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = Np.iterator();
             com.baidu.adp.widget.a.a aVar3 = null;
             while (true) {
                 if (!it2.hasNext()) {
@@ -81,11 +81,11 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                     break;
                 }
                 com.baidu.tbadk.editortools.emotiontool.c next2 = it2.next();
-                if (next2.fg(valueOf2)) {
-                    if (next2.CS()) {
-                        aVar3 = next2.fh(valueOf2);
+                if (next2.fo(valueOf2)) {
+                    if (next2.DA()) {
+                        aVar3 = next2.fp(valueOf2);
                     } else {
-                        Bitmap b2 = b(next2.getGroupId(), w2, aVar);
+                        Bitmap b2 = b(next2.getGroupId(), x2, aVar);
                         if (b2 == null) {
                             return null;
                         }
@@ -93,7 +93,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                     }
                 }
             }
-            if (aVar2 == null && valueOf != null && (b = b(valueOf, w2, aVar)) != null) {
+            if (aVar2 == null && valueOf != null && (b = b(valueOf, x2, aVar)) != null) {
                 aVar2 = new com.baidu.adp.widget.a.a(b, false, valueOf2);
             }
         }
@@ -105,7 +105,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.g.a aVar, Object... objArr) {
         k kVar;
-        byte[] m;
+        byte[] l;
         com.baidu.adp.widget.a.a aVar2;
         if (objArr == null || objArr.length != 4) {
             return null;
@@ -114,58 +114,58 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         String valueOf2 = objArr[1] == null ? "" : String.valueOf(objArr[1]);
         Boolean valueOf3 = Boolean.valueOf(String.valueOf(objArr[2]));
         String valueOf4 = objArr[3] == null ? "" : String.valueOf(objArr[3]);
-        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (m = (kVar = new k()).m(valueOf4, false)) == null || !kVar.wF()) {
+        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (l = (kVar = new k()).l(valueOf4, false)) == null || !kVar.wX()) {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String w = x.Lz().w(valueOf2, valueOf3.booleanValue());
+            String x = x.Nn().x(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
-                com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, w, DiskFileOperate.Action.WRITE);
+                com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, x, DiskFileOperate.Action.WRITE);
                 aVar3.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                aVar3.o(false);
-                aVar3.setData(m);
-                d.fr().b(aVar3);
+                aVar3.n(false);
+                aVar3.setData(l);
+                d.fs().b(aVar3);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.resourceLoaderProc.d dVar = new com.baidu.tbadk.core.util.resourceLoaderProc.d();
                     dVar.f(aVar3);
-                    aVar.vK = dVar;
+                    aVar.wb = dVar;
                 }
-                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = x.Lz().LB().iterator();
+                Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = x.Nn().Np().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;
                         break;
                     }
                     com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                    if (next.fg(valueOf2)) {
-                        aVar2 = a(next.getGroupId(), w, aVar);
+                    if (next.fo(valueOf2)) {
+                        aVar2 = a(next.getGroupId(), x, aVar);
                         break;
                     }
                 }
                 if (aVar2 == null && valueOf != null) {
-                    aVar2 = a(valueOf, w, aVar);
+                    aVar2 = a(valueOf, x, aVar);
                 }
                 if (aVar2 == null) {
                     return null;
                 }
             } else {
-                c.Ed().eN(80000);
-                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(m);
+                c.EO().eT(80000);
+                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(l);
                 if (Bytes2Bitmap == null) {
                     return null;
                 }
                 aVar2 = new com.baidu.adp.widget.a.a(Bytes2Bitmap, valueOf3.booleanValue(), valueOf4);
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(str3, w, DiskFileOperate.Action.WRITE);
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(str3, x, DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                cVar.o(false);
-                cVar.setData(m);
-                cVar.r(valueOf3.booleanValue());
-                d.fr().c(cVar);
+                cVar.n(false);
+                cVar.setData(l);
+                cVar.q(valueOf3.booleanValue());
+                d.fs().c(cVar);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.resourceLoaderProc.d dVar2 = new com.baidu.tbadk.core.util.resourceLoaderProc.d();
                     dVar2.f(cVar);
-                    aVar.vK = dVar2;
+                    aVar.wb = dVar2;
                 }
             }
             return aVar2;
@@ -175,7 +175,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.g.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            c.Ed().c(v(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
+            c.EO().c(w(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -194,17 +194,17 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         byte[] bArr = new byte[0];
         com.baidu.adp.lib.Disk.ops.a aVar2 = new com.baidu.adp.lib.Disk.ops.a(str3, str2, DiskFileOperate.Action.READ);
         aVar2.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        aVar2.n(false);
         aVar2.o(false);
-        aVar2.p(false);
-        aVar2.h(bArr);
+        aVar2.h((Object) bArr);
         if (aVar != null) {
             com.baidu.tbadk.core.util.resourceLoaderProc.d dVar = new com.baidu.tbadk.core.util.resourceLoaderProc.d();
             dVar.f(aVar2);
-            aVar.vK = dVar;
+            aVar.wb = dVar;
         }
-        if (d.fr().c(aVar2)) {
+        if (d.fs().c(aVar2)) {
             int i = 2000;
-            if (i.ja()) {
+            if (i.jg()) {
                 i = 500;
             }
             synchronized (bArr) {
@@ -215,8 +215,8 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                 }
             }
             if (aVar2.isSuccess()) {
-                aVar2.x(aVar2.getData());
-                return new com.baidu.adp.widget.a.a(aVar2.fM());
+                aVar2.h(aVar2.getData());
+                return new com.baidu.adp.widget.a.a(aVar2.fN());
             }
             return null;
         }
@@ -232,17 +232,17 @@ public class a implements e<com.baidu.adp.widget.a.a> {
         byte[] bArr = new byte[0];
         j jVar = new j(sb.append(str).toString(), str2, DiskFileOperate.Action.READ);
         jVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        jVar.n(false);
         jVar.o(false);
-        jVar.p(false);
-        jVar.h(bArr);
+        jVar.h((Object) bArr);
         if (aVar != null) {
             com.baidu.tbadk.core.util.resourceLoaderProc.d dVar = new com.baidu.tbadk.core.util.resourceLoaderProc.d();
             dVar.f(jVar);
-            aVar.vK = dVar;
+            aVar.wb = dVar;
         }
-        if (d.fr().c(jVar)) {
+        if (d.fs().c(jVar)) {
             int i = 2000;
-            if (i.ja()) {
+            if (i.jg()) {
                 i = 300;
             }
             synchronized (bArr) {
@@ -253,7 +253,7 @@ public class a implements e<com.baidu.adp.widget.a.a> {
                 }
             }
             if (jVar.isSuccess()) {
-                jVar.x(jVar.getData());
+                jVar.h(jVar.getData());
                 bitmap = jVar.getBitmap();
             } else {
                 bitmap = null;
@@ -264,12 +264,12 @@ public class a implements e<com.baidu.adp.widget.a.a> {
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public BdAsyncTaskParallel hp() {
+    public BdAsyncTaskParallel hv() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public int hq() {
+    public int hw() {
         return 1;
     }
 }

@@ -5,24 +5,24 @@ import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements aa.a {
-    final /* synthetic */ y bnw;
+    final /* synthetic */ y bst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(y yVar) {
-        this.bnw = yVar;
+        this.bst = yVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Qs() {
+    public void Sl() {
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Qt() {
+    public void Sm() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bnw.bjt;
+        bdTypeListView = this.bst.boD;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.bnw.bjt;
+            bdTypeListView2 = this.bst.boD;
             bdTypeListView2.setSelection(0);
         }
     }

@@ -28,7 +28,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.dH().g(getPageContext().getPageActivity());
+        a.dH().b(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -137,8 +137,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.g.c.hl().d(this.mId);
-        a.dH().h(getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.c.hr().d(this.mId);
+        a.dH().c(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -146,7 +146,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.g.c.hl().e(this.mId);
+        com.baidu.adp.lib.g.c.hr().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,7 +163,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.nq();
+            onGetPreLoadListView.ni();
         }
     }
 

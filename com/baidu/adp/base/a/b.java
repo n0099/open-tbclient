@@ -17,27 +17,27 @@ import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
     private SQLiteDatabase nB = null;
-    private a.InterfaceC0002a nC = null;
+    private a.InterfaceC0003a nC = null;
     private a nD;
 
     public b(a aVar) {
         this.nD = aVar;
     }
 
-    public void a(a.InterfaceC0002a interfaceC0002a) {
-        this.nC = interfaceC0002a;
+    public void a(a.InterfaceC0003a interfaceC0003a) {
+        this.nC = interfaceC0003a;
     }
 
     public SQLiteDatabase dO() {
-        return g(true);
+        return f(true);
     }
 
-    protected SQLiteDatabase g(boolean z) {
-        h(z);
+    protected SQLiteDatabase f(boolean z) {
+        g(z);
         return this.nB;
     }
 
-    private void h(boolean z) {
+    private void g(boolean z) {
         synchronized (b.class) {
             if (this.nB == null || !this.nB.isOpen()) {
                 try {
@@ -83,9 +83,9 @@ public class b {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase g = g(false);
-        if (g != null) {
-            return g.rawQuery(str, strArr);
+        SQLiteDatabase f = f(false);
+        if (f != null) {
+            return f.rawQuery(str, strArr);
         }
         throw new SQLException("unable to open database.");
     }
@@ -102,18 +102,18 @@ public class b {
     }
 
     public boolean dQ() {
-        boolean D;
+        boolean t;
         synchronized (b.class) {
             dP();
             try {
-                D = this.nD.D(BdBaseApplication.getInst().getContext());
+                t = this.nD.t(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
                 this.nB = null;
                 return false;
             }
         }
-        return D;
+        return t;
     }
 
     public void d(Throwable th, String str) {
@@ -153,7 +153,7 @@ public class b {
 
     protected void a(String str, int i, String str2, Object... objArr) {
         try {
-            com.baidu.adp.lib.stats.a.ht().b(str, "", i, str2, objArr);
+            com.baidu.adp.lib.stats.a.hz().b(str, "", i, str2, objArr);
         } catch (Exception e) {
             BdLog.detailException(e);
         }

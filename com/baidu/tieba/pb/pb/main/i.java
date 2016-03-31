@@ -1,24 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends CustomMessageListener {
-    final /* synthetic */ PbActivity cNq;
+public class i implements View.OnClickListener {
+    final /* synthetic */ GetLotteryChanceActivity dfT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(PbActivity pbActivity, int i) {
-        super(i);
-        this.cNq = pbActivity;
+    public i(GetLotteryChanceActivity getLotteryChanceActivity) {
+        this.dfT = getLotteryChanceActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.cNq.getUniqueId().getId()) {
-            this.cNq.cMP = false;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        long j;
+        Intent intent = new Intent();
+        intent.putExtra("key_action", 1);
+        this.dfT.setResult(-1, intent);
+        this.dfT.closeActivity();
+        com.baidu.tbadk.core.util.aw ac = new com.baidu.tbadk.core.util.aw("c10838").ac("obj_locate", "2");
+        str = this.dfT.forumId;
+        com.baidu.tbadk.core.util.aw ac2 = ac.ac("fid", str);
+        j = this.dfT.threadId;
+        TiebaStatic.log(ac2.ac("tid", String.valueOf(j)));
     }
 }

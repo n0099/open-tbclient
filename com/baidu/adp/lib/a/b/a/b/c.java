@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c implements h {
-    private Bundle rY;
+    private Bundle sh;
 
     public c(Bundle bundle) {
-        this.rY = bundle;
+        this.sh = bundle;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
         Type[] fS = cVar.fS();
-        Set<String> keySet = this.rY.keySet();
+        Set<String> keySet = this.sh.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.rY.get(str);
+            Object obj = this.sh.get(str);
             if (fS != null && fS.length >= 2) {
                 try {
                     jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fS[1])));
@@ -40,7 +40,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rY;
+        return this.sh;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -50,7 +50,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rY;
+        return this.sh;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -70,6 +70,6 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rY;
+        return this.sh;
     }
 }

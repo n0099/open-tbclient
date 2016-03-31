@@ -5,7 +5,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private String ahq = "";
+    private String ahv = "";
     private int categoryId;
     private int cid;
     private int ctime;
@@ -43,7 +43,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     public void setYuelaouLocate(String str) {
-        this.ahq = str;
+        this.ahv = str;
     }
 
     public void setLastId(String str) {
@@ -123,12 +123,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oX() {
+    public HashMap<String, Object> oQ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object X(boolean z) {
+    public Object W(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -148,9 +148,9 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.ahq;
+        builder.yuelaou_locate = this.ahv;
         if (z) {
-            com.baidu.tbadk.util.i.a(builder, true);
+            com.baidu.tbadk.util.l.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -158,12 +158,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String EB() {
+    public String Fo() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean EC() {
+    public boolean Fp() {
         return false;
     }
 

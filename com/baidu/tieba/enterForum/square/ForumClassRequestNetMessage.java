@@ -5,7 +5,6 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.l;
-import com.baidu.tbadk.util.i;
 import tbclient.GetForumClassList.DataReq;
 import tbclient.GetForumClassList.GetForumClassListReqIdl;
 /* loaded from: classes.dex */
@@ -16,15 +15,15 @@ public class ForumClassRequestNetMessage extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
-        int K = k.K(TbadkCoreApplication.m411getInst().getApp());
-        int L = k.L(TbadkCoreApplication.m411getInst().getApp());
+        int B = k.B(TbadkCoreApplication.m411getInst().getApp());
+        int C = k.C(TbadkCoreApplication.m411getInst().getApp());
         DataReq.Builder builder = new DataReq.Builder();
-        builder.scr_w = Integer.valueOf(K);
-        builder.scr_h = Integer.valueOf(L);
-        builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp()));
-        builder.q_type = Long.valueOf(l.rn().getViewImageQuality());
+        builder.scr_w = Integer.valueOf(B);
+        builder.scr_h = Integer.valueOf(C);
+        builder.scr_dip = Double.valueOf(k.D(TbadkCoreApplication.m411getInst().getApp()));
+        builder.q_type = Long.valueOf(l.qE().getViewImageQuality());
         if (z) {
-            i.a(builder, true);
+            com.baidu.tbadk.util.l.a(builder, true);
         }
         GetForumClassListReqIdl.Builder builder2 = new GetForumClassListReqIdl.Builder();
         builder2.data = builder.build(false);

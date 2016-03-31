@@ -1,31 +1,38 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.EditText;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-class bf implements View.OnClickListener {
-    final /* synthetic */ WriteActivity ets;
+class bf extends CustomMessageListener {
+    final /* synthetic */ WriteActivity eNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(WriteActivity writeActivity) {
-        this.ets = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bf(WriteActivity writeActivity, int i) {
+        super(i);
+        this.eNd = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.editortools.k kVar;
-        int aUH;
-        EditText editText;
-        EditText editText2;
-        kVar = this.ets.ath;
-        kVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-        aUH = this.ets.aUH();
-        if (aUH >= 0) {
-            editText = this.ets.epv;
-            if (aUH < editText.getText().length()) {
-                editText2 = this.ets.epv;
-                editText2.setSelection(aUH);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        com.baidu.tieba.tbadkCore.location.d dVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar3;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                dVar2 = this.eNd.avu;
+                dVar2.iL(false);
+                dVar3 = this.eNd.avu;
+                dVar3.bH(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.eNd.a(2, true, responsedSelectLocation.getName());
+                return;
             }
+            dVar = this.eNd.avu;
+            dVar.iL(true);
+            this.eNd.a(0, true, (String) null);
         }
     }
 }

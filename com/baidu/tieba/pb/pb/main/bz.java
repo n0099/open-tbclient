@@ -1,20 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bz implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-            } else {
-                customMessage.getData().startActivity(PbActivity.class);
-            }
+public class bz implements a.b {
+    final /* synthetic */ PbActivity dht;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bz(PbActivity pbActivity) {
+        this.dht = pbActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        if (!com.baidu.tbadk.core.util.m.fr()) {
+            this.dht.showToast(com.baidu.tbadk.core.util.m.vq());
+        } else {
+            FileDownloader.download(this.dht.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.dht.getPageContext().getString(t.j.download_baidu_video));
         }
-        return null;
     }
 }

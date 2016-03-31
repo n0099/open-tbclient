@@ -12,44 +12,44 @@ import android.widget.ProgressBar;
 import android.widget.Scroller;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class x extends FrameLayout {
-    private ProgressBar aNo;
-    private TextView baS;
-    private ImageView cVW;
-    private boolean dMK;
-    private Runnable dOA;
-    private Runnable dOB;
-    private int dOw;
-    private TextView dOx;
-    private TextView dOy;
-    private Runnable dOz;
+    private ProgressBar aQj;
+    private TextView bfC;
+    private ImageView dqR;
     private int duration;
+    private boolean efk;
+    private int egV;
+    private TextView egW;
+    private TextView egX;
+    private Runnable egY;
+    private Runnable egZ;
+    private Runnable eha;
     private Context mContext;
     private Scroller mScroller;
 
     public x(Context context) {
         super(context);
-        this.dOw = 0;
+        this.egV = 0;
         this.duration = 2000;
-        this.dOz = new y(this);
-        this.dOA = new z(this);
-        this.dOB = new aa(this);
+        this.egY = new y(this);
+        this.egZ = new z(this);
+        this.eha = new aa(this);
         init();
     }
 
     private void init() {
         this.mContext = getContext();
         LayoutInflater.from(this.mContext).inflate(t.h.signallforum_progress_view, this);
-        this.aNo = (ProgressBar) findViewById(t.g.signallforum_progress);
-        this.cVW = (ImageView) findViewById(t.g.signallforum_icon);
-        this.baS = (TextView) findViewById(t.g.signallforun_status);
-        this.dOx = (TextView) findViewById(t.g.signallforun_message1);
-        this.dOy = (TextView) findViewById(t.g.signallforun_message2);
-        wV();
+        this.aQj = (ProgressBar) findViewById(t.g.signallforum_progress);
+        this.dqR = (ImageView) findViewById(t.g.signallforum_icon);
+        this.bfC = (TextView) findViewById(t.g.signallforun_status);
+        this.egW = (TextView) findViewById(t.g.signallforun_message1);
+        this.egX = (TextView) findViewById(t.g.signallforun_message2);
+        xo();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), t.f.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -60,68 +60,68 @@ public class x extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void wV() {
-        removeCallbacks(this.dOz);
-        removeCallbacks(this.dOA);
+    public void xo() {
+        removeCallbacks(this.egY);
+        removeCallbacks(this.egZ);
         TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.dMK) {
-            this.aNo.setProgressDrawable(getResources().getDrawable(t.f.vip_singnallforum_progress));
+        if (this.efk) {
+            this.aQj.setProgressDrawable(getResources().getDrawable(t.f.vip_singnallforum_progress));
         } else {
-            this.aNo.setProgressDrawable(getResources().getDrawable(t.f.singnallforum_progress));
+            this.aQj.setProgressDrawable(getResources().getDrawable(t.f.singnallforum_progress));
         }
-        switch (this.dOw) {
+        switch (this.egV) {
             case 0:
-                this.aNo.setClickable(true);
-                this.aNo.setProgress(0);
-                this.aNo.setSecondaryProgress(0);
-                if (this.dMK) {
-                    ar.k(this.aNo, t.f.btn_vip_all_sign);
-                    ar.c(this.cVW, t.f.icon_vip_sign);
+                this.aQj.setClickable(true);
+                this.aQj.setProgress(0);
+                this.aQj.setSecondaryProgress(0);
+                if (this.efk) {
+                    at.k(this.aQj, t.f.btn_vip_all_sign);
+                    at.c(this.dqR, t.f.icon_vip_sign);
                 } else {
-                    ar.k(this.aNo, t.f.btn_all_sign);
-                    ar.c(this.cVW, t.f.icon_all_sign);
+                    at.k(this.aQj, t.f.btn_all_sign);
+                    at.c(this.dqR, t.f.icon_all_sign);
                 }
-                this.baS.setText(t.j.signallforum_begin);
+                this.bfC.setText(t.j.signallforum_begin);
                 return;
             case 1:
-                post(this.dOB);
-                this.aNo.setClickable(false);
-                ar.k(this.aNo, t.f.bg_all_sign_conduct);
-                if (this.dMK) {
-                    ar.c(this.cVW, t.f.icon_vip_sign);
+                post(this.eha);
+                this.aQj.setClickable(false);
+                at.k(this.aQj, t.f.bg_all_sign_conduct);
+                if (this.efk) {
+                    at.c(this.dqR, t.f.icon_vip_sign);
                 } else {
-                    ar.c(this.cVW, t.f.icon_all_sign);
+                    at.c(this.dqR, t.f.icon_all_sign);
                 }
-                this.baS.setText(t.j.signallforum_ing);
-                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.aNo.getMax()) / 100;
-                if (nextInt - this.aNo.getProgress() < 0) {
-                    this.mScroller.startScroll(nextInt, 0, this.aNo.getProgress() - nextInt, 0, this.duration);
+                this.bfC.setText(t.j.signallforum_ing);
+                int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.aQj.getMax()) / 100;
+                if (nextInt - this.aQj.getProgress() < 0) {
+                    this.mScroller.startScroll(nextInt, 0, this.aQj.getProgress() - nextInt, 0, this.duration);
                 } else {
-                    this.mScroller.startScroll(this.aNo.getProgress(), 0, nextInt - this.aNo.getProgress(), 0, this.duration);
+                    this.mScroller.startScroll(this.aQj.getProgress(), 0, nextInt - this.aQj.getProgress(), 0, this.duration);
                 }
-                post(this.dOz);
+                post(this.egY);
                 return;
             case 2:
-                this.aNo.setClickable(true);
-                if (this.dMK) {
-                    ar.k(this.aNo, t.f.bg_vip_sign_ok_d);
-                    ar.c(this.cVW, t.f.icon_vip_sign_ok);
+                this.aQj.setClickable(true);
+                if (this.efk) {
+                    at.k(this.aQj, t.f.bg_vip_sign_ok_d);
+                    at.c(this.dqR, t.f.icon_vip_sign_ok);
                 } else {
-                    ar.k(this.aNo, t.f.bg_all_sign_ok_d);
-                    ar.c(this.cVW, t.f.icon_all_sign_ok);
+                    at.k(this.aQj, t.f.bg_all_sign_ok_d);
+                    at.c(this.dqR, t.f.icon_all_sign_ok);
                 }
-                this.aNo.setProgress(0);
-                this.baS.setText(t.j.signallforum_success);
+                this.aQj.setProgress(0);
+                this.bfC.setText(t.j.signallforum_success);
                 return;
             case 3:
-                this.aNo.setClickable(false);
-                if (this.dMK) {
-                    ar.c(this.cVW, t.f.icon_vip_sign);
+                this.aQj.setClickable(false);
+                if (this.efk) {
+                    at.c(this.dqR, t.f.icon_vip_sign);
                 } else {
-                    ar.c(this.cVW, t.f.icon_all_sign);
+                    at.c(this.dqR, t.f.icon_all_sign);
                 }
-                ar.k(this.aNo, t.f.bg_all_sign_conduct);
-                this.baS.setText(t.j.can_not_sign);
+                at.k(this.aQj, t.f.bg_all_sign_conduct);
+                this.bfC.setText(t.j.can_not_sign);
                 return;
             default:
                 return;
@@ -129,46 +129,46 @@ public class x extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.dOw;
+        return this.egV;
     }
 
     public void setSigning(int i) {
-        if (this.dOw != 1 && this.dOw == 0) {
-            this.aNo.setProgress(i);
-            this.dOw = 1;
-            wV();
+        if (this.egV != 1 && this.egV == 0) {
+            this.aQj.setProgress(i);
+            this.egV = 1;
+            xo();
         }
     }
 
-    public void aJo() {
-        if (this.dOw != 2) {
-            this.dOw = 2;
-            wV();
+    public void aQe() {
+        if (this.egV != 2) {
+            this.egV = 2;
+            xo();
         }
     }
 
     public ProgressBar getProgressBar() {
-        return this.aNo;
+        return this.aQj;
     }
 
     public ImageView getIcon() {
-        return this.cVW;
+        return this.dqR;
     }
 
     public TextView getmStatus() {
-        return this.baS;
+        return this.bfC;
     }
 
     public TextView getMessage1() {
-        return this.dOx;
+        return this.egW;
     }
 
     public TextView getMessage2() {
-        return this.dOy;
+        return this.egX;
     }
 
     public int getProgress() {
-        return this.aNo.getProgress();
+        return this.aQj.getProgress();
     }
 
     public void setDuration(int i) {
@@ -176,8 +176,8 @@ public class x extends FrameLayout {
     }
 
     public void setmCurrentStatus(int i) {
-        this.dOw = i;
-        wV();
+        this.egV = i;
+        xo();
     }
 
     public void setmContext(Context context) {
@@ -185,23 +185,23 @@ public class x extends FrameLayout {
     }
 
     public void setmProgress(ProgressBar progressBar) {
-        this.aNo = progressBar;
+        this.aQj = progressBar;
     }
 
     public void setmIcon(ImageView imageView) {
-        this.cVW = imageView;
+        this.dqR = imageView;
     }
 
     public void setmStatus(TextView textView) {
-        this.baS = textView;
+        this.bfC = textView;
     }
 
     public void setmMessage1(TextView textView) {
-        this.dOx = textView;
+        this.egW = textView;
     }
 
     public void setmMessage2(TextView textView) {
-        this.dOy = textView;
+        this.egX = textView;
     }
 
     public void setmScroller(Scroller scroller) {
@@ -209,19 +209,19 @@ public class x extends FrameLayout {
     }
 
     public void setHasPrivilege(boolean z) {
-        this.dMK = z;
-        wV();
+        this.efk = z;
+        xo();
     }
 
     public void setProgressAnimation(Runnable runnable) {
-        this.dOz = runnable;
+        this.egY = runnable;
     }
 
     public void setCheckRunnable(Runnable runnable) {
-        this.dOA = runnable;
+        this.egZ = runnable;
     }
 
     public void setChangeSizeRunnable(Runnable runnable) {
-        this.dOB = runnable;
+        this.eha = runnable;
     }
 }

@@ -1,46 +1,47 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements View.OnClickListener {
-    final /* synthetic */ cy bjZ;
+public class cz implements TbImageView.a {
+    final /* synthetic */ cs bpe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(cy cyVar) {
-        this.bjZ = cyVar;
+    public cz(cs csVar) {
+        this.bpe = csVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FeedForumData feedForumData;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        com.baidu.tieba.tbadkCore.w wVar;
-        cd cdVar = (cd) view.getTag();
-        if (cdVar != null && (feedForumData = (FeedForumData) this.bjZ.getItem(cdVar.position)) != null) {
-            if (view.getId() == t.g.frs_feed_forum_attention) {
-                tbPageContext3 = this.bjZ.MR;
-                if (((FrsMoreFeedForumsActivity) tbPageContext3.getOrignalPage()).checkUpIsLogin()) {
-                    wVar = this.bjZ.MS;
-                    wVar.bl(feedForumData.getForumName(), feedForumData.getForumId());
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10048").aa(ImageViewerConfig.FORUM_ID, feedForumData.getForumId()));
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void s(String str, boolean z) {
+        BannerView bannerView;
+        BannerView bannerView2;
+        boolean z2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BannerView bannerView3;
+        if (z) {
+            bannerView = this.bpe.boS;
+            if (bannerView != null) {
+                bannerView2 = this.bpe.boS;
+                if (bannerView2.Bo()) {
+                    z2 = this.bpe.boU;
+                    if (!z2) {
+                        bdTypeListView = this.bpe.boD;
+                        if (bdTypeListView != null) {
+                            this.bpe.boU = true;
+                            bdTypeListView2 = this.bpe.boD;
+                            bannerView3 = this.bpe.boS;
+                            bdTypeListView2.f(bannerView3, 1);
+                        }
+                    }
                 }
-            } else if (view.getId() == t.g.frs_like_feed_forum_item) {
-                tbPageContext = this.bjZ.MR;
-                tbPageContext2 = this.bjZ.MR;
-                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext2.getPageActivity()).createNormalCfg(feedForumData.getForumName(), "")));
-                TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10050").aa(ImageViewerConfig.FORUM_ID, feedForumData.getForumId()));
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

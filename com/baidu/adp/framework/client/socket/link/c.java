@@ -3,17 +3,18 @@ package com.baidu.adp.framework.client.socket.link;
 import android.os.Handler;
 import com.baidu.adp.framework.client.socket.k;
 import com.baidu.adp.lib.webSocket.l;
+import com.baidu.adp.lib.webSocket.m;
 import java.util.Map;
 /* loaded from: classes.dex */
 class c extends l {
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void w(byte[] bArr) {
+    public void b(m.a aVar) {
         e eVar;
         e eVar2;
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            eVar2.s(bArr);
+            eVar2.a(aVar);
         }
     }
 
@@ -56,7 +57,7 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void l(int i, String str) {
+    public void e(int i, String str) {
         Handler handler;
         e eVar;
         h hVar;
@@ -71,9 +72,9 @@ class c extends l {
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            z = eVar2.k(i, null);
+            z = eVar2.d(i, null);
         }
-        if (!z && i != 1 && com.baidu.adp.lib.util.k.jq()) {
+        if (!z && i != 1 && com.baidu.adp.lib.util.k.jw()) {
             hVar = BdSocketLinkService.reConnStra;
             hVar.start("onClose:" + i + ":" + str);
         }

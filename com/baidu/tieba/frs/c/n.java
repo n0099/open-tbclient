@@ -7,11 +7,11 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ l bpS;
+    final /* synthetic */ l buT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.bpS = lVar;
+        this.buT = lVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:? A[RETURN, SYNTHETIC] */
@@ -26,24 +26,24 @@ public class n implements SlidingMenu.OnClosedListener {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
-        frsActivity = this.bpS.bot;
+        frsActivity = this.buT.bts;
         if (!TextUtils.isEmpty(frsActivity.getFrom())) {
-            frsActivity4 = this.bpS.bot;
+            frsActivity4 = this.buT.bts;
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(frsActivity4.getFrom())) {
-                frsActivity5 = this.bpS.bot;
+                frsActivity5 = this.buT.bts;
                 frsActivity5.setSwipeBackEnabled(false);
-                if (!this.bpS.Sh().QG()) {
-                    this.bpS.Sh().cx(false);
-                    frsActivity3 = this.bpS.bot;
+                if (!this.buT.TW().Sz()) {
+                    this.buT.TW().cJ(false);
+                    frsActivity3 = this.buT.bts;
                     frsActivity3.refresh();
                     return;
                 }
                 return;
             }
         }
-        frsActivity2 = this.bpS.bot;
+        frsActivity2 = this.buT.bts;
         frsActivity2.setSwipeBackEnabled(true);
-        if (!this.bpS.Sh().QG()) {
+        if (!this.buT.TW().Sz()) {
         }
     }
 }

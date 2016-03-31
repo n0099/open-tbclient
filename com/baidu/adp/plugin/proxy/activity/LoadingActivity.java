@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.base.h;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 /* loaded from: classes.dex */
@@ -15,13 +16,13 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        String stringExtra = getIntent().getStringExtra("intent_extra_package_name");
+        String stringExtra = getIntent().getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
         if (PluginCenter.getInstance().isLoaded(stringExtra)) {
             finish();
             return;
         }
         initLoadingView(stringExtra);
-        PluginPackageManager.lD().a(stringExtra, new a(this));
+        PluginPackageManager.ls().a(stringExtra, new a(this));
     }
 
     private void initLoadingView(String str) {

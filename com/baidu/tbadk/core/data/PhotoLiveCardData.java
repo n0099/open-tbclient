@@ -6,8 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.t;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,6 +23,7 @@ public class PhotoLiveCardData implements Serializable {
     private String cover;
     private int discussNum;
     private int fansNum;
+    private String fieldEx;
     private long forumId;
     private String forumName;
     private GodInfo godInfo;
@@ -48,6 +47,14 @@ public class PhotoLiveCardData implements Serializable {
 
     public GodInfo getGodInfo() {
         return this.godInfo;
+    }
+
+    public void setFieldEx(String str) {
+        this.fieldEx = str;
+    }
+
+    public String getFieldEx() {
+        return this.fieldEx;
     }
 
     public void setNickName(String str) {
@@ -124,15 +131,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(aw.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(t.j.update_floor_num, new Object[]{aw.y(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.ay.w(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(t.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ay.A(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(aw.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(t.j.update_floor_num, new Object[]{aw.y(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.ay.w(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(t.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ay.A(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.m411getInst().getString(t.j.photo_live_thread_expression_time, new Object[]{aw.t(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.m411getInst().getString(t.j.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.ay.w(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -188,10 +195,10 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cO = ar.cO(t.f.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        int height = cO.getHeight();
-        bitmapDrawable.setBounds(0, 0, cO.getWidth(), height);
+        Bitmap cR = com.baidu.tbadk.core.util.at.cR(t.f.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cR);
+        int height = cR.getHeight();
+        bitmapDrawable.setBounds(0, 0, cR.getWidth(), height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
@@ -278,7 +285,7 @@ public class PhotoLiveCardData implements Serializable {
                 for (int i = 0; i < size; i++) {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
                         com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
-                        nVar.eh(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
+                        nVar.ek(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
                         nVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
                         nVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
                         this.expressionList.add(nVar);
@@ -286,6 +293,7 @@ public class PhotoLiveCardData implements Serializable {
                 }
                 this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
             }
+            this.fieldEx = zhiBoInfoTW.field_ex;
         }
     }
 

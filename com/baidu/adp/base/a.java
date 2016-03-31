@@ -10,17 +10,17 @@ import java.util.Iterator;
 public final class a {
     private static ArrayList<SoftReference<Activity>> np;
     private static a nq;
-    private InterfaceC0001a nr;
+    private InterfaceC0002a nr;
     private int ns = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0001a {
+    public interface InterfaceC0002a {
         void onActivityClosed();
     }
 
-    public void a(InterfaceC0001a interfaceC0001a) {
-        this.nr = interfaceC0001a;
+    public void a(InterfaceC0002a interfaceC0002a) {
+        this.nr = interfaceC0002a;
     }
 
     private a() {
@@ -40,14 +40,14 @@ public final class a {
         return np.size();
     }
 
-    public void g(Activity activity) {
+    public void b(Activity activity) {
         if (activity != null) {
             np.add(new SoftReference<>(activity));
-            A(this.ns);
+            z(this.ns);
         }
     }
 
-    public Activity z(int i) {
+    public Activity s(int i) {
         int size = np.size();
         if (size == 0) {
             return null;
@@ -62,7 +62,7 @@ public final class a {
         return remove.get();
     }
 
-    public void h(Activity activity) {
+    public void c(Activity activity) {
         if (activity != null) {
             int size = np.size();
             if (size == 0) {
@@ -106,7 +106,7 @@ public final class a {
     }
 
     public void dJ() {
-        A(3);
+        z(3);
     }
 
     public void dK() {
@@ -128,14 +128,14 @@ public final class a {
         return this.ns;
     }
 
-    private void A(int i) {
+    private void z(int i) {
         if (i != 0) {
             int size = dH().getSize();
             while (size > i) {
                 size--;
-                Activity z = dH().z(1);
-                if (z != null) {
-                    z.finish();
+                Activity s = dH().s(1);
+                if (s != null) {
+                    s.finish();
                 }
             }
         }

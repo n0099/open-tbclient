@@ -6,7 +6,7 @@ import java.util.Set;
 public interface c {
     Object a(String str, Type type);
 
-    void e(String str, Object obj);
+    void d(String str, Object obj);
 
     Set<String> fR();
 }

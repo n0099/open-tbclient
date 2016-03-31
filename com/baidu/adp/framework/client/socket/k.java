@@ -3,6 +3,7 @@ package com.baidu.adp.framework.client.socket;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.LinkedList;
@@ -21,7 +22,7 @@ public class k {
         sb.append(str3);
         try {
             LinkedList linkedList = new LinkedList();
-            linkedList.add("lib");
+            linkedList.add(Plugin.SO_LIB_DIR_NAME);
             linkedList.add(str);
             if (i != 0) {
                 linkedList.add(IntentConfig.CMD);
@@ -39,7 +40,7 @@ public class k {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.a.ht().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
+            com.baidu.adp.lib.stats.a.hz().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -51,7 +52,7 @@ public class k {
 
     public static void eI() {
         try {
-            com.baidu.adp.lib.stats.a.ht().c("socket", "url", com.baidu.adp.lib.webSocket.h.jL().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jL().jI()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jL().jS()), "remote_ip", com.baidu.adp.lib.webSocket.h.jL().jH(), "local_dns", com.baidu.adp.lib.webSocket.h.jL().jr(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jL().js(), "net", com.baidu.adp.lib.stats.a.ht().hF());
+            com.baidu.adp.lib.stats.a.hz().c("socket", "url", com.baidu.adp.lib.webSocket.h.jR().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jR().jO()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jR().jY()), "remote_ip", com.baidu.adp.lib.webSocket.h.jR().jN(), "local_dns", com.baidu.adp.lib.webSocket.h.jR().jx(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jR().jy(), "net", com.baidu.adp.lib.stats.a.hz().hL());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

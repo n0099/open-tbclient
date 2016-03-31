@@ -1,21 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.support.v4.app.Fragment;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
-import com.baidu.tieba.imMessageCenter.mention.bd;
+import android.view.View;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {
-        if (customMessage == null) {
-            return null;
-        }
-        bd bdVar = new bd();
-        bdVar.jU(InvokeNewImMessageCenterFragmentConfig.currentPageType);
-        return new CustomResponsedMessage<>(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, bdVar);
+public class q implements View.OnClickListener {
+    final /* synthetic */ f csQ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(f fVar) {
+        this.csQ = fVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BdBaseFragmentActivity bdBaseFragmentActivity;
+        BdBaseFragmentActivity bdBaseFragmentActivity2;
+        bdBaseFragmentActivity = this.csQ.csD;
+        TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+        bdBaseFragmentActivity2 = this.csQ.csD;
+        bl.ab(bdBaseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

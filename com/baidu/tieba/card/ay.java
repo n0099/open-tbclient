@@ -1,226 +1,99 @@
 package com.baidu.tieba.card;
 
-import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BarFolderFirstDirActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tbadk.core.view.viewpager.a;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.a.e;
+import com.baidu.tbadk.core.view.UserLikeButton;
 import com.baidu.tieba.t;
-import java.util.List;
 /* loaded from: classes.dex */
-public class ay extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.e> implements BdBaseViewPager.a {
-    private View aIr;
-    public View aOJ;
-    private String aPR;
-    private ViewPager aRr;
-    private com.baidu.tbadk.core.view.viewpager.b aRs;
-    private a aRt;
-    private View aRu;
-    private TextView aRv;
-    private TextView aRw;
-    private com.baidu.tieba.card.a.e aRx;
-    private int aRy;
-    private IndicatorView ahX;
-
-    public void gR(String str) {
-        this.aPR = str;
-    }
+public class ay extends bd {
+    private TbPageContext ND;
+    public UserLikeButton aSy;
+    public TextView aTL;
+    private UserLikeButton.a aTN;
+    private View.OnClickListener aTO;
+    private View.OnClickListener aTP;
+    private com.baidu.tieba.card.a.t aTR;
+    private com.baidu.tbadk.core.data.as aeC;
+    private int mSkinType;
 
     public ay(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.aRy = 0;
-        this.aPR = null;
-        w(getView());
+        this.mSkinType = 3;
+        this.aTN = new az(this);
+        this.aTO = new ba(this);
+        this.aTP = new bb(this);
+        this.ND = tbPageContext;
+        this.aTT.setGodIconMargin(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aTV.getLayoutParams();
+        layoutParams.topMargin = com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds4);
+        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds6);
+        this.aTV.setLayoutParams(layoutParams);
+        this.aTL = new TextView(tbPageContext.getPageActivity());
+        this.aTL.setId(t.g.fans_num);
+        this.aTL.setIncludeFontPadding(false);
+        this.aTL.setTextSize(0, com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), t.e.ds24));
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams2.bottomMargin = com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), t.e.ds14);
+        this.aTL.setLayoutParams(layoutParams2);
+        this.aTL.setOnClickListener(this.aTO);
+        this.aTs.addView(this.aTL, 1);
+        this.aSy = new UserLikeButton(tbPageContext.getPageActivity());
+        this.aSy.setId(t.g.card_god_feed_like_btn);
+        this.aSy.setAfterClickListener(this.aTP);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds120), com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds56));
+        layoutParams3.addRule(11);
+        layoutParams3.rightMargin = com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds24);
+        layoutParams3.topMargin = com.baidu.adp.lib.util.k.c(this.ND.getPageActivity(), t.e.ds36);
+        this.aSy.setLayoutParams(layoutParams3);
+        ((ViewGroup) getView()).addView(this.aSy);
+        this.aSy.setFanNumCallBack(this.aTN);
     }
 
-    private void w(View view) {
-        this.aRr = (ViewPager) view.findViewById(t.g.card_banner_viewpager);
-        this.ahX = (IndicatorView) view.findViewById(t.g.card_banner_indicator);
-        this.aRv = (TextView) view.findViewById(t.g.card_banner_title);
-        this.aRw = (TextView) view.findViewById(t.g.card_banner_tag);
-        this.aRu = view.findViewById(t.g.card_banner_bottom_layout);
-        this.aOJ = view.findViewById(t.g.divider_card);
-        this.aIr = view.findViewById(t.g.divider_line);
-        this.aRs = new com.baidu.tbadk.core.view.viewpager.b(getContext(), this.aRr, this.ahX, null);
-        this.aRt = new a(JK(), com.baidu.tbadk.core.view.viewpager.a.a.air);
-        this.aRs.dn(5);
-        this.aRs.H(4500L);
-        this.aRs.a(getContext(), this.aRt);
-        this.aRs.setOnPageChangeListener(new az(this));
-        this.aRv.setOnClickListener(this);
-        this.aRw.setOnClickListener(this);
-        this.aRt.a(new ba(this));
-    }
-
-    public void H(long j) {
-        this.aRs.H(j);
-    }
-
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager.a
-    public void xo() {
-        this.aRs.xo();
-    }
-
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager.a
-    public void xp() {
-        this.aRs.xp();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u uVar;
-        if ((view == this.aRv || view == this.aRw) && this.aRr != null && this.aRx != null && this.aRx.Fm() != null && (uVar = (com.baidu.adp.widget.ListView.u) com.baidu.tbadk.core.util.x.b(this.aRx.Fm(), this.aRy)) != null && (uVar instanceof e.a)) {
-            a((e.a) uVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(e.a aVar) {
-        if (aVar != null) {
-            if (aVar.type == 2) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_BAR_FOLDER_FIRST_DIR, new BarFolderFirstDirActivityConfig(getContext(), "")));
-                return;
-            }
-            if (!TextUtils.isEmpty(aVar.link)) {
-                be.wt().c(JK(), new String[]{aVar.link});
-            }
-            if (!TextUtils.isEmpty(this.aPR)) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.au(this.aPR).r("obj_locate", this.aRy).aa("obj_source", aVar.url));
-            }
-        }
-    }
-
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            this.ahX.setSelector(com.baidu.tbadk.core.util.ar.getDrawable(t.f.dot_live_s));
-            this.ahX.setDrawable(com.baidu.tbadk.core.util.ar.getDrawable(t.f.dot_live_n));
-            com.baidu.tbadk.core.util.ar.l(this.aOJ, t.d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.ar.l(this.aIr, t.d.cp_bg_line_c);
-            com.baidu.tbadk.i.a.a(JK(), this.aRu);
-            this.mSkinType = i;
-        }
-        this.aRs.db(i);
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public int JM() {
-        return t.h.card_banner_flow;
-    }
-
-    public void a(com.baidu.tieba.card.a.e eVar) {
-        if (eVar == null || eVar.Fm() == null || eVar.Fm().isEmpty()) {
-            getView().setVisibility(8);
-            return;
-        }
-        this.aRx = eVar;
-        this.aRt.aq(this.aRx.Kq());
-        getView().setVisibility(0);
-        this.aRr.removeAllViews();
-        List<com.baidu.adp.widget.ListView.u> Fm = eVar.Fm();
-        if (Fm.size() > 5) {
-            Fm = Fm.subList(0, 5);
-        }
-        this.aRs.setDatas(Fm);
-        d(JK(), TbadkCoreApplication.m411getInst().getSkinType());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCurrentItem(int i) {
-        if (this.aRx != null && this.aRx.Fm() != null && !this.aRx.Fm().isEmpty()) {
-            List<com.baidu.adp.widget.ListView.u> Fm = this.aRx.Fm();
-            com.baidu.adp.widget.ListView.u uVar = (com.baidu.adp.widget.ListView.u) com.baidu.tbadk.core.util.x.b(Fm, i);
-            if (uVar != null && (uVar instanceof e.a)) {
-                this.aRs.dn(Fm.size());
-                e.a aVar = (e.a) uVar;
-                this.aRv.setText(aVar.title);
-                if (aVar.type == 2) {
-                    this.aRw.setVisibility(8);
-                } else if (!TextUtils.isEmpty(aVar.tag)) {
-                    this.aRw.setVisibility(0);
-                    this.aRw.setText(com.baidu.tbadk.core.util.aw.d(aVar.tag, 4, null));
-                } else {
-                    this.aRw.setVisibility(8);
+    @Override // com.baidu.tieba.card.bd
+    public void a(com.baidu.tieba.card.a.t tVar) {
+        super.a(tVar);
+        if (tVar != null && tVar.aVJ != null) {
+            this.aTR = tVar;
+            this.aeC = tVar.aVJ;
+            if (tVar.aVJ.getAuthor() != null) {
+                fL(tVar.aVJ.getAuthor().getFansNum());
+                if (this.aeC.getAuthor().getGodUserData().getFollowed() == 1) {
+                    this.aSy.setVisibility(8);
+                    return;
                 }
+                this.aSy.setVisibility(0);
+                this.aSy.setData(this.aeC);
             }
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class a extends com.baidu.tbadk.core.view.viewpager.e<e.a, C0060a> {
-        private long aRA;
-        private TbPageContext<?> mTbPageContext;
-
-        public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-            super(tbPageContext.getPageActivity(), bdUniqueId);
-            this.mTbPageContext = tbPageContext;
+    @Override // com.baidu.tieba.card.bd
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        super.d(tbPageContext, i);
+        if (this.mSkinType != i) {
+            com.baidu.tbadk.core.util.at.j((View) this.aTL, t.d.cp_cont_d);
+            this.aSy.aD(true);
         }
+        this.mSkinType = i;
+    }
 
-        public void aq(long j) {
-            this.aRA = j;
+    @Override // com.baidu.tieba.card.bd
+    public void j(BdUniqueId bdUniqueId) {
+        super.j(bdUniqueId);
+        if (this.aSy != null) {
+            this.aSy.i(bdUniqueId);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0024: IGET  (r2v1 long A[REMOVE]) = (r4v0 'this' com.baidu.tieba.card.ay$a A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.card.ay.a.aRA long)] */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.tbadk.core.view.viewpager.e
-        public View a(ViewGroup viewGroup, C0060a c0060a, e.a aVar) {
-            c0060a.aRB.d(aVar.getImageUrl(), 10, false);
-            if (aVar.type == 2) {
-                com.baidu.tbadk.core.util.ar.k(c0060a.aRE, t.f.pic_shuiyin_ba);
-                c0060a.aRC.setVisibility(0);
-                c0060a.aRD.setText(new StringBuilder().append(this.aRA).toString());
-            } else {
-                c0060a.aRC.setVisibility(8);
-            }
-            return c0060a.getView();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.tbadk.core.view.viewpager.e
-        public void a(int i, C0060a c0060a, e.a aVar) {
-            com.baidu.tbadk.core.util.ar.k(c0060a.aRE, t.f.pic_shuiyin_ba);
-            com.baidu.tbadk.core.util.ar.k(c0060a.aRD, t.f.btn_batuijian_input);
-            com.baidu.tbadk.i.a.a(this.mTbPageContext, c0060a.aRC);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.core.view.viewpager.e
-        /* renamed from: e */
-        public C0060a d(ViewGroup viewGroup) {
-            return new C0060a(LayoutInflater.from(this.mContext).inflate(t.h.card_banner_flowview_item, (ViewGroup) null, false));
-        }
-
-        /* renamed from: com.baidu.tieba.card.ay$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        public static class C0060a extends a.C0044a {
-            public TbImageView aRB;
-            public View aRC;
-            public TextView aRD;
-            public TextView aRE;
-
-            public C0060a(View view) {
-                super(view);
-                this.aRB = (TbImageView) view.findViewById(t.g.card_banner_iv);
-                this.aRC = view.findViewById(t.g.card_banner_bar_num_layout);
-                this.aRD = (TextView) view.findViewById(t.g.card_banner_bar_num);
-                this.aRE = (TextView) view.findViewById(t.g.card_banner_logo);
-            }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void fL(int i) {
+        if (this.aTL != null) {
+            this.aTL.setText(String.format(this.ND.getResources().getString(t.j.fans_default_name_god_user), com.baidu.tbadk.core.util.ay.z(i)));
         }
     }
 }

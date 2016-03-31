@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity cYF;
+    final /* synthetic */ PersonChangeActivity dth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(PersonChangeActivity personChangeActivity) {
-        this.cYF = personChangeActivity;
+        this.dth = personChangeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            this.cYF.cYv = true;
+            this.dth.dsX = true;
             return false;
         }
         return false;

@@ -6,59 +6,59 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.pb.a;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.pb.b;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0074a cHL;
-    public TextView cVC;
-    public TextView cVD;
-    private String cVE;
-    private int cVF;
+    private b.a daU;
+    private int dqA;
+    public TextView dqx;
+    public TextView dqy;
+    private String dqz;
     private Context mContext;
 
-    public g(Context context, a.InterfaceC0074a interfaceC0074a) {
+    public g(Context context, b.a aVar) {
         super(context);
-        this.cVC = null;
-        this.cVD = null;
-        this.cVF = -1;
-        this.cHL = null;
-        a(context, interfaceC0074a);
+        this.dqx = null;
+        this.dqy = null;
+        this.dqA = -1;
+        this.daU = null;
+        a(context, aVar);
     }
 
-    public void a(Context context, a.InterfaceC0074a interfaceC0074a) {
+    public void a(Context context, b.a aVar) {
         if (context != null) {
             this.mContext = context;
-            this.cHL = interfaceC0074a;
+            this.daU = aVar;
             View inflate = LayoutInflater.from(context).inflate(t.h.pb_newchudian_description, (ViewGroup) this, true);
-            ar.l(inflate, t.d.cp_bg_line_c);
-            this.cVC = (TextView) inflate.findViewById(t.g.description_main);
-            ar.b(this.cVC, t.d.cp_cont_b, 1);
-            this.cVD = (TextView) inflate.findViewById(t.g.description_sub);
-            ar.b(this.cVD, t.d.cp_cont_c, 1);
+            at.l(inflate, t.d.cp_bg_line_c);
+            this.dqx = (TextView) inflate.findViewById(t.g.description_main);
+            at.b(this.dqx, t.d.cp_cont_b, 1);
+            this.dqy = (TextView) inflate.findViewById(t.g.description_sub);
+            at.b(this.dqy, t.d.cp_cont_c, 1);
             setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!aw.isEmpty(this.cVE)) {
-            com.baidu.tbadk.browser.f.B(this.mContext, this.cVE);
-            if (this.cHL != null) {
-                switch (this.cVF) {
+        if (!ay.isEmpty(this.dqz)) {
+            com.baidu.tbadk.browser.f.s(this.mContext, this.dqz);
+            if (this.daU != null) {
+                switch (this.dqA) {
                     case 0:
-                        this.cHL.u(this.cVE, "IMAGE1", "LINK_IMAGE");
+                        this.daU.y(this.dqz, "IMAGE1", "LINK_IMAGE");
                         return;
                     case 1:
-                        this.cHL.u(this.cVE, "IMAGE1", "LINK_IMAGE");
+                        this.daU.y(this.dqz, "IMAGE1", "LINK_IMAGE");
                         return;
                     case 2:
-                        this.cHL.u(this.cVE, "IMAGE2", "LINK_IMAGE");
+                        this.daU.y(this.dqz, "IMAGE2", "LINK_IMAGE");
                         return;
                     case 3:
-                        this.cHL.u(this.cVE, "IMAGE3", "LINK_IMAGE");
+                        this.daU.y(this.dqz, "IMAGE3", "LINK_IMAGE");
                         return;
                     default:
                         return;
@@ -67,8 +67,8 @@ public class g extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void af(String str, int i) {
-        this.cVE = str;
-        this.cVF = i;
+    public void ao(String str, int i) {
+        this.dqz = str;
+        this.dqA = i;
     }
 }

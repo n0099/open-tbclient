@@ -4,19 +4,19 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.imageManager.b {
-    private final /* synthetic */ ViewGroup auv;
-    final /* synthetic */ a eqs;
+    private final /* synthetic */ ViewGroup auV;
+    final /* synthetic */ a eKn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, ViewGroup viewGroup) {
-        this.eqs = aVar;
-        this.auv = viewGroup;
+        this.eKn = aVar;
+        this.auV = viewGroup;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         TbImageView tbImageView;
-        if (this.auv != null && (tbImageView = (TbImageView) this.auv.findViewWithTag(str)) != null && aVar != null) {
+        if (this.auV != null && (tbImageView = (TbImageView) this.auV.findViewWithTag(str)) != null && aVar != null) {
             tbImageView.invalidate();
         }
     }

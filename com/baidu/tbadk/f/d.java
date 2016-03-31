@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class d {
-    public static c J(View view) {
+    public static c M(View view) {
         if (view == null) {
             return null;
         }

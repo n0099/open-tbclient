@@ -26,21 +26,21 @@ class ac extends CustomMessageListener {
         com.baidu.tbadk.d.d dVar5;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009501 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.d.a)) {
             SignAllForumStatic.mContext = ((com.baidu.tbadk.d.a) customResponsedMessage.getData()).getContext();
-            SignAllForumStatic.cGi = new com.baidu.tbadk.d.d();
+            SignAllForumStatic.ehc = new com.baidu.tbadk.d.d();
             context = SignAllForumStatic.mContext;
             if (context != null) {
-                dVar = SignAllForumStatic.cGi;
-                onClickListener = SignAllForumStatic.OS;
+                dVar = SignAllForumStatic.ehc;
+                onClickListener = SignAllForumStatic.OZ;
                 dVar.h(onClickListener);
-                dVar2 = SignAllForumStatic.cGi;
+                dVar2 = SignAllForumStatic.ehc;
                 dVar2.setPosition(4);
-                dVar3 = SignAllForumStatic.cGi;
+                dVar3 = SignAllForumStatic.ehc;
                 context2 = SignAllForumStatic.mContext;
                 dVar3.setIcon(context2.getResources().getDrawable(t.f.icon_all_sign_dis));
-                dVar4 = SignAllForumStatic.cGi;
+                dVar4 = SignAllForumStatic.ehc;
                 context3 = SignAllForumStatic.mContext;
                 dVar4.setTitle(context3.getResources().getString(t.j.ba_all_sign));
-                dVar5 = SignAllForumStatic.cGi;
+                dVar5 = SignAllForumStatic.ehc;
                 ((com.baidu.tbadk.d.a) customResponsedMessage.getData()).a(dVar5);
             }
         }

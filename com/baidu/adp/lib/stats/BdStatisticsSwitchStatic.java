@@ -2,10 +2,10 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        com.baidu.adp.lib.c.e.gE().e(BdStatisticsSwitchStatic.class);
+        com.baidu.adp.lib.c.e.gE().f(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean hI() {
+    public static boolean hO() {
         return com.baidu.adp.lib.c.e.gE().ai("newUrlForPerf") == 1;
     }
 

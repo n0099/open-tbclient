@@ -9,11 +9,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj implements c.b {
-    final /* synthetic */ PersonImageActivity cZc;
+    final /* synthetic */ PersonImageActivity dtF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PersonImageActivity personImageActivity) {
-        this.cZc = personImageActivity;
+        this.dtF = personImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -22,21 +22,21 @@ public class bj implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         PersonImageActivity.a aVar;
-        listMenu = this.cZc.getListMenu();
+        listMenu = this.dtF.getListMenu();
         if (cVar == listMenu) {
             if (i == 0) {
                 try {
-                    multiImageView = this.cZc.bND;
+                    multiImageView = this.dtF.bXV;
                     byte[] currentImageData = multiImageView.getCurrentImageData();
                     if (currentImageData != null) {
-                        multiImageView2 = this.cZc.bND;
+                        multiImageView2 = this.dtF.bXV;
                         String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                        this.cZc.cZb = new PersonImageActivity.a(currentImageUrl, currentImageData);
-                        aVar = this.cZc.cZb;
+                        this.dtF.dtE = new PersonImageActivity.a(currentImageUrl, currentImageData);
+                        aVar = this.dtF.dtE;
                         aVar.execute(new String[0]);
-                        this.cZc.aNo.setVisibility(0);
+                        this.dtF.aQj.setVisibility(0);
                     } else {
-                        this.cZc.showToast(this.cZc.getPageContext().getString(t.j.no_data));
+                        this.dtF.showToast(this.dtF.getPageContext().getString(t.j.no_data));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());

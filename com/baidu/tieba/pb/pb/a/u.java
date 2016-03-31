@@ -1,44 +1,47 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.media.MediaPlayer;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.pb.view.PbVideoControllerView;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ am cKT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cKU;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.m cKV;
+public class u implements View.OnClickListener {
+    final /* synthetic */ r dej;
+    private final /* synthetic */ an dek;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s del;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.n dem;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(q qVar, am amVar, com.baidu.tbadk.widget.richText.m mVar, com.baidu.tieba.tbadkCore.data.r rVar) {
-        this.cKS = qVar;
-        this.cKT = amVar;
-        this.cKV = mVar;
-        this.cKU = rVar;
+    public u(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar, com.baidu.tbadk.widget.richText.n nVar) {
+        this.dej = rVar;
+        this.dek = anVar;
+        this.del = sVar;
+        this.dem = nVar;
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        Handler handler;
-        Handler handler2;
-        if (this.cKT != null && this.cKT.cLk != null && this.cKT.cLl != null) {
-            int curProgress = this.cKT.cLl.getCurProgress();
-            if (curProgress > 0) {
-                float duration = curProgress * 1.0f * this.cKT.cLk.getDuration();
-                PbVideoControllerView pbVideoControllerView = this.cKT.cLl;
-                this.cKT.cLk.seekTo((int) (duration / 10000.0f));
-            }
-            this.cKS.apc();
-            this.cKS.c(this.cKV);
-            this.cKS.a(this.cKT, this.cKV);
-            handler = this.cKS.mHandler;
-            Message obtainMessage = handler.obtainMessage(1);
-            obtainMessage.obj = this.cKU;
-            handler2 = this.cKS.mHandler;
-            handler2.sendMessage(obtainMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.pb.data.e eVar;
+        com.baidu.tieba.pb.data.e eVar2;
+        com.baidu.tieba.pb.data.e eVar3;
+        this.dek.deD.setVisibility(8);
+        this.dek.deA.start();
+        this.dej.b(this.del, this.dek);
+        this.dej.avT();
+        this.dej.c(this.dem);
+        this.dej.a(this.dek, this.dem);
+        eVar = this.dej.ddq;
+        if (eVar != null) {
+            aw awVar = new aw("c10795");
+            eVar2 = this.dej.ddq;
+            awVar.ac("fid", eVar2.getForumId());
+            eVar3 = this.dej.ddq;
+            awVar.ac("tid", eVar3.getThreadId());
+            TiebaStatic.log(awVar);
         }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

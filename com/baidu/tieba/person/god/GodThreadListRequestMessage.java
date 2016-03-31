@@ -48,15 +48,15 @@ public class GodThreadListRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(this.userId);
             builder.pn = Integer.valueOf(this.pn);
             builder.num = Integer.valueOf(this.num);
-            int K = k.K(TbadkCoreApplication.m411getInst().getApp());
-            int L = k.L(TbadkCoreApplication.m411getInst().getApp());
-            int viewImageQuality = l.rn().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(K);
-            builder.scr_h = Integer.valueOf(L);
-            builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp()));
+            int B = k.B(TbadkCoreApplication.m411getInst().getApp());
+            int C = k.C(TbadkCoreApplication.m411getInst().getApp());
+            int viewImageQuality = l.qE().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(B);
+            builder.scr_h = Integer.valueOf(C);
+            builder.scr_dip = Double.valueOf(k.D(TbadkCoreApplication.m411getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                com.baidu.tbadk.util.i.a(builder, true);
+                com.baidu.tbadk.util.l.a(builder, true);
             }
             GodThreadListReqIdl.Builder builder2 = new GodThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

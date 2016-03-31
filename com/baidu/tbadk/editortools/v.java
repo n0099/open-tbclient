@@ -1,15 +1,25 @@
 package com.baidu.tbadk.editortools;
 
-import android.content.Context;
-import com.baidu.tieba.t;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.tbadk.editortools.view.b;
 /* loaded from: classes.dex */
-public class v extends y {
-    public v(Context context) {
-        super(context, null, 2, 0);
-        this.launcherIcon = t.f.selector_editor_btn_more;
-        this.toolView = new s(context);
-        this.toolNeedAction = true;
-        this.toolPosition = 6;
-        this.toolLaunchAction = new int[]{1};
+class v implements b.a {
+    final /* synthetic */ u auj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(u uVar) {
+        this.auj = uVar;
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.b.a
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        e eD;
+        eD = this.auj.eD(i);
+        if (eD.getLayoutParams() == null) {
+            eD.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        }
+        return eD;
     }
 }

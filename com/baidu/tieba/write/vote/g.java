@@ -12,14 +12,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
-    private View.OnClickListener OS;
-    private WriteVoteActivity eqM;
-    private ImageView eqQ;
-    private EditText eqR;
-    private ImageView eqS;
-    private ImageFileInfo eqT;
-    private LayoutInflater eqU;
-    private b eqV;
+    private View.OnClickListener OZ;
+    private ImageFileInfo bKH;
+    private WriteVoteActivity eKG;
+    private ImageView eKK;
+    private EditText eKL;
+    private ImageView eKM;
+    private LayoutInflater eKN;
+    private b eKO;
     private int mId;
     private View mRootView;
     private int mType;
@@ -27,48 +27,49 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
     public g(WriteVoteActivity writeVoteActivity, int i) {
         super(writeVoteActivity.getPageContext());
         this.mType = 1;
-        this.OS = new h(this);
-        this.eqM = writeVoteActivity;
+        this.OZ = new h(this);
+        this.eKG = writeVoteActivity;
         this.mType = i;
-        this.eqV = writeVoteActivity;
+        this.eKO = writeVoteActivity;
         this.mId = BdUniqueId.gen().getId();
-        this.eqU = LayoutInflater.from(getActivity());
+        this.eKN = LayoutInflater.from(getActivity());
         initView();
     }
 
     private void initView() {
         if (this.mType == 0) {
-            this.mRootView = this.eqU.inflate(t.h.vote_pic_item, (ViewGroup) null);
-            this.eqQ = (ImageView) this.mRootView.findViewById(t.g.item_pic);
+            this.mRootView = this.eKN.inflate(t.h.vote_pic_item, (ViewGroup) null);
+            this.eKK = (ImageView) this.mRootView.findViewById(t.g.item_pic);
         } else {
-            this.mRootView = this.eqU.inflate(t.h.vote_text_item, (ViewGroup) null);
-            this.eqQ = (ImageView) this.mRootView.findViewById(t.g.item_icon);
+            this.mRootView = this.eKN.inflate(t.h.vote_text_item, (ViewGroup) null);
+            this.eKK = (ImageView) this.mRootView.findViewById(t.g.item_icon);
         }
-        this.eqR = (EditText) this.mRootView.findViewById(t.g.item_edittext);
-        this.eqS = (ImageView) this.mRootView.findViewById(t.g.item_delete);
-        this.eqQ.setOnClickListener(this.OS);
-        this.eqS.setOnClickListener(this.OS);
+        this.eKL = (EditText) this.mRootView.findViewById(t.g.item_edittext);
+        this.eKM = (ImageView) this.mRootView.findViewById(t.g.item_delete);
+        this.eKK.setOnClickListener(this.OZ);
+        this.eKM.setOnClickListener(this.OZ);
         if (this.mType == 0) {
-            this.eqR.addTextChangedListener(new a(10, this.eqR));
+            this.eKL.addTextChangedListener(new a(10, this.eKL));
         } else {
-            this.eqR.addTextChangedListener(new a(15, this.eqR));
+            this.eKL.addTextChangedListener(new a(15, this.eKL));
         }
-        aUg();
+        baF();
     }
 
-    public boolean aUb() {
-        return (this.eqT == null || TextUtils.isEmpty(this.eqT.getFilePath())) ? false : true;
+    public boolean baB() {
+        return (this.bKH == null || TextUtils.isEmpty(this.bKH.getFilePath())) ? false : true;
     }
 
-    public boolean aUc() {
-        return !TextUtils.isEmpty(aUd());
+    public boolean baC() {
+        return !TextUtils.isEmpty(baD());
     }
 
     public void a(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
         if (this.mType == 0) {
-            this.eqT = imageFileInfo;
+            this.bKH = imageFileInfo;
             if (aVar != null) {
-                aVar.a(this.eqQ);
+                aVar.a(this.eKK);
+                this.eKK.setContentDescription(getActivity().getString(t.j.look_big_photo));
             }
         }
     }
@@ -81,35 +82,41 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         return this.mId;
     }
 
-    public String aUd() {
-        return this.eqR == null ? "" : this.eqR.getText().toString().trim();
+    public String baD() {
+        return this.eKL == null ? "" : this.eKL.getText().toString().trim();
     }
 
-    public void pP(int i) {
-        if (this.eqR != null) {
-            this.eqR.setText("");
-            this.eqR.setHint(i);
-            this.eqR.requestFocus();
+    public void oU(String str) {
+        if (this.eKL != null) {
+            this.eKL.setText(str);
         }
     }
 
-    public void aUe() {
-        if (this.eqR != null) {
-            this.eqR.requestFocus();
+    public void qJ(int i) {
+        if (this.eKL != null) {
+            this.eKL.setText("");
+            this.eKL.setHint(i);
+            this.eKL.requestFocus();
         }
     }
 
-    public ImageFileInfo aUf() {
-        return this.eqT;
+    public void baE() {
+        if (this.eKL != null) {
+            this.eKL.requestFocus();
+        }
     }
 
-    public void aUg() {
+    public ImageFileInfo Yp() {
+        return this.bKH;
+    }
+
+    public void baF() {
         if (this.mRootView != null) {
-            com.baidu.tbadk.i.a.a(this.eqM.getPageContext(), this.mRootView);
+            com.baidu.tbadk.i.a.a(this.eKG.getPageContext(), this.mRootView);
         }
     }
 
     private Activity getActivity() {
-        return this.eqM.getPageContext().getPageActivity();
+        return this.eKG.getPageContext().getPageActivity();
     }
 }

@@ -5,98 +5,96 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.a.r;
-import com.baidu.tieba.card.an;
-import com.baidu.tieba.card.ax;
-import com.baidu.tieba.card.bb;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.card.bt;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.cj;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.a<r, a> {
-    private TbPageContext<?> Nw;
-    private BdUniqueId aPF;
-    private an bJE;
-    private bb dFY;
+public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.u, a> {
+    private TbPageContext<?> ND;
+    private BdUniqueId aSu;
+    private bt bUa;
+    private cj dXK;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dFY = new e(this);
-        this.Nw = tbPageContext;
+        this.dXK = new e(this);
+        this.ND = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aU */
+    /* renamed from: be */
     public a b(ViewGroup viewGroup) {
-        this.bJE = new an(this.Nw);
-        this.bJE.i(this.aPF);
-        return new a(this.bJE);
+        this.bUa = new bt(this.ND);
+        this.bUa.i(this.aSu);
+        return new a(this.bUa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, r rVar, a aVar) {
-        if (aVar == null || aVar.bJG == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.u uVar, a aVar) {
+        if (aVar == null || aVar.bUc == null) {
             return null;
         }
-        if (rVar != null) {
-            rVar.fB(i + 1);
-            rVar.b(b(rVar));
-            rVar.c(c(rVar));
-            rVar.d(e(rVar));
-            rVar.e(d(rVar));
+        if (uVar != null) {
+            uVar.fP(i + 1);
+            uVar.b(b(uVar));
+            uVar.c(c(uVar));
+            uVar.d(e(uVar));
+            uVar.e(d(uVar));
         }
-        aVar.bJG.a(rVar);
-        if (rVar != null) {
-            ax.Kc().a(rVar.KB());
+        aVar.bUc.a(uVar);
+        if (uVar != null) {
+            cf.Lx().a(uVar.LV());
         }
-        aVar.bJG.a(this.dFY);
+        aVar.bUc.a(this.dXK);
         return aVar.getView();
     }
 
-    private au b(r rVar) {
-        if (rVar == null || rVar.Ki() == null) {
+    private aw b(com.baidu.tieba.card.a.u uVar) {
+        if (uVar == null || uVar.LC() == null) {
             return null;
         }
-        return new au("c10732").aa(ImageViewerConfig.FORUM_ID, String.valueOf(rVar.Ki().getFid())).aa("tid", String.valueOf(rVar.Ki().getTid())).aa("obj_param1", rVar.getWeight()).aa("obj_source", rVar.getSource()).r("obj_locate", rVar.Ke()).r("obj_type", rVar.Kz());
+        return new aw("c10732").ac("fid", String.valueOf(uVar.LC().getFid())).ac("tid", String.valueOf(uVar.LC().getTid())).ac("obj_param1", uVar.getWeight()).ac("obj_source", uVar.getSource()).r("obj_locate", uVar.Ly()).r("obj_type", uVar.LT());
     }
 
-    private au c(r rVar) {
-        if (rVar == null || rVar.Ki() == null) {
+    private aw c(com.baidu.tieba.card.a.u uVar) {
+        if (uVar == null || uVar.LC() == null) {
             return null;
         }
-        return new au("c10707").aa(ImageViewerConfig.FORUM_ID, String.valueOf(rVar.Ki().getFid())).aa("tid", String.valueOf(rVar.Ki().getTid())).aa("obj_param1", rVar.getWeight()).aa("obj_source", rVar.getSource()).r("obj_locate", rVar.Ke()).r("obj_type", rVar.Kz());
+        return new aw("c10707").ac("fid", String.valueOf(uVar.LC().getFid())).ac("tid", String.valueOf(uVar.LC().getTid())).ac("obj_param1", uVar.getWeight()).ac("obj_source", uVar.getSource()).r("obj_locate", uVar.Ly()).r("obj_type", uVar.LT());
     }
 
-    private au d(r rVar) {
-        if (rVar == null || rVar.Ki() == null) {
+    private aw d(com.baidu.tieba.card.a.u uVar) {
+        if (uVar == null || uVar.LC() == null) {
             return null;
         }
-        return new au("c10733").aa(ImageViewerConfig.FORUM_ID, String.valueOf(rVar.Ki().getFid())).aa("tid", String.valueOf(rVar.Ki().getTid())).aa("obj_param1", rVar.getWeight()).aa("obj_source", rVar.getSource()).r("obj_locate", rVar.Ke()).r("obj_type", rVar.Kz());
+        return new aw("c10733").ac("fid", String.valueOf(uVar.LC().getFid())).ac("tid", String.valueOf(uVar.LC().getTid())).ac("obj_param1", uVar.getWeight()).ac("obj_source", uVar.getSource()).r("obj_locate", uVar.Ly()).r("obj_type", uVar.LT());
     }
 
-    private au e(r rVar) {
-        if (rVar == null || rVar.Ki() == null) {
+    private aw e(com.baidu.tieba.card.a.u uVar) {
+        if (uVar == null || uVar.LC() == null) {
             return null;
         }
-        return new au("c10706").aa(ImageViewerConfig.FORUM_ID, String.valueOf(rVar.Ki().getFid())).aa("tid", String.valueOf(rVar.Ki().getTid())).aa("obj_param1", rVar.getWeight()).aa("obj_source", rVar.getSource()).r("obj_locate", rVar.Ke()).r("obj_type", rVar.Kz());
+        return new aw("c10706").ac("fid", String.valueOf(uVar.LC().getFid())).ac("tid", String.valueOf(uVar.LC().getTid())).ac("obj_param1", uVar.getWeight()).ac("obj_source", uVar.getSource()).r("obj_locate", uVar.Ly()).r("obj_type", uVar.LT());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aPF = bdUniqueId;
+        this.aSu = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public an bJG;
+        public bt bUc;
 
-        public a(an anVar) {
-            super(anVar.getView());
-            this.bJG = anVar;
+        public a(bt btVar) {
+            super(btVar.getView());
+            this.bUc = btVar;
         }
     }
 }

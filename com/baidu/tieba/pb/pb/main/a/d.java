@@ -9,17 +9,17 @@ import com.baidu.tbadk.browser.f;
 import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bl;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a cSH;
+    final /* synthetic */ a dnz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cSH = aVar;
+        this.dnz = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,26 +30,26 @@ public class d implements View.OnClickListener {
         PbActivity pbActivity4;
         PbActivity pbActivity5;
         PbActivity pbActivity6;
-        pbActivity = this.cSH.cNL;
+        pbActivity = this.dnz.dfw;
         if (pbActivity.checkUpIsLogin()) {
             String str = null;
             if (view.getTag() != null) {
                 str = (String) view.getTag();
             }
-            pbActivity2 = this.cSH.cNL;
-            if (bi.ah(pbActivity2.getActivity())) {
+            pbActivity2 = this.dnz.dfw;
+            if (bl.ad(pbActivity2.getActivity())) {
                 if (!StringUtils.isNull(str) && !str.startsWith("vipcenter:") && !str.startsWith("membercenter:")) {
-                    pbActivity5 = this.cSH.cNL;
+                    pbActivity5 = this.dnz.dfw;
                     Activity activity = pbActivity5.getActivity();
-                    pbActivity6 = this.cSH.cNL;
-                    f.f(activity, pbActivity6.getResources().getString(t.j.membercenter_title), str);
+                    pbActivity6 = this.dnz.dfw;
+                    f.c(activity, pbActivity6.getResources().getString(t.j.membercenter_title), str);
                 } else {
                     MessageManager messageManager = MessageManager.getInstance();
-                    pbActivity4 = this.cSH.cNL;
+                    pbActivity4 = this.dnz.dfw;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(pbActivity4.getActivity())));
                 }
             }
-            pbActivity3 = this.cSH.cNL;
+            pbActivity3 = this.dnz.dfw;
             TiebaStatic.eventStat(pbActivity3.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
         }
     }

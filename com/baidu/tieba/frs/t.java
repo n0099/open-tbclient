@@ -1,16 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class t implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bgz;
+class t extends CustomMessageListener {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(FrsActivity frsActivity, int i) {
+        super(i);
+        this.blk = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
+                }
+                this.blk.f(customResponsedMessage);
+                return;
+            }
+            this.blk.e(customResponsedMessage);
+        }
     }
 }

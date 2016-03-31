@@ -26,19 +26,19 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tH = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.ts = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sz = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.tQ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.tB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.sI = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
                 try {
                     BdLog.e(th);
-                    com.baidu.adp.lib.h.a.b(cursor);
+                    com.baidu.adp.lib.h.a.a(cursor);
                     Collections.sort(linkedList, new a(null));
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.h.a.b(cursor);
+                    com.baidu.adp.lib.h.a.a(cursor);
                 }
             }
         }
@@ -47,7 +47,7 @@ public class s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
     public static List<o.b<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -64,19 +64,19 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tH = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.ts = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sz = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.tQ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.tB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.sI = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
                 try {
                     BdLog.e(th);
-                    com.baidu.adp.lib.h.a.b(cursor);
+                    com.baidu.adp.lib.h.a.a(cursor);
                     Collections.sort(linkedList, new a(null));
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.h.a.b(cursor);
+                    com.baidu.adp.lib.h.a.a(cursor);
                 }
             }
         }
@@ -109,10 +109,10 @@ public class s {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(o.b<?> bVar, o.b<?> bVar2) {
-            if (bVar.tH == bVar2.tH) {
+            if (bVar.tQ == bVar2.tQ) {
                 return 0;
             }
-            return bVar.tH > bVar2.tH ? -1 : 1;
+            return bVar.tQ > bVar2.tQ ? -1 : 1;
         }
     }
 }

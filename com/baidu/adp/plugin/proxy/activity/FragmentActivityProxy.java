@@ -41,6 +41,7 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.base.j;
 import com.baidu.adp.base.k;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.g;
 import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
@@ -60,22 +61,22 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 finish();
                 return;
             }
-            String stringExtra = intent.getStringExtra("intent_extra_package_name");
+            String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
             if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
                 finish();
                 BdLog.e("plugin not loaded. pluginname is " + stringExtra);
                 return;
             }
             try {
-                String stringExtra2 = intent.getStringExtra("intent_extra_activity");
+                String stringExtra2 = intent.getStringExtra(Plugin.INTENT_EXTRA_ACTIVITY);
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-                    com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.mEntity = (PluginBaseFragmentActivity) plugin2.kD().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
+                    Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
+                    this.mEntity = (PluginBaseFragmentActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
                     this.mEntity.setActivityProxy((com.baidu.adp.plugin.a.b) this);
                     this.mEntity.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.kG());
+                    setTheme(plugin2.getActivityThemeResource());
                 } else {
-                    this.mEntity = (PluginBaseFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).kD().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
+                    this.mEntity = (PluginBaseFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
                     this.mEntity.setActivityProxy((com.baidu.adp.plugin.a.b) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
@@ -1012,6 +1013,16 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
+    public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(str, context, attributeSet);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
+    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
     public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.addContentView(view, layoutParams);
     }
@@ -1331,6 +1342,11 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
+    public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        return super.dispatchKeyShortcutEvent(keyEvent);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
     public void proxyOnPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
     }
@@ -1550,21 +1566,21 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
 
     @Override // com.baidu.adp.plugin.a.a
     public boolean proxyStopService(Intent intent) {
-        String stringExtra = intent.getStringExtra("intent_extra_service");
+        String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         g.a aVar = null;
         if (stringExtra != null) {
-            aVar = g.kU().bg(stringExtra);
+            aVar = g.kJ().be(stringExtra);
         }
-        if (aVar == null || aVar.Da == null) {
+        if (aVar == null || aVar.Df == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (g.kU().kV() == 1) {
-            g.kU().bh(stringExtra);
-            aVar.Da.stopSelf();
+        } else if (g.kJ().kK() == 1) {
+            g.kJ().bf(stringExtra);
+            aVar.Df.stopSelf();
             return true;
         } else {
-            aVar.Da.onDestroy();
-            g.kU().bh(stringExtra);
+            aVar.Df.onDestroy();
+            g.kJ().bf(stringExtra);
             return true;
         }
     }
@@ -1640,5 +1656,10 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
             return null;
         }
         return this.mEntity.getPageContext();
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
+    public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
+        return super.dispatchGenericMotionEvent(motionEvent);
     }
 }

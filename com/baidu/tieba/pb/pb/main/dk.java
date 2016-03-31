@@ -1,25 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.df;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk implements View.OnClickListener {
-    private final /* synthetic */ int cLw;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cLx;
-    final /* synthetic */ de cPG;
-    private final /* synthetic */ int val$count;
+public class dk extends HttpMessageListener {
+    final /* synthetic */ df dju;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(de deVar, int i, int i2, com.baidu.tieba.tbadkCore.data.r rVar) {
-        this.cPG = deVar;
-        this.cLw = i;
-        this.val$count = i2;
-        this.cLx = rVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dk(df dfVar, int i) {
+        super(i);
+        this.dju = dfVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cLx.ok(Math.min(this.cLw + 5, this.val$count));
-        this.cPG.notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        df.a aVar;
+        df.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.dju.dho;
+                aVar.g(-1, null, null);
+                return;
+            }
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            if (errorCode == 0) {
+                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
+            }
+            aVar2 = this.dju.dho;
+            aVar2.g(errorCode, errorMessage, tid);
+        }
     }
 }

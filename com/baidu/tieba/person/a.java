@@ -13,24 +13,24 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0078a c0078a = new C0078a(null);
-            c0078a.cWr = str;
-            c0078a.cWs = bVar;
-            c0078a.execute("");
+            C0075a c0075a = new C0075a(null);
+            c0075a.dqT = str;
+            c0075a.dqU = bVar;
+            c0075a.execute("");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0078a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String cWr;
-        public b cWs;
+    public static class C0075a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String dqT;
+        public b dqU;
 
-        private C0078a() {
+        private C0075a() {
         }
 
-        /* synthetic */ C0078a(C0078a c0078a) {
+        /* synthetic */ C0075a(C0075a c0075a) {
             this();
         }
 
@@ -39,7 +39,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.c("user_pics").s(com.baidu.tbadk.core.util.m.cQ(this.cWr), false);
+            return new com.baidu.tbadk.img.c("user_pics").r(com.baidu.tbadk.core.util.m.cT(this.dqT), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,14 +48,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.cWs != null) {
+            if (this.dqU != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.cWs.a(i, str, imageUploadResult);
+                this.dqU.a(i, str, imageUploadResult);
             }
         }
     }

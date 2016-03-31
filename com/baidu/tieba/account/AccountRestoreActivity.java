@@ -20,8 +20,8 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     private NavigationBar mNavigationBar;
     private String mPageType;
     private BaseWebView mWebView;
-    private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new n(this);
-    private com.baidu.tieba.tbadkCore.e.c jsCallback = new o(this);
+    private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new m(this);
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new n(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -30,14 +30,14 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         setContentView(t.h.account_restore_activity);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(this.jsPromptInterface);
-        this.mPageType = getIntent().getStringExtra(PAGE_TYPE);
+        this.mPageType = getIntent().getStringExtra("page_type");
         this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(t.j.anti_account_restore));
         this.mWebView = (BaseWebView) findViewById(t.g.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
-        com.baidu.tbadk.browser.f.W(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.J(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

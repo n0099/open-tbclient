@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends c {
-    private a Ch;
-    protected Path Cf = new Path();
-    protected Paint Cg = null;
-    protected boolean Ci = false;
+    private a CC;
+    protected Path CA = new Path();
+    protected Paint CB = null;
+    protected boolean CD = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class j extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.Ch != null && (a2 = this.Ch.a(kp())) != null) {
-            this.Cf.set(a2);
-            if (this.Cg == null) {
-                this.Cg = new Paint();
-                this.Cg.setStyle(Paint.Style.STROKE);
-                this.Cg.setAntiAlias(true);
-                this.Cg.setColor(637534208);
-                this.Cg.setDither(true);
-                this.Cg.setStrokeWidth(2.0f);
+        if (this.CC != null && (a2 = this.CC.a(kv())) != null) {
+            this.CA.set(a2);
+            if (this.CB == null) {
+                this.CB = new Paint();
+                this.CB.setStyle(Paint.Style.STROKE);
+                this.CB.setAntiAlias(true);
+                this.CB.setColor(637534208);
+                this.CB.setDither(true);
+                this.CB.setStrokeWidth(2.0f);
             }
-            kx();
+            kD();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.Ci) {
-            canvas.drawPath(this.Cf, this.Cg);
-            if (this.Ch != null) {
-                this.Ch.c(canvas);
+        if (this.CD) {
+            canvas.drawPath(this.CA, this.CB);
+            if (this.CC != null) {
+                this.CC.c(canvas);
             }
         }
     }
 
-    public void kx() {
+    public void kD() {
     }
 
-    public void ky() {
+    public void kE() {
     }
 
     public void a(a aVar) {
-        this.Ch = aVar;
+        this.CC = aVar;
     }
 
-    public void G(boolean z) {
-        this.Ci = z;
+    public void F(boolean z) {
+        this.CD = z;
     }
 }

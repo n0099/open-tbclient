@@ -1,55 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.b.a;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fc implements View.OnClickListener {
-    final /* synthetic */ dz cSw;
+    final /* synthetic */ eu dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fc(dz dzVar) {
-        this.cSw = dzVar;
+    public fc(eu euVar) {
+        this.dnc = euVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
         PbActivity pbActivity;
-        com.baidu.tbadk.editortools.k kVar;
-        com.baidu.tbadk.editortools.k kVar2;
-        View view2;
-        View view3;
-        PbActivity pbActivity2;
-        com.baidu.tbadk.editortools.k kVar3;
-        a.InterfaceC0084a interfaceC0084a;
-        String str;
-        pbActivity = this.cSw.cNL;
-        if (pbActivity.checkUpIsLogin()) {
-            kVar = this.cSw.Lx;
-            if (kVar != null) {
-                this.cSw.aqZ();
+        dialog = this.dnc.dlx;
+        if (dialog != null) {
+            dialog2 = this.dnc.dlx;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.dnc.dlx;
+                pbActivity = this.dnc.dfw;
+                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
             }
-            kVar2 = this.cSw.Lx;
-            if (kVar2 != null) {
-                this.cSw.cRB = false;
-                pbActivity2 = this.cSw.cNL;
-                kVar3 = this.cSw.Lx;
-                interfaceC0084a = this.cSw.cRX;
-                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) kVar3.ex(3).toolView, false, interfaceC0084a);
-            }
-            view2 = this.cSw.cRx;
-            if (view2 != null) {
-                view3 = this.cSw.cRx;
-                view3.setVisibility(8);
-                this.cSw.cRB = false;
-                return;
-            }
-            return;
         }
-        com.baidu.tbadk.core.util.au r = new com.baidu.tbadk.core.util.au("c10517").r("obj_locate", 2);
-        str = this.cSw.mForumId;
-        TiebaStatic.log(r.aa(ImageViewerConfig.FORUM_ID, str));
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.dnc.a(((Integer) sparseArray.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray.get(t.g.tag_del_post_id), ((Integer) sparseArray.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(t.g.tag_del_post_is_self)).booleanValue());
+        }
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aEy;
+    final /* synthetic */ TbImageView aFT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbImageView tbImageView) {
-        this.aEy = tbImageView;
+        this.aFT = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,32 +20,38 @@ public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         TbImageView.a aVar2;
         long j;
         TbImageView.a aVar3;
-        this.aEy.stopLoading();
+        int i2;
+        this.aFT.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        aVar2 = this.aEy.aEk;
+        if (aVar == null) {
+            TbImageView tbImageView = this.aFT;
+            i2 = this.aFT.aFE;
+            tbImageView.aFF = i2;
+        }
+        aVar2 = this.aFT.aFD;
         if (aVar2 != null) {
             if (aVar != null) {
-                this.aEy.aEw = aVar.getWidth();
-                this.aEy.aEx = aVar.getHeight();
+                this.aFT.aFR = aVar.getWidth();
+                this.aFT.aFS = aVar.getHeight();
             }
-            aVar3 = this.aEy.aEk;
-            aVar3.t(str, aVar != null);
+            aVar3 = this.aFT.aFD;
+            aVar3.s(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.Hj != null) {
-                this.aEy.aEt.Hl = aVar.Hj.Hl;
-                this.aEy.aEt.isSuccess = aVar.Hj.Hn;
-                this.aEy.aEt.Hm = aVar.Hj.Hm;
+            if (aVar.Hp != null) {
+                this.aFT.aFO.Hr = aVar.Hp.Hr;
+                this.aFT.aFO.isSuccess = aVar.Hp.Ht;
+                this.aFT.aFO.Hs = aVar.Hp.Hs;
             }
         } else {
-            this.aEy.aEt.Hl = "net";
-            this.aEy.aEt.isSuccess = false;
-            u uVar = this.aEy.aEt;
+            this.aFT.aFO.Hr = "net";
+            this.aFT.aFO.isSuccess = false;
+            u uVar = this.aFT.aFO;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.aEy.aEv;
-            uVar.Hm = currentTimeMillis - j;
+            j = this.aFT.aFQ;
+            uVar.Hs = currentTimeMillis - j;
         }
-        this.aEy.wQ();
+        this.aFT.xi();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,14 +62,14 @@ public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.g.b
-    public void am(String str) {
+    public void ao(String str) {
         TbImageView.a aVar;
         TbImageView.a aVar2;
-        super.am(str);
-        this.aEy.stopLoading();
-        aVar = this.aEy.aEk;
+        super.ao(str);
+        this.aFT.stopLoading();
+        aVar = this.aFT.aFD;
         if (aVar != null) {
-            aVar2 = this.aEy.aEk;
+            aVar2 = this.aFT.aFD;
             aVar2.onCancel();
         }
     }

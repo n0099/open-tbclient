@@ -6,13 +6,13 @@ import com.baidu.tieba.person.ChangePortraitResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends HttpMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class r extends HttpMessageListener {
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ChangePortraitResponse) || ((ChangePortraitResponse) httpResponsedMessage).getErrCode() != 0) {
             return;
         }
-        this.diG.avk();
+        this.this$0.aCQ();
     }
 }

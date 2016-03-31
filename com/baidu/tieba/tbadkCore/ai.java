@@ -1,101 +1,76 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.lang.ref.WeakReference;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.aw;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai {
-    private String aer = "bar_detail";
-    private a dWa;
+public class ai implements View.OnClickListener {
+    final /* synthetic */ U9InfoView eoG;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void g(String str, long j);
-
-        void h(String str, long j);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(U9InfoView u9InfoView) {
+        this.eoG = u9InfoView;
     }
 
-    public void setFrom(String str) {
-        this.aer = str;
-    }
-
-    public void a(a aVar) {
-        this.dWa = aVar;
-    }
-
-    public void m(String str, long j) {
-        new b(str, j, this.aer, this.dWa).execute(new Integer[0]);
-    }
-
-    /* loaded from: classes.dex */
-    private static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private String aer;
-        private com.baidu.tbadk.core.util.aa aiG = null;
-        private WeakReference<a> dWb;
-        private long mForumId;
-        private String mForumName;
-
-        public b(String str, long j, String str2, a aVar) {
-            this.mForumName = null;
-            this.mForumId = 0L;
-            this.dWb = null;
-            this.mForumName = str;
-            this.mForumId = j;
-            this.dWb = new WeakReference<>(aVar);
-            this.aer = str2;
-            setPriority(3);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
-        public Integer doInBackground(Integer... numArr) {
-            try {
-                if (this.mForumId != 0 && this.mForumName != null) {
-                    this.aiG = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.aiG.p(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
-                    this.aiG.p("kw", this.mForumName);
-                    this.aiG.p("favo_type", "1");
-                    this.aiG.p("st_type", this.aer);
-                    this.aiG.vB().wv().mIsNeedTbs = true;
-                    this.aiG.uZ();
-                }
-                return 1;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Integer num) {
-            a aVar;
-            super.onPostExecute((b) num);
-            if (this.dWb != null && (aVar = this.dWb.get()) != null) {
-                if (this.aiG != null) {
-                    if (this.aiG.vB().ww().rl()) {
-                        if (num.intValue() == 1) {
-                            TbadkCoreApplication.m411getInst().delLikeForum(this.mForumName);
-                            aVar.g(this.mForumName, this.mForumId);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        RelativeLayout relativeLayout;
+        LinearLayout linearLayout;
+        aw awVar;
+        aw awVar2;
+        Context context2;
+        Context context3;
+        aw awVar3;
+        at atVar;
+        at atVar2;
+        Context context4;
+        Context context5;
+        at atVar3;
+        context = this.eoG.mContext;
+        if (bl.ad(context) && com.baidu.adp.lib.util.k.jw()) {
+            relativeLayout = this.eoG.eow;
+            if (view != relativeLayout) {
+                linearLayout = this.eoG.eox;
+                if (view == linearLayout) {
+                    awVar = this.eoG.news_info;
+                    if (awVar != null) {
+                        awVar2 = this.eoG.news_info;
+                        if (!TextUtils.isEmpty(awVar2.uf())) {
+                            context2 = this.eoG.mContext;
+                            TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
+                            bg wM = bg.wM();
+                            context3 = this.eoG.mContext;
+                            awVar3 = this.eoG.news_info;
+                            wM.c((TbPageContext) com.baidu.adp.base.l.s(context3), new String[]{awVar3.uf()});
                             return;
                         }
-                        aVar.h(this.mForumName, this.mForumId);
                         return;
                     }
-                    aVar.h(this.mForumName, this.mForumId);
                     return;
                 }
-                aVar.h(this.mForumName, this.mForumId);
+                return;
+            }
+            atVar = this.eoG.top_code;
+            if (atVar != null) {
+                atVar2 = this.eoG.top_code;
+                if (!TextUtils.isEmpty(atVar2.tX())) {
+                    context4 = this.eoG.mContext;
+                    TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
+                    bg wM2 = bg.wM();
+                    context5 = this.eoG.mContext;
+                    atVar3 = this.eoG.top_code;
+                    wM2.c((TbPageContext) com.baidu.adp.base.l.s(context5), new String[]{atVar3.tX()});
+                }
             }
         }
     }

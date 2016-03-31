@@ -1,33 +1,47 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.widget.AbsListView;
+import com.baidu.tieba.imMessageCenter.mention.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements AbsListView.OnScrollListener {
-    final /* synthetic */ ax cnH;
+public class az implements ar.a {
+    final /* synthetic */ ay cyj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(ax axVar) {
-        this.cnH = axVar;
+    public az(ay ayVar) {
+        this.cyj = ayVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // com.baidu.tieba.imMessageCenter.mention.ar.a
+    public void b(long j, long j2, long j3) {
         com.baidu.tbadk.editortools.d.p pVar;
+        FeedData feedData;
         com.baidu.tbadk.editortools.d.p pVar2;
-        if (i != 0) {
-            pVar = this.cnH.cnC;
-            if (pVar != null) {
-                pVar2 = this.cnH.cnC;
-                pVar2.DI();
-                if (this.cnH.cmH != null) {
-                    this.cnH.cmH.ahT();
+        FeedData feedData2;
+        com.baidu.tbadk.editortools.d.p pVar3;
+        FeedData feedData3;
+        this.cyj.mForumId = String.valueOf(j);
+        this.cyj.cyg = j2;
+        this.cyj.cyh = j3;
+        pVar = this.cyj.cye;
+        if (pVar != null) {
+            feedData = this.cyj.cyf;
+            if (feedData.getIsFloor()) {
+                feedData2 = this.cyj.cyf;
+                if (feedData2.getReplyer() != null) {
+                    if (this.cyj.cxj != null) {
+                        this.cyj.cxj.alm();
+                    }
+                    pVar3 = this.cyj.cye;
+                    feedData3 = this.cyj.cyf;
+                    pVar3.fF(feedData3.getReplyer().getUserName());
+                    return;
                 }
             }
+            if (this.cyj.cxj != null) {
+                this.cyj.cxj.alm();
+            }
+            pVar2 = this.cyj.cye;
+            pVar2.fF(null);
         }
     }
 }

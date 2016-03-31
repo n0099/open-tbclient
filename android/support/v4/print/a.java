@@ -6,15 +6,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.print.PrintAttributes;
 import android.print.PrintManager;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a {
+class a {
     final Context mContext;
-    BitmapFactory.Options ma = null;
+    BitmapFactory.Options mb = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
-    int lY = 2;
-    int lZ = 1;
+    int lZ = 2;
+    int ma = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -30,19 +29,19 @@ public class a {
     }
 
     public void setColorMode(int i) {
-        this.lY = i;
-    }
-
-    public void setOrientation(int i) {
         this.lZ = i;
     }
 
+    public void setOrientation(int i) {
+        this.ma = i;
+    }
+
     public int getOrientation() {
-        return this.lZ;
+        return this.ma;
     }
 
     public int getColorMode() {
-        return this.lY;
+        return this.lZ;
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
@@ -53,7 +52,7 @@ public class a {
             if (bitmap.getWidth() > bitmap.getHeight()) {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
-            printManager.print(str, new b(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.lY).build());
+            printManager.print(str, new b(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.lZ).build());
         }
     }
 
@@ -61,10 +60,10 @@ public class a {
         c cVar = new c(this, str, uri, this.mScaleMode);
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.lY);
-        if (this.lZ == 1) {
+        builder.setColorMode(this.lZ);
+        if (this.ma == 1) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (this.lZ == 2) {
+        } else if (this.ma == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, cVar, builder.build());

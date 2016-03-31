@@ -6,26 +6,26 @@ import tbclient.GetClientConfig.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.clientConfig.c {
-    final /* synthetic */ b ebj;
+    final /* synthetic */ b eue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ebj = bVar;
+        this.eue = bVar;
     }
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void w(Object obj) {
-        this.ebj.aXB = false;
+        this.eue.bck = false;
         if (obj != null && (obj instanceof DataRes)) {
             DataRes dataRes = (DataRes) obj;
             if (dataRes.local_dialog != null) {
                 String c = a.c(dataRes);
                 if (!TextUtils.isEmpty(c)) {
-                    TbadkSettings.getInst().saveString(this.ebj.na("remind_recommend_info"), c);
-                    TbadkSettings.getInst().saveInt(this.ebj.na("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.ebj.na("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.ebj.ih(true);
-                    TbadkSettings.getInst().saveLong(this.ebj.na("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveString(this.eue.on("remind_recommend_info"), c);
+                    TbadkSettings.getInst().saveInt(this.eue.on("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.eue.on("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.eue.iW(true);
+                    TbadkSettings.getInst().saveLong(this.eue.on("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }
@@ -33,6 +33,6 @@ public class c implements com.baidu.tbadk.clientConfig.c {
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void onError(String str) {
-        this.ebj.aXB = false;
+        this.eue.bck = false;
     }
 }

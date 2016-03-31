@@ -5,7 +5,7 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
-public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessage<j, GodFeedResIdl> {
+public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessage<n, GodFeedResIdl> {
     public RecommendGodSocketResponsedMessage() {
         super(309281);
     }
@@ -17,13 +17,13 @@ public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessag
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> P;
+        com.baidu.adp.lib.cache.o<byte[]> N;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if (mvcNetMessage.getRequestData() instanceof o) {
-                o oVar = (o) mvcNetMessage.getRequestData();
-                if (oVar.getPn() == 1 && (P = com.baidu.tbadk.core.b.a.ug().P("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
-                    P.f(new StringBuilder(String.valueOf(oVar.getTagCode())).toString(), bArr);
+            if (mvcNetMessage.getRequestData() instanceof s) {
+                s sVar = (s) mvcNetMessage.getRequestData();
+                if (sVar.getPn() == 1 && (N = com.baidu.tbadk.core.b.a.um().N("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
+                    N.e(new StringBuilder(String.valueOf(sVar.getTagCode())).toString(), bArr);
                 }
             }
         }

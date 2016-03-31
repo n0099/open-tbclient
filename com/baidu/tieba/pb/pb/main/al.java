@@ -1,44 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.s;
 /* loaded from: classes.dex */
-public class al implements PbActivity.a {
-    final /* synthetic */ PbActivity cNq;
+class al implements s.a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
-    public void d(Object obj) {
-        cm cmVar;
-        cm cmVar2;
-        cm cmVar3;
-        cm cmVar4;
-        Object[] objArr = (Object[]) obj;
-        cmVar = this.cNq.cMF;
-        String valueOf = String.valueOf(cmVar.getPbData().getUserData().getUserId());
-        String str = "";
-        if (objArr.length > 1) {
-            str = String.valueOf(objArr[1]);
+    @Override // com.baidu.tbadk.core.view.s.a
+    public void aB(boolean z) {
+        df dfVar;
+        eu euVar;
+        if (this.dht.awE()) {
+            this.dht.finish();
         }
-        String str2 = "";
-        if (objArr.length > 2) {
-            str2 = String.valueOf(objArr[2]);
+        dfVar = this.dht.dfV;
+        if (!dfVar.gc(true)) {
+            euVar = this.dht.dgF;
+            euVar.ayI();
+            return;
         }
-        PbActivity pbActivity = this.cNq;
-        Activity pageActivity = this.cNq.getPageContext().getPageActivity();
-        cmVar2 = this.cNq.cMF;
-        String id = cmVar2.getPbData().aoE().getId();
-        cmVar3 = this.cNq.cMF;
-        String name = cmVar3.getPbData().aoE().getName();
-        cmVar4 = this.cNq.cMF;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, cmVar4.getPbData().aoF().getId(), valueOf, str, str2)));
+        TiebaStatic.eventStat(this.dht.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

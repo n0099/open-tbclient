@@ -1,43 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tieba.tbadkCore.f.a;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.pb.main.df;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class av extends CustomMessageListener {
-    final /* synthetic */ PbActivity cNq;
+class av implements df.a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av(PbActivity pbActivity, int i) {
-        super(i);
-        this.cNq = pbActivity;
+    public av(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.pb.e eVar = (com.baidu.tieba.pb.e) customResponsedMessage.getData();
-            switch (eVar.getType()) {
-                case 0:
-                    this.cNq.b((com.baidu.tieba.pb.a.d) eVar.getData());
-                    return;
-                case 1:
-                    this.cNq.a((a.b) eVar.getData());
-                    return;
-                case 2:
-                    if (eVar.getData() == null) {
-                        this.cNq.a(false, (MarkData) null);
-                        return;
-                    } else {
-                        this.cNq.a(true, (MarkData) eVar.getData());
-                        return;
-                    }
-                default:
-                    return;
+    @Override // com.baidu.tieba.pb.pb.main.df.a
+    public void g(int i, String str, String str2) {
+        eu euVar;
+        if (StringUtils.isNull(str)) {
+            if (i == 0) {
+                this.dht.showToast(t.j.upgrage_toast_dialog);
+            } else {
+                this.dht.showToast(t.j.neterror);
             }
+        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
+            this.dht.dhn = str2;
+            euVar = this.dht.dgF;
+            euVar.mc(str);
+        } else {
+            this.dht.showToast(str);
         }
     }
 }

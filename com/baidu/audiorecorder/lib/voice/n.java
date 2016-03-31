@@ -5,10 +5,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.editortools.aa;
 /* loaded from: classes.dex */
 class n implements CustomMessageTask.CustomRunnable<Context> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.editortools.y> run(CustomMessage<Context> customMessage) {
+    public CustomResponsedMessage<aa> run(CustomMessage<Context> customMessage) {
         if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
             return null;
         }

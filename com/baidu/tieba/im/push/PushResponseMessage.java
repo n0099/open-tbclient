@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.push;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
@@ -21,7 +20,6 @@ public class PushResponseMessage extends ResponsePullMessage {
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        BdLog.e("cmd " + i);
         PushMessageResIdl pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class);
         if (pushMessageResIdl.data != null && pushMessageResIdl.data.msgs != null && pushMessageResIdl.data.msgs.data != null && pushMessageResIdl.data.msgs.data.msgInfo != null) {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp().getApplicationContext(), "push_content_receive", null);

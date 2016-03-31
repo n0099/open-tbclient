@@ -1,25 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.widget.richText.g;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn extends CustomMessageListener {
-    final /* synthetic */ PbActivity cNq;
+public class bn implements a.b {
+    private final /* synthetic */ gn dhA;
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn(PbActivity pbActivity, int i) {
-        super(i);
-        this.cNq = pbActivity;
+    public bn(PbActivity pbActivity, gn gnVar) {
+        this.dht = pbActivity;
+        this.dhA = gnVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
-            g.a aVar = (g.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.g.a(this.cNq.getPageContext(), aVar.type, aVar.url, aVar.subType);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.dht.HidenSoftKeyPad((InputMethodManager) this.dht.getSystemService("input_method"), this.dhA.getChatMsgView());
+        aVar.dismiss();
     }
 }

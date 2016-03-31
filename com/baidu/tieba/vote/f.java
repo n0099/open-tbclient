@@ -4,34 +4,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.widget.vote.a {
-    private String aaR;
-    private int bmP;
-    private long cAV;
+    private String aad;
+    private int bsa;
+    private long cUq;
     private boolean isSelected = false;
     private int mId;
     private String mUrl;
 
     public f(int i, String str, String str2, long j) {
         this.mId = i;
-        this.aaR = str;
+        this.aad = str;
         this.mUrl = str2;
-        this.cAV = j;
+        this.cUq = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void cg(int i) {
-        this.bmP = i;
+    public void ci(int i) {
+        this.bsa = i;
     }
 
     public void setNum(long j) {
-        this.cAV = j;
+        this.cUq = j;
     }
 
     public long getNum() {
-        return this.cAV;
+        return this.cUq;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -40,8 +40,8 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String HI() {
-        return this.aaR;
+    public String Je() {
+        return this.aad;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -50,27 +50,27 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String HJ() {
-        return String.valueOf(this.cAV) + TbadkCoreApplication.m411getInst().getString(t.j.vote_unit);
+    public String Jf() {
+        return String.valueOf(this.cUq) + TbadkCoreApplication.m411getInst().getString(t.j.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String HK() {
-        return String.valueOf(this.bmP) + TbadkCoreApplication.m411getInst().getString(t.j.vote_percent);
+    public String Jg() {
+        return String.valueOf(this.bsa) + TbadkCoreApplication.m411getInst().getString(t.j.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int HL() {
+    public int Jh() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int HM() {
-        return this.bmP;
+    public int Ji() {
+        return this.bsa;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String HN() {
+    public String Jj() {
         return this.mUrl;
     }
 }

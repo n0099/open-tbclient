@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.postsearch.k;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
@@ -18,39 +18,39 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends BaseAdapter {
-    private static final int dyg = TbadkCoreApplication.m411getInst().getListItemRule().yf();
-    private TbPageContext<?> MR;
-    private List<k.a> aIY = new ArrayList();
+    private static final int dSM = TbadkCoreApplication.m411getInst().getListItemRule().yG();
+    private TbPageContext<?> MX;
+    private List<k.a> aLU = new ArrayList();
 
     public w(TbPageContext<?> tbPageContext) {
-        this.MR = tbPageContext;
+        this.MX = tbPageContext;
     }
 
-    public int bH(List<k.a> list) {
+    public int cd(List<k.a> list) {
         if (list == null) {
             return 0;
         }
-        int size = this.aIY.size() + list.size();
-        if (size <= dyg) {
-            this.aIY.addAll(list);
+        int size = this.aLU.size() + list.size();
+        if (size <= dSM) {
+            this.aLU.addAll(list);
             return 0;
         }
-        int i = size - dyg;
-        mZ(i);
-        this.aIY.addAll(list);
+        int i = size - dSM;
+        oi(i);
+        this.aLU.addAll(list);
         return i;
     }
 
     public void clear() {
-        this.aIY.clear();
+        this.aLU.clear();
     }
 
-    private void mZ(int i) {
-        if (this.aIY.size() <= i) {
-            this.aIY.clear();
+    private void oi(int i) {
+        if (this.aLU.size() <= i) {
+            this.aLU.clear();
         }
         int i2 = 0;
-        Iterator<k.a> it = this.aIY.iterator();
+        Iterator<k.a> it = this.aLU.iterator();
         while (it.hasNext()) {
             it.next();
             it.remove();
@@ -63,18 +63,18 @@ public class w extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aIY == null) {
+        if (this.aLU == null) {
             return 0;
         }
-        return this.aIY.size();
+        return this.aLU.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aIY == null || this.aIY.isEmpty() || i < 0 || i >= this.aIY.size()) {
+        if (this.aLU == null || this.aLU.isEmpty() || i < 0 || i >= this.aLU.size()) {
             return null;
         }
-        return this.aIY.get(i);
+        return this.aLU.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -85,52 +85,52 @@ public class w extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.MR.getPageActivity()).inflate(t.h.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.MX.getPageActivity()).inflate(t.h.post_search_list_item, (ViewGroup) null);
             a aVar = new a(null);
-            aVar.dyj = (TextView) view.findViewById(t.g.title_text);
-            aVar.dyk = (TextView) view.findViewById(t.g.content_text);
-            aVar.dyl = (TextView) view.findViewById(t.g.label_text);
-            aVar.crV = (TextView) view.findViewById(t.g.user_name);
-            aVar.dym = (TextView) view.findViewById(t.g.time_text);
+            aVar.dSP = (TextView) view.findViewById(t.g.title_text);
+            aVar.dSQ = (TextView) view.findViewById(t.g.content_text);
+            aVar.dSR = (TextView) view.findViewById(t.g.label_text);
+            aVar.cCv = (TextView) view.findViewById(t.g.user_name);
+            aVar.dSS = (TextView) view.findViewById(t.g.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
-        k.a aVar3 = this.aIY.get(i);
+        k.a aVar3 = this.aLU.get(i);
         if (aVar3 != null) {
             String str = "#e53917";
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            Spanned fromHtml = Html.fromHtml(aw.ab(aVar3.title, str));
+            Spanned fromHtml = Html.fromHtml(ay.ae(aVar3.title, str));
             if (aVar3.thread_type == 33) {
-                aVar2.dyj.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+                aVar2.dSP.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
             } else {
-                aVar2.dyj.setText(fromHtml);
+                aVar2.dSP.setText(fromHtml);
             }
-            aVar2.dyk.setText(Html.fromHtml(aw.ab(aVar3.content, str)));
-            aVar2.crV.setText(aVar3.name_show);
-            aVar2.dym.setText(aw.t(aVar3.time));
-            aVar2.dyl.setVisibility(0);
+            aVar2.dSQ.setText(Html.fromHtml(ay.ae(aVar3.content, str)));
+            aVar2.cCv.setText(aVar3.name_show);
+            aVar2.dSS.setText(ay.w(aVar3.time));
+            aVar2.dSR.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.dyl.setText(t.j.floor_text);
-            } else if (aVar3.dxH == 1) {
-                aVar2.dyl.setText(t.j.reply_post);
+                aVar2.dSR.setText(t.j.floor_text);
+            } else if (aVar3.dSn == 1) {
+                aVar2.dSR.setText(t.j.reply_post);
             } else {
-                aVar2.dyl.setVisibility(8);
+                aVar2.dSR.setVisibility(8);
             }
             view.setOnClickListener(new x(this, aVar3));
-            com.baidu.tbadk.i.a.a(this.MR, view);
+            com.baidu.tbadk.i.a.a(this.MX, view);
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        TextView crV;
-        TextView dyj;
-        TextView dyk;
-        TextView dyl;
-        TextView dym;
+        TextView cCv;
+        TextView dSP;
+        TextView dSQ;
+        TextView dSR;
+        TextView dSS;
 
         private a() {
         }

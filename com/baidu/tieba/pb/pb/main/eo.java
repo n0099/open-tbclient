@@ -1,26 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class eo implements DialogInterface.OnCancelListener {
-    final /* synthetic */ dz cSw;
-
+class eo extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eo(dz dzVar) {
-        this.cSw = dzVar;
+    public eo(int i) {
+        super(i);
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.cSw.cRU;
-        if (runnable == null) {
-            this.cSw.cRU = new ep(this);
-        }
-        com.baidu.adp.lib.h.h hr = com.baidu.adp.lib.h.h.hr();
-        runnable2 = this.cSw.cRU;
-        hr.postDelayed(runnable2, 150L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        en.aya().reset();
     }
 }

@@ -1,43 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import tbclient.AwardInfo;
 /* loaded from: classes.dex */
 public class e {
-    private int UZ;
-    private String badge_url;
-    private String webview;
+    private long SD;
+    private String SE;
+    private String SF;
+    private long mAwardActId;
 
-    public String rR() {
-        return this.badge_url;
+    public long rp() {
+        return this.SD;
     }
 
-    public String rS() {
-        return String.valueOf(this.UZ);
+    public String rq() {
+        return this.SE;
     }
 
-    public String rT() {
-        return this.webview;
+    public String rr() {
+        return this.SF;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.UZ = jSONObject.optInt("badge_id", 0);
-                this.badge_url = jSONObject.optString("badge_url", "");
-                this.webview = jSONObject.optString("webview");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void a(Badges badges) {
-        if (badges != null) {
-            this.UZ = badges.badge_id.intValue();
-            this.badge_url = badges.badge_url;
-            this.webview = badges.webview;
+    public void a(AwardInfo awardInfo) {
+        if (awardInfo != null) {
+            this.SD = awardInfo.award_id.longValue();
+            this.mAwardActId = awardInfo.award_act_id.longValue();
+            this.SE = awardInfo.award_name;
+            this.SF = awardInfo.award_imgsrc;
         }
     }
 }

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.core.util.ag;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -22,7 +23,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     private Runnable mPlayTimeThread = new d(this);
     private Runnable mRecordTimeThread = new e(this);
     private i mRecorder = null;
-    private h mPlayer = k.xL();
+    private h mPlayer = k.ym();
     long mSeekTime = 0;
 
     public static void preparePlay(Context context, String str, int i) {
@@ -185,8 +186,8 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     private void tryPreparePlayVoices(long j) {
         this.mSeekTime = j;
         Voice voice = this.mVoice;
-        k.xL().xJ();
-        if (!this.mPlayer.dU(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
+        k.ym().yk();
+        if (!this.mPlayer.eb(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
             Intent intent = new Intent("com.baidu.playPrepared");
             intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.getErrorNo());
             sendBroadcast(intent);
@@ -196,8 +197,8 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void playVoice(Intent intent) {
-        if (this.mPlayer != null && this.mPlayer.xK()) {
-            this.mPlayer.xH();
+        if (this.mPlayer != null && this.mPlayer.yl()) {
+            this.mPlayer.yi();
             this.mHandler.post(this.mPlayTimeThread);
             if (this.mPlayer.isPlaying()) {
                 Intent intent2 = new Intent("com.baidu.isPlaying");
@@ -209,7 +210,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void pauseVoice(Intent intent) {
         if (this.mPlayer.isPlaying()) {
-            this.mPlayer.xI();
+            this.mPlayer.yj();
             this.mHandler.removeCallbacks(this.mPlayTimeThread);
             if (!this.mPlayer.isPlaying()) {
                 Intent intent2 = new Intent("com.baidu.isPlaying");
@@ -227,26 +228,26 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (this.mPlayer instanceof k) {
             ((k) this.mPlayer).setOnCompletionListener(null);
         }
-        int jB = this.mPlayer.jB();
+        int jH = this.mPlayer.jH();
         Intent intent2 = new Intent("com.baidu.isStoped");
-        intent2.putExtra("com.baidu.msg.curr_time", jB);
+        intent2.putExtra("com.baidu.msg.curr_time", jH);
         sendBroadcast(intent2);
-        this.mPlayer.xB();
+        this.mPlayer.yc();
     }
 
     private void stopAndReplay(Intent intent) {
         if (this.mVoice != null && this.mPlayer != null) {
-            long jB = this.mPlayer.jB();
-            if (jB >= 0) {
-                this.mPlayer.xB();
-                this.mPlayer.xJ();
+            long jH = this.mPlayer.jH();
+            if (jH >= 0) {
+                this.mPlayer.yc();
+                this.mPlayer.yk();
                 long duration = this.mVoice.getDuration();
-                if (duration > 0 && jB <= duration) {
+                if (duration > 0 && jH <= duration) {
                     if (this.mPlayer instanceof k) {
                         ((k) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.dU(this.mVoice.getName())) {
-                        this.mPlayer.dv((int) jB);
+                    if (this.mPlayer.eb(this.mVoice.getName())) {
+                        this.mPlayer.dA((int) jH);
                         playVoice(null);
                     }
                 }
@@ -256,7 +257,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void seekVoice(Intent intent) {
         if (this.mVoice != null) {
-            this.mPlayer.xJ();
+            this.mPlayer.yk();
             long longExtra = intent.getLongExtra("com.baidu.seekTime", 0L);
             if (longExtra >= 0) {
                 long duration = this.mVoice.getDuration();
@@ -264,8 +265,8 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof k) {
                         ((k) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.dU(this.mVoice.getName())) {
-                        this.mPlayer.dv((int) longExtra);
+                    if (this.mPlayer.eb(this.mVoice.getName())) {
+                        this.mPlayer.dA((int) longExtra);
                         playVoice(null);
                     }
                 }
@@ -275,7 +276,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void startRecord(Intent intent) {
         if (this.mRecorder != null) {
-            this.mRecorder.xA();
+            this.mRecorder.yb();
             this.mStartRecorderTime = System.currentTimeMillis();
             this.mHandler.post(this.mRecordTimeThread);
             Intent intent2 = new Intent("com.baidu.mediaIsRecording");
@@ -287,36 +288,38 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     private void prepareRecorder(Intent intent) {
         String stringExtra = intent.getStringExtra("com.baidu.notePath");
         String stringExtra2 = intent.getStringExtra("filePath");
-        if (stringExtra2.endsWith(".amr")) {
-            this.mRecorder = MyAudioRecorder.d(true);
-        } else {
-            this.mRecorder = new a();
-        }
-        boolean z = false;
-        File file = new File(stringExtra);
-        this.mFilePath = String.valueOf(stringExtra) + File.separator + stringExtra2;
-        if (file.exists()) {
-            if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                z = this.mRecorder.dR(this.mFilePath);
+        if (ag.T(getApplicationContext())) {
+            if (stringExtra2.endsWith(".amr")) {
+                this.mRecorder = MyAudioRecorder.c(true);
+            } else {
+                this.mRecorder = new a();
             }
-        } else {
-            file.mkdir();
-            if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                z = this.mRecorder.dR(this.mFilePath);
+            boolean z = false;
+            File file = new File(stringExtra);
+            this.mFilePath = String.valueOf(stringExtra) + File.separator + stringExtra2;
+            if (file.exists()) {
+                if (file.isDirectory() && file.canRead() && file.canWrite()) {
+                    z = this.mRecorder.dY(this.mFilePath);
+                }
+            } else {
+                file.mkdir();
+                if (file.isDirectory() && file.canRead() && file.canWrite()) {
+                    z = this.mRecorder.dY(this.mFilePath);
+                }
             }
-        }
-        if (z) {
-            Intent intent2 = new Intent();
-            intent2.setAction("com.baidu.recordPrepared");
-            intent2.putExtra("com.baidu.msg.recordPrepared", true);
-            intent2.putExtra("com.baidu.msg.preparedName", stringExtra2);
-            sendBroadcast(intent2);
+            if (z) {
+                Intent intent2 = new Intent();
+                intent2.setAction("com.baidu.recordPrepared");
+                intent2.putExtra("com.baidu.msg.recordPrepared", true);
+                intent2.putExtra("com.baidu.msg.preparedName", stringExtra2);
+                sendBroadcast(intent2);
+            }
         }
     }
 
     private void stopRecord(Intent intent) {
         if (this.mRecorder != null) {
-            this.mRecorder.xB();
+            this.mRecorder.yc();
             this.mHandler.removeCallbacks(this.mRecordTimeThread);
             Intent intent2 = new Intent("com.baidu.recordStopped");
             intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
@@ -331,8 +334,8 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void pauseRecord(Intent intent) {
-        if (this.mRecorder != null && this.mRecorder.xC()) {
-            this.mRecorder.xB();
+        if (this.mRecorder != null && this.mRecorder.yd()) {
+            this.mRecorder.yc();
             this.mHandler.removeCallbacks(this.mRecordTimeThread);
             Intent intent2 = new Intent("com.baidu.recordPaused");
             intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);

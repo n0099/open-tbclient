@@ -12,6 +12,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_BUBBLE = 7;
     public static final int FROM_BUBBLE_ITEM_CLICK = 18;
     public static final int FROM_BUBBLE_RECOMMEND_CLCK = 19;
+    public static final int FROM_CLOSE_AD = 20;
     public static final int FROM_DRESSUP_CENTER = 8;
     public static final int FROM_EXP_SPEED = 2;
     public static final int FROM_MEMBERCENTER_BOTTOM = 16;
@@ -30,6 +31,8 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final String PAY_TYPE = "pay_type";
     public static final int SCENE_FROM_BECOME_VIP_BUTTON = 2;
     public static final int SCENE_FROM_MEMBER_CENTER_RECOMMEND = 1;
+    public static final int SCENE_FROM_MEMBER_DEFAULT_COMMON = 0;
+    public static final int SCENE_FROM_MEMBER_YEAR_COMMON = 9;
     public static final String SCENE_ID = "scene_id";
     public static final String ST_TYPE = "st_type";
 
@@ -132,6 +135,10 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public void setSceneId(String str) {
         getIntent().putExtra("scene_id", str);
+    }
+
+    public void setFromScence(int i) {
+        getIntent().putExtra(FROM_SCENE, i);
     }
 
     public void setStType(String str) {

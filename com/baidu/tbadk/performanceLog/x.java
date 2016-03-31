@@ -3,48 +3,48 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class x extends z {
-    public static void a(int i, int i2, int i3, long j, long j2, int i4, int i5, int i6, long j3, long j4, int i7, int i8, int i9, long j5, long j6, int i10, int i11, int i12, long j7, long j8, int i13, int i14, int i15, long j9, long j10, int i16) {
-        if (aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "dlStat");
-            hm.r("c_dnum", String.valueOf(i));
-            hm.r("c_dfnum", String.valueOf(i2));
-            hm.r("c_spnum", String.valueOf(i3));
-            hm.r("c_costt", String.valueOf(j));
-            hm.r("c_dlsize", String.valueOf(j2));
-            hm.r("p_dnum", String.valueOf(i4));
-            hm.r("p_dfnum", String.valueOf(i5));
-            hm.r("p_spnum", String.valueOf(i6));
-            hm.r("p_costt", String.valueOf(j3));
-            hm.r("p_dlsize", String.valueOf(j4));
-            hm.r("t_dnum", String.valueOf(i7));
-            hm.r("t_dfnum", String.valueOf(i8));
-            hm.r("t_spnum", String.valueOf(i9));
-            hm.r("t_costt", String.valueOf(j5));
-            hm.r("t_dlsize", String.valueOf(j6));
-            hm.r("d_dnum", String.valueOf(i10));
-            hm.r("d_dfnum", String.valueOf(i11));
-            hm.r("d_spnum", String.valueOf(i12));
-            hm.r("d_costt", String.valueOf(j7));
-            hm.r("d_dlsize", String.valueOf(j8));
-            hm.r("op_dnum", String.valueOf(i13));
-            hm.r("op_dfnum", String.valueOf(i14));
-            hm.r("op_spnum", String.valueOf(i15));
-            hm.r("op_costt", String.valueOf(j10));
-            hm.r("op_dlsize", String.valueOf(j9));
-            hm.r("nettype", aa.fa(i16));
-            com.baidu.adp.lib.stats.a.ht().a(TbConfig.TMP_PIC_DIR_NAME, hm);
+    public static void b(com.baidu.tbadk.core.util.u uVar, com.baidu.tbadk.core.util.u uVar2, com.baidu.tbadk.core.util.u uVar3, com.baidu.tbadk.core.util.u uVar4, com.baidu.tbadk.core.util.u uVar5, int i) {
+        if (aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "dlStat");
+            hs.r("c_dnum", String.valueOf(uVar.num));
+            hs.r("c_dfnum", String.valueOf(uVar.aaj));
+            hs.r("c_spnum", String.valueOf(uVar.aak));
+            hs.r("c_costt", String.valueOf(uVar.time));
+            hs.r("c_dlsize", String.valueOf(uVar.vq));
+            hs.r("p_dnum", String.valueOf(uVar2.num));
+            hs.r("p_dfnum", String.valueOf(uVar2.aaj));
+            hs.r("p_spnum", String.valueOf(uVar2.aak));
+            hs.r("p_costt", String.valueOf(uVar2.time));
+            hs.r("p_dlsize", String.valueOf(uVar2.vq));
+            hs.r("t_dnum", String.valueOf(uVar3.num));
+            hs.r("t_dfnum", String.valueOf(uVar3.aaj));
+            hs.r("t_spnum", String.valueOf(uVar3.aak));
+            hs.r("t_costt", String.valueOf(uVar3.time));
+            hs.r("t_dlsize", String.valueOf(uVar3.vq));
+            hs.r("d_dnum", String.valueOf(uVar4.num));
+            hs.r("d_dfnum", String.valueOf(uVar4.aaj));
+            hs.r("d_spnum", String.valueOf(uVar4.aak));
+            hs.r("d_costt", String.valueOf(uVar4.time));
+            hs.r("d_dlsize", String.valueOf(uVar4.vq));
+            hs.r("op_dnum", String.valueOf(uVar5.num));
+            hs.r("op_dfnum", String.valueOf(uVar5.aaj));
+            hs.r("op_spnum", String.valueOf(uVar5.aak));
+            hs.r("op_costt", String.valueOf(uVar5.time));
+            hs.r("op_dlsize", String.valueOf(uVar5.vq));
+            hs.r("nettype", aa.fi(i));
+            com.baidu.adp.lib.stats.a.hz().a(TbConfig.TMP_PIC_DIR_NAME, hs);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "dcStat");
-            hm.r("dcnum", String.valueOf(i));
-            hm.r("dcfnum", String.valueOf(i2));
-            hm.r("dcstime", String.valueOf(j));
-            com.baidu.adp.lib.stats.a.ht().a(TbConfig.TMP_PIC_DIR_NAME, hm);
+        if (aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "dcStat");
+            hs.r("dcnum", String.valueOf(i));
+            hs.r("dcfnum", String.valueOf(i2));
+            hs.r("dcstime", String.valueOf(j));
+            com.baidu.adp.lib.stats.a.hz().a(TbConfig.TMP_PIC_DIR_NAME, hs);
         }
     }
 }

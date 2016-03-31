@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class n extends com.baidu.adp.base.g {
-    final /* synthetic */ k aPj;
+    final /* synthetic */ k aRZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.aPj = kVar;
+        this.aRZ = kVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -19,22 +19,22 @@ class n extends com.baidu.adp.base.g {
         com.baidu.tieba.tbadkCore.w wVar3;
         com.baidu.tieba.tbadkCore.w wVar4;
         com.baidu.tieba.tbadkCore.w wVar5;
-        wVar = this.aPj.MS;
+        wVar = this.aRZ.MY;
         if (wVar != null && (obj instanceof com.baidu.tieba.tbadkCore.x)) {
-            wVar2 = this.aPj.MS;
-            if (!AntiHelper.or(wVar2.getErrorCode())) {
-                wVar3 = this.aPj.MS;
+            wVar2 = this.aRZ.MY;
+            if (!AntiHelper.pB(wVar2.getErrorCode())) {
+                wVar3 = this.aRZ.MY;
                 if (wVar3.getErrorCode() != 0) {
-                    TbPageContext<?> JK = this.aPj.JK();
-                    wVar4 = this.aPj.MS;
-                    JK.showToast(wVar4.getErrorString());
+                    TbPageContext<?> Lb = this.aRZ.Lb();
+                    wVar4 = this.aRZ.MY;
+                    Lb.showToast(wVar4.getErrorString());
                     return;
                 }
                 return;
             }
-            Activity pageActivity = this.aPj.JK().getPageActivity();
-            wVar5 = this.aPj.MS;
-            AntiHelper.X(pageActivity, wVar5.getErrorString());
+            Activity pageActivity = this.aRZ.Lb().getPageActivity();
+            wVar5 = this.aRZ.MY;
+            AntiHelper.O(pageActivity, wVar5.getErrorString());
         }
     }
 }

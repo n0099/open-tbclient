@@ -12,7 +12,7 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bQv;
+        public String caO;
         public String fid;
         public long picId;
         public String src;
@@ -22,7 +22,7 @@ public class r {
         public int userType;
     }
 
-    public static List<a> aH(String str, String str2) {
+    public static List<a> aU(String str, String str2) {
         return a(str, str2, null);
     }
 
@@ -53,7 +53,7 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.bQv = optString5;
+                aVar.caO = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }

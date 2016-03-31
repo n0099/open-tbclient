@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.stats.switchs.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0007a {
+public class c implements a.InterfaceC0008a {
     final /* synthetic */ a this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,14 @@ public class c implements a.InterfaceC0007a {
         this.this$0 = aVar;
     }
 
-    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0007a
-    public void hH() {
+    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0008a
+    public void hN() {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.ws = true;
-        if (this.this$0.wr) {
-            com.baidu.adp.lib.stats.b.i.iz().iG();
+        this.this$0.wJ = true;
+        if (this.this$0.wI) {
+            com.baidu.adp.lib.stats.b.i.iF().iM();
         }
         handler = a.mHandler;
         handler.removeMessages(2);

@@ -1,53 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
-import android.view.View;
-import java.util.Date;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+public class bm {
+    private com.baidu.tbadk.editortools.l atG;
+    private BaseActivity<?> bix;
+    private com.baidu.tbadk.editortools.j eNi;
+    private boolean eNj = false;
+    private boolean eNk = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bm(BaseActivity<?> baseActivity, com.baidu.tbadk.editortools.l lVar) {
+        this.bix = baseActivity;
+        this.atG = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean nO;
-        z = this.this$0.cOF;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.aNo.getVisibility() != 0) {
-                    z2 = this.this$0.cWY;
-                    if (z2 && this.this$0.cWR != null && !this.this$0.cWR.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        nO = this.this$0.nO(str);
-                        if (nO) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.this$0.setResult(0, new Intent());
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.eNj) {
+            if (this.eNi != null) {
+                this.eNi.Dn();
+                this.eNi = null;
             }
-        } else {
-            this.this$0.setResult(0, new Intent());
+        } else if (!this.eNk && z) {
+            this.eNk = true;
+            this.eNi = new com.baidu.tbadk.editortools.j(this.bix.getResources().getString(t.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
+            this.bix.getSafeHandler().postDelayed(new bn(this), 500L);
         }
-        this.this$0.finish();
     }
 }

@@ -9,29 +9,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    x Jl;
+    x Jr;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Jl = null;
+        this.Jr = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Jl = null;
+        this.Jr = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Jl = null;
+        this.Jr = null;
         init();
     }
 
     private void init() {
-        if (this.Jl == null) {
-            this.Jl = new x();
+        if (this.Jr == null) {
+            this.Jr = new x();
         }
         super.setOnItemClickListener(new s(this));
         super.setOnItemLongClickListener(new t(this));
@@ -48,27 +48,27 @@ public class BdTypeListView extends BdListView {
     }
 
     public void a(a<u, x.a> aVar) {
-        this.Jl.a(aVar);
-        setAdapter((ListAdapter) this.Jl);
+        this.Jr.a(aVar);
+        setAdapter((ListAdapter) this.Jr);
     }
 
     public void g(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Jl.a(it.next());
+            this.Jr.a(it.next());
         }
-        setAdapter((ListAdapter) this.Jl);
+        setAdapter((ListAdapter) this.Jr);
     }
 
     public void setData(List<u> list) {
-        this.Jl.setData(list);
+        this.Jr.setData(list);
     }
 
     public List<u> getData() {
-        return this.Jl.getData();
+        return this.Jr.getData();
     }
 
-    public u aG(int i) {
-        return this.Jl.getItem(i);
+    public u aF(int i) {
+        return this.Jr.getItem(i);
     }
 }

@@ -17,9 +17,9 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: ac */
     public ap.a<MsgReplyCardView> b(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.Nw);
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ND);
         return new a(msgReplyCardView.dM(), msgReplyCardView);
     }
 
@@ -27,12 +27,12 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgReplyCardView YX = aVar.YX();
-        YX.a(this.Nw, chatMessage, viewGroup);
-        YX.a(this.bOI);
-        YX.setPosition(i);
-        this.Nw.getLayoutMode().ac(false);
-        this.Nw.getLayoutMode().x(view);
+        MsgReplyCardView acq = aVar.acq();
+        acq.a(this.ND, chatMessage, viewGroup);
+        acq.a(this.bZa);
+        acq.setPosition(i);
+        this.ND.getLayoutMode().ab(false);
+        this.ND.getLayoutMode().x(view);
         return view;
     }
 

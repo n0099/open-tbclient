@@ -10,6 +10,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
     protected String friendPortrait;
     private int friendStatus;
     private com.baidu.tieba.im.pushNotify.a groupSetting;
+    private boolean isSelected = false;
     private boolean isSelf;
     protected String msgContent;
     protected String ownerId;
@@ -170,5 +171,13 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
 
     public void setUserType(int i) {
         this.userType = i;
+    }
+
+    public boolean isSelected() {
+        return this.isSelected;
+    }
+
+    public void setSelected(boolean z) {
+        this.isSelected = z;
     }
 }

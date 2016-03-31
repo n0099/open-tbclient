@@ -22,15 +22,15 @@ public class l extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         NetModel.d dVar;
         NetModel.d dVar2;
-        this.this$0.ayQ = false;
-        if (this.this$0.ayS != null) {
-            com.baidu.adp.lib.h.h.hr().removeCallbacks(this.this$0.ayS);
+        this.this$0.azx = false;
+        if (this.this$0.azz != null) {
+            com.baidu.adp.lib.h.h.hx().removeCallbacks(this.this$0.azz);
         }
         if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
             if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                dVar = this.this$0.ayJ;
+                dVar = this.this$0.azq;
                 if (dVar != null) {
-                    dVar2 = this.this$0.ayJ;
+                    dVar2 = this.this$0.azq;
                     dVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {

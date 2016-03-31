@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.data.ac;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    public List<a> daF = new ArrayList();
-    public com.baidu.tbadk.core.data.u dxG = new com.baidu.tbadk.core.data.u();
+    public List<a> dvh = new ArrayList();
+    public ac dSm = new ac();
 
     /* loaded from: classes.dex */
     public static class a {
         public String content;
-        public int dxH;
+        public int dSn;
         public String fname;
         public int is_floor;
         public String name;
@@ -32,17 +33,17 @@ public class k {
         public String title;
     }
 
-    public boolean aeH() {
-        return (this.daF == null || this.daF.size() == 0) ? false : true;
+    public boolean aia() {
+        return (this.dvh == null || this.dvh.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.dxG != null && this.dxG.sv() == 1;
+        return this.dSm != null && this.dSm.sq() == 1;
     }
 
-    public int pf() {
-        if (this.dxG != null) {
-            return this.dxG.st();
+    public int oX() {
+        if (this.dSm != null) {
+            return this.dSm.so();
         }
         return 0;
     }
@@ -59,10 +60,10 @@ public class k {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dxG.parserJson(jSONObject.getJSONObject("page"));
+                this.dSm.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.daF.clear();
+                    this.dvh.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -87,11 +88,11 @@ public class k {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.dxH = optInt2;
+                                aVar.dSn = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.daF.add(aVar);
+                                this.dvh.add(aVar);
                             }
                         }
                     }

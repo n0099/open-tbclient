@@ -1,24 +1,30 @@
 package com.baidu.tbadk.browser;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ p Sy;
+class q extends com.baidu.tbadk.core.c.o {
+    final /* synthetic */ TbWebViewActivity PH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar) {
-        this.Sy = pVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.m mVar) {
+        super(mVar);
+        this.PH = tbWebViewActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseWebViewActivity baseWebViewActivity;
-        BaseWebViewActivity baseWebViewActivity2;
-        baseWebViewActivity = this.Sy.Sm;
-        if (baseWebViewActivity != null) {
-            baseWebViewActivity2 = this.Sy.Sm;
-            baseWebViewActivity2.finish();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.c.o
+    public String pT() {
+        return "shareCmd";
+    }
+
+    @com.baidu.tbadk.core.c.p(uY = true, value = "shareByHybrid")
+    private void showShareUtility(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("desc");
+            String optString3 = jSONObject.optString("img");
+            com.baidu.adp.lib.h.h.hx().post(new r(this, this.PH.createShareContent(optString, jSONObject.optString("url"), optString2, optString3)));
         }
     }
 }

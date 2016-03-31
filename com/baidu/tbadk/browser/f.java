@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String O(String str, String str2) {
+    public static String M(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -38,7 +38,7 @@ public class f {
         return str.concat(str3);
     }
 
-    public static void B(Context context, String str) {
+    public static void s(Context context, String str) {
         a(context, true, str);
     }
 
@@ -46,11 +46,11 @@ public class f {
         a(context, "", str, true, true, true, true, z);
     }
 
-    public static void f(Context context, String str, String str2) {
+    public static void c(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
-    public static void b(Context context, String str, String str2, boolean z) {
+    public static void a(Context context, String str, String str2, boolean z) {
         a(context, str, str2, true, z, true, true, true);
     }
 
@@ -59,7 +59,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        qx();
+        pL();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -74,11 +74,11 @@ public class f {
         }
     }
 
-    public static void C(Context context, String str) {
-        B(context, str);
+    public static void t(Context context, String str) {
+        s(context, str);
     }
 
-    public static void D(Context context, String str) {
+    public static void u(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -93,7 +93,7 @@ public class f {
     }
 
     public static String appendCuidParam(String str) {
-        if (!aw.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ay.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -111,17 +111,17 @@ public class f {
     }
 
     public static String appendVersionCode(String str) {
-        return (aw.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ay.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void W(Context context) {
-        a.b ci = com.baidu.tbadk.core.a.a.rv().ci(TbadkCoreApplication.getCurrentBduss());
+    public static void J(Context context) {
+        a.b cf = com.baidu.tbadk.core.a.a.qM().cf(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (ci != null) {
+        if (cf != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + ci.wJ + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + ci.TU + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + cf.xa + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + cf.Rq + "; domain=.baidu.com;");
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {
@@ -141,7 +141,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void qx() {
-        new ao("open_webview", true).start();
+    private static void pL() {
+        new aq("open_webview", true).start();
     }
 }

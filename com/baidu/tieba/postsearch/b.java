@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a dxD;
+    final /* synthetic */ a dSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dxD = aVar;
+        this.dSj = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,14 +19,14 @@ public class b implements View.OnClickListener {
         PostSearchActivity postSearchActivity;
         PostSearchActivity postSearchActivity2;
         EditText editText2;
-        editText = this.dxD.cvX;
+        editText = this.dSj.cKS;
         if (editText.hasFocus()) {
-            postSearchActivity2 = this.dxD.dxA;
+            postSearchActivity2 = this.dSj.dSg;
             Activity pageActivity = postSearchActivity2.getPageContext().getPageActivity();
-            editText2 = this.dxD.cvX;
+            editText2 = this.dSj.cKS;
             com.baidu.adp.lib.util.k.c(pageActivity, editText2);
         }
-        postSearchActivity = this.dxD.dxA;
+        postSearchActivity = this.dSj.dSg;
         postSearchActivity.finish();
     }
 }

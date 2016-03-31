@@ -5,6 +5,7 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ActivityPendingTransitionFactory {
     public static final int TYPE_BIG_IMAGE = 2;
+    public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;
     public static final int TYPE_NORMAL = 1;
     public static final int TYPE_NO_ANIMATION = 0;
@@ -12,7 +13,9 @@ public class ActivityPendingTransitionFactory {
     public static int RES_NFADE_IN = t.a.fade_in;
     public static int RES_FADE_OUT = t.a.fade_out;
     public static int RES_NORMAL_IN_FROM_RIGHT = t.a.in_from_right;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = t.a.in_from_bottom;
     public static int RES_NORMAL_OUT_TO_RIGHT = t.a.out_to_right;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = t.a.out_to_bottom;
     public static int RES_BIG_IMAGE_IN_FROM_RIGHT = t.a.big_imageview_in;
     public static int RES_BIG_IMAGE_OUT_TO_RIGHT = t.a.big_imageview_out;
     public static int RES_CUSTOM_FADE_IN = 0;
@@ -39,6 +42,9 @@ public class ActivityPendingTransitionFactory {
                 case 3:
                     pageActivity.overridePendingTransition(RES_CUSTOM_IN_FROM_RIGHT, RES_CUSTOM_FADE_OUT);
                     return;
+                case 4:
+                    pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_BOTTOM, RES_FADE_OUT);
+                    return;
                 default:
                     pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
                     return;
@@ -64,6 +70,9 @@ public class ActivityPendingTransitionFactory {
                     return;
                 case 3:
                     pageActivity.overridePendingTransition(RES_CUSTOM_FADE_IN, RES_CUSTOM_OUT_TO_RIGHT);
+                    return;
+                case 4:
+                    pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_BOTTOM);
                     return;
                 default:
                     pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);

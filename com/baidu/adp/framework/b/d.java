@@ -10,29 +10,29 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private h qz;
+    private h qD;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.qz = null;
-        this.qz = new h(messageManager);
-        this.qv = com.baidu.adp.framework.c.c.fb();
+        this.qD = null;
+        this.qD = new h(messageManager);
+        this.qz = com.baidu.adp.framework.c.c.fc();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.qz.removeMessage(bdUniqueId);
+        this.qD.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.qz.removeMessage(i, bdUniqueId);
+        this.qD.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     /* renamed from: a */
     public void sendMessage(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.qz.sendMessage(socketMessage, socketMessageTask);
+        this.qD.sendMessage(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,15 +42,15 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.qz.a(bdUniqueId);
+        return this.qD.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.qz.findMessage(i, bdUniqueId);
+        return this.qD.findMessage(i, bdUniqueId);
     }
 
     public h getSocketClient() {
-        return this.qz;
+        return this.qD;
     }
 }

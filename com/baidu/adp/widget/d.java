@@ -9,7 +9,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d extends ImageSpan {
-    private WeakReference<Drawable> FY;
+    private WeakReference<Drawable> Ge;
     private int offset;
 
     public d(Context context, Bitmap bitmap, int i) {
@@ -22,23 +22,23 @@ public class d extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mw = mw();
+        Drawable mn = mn();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(f, ((i5 - mw.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mw.getBounds().top + mw.getBounds().bottom) / 2))) + this.offset);
-        mw.draw(canvas);
+        canvas.translate(f, ((i5 - mn.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mn.getBounds().top + mn.getBounds().bottom) / 2))) + this.offset);
+        mn.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable mw() {
-        WeakReference<Drawable> weakReference = this.FY;
+    private Drawable mn() {
+        WeakReference<Drawable> weakReference = this.Ge;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.FY = new WeakReference<>(drawable2);
+            this.Ge = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

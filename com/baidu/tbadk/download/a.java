@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class a implements c {
-    @Override // com.baidu.tbadk.download.c
+public class a implements d {
+    @Override // com.baidu.tbadk.download.d
     public void d(DownloadData downloadData) {
         if (downloadData != null) {
             SharedPreferences sharedPreferences = TbadkCoreApplication.m411getInst().getSharedPreferences("app_download_progress", 0);
@@ -16,12 +16,12 @@ public class a implements c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            b.Cr().i(downloadData);
-            b.Cr().h(downloadData);
+            b.CX().i(downloadData);
+            b.CX().h(downloadData);
         }
     }
 
-    @Override // com.baidu.tbadk.download.c
+    @Override // com.baidu.tbadk.download.d
     public boolean c(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -30,7 +30,7 @@ public class a implements c {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.c
+    @Override // com.baidu.tbadk.download.d
     public boolean e(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -39,7 +39,7 @@ public class a implements c {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.c
+    @Override // com.baidu.tbadk.download.d
     public void f(DownloadData downloadData) {
         if (downloadData != null) {
             String[] tag = downloadData.getTag();
@@ -49,16 +49,16 @@ public class a implements c {
                 TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId());
-            b.Cr().h(downloadData);
+            b.CX().h(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
             }
         }
     }
 
-    @Override // com.baidu.tbadk.download.c
+    @Override // com.baidu.tbadk.download.d
     public void a(DownloadData downloadData, int i, String str) {
-        b.Cr().j(downloadData);
-        b.Cr().h(downloadData);
+        b.CX().j(downloadData);
+        b.CX().h(downloadData);
     }
 }

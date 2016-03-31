@@ -2,80 +2,80 @@ package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class d extends b implements w {
-    public static final BdUniqueId aRP = BdUniqueId.gen();
-    public boolean aRQ;
-    public com.baidu.tbadk.core.data.c aRR;
+public class d extends b implements z {
+    public static final BdUniqueId aVx = BdUniqueId.gen();
+    public boolean aVy;
+    public com.baidu.tbadk.core.data.c aVz;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aRP;
+        return aVx;
     }
 
-    @Override // com.baidu.tieba.card.a.w
+    @Override // com.baidu.tieba.card.a.z
     public int getPosition() {
-        return com.baidu.adp.lib.h.b.g(this.aRR != null ? this.aRR.Uz : "-1", -1);
+        return com.baidu.adp.lib.h.b.g(this.aVz != null ? this.aVz.Sf : "-1", -1);
     }
 
-    @Override // com.baidu.tieba.card.a.w
-    public boolean Kk() {
+    @Override // com.baidu.tieba.card.a.z
+    public boolean LE() {
         return false;
     }
 
-    @Override // com.baidu.tieba.card.a.w
-    public void bT(boolean z) {
-        this.aRQ = z;
+    @Override // com.baidu.tieba.card.a.z
+    public void cd(boolean z) {
+        this.aVy = z;
     }
 
-    public String Kl() {
-        if (this.aRR == null || this.aRR.UI == null) {
+    public String LF() {
+        if (this.aVz == null || this.aVz.Sn == null) {
             return null;
         }
-        return this.aRR.UI.userPortrait;
+        return this.aVz.Sn.userPortrait;
     }
 
     public String getUserName() {
-        if (this.aRR == null || this.aRR.UI == null) {
+        if (this.aVz == null || this.aVz.Sn == null) {
             return null;
         }
-        return this.aRR.UI.userName;
+        return this.aVz.Sn.userName;
     }
 
-    public String Km() {
-        if (this.aRR == null || this.aRR.UI == null) {
+    public String LG() {
+        if (this.aVz == null || this.aVz.Sn == null) {
             return null;
         }
-        return this.aRR.UI.UQ;
+        return this.aVz.Sn.Su;
     }
 
-    public String Kn() {
-        if (this.aRR == null || this.aRR.UI == null) {
+    public String LH() {
+        if (this.aVz == null || this.aVz.Sn == null) {
             return null;
         }
-        return this.aRR.UI.OC;
+        return this.aVz.Sn.OJ;
     }
 
-    public String Ko() {
-        if (this.aRR == null || this.aRR.UI == null) {
+    public String LI() {
+        if (this.aVz == null || this.aVz.Sn == null) {
             return null;
         }
-        return this.aRR.UI.US;
+        return this.aVz.Sn.Sw;
     }
 
-    public com.baidu.tbadk.core.data.c Kp() {
-        return this.aRR;
+    public com.baidu.tbadk.core.data.c LJ() {
+        return this.aVz;
     }
 
-    public boolean rO() {
-        if (this.aRR != null) {
-            return this.aRR.rO();
+    public boolean rm() {
+        if (this.aVz != null) {
+            return this.aVz.rm();
         }
         return false;
     }
 
-    public boolean rN() {
-        if (this.aRR != null) {
-            return this.aRR.rN();
+    public boolean rl() {
+        if (this.aVz != null) {
+            return this.aVz.rl();
         }
         return false;
     }

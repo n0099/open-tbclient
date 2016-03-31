@@ -7,17 +7,17 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String bOM;
-    final /* synthetic */ PersonalChatView chS;
-    private final /* synthetic */ Animation chT;
+    private final /* synthetic */ String bZe;
+    final /* synthetic */ PersonalChatView csx;
+    private final /* synthetic */ Animation csy;
     private final /* synthetic */ String val$message;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.chS = personalChatView;
-        this.bOM = str;
+        this.csx = personalChatView;
+        this.bZe = str;
         this.val$message = str2;
-        this.chT = animation;
+        this.csy = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.chS.chL;
+        linearLayout = this.csx.csq;
         linearLayout.clearAnimation();
-        textView = this.chS.chM;
-        personalChatActivity = this.chS.chJ;
-        textView.setText(personalChatActivity.getResources().getString(t.j.add_friend_agree_title, this.bOM));
-        textView2 = this.chS.chN;
+        textView = this.csx.csr;
+        personalChatActivity = this.csx.cso;
+        textView.setText(personalChatActivity.getResources().getString(t.j.add_friend_agree_title, this.bZe));
+        textView2 = this.csx.css;
         textView2.setText(this.val$message);
-        linearLayout2 = this.chS.chL;
-        linearLayout2.setAnimation(this.chT);
+        linearLayout2 = this.csx.csq;
+        linearLayout2.setAnimation(this.csy);
     }
 }

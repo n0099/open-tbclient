@@ -13,7 +13,7 @@ public class bh implements CustomMessageTask.CustomRunnable<Object> {
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         ProfileResIdl profileResIdl;
         if (customMessage instanceof RequestPersonInfoMessage) {
-            byte[] bArr = com.baidu.tbadk.core.b.a.ug().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key");
+            byte[] bArr = com.baidu.tbadk.core.b.a.um().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key");
             ResponsePersonInfoMessage responsePersonInfoMessage = new ResponsePersonInfoMessage();
             if (bArr == null) {
                 return responsePersonInfoMessage;

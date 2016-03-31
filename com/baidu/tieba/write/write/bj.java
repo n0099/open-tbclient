@@ -1,29 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-public class bj implements a.b {
-    final /* synthetic */ WriteActivity ets;
+class bj implements a.InterfaceC0081a {
+    final /* synthetic */ WriteActivity eNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.ets = writeActivity;
+        this.eNd = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        d.a aVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.iZ()) {
-            aVar2 = this.ets.avj;
-            aVar2.DA();
-        } else {
-            this.ets.a(1, true, (String) null);
-            dVar = this.ets.auU;
-            dVar.aNj();
-        }
-        aVar.dismiss();
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0081a
+    public void mY() {
+        com.baidu.tbadk.editortools.l lVar;
+        this.eNd.cRp = null;
+        this.eNd.jw(false);
+        lVar = this.eNd.atG;
+        lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

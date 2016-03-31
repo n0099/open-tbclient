@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.pb.praise;
 /* loaded from: classes.dex */
 public class a {
-    private String cSR;
-    private long cSS;
+    private String dnL;
+    private long dnM;
     private String mPortrait;
     private String mUserId;
     private String mUserName;
@@ -11,13 +11,13 @@ public class a {
         this.mUserId = null;
         this.mUserName = null;
         this.mPortrait = null;
-        this.cSR = null;
-        this.cSS = 0L;
+        this.dnL = null;
+        this.dnM = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
-        this.cSR = str4;
-        this.cSS = j;
+        this.dnL = str4;
+        this.dnM = j;
     }
 
     public String getUserId() {
@@ -32,11 +32,11 @@ public class a {
         return this.mPortrait;
     }
 
-    public String alt() {
-        return this.cSR;
+    public String ask() {
+        return this.dnL;
     }
 
-    public long arQ() {
-        return this.cSS;
+    public long azz() {
+        return this.dnM;
     }
 }

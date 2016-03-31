@@ -1,22 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cw implements View.OnClickListener {
-    final /* synthetic */ FrsMoreFeedForumsActivity bjY;
+public class cw implements Runnable {
+    final /* synthetic */ cs bpe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
-        this.bjY = frsMoreFeedForumsActivity;
+    public cw(cs csVar) {
+        this.bpe = csVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        int id = view.getId();
-        view2 = this.bjY.bjm;
-        if (id == view2.getId()) {
-            this.bjY.finish();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        frameLayout = this.bpe.boy;
+        frameLayout.setVisibility(0);
+        tbImageView = this.bpe.boA;
+        tbImageView.setVisibility(0);
+        tbImageView2 = this.bpe.boz;
+        tbImageView2.setVisibility(8);
     }
 }

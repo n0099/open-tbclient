@@ -6,11 +6,11 @@ import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity cwZ;
+    final /* synthetic */ SquareSearchActivity cLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SquareSearchActivity squareSearchActivity) {
-        this.cwZ = squareSearchActivity;
+        this.cLU = squareSearchActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -18,12 +18,12 @@ public class r implements View.OnTouchListener {
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard;
         LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard2;
         if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.cwZ.cvU;
+            linearLayoutDetectsSoftKeyboard = this.cLU.cKP;
             linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.cwZ.cvU;
+            linearLayoutDetectsSoftKeyboard2 = this.cLU.cKP;
             linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            if (this.cwZ.cvX.hasFocus()) {
-                com.baidu.adp.lib.util.k.c(this.cwZ.getPageContext().getPageActivity(), this.cwZ.cvX);
+            if (this.cLU.cKS.hasFocus()) {
+                com.baidu.adp.lib.util.k.c(this.cLU.getPageContext().getPageActivity(), this.cLU.cKS);
                 return false;
             }
             return false;

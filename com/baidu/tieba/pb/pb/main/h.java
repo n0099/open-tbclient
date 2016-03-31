@@ -1,35 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.t;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
-    final /* synthetic */ PbActivity cNq;
+public class h implements View.OnClickListener {
+    final /* synthetic */ GetLotteryChanceActivity dfT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(PbActivity pbActivity, int i) {
-        super(i);
-        this.cNq = pbActivity;
+    public h(GetLotteryChanceActivity getLotteryChanceActivity) {
+        this.dfT = getLotteryChanceActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (updateAttentionMessage.getData().CF) {
-                    if (updateAttentionMessage.isAttention()) {
-                        this.cNq.showToast(t.j.like_success);
-                    }
-                    this.cNq.a(updateAttentionMessage);
-                } else if (updateAttentionMessage.getData().errorString != null) {
-                    this.cNq.showToast(updateAttentionMessage.getData().errorString);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.tbadkCore.ah ahVar;
+        String str;
+        long j;
+        String str2;
+        String str3;
+        com.baidu.tieba.tbadkCore.ah ahVar2;
+        String str4;
+        String str5;
+        ahVar = this.dfT.buI;
+        if (ahVar != null) {
+            str2 = this.dfT.forumId;
+            if (!StringUtils.isNULL(str2)) {
+                str3 = this.dfT.forumName;
+                if (!StringUtils.isNULL(str3)) {
+                    ahVar2 = this.dfT.buI;
+                    str4 = this.dfT.forumName;
+                    str5 = this.dfT.forumId;
+                    ahVar2.bB(str4, str5);
                 }
             }
         }
+        com.baidu.tbadk.core.util.aw ac = new com.baidu.tbadk.core.util.aw("c10838").ac("obj_locate", "1");
+        str = this.dfT.forumId;
+        com.baidu.tbadk.core.util.aw ac2 = ac.ac("fid", str);
+        j = this.dfT.threadId;
+        TiebaStatic.log(ac2.ac("tid", String.valueOf(j)));
     }
 }

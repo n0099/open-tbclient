@@ -1,46 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import android.support.v4.app.Fragment;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
+import com.baidu.tieba.imMessageCenter.mention.be;
 /* loaded from: classes.dex */
-public class r {
-    /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean jC(int i) {
-        switch (i) {
-            case 0:
-                return com.baidu.tbadk.coreExtra.messageCenter.c.zk().zs() || com.baidu.tbadk.coreExtra.messageCenter.c.zk().zz();
-            case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zk().zr()) {
-                    return false;
-                }
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zk().zp()) {
-                    return false;
-                }
-                return true;
-            case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zk().zp()) {
-                }
-                return true;
-            default:
-                return true;
+class r implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-    }
-
-    public static int a(NewsNotifyMessage newsNotifyMessage) {
-        int i;
-        int i2;
-        if (newsNotifyMessage == null) {
-            return 0;
-        }
-        if (jC(0)) {
-            i2 = newsNotifyMessage.getMsgChat();
-            i = newsNotifyMessage.getMsgStrangerChat();
-        } else {
-            i = 0;
-            i2 = 0;
-        }
-        return ((jC(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (jC(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        be beVar = new be();
+        beVar.setPageType(InvokeNewImMessageCenterFragmentConfig.currentPageType);
+        return new CustomResponsedMessage<>(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, beVar);
     }
 }

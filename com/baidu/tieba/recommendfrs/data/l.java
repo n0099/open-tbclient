@@ -1,122 +1,212 @@
 package com.baidu.tieba.recommendfrs.data;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.data.as;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ExcFrsPage.ExcellentThreadInfo;
-import tbclient.ZhiBoInfoTW;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.TagInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
-public class l implements com.baidu.tbadk.mvc.b.a {
-    private long cJh;
-    private int dEZ;
-    private long dFa;
-    private long dFb;
-    private String desc;
-    private long excId;
-    private String forumName;
-    private long threadId;
-    private int thread_type;
-    private List<String> thumbnail;
-    private String title;
-    private ZhiBoInfoTW twzhibo_info;
-    private int type;
-    private boolean apH = true;
-    public String dFc = "";
-    public String dFd = "";
-    public String abtest = "";
+public class l {
+    private int cHR;
+    private final TagInfo dWS;
+    private DataRes dWT;
+    private com.baidu.tieba.card.a.b dWW;
+    private boolean hasMore;
+    private int pn;
+    private List<Object> azT = new ArrayList();
+    private boolean bKl = false;
+    private boolean cHS = false;
+    private boolean cHT = false;
+    private int dWU = 1;
+    private long dWV = 0;
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0082: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r3v0 tbclient.ExcFrsPage.ExcellentThreadInfo) tbclient.ExcFrsPage.ExcellentThreadInfo.source java.lang.Integer)] */
-    public l b(ExcellentThreadInfo excellentThreadInfo) {
-        if (excellentThreadInfo != null) {
-            if (excellentThreadInfo.rank != null) {
-                this.dFb = excellentThreadInfo.rank.longValue();
-            }
-            if (excellentThreadInfo.excid != null) {
-                this.excId = excellentThreadInfo.excid.longValue();
-            }
-            this.threadId = excellentThreadInfo.thread_id.longValue();
-            this.title = excellentThreadInfo.title;
-            this.type = excellentThreadInfo.frs_type.intValue();
-            this.dEZ = excellentThreadInfo.pb_type.intValue();
-            this.desc = excellentThreadInfo._abstract;
-            this.thumbnail = new ArrayList();
-            if (excellentThreadInfo.thumbnail != null) {
-                this.thumbnail.addAll(excellentThreadInfo.thumbnail);
-            }
-            this.forumName = excellentThreadInfo.forum_name;
-            if (excellentThreadInfo.post_num != null) {
-                this.dFa = excellentThreadInfo.post_num.longValue();
-            }
-            if (excellentThreadInfo.zansum != null) {
-                this.cJh = excellentThreadInfo.zansum.longValue();
-            }
-            if (excellentThreadInfo.thread_type != null) {
-                this.thread_type = excellentThreadInfo.thread_type.intValue();
-            }
-            this.twzhibo_info = excellentThreadInfo.twzhibo_info;
-            this.dFc = excellentThreadInfo.tag_name;
-            this.dFd = new StringBuilder().append(excellentThreadInfo.source).toString();
-            this.abtest = excellentThreadInfo.abtest;
+    public l(TagInfo tagInfo) {
+        this.dWS = tagInfo;
+    }
+
+    public int getPn() {
+        return this.pn;
+    }
+
+    public void c(DataRes dataRes) {
+        this.dWT = dataRes;
+    }
+
+    public void kL(int i) {
+        this.cHR = i;
+    }
+
+    public int anW() {
+        return this.cHR;
+    }
+
+    public boolean anX() {
+        return this.cHS;
+    }
+
+    public boolean anY() {
+        return this.cHT;
+    }
+
+    public TagInfo aMf() {
+        return this.dWS;
+    }
+
+    public boolean hasMore() {
+        return this.hasMore;
+    }
+
+    public void a(boolean z, n nVar, boolean z2) {
+        if (z) {
+            this.cHT = true;
+        } else {
+            this.cHS = true;
         }
-        return this;
+        if (nVar != null) {
+            this.pn = nVar.getPn();
+            this.hasMore = nVar.getHasMore();
+            if (nVar instanceof r) {
+                this.dWV = ((r) nVar).aMh();
+            }
+            List<Object> a = a(z2, nVar);
+            if (z2) {
+                this.azT.addAll(a);
+            } else {
+                this.azT = a;
+            }
+        }
     }
 
-    public long aFx() {
-        return this.dFb;
+    private List<Object> a(boolean z, n nVar) {
+        ArrayList arrayList = new ArrayList();
+        if (nVar != null && nVar.getThreadList() != null && nVar.getThreadList().size() != 0) {
+            if (nVar.getThreadList().get(0) instanceof ExcellentThreadInfo) {
+                a(arrayList, nVar, z);
+            } else if (nVar.getThreadList().get(0) instanceof ThreadInfo) {
+                b(arrayList, nVar, z);
+            }
+        }
+        return arrayList;
     }
 
-    public long aFy() {
-        return this.cJh;
+    private void a(List<Object> list, n nVar, boolean z) {
+        if (list != null && nVar != null && nVar.getThreadList() != null && nVar.getThreadList().size() != 0) {
+            this.dWU = 1;
+            for (Object obj : nVar.getThreadList()) {
+                if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
+                    p pVar = new p();
+                    pVar.b((ExcellentThreadInfo) obj);
+                    pVar.setShowImage(nVar.aMj());
+                    if (pVar.aMq() != 33) {
+                        list.add(pVar);
+                    } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                        list.add(pVar);
+                    }
+                }
+            }
+        }
     }
 
-    public long aFz() {
-        return this.dFa;
+    private void b(List<Object> list, n nVar, boolean z) {
+        if (list != null && nVar != null && nVar.getThreadList() != null && nVar.getThreadList().size() != 0) {
+            if (!z) {
+                this.dWW = null;
+            }
+            this.dWU = 2;
+            for (Object obj : nVar.getThreadList()) {
+                if ((obj instanceof ThreadInfo) && (!z || !b((ThreadInfo) obj))) {
+                    as asVar = new as();
+                    asVar.a((ThreadInfo) obj);
+                    com.baidu.tieba.card.a.i iVar = new com.baidu.tieba.card.a.i();
+                    iVar.aVJ = asVar;
+                    if (asVar.Vl == 1) {
+                        com.baidu.tieba.card.a.j jVar = new com.baidu.tieba.card.a.j();
+                        jVar.aVK = iVar;
+                        a(jVar);
+                        this.dWW = jVar;
+                    } else {
+                        a(iVar);
+                        this.dWW = iVar;
+                    }
+                    list.add(this.dWW);
+                }
+            }
+            if (nVar instanceof r) {
+                r rVar = (r) nVar;
+                if (this.pn == 1 && rVar.aMt() == 0) {
+                    list.add(0, new g());
+                }
+            }
+        }
     }
 
-    public long aFA() {
-        return this.excId;
+    private void a(com.baidu.tieba.card.a.b bVar) {
+        if (bVar != null && bVar.getType() != null) {
+            if (this.dWW == null) {
+                bVar.aVs = false;
+            } else if (this.dWW.getType() == null) {
+                bVar.aVs = false;
+            } else if (this.dWW instanceof com.baidu.tieba.card.a.i) {
+                if (bVar instanceof com.baidu.tieba.card.a.i) {
+                    bVar.aVs = false;
+                } else {
+                    bVar.aVs = true;
+                }
+            } else {
+                bVar.aVs = true;
+            }
+        }
     }
 
-    public String getTitle() {
-        return this.title;
+    private boolean a(ExcellentThreadInfo excellentThreadInfo) {
+        int size;
+        if (excellentThreadInfo != null && (size = this.azT.size()) > 0) {
+            for (int i = 0; i < size; i++) {
+                Object obj = this.azT.get(i);
+                if ((obj instanceof ExcellentThreadInfo) && excellentThreadInfo.excid == ((ExcellentThreadInfo) obj).excid) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
     }
 
-    public int getType() {
-        return this.type;
+    private boolean b(ThreadInfo threadInfo) {
+        int size;
+        if (threadInfo != null && (size = this.azT.size()) > 0) {
+            for (int i = 0; i < size; i++) {
+                Object obj = this.azT.get(i);
+                if ((obj instanceof ThreadInfo) && threadInfo.id == ((ThreadInfo) obj).id) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
     }
 
-    public String getDesc() {
-        return this.desc;
+    public List<Object> aMg() {
+        return this.azT;
     }
 
-    public List<String> aFB() {
-        return this.thumbnail;
+    public void ck(List<Object> list) {
+        this.azT = list;
     }
 
-    public String getForumName() {
-        return this.forumName;
+    public void eU(boolean z) {
+        this.bKl = z;
     }
 
-    public int aFC() {
-        return this.thread_type;
+    public int getDataType() {
+        return this.dWU;
     }
 
-    public ZhiBoInfoTW aFD() {
-        return this.twzhibo_info;
-    }
-
-    public boolean aFv() {
-        return this.apH;
-    }
-
-    public void setShowImage(boolean z) {
-        this.apH = z;
-    }
-
-    public int aFE() {
-        return this.dEZ;
-    }
-
-    public long getThreadId() {
-        return this.threadId;
+    public long aMh() {
+        return this.dWV;
     }
 }

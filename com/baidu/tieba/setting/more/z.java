@@ -1,21 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ y dLa;
+public class z implements a.b {
+    final /* synthetic */ MoreActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar) {
-        this.dLa = yVar;
+    public z(MoreActivity moreActivity) {
+        this.this$0 = moreActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        s sVar;
-        this.dLa.aHz();
-        sVar = this.dLa.dKJ;
-        sVar.nI(11);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

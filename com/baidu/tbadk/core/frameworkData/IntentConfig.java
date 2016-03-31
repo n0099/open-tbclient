@@ -9,12 +9,17 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.l;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
+import com.baidu.tbadk.core.util.y;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class IntentConfig extends i {
     public static final String CALL_FROM = "call_from";
@@ -93,6 +98,23 @@ public class IntentConfig extends i {
         this.mIntentAction = IntentAction.Activity;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: android.content.Intent */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void addSourceTraceForPageStayDurationStat() {
+        ArrayList arrayList;
+        if (this.mIntent != null) {
+            com.baidu.adp.base.i<?> r = l.r(this.mContext);
+            if (!(r instanceof com.baidu.tbadk.pageStayDuration.a)) {
+                arrayList = null;
+            } else {
+                arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) r).getNextPageSourceKeyList();
+            }
+            if (!y.q(arrayList)) {
+                this.mIntent.putStringArrayListExtra("obj_source", arrayList);
+            }
+        }
+    }
+
     public IntentConfig(Context context) {
         this.mContext = null;
         this.mIntent = null;
@@ -108,6 +130,7 @@ public class IntentConfig extends i {
         }
         this.mContext = context;
         this.mIntent = new Intent();
+        addSourceTraceForPageStayDurationStat();
     }
 
     public Context getContext() {
@@ -192,7 +215,7 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
@@ -206,10 +229,10 @@ public class IntentConfig extends i {
                         startActivityForResult(i);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().bH(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -231,17 +254,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.startService(this.mIntent);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().bH(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -272,7 +295,7 @@ public class IntentConfig extends i {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e);
                     return false;
                 }
@@ -293,11 +316,11 @@ public class IntentConfig extends i {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().bH(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -316,17 +339,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.lq().F("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.lf().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().bH(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }
@@ -336,7 +359,7 @@ public class IntentConfig extends i {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        com.baidu.adp.lib.h.i.a(this.mContext, intent, this.mClientConnection, 1);
+        com.baidu.adp.lib.h.i.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     public void startActivityForResultForRemote(int i, Class<?> cls) {
@@ -345,7 +368,7 @@ public class IntentConfig extends i {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        com.baidu.adp.lib.h.i.a(this.mContext, intent, this.mClientConnection, 1);
+        com.baidu.adp.lib.h.i.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     private static boolean checkStartActivityInterval(Class<?> cls) {
@@ -385,5 +408,9 @@ public class IntentConfig extends i {
         private boolean isMsgValid(Message message) {
             return message != null && message.what == 0 && message.arg1 == 1;
         }
+    }
+
+    public void start() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
     }
 }

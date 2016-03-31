@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.a.j;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.af;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -110,8 +110,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xQ().xR()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xQ().xS()));
+            if (com.baidu.tbadk.coreExtra.b.a.yr().ys()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.yr().yt()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
@@ -151,22 +151,22 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.toMd5(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aZ(stringBuffer.toString()));
     }
 
     private void e(HttpMessage httpMessage) {
-        ae.a vL = ae.vL();
-        if (vL != null) {
-            httpMessage.addParam("stTime", String.valueOf(vL.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vL.ace));
-            httpMessage.addParam("stTimesNum", String.valueOf(vL.acf));
-            httpMessage.addParam("stMode", String.valueOf(vL.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vL.acd));
+        af.a we = af.we();
+        if (we != null) {
+            httpMessage.addParam("stTime", String.valueOf(we.mTime));
+            httpMessage.addParam("stSize", String.valueOf(we.abq));
+            httpMessage.addParam("stTimesNum", String.valueOf(we.abr));
+            httpMessage.addParam("stMode", String.valueOf(we.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(we.abp));
         }
-        int cF = ae.cF(0);
-        if (cF == 0 && vL != null) {
-            cF = vL.acf;
+        int cI = af.cI(0);
+        if (cI == 0 && we != null) {
+            cI = we.abr;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cF));
+        httpMessage.addParam("stErrorNums", String.valueOf(cI));
     }
 }

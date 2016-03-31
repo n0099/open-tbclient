@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements j.a {
-    final /* synthetic */ i bph;
+    final /* synthetic */ i buj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.bph = iVar;
+        this.buj = iVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void qK() {
+    public void qb() {
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void qL() {
+    public void qc() {
         MorePopupWindow morePopupWindow;
         MorePopupWindow morePopupWindow2;
-        morePopupWindow = this.bph.Su;
+        morePopupWindow = this.buj.PS;
         if (morePopupWindow != null) {
-            morePopupWindow2 = this.bph.Su;
+            morePopupWindow2 = this.buj.PS;
             com.baidu.adp.lib.h.j.a(morePopupWindow2);
         }
     }

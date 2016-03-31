@@ -2,79 +2,50 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.adp.widget.ListView.x.a;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public abstract class bv<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected BaseActivity<?> bdK;
-    protected int beB;
-    protected int beC;
-    protected ListView beF;
-    protected com.baidu.tieba.tbadkCore.o bfF;
-    protected int bfz;
-    protected bu bhx;
-    protected bh bim;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+public class bv extends x.a {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    public int aik;
+    public TextView bmA;
+    public TextView bmB;
+    public TextView bmD;
+    public ViewStub bmI;
+    public ViewGroup bmJ;
+    public ViewStub bmK;
+    public ViewGroup bmL;
+    public AppDownloadView bmT;
+    public TbImageView bmU;
+    public TextView bmV;
+    public LinearLayout bmx;
+    public HeadImageView bmz;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bv(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        e(baseActivity);
+    static {
+        $assertionsDisabled = !bv.class.desiredAssertionStatus();
     }
 
-    public void e(BaseActivity<?> baseActivity) {
-        if (baseActivity != null) {
-            this.mContext = baseActivity.getActivity();
-            this.bdK = baseActivity;
-            this.beB = this.mContext.getResources().getDimensionPixelSize(t.e.ds8);
-            this.beC = this.mContext.getResources().getDimensionPixelSize(t.e.ds16);
+    public bv(View view) {
+        super(view);
+        this.aik = 3;
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
-    }
-
-    public void release() {
-        this.mContext = null;
-        this.bdK = null;
-        this.bim = null;
-        this.HD = null;
-        this.HE = null;
-        if (this.bhx != null) {
-            this.bhx.destory();
-            this.bhx = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.beF = (ListView) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    public void a(com.baidu.tieba.tbadkCore.o oVar) {
-        this.bfF = oVar;
-    }
-
-    public void a(bh bhVar) {
-        this.bim = bhVar;
-    }
-
-    public void gq(int i) {
-        this.bfz = i;
-    }
-
-    public void a(bu buVar) {
-        this.bhx = buVar;
+        this.bmx = (LinearLayout) view.findViewById(t.g.frs_app_item_parent);
+        this.bmz = (HeadImageView) view.findViewById(t.g.frs_app_icon);
+        this.bmA = (TextView) view.findViewById(t.g.frs_app_name);
+        this.bmB = (TextView) view.findViewById(t.g.frs_app_time);
+        this.bmT = (AppDownloadView) view.findViewById(t.g.frs_app_download_view);
+        this.bmD = (TextView) view.findViewById(t.g.frs_app_desc);
+        this.bmU = (TbImageView) view.findViewById(t.g.frs_app_url);
+        this.bmV = (TextView) view.findViewById(t.g.frs_app_download);
+        this.bmI = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
+        this.bmK = (ViewStub) view.findViewById(t.g.item_adkiller_close);
     }
 }

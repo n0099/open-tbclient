@@ -1,113 +1,95 @@
 package com.baidu.tieba.recommendfrs.personalize.a;
 
-import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.a.q;
-import com.baidu.tieba.card.a.r;
-import com.baidu.tieba.card.a.s;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.bd;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.cj;
 /* loaded from: classes.dex */
-public class l {
-    private TbPageContext<?> Nw;
-    private BdTypeListView dDe;
-    private d dGA;
-    private com.baidu.tieba.recommendfrs.a.a.b dGB;
-    private com.baidu.tieba.recommendfrs.a.a.d dGC;
-    private List<com.baidu.adp.widget.ListView.a> dGs = new ArrayList();
-    private c dGt;
-    private b dGu;
-    private j dGv;
-    private k dGw;
-    private a dGx;
-    private f dGy;
-    private h dGz;
+public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.t, a> {
+    private TbPageContext<?> ND;
+    private BdUniqueId aSu;
+    private cj bTW;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> dYa;
+    private com.baidu.adp.lib.f.b<TbImageView> dYb;
+    private bd dYh;
+    private com.baidu.tieba.recommendfrs.control.a.f dYi;
 
-    public l(Context context, BdTypeListView bdTypeListView) {
-        this.dDe = bdTypeListView;
-        this.Nw = (TbPageContext) com.baidu.adp.base.l.C(context);
-        aO(context);
-        bdTypeListView.g(this.dGs);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.dYa = new com.baidu.adp.lib.f.b<>(new m(this), 6, 0);
+        this.dYb = new com.baidu.adp.lib.f.b<>(new n(this), 12, 0);
+        this.bTW = new o(this);
+        this.ND = tbPageContext;
+        aMA();
     }
 
-    private void aO(Context context) {
-        this.dGt = new c(this.Nw);
-        this.dGu = new b(this.Nw);
-        this.dGv = new j(this.Nw);
-        this.dGw = new k(this.Nw);
-        this.dGx = new a(this.Nw);
-        this.dGy = new f(this.Nw, q.aRS);
-        this.dGz = new h(this.Nw, s.aSz);
-        this.dGA = new d(this.Nw, r.aRS);
-        this.dGB = new com.baidu.tieba.recommendfrs.a.a.b(this.Nw, com.baidu.tieba.card.a.i.aRS);
-        this.dGC = new com.baidu.tieba.recommendfrs.a.a.d(this.Nw, com.baidu.tieba.card.a.j.aRS);
-        this.dGs.add(this.dGt);
-        this.dGs.add(this.dGu);
-        this.dGs.add(this.dGv);
-        this.dGs.add(this.dGw);
-        this.dGs.add(this.dGx);
-        this.dGs.add(this.dGz);
-        this.dGs.add(this.dGy);
-        this.dGs.add(this.dGA);
-        this.dGs.add(new com.baidu.tieba.recommendfrs.a.a.a(this.Nw.getPageActivity(), com.baidu.tieba.recommendfrs.data.g.dEL));
-        this.dGs.add(this.dGB);
-        this.dGs.add(this.dGC);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bh */
+    public a b(ViewGroup viewGroup) {
+        this.dYh = new bd(this.ND);
+        this.dYh.setConstrainLayoutPool(this.dYa);
+        this.dYh.a(this.dYb);
+        this.dYh.j(this.aSu);
+        return new a(this.dYh);
     }
 
-    public void b(com.baidu.tieba.recommendfrs.control.a.f fVar) {
-        this.dGy.a(fVar);
-        this.dGz.a(fVar);
-    }
-
-    public void bV(List<u> list) {
-        this.dDe.setData(list);
-    }
-
-    public void onChangeSkinType(int i) {
-        notifyDataSetChanged();
-        this.dGt.onChangeSkinType(i);
-        this.dGu.onChangeSkinType(i);
-    }
-
-    public void notifyDataSetChanged() {
-        if (this.dDe != null && (this.dDe.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            ((com.baidu.adp.widget.ListView.e) this.dDe.getAdapter()).notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.t tVar, a aVar) {
+        if (tVar != null) {
+            tVar.fP(i + 1);
         }
+        cf.Lx().a(tVar.LN());
+        aVar.dYk.a(tVar);
+        aVar.dYk.a(this.bTW);
+        return aVar.getView();
+    }
+
+    private void aMA() {
+        com.baidu.tieba.card.a.t.aVR = "c10705";
+        com.baidu.tieba.card.a.t.aVS = "c10730";
+        com.baidu.tieba.card.a.t.aVT = "c10731";
+        com.baidu.tieba.card.a.t.aVU = "c10704";
+        com.baidu.tieba.card.a.t.aVV = "c10755";
+        com.baidu.tieba.card.a.t.aVW = "c10710";
+        com.baidu.tieba.card.a.t.aVX = "c10736";
+        com.baidu.tieba.card.a.t.aVY = "c10737";
+        com.baidu.tieba.card.a.t.aVZ = "c10711";
+        com.baidu.tieba.card.a.t.aWa = "c10758";
+        com.baidu.tieba.card.a.t.aWb = "c10757";
     }
 
     public void setFromCDN(boolean z) {
-        if (this.dGy != null) {
-            this.dGy.setFromCDN(z);
+        if (this.dYh != null) {
+            this.dYh.setFromCDN(z);
         }
-        if (this.dGx != null) {
-            this.dGx.setFromCDN(z);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends x.a {
+        public bd dYk;
+
+        public a(bd bdVar) {
+            super(bdVar.getView());
+            this.dYk = bdVar;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.dGB != null) {
-            this.dGB.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGC != null) {
-            this.dGC.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGy != null) {
-            this.dGy.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGz != null) {
-            this.dGz.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGA != null) {
-            this.dGA.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGt != null) {
-            this.dGt.setPageUniqueId(bdUniqueId);
-        }
-        if (this.dGu != null) {
-            this.dGu.setPageUniqueId(bdUniqueId);
-        }
+        this.aSu = bdUniqueId;
+    }
+
+    public void a(com.baidu.tieba.recommendfrs.control.a.f fVar) {
+        this.dYi = fVar;
     }
 }

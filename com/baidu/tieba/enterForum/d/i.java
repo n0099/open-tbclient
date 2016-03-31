@@ -13,16 +13,16 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class i extends LinearLayout {
-    private ViewEventCenter aWA;
-    private a aYA;
-    private c aYB;
-    private int aYy;
-    private TextView aYz;
+    private ViewEventCenter bbj;
+    private int bdi;
+    private TextView bdj;
+    private a bdk;
+    private c bdl;
     private int mType;
 
     public i(Context context) {
@@ -37,46 +37,46 @@ public class i extends LinearLayout {
     public void setColumnTypeAndRefeshView(int i) {
         this.mType = i;
         if (i == 2) {
-            if (this.aYA == null) {
-                MT();
+            if (this.bdk == null) {
+                OH();
             }
-            if (this.aYA.getParent() == null) {
-                addView(this.aYA);
+            if (this.bdk.getParent() == null) {
+                addView(this.bdk);
             }
-            removeView(this.aYB);
+            removeView(this.bdl);
         } else {
-            if (this.aYB == null) {
-                MS();
+            if (this.bdl == null) {
+                OG();
             }
-            if (this.aYB.getParent() == null) {
-                addView(this.aYB);
+            if (this.bdl.getParent() == null) {
+                addView(this.bdl);
             }
-            MU();
-            removeView(this.aYA);
+            OI();
+            removeView(this.bdk);
         }
         setStateForDisplayView(i);
     }
 
-    private void MS() {
-        this.aYB = new c(getContext());
-        this.aYB.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.aYB.setSelector(new ColorDrawable(0));
-        a(this.aYB);
-        MU();
+    private void OG() {
+        this.bdl = new c(getContext());
+        this.bdl.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        this.bdl.setSelector(new ColorDrawable(0));
+        a(this.bdl);
+        OI();
     }
 
-    private void MT() {
-        this.aYA = new a(getContext());
-        this.aYA.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.aYA.setNumColumns(2);
-        this.aYA.setPadding(this.aYy, 0, this.aYy, 0);
-        this.aYA.setSelector(new ColorDrawable(0));
-        a(this.aYA);
+    private void OH() {
+        this.bdk = new a(getContext());
+        this.bdk.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        this.bdk.setNumColumns(2);
+        this.bdk.setPadding(this.bdi, 0, this.bdi, 0);
+        this.bdk.setSelector(new ColorDrawable(0));
+        a(this.bdk);
     }
 
-    private void MU() {
-        this.aYB.setDivider(ar.getDrawable(t.f.enter_forum_list_divider));
-        this.aYB.setDividerHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1));
+    private void OI() {
+        this.bdl.setDivider(at.getDrawable(t.f.enter_forum_list_divider));
+        this.bdl.setDividerHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1));
     }
 
     private void a(AbsListView absListView) {
@@ -90,50 +90,50 @@ public class i extends LinearLayout {
 
     public void setSelection(int i) {
         if (this.mType == 2) {
-            if (this.aYA != null) {
-                this.aYA.setSelection(i);
+            if (this.bdk != null) {
+                this.bdk.setSelection(i);
             }
-        } else if (this.aYB != null) {
-            this.aYB.setSelection(i);
+        } else if (this.bdl != null) {
+            this.bdl.setSelection(i);
         }
     }
 
     public void setSelectionFromTop(int i, int i2) {
         if (this.mType == 2) {
-            if (this.aYA != null) {
-                this.aYA.setSelection(i);
-                this.aYA.setPadding(this.aYy, i2, this.aYy, 0);
-                this.aYA.setOnTouchListener(new j(this));
+            if (this.bdk != null) {
+                this.bdk.setSelection(i);
+                this.bdk.setPadding(this.bdi, i2, this.bdi, 0);
+                this.bdk.setOnTouchListener(new j(this));
             }
-        } else if (this.aYB != null) {
-            this.aYB.setSelectionFromTop(i, i2);
+        } else if (this.bdl != null) {
+            this.bdl.setSelectionFromTop(i, i2);
         }
     }
 
     public void setListAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.aYB != null && this.aYB.getAdapter() != baseAdapter) {
-            this.aYB.setAdapter((ListAdapter) baseAdapter);
+        if (this.bdl != null && this.bdl.getAdapter() != baseAdapter) {
+            this.bdl.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public void setGridAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.aYA != null && this.aYA.getAdapter() != baseAdapter) {
-            this.aYA.setAdapter((ListAdapter) baseAdapter);
+        if (this.bdk != null && this.bdk.getAdapter() != baseAdapter) {
+            this.bdk.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aWA = viewEventCenter;
+        this.bbj = viewEventCenter;
     }
 
     private void setStateForDisplayView(int i) {
         if (i == 1) {
-            this.aYz.setText(TbadkCoreApplication.m411getInst().getString(t.j.enter_forum_two_column_display));
-            this.aYz.setCompoundDrawablesWithIntrinsicBounds(ar.getDrawable(t.f.icon_sort_suolue), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.bdj.setText(TbadkCoreApplication.m411getInst().getString(t.j.enter_forum_two_column_display));
+            this.bdj.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_sort_suolue), (Drawable) null, (Drawable) null, (Drawable) null);
             return;
         }
-        this.aYz.setText(TbadkCoreApplication.m411getInst().getString(t.j.enter_forum_one_column_display));
-        this.aYz.setCompoundDrawablesWithIntrinsicBounds(ar.getDrawable(t.f.icon_sort_shitu), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.bdj.setText(TbadkCoreApplication.m411getInst().getString(t.j.enter_forum_one_column_display));
+        this.bdj.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_sort_shitu), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -143,20 +143,20 @@ public class i extends LinearLayout {
     }
 
     private void init() {
-        this.aYy = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds10);
+        this.bdi = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds10);
         LayoutInflater.from(getContext()).inflate(t.h.enter_forum_edit_view, this);
         setOrientation(1);
-        this.aYz = (TextView) findViewById(t.g.forum_editor_column_display);
+        this.bdj = (TextView) findViewById(t.g.forum_editor_column_display);
         findViewById(t.g.forum_editor_column_display_layout).setOnClickListener(new k(this));
         findViewById(t.g.forum_editor_sort_by_rank_layout).setOnClickListener(new l(this));
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        setBackgroundColor(ar.getColor(t.d.cp_bg_line_d));
+        setBackgroundColor(at.getColor(t.d.cp_bg_line_d));
         setStateForDisplayView(this.mType);
         if (this.mType == 1) {
-            MU();
+            OI();
         }
     }
 }

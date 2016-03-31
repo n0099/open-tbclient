@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class m extends CustomMessageListener {
         com.baidu.tieba.person.a.al alVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                this.diG.cIp = false;
-                alVar = this.diG.dhZ;
+                this.this$0.dbx = false;
+                alVar = this.this$0.dCB;
                 if (alVar != null) {
-                    alVar2 = this.diG.dhZ;
-                    alVar2.fU(false);
+                    alVar2 = this.this$0.dCB;
+                    alVar2.gH(false);
                     return;
                 }
                 return;
             }
-            this.diG.onUserChanged(false);
+            this.this$0.onUserChanged(false);
         }
     }
 }

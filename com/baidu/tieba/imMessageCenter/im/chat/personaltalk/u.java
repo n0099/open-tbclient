@@ -4,20 +4,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.tbadk.util.m<PersonalSettingItemData> {
-    private final /* synthetic */ long aLb;
-    final /* synthetic */ r ciC;
+public class u extends com.baidu.tbadk.util.p<PersonalSettingItemData> {
+    private final /* synthetic */ long aNX;
+    final /* synthetic */ r cth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(r rVar, long j) {
-        this.ciC = rVar;
-        this.aLb = j;
+        this.cth = rVar;
+        this.aNX = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.m
-    /* renamed from: afO */
+    @Override // com.baidu.tbadk.util.p
+    /* renamed from: aji */
     public PersonalSettingItemData doInBackground() {
-        return com.baidu.tieba.im.settingcache.j.aeU().aO(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aLb));
+        return com.baidu.tieba.im.settingcache.j.ain().bb(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aNX));
     }
 }

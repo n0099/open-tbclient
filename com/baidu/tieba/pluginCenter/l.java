@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a dxq;
+    final /* synthetic */ PluginDownloadActivity.a dRW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PluginDownloadActivity.a aVar) {
-        this.dxq = aVar;
+        this.dRW = aVar;
     }
 
     @Override // android.view.View.OnClickListener

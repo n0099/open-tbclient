@@ -1,104 +1,104 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends z {
-    public static int aAR = 100;
-    public static int aAS = 10;
+    public static int aBM = 100;
+    public static int aBN = 10;
 
-    public static void FW() {
-        if (aa.FY().FZ()) {
-            if (b.aAW > aAS) {
-                b.FP();
+    public static void GS() {
+        if (aa.GU().GV()) {
+            if (b.aBR > aBN) {
+                b.GM();
             }
-            if (a.aAT > aAS) {
-                a.FP();
+            if (a.aBO > aBN) {
+                a.GM();
             }
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        a.aAT++;
+        a.aBO++;
         if (z2) {
-            a.aAU++;
+            a.aBP++;
         } else if (z3) {
-            a.aAV++;
+            a.aBQ++;
         }
-        if (a.aAT > aAR) {
-            a.FP();
+        if (a.aBO > aBM) {
+            a.GM();
         }
     }
 
     public void c(p pVar) {
-        if (aa.FY().FZ()) {
-            if (b.aAW < aAR) {
-                b.aAX += pVar.uW;
-                b.aAY += pVar.FH;
-                b.aAZ += pVar.aAt;
-                b.aBa += pVar.aAu;
-                b.aBc += pVar.Hm;
-                b.aBb += pVar.aAk;
-                b.aAW++;
+        if (aa.GU().GV()) {
+            if (b.aBR < aBM) {
+                b.aBS += pVar.vh;
+                b.aBT += pVar.FN;
+                b.aBU += pVar.aBi;
+                b.aBV += pVar.aBj;
+                b.aBX += pVar.Hs;
+                b.aBW += pVar.aAZ;
+                b.aBR++;
                 return;
             }
-            b.FP();
+            b.GM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aAT;
-        public static int aAU;
-        public static int aAV;
+        public static int aBO;
+        public static int aBP;
+        public static int aBQ;
 
-        public static void FP() {
-            com.baidu.adp.lib.stats.d hm = w.hm();
-            hm.r("action", "imbusy");
-            hm.r("totalNum", String.valueOf(aAT));
-            hm.r("tfailNum", String.valueOf(aAU));
-            hm.r("qfailNum", String.valueOf(aAV));
-            com.baidu.adp.lib.stats.a.ht().a("im", hm);
+        public static void GM() {
+            com.baidu.adp.lib.stats.d hs = w.hs();
+            hs.r("action", "imbusy");
+            hs.r("totalNum", String.valueOf(aBO));
+            hs.r("tfailNum", String.valueOf(aBP));
+            hs.r("qfailNum", String.valueOf(aBQ));
+            com.baidu.adp.lib.stats.a.hz().a("im", hs);
             resetData();
         }
 
         public static void resetData() {
-            aAT = 0;
-            aAU = 0;
-            aAV = 0;
+            aBO = 0;
+            aBP = 0;
+            aBQ = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aAW;
-        public static long aAX;
-        public static long aAY;
-        public static long aAZ;
-        public static int aBa;
-        public static int aBb;
-        public static long aBc;
+        public static int aBR;
+        public static long aBS;
+        public static long aBT;
+        public static long aBU;
+        public static int aBV;
+        public static int aBW;
+        public static long aBX;
 
-        public static void FP() {
-            com.baidu.adp.lib.stats.d hm = w.hm();
-            hm.r("action", "imcost");
-            hm.r("dect", String.valueOf(aAX));
-            hm.r("dlsize", String.valueOf(aAY));
-            hm.r("dbt", String.valueOf(aAZ));
-            hm.r("pnum", String.valueOf(aBa));
-            hm.r("reqcost", String.valueOf(aBc));
-            hm.r("cpu", String.valueOf(aBb));
-            hm.r("totalNum", String.valueOf(aAW));
-            com.baidu.adp.lib.stats.a.ht().a("im", hm);
-            FX();
+        public static void GM() {
+            com.baidu.adp.lib.stats.d hs = w.hs();
+            hs.r("action", "imcost");
+            hs.r("dect", String.valueOf(aBS));
+            hs.r("dlsize", String.valueOf(aBT));
+            hs.r("dbt", String.valueOf(aBU));
+            hs.r("pnum", String.valueOf(aBV));
+            hs.r("reqcost", String.valueOf(aBX));
+            hs.r("cpu", String.valueOf(aBW));
+            hs.r("totalNum", String.valueOf(aBR));
+            com.baidu.adp.lib.stats.a.hz().a("im", hs);
+            GT();
         }
 
-        public static void FX() {
-            aAW = 0;
-            aAX = 0L;
-            aAY = 0L;
-            aAZ = 0L;
-            aBa = 0;
-            aBb = 0;
+        public static void GT() {
+            aBR = 0;
+            aBS = 0L;
+            aBT = 0L;
+            aBU = 0L;
+            aBV = 0;
+            aBW = 0;
         }
     }
 }

@@ -77,7 +77,9 @@ public class CmdConfigCustom {
     public static final int CMD_CLEAR_GROUP_INFO = 2001117;
     public static final int CMD_CLEAR_LIVE_STATUS = 2001261;
     public static final int CMD_CLEAR_TASK_ID = 2001389;
+    public static final int CMD_CLOSE_INTEREST_GUIDE = 2001402;
     public static final int CMD_CLOSE_MATINTAB = 2001384;
+    public static final int CMD_CLOSE_NEW_USER_GUIDE = 2001401;
     public static final int CMD_COLLECTION_PLUGIN_INSTALL_SUCCESS = 2902080;
     public static final int CMD_CREATE_HANDLE_SSOSERVICE_IMPL = 2902060;
     public static final int CMD_CREATE_SUCCESS_MSG = 2001107;
@@ -93,6 +95,7 @@ public class CmdConfigCustom {
     public static final int CMD_DELETE_ACCOUNT = 2001193;
     public static final int CMD_DELETE_ALL_SKIN_FILE = 2001386;
     public static final int CMD_DELETE_CONTACT = 2001184;
+    public static final int CMD_DELETE_GRAFFITI_SUCCESS = 2001502;
     public static final int CMD_DELETE_MSG = 2001113;
     public static final int CMD_DELETE_SKINT_DATA_FROM_DB = 2001371;
     public static final int CMD_DELETE_SKIN_TEMP_FILE = 2001373;
@@ -128,6 +131,7 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_GROUP_MENU = 2003013;
     public static final int CMD_FRS_HOT_CACHE = 2003012;
     public static final int CMD_FRS_LIVE_CACHE = 2003014;
+    public static final int CMD_FRS_MANGA_STORE_CACHE = 2003015;
     public static final int CMD_FRS_MEMBER_INFO_CACHE = 2003009;
     public static final int CMD_GAME_ADD_ITEM = 2001248;
     public static final int CMD_GAME_DELETE_ITEM = 2001249;
@@ -143,6 +147,7 @@ public class CmdConfigCustom {
     public static final int CMD_GC_VIEW_DRAW_CACHE = 2016308;
     public static final int CMD_GET_GIFT_SUCCEED = 2001238;
     public static final int CMD_GET_GROUP_INFO = 2001287;
+    public static final int CMD_GET_HOT_GOD_CACHE = 2016446;
     public static final int CMD_GET_LEVEL_INFO_CACHE = 2003007;
     public static final int CMD_GET_LIVE_CHANGED_INFO = 2001338;
     public static final int CMD_GET_LIVE_PLAY_IMAGE = 2001269;
@@ -162,7 +167,21 @@ public class CmdConfigCustom {
     public static final int CMD_GOTOLIVE_RIGESTE_LISTENER = 2004503;
     public static final int CMD_GO_TO_ONEKEYSIGN = 2016306;
     public static final int CMD_GO_TO_POSTBUBBLE = 2016307;
+    public static final int CMD_GRAFFITI_COMMIT_SUCCESS = 2016454;
+    public static final int CMD_GRAFFITI_COMMON_MANAGER = 2016440;
+    public static final int CMD_GRAFFITI_DELETE_SUCCESS = 2016452;
+    public static final int CMD_GRAFFITI_HAS_MODIFY = 2016441;
+    public static final int CMD_GRAFFITI_JUMP_PAINT = 2016443;
+    public static final int CMD_GRAFFITI_LIST_CHANGED = 2016451;
+    public static final int CMD_GRAFFITI_PLUGIN_INSTALLED = 2001400;
+    public static final int CMD_GRAFFITI_QUICK_VOTE_VIEW = 2016445;
+    public static final int CMD_GRAFFITI_SAVE_SUCCESS = 2016439;
+    public static final int CMD_GRAFFITI_SEND_SUCCESS = 2016444;
+    public static final int CMD_GRAFFITI_TOOL_CRTL = 2016438;
+    public static final int CMD_GRAFFITI_VOTE_CRTL = 2016442;
+    public static final int CMD_GRAFFITI_VOTE_SUCCESS = 2016453;
     public static final int CMD_GROUP_MEMBER_CHANGE = 2001109;
+    public static final int CMD_GUIDE_SET_CACHE = 2001407;
     public static final int CMD_HOMEWORK = 2902070;
     public static final int CMD_HOME_PAGE_LOAD_DATA_FROM_NET = 2016320;
     public static final int CMD_HOME_PAGE_READ_CACHE = 2016314;
@@ -195,6 +214,9 @@ public class CmdConfigCustom {
     public static final int CMD_LEFT_NAVI_SCAN = 2001309;
     public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
     public static final int CMD_LEFT_NAV_MEMBER_CENTER_RED_TIP = 2001375;
+    public static final int CMD_LEGO_LIST = 2016447;
+    public static final int CMD_LEGO_SWITCH_TAB = 2016449;
+    public static final int CMD_LEGO_SWITCH_TAB_FROM_POP_WINDOW = 2016448;
     public static final int CMD_LIGHT_APP_RUNTIME_INITED = 2001276;
     public static final int CMD_LIKE_FORUM = 2001342;
     public static final int CMD_LIVEGROUP_END = 2001208;
@@ -261,14 +283,17 @@ public class CmdConfigCustom {
     public static final int CMD_PAYMENT_CONFIRM_SUCCESS = 2001374;
     public static final int CMD_PERF_LIVE_SAMPLE = 2016103;
     public static final int CMD_PERF_SAMPLE = 2016100;
+    public static final int CMD_PERSONALIZE_VIDEO_CONTROL = 2001399;
     public static final int CMD_PERSONAL_CHAT_INITED = 2001316;
     public static final int CMD_PERSON_DATA_CHANGED = 2001387;
     public static final int CMD_PERSON_INFO_CHANGED = 2001253;
     public static final int CMD_PERSON_WALLET_ITEM_CLICK = 2001394;
+    public static final int CMD_PHOTO_LIVE_MISSON_UPDATE_SUCCESS = 2004510;
     public static final int CMD_PHOTO_LIVE_PLUGIN_INSTALL_SUCCESS = 2004509;
     public static final int CMD_PLAY_PROGRESS_CHANGED = 2001160;
     public static final int CMD_PLAY_STATUS_CHANGED = 2001159;
     public static final int CMD_PLAY_XIAOYING_VIDEO = 2001354;
+    public static final int CMD_PLUGIN_CONFIG_SYNC = 2001408;
     public static final int CMD_PLUGIN_ENABLE_STATE_CHANGED = 2001310;
     public static final int CMD_PLUGIN_NETCONFIG_GET = 2001230;
     public static final int CMD_PRIVILEGE_CTRL = 2001289;
@@ -305,6 +330,7 @@ public class CmdConfigCustom {
     public static final int CMD_REFRESH_BACKGROUND_LIST = 2001370;
     public static final int CMD_REFRESH_THEME_LIST = 2001369;
     public static final int CMD_RELEASE_T5 = 2001259;
+    public static final int CMD_RELOAD_HP_PERSONALIZED = 2001406;
     public static final int CMD_REMIND_RECOMMEND_SWITCH = 2001363;
     public static final int CMD_REMOVE_NOT_EXSIT_VIDEO = 2016328;
     public static final int CMD_REQUEST_ENTER_FORUM_MESSAGE = 2001330;
@@ -331,6 +357,9 @@ public class CmdConfigCustom {
     public static final int CMD_SELECT_LOCATION = 2001232;
     public static final int CMD_SEND_GIFT_SUCCESS = 2001376;
     public static final int CMD_SETTING_READ_FINISH = 2001318;
+    public static final int CMD_SET_INTEREST_GUIDE = 2001405;
+    public static final int CMD_SET_NU_AGE_GUIDE = 2001404;
+    public static final int CMD_SET_NU_SEX_GUIDE = 2001403;
     public static final int CMD_SHARE_DIALOG_DISMISS = 2001284;
     public static final int CMD_SHARE_DIALOG_SHOW = 2001283;
     public static final int CMD_SHARE_SDK_RESULT = 2001256;
@@ -404,6 +433,7 @@ public class CmdConfigCustom {
     public static final int CMD_WEBVIEW_PROXY = 2001315;
     public static final int CMD_WRITE_PB_HISTORY = 2001191;
     public static final int CMD_WRITE_SEARCHPERSON_HISTORY = 2001194;
+    public static final int CMD_WX_SHARE_SUCCESS = 2016450;
     public static final int CMD_XIAOMI_PUSH_SWITCH_CHANGE = 2001317;
     public static final int CMD_YINJIN_CHANGE = 2001379;
     public static final int CMD_ZXING_CAPTURE = 2902030;
@@ -533,6 +563,7 @@ public class CmdConfigCustom {
     public static final int PB_ACTION_PRAISE = 2004004;
     public static final int PB_ACTIVITY_ON_DESTROY = 2004014;
     public static final int PB_ADAPTER_CHANGE_CMD = 2004005;
+    public static final int PB_ADD_ADAPTER = 2004015;
     private static final int PB_CUSTOM_BASE_CMD = 2004000;
     public static final int PB_LOAD_DRAFT = 2004008;
     public static final int PB_ON_SCROLL = 2004013;
@@ -540,6 +571,7 @@ public class CmdConfigCustom {
     public static final int PB_PAUSE_VIDEO = 2004011;
     public static final int PB_RECORDER_RESET_CMD = 2004006;
     public static final int PB_REFRESH_VIDEO = 2004012;
+    public static final int PB_RESET_EDITOR_TOOL = 2001016;
     public static final int PB_SHOW_MULTIIAMGETOOL = 2004009;
     private static final int PHOTO_LIVE_CUSTOM_BASE_CMD = 2004500;
     private static final int PLUGIN_CUSTOM_BASE_CMD = 2902000;

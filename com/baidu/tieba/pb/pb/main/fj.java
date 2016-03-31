@@ -1,65 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fj extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService cSC;
+public class fj implements View.OnClickListener {
+    final /* synthetic */ eu dnc;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dnf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fj(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.cSC = readerPbService;
+    public fj(eu euVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dnc = euVar;
+        this.dnf = sVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dn dnVar;
-        dn dnVar2;
-        dn dnVar3;
-        dn dnVar4;
-        dn dnVar5;
-        dn dnVar6;
-        BdUniqueId bdUniqueId;
-        dq dqVar;
-        BdUniqueId bdUniqueId2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof dm)) {
-            dm dmVar = (dm) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId3 = dmVar.tag;
-            if (bdUniqueId3 != null) {
-                bdUniqueId = this.cSC.mTagId;
-                if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.cSC.mTagId = bdUniqueId3;
-                    dqVar = this.cSC.mReaderModel;
-                    bdUniqueId2 = this.cSC.mTagId;
-                    dqVar.l(bdUniqueId2);
-                }
-            }
-            this.cSC.threadId = dmVar.threadId;
-            this.cSC.postId = dmVar.postId;
-            this.cSC.isAlive = dmVar.isAlive;
-            this.cSC.setReadModel(dmVar);
-            if (dmVar.cPN >= 0) {
-                dnVar2 = this.cSC.mReaderManager;
-                dnVar2.a(dmVar.pbData, dmVar.isSquence, dmVar.loadType, dmVar.cPM, false);
-                dnVar3 = this.cSC.mReaderManager;
-                int aqB = dnVar3.aqB();
-                if (aqB == 1 || aqB == 3) {
-                    dnVar4 = this.cSC.mReaderManager;
-                    dnVar4.kY(0);
-                } else {
-                    dnVar6 = this.cSC.mReaderManager;
-                    dnVar6.kY(1);
-                }
-                dnVar5 = this.cSC.mReaderManager;
-                dnVar5.s(dmVar.cPN, dmVar.cPO);
-                return;
-            }
-            dnVar = this.cSC.mReaderManager;
-            dnVar.a(dmVar.pbData, dmVar.isSquence, dmVar.loadType, dmVar.cPM, true);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10630").ac("obj_id", this.dnf.getAuthor().getUserId()));
+        pbActivity = this.dnc.dfw;
+        if (pbActivity.dgG.dnw != null) {
+            pbActivity2 = this.dnc.dfw;
+            pbActivity2.dgG.dnw.onClick(view);
         }
     }
 }

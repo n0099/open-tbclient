@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b RU = null;
-    private static a RV = null;
-    private static boolean RW = false;
-    private static String RX = "";
-    private static transient List<String> RY = new ArrayList(5);
+    private static b Pp = null;
+    private static a Pq = null;
+    private static boolean Pr = false;
+    private static String Ps = "";
+    private static transient List<String> Pt = new ArrayList(5);
 
     /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0040a {
-        private static SparseIntArray RZ = new SparseIntArray();
+        private static SparseIntArray Pu = new SparseIntArray();
 
         static {
-            RZ.put(2, 1);
-            RZ.put(4, 2);
-            RZ.put(8, 3);
-            RZ.put(12, 4);
-            RZ.put(16, 5);
-            RZ.put(20, 6);
-            RZ.put(24, 7);
+            Pu.put(2, 1);
+            Pu.put(4, 2);
+            Pu.put(8, 3);
+            Pu.put(12, 4);
+            Pu.put(16, 5);
+            Pu.put(20, 6);
+            Pu.put(24, 7);
         }
 
-        public static int aX(int i) {
-            return RZ.get(i);
+        public static int aW(int i) {
+            return Pu.get(i);
         }
     }
 
@@ -39,158 +39,158 @@ public class a {
     }
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (RV == null) {
+        if (Pq == null) {
             synchronized (a.class) {
-                if (RV == null) {
-                    RV = new a();
-                    RU = b.b(baseFragmentActivity);
+                if (Pq == null) {
+                    Pq = new a();
+                    Pp = b.b(baseFragmentActivity);
                 }
             }
-        } else if (RU != null) {
-            RU.a(baseFragmentActivity.getPageContext());
+        } else if (Pp != null) {
+            Pp.a(baseFragmentActivity.getPageContext());
         }
-        if (RW && RU != null) {
-            RU.qv();
-            RU.qw();
-            RW = false;
+        if (Pr && Pp != null) {
+            Pp.pJ();
+            Pp.pK();
+            Pr = false;
         }
-        return RV;
+        return Pq;
     }
 
     public static a b(BaseActivity baseActivity) {
-        if (RV == null) {
+        if (Pq == null) {
             synchronized (a.class) {
-                if (RV == null) {
-                    RV = new a();
-                    RU = b.c(baseActivity);
+                if (Pq == null) {
+                    Pq = new a();
+                    Pp = b.c(baseActivity);
                 }
             }
-        } else if (RU != null) {
-            RU.a(baseActivity.getPageContext());
+        } else if (Pp != null) {
+            Pp.a(baseActivity.getPageContext());
         }
-        if (RW && RU != null) {
-            RU.qv();
-            RU.qw();
-            RW = false;
+        if (Pr && Pp != null) {
+            Pp.pJ();
+            Pp.pK();
+            Pr = false;
         }
-        return RV;
+        return Pq;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        qq();
+        pE();
         if (z) {
-            qk();
+            py();
         }
         if (z2) {
-            ql();
+            pz();
         }
-        Z(z3);
+        Y(z3);
         a(aVar);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        qq();
-        if (RU != null) {
-            RU.a(tbPageContext, str, str2, str3);
+        pE();
+        if (Pp != null) {
+            Pp.a(tbPageContext, str, str2, str3);
         }
     }
 
-    public void qk() {
-        qq();
-        if (RU != null) {
-            RU.qv();
-            RW = false;
+    public void py() {
+        pE();
+        if (Pp != null) {
+            Pp.pJ();
+            Pr = false;
         }
     }
 
-    public void ql() {
-        qq();
-        if (RU != null) {
-            RU.qw();
-            RW = false;
+    public void pz() {
+        pE();
+        if (Pp != null) {
+            Pp.pK();
+            Pr = false;
         }
     }
 
-    public void Z(boolean z) {
-        qq();
-        if (RU != null) {
-            RU.Z(z);
+    public void Y(boolean z) {
+        pE();
+        if (Pp != null) {
+            Pp.Y(z);
         }
     }
 
-    public boolean qm() {
-        qq();
-        if (RU != null) {
-            return RU.qm();
+    public boolean pA() {
+        pE();
+        if (Pp != null) {
+            return Pp.pA();
         }
         return false;
     }
 
     public void a(b.a aVar) {
-        qq();
-        if (RU != null) {
-            RU.c(aVar);
+        pE();
+        if (Pp != null) {
+            Pp.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        qq();
-        if (RU != null) {
-            if (RU.qs()) {
-                RU.c(aVar);
+        pE();
+        if (Pp != null) {
+            if (Pp.pG()) {
+                Pp.c(aVar);
             }
-            RU.qu();
+            Pp.pI();
         }
     }
 
     public void a(int i, b.a aVar) {
-        qq();
-        if (RU != null) {
-            if (RU.qs()) {
-                RU.c(aVar);
+        pE();
+        if (Pp != null) {
+            if (Pp.pG()) {
+                Pp.c(aVar);
             }
-            RU.aY(i);
+            Pp.aX(i);
         }
     }
 
-    public void qn() {
-        qq();
-        if (RU != null) {
-            RU.qn();
-            RW = true;
+    public void pB() {
+        pE();
+        if (Pp != null) {
+            Pp.pB();
+            Pr = true;
         }
     }
 
-    public void qo() {
-        qq();
-        if (RU != null) {
-            RU.qo();
+    public void pC() {
+        pE();
+        if (Pp != null) {
+            Pp.pC();
         }
     }
 
-    public void qp() {
-        qq();
-        qo();
-        qn();
+    public void pD() {
+        pE();
+        pC();
+        pB();
     }
 
-    private void qq() {
-        if (RU == null) {
+    private void pE() {
+        if (Pp == null) {
         }
     }
 
-    public static void qr() {
+    public static void pF() {
         try {
-            if (RU != null) {
-                if (RV != null) {
-                    RV.qp();
+            if (Pp != null) {
+                if (Pq != null) {
+                    Pq.pD();
                 }
-                RU.qt();
-                RU.resetValues();
-                RU = null;
+                Pp.pH();
+                Pp.resetValues();
+                Pp = null;
             }
-            if (RV != null) {
-                RV = null;
+            if (Pq != null) {
+                Pq = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

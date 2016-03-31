@@ -1,44 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
-public class bt implements a.b {
-    final /* synthetic */ bo cNE;
-    private final /* synthetic */ String cfq;
+class bt extends CustomMessageListener {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bo boVar, String str) {
-        this.cNE = boVar;
-        this.cfq = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bt(PbActivity pbActivity, int i) {
+        super(i);
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        PbActivity pbActivity;
-        cm cmVar;
-        PbActivity pbActivity2;
-        cm cmVar2;
-        PbActivity pbActivity3;
-        cm cmVar3;
-        PbActivity pbActivity4;
-        cm cmVar4;
-        aVar.dismiss();
-        pbActivity = this.cNE.cNq;
-        cmVar = pbActivity.cMF;
-        if (cmVar != null) {
-            pbActivity2 = this.cNE.cNq;
-            cmVar2 = pbActivity2.cMF;
-            if (cmVar2.getPbData() != null) {
-                com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10505");
-                pbActivity3 = this.cNE.cNq;
-                cmVar3 = pbActivity3.cMF;
-                com.baidu.tbadk.core.util.au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cmVar3.getPbData().getForumId());
-                pbActivity4 = this.cNE.cNq;
-                cmVar4 = pbActivity4.cMF;
-                TiebaStatic.log(aa.aa("tid", cmVar4.getPbData().getThreadId()).aa("uid", this.cfq).aa("obj_locate", "2"));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            com.baidu.tieba.pb.f fVar = (com.baidu.tieba.pb.f) customResponsedMessage.getData();
+            switch (fVar.getType()) {
+                case 0:
+                    this.dht.b((com.baidu.tieba.pb.data.g) fVar.getData());
+                    return;
+                case 1:
+                    this.dht.a((a.b) fVar.getData());
+                    return;
+                case 2:
+                    if (fVar.getData() == null) {
+                        this.dht.a(false, (MarkData) null);
+                        return;
+                    } else {
+                        this.dht.a(true, (MarkData) fVar.getData());
+                        return;
+                    }
+                default:
+                    return;
             }
         }
     }

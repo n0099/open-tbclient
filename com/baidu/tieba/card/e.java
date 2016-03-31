@@ -1,14 +1,13 @@
 package com.baidu.tieba.card;
 
 import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.b {
-    final /* synthetic */ c aOW;
+class e implements a.b {
+    final /* synthetic */ c aRM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.aOW = cVar;
+        this.aRM = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

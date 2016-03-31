@@ -1,80 +1,43 @@
 package com.baidu.tieba.pb;
 
 import android.content.Context;
-import com.baidu.tbadk.browser.f;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.pb.a;
-import com.baidu.tieba.pb.view.g;
-import com.baidu.tieba.tbadkCore.data.j;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class c implements com.baidu.tbadk.core.flow.a.d<j> {
-    private g cHK;
-    private a.InterfaceC0074a cHL;
-    private Context mContext;
+class c extends Handler {
+    final /* synthetic */ FileDownloader daS;
 
-    public c(g gVar, Context context, a.InterfaceC0074a interfaceC0074a) {
-        this.cHL = null;
-        this.cHK = gVar;
-        this.mContext = context;
-        this.cHL = interfaceC0074a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(FileDownloader fileDownloader) {
+        this.daS = fileDownloader;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void o(int i, String str) {
-        if (this.cHL != null) {
-            switch (i) {
-                case 0:
-                    this.cHL.u(str, "IMAGE1", "LINK_IMAGE");
-                    break;
-                case 1:
-                    this.cHL.u(str, "IMAGE1", "LINK_IMAGE");
-                    break;
-                case 2:
-                    this.cHL.u(str, "IMAGE2", "LINK_IMAGE");
-                    break;
-                case 3:
-                    this.cHL.u(str, "IMAGE3", "LINK_IMAGE");
-                    break;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        String str2;
+        super.handleMessage(message);
+        if (message.what == 900002) {
+            if (message.arg2 > 0) {
+                this.daS.progress = (int) ((message.arg1 * 100) / message.arg2);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / 1000));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / 1000));
+                stringBuffer.append("K");
+                this.daS.schedule = stringBuffer.toString();
+                Context baseContext = this.daS.getBaseContext();
+                int i = this.daS.progress;
+                str = this.daS.schedule;
+                str2 = this.daS.mInfo;
+                NotificationHelper.showProgressNotification(baseContext, 10, null, i, str, str2, true);
             }
-        }
-        if (!aw.isEmpty(str)) {
-            f.B(this.mContext, str);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void a(int i, j jVar) {
-        if (this.cHK != null && jVar != null && this.cHK.cVC != null && this.cHK.cVD != null) {
-            if (aw.isEmpty(jVar.aMb())) {
-                this.cHK.cVC.setVisibility(8);
-            } else {
-                this.cHK.cVC.setText(jVar.aMb());
-                this.cHK.cVC.setVisibility(0);
-            }
-            if (aw.isEmpty(jVar.tV())) {
-                this.cHK.cVD.setVisibility(8);
-            } else {
-                this.cHK.cVD.setText(jVar.tV());
-                this.cHK.cVD.setVisibility(0);
-            }
-            if (this.cHK.cVC.getVisibility() != 0 && this.cHK.cVD.getVisibility() != 0) {
-                this.cHK.setVisibility(8);
-            } else {
-                this.cHK.af(jVar.rX(), i);
-            }
-            if (this.cHL != null && i <= this.cHL.aoo()) {
-                switch (i) {
-                    case 2:
-                        this.cHL.u(jVar.rX(), "IMAGE2", "VIEW_CAROUSEL");
-                        return;
-                    case 3:
-                        this.cHL.u(jVar.rX(), "IMAGE3", "VIEW_CAROUSEL");
-                        return;
-                    default:
-                        return;
-                }
-            }
+        } else if (message.what == 1) {
+            UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), (String) message.obj);
+            this.daS.stopSelf();
         }
     }
 }

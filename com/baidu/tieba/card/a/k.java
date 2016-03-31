@@ -1,30 +1,24 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-public class k extends com.baidu.tieba.card.a.a {
-    public static final BdUniqueId aRS = BdUniqueId.gen();
-    private List<a> aQh = new ArrayList();
-
-    /* loaded from: classes.dex */
-    public static class a {
-        public int aSe;
-        public long id;
-        public String link;
-        public int position;
-        public String title;
-        public int type;
-        public String url;
-    }
+public class k extends b {
+    public static BdUniqueId aVL = BdUniqueId.gen();
+    public static BdUniqueId aVM = BdUniqueId.gen();
+    public MetaData author;
+    public int type = 0;
+    public int rank = 1;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aRS;
-    }
-
-    public List<a> Fm() {
-        return this.aQh;
+        switch (this.type) {
+            case 0:
+                return aVL;
+            case 1:
+                return aVM;
+            default:
+                return aVL;
+        }
     }
 }

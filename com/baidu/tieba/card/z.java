@@ -1,39 +1,25 @@
 package com.baidu.tieba.card;
 
-import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.base.g {
-    final /* synthetic */ w aQe;
+public class z extends CustomMessageListener {
+    final /* synthetic */ y aSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(w wVar) {
-        this.aQe = wVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(y yVar, int i) {
+        super(i);
+        this.aSZ = yVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.w wVar;
-        com.baidu.tieba.tbadkCore.w wVar2;
-        com.baidu.tieba.tbadkCore.w wVar3;
-        com.baidu.tieba.tbadkCore.w wVar4;
-        if (obj instanceof com.baidu.tieba.tbadkCore.x) {
-            wVar4 = this.aQe.MS;
-            if (wVar4.getErrorCode() == 0) {
-                return;
-            }
-        }
-        wVar = this.aQe.MS;
-        if (AntiHelper.or(wVar.getErrorCode())) {
-            Context context = this.aQe.getContext();
-            wVar3 = this.aQe.MS;
-            AntiHelper.X(context, wVar3.getErrorString());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
             return;
         }
-        TbPageContext<?> JK = this.aQe.JK();
-        wVar2 = this.aQe.MS;
-        JK.showToast(wVar2.getErrorString());
+        this.aSZ.a(((Long) customResponsedMessage.getData()).longValue(), false);
     }
 }

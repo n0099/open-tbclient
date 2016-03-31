@@ -3,66 +3,82 @@ package com.baidu.tieba.recommendfrs.personalize.a;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.a.r;
-import com.baidu.tieba.card.an;
-import com.baidu.tieba.card.bb;
+import com.baidu.tieba.card.bt;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.cj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements bb<r> {
-    final /* synthetic */ d dGl;
+public class e implements cj<com.baidu.tieba.card.a.u> {
+    final /* synthetic */ d dXX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.dGl = dVar;
+        this.dXX = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bb
-    public void a(View view, r rVar) {
-        an anVar;
-        an anVar2;
-        an anVar3;
-        an anVar4;
-        an anVar5;
-        an anVar6;
-        an anVar7;
-        an anVar8;
-        an anVar9;
+    @Override // com.baidu.tieba.card.cj
+    public void a(View view, com.baidu.tieba.card.a.u uVar) {
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        bt btVar4;
+        bt btVar5;
+        bt btVar6;
+        bt btVar7;
+        bt btVar8;
+        bt btVar9;
+        bt btVar10;
+        bt btVar11;
+        bt btVar12;
+        cf.Lx().cc(true);
         if (view != null) {
-            anVar = this.dGl.bJE;
-            if (anVar != null) {
-                anVar2 = this.dGl.bJE;
-                if (anVar2.getView() != null) {
-                    anVar3 = this.dGl.bJE;
-                    if (anVar3.aQw != null && rVar != null && rVar.Ki() != null && !StringUtils.isNull(rVar.Ki().getTid())) {
+            btVar = this.dXX.bUa;
+            if (btVar != null) {
+                btVar2 = this.dXX.bUa;
+                if (btVar2.getView() != null) {
+                    btVar3 = this.dXX.bUa;
+                    if (btVar3.aUj != null && uVar != null && uVar.LC() != null && !StringUtils.isNull(uVar.LC().getTid())) {
                         int id = view.getId();
-                        anVar4 = this.dGl.bJE;
-                        if (id != anVar4.getView().getId()) {
-                            anVar5 = this.dGl.bJE;
-                            if (anVar5.aQw.aQF != null) {
-                                anVar8 = this.dGl.bJE;
-                                if (anVar8.aQw.aQF.getBarNameTv() != null) {
+                        btVar4 = this.dXX.bUa;
+                        if (id != btVar4.getView().getId()) {
+                            btVar5 = this.dXX.bUa;
+                            if (btVar5.aUj.aUs != null) {
+                                btVar11 = this.dXX.bUa;
+                                if (btVar11.aUj.aUs.getBarNameTv() != null) {
                                     int id2 = view.getId();
-                                    anVar9 = this.dGl.bJE;
-                                    if (id2 == anVar9.aQw.aQF.getBarNameTv().getId()) {
-                                        TiebaStatic.log(rVar.KC());
+                                    btVar12 = this.dXX.bUa;
+                                    if (id2 == btVar12.aUj.aUs.getBarNameTv().getId()) {
+                                        TiebaStatic.log(uVar.LW());
                                         return;
                                     }
                                 }
                             }
-                            anVar6 = this.dGl.bJE;
-                            if (anVar6.aQw.aQB != null) {
+                            btVar6 = this.dXX.bUa;
+                            if (btVar6.aUj.aTo != null) {
                                 int id3 = view.getId();
-                                anVar7 = this.dGl.bJE;
-                                if (id3 == anVar7.aQw.aQB.getId()) {
-                                    TiebaStatic.log(rVar.KD());
+                                btVar10 = this.dXX.bUa;
+                                if (id3 == btVar10.aUj.aTo.getId()) {
+                                    TiebaStatic.log(uVar.LX());
+                                    return;
+                                }
+                            }
+                            btVar7 = this.dXX.bUa;
+                            if (btVar7.aUj.aTV != null) {
+                                btVar8 = this.dXX.bUa;
+                                if (btVar8.aUj.aTV.ahM != null) {
+                                    btVar9 = this.dXX.bUa;
+                                    if (btVar9.aUj.aTV.ahM.getId() == view.getId()) {
+                                        TiebaStatic.log(uVar.LX());
+                                        return;
+                                    }
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(rVar.KA());
+                        TiebaStatic.log(uVar.LU());
                     }
                 }
             }

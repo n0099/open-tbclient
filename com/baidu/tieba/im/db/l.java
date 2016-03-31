@@ -9,20 +9,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String bTW = "tb_private_msg_";
-    private static a bUl;
+    private static a ceO;
+    public static String cez = "tb_private_msg_";
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l abi() {
+    public static synchronized l aeE() {
         l lVar;
         synchronized (l.class) {
-            if (bUl == null) {
-                bUl = new l();
+            if (ceO == null) {
+                ceO = new l();
             }
-            lVar = (l) bUl;
+            lVar = (l) ceO;
         }
         return lVar;
     }
@@ -42,19 +42,19 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v5, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v9 */
-    public CommonMsgPojo N(String str, int i) {
+    public CommonMsgPojo U(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(bTW);
+            ?? valueOf = String.valueOf(cez);
             try {
                 try {
-                    cursor = g.aaX().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.aet().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
-                            com.baidu.adp.lib.util.o.b(cursor);
+                            com.baidu.adp.lib.util.o.a(cursor);
                             valueOf = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
@@ -72,7 +72,7 @@ public class l extends a {
                             commonMsgPojo2.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo2.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            com.baidu.adp.lib.util.o.b(cursor);
+                            com.baidu.adp.lib.util.o.a(cursor);
                             commonMsgPojo = commonMsgPojo2;
                             valueOf = cursor;
                         }
@@ -80,21 +80,21 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        iu(str);
-                        com.baidu.adp.lib.util.o.b(cursor);
+                        jd(str);
+                        com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.o.b(cursor);
+                        com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    com.baidu.adp.lib.util.o.b((Cursor) valueOf);
+                    com.baidu.adp.lib.util.o.a((Cursor) valueOf);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -106,7 +106,7 @@ public class l extends a {
             } catch (Throwable th3) {
                 valueOf = 0;
                 th = th3;
-                com.baidu.adp.lib.util.o.b((Cursor) valueOf);
+                com.baidu.adp.lib.util.o.a((Cursor) valueOf);
                 throw th;
             }
         }

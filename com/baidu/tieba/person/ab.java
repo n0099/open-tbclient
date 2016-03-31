@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class ab implements AdapterView.OnItemClickListener {
-    final /* synthetic */ s cXR;
+    final /* synthetic */ s dst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(s sVar) {
-        this.cXR = sVar;
+        this.dst = sVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,36 +22,36 @@ class ab implements AdapterView.OnItemClickListener {
         ad adVar;
         boolean z;
         ad adVar2;
-        PersonBarActivity atz;
+        PersonBarActivity aBf;
         boolean z2;
-        PersonBarActivity atz2;
-        PersonBarActivity atz3;
-        PersonBarActivity atz4;
-        adVar = this.cXR.cXB;
+        PersonBarActivity aBf2;
+        PersonBarActivity aBf3;
+        PersonBarActivity aBf4;
+        adVar = this.dst.dsd;
         if (adVar.getItem(i) != null) {
-            z = this.cXR.cXG;
+            z = this.dst.dsi;
             if (!z) {
-                this.cXR.cEJ = i;
-                adVar2 = this.cXR.cXB;
+                this.dst.cYb = i;
+                adVar2 = this.dst.dsd;
                 ForumData forumData = (ForumData) adVar2.getItem(i);
                 if (forumData != null) {
-                    atz = this.cXR.atz();
-                    if (atz != null) {
-                        z2 = this.cXR.cWu;
+                    aBf = this.dst.aBf();
+                    if (aBf != null) {
+                        z2 = this.dst.dqW;
                         if (z2) {
                             Intent intent = new Intent();
                             intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
                             intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            atz3 = this.cXR.atz();
-                            this.cXR.atz();
-                            atz3.setResult(-1, intent);
-                            atz4 = this.cXR.atz();
-                            atz4.finish();
+                            aBf3 = this.dst.aBf();
+                            this.dst.aBf();
+                            aBf3.setResult(-1, intent);
+                            aBf4 = this.dst.aBf();
+                            aBf4.finish();
                             return;
                         }
-                        s sVar = this.cXR;
-                        atz2 = this.cXR.atz();
-                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(atz2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
+                        s sVar = this.dst;
+                        aBf2 = this.dst.aBf();
+                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(aBf2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }

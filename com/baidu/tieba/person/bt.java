@@ -4,20 +4,20 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt implements BdListView.e {
-    final /* synthetic */ PersonListActivity cZq;
+    final /* synthetic */ PersonListActivity dtT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(PersonListActivity personListActivity) {
-        this.cZq = personListActivity;
+        this.dtT = personListActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void nv() {
+    public void nm() {
         bu buVar;
-        buVar = this.cZq.cZl;
+        buVar = this.dtT.dtO;
         if (!buVar.isHasMore()) {
             return;
         }
-        this.cZq.atQ();
+        this.dtT.aBw();
     }
 }

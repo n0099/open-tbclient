@@ -3,24 +3,24 @@ package com.baidu.tieba.person;
 import android.view.View;
 /* loaded from: classes.dex */
 class bb implements View.OnClickListener {
-    final /* synthetic */ ax cYT;
+    final /* synthetic */ ax dtv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ax axVar) {
-        this.cYT = axVar;
+        this.dtv = axVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         bg bgVar;
-        z = this.cYT.cYP;
+        z = this.dtv.dtr;
         if (!z) {
-            ax axVar = this.cYT;
-            bgVar = this.cYT.cYK;
-            axVar.pageNum = bgVar.getData().getPage().st() + 1;
-            this.cYT.cYP = true;
-            this.cYT.atQ();
+            ax axVar = this.dtv;
+            bgVar = this.dtv.dtm;
+            axVar.pageNum = bgVar.getData().getPage().so() + 1;
+            this.dtv.dtr = true;
+            this.dtv.aBw();
         }
     }
 }

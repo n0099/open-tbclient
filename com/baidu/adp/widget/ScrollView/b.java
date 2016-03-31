@@ -4,26 +4,26 @@ import android.view.View;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public class b {
-    private g Je;
-    private int Jq;
-    private int Jr;
-    private int Jc = 5;
-    private boolean Js = false;
+    private g Jk;
+    private int Jw;
+    private int Jx;
+    private int Ji = 5;
+    private boolean Jy = false;
 
     public b(int i, int i2, int i3) {
-        this.Jq = 10;
-        float abs = Math.abs(i - i2) / this.Jc;
-        this.Jr = i2;
-        this.Jq = (int) (i3 / abs);
+        this.Jw = 10;
+        float abs = Math.abs(i - i2) / this.Ji;
+        this.Jx = i2;
+        this.Jw = (int) (i3 / abs);
     }
 
     public void a(g gVar) {
-        this.Je = gVar;
+        this.Jk = gVar;
     }
 
     public void t(View view) {
-        this.Js = false;
+        this.Jy = false;
         Timer timer = new Timer();
-        timer.schedule(new c(this, view, timer), 0L, this.Jq);
+        timer.schedule(new c(this, view, timer), 0L, this.Jw);
     }
 }

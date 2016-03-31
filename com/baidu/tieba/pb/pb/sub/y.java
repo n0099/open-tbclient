@@ -1,30 +1,70 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.pb.b;
+import com.baidu.tieba.pb.pb.main.et;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements a.b {
-    final /* synthetic */ w cUl;
-    private final /* synthetic */ SparseArray cUm;
+public class y implements b.a {
+    final /* synthetic */ x dpf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar, SparseArray sparseArray) {
-        this.cUl = wVar;
-        this.cUm = sparseArray;
+    public y(x xVar) {
+        this.dpf = xVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        NewSubPbActivity.a aVar2;
-        NewSubPbActivity.a aVar3;
-        aVar2 = this.cUl.cUe;
-        if (aVar2 != null) {
-            aVar3 = this.cUl.cUe;
-            aVar3.d(new Object[]{this.cUm.get(t.g.tag_del_post_id), this.cUm.get(t.g.tag_manage_user_identity), this.cUm.get(t.g.tag_del_post_is_self), this.cUm.get(t.g.tag_del_post_type)});
+    @Override // com.baidu.tieba.pb.b.a
+    public void y(String str, String str2, String str3) {
+        com.baidu.tieba.pb.data.g gVar;
+        com.baidu.tieba.tbadkCore.data.s sVar;
+        com.baidu.tieba.pb.data.g gVar2;
+        com.baidu.tieba.pb.data.g gVar3;
+        com.baidu.tieba.tbadkCore.data.s sVar2;
+        com.baidu.tieba.tbadkCore.data.s sVar3;
+        com.baidu.tieba.tbadkCore.data.s sVar4;
+        com.baidu.tieba.pb.data.g gVar4;
+        com.baidu.tieba.pb.data.g gVar5;
+        com.baidu.tieba.pb.data.g gVar6;
+        gVar = this.dpf.dpd;
+        if (gVar != null) {
+            sVar = this.dpf.dcY;
+            if (sVar != null) {
+                gVar2 = this.dpf.dpd;
+                if (gVar2.avP() != null) {
+                    gVar3 = this.dpf.dpd;
+                    if (gVar3.LC() != null) {
+                        sVar2 = this.dpf.dcY;
+                        if (sVar2.aTC() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                            sVar3 = this.dpf.dcY;
+                            long templateId = sVar3.aTC().getTemplateId();
+                            sVar4 = this.dpf.dcY;
+                            String aSV = sVar4.aTC().aSV();
+                            gVar4 = this.dpf.dpd;
+                            String id = gVar4.avP().getId();
+                            gVar5 = this.dpf.dpd;
+                            String name = gVar5.avP().getName();
+                            gVar6 = this.dpf.dpd;
+                            com.baidu.tieba.pb.b.a(templateId, aSV, str, "PB", str2, str3, "tpoint", id, name, gVar6.LC().getTid());
+                        }
+                    }
+                }
+            }
         }
-        aVar.dismiss();
+    }
+
+    @Override // com.baidu.tieba.pb.b.a
+    public int avb() {
+        com.baidu.tieba.tbadkCore.data.s sVar;
+        com.baidu.tieba.tbadkCore.data.s sVar2;
+        sVar = this.dpf.dcY;
+        if (et.g(sVar)) {
+            sVar2 = this.dpf.dcY;
+            ArrayList<com.baidu.tieba.tbadkCore.data.k> aSS = sVar2.aTC().aSS();
+            if (aSS == null) {
+                return 0;
+            }
+            return aSS.size();
+        }
+        return 0;
     }
 }

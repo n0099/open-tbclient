@@ -18,6 +18,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
     public static final String FRS_FROM_LIKE = "tb_forumlist";
+    public static final String FRS_FROM_MANGA_COVER = "form_manga_cover";
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";

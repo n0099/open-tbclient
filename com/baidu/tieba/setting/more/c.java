@@ -13,102 +13,102 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.f<AboutActivity> {
-    private int dJj;
-    private int dJk;
-    private long dJl;
-    private AboutActivity dJm;
-    private RelativeLayout dJn;
-    private TextView dJo;
-    private TextView dJp;
-    private SettingTextTestNewView dJq;
-    private SettingTextTestNewView dJr;
-    private ImageView dJs;
-    private TbSettingTextTipView dJt;
-    protected TextView dJu;
-    private ProgressBar dJv;
+    private int ebD;
+    private int ebE;
+    private long ebF;
+    private AboutActivity ebG;
+    private RelativeLayout ebH;
+    private TextView ebI;
+    private TextView ebJ;
+    private SettingTextTestNewView ebK;
+    private SettingTextTestNewView ebL;
+    private ImageView ebM;
+    private TbSettingTextTipView ebN;
+    protected TextView ebO;
+    private ProgressBar ebP;
     private long lastClickTime;
     private NavigationBar mNavigationBar;
 
     public c(AboutActivity aboutActivity, s sVar) {
         super(aboutActivity.getPageContext());
-        this.dJj = 0;
+        this.ebD = 0;
         this.lastClickTime = 0L;
-        this.dJk = 0;
-        this.dJl = 0L;
-        this.dJm = aboutActivity;
-        Bk();
+        this.ebE = 0;
+        this.ebF = 0L;
+        this.ebG = aboutActivity;
+        BN();
         a(sVar);
     }
 
-    public void aGH() {
-        if (this.dJv != null) {
-            this.dJv.setVisibility(0);
+    public void aNr() {
+        if (this.ebP != null) {
+            this.ebP.setVisibility(0);
         }
     }
 
-    public void Oz() {
-        if (this.dJv != null) {
-            this.dJv.setVisibility(8);
+    public void Qo() {
+        if (this.ebP != null) {
+            this.ebP.setVisibility(8);
         }
     }
 
-    private void Bk() {
-        this.dJm.setContentView(t.h.about_activity);
-        this.dJn = (RelativeLayout) this.dJm.findViewById(t.g.parent);
-        this.dJs = (ImageView) this.dJm.findViewById(t.g.image_logo);
-        this.dJp = (TextView) this.dJm.findViewById(t.g.text_debug);
-        this.mNavigationBar = (NavigationBar) this.dJm.findViewById(t.g.view_navigation_bar);
+    private void BN() {
+        this.ebG.setContentView(t.h.about_activity);
+        this.ebH = (RelativeLayout) this.ebG.findViewById(t.g.parent);
+        this.ebM = (ImageView) this.ebG.findViewById(t.g.image_logo);
+        this.ebJ = (TextView) this.ebG.findViewById(t.g.text_debug);
+        this.mNavigationBar = (NavigationBar) this.ebG.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.dJm.getPageContext().getString(t.j.version_info));
-        this.dJo = (TextView) this.dJm.findViewById(t.g.text_versioninfo);
-        this.dJq = (SettingTextTestNewView) this.dJm.findViewById(t.g.about_version_update);
-        this.dJr = (SettingTextTestNewView) this.dJm.findViewById(t.g.about_debuger);
-        this.dJt = (TbSettingTextTipView) this.dJm.findViewById(t.g.about_guide);
-        this.dJt.hideArrow();
-        this.dJv = (ProgressBar) this.dJm.findViewById(t.g.about_progress);
+        this.mNavigationBar.setTitleText(this.ebG.getPageContext().getString(t.j.version_info));
+        this.ebI = (TextView) this.ebG.findViewById(t.g.text_versioninfo);
+        this.ebK = (SettingTextTestNewView) this.ebG.findViewById(t.g.about_version_update);
+        this.ebL = (SettingTextTestNewView) this.ebG.findViewById(t.g.about_debuger);
+        this.ebN = (TbSettingTextTipView) this.ebG.findViewById(t.g.about_guide);
+        this.ebN.hideArrow();
+        this.ebP = (ProgressBar) this.ebG.findViewById(t.g.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !com.baidu.tbadk.core.util.aw.isEmpty(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !com.baidu.tbadk.core.util.ay.isEmpty(TbConfig.getSubVersion())) {
             version = String.valueOf(version) + "." + TbConfig.getSubVersion();
         }
-        this.dJo.setText(String.valueOf(this.dJm.getPageContext().getString(TbadkCoreApplication.m411getInst().getApplicationInfo().labelRes)) + this.dJm.getPageContext().getString(t.j.setting_version_text) + " " + version);
-        this.dJu = (TextView) this.dJm.findViewById(t.g.text_version_protoco);
-        ej(TbadkCoreApplication.m411getInst().getSkinType());
+        this.ebI.setText(String.valueOf(this.ebG.getPageContext().getString(TbadkCoreApplication.m411getInst().getApplicationInfo().labelRes)) + this.ebG.getPageContext().getString(t.j.setting_version_text) + " " + version);
+        this.ebO = (TextView) this.ebG.findViewById(t.g.text_version_protoco);
+        em(TbadkCoreApplication.m411getInst().getSkinType());
         if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            this.dJt.setVisibility(4);
-            this.dJm.findViewById(t.g.line_about_guide).setVisibility(8);
+            this.ebN.setVisibility(4);
+            this.ebG.findViewById(t.g.line_about_guide).setVisibility(8);
         }
-        if (com.baidu.tbadk.core.sharedPref.b.uO().getBoolean("debug_plugin_switcher", false)) {
-            nJ(0);
+        if (com.baidu.tbadk.core.sharedPref.b.vk().getBoolean("debug_plugin_switcher", false)) {
+            oO(0);
         }
     }
 
     private void a(s sVar) {
         d dVar = new d(this, sVar);
-        this.dJq.setOnClickListener(dVar);
-        this.dJt.setOnClickListener(dVar);
-        this.dJo.setOnClickListener(dVar);
-        this.dJs.setOnClickListener(dVar);
-        this.dJr.setOnClickListener(dVar);
+        this.ebK.setOnClickListener(dVar);
+        this.ebN.setOnClickListener(dVar);
+        this.ebI.setOnClickListener(dVar);
+        this.ebM.setOnClickListener(dVar);
+        this.ebL.setOnClickListener(dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nJ(int i) {
-        this.dJp.setVisibility(i);
-        this.dJr.setVisibility(i);
-        this.dJm.findViewById(t.g.line0).setVisibility(i);
+    public void oO(int i) {
+        this.ebJ.setVisibility(i);
+        this.ebL.setVisibility(i);
+        this.ebG.findViewById(t.g.line0).setVisibility(i);
     }
 
-    public void aGI() {
-        if (this.dJq != null) {
-            this.dJq.refresh();
+    public void aNs() {
+        if (this.ebK != null) {
+            this.ebK.refresh();
         }
     }
 
-    public void ej(int i) {
-        com.baidu.tbadk.core.util.ar.l(this.dJn, t.d.cp_bg_line_d);
+    public void em(int i) {
+        com.baidu.tbadk.core.util.at.l(this.ebH, t.d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dJm.getLayoutMode().ac(i == 1);
-        this.dJm.getLayoutMode().x(this.dJn);
-        aGI();
+        this.ebG.getLayoutMode().ab(i == 1);
+        this.ebG.getLayoutMode().x(this.ebH);
+        aNs();
     }
 }

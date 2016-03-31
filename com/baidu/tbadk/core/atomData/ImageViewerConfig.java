@@ -64,7 +64,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);
             intent.putExtra(FORUM_NAME, str);
-            intent.putExtra(FORUM_ID, str2);
+            intent.putExtra("fid", str2);
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);
@@ -93,7 +93,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);
             intent.putExtra(FORUM_NAME, str);
-            intent.putExtra(FORUM_ID, str2);
+            intent.putExtra("fid", str2);
             intent.putExtra("tid", str3);
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);

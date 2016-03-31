@@ -5,22 +5,22 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float aUu;
-    private float aUv;
-    private InterfaceC0059a aUx;
-    private Handler.Callback aUw = new b(this);
-    private Handler mHandler = new Handler(this.aUw);
+    private float aZd;
+    private float aZe;
+    private InterfaceC0059a aZg;
+    private Handler.Callback aZf = new b(this);
+    private Handler mHandler = new Handler(this.aZf);
 
     /* renamed from: com.baidu.tieba.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0059a {
-        void P(int i, int i2);
+        void N(int i, int i2);
 
-        void Q(int i, int i2);
+        void O(int i, int i2);
     }
 
     public void a(InterfaceC0059a interfaceC0059a) {
-        this.aUx = interfaceC0059a;
+        this.aZg = interfaceC0059a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
@@ -28,24 +28,24 @@ public class a {
             case 2:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                int i = (int) (x - this.aUu);
-                int i2 = (int) (y - this.aUv);
-                if (this.aUx != null) {
+                int i = (int) (x - this.aZd);
+                int i2 = (int) (y - this.aZe);
+                if (this.aZg != null) {
                     if (i2 > 0) {
-                        N(i, i2);
+                        L(i, i2);
                     } else {
-                        O(i, i2);
+                        M(i, i2);
                     }
                 }
-                this.aUu = x;
-                this.aUv = y;
+                this.aZd = x;
+                this.aZe = y;
                 return true;
             default:
                 return true;
         }
     }
 
-    public void N(int i, int i2) {
+    public void L(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    public void O(int i, int i2) {
+    public void M(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();

@@ -10,7 +10,7 @@ public class q implements com.baidu.adp.framework.client.socket.link.f {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.f
-    public boolean eR() {
+    public boolean eS() {
         return !this.this$0.isExitAppCloseWebSocket();
     }
 }

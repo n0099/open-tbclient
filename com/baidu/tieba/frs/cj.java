@@ -1,23 +1,22 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class cj extends x.a {
-    public int ahU;
-    public TextView ahm;
-    public TextView ahn;
-    public TextView beY;
-    public TextView biV;
+class cj implements View.OnClickListener {
+    private final /* synthetic */ MetaData bnB;
+    private final /* synthetic */ View.OnClickListener bnC;
 
-    public cj(View view) {
-        super(view);
-        this.ahU = 3;
-        this.ahm = (TextView) getView().findViewById(t.g.frs_god_lv_reply_time);
-        this.ahn = (TextView) getView().findViewById(t.g.frs_god_praise_num);
-        this.beY = (TextView) getView().findViewById(t.g.frs_god_reply_num);
-        this.biV = (TextView) getView().findViewById(t.g.frs_god_item_location_address);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cj(MetaData metaData, View.OnClickListener onClickListener) {
+        this.bnB = metaData;
+        this.bnC = onClickListener;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10632").ac("obj_id", this.bnB.getUserId()));
+        this.bnC.onClick(view);
     }
 }

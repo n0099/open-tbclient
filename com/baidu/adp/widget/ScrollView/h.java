@@ -4,41 +4,41 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements g {
-    final /* synthetic */ BdPullRefreshScrollView JV;
+    final /* synthetic */ BdPullRefreshScrollView Kb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.JV = bdPullRefreshScrollView;
+        this.Kb = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void nz() {
+    public void nq() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         a aVar;
         a aVar2;
         BdPullRefreshScrollView.a aVar3;
         BdPullRefreshScrollView.a aVar4;
-        state = this.JV.Jz;
+        state = this.Kb.JF;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.JV.Jz;
+            state2 = this.Kb.JF;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.JV;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.Kb;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                aVar = this.JV.JK;
+                aVar = this.Kb.JQ;
                 bdPullRefreshScrollView.a(state3, aVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.JV;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.Kb;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        aVar2 = this.JV.JK;
+        aVar2 = this.Kb.JQ;
         bdPullRefreshScrollView2.a(state4, aVar2);
-        aVar3 = this.JV.JP;
+        aVar3 = this.Kb.JV;
         if (aVar3 != null) {
-            aVar4 = this.JV.JP;
-            aVar4.nU();
+            aVar4 = this.Kb.JV;
+            aVar4.nN();
         }
     }
 }

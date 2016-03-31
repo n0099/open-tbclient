@@ -5,15 +5,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 class a {
-    private static Method mw;
     private static Method mx;
+    private static Method my;
 
     static {
         try {
             Class<?> cls = Class.forName("libcore.icu.ICU");
             if (cls != null) {
-                mw = cls.getMethod("getScript", String.class);
-                mx = cls.getMethod("addLikelySubtags", String.class);
+                mx = cls.getMethod("getScript", String.class);
+                my = cls.getMethod("addLikelySubtags", String.class);
             }
         } catch (Exception e) {
             Log.w("ICUCompatIcs", e);
@@ -22,8 +22,8 @@ class a {
 
     public static String getScript(String str) {
         try {
-            if (mw != null) {
-                return (String) mw.invoke(null, str);
+            if (mx != null) {
+                return (String) mx.invoke(null, str);
             }
         } catch (IllegalAccessException e) {
             Log.w("ICUCompatIcs", e);
@@ -35,8 +35,8 @@ class a {
 
     public static String addLikelySubtags(String str) {
         try {
-            if (mx != null) {
-                return (String) mx.invoke(null, str);
+            if (my != null) {
+                return (String) my.invoke(null, str);
             }
         } catch (IllegalAccessException e) {
             Log.w("ICUCompatIcs", e);

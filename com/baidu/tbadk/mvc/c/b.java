@@ -5,60 +5,60 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int ayr;
-    private boolean ays = true;
-    private com.baidu.tbadk.mvc.b.a ayt;
-    private com.baidu.tbadk.mvc.d.b ayu;
-    private com.baidu.tbadk.mvc.a.a ayv;
-    private int ayw;
-    private Object ayx;
-    private WeakReference<View> ayy;
+    private int ayY;
+    private boolean ayZ = true;
+    private com.baidu.tbadk.mvc.b.a aza;
+    private com.baidu.tbadk.mvc.d.b azb;
+    private com.baidu.tbadk.mvc.a.a azc;
+    private int azd;
+    private Object aze;
+    private WeakReference<View> azf;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.ayr = i;
-        this.ayt = aVar;
-        this.ayu = bVar;
-        this.ayv = aVar2;
+        this.ayY = i;
+        this.aza = aVar;
+        this.azb = bVar;
+        this.azc = aVar2;
     }
 
-    public int EE() {
-        return this.ayr;
+    public int Fr() {
+        return this.ayY;
     }
 
-    public com.baidu.tbadk.mvc.b.a EF() {
-        return this.ayt;
+    public com.baidu.tbadk.mvc.b.a Fs() {
+        return this.aza;
     }
 
     public Object getExtra() {
-        return this.ayx;
+        return this.aze;
     }
 
     public void setExtra(Object obj) {
-        this.ayx = obj;
+        this.aze = obj;
     }
 
     public View getView() {
-        if (this.ayy != null) {
-            return this.ayy.get();
+        if (this.azf != null) {
+            return this.azf.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.ayy = new WeakReference<>(view);
+        this.azf = new WeakReference<>(view);
     }
 
-    public int EG() {
-        return this.ayw;
+    public int Ft() {
+        return this.azd;
     }
 
-    public void eQ(int i) {
-        this.ayw = i;
+    public void eW(int i) {
+        this.azd = i;
     }
 
-    public boolean EH() {
-        return this.ays;
+    public boolean Fu() {
+        return this.ayZ;
     }
 
     public BdUniqueId getUniqueId() {

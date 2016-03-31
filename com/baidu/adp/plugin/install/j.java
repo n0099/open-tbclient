@@ -42,23 +42,23 @@ public class j extends BroadcastReceiver {
         boolean z = false;
         try {
             if (intent == null) {
-                cVar17 = this.this$0.Dr;
+                cVar17 = this.this$0.Dw;
                 if (cVar17 != null) {
-                    cVar20 = this.this$0.Dr;
+                    cVar20 = this.this$0.Dw;
                     if (TextUtils.equals(null, cVar20.pkgName)) {
-                        this.this$0.la();
-                        this.this$0.Dr = null;
+                        this.this$0.kP();
+                        this.this$0.Dw = null;
                         this.this$0.a((c) null);
                         return;
                     }
                 }
-                cVar18 = this.this$0.Dt;
+                cVar18 = this.this$0.Dy;
                 if (cVar18 != null) {
-                    cVar19 = this.this$0.Dt;
+                    cVar19 = this.this$0.Dy;
                     if (TextUtils.equals(null, cVar19.pkgName)) {
-                        this.this$0.lb();
+                        this.this$0.kQ();
                         this.this$0.a((c) null);
-                        com.baidu.adp.plugin.b.a.lq().bo("plugin_retry_install_succ");
+                        com.baidu.adp.plugin.b.a.lf().bm("plugin_retry_install_succ");
                         return;
                     }
                 }
@@ -69,23 +69,23 @@ public class j extends BroadcastReceiver {
                 str = intent.getStringExtra("package_name");
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        cVar13 = this.this$0.Dr;
+                        cVar13 = this.this$0.Dw;
                         if (cVar13 != null) {
-                            cVar16 = this.this$0.Dr;
+                            cVar16 = this.this$0.Dw;
                             if (TextUtils.equals(str, cVar16.pkgName)) {
-                                this.this$0.la();
-                                this.this$0.Dr = null;
+                                this.this$0.kP();
+                                this.this$0.Dw = null;
                                 this.this$0.a((c) null);
                                 return;
                             }
                         }
-                        cVar14 = this.this$0.Dt;
+                        cVar14 = this.this$0.Dy;
                         if (cVar14 != null) {
-                            cVar15 = this.this$0.Dt;
+                            cVar15 = this.this$0.Dy;
                             if (TextUtils.equals(str, cVar15.pkgName)) {
-                                this.this$0.lb();
+                                this.this$0.kQ();
                                 this.this$0.a((c) null);
-                                com.baidu.adp.plugin.b.a.lq().bo("plugin_retry_install_succ");
+                                com.baidu.adp.plugin.b.a.lf().bm("plugin_retry_install_succ");
                                 return;
                             }
                         }
@@ -98,34 +98,34 @@ public class j extends BroadcastReceiver {
                     }
                     String action = intent.getAction();
                     if ("com.baidu.adp.plugin.installed".equals(action)) {
-                        this.this$0.f(str, z);
-                        com.baidu.adp.plugin.packageManager.a.b.mi().bM(str);
+                        this.this$0.e(str, z);
+                        com.baidu.adp.plugin.packageManager.a.b.ma().bK(str);
                     } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                         if (z) {
-                            this.this$0.Do = false;
+                            this.this$0.Dt = false;
                         }
-                        this.this$0.f(str, z);
-                        com.baidu.adp.plugin.packageManager.a.b.mi().j(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                        this.this$0.e(str, z);
+                        com.baidu.adp.plugin.packageManager.a.b.ma().j(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
                     } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
-                        this.this$0.f(str, z);
+                        this.this$0.e(str, z);
                     }
-                    cVar9 = this.this$0.Dr;
+                    cVar9 = this.this$0.Dw;
                     if (cVar9 != null) {
-                        cVar12 = this.this$0.Dr;
+                        cVar12 = this.this$0.Dw;
                         if (TextUtils.equals(str, cVar12.pkgName)) {
-                            this.this$0.la();
-                            this.this$0.Dr = null;
+                            this.this$0.kP();
+                            this.this$0.Dw = null;
                             this.this$0.a((c) null);
                             return;
                         }
                     }
-                    cVar10 = this.this$0.Dt;
+                    cVar10 = this.this$0.Dy;
                     if (cVar10 != null) {
-                        cVar11 = this.this$0.Dt;
+                        cVar11 = this.this$0.Dy;
                         if (TextUtils.equals(str, cVar11.pkgName)) {
-                            this.this$0.lb();
+                            this.this$0.kQ();
                             this.this$0.a((c) null);
-                            com.baidu.adp.plugin.b.a.lq().bo("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.lf().bm("plugin_retry_install_succ");
                             return;
                         }
                     }
@@ -133,23 +133,23 @@ public class j extends BroadcastReceiver {
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    cVar5 = this.this$0.Dr;
+                    cVar5 = this.this$0.Dw;
                     if (cVar5 != null) {
-                        cVar8 = this.this$0.Dr;
+                        cVar8 = this.this$0.Dw;
                         if (TextUtils.equals(str, cVar8.pkgName)) {
-                            this.this$0.la();
-                            this.this$0.Dr = null;
+                            this.this$0.kP();
+                            this.this$0.Dw = null;
                             this.this$0.a((c) null);
                             return;
                         }
                     }
-                    cVar6 = this.this$0.Dt;
+                    cVar6 = this.this$0.Dy;
                     if (cVar6 != null) {
-                        cVar7 = this.this$0.Dt;
+                        cVar7 = this.this$0.Dy;
                         if (TextUtils.equals(str, cVar7.pkgName)) {
-                            this.this$0.lb();
+                            this.this$0.kQ();
                             this.this$0.a((c) null);
-                            com.baidu.adp.plugin.b.a.lq().bo("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.lf().bm("plugin_retry_install_succ");
                             return;
                         }
                     }
@@ -160,23 +160,23 @@ public class j extends BroadcastReceiver {
                 str = null;
             } catch (Throwable th) {
                 th = th;
-                cVar = this.this$0.Dr;
+                cVar = this.this$0.Dw;
                 if (cVar != null) {
-                    cVar4 = this.this$0.Dr;
+                    cVar4 = this.this$0.Dw;
                     if (TextUtils.equals(null, cVar4.pkgName)) {
-                        this.this$0.la();
-                        this.this$0.Dr = null;
+                        this.this$0.kP();
+                        this.this$0.Dw = null;
                         this.this$0.a((c) null);
                         throw th;
                     }
                 }
-                cVar2 = this.this$0.Dt;
+                cVar2 = this.this$0.Dy;
                 if (cVar2 != null) {
-                    cVar3 = this.this$0.Dt;
+                    cVar3 = this.this$0.Dy;
                     if (TextUtils.equals(null, cVar3.pkgName)) {
-                        this.this$0.lb();
+                        this.this$0.kQ();
                         this.this$0.a((c) null);
-                        com.baidu.adp.plugin.b.a.lq().bo("plugin_retry_install_succ");
+                        com.baidu.adp.plugin.b.a.lf().bm("plugin_retry_install_succ");
                         throw th;
                     }
                 }

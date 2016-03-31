@@ -1,42 +1,46 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.view.t;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-public class s extends t {
-    public s(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+public class s {
+    /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean ki(int i) {
+        switch (i) {
+            case 0:
+                return com.baidu.tbadk.coreExtra.messageCenter.c.zM().zU() || com.baidu.tbadk.coreExtra.messageCenter.c.zM().Ab();
+            case 1:
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().zT()) {
+                    return false;
+                }
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().zR()) {
+                    return false;
+                }
+                return true;
+            case 2:
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().zR()) {
+                }
+                return true;
+            default:
+                return true;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.view.r, com.baidu.adp.widget.ListView.d
-    public View ni() {
-        View ni = super.ni();
-        this.ahb.setVisibility(4);
-        return ni;
-    }
-
-    @Override // com.baidu.tbadk.core.view.t
-    public void dg(int i) {
-        super.dg(i);
-        ar.l(this.aha, t.d.cp_bg_line_d);
-    }
-
-    @Override // com.baidu.tbadk.core.view.t, com.baidu.tbadk.core.view.r, com.baidu.adp.widget.ListView.d
-    public void O(boolean z) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.r, com.baidu.adp.widget.ListView.d
-    public void nj() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.t, com.baidu.tbadk.core.view.r, com.baidu.adp.widget.ListView.d
-    public void nk() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.t, com.baidu.tbadk.core.view.r, com.baidu.adp.widget.ListView.d
-    public void P(boolean z) {
+    public static int a(NewsNotifyMessage newsNotifyMessage) {
+        int i;
+        int i2;
+        if (newsNotifyMessage == null) {
+            return 0;
+        }
+        if (ki(0)) {
+            i2 = newsNotifyMessage.getMsgChat();
+            i = newsNotifyMessage.getMsgStrangerChat();
+        } else {
+            i = 0;
+            i2 = 0;
+        }
+        return ((ki(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (ki(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

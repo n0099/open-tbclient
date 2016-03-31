@@ -1,238 +1,137 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class dn {
-    private com.baidu.tieba.tbadkCore.data.r cPP;
-    private a cPU;
-    private int loadType;
-    private com.baidu.tieba.pb.a.c pbData;
-    private String threadTitle;
-    private int cPN = 0;
-    private int cPQ = 0;
-    private boolean isSquence = true;
-    private boolean cPR = false;
-    private boolean cPS = false;
-    private boolean cPT = false;
-    private CustomMessageListener cPV = new Cdo(this, CmdConfigCustom.CMD_TTS_READ_FINISHED);
-    private CustomMessageListener cPW = new dp(this, CmdConfigCustom.CMD_TTS_AUDIO_VIEW_OPTION);
+public class dn extends com.baidu.tbadk.core.dialog.c {
+    private TbPageContext<?> MX;
+    private View.OnClickListener bis;
+    private TextView djA;
+    private TextView djB;
+    private TextView djC;
+    private TextView djD;
+    private TextView djE;
+    private boolean djF;
+    private TextView djz;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void aM(int i, int i2);
-
-        void aqG();
-
-        void aqH();
+    public dn(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity());
+        this.MX = tbPageContext;
+        this.bis = onClickListener;
+        axG();
     }
 
-    public void s(int i, boolean z) {
-        if (this.pbData != null) {
-            if (z) {
-                com.baidu.tbadk.core.data.ad adVar = new com.baidu.tbadk.core.data.ad();
-                adVar.bS(4);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, adVar));
-                this.cPQ = 5;
-            }
-            this.cPN = i;
-            aqA();
-        }
+    public TextView axB() {
+        return this.djz;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Object e(int i, ArrayList<com.baidu.tieba.tbadkCore.data.r> arrayList) {
-        if (arrayList == null || arrayList.size() <= 0) {
+    public TextView axC() {
+        return this.djA;
+    }
+
+    public TextView axD() {
+        return this.djC;
+    }
+
+    public TextView axE() {
+        return this.djD;
+    }
+
+    public TextView axF() {
+        return this.djE;
+    }
+
+    private void axG() {
+        a(new CharSequence[]{this.MX.getString(t.j.no_interesting), this.MX.getString(t.j.mark), this.MX.getString(t.j.mute), this.MX.getString(t.j.read_post_floor), this.MX.getString(t.j.pb_user_report_text), this.MX.getString(t.j.delete)}, new Cdo(this));
+        d(this.MX);
+        this.djE = al(ch(0));
+        this.djz = al(ch(1));
+        this.djA = al(ch(2));
+        this.djB = al(ch(3));
+        this.djC = al(ch(4));
+        this.djD = al(ch(5));
+    }
+
+    public void Hl() {
+        us();
+    }
+
+    private TextView al(View view) {
+        return (TextView) view.findViewById(t.g.dialog_item_btn);
+    }
+
+    private View aL(View view) {
+        if (view == null) {
             return null;
         }
-        if (i < 0) {
-            i = 0;
-        }
-        if (i >= arrayList.size()) {
-            this.cPN = arrayList.size() - 1;
-            return null;
-        }
-        if (this.cPT) {
-            this.cPN = f(i, arrayList);
-        } else {
-            this.cPN = i;
-        }
-        com.baidu.tbadk.core.data.ae aeVar = new com.baidu.tbadk.core.data.ae();
-        if (arrayList.get(this.cPN) instanceof com.baidu.tieba.tbadkCore.data.r) {
-            com.baidu.tieba.tbadkCore.data.r rVar = arrayList.get(this.cPN);
-            if (rVar.aMw() == 1) {
-                aeVar.threadTitle = this.threadTitle;
-                if (!this.cPS) {
-                    aeVar.Wx = true;
-                } else {
-                    aeVar.Wx = false;
+        return view.findViewById(t.g.line);
+    }
+
+    public void gf(boolean z) {
+        this.djC.setVisibility(z ? 0 : 8);
+    }
+
+    public void gg(boolean z) {
+        this.djF = z;
+    }
+
+    public void xg() {
+        View view;
+        TextView al;
+        int itemCount = getItemCount();
+        ArrayList arrayList = new ArrayList();
+        boolean z = true;
+        for (int i = itemCount - 1; i >= 0; i--) {
+            View ch = ch(i);
+            if (ch != null) {
+                TextView al2 = al(ch(i));
+                View aL = aL(ch(i));
+                if (al2 != null) {
+                    if (al2.getVisibility() == 8) {
+                        aL.setVisibility(8);
+                    } else {
+                        arrayList.add(ch);
+                        if (z) {
+                            aL.setVisibility(8);
+                            com.baidu.tbadk.core.util.at.k(ch, t.f.dialog_single_button_bg_selector);
+                            z = false;
+                        } else {
+                            aL.setVisibility(0);
+                        }
+                    }
                 }
+            }
+        }
+        int i2 = 0;
+        while (true) {
+            if (i2 >= itemCount) {
+                break;
+            }
+            View ch2 = ch(i2);
+            if (ch2 == null || (al = al(ch(i2))) == null || al.getVisibility() != 0) {
+                i2++;
             } else {
-                if (rVar.aMw() != 0) {
-                    aeVar.Wy = String.format(TbadkCoreApplication.m411getInst().getContext().getString(t.j.is_floor), Integer.valueOf(rVar.aMw()));
-                }
-                aeVar.threadTitle = this.threadTitle;
-                aeVar.Wx = false;
+                com.baidu.tbadk.core.util.at.k(ch2, t.f.dialog_single_button_first_bg_selector);
+                break;
             }
-            aeVar.WA = rVar.aiT();
-            return aeVar;
         }
-        return null;
-    }
-
-    private int f(int i, ArrayList<com.baidu.tieba.tbadkCore.data.r> arrayList) {
-        if (i >= 0 && arrayList != null && arrayList.size() > 0 && i < arrayList.size()) {
-            for (int i2 = i; i2 >= 0; i2--) {
-                com.baidu.tieba.tbadkCore.data.r rVar = arrayList.get(i2);
-                if (rVar != null && rVar.aMw() > 0) {
-                    return i2;
-                }
-            }
-            return i;
-        }
-        return i;
-    }
-
-    private void aqA() {
-        com.baidu.tbadk.core.data.ad adVar = new com.baidu.tbadk.core.data.ad();
-        Object obj = null;
-        switch (this.cPQ) {
-            case 0:
-            case 5:
-                adVar.bS(1);
-                obj = e(this.cPN, this.pbData.aoG());
-                this.cPQ = 1;
-                break;
-            case 1:
-                adVar.bS(2);
-                this.cPQ = 2;
-                break;
-            case 2:
-                adVar.bS(3);
-                this.cPQ = 3;
-                break;
-            case 3:
-                adVar.bS(2);
-                this.cPQ = 2;
-                break;
-            case 4:
-            default:
-                adVar.bS(1);
-                this.cPQ = 1;
-                break;
-        }
-        adVar.setData(obj);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, adVar));
-    }
-
-    private void a(com.baidu.tieba.pb.a.c cVar, boolean z, int i, boolean z2) {
-        if (!z) {
-            com.baidu.tbadk.core.data.ad adVar = new com.baidu.tbadk.core.data.ad();
-            adVar.bS(15);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, adVar));
-            this.cPN = 0;
-            this.cPQ = 5;
-        } else if (i != 1 && i != 3 && i != 4) {
-            if (i == 6) {
-                this.cPN = 0;
-                return;
-            }
-            com.baidu.tbadk.core.data.ad adVar2 = new com.baidu.tbadk.core.data.ad();
-            adVar2.bS(4);
-            this.cPN = 0;
-            this.cPQ = 5;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, adVar2));
+        if (com.baidu.tbadk.core.util.y.p(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
+            com.baidu.tbadk.core.util.at.k(view, t.f.dialog_single_button_only_one_bg_selector);
         }
     }
 
-    public dn() {
-        MessageManager.getInstance().registerListener(this.cPV);
-        MessageManager.getInstance().registerListener(this.cPW);
+    public TextView axH() {
+        return this.djB;
     }
 
-    public void b(com.baidu.tieba.pb.a.c cVar, boolean z, int i, boolean z2) {
-        a(cVar, z, i, z2, true);
+    public void axI() {
+        this.djB.setVisibility(8);
     }
 
-    public void a(com.baidu.tieba.pb.a.c cVar, boolean z, int i, boolean z2, boolean z3) {
-        this.pbData = cVar;
-        this.isSquence = z;
-        this.cPR = z2;
-        this.loadType = i;
-        if (cVar != null && cVar.aoF() != null) {
-            this.threadTitle = cVar.aoF().getTitle();
-            if (StringUtils.isNull(this.threadTitle)) {
-                this.threadTitle = cVar.aoF().tr();
-            }
-            this.cPS = cVar.aoF().tx() == 1;
-        }
-        if (z3) {
-            a(cVar, z, i, z2);
-        }
-    }
-
-    public void clearData() {
-        this.pbData = null;
-        this.cPN = 0;
-        this.cPQ = 0;
-        this.isSquence = true;
-    }
-
-    public void a(a aVar) {
-        this.cPU = aVar;
-    }
-
-    public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.cPV);
-        MessageManager.getInstance().unRegisterListener(this.cPW);
-    }
-
-    public int aqB() {
-        return this.cPQ;
-    }
-
-    public void kY(int i) {
-        this.cPQ = i;
-    }
-
-    public int aqC() {
-        return this.cPN;
-    }
-
-    public boolean anx() {
-        return this.isSquence;
-    }
-
-    public boolean aqD() {
-        return this.cPR;
-    }
-
-    public int aqE() {
-        if (this.pbData == null || this.pbData.aoG() == null) {
-            return -1;
-        }
-        if (this.cPN >= 0 && this.cPN < this.pbData.aoG().size()) {
-            this.cPP = this.pbData.aoG().get(this.cPN);
-        }
-        if (this.cPP != null) {
-            return this.cPP.aMw();
-        }
-        return -1;
-    }
-
-    public com.baidu.tieba.tbadkCore.data.r aqF() {
-        if (this.pbData == null || this.pbData.aoG() == null) {
-            return null;
-        }
-        if (this.cPN >= 0 && this.cPN < this.pbData.aoG().size()) {
-            this.cPP = this.pbData.aoG().get(this.cPN);
-        }
-        return this.cPP;
+    public void axJ() {
+        this.djB.setVisibility(0);
     }
 }

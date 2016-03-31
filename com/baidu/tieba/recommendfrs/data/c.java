@@ -1,21 +1,21 @@
 package com.baidu.tieba.recommendfrs.data;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.card.a.w;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.card.a.z;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.card.a.m implements w {
-    private CardForum dEJ;
+public class c extends com.baidu.tieba.card.a.n implements z {
+    private CardForum dWG;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x006a: IGET  (r5v1 java.lang.Long A[REMOVE]) = (r0v9 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.dEJ = cardForum;
-            this.aRF = cardForum.card_title;
-            setYuelaouLocate(String.valueOf(Kr()) + cardForum.position.intValue());
-            if (x.o(cardForum.forum_list) > 0) {
+            this.dWG = cardForum;
+            this.aVn = cardForum.card_title;
+            setYuelaouLocate(String.valueOf(LL()) + cardForum.position.intValue());
+            if (y.p(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.a.f fVar = new com.baidu.tieba.card.a.f();
@@ -30,36 +30,36 @@ public class c extends com.baidu.tieba.card.a.m implements w {
         }
     }
 
-    @Override // com.baidu.tieba.card.a.w
+    @Override // com.baidu.tieba.card.a.z
     public int getPosition() {
-        if (this.dEJ != null) {
-            return this.dEJ.position.intValue();
+        if (this.dWG != null) {
+            return this.dWG.position.intValue();
         }
         return 0;
     }
 
-    @Override // com.baidu.tieba.card.a.w
-    public boolean Kk() {
+    @Override // com.baidu.tieba.card.a.z
+    public boolean LE() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.a.w
-    public void bT(boolean z) {
-        this.aRJ = z;
+    @Override // com.baidu.tieba.card.a.z
+    public void cd(boolean z) {
+        this.aVr = z;
     }
 
-    public boolean rM() {
-        if (x.o(Fm()) > 0) {
+    public boolean rk() {
+        if (y.p(FZ()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean nx(int i) {
+    public static boolean oB(int i) {
         return i == 1;
     }
 
-    public static boolean ny(int i) {
+    public static boolean oC(int i) {
         return i == 2;
     }
 }

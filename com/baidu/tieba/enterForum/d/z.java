@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ y aZh;
+    final /* synthetic */ y bdR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(y yVar) {
-        this.aZh = yVar;
+        this.bdR = yVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,14 +17,14 @@ class z implements View.OnClickListener {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
         ViewEventCenter viewEventCenter3;
-        viewEventCenter = this.aZh.aWA;
-        if (viewEventCenter != null && this.aZh.getData() != null) {
-            if (this.aZh.getData().getType() == 0) {
-                viewEventCenter3 = this.aZh.aWA;
-                viewEventCenter3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.aZh.getData(), null, null));
-            } else if (this.aZh.getData().getType() == 1) {
-                TiebaStatic.eventStat(this.aZh.getActivity(), "find_more_text_click", null);
-                viewEventCenter2 = this.aZh.aWA;
+        viewEventCenter = this.bdR.bbj;
+        if (viewEventCenter != null && this.bdR.getData() != null) {
+            if (this.bdR.getData().getType() == 0) {
+                viewEventCenter3 = this.bdR.bbj;
+                viewEventCenter3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.bdR.getData(), null, null));
+            } else if (this.bdR.getData().getType() == 1) {
+                TiebaStatic.eventStat(this.bdR.getActivity(), "find_more_text_click", null);
+                viewEventCenter2 = this.bdR.bbj;
                 viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, null, null, null));
             }
         }

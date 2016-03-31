@@ -1,29 +1,29 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.graphics.drawable.Drawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.e;
+import com.baidu.tbadk.data.IconData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ s dXy;
-    private final /* synthetic */ com.baidu.adp.widget.e dXz;
+public class t implements e.a {
+    final /* synthetic */ s eqg;
+    private final /* synthetic */ IconData eqh;
+    private final /* synthetic */ BdUniqueId eqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar, com.baidu.adp.widget.e eVar) {
-        this.dXy = sVar;
-        this.dXz = eVar;
+    public t(s sVar, IconData iconData, BdUniqueId bdUniqueId) {
+        this.eqg = sVar;
+        this.eqh = iconData;
+        this.eqi = bdUniqueId;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        r rVar;
-        super.a((t) aVar, str, i);
-        if (aVar != null && aVar.mT()) {
-            rVar = this.dXy.dXv;
-            this.dXz.setDrawable(rVar.g(aVar));
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
+    @Override // com.baidu.adp.widget.e.a
+    public Drawable a(com.baidu.adp.widget.e eVar) {
+        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.hr().a(this.eqh.getIcon(), 21, new Object[0]);
+        if (aVar == null) {
+            com.baidu.adp.lib.g.c.hr().a(this.eqh.getIcon(), 21, new u(this, eVar), this.eqi);
         }
+        return this.eqg.g(aVar);
     }
 }

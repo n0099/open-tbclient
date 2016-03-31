@@ -9,13 +9,13 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a.d, HttpResponsedMessage> {
-    private HttpClient qr;
+    private HttpClient qv;
 
     public b(MessageManager messageManager) {
         super(messageManager);
-        this.qr = null;
-        this.qr = new HttpClient(messageManager);
-        this.qv = com.baidu.adp.framework.c.b.eZ();
+        this.qv = null;
+        this.qv = new HttpClient(messageManager);
+        this.qz = com.baidu.adp.framework.c.b.fa();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
     /* renamed from: a */
     public void sendMessage(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.qv).fa());
+            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.qz).fb());
         }
-        this.qr.sendMessage(httpMessage, httpMessageTask);
+        this.qv.sendMessage(httpMessage, httpMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,20 +35,20 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.qr.removeMessage(bdUniqueId);
+        this.qv.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.qr.removeMessage(i, bdUniqueId);
+        this.qv.removeMessage(i, bdUniqueId);
     }
 
     public LinkedList<HttpMessage> a(BdUniqueId bdUniqueId) {
-        return this.qr.a(bdUniqueId);
+        return this.qv.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.qr.findMessage(i, bdUniqueId);
+        return this.qv.findMessage(i, bdUniqueId);
     }
 }

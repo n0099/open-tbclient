@@ -1,23 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class f implements View.OnTouchListener {
-    final /* synthetic */ AtListActivity erI;
+class f implements NoNetworkView.a {
+    final /* synthetic */ AtListActivity eLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.erI = atListActivity;
+        this.eLC = atListActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            com.baidu.adp.lib.util.k.c(this.erI.getPageContext().getPageActivity(), this.erI.cfX);
-            return false;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aA(boolean z) {
+        if (!z) {
+            return;
         }
-        return false;
+        this.eLC.oY(null);
     }
 }

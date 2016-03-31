@@ -1,12 +1,21 @@
 package com.baidu.adp.plugin;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class PluginNative {
     public static boolean bLoadLibrary;
 
-    public static native boolean hookdvmResolveClass();
+    public static native int hookdvmResolveClass();
+
+    public static native boolean replaceInit(boolean z, int i);
+
+    public static native void replaceMethod(Method method, Method method2);
+
+    public static native void setFieldPublicFlag(Field field);
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.iL().i("pluginhook", 2);
+        bLoadLibrary = com.baidu.adp.lib.util.g.iR().i("pluginhook", 2);
     }
 }

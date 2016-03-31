@@ -7,12 +7,12 @@ public class c {
     private String mName;
     private a mSwitchListener;
     private int mMaxCrashTimes = 0;
-    private String[] tV = null;
+    private String[] ue = null;
     private int mOffType = 0;
 
     /* loaded from: classes.dex */
     public interface a {
-        void b(String str, int i, boolean z);
+        void a(String str, int i, boolean z);
     }
 
     public c(String str, int i, a aVar) {
@@ -29,7 +29,7 @@ public class c {
 
     public void a(int i, String[] strArr, int i2) {
         this.mMaxCrashTimes = i;
-        this.tV = strArr;
+        this.ue = strArr;
         this.mOffType = i2;
     }
 
@@ -42,7 +42,7 @@ public class c {
     }
 
     public String[] gB() {
-        return this.tV;
+        return this.ue;
     }
 
     public int getOffType() {
@@ -55,7 +55,7 @@ public class c {
 
     public void b(int i, boolean z) {
         if (this.mSwitchListener != null) {
-            this.mSwitchListener.b(this.mName, i, z);
+            this.mSwitchListener.a(this.mName, i, z);
         }
     }
 }

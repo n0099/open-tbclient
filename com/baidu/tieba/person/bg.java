@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class bg extends com.baidu.adp.base.e {
-    private static final String aLH = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask aLI = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aLH);
-    private boolean bDs;
+    private static final String aOC = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
+    private static TbHttpMessageTask aOD = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aOC);
+    private boolean bIP;
     private com.baidu.tieba.person.data.r mData;
     private String mId;
     private int mSex;
 
     static {
-        aLI.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(aLI);
+        aOD.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(aOD);
     }
 
     public bg(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
         this.mData = new com.baidu.tieba.person.data.r();
-        this.bDs = z;
+        this.bIP = z;
     }
 
     public void setId(String str) {
@@ -46,7 +46,7 @@ public class bg extends com.baidu.adp.base.e {
         return this.mData;
     }
 
-    public void atB() {
+    public void aBh() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

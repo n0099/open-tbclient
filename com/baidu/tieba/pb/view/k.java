@@ -6,13 +6,13 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 class k extends Handler {
-    final /* synthetic */ PbVideoProgressView cVS;
+    final /* synthetic */ PbVideoProgressView dqN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(PbVideoProgressView pbVideoProgressView, Looper looper) {
         super(looper);
-        this.cVS = pbVideoProgressView;
+        this.dqN = pbVideoProgressView;
     }
 
     @Override // android.os.Handler
@@ -20,24 +20,24 @@ class k extends Handler {
         boolean z;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int asU;
+        int aAE;
         int i;
         int i2;
         switch (message.what) {
             case 1:
-                z = this.cVS.cVL;
+                z = this.dqN.dqG;
                 if (z) {
-                    mediaPlayerControl = this.cVS.cVH;
+                    mediaPlayerControl = this.dqN.dqC;
                     if (mediaPlayerControl != null) {
-                        mediaPlayerControl2 = this.cVS.cVH;
+                        mediaPlayerControl2 = this.dqN.dqC;
                         if (!mediaPlayerControl2.isPlaying()) {
                             return;
                         }
-                        asU = this.cVS.asU();
+                        aAE = this.dqN.aAE();
                         Message obtainMessage = obtainMessage(1);
-                        i = this.cVS.cVG;
-                        i2 = this.cVS.cVG;
-                        sendMessageDelayed(obtainMessage, i - (asU % i2));
+                        i = this.dqN.dqB;
+                        i2 = this.dqN.dqB;
+                        sendMessageDelayed(obtainMessage, i - (aAE % i2));
                         return;
                     }
                     return;

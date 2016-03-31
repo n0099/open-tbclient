@@ -1,9 +1,9 @@
 package com.baidu.tieba.card.a;
 /* loaded from: classes.dex */
-public interface w extends com.baidu.adp.widget.ListView.u {
-    boolean Kk();
-
-    void bT(boolean z);
-
-    int getPosition();
+public class w {
+    public long Uu;
+    public String Uv;
+    public boolean aWs;
+    public String desc;
+    public int tag;
 }

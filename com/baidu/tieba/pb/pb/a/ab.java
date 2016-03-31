@@ -1,24 +1,17 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class ab implements TbImageView.a {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.m cKV;
+class ab implements a.b {
+    final /* synthetic */ r dej;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(q qVar, com.baidu.tbadk.widget.richText.m mVar) {
-        this.cKS = qVar;
-        this.cKV = mVar;
+    public ab(r rVar) {
+        this.dej = rVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
-        this.cKS.ky(this.cKV.getVideoUrl());
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

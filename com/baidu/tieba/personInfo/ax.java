@@ -2,17 +2,17 @@ package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements Runnable {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(f fVar) {
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         bf bfVar;
-        bfVar = this.diG.dbl;
-        bfVar.avF();
+        bfVar = this.this$0.dvN;
+        bfVar.aDk();
     }
 }

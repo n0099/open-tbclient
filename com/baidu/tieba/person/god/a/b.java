@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.a.q;
-import com.baidu.tieba.card.af;
-import com.baidu.tieba.card.bb;
+import com.baidu.tieba.card.a.t;
+import com.baidu.tieba.card.bl;
+import com.baidu.tieba.card.cj;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.person.a.c<q, a> {
-    private TbPageContext<?> Nw;
-    private BdUniqueId aPF;
-    private bb bJA;
-    private af bJz;
+public class b extends com.baidu.tieba.person.a.c<t, a> {
+    private TbPageContext<?> ND;
+    private BdUniqueId aSu;
+    private bl bTV;
+    private cj bTW;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bJA = new c(this);
-        this.Nw = tbPageContext;
+        this.bTW = new c(this);
+        this.ND = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aR */
     public a b(ViewGroup viewGroup) {
-        this.bJz = new af(this.Nw);
-        this.bJz.j(this.aPF);
-        this.bJz.a(this.bJA);
-        return new a(this.bJz);
+        this.bTV = new bl(this.ND);
+        this.bTV.j(this.aSu);
+        this.bTV.a(this.bTW);
+        return new a(this.bTV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, q qVar, a aVar) {
-        if (qVar != null) {
-            qVar.fB(i + 1);
+    public View a(int i, View view, ViewGroup viewGroup, t tVar, a aVar) {
+        if (tVar != null) {
+            tVar.fP(i + 1);
         }
-        aVar.bJC.a(qVar);
+        aVar.bTY.a(tVar);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public af bJC;
+        public bl bTY;
 
-        public a(af afVar) {
-            super(afVar.getView());
-            this.bJC = afVar;
+        public a(bl blVar) {
+            super(blVar.getView());
+            this.bTY = blVar;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aPF = bdUniqueId;
+        this.aSu = bdUniqueId;
     }
 }

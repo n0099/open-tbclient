@@ -46,6 +46,8 @@ public final class Plugin_setting extends Message {
     public final String package_name;
     @ProtoField(tag = 19, type = Message.Datatype.UINT32)
     public final Integer priority;
+    @ProtoField(tag = 24, type = Message.Datatype.STRING)
+    public final String replaceMethodClasses;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String requireLoad;
     @ProtoField(tag = 8, type = Message.Datatype.UINT32)
@@ -193,11 +195,11 @@ public final class Plugin_setting extends Message {
             }
             if (builder.is_Patch == null) {
                 this.is_Patch = DEFAULT_IS_PATCH;
-                return;
             } else {
                 this.is_Patch = builder.is_Patch;
-                return;
             }
+            this.replaceMethodClasses = builder.replaceMethodClasses;
+            return;
         }
         this.package_name = builder.package_name;
         this.display_name = builder.display_name;
@@ -222,6 +224,7 @@ public final class Plugin_setting extends Message {
         this.is_third = builder.is_third;
         this.load_priority = builder.load_priority;
         this.is_Patch = builder.is_Patch;
+        this.replaceMethodClasses = builder.replaceMethodClasses;
     }
 
     /* loaded from: classes.dex */
@@ -242,6 +245,7 @@ public final class Plugin_setting extends Message {
         public String md5;
         public String package_name;
         public Integer priority;
+        public String replaceMethodClasses;
         public String requireLoad;
         public Integer size;
         public String temp_md5;
@@ -279,6 +283,7 @@ public final class Plugin_setting extends Message {
                 this.is_third = plugin_setting.is_third;
                 this.load_priority = plugin_setting.load_priority;
                 this.is_Patch = plugin_setting.is_Patch;
+                this.replaceMethodClasses = plugin_setting.replaceMethodClasses;
             }
         }
 

@@ -1,11 +1,29 @@
 package com.baidu.tieba.frs;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface fe {
-    void Op();
+public class fe implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.core.data.as bnE;
+    final /* synthetic */ fa bqT;
 
-    void a(int i, int i2, fh fhVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public fe(fa faVar, com.baidu.tbadk.core.data.as asVar) {
+        this.bqT = faVar;
+        this.bnE = asVar;
+    }
 
-    void a(ff ffVar);
-
-    void init();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.bqT.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bnE.getAuthor().getUserId(), this.bnE.getAuthor().getName_show(), this.bqT.bkq.avu().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    }
 }

@@ -1,84 +1,74 @@
 package com.baidu.tbadk.util;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class q {
-    public static String am(String str, String str2) {
-        int indexOf = str.indexOf(str2);
-        if (indexOf != -1) {
-            int length = str2.length() + indexOf;
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            return URLDecoder.decode(str.substring(length, i));
+    private static final BdUniqueId aEb = BdUniqueId.gen();
+    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aEb);
+
+    public static <T> void a(p<T> pVar, g<T> gVar) {
+        if (pVar != null) {
+            a aVar = new a(pVar, gVar);
+            aVar.setParallel(sBdAsyncTaskParallel);
+            aVar.setTag(aEb);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
-        return "";
     }
 
-    public static Bundle gg(String str) {
-        URL url;
-        String query;
-        String[] split;
-        if (StringUtils.isNull(str)) {
-            return null;
+    public static <T> void b(p<T> pVar, g<T> gVar) {
+        if (pVar != null) {
+            a aVar = new a(pVar, gVar);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(aEb);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
-        Bundle bundle = new Bundle();
-        try {
-            url = new URL(str);
-            query = url.getQuery();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
-            return null;
-        }
-        bundle.putString("path", url.getPath());
-        for (String str2 : split) {
-            String[] split2 = str2.split("=");
-            if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
-                bundle.putString(split2[0], split2[1]);
-            }
-        }
-        return bundle;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class a {
-        public String BDUSS;
-        public String aDj;
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        private p<T> aEc;
+        private g<T> aEd;
 
-        public a(String str, String str2) {
-            this.BDUSS = "";
-            this.aDj = "";
-            this.BDUSS = str;
-            this.aDj = str2;
+        public a(p<T> pVar, g<T> gVar) {
+            this.aEc = null;
+            this.aEd = null;
+            this.aEc = pVar;
+            this.aEd = gVar;
         }
 
-        public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aDj != null ? this.aDj.hashCode() : 0);
-        }
-
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && getClass() == obj.getClass()) {
-                a aVar = (a) obj;
-                if (this.BDUSS == null) {
-                    if (aVar.BDUSS != null) {
-                        return false;
-                    }
-                } else if (!this.BDUSS.equals(aVar.BDUSS)) {
-                    return false;
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: g */
+        public T doInBackground(String... strArr) {
+            try {
+                if (this.aEc == null) {
+                    return null;
                 }
-                return this.aDj == null ? aVar.aDj == null : this.aDj.equals(aVar.aDj);
+                return this.aEc.doInBackground();
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                return null;
             }
-            return false;
         }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            if (this.aEd != null) {
+                this.aEd.onReturnDataInUI(t);
+            }
+        }
+    }
+
+    public static void Hz() {
+        BdAsyncTask.removeAllTask(aEb);
     }
 }

@@ -12,8 +12,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ContentProviderProxy extends ContentProvider {
@@ -88,15 +88,15 @@ public class ContentProviderProxy extends ContentProvider {
     }
 
     public static ContentProvider queryContentProvider(String str) {
-        ArrayList<a> allPlugins = PluginCenter.getInstance().getAllPlugins();
+        ArrayList<Plugin> allPlugins = PluginCenter.getInstance().getAllPlugins();
         if (str == null || allPlugins == null || allPlugins.size() == 0) {
             return null;
         }
         try {
-            for (a aVar : allPlugins) {
-                ContentProvider bb = aVar.bb(str);
-                if (bb != null) {
-                    return bb;
+            for (Plugin plugin2 : allPlugins) {
+                ContentProvider contentProvider = plugin2.getContentProvider(str);
+                if (contentProvider != null) {
+                    return contentProvider;
                 }
             }
         } catch (Exception e) {

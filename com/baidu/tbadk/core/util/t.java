@@ -9,23 +9,23 @@ public interface t {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    void d(String str, byte[] bArr);
+    void c(String str, byte[] bArr);
 
-    void gT();
+    void gX();
 
-    void gW();
+    void ha();
 
-    void n(ArrayList<BasicNameValuePair> arrayList);
+    void k(ArrayList<BasicNameValuePair> arrayList);
 
     void p(String str, String str2);
 
-    ArrayList<BasicNameValuePair> uY();
+    ArrayList<BasicNameValuePair> vv();
 
-    String uZ();
+    String vw();
 
-    byte[] va();
+    byte[] vx();
 
-    String vb();
+    String vy();
 
-    String vc();
+    String vz();
 }

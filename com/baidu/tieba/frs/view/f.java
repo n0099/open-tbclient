@@ -1,38 +1,27 @@
 package com.baidu.tieba.frs.view;
 
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MangaCoverActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements Animation.AnimationListener {
-    final /* synthetic */ b brj;
-    private final /* synthetic */ TbPageContextSupport brk;
-    private final /* synthetic */ float brl;
-    private final /* synthetic */ View yW;
+public class f implements View.OnClickListener {
+    final /* synthetic */ b bwr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b bVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
-        this.brj = bVar;
-        this.brk = tbPageContextSupport;
-        this.yW = view;
-        this.brl = f;
+    public f(b bVar) {
+        this.bwr = bVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
-        scaleAnimation.setFillAfter(true);
-        scaleAnimation.setDuration(300L);
-        com.baidu.tieba.tbadkCore.a.a(this.brk, this.yW, scaleAnimation, new g(this, this.brl, this.yW));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int rI;
+        if (this.bwr.bvU != null && this.bwr.bvU.aRZ() != null && (rI = this.bwr.bvU.aRZ().rI()) != 0 && rI == 1 && this.bwr.blH != null) {
+            MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.bwr.MX.getPageActivity(), com.baidu.adp.lib.h.b.c(this.bwr.blH.getForumId(), 0L));
+            mangaCoverActivityConfig.setFrom(4);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, mangaCoverActivityConfig));
+        }
     }
 }

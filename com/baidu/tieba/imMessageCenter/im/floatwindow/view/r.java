@@ -10,13 +10,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class r extends CustomMessageListener {
-    final /* synthetic */ FloatingPersonalChatActivity ckw;
+    final /* synthetic */ FloatingPersonalChatActivity cvc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
         super(i);
-        this.ckw = floatingPersonalChatActivity;
+        this.cvc = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,22 +44,22 @@ class r extends CustomMessageListener {
                                                 if (!cmd.equals("apply_pass_friend")) {
                                                     return;
                                                 }
-                                                floatingPersonalChatView = this.ckw.cku;
-                                                floatingPersonalChatView.d(optLong, 3);
+                                                floatingPersonalChatView = this.cvc.cva;
+                                                floatingPersonalChatView.c(optLong, 3);
                                                 return;
                                             }
-                                            floatingPersonalChatView2 = this.ckw.cku;
-                                            floatingPersonalChatView2.d(optLong, 2);
+                                            floatingPersonalChatView2 = this.cvc.cva;
+                                            floatingPersonalChatView2.c(optLong, 2);
                                             return;
                                         }
                                         return;
                                     }
-                                    floatingPersonalChatView3 = this.ckw.cku;
-                                    floatingPersonalChatView3.d(optLong, 3);
+                                    floatingPersonalChatView3 = this.cvc.cva;
+                                    floatingPersonalChatView3.c(optLong, 3);
                                     return;
                                 }
-                                floatingPersonalChatView4 = this.ckw.cku;
-                                floatingPersonalChatView4.d(optLong, 4);
+                                floatingPersonalChatView4 = this.cvc.cva;
+                                floatingPersonalChatView4.c(optLong, 4);
                             }
                         }
                     } catch (JSONException e) {

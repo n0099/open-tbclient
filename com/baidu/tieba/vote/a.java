@@ -17,7 +17,7 @@ public class a extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void c(long j, long j2, String str) {
+    public void b(long j, long j2, String str) {
         sendMessage(new AddVoteNetMessage(j, j2, str));
     }
 }

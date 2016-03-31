@@ -10,20 +10,20 @@ import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ServiceConnection {
-    private final /* synthetic */ Intent DB;
+    private final /* synthetic */ Intent DH;
     final /* synthetic */ d this$0;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(d dVar, Intent intent, Context context) {
         this.this$0 = dVar;
-        this.DB = intent;
+        this.DH = intent;
         this.val$context = context;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.lf();
+        this.this$0.kU();
     }
 
     @Override // android.content.ServiceConnection
@@ -31,14 +31,14 @@ public class k implements ServiceConnection {
         c cVar;
         c cVar2;
         this.this$0.messenger = new Messenger(iBinder);
-        String stringExtra = this.DB.getStringExtra("package_name");
-        cVar = this.this$0.Dr;
+        String stringExtra = this.DH.getStringExtra("package_name");
+        cVar = this.this$0.Dw;
         if (cVar == null) {
             return;
         }
-        cVar2 = this.this$0.Dr;
+        cVar2 = this.this$0.Dw;
         if (TextUtils.equals(stringExtra, cVar2.pkgName)) {
-            this.val$context.startService(this.DB);
+            this.val$context.startService(this.DH);
         }
     }
 }

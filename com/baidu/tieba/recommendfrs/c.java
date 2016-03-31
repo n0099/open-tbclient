@@ -6,9 +6,9 @@ import tbclient.Personalized.TagInfo;
 public interface c {
     void I(int i, int i2, int i3);
 
-    void aES();
+    void anz();
 
-    void bM(List<TagInfo> list);
+    void cf(List<TagInfo> list);
 
     void o(int i, int i2, int i3, int i4);
 }

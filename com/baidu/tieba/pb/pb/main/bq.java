@@ -1,95 +1,56 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements a.b {
-    final /* synthetic */ bo cNE;
-    private final /* synthetic */ PbLotteryHttpResponseMessage cNF;
-    private final /* synthetic */ String cfq;
+    private final /* synthetic */ MarkData dhC;
+    private final /* synthetic */ MarkData dhD;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a dhE;
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bo boVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage, String str) {
-        this.cNE = boVar;
-        this.cNF = pbLotteryHttpResponseMessage;
-        this.cfq = str;
+    public bq(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
+        this.dht = pbActivity;
+        this.dhC = markData;
+        this.dhD = markData2;
+        this.dhE = aVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x008e  */
-    /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.tbadk.core.dialog.a.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        PbActivity pbActivity;
-        cm cmVar;
-        PbActivity pbActivity2;
-        cm cmVar2;
-        PbActivity pbActivity3;
-        PbActivity pbActivity4;
-        cm cmVar3;
-        PbActivity pbActivity5;
-        cm cmVar4;
-        PbActivity pbActivity6;
-        cm cmVar5;
-        PbActivity pbActivity7;
-        cm cmVar6;
-        PbActivity pbActivity8;
-        cm cmVar7;
-        PbActivity pbActivity9;
-        cm cmVar8;
-        PbActivity pbActivity10;
-        PbActivity pbActivity11;
-        cm cmVar9;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        com.baidu.tbadk.baseEditMark.a aVar5;
+        com.baidu.tbadk.baseEditMark.a aVar6;
+        com.baidu.tbadk.baseEditMark.a aVar7;
+        com.baidu.tbadk.baseEditMark.a aVar8;
         aVar.dismiss();
-        pbActivity = this.cNE.cNq;
-        cmVar = pbActivity.cMF;
-        boolean z = cmVar != null;
-        pbActivity2 = this.cNE.cNq;
-        cmVar2 = pbActivity2.cMF;
-        if (z & (cmVar2.getPbData() != null)) {
-            pbActivity8 = this.cNE.cNq;
-            cmVar7 = pbActivity8.cMF;
-            if (cmVar7.getPbData().aoF() != null) {
-                pbActivity9 = this.cNE.cNq;
-                cmVar8 = pbActivity9.cMF;
-                if (!StringUtils.isNull(cmVar8.getPbData().aoF().getTitle())) {
-                    pbActivity10 = this.cNE.cNq;
-                    Activity activity = pbActivity10.getActivity();
-                    pbActivity11 = this.cNE.cNq;
-                    cmVar9 = pbActivity11.cMF;
-                    com.baidu.tbadk.browser.f.f(activity, cmVar9.getPbData().aoF().getTitle(), this.cNF.getLotteryInfo().getLink());
-                    pbActivity4 = this.cNE.cNq;
-                    cmVar3 = pbActivity4.cMF;
-                    if (cmVar3 == null) {
-                        pbActivity5 = this.cNE.cNq;
-                        cmVar4 = pbActivity5.cMF;
-                        if (cmVar4.getPbData() != null) {
-                            com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10506");
-                            pbActivity6 = this.cNE.cNq;
-                            cmVar5 = pbActivity6.cMF;
-                            com.baidu.tbadk.core.util.au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cmVar5.getPbData().getForumId());
-                            pbActivity7 = this.cNE.cNq;
-                            cmVar6 = pbActivity7.cMF;
-                            TiebaStatic.log(aa.aa("tid", cmVar6.getPbData().getThreadId()).aa("uid", this.cfq).aa("obj_locate", "1"));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
+        aVar2 = this.dht.cOZ;
+        if (aVar2 != null) {
+            aVar3 = this.dht.cOZ;
+            if (aVar3.pu()) {
+                aVar7 = this.dht.cOZ;
+                aVar7.pv();
+                aVar8 = this.dht.cOZ;
+                aVar8.X(false);
             }
+            aVar4 = this.dht.cOZ;
+            aVar4.a(this.dhC);
+            aVar5 = this.dht.cOZ;
+            aVar5.X(true);
+            aVar6 = this.dht.cOZ;
+            aVar6.pw();
         }
-        pbActivity3 = this.cNE.cNq;
-        com.baidu.tbadk.browser.f.B(pbActivity3.getActivity(), this.cNF.getLotteryInfo().getLink());
-        pbActivity4 = this.cNE.cNq;
-        cmVar3 = pbActivity4.cMF;
-        if (cmVar3 == null) {
-        }
+        this.dhD.setPostId(this.dhC.getPostId());
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.dhD);
+        this.dht.setResult(-1, intent);
+        this.dhE.dismiss();
+        this.dht.awr();
     }
 }

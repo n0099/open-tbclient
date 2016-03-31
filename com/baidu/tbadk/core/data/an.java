@@ -1,36 +1,52 @@
 package com.baidu.tbadk.core.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class an {
-    private int XK = 0;
-    private am XL = new am();
+    protected String img_url = null;
+    protected String link = null;
+    protected String UK = null;
 
-    public boolean uc() {
-        return this.XK != 0;
+    public String sW() {
+        return this.img_url;
     }
 
-    public am ud() {
-        return this.XL;
+    public void cs(String str) {
+        this.img_url = str;
     }
 
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.XK = yule.activity_show.intValue();
-            this.XL.a(yule.yule_activity);
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
             try {
-                this.XK = jSONObject.optInt("activity_show");
-                this.XL.parserJson(jSONObject.optJSONObject("yule_activity"));
+                cs(banner.pic_url);
+                setLink(banner.link);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public String sX() {
+        return this.UK;
+    }
+
+    public void ct(String str) {
+        this.UK = str;
     }
 }

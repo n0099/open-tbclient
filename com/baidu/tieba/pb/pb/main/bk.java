@@ -1,16 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements Runnable {
-    final /* synthetic */ PbActivity cNq;
+public class bk implements a.b {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.cNq.beD = System.currentTimeMillis();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

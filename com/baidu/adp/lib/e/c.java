@@ -8,11 +8,11 @@ import com.baidu.adp.base.BdBaseApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Handler.Callback {
-    final /* synthetic */ a uS;
+    final /* synthetic */ a vb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.uS = aVar;
+        this.vb = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -21,9 +21,9 @@ public class c implements Handler.Callback {
         int i2;
         switch (message.what) {
             case 0:
-                this.uS.gO();
+                this.vb.gO();
                 String str = "";
-                i = this.uS.errorCode;
+                i = this.vb.errorCode;
                 switch (i) {
                     case 1:
                         str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
@@ -38,8 +38,8 @@ public class c implements Handler.Callback {
                         str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
                         break;
                 }
-                a aVar = this.uS;
-                i2 = this.uS.errorCode;
+                a aVar = this.vb;
+                i2 = this.vb.errorCode;
                 aVar.a(i2, str, (Address) null);
                 return false;
             default:

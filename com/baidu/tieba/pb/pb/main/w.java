@@ -1,26 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.r;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class w implements r.a {
-    final /* synthetic */ PbActivity cNq;
+class w extends CustomMessageListener {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(PbActivity pbActivity, int i) {
+        super(i);
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r.a
-    public void az(boolean z) {
-        cm cmVar;
-        dz dzVar;
-        cmVar = this.cNq.cMF;
-        if (!cmVar.fs(true)) {
-            dzVar = this.cNq.cMK;
-            dzVar.arl();
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.dht.getUniqueId().getId()) {
+            this.dht.dgK = false;
         }
-        TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

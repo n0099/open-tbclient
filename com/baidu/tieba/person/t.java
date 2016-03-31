@@ -6,19 +6,19 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tieba.im.message.ResponseGetLivableForumList;
-import com.baidu.tieba.person.post.v;
+import com.baidu.tieba.person.s;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ s cXR;
+    final /* synthetic */ s dst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(s sVar, int i) {
         super(i);
-        this.cXR = sVar;
+        this.dst = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class t extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity atz;
+        PersonBarActivity aBf;
         boolean z;
         View view;
         View view2;
@@ -41,66 +41,66 @@ public class t extends com.baidu.adp.framework.listener.e {
         ad adVar2;
         ArrayList<ForumData> arrayList2;
         ad adVar3;
-        PersonBarActivity atz2;
+        PersonBarActivity aBf2;
         View view3;
         String str;
-        this.cXR.IY.nr();
+        this.dst.Je.nj();
         if (socketResponsedMessage == null) {
-            this.cXR.showToast(this.cXR.getPageContext().getString(t.j.neterror));
+            this.dst.showToast(this.dst.getPageContext().getString(t.j.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                atz = this.cXR.atz();
-                if (atz != null) {
-                    atz2 = this.cXR.atz();
-                    if (atz2.getRequestCode() != 23011) {
-                        view3 = this.cXR.cXI;
+                aBf = this.dst.aBf();
+                if (aBf != null) {
+                    aBf2 = this.dst.aBf();
+                    if (aBf2.getRequestCode() != 23011) {
+                        view3 = this.dst.dsk;
                         view3.setVisibility(8);
-                        adVar = this.cXR.cXB;
+                        adVar = this.dst.dsd;
                         if (adVar == null) {
-                            arrayList = this.cXR.rV;
+                            arrayList = this.dst.list;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.cXR.SR();
-                            adVar2 = this.cXR.cXB;
-                            arrayList2 = this.cXR.rV;
-                            adVar2.Y(arrayList2);
-                            this.cXR.hasMore = responseGetLivableForumList.hasMore();
-                            this.cXR.fR(true);
-                            adVar3 = this.cXR.cXB;
+                            this.dst.UI();
+                            adVar2 = this.dst.dsd;
+                            arrayList2 = this.dst.list;
+                            adVar2.Z(arrayList2);
+                            this.dst.hasMore = responseGetLivableForumList.hasMore();
+                            this.dst.gE(true);
+                            adVar3 = this.dst.dsd;
                             adVar3.notifyDataSetChanged();
-                            this.cXR.cXE++;
+                            this.dst.dsg++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.cXR.cXL;
+                z = this.dst.dsn;
                 if (!z) {
-                    this.cXR.cXL = true;
-                    BdListView bdListView = this.cXR.IY;
-                    view2 = this.cXR.cXI;
+                    this.dst.dsn = true;
+                    BdListView bdListView = this.dst.Je;
+                    view2 = this.dst.dsk;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.cXR.cXJ;
-                    textView.setText(this.cXR.getResources().getString(t.j.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.cXR.cXJ;
-                    com.baidu.tbadk.core.util.ar.b(textView2, t.d.cp_cont_c, 1);
-                    textView3 = this.cXR.cXJ;
-                    com.baidu.tbadk.core.util.ar.l(textView3, t.d.bg_page_setting);
+                    textView = this.dst.dsl;
+                    textView.setText(this.dst.getResources().getString(t.j.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.dst.dsl;
+                    com.baidu.tbadk.core.util.at.b(textView2, t.d.cp_cont_c, 1);
+                    textView3 = this.dst.dsl;
+                    com.baidu.tbadk.core.util.at.l(textView3, t.d.bg_page_setting);
                 }
-                view = this.cXR.cXI;
+                view = this.dst.dsk;
                 view.setVisibility(0);
-                adVar = this.cXR.cXB;
+                adVar = this.dst.dsd;
                 if (adVar == null) {
                 }
             } else {
-                this.cXR.showToast(responseGetLivableForumList.getErrorString());
-                v.a aVar = this.cXR.cXA;
-                str = this.cXR.cXH;
-                aVar.ld(str);
+                this.dst.showToast(responseGetLivableForumList.getErrorString());
+                s.a aVar = this.dst.dsc;
+                str = this.dst.dsj;
+                aVar.ml(str);
             }
         }
     }

@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ AtListActivity erI;
+    final /* synthetic */ AtListActivity eLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.erI = atListActivity;
+        this.eLC = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -25,28 +25,28 @@ public class b implements TextWatcher {
         Runnable runnable2;
         String a = com.baidu.adp.lib.util.j.a(editable, null);
         if (a != null) {
-            str = this.erI.erB;
+            str = this.eLC.eLv;
             if (!a.equals(str)) {
-                handler = this.erI.mHandler;
-                runnable = this.erI.erG;
+                handler = this.eLC.mHandler;
+                runnable = this.eLC.eLA;
                 handler.removeCallbacks(runnable);
-                handler2 = this.erI.mHandler;
-                runnable2 = this.erI.erG;
+                handler2 = this.eLC.mHandler;
+                runnable2 = this.eLC.eLA;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                textView2 = this.erI.erv;
+                textView2 = this.eLC.eLp;
                 textView2.setVisibility(0);
                 return;
             }
-            textView = this.erI.erv;
+            textView = this.eLC.eLp;
             textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.erI.erB = com.baidu.adp.lib.util.j.a(charSequence, null);
+        this.eLC.eLv = com.baidu.adp.lib.util.j.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher

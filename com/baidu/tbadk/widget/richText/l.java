@@ -1,39 +1,72 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.tbadk.gif.GifView;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-public interface l {
-    void H(Context context, String str);
+public class l extends com.baidu.adp.lib.a.b.a.a.i {
+    private boolean aIv;
+    private boolean aIw;
+    private String cdn_src;
+    private String link;
+    private int mHeight;
+    private int mWidth;
 
-    int Hr();
+    public l() {
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.cdn_src = null;
+        this.link = null;
+        this.aIv = false;
+        this.aIw = true;
+    }
 
-    com.baidu.adp.lib.f.b<ImageView> Hs();
+    public l(PbContent pbContent) {
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.cdn_src = null;
+        this.link = null;
+        this.aIv = false;
+        this.aIw = true;
+        this.cdn_src = pbContent.cdn_src;
+        this.link = pbContent.link;
+        String str = pbContent.bsize;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.mWidth = Integer.valueOf(split[0]).intValue();
+                this.mHeight = Integer.valueOf(split[1]).intValue();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.mWidth <= 0) {
+            this.mWidth = 1;
+        }
+        if (this.mHeight <= 0) {
+            this.mHeight = 1;
+        }
+        if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
+            this.aIv = true;
+        }
+    }
 
-    com.baidu.adp.lib.f.b<TextView> Ht();
+    public int getWidth() {
+        return this.mWidth;
+    }
 
-    com.baidu.adp.lib.f.b<GifView> Hu();
+    public int getHeight() {
+        return this.mHeight;
+    }
 
-    com.baidu.adp.lib.f.b<View> Hv();
+    public String IM() {
+        return this.cdn_src;
+    }
 
-    com.baidu.adp.lib.f.b<LinearLayout> Hw();
+    public String getLink() {
+        return this.link;
+    }
 
-    void I(Context context, String str);
-
-    void J(Context context, String str);
-
-    void K(Context context, String str);
-
-    void L(Context context, String str);
-
-    void M(Context context, String str);
-
-    void g(Context context, String str, String str2);
-
-    ListView getListView();
+    public boolean IF() {
+        return this.aIw;
+    }
 }

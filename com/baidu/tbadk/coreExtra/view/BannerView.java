@@ -13,24 +13,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> MR;
-    private String ani;
-    private String anj;
-    private Button ank;
-    private TbImageView anl;
-    private boolean anm;
-    private float ann;
-    private boolean ano;
-    private a anp;
-    View.OnClickListener anq;
+    private TbPageContext<?> MX;
+    private String anA;
+    private Button anB;
+    private TbImageView anC;
+    private boolean anD;
+    private float anE;
+    private boolean anF;
+    private a anG;
+    View.OnClickListener anH;
+    private String anz;
     private String link;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void AM();
+        void Bp();
 
-        void AN();
+        void Bq();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ani = "";
-        this.anj = "";
-        this.anm = false;
-        this.ann = 0.1388889f;
-        this.ano = false;
-        this.anq = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.anz = "";
+        this.anA = "";
+        this.anD = false;
+        this.anE = 0.1388889f;
+        this.anF = false;
+        this.anH = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -54,29 +54,29 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(t.h.bannerview, this);
-        this.ank = (Button) findViewById(t.g.btn_close);
-        this.ank.setOnClickListener(this.anq);
-        this.anl = (TbImageView) findViewById(t.g.banner_image);
-        this.anl.setAutoChangeStyle(true);
-        this.anl.setOnClickListener(this.anq);
+        this.anB = (Button) findViewById(t.g.btn_close);
+        this.anB.setOnClickListener(this.anH);
+        this.anC = (TbImageView) findViewById(t.g.banner_image);
+        this.anC.setAutoChangeStyle(true);
+        this.anC.setOnClickListener(this.anH);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.anl != null && aVar != null) {
-            this.anl.setEvent(aVar);
+        if (this.anC != null && aVar != null) {
+            this.anC.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.MR = tbPageContext;
+        this.MX = tbPageContext;
         this.link = str2;
-        this.ano = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.anF = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.anm && this.ano) {
-            ViewGroup.LayoutParams layoutParams = this.anl.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.ann) + 0.5d);
-            this.anl.setLayoutParams(layoutParams);
-            this.anl.a(str, 10, 720, 100, false);
+        if (!this.anD && this.anF) {
+            ViewGroup.LayoutParams layoutParams = this.anC.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.B(getContext()) * this.anE) + 0.5d);
+            this.anC.setLayoutParams(layoutParams);
+            this.anC.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.anp = aVar;
+        this.anG = aVar;
     }
 
-    public boolean AL() {
-        return this.ano;
+    public boolean Bo() {
+        return this.anF;
     }
 
     public void reset() {
-        this.anm = false;
-        this.ano = false;
+        this.anD = false;
+        this.anF = false;
     }
 
-    public void oO() {
-        this.anl.postInvalidate();
+    public void oH() {
+        this.anC.postInvalidate();
     }
 }

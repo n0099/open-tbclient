@@ -4,15 +4,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.view.FrsHeaderView;
-import com.baidu.tieba.frs.view.t;
+import com.baidu.tieba.frs.view.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ a bpO;
+    final /* synthetic */ a buP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bpO = aVar;
+        this.buP = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -27,47 +27,47 @@ public class f implements Runnable {
         FrsHeaderView frsHeaderView;
         FrsHeaderView frsHeaderView2;
         FrsActivity frsActivity2;
-        t tVar;
-        t tVar2;
+        u uVar;
+        u uVar2;
         FrsActivity frsActivity3;
-        i = this.bpO.mScrollState;
+        i = this.buP.mScrollState;
         if (i == 0) {
-            bdListView = this.bpO.bpv;
-            if (bdListView.nt()) {
-                frsActivity = this.bpO.bot;
-                if (!frsActivity.Pd()) {
-                    z = this.bpO.bpF;
+            bdListView = this.buP.buw;
+            if (bdListView.nl()) {
+                frsActivity = this.buP.bts;
+                if (!frsActivity.QS()) {
+                    z = this.buP.buG;
                     if (!z) {
-                        i2 = this.bpO.aRV;
+                        i2 = this.buP.aVC;
                         if (i2 == 1) {
-                            str = this.bpO.bpD;
+                            str = this.buP.buE;
                             if (str == "frs_page") {
-                                tVar = this.bpO.bpx;
-                                if (tVar != null) {
-                                    tVar2 = this.bpO.bpx;
-                                    if (tVar2.Sm()) {
-                                        TbadkSettings.getInst().saveBoolean(FrsActivity.bfm, true);
-                                        this.bpO.RM();
-                                        frsActivity3 = this.bpO.bot;
-                                        frsActivity3.bfr = true;
-                                        this.bpO.bpF = true;
+                                uVar = this.buP.buy;
+                                if (uVar != null) {
+                                    uVar2 = this.buP.buy;
+                                    if (uVar2.Ub()) {
+                                        TbadkSettings.getInst().saveBoolean(FrsActivity.bjW, true);
+                                        this.buP.TA();
+                                        frsActivity3 = this.buP.bts;
+                                        frsActivity3.bkb = true;
+                                        this.buP.buG = true;
                                         return;
                                     }
                                     return;
                                 }
                                 return;
                             }
-                            str2 = this.bpO.bpD;
+                            str2 = this.buP.buE;
                             if (str2 == "normal_page") {
-                                frsHeaderView = this.bpO.bpw;
+                                frsHeaderView = this.buP.bux;
                                 if (frsHeaderView != null) {
-                                    frsHeaderView2 = this.bpO.bpw;
-                                    if (frsHeaderView2.Sm()) {
-                                        TbadkSettings.getInst().saveBoolean(FrsActivity.bfm, true);
-                                        this.bpO.RM();
-                                        frsActivity2 = this.bpO.bot;
-                                        frsActivity2.bfr = true;
-                                        this.bpO.bpF = true;
+                                    frsHeaderView2 = this.buP.bux;
+                                    if (frsHeaderView2.Ub()) {
+                                        TbadkSettings.getInst().saveBoolean(FrsActivity.bjW, true);
+                                        this.buP.TA();
+                                        frsActivity2 = this.buP.bts;
+                                        frsActivity2.bkb = true;
+                                        this.buP.buG = true;
                                     }
                                 }
                             }

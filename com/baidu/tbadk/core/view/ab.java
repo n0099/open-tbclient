@@ -1,32 +1,38 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+import android.media.MediaPlayer;
+import android.widget.MediaController;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox ahE;
+public class ab implements MediaPlayer.OnErrorListener {
+    final /* synthetic */ TextureVideoView ahp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(UserIconBox userIconBox) {
-        this.ahE = userIconBox;
+    public ab(TextureVideoView textureVideoView) {
+        this.ahp = textureVideoView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.f.b bVar;
-        com.baidu.adp.lib.f.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.ahE.ahx;
-            if (bVar != null) {
-                bVar2 = this.ahE.ahx;
-                bVar2.k((TbImageView) view2);
+    @Override // android.media.MediaPlayer.OnErrorListener
+    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+        MediaController mediaController;
+        MediaPlayer.OnErrorListener onErrorListener;
+        MediaPlayer.OnErrorListener onErrorListener2;
+        MediaPlayer mediaPlayer2;
+        MediaController mediaController2;
+        this.ahp.agP = -1;
+        this.ahp.agQ = -1;
+        mediaController = this.ahp.agU;
+        if (mediaController != null) {
+            mediaController2 = this.ahp.agU;
+            mediaController2.hide();
+        }
+        onErrorListener = this.ahp.agY;
+        if (onErrorListener != null) {
+            onErrorListener2 = this.ahp.agY;
+            mediaPlayer2 = this.ahp.agR;
+            if (onErrorListener2.onError(mediaPlayer2, i, i2)) {
             }
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+        return true;
     }
 }

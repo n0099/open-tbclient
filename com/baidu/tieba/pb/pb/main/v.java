@@ -1,30 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class v implements PbActivity.c {
-    final /* synthetic */ PbActivity cNq;
+class v extends CustomMessageListener {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(PbActivity pbActivity, int i) {
+        super(i);
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.c
-    public void fp(boolean z) {
-        cm cmVar;
-        dz dzVar;
-        cm cmVar2;
-        dz dzVar2;
-        cmVar = this.cNq.cMF;
-        if (cmVar.fs(true)) {
-            dzVar2 = this.cNq.cMK;
-            dzVar2.arj();
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (updateAttentionMessage.getData().CK) {
+                    if (updateAttentionMessage.isAttention()) {
+                        this.dht.showToast(t.j.like_success);
+                    }
+                    this.dht.a(updateAttentionMessage);
+                } else if (updateAttentionMessage.getData().errorString != null) {
+                    this.dht.showToast(updateAttentionMessage.getData().errorString);
+                }
+            }
         }
-        dzVar = this.cNq.cMK;
-        dzVar.arE();
-        cmVar2 = this.cNq.cMF;
-        cmVar2.kQ(1);
     }
 }

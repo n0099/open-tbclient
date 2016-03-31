@@ -7,23 +7,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a ddt;
+    final /* synthetic */ a dxV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.ddt = aVar;
+        this.dxV = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        TiebaStatic.log(new au("c10606"));
+        TiebaStatic.log(new aw("c10606"));
         MessageManager messageManager = MessageManager.getInstance();
-        activity = this.ddt.mActivity;
+        activity = this.dxV.mActivity;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(activity, 0L)));
     }
 }

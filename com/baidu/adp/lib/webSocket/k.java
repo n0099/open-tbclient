@@ -9,11 +9,11 @@ import java.net.SocketException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ j Ao;
+    final /* synthetic */ j AG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.Ao = jVar;
+        this.AG = jVar;
     }
 
     @Override // android.os.Handler
@@ -42,109 +42,109 @@ public class k extends Handler {
         g.a aVar22;
         if (message.obj instanceof m.s) {
             m.s sVar = (m.s) message.obj;
-            aVar21 = this.Ao.Ah;
+            aVar21 = this.AG.Az;
             if (aVar21 != null) {
-                aVar22 = this.Ao.Ah;
-                aVar22.H(sVar.AE);
+                aVar22 = this.AG.Az;
+                aVar22.H(sVar.AW);
             }
-        } else if (message.obj instanceof m.C0009m) {
-            m.C0009m c0009m = (m.C0009m) message.obj;
-            aVar19 = this.Ao.Ah;
+        } else if (message.obj instanceof m.C0010m) {
+            m.C0010m c0010m = (m.C0010m) message.obj;
+            aVar19 = this.AG.Az;
             if (aVar19 != null) {
-                aVar20 = this.Ao.Ah;
-                aVar20.F(c0009m.Ap);
-            } else if (this.Ao.isDebug()) {
+                aVar20 = this.AG.Az;
+                aVar20.p(c0010m.AH);
+            } else if (this.AG.isDebug()) {
                 BdLog.d("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof m.a) {
             m.a aVar23 = (m.a) message.obj;
-            aVar17 = this.Ao.Ah;
+            aVar17 = this.AG.Az;
             if (aVar17 != null) {
-                aVar18 = this.Ao.Ah;
-                aVar18.w(aVar23.Ap);
-            } else if (this.Ao.isDebug()) {
+                aVar18 = this.AG.Az;
+                aVar18.b(aVar23);
+            } else if (this.AG.isDebug()) {
                 BdLog.d("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof m.j) {
             m.k kVar = new m.k();
-            kVar.Ap = ((m.j) message.obj).Ap;
-            this.Ao.zY.r(kVar);
+            kVar.AH = ((m.j) message.obj).AH;
+            this.AG.Ar.r(kVar);
         } else if (message.obj instanceof m.k) {
             m.k kVar2 = (m.k) message.obj;
-            aVar15 = this.Ao.Ah;
+            aVar15 = this.AG.Az;
             if (aVar15 != null) {
-                aVar16 = this.Ao.Ah;
-                aVar16.jK();
+                aVar16 = this.AG.Az;
+                aVar16.jQ();
             }
         } else if (message.obj instanceof m.c) {
-            this.Ao.close(1, null);
+            this.AG.close(1, null);
         } else if (message.obj instanceof m.q) {
             m.q qVar = (m.q) message.obj;
-            if (qVar.AD) {
-                aVar11 = this.Ao.Ah;
+            if (qVar.AU) {
+                aVar11 = this.AG.Az;
                 if (aVar11 != null) {
-                    aVar12 = this.Ao.Ah;
-                    aVar12.d(qVar.mHeaders);
-                    this.Ao.Aj = true;
-                    this.Ao.Ak = false;
-                    aVar13 = this.Ao.Ah;
+                    aVar12 = this.AG.Az;
+                    aVar12.d(qVar.AV);
+                    this.AG.AB = true;
+                    this.AG.AC = false;
+                    aVar13 = this.AG.Az;
                     if (aVar13 != null) {
-                        aVar14 = this.Ao.Ah;
+                        aVar14 = this.AG.Az;
                         aVar14.a(null);
                         return;
                     }
                     return;
                 }
-                this.Ao.close(6, "handler already NULL");
+                this.AG.close(6, "handler already NULL");
             }
         } else if (message.obj instanceof m.d) {
-            SocketException socketException = ((m.d) message.obj).Ax;
-            this.Ao.close(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
+            SocketException socketException = ((m.d) message.obj).AO;
+            this.AG.close(3, "WebSockets connection lost = " + (socketException != null ? socketException.getMessage() : null));
         } else if (message.obj instanceof m.l) {
-            WebSocketException webSocketException = ((m.l) message.obj).AB;
-            this.Ao.close(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
+            WebSocketException webSocketException = ((m.l) message.obj).AS;
+            this.AG.close(4, "WebSockets protocol violation error = " + (webSocketException != null ? webSocketException.getMessage() : null));
         } else if (message.obj instanceof m.f) {
-            this.Ao.close(5, "WebSockets internal error (" + ((m.f) message.obj).Az.toString() + ")");
+            this.AG.close(5, "WebSockets internal error (" + ((m.f) message.obj).AQ.toString() + ")");
         } else if (message.obj instanceof m.p) {
             m.p pVar = (m.p) message.obj;
-            this.Ao.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.Ay + ")");
+            this.AG.close(6, "Server error " + pVar.mStatusCode + " (" + pVar.AP + ")");
         } else if (message.obj instanceof m.e) {
-            this.Ao.close(2, "WebSockets connot connect:" + ((m.e) message.obj).Ay);
+            this.AG.close(2, "WebSockets connot connect:" + ((m.e) message.obj).AP);
         } else if (message.obj instanceof m.r) {
-            aVar9 = this.Ao.Ah;
+            aVar9 = this.AG.Az;
             if (aVar9 != null) {
-                c cVar = ((m.r) message.obj).AC;
-                aVar10 = this.Ao.Ah;
+                c cVar = ((m.r) message.obj).AT;
+                aVar10 = this.AG.Az;
                 aVar10.b(cVar);
             }
         } else if (message.obj instanceof m.g) {
-            this.Ao.An = null;
-            c cVar2 = ((m.g) message.obj).AC;
-            aVar5 = this.Ao.Ah;
+            this.AG.AF = null;
+            c cVar2 = ((m.g) message.obj).AT;
+            aVar5 = this.AG.Az;
             if (aVar5 != null) {
-                aVar8 = this.Ao.Ah;
+                aVar8 = this.AG.Az;
                 aVar8.c(cVar2);
             }
-            aVar6 = this.Ao.Ah;
+            aVar6 = this.AG.Az;
             if (aVar6 != null) {
-                aVar7 = this.Ao.Ah;
+                aVar7 = this.AG.Az;
                 aVar7.a(cVar2);
             }
         } else if (message.obj instanceof m.n) {
-            this.Ao.An = null;
-            c cVar3 = ((m.n) message.obj).AC;
-            aVar = this.Ao.Ah;
+            this.AG.AF = null;
+            c cVar3 = ((m.n) message.obj).AT;
+            aVar = this.AG.Az;
             if (aVar != null) {
-                aVar4 = this.Ao.Ah;
+                aVar4 = this.AG.Az;
                 aVar4.a(2, cVar3);
             }
-            aVar2 = this.Ao.Ah;
+            aVar2 = this.AG.Az;
             if (aVar2 != null) {
-                aVar3 = this.Ao.Ah;
+                aVar3 = this.AG.Az;
                 aVar3.a(cVar3);
             }
         } else {
-            this.Ao.p(message.obj);
+            this.AG.p(message.obj);
         }
     }
 }

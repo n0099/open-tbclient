@@ -5,28 +5,28 @@ import com.baidu.tieba.frs.tab.HorizontalTabView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements HorizontalTabView.a {
-    final /* synthetic */ a bpO;
+    final /* synthetic */ a buP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bpO = aVar;
+        this.buP = aVar;
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public void gN(int i) {
+    public void hf(int i) {
         o oVar;
-        oVar = this.bpO.bpI;
-        oVar.gZ(i);
+        oVar = this.buP.buJ;
+        oVar.hs(i);
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public boolean gO(int i) {
+    public boolean hg(int i) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.bpO.bot;
+        frsActivity = this.buP.bts;
         if (frsActivity != null) {
-            frsActivity2 = this.bpO.bot;
-            return (frsActivity2.Pl() && i == 1) ? false : true;
+            frsActivity2 = this.buP.bts;
+            return (frsActivity2.Ra() && i == 1) ? false : true;
         }
         return true;
     }

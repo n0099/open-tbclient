@@ -6,17 +6,17 @@ import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements j.a {
-    final /* synthetic */ FillUProfileActivity cGm;
+    final /* synthetic */ FillUProfileActivity cZu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FillUProfileActivity fillUProfileActivity) {
-        this.cGm = fillUProfileActivity;
+        this.cZu = fillUProfileActivity;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public void i(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
-        TbadkCoreApplication.setCurrentAccount(accountData, this.cGm.getPageContext().getPageActivity());
-        this.cGm.anL();
+        TbadkCoreApplication.setCurrentAccount(accountData, this.cZu.getPageContext().getPageActivity());
+        this.cZu.auz();
     }
 }

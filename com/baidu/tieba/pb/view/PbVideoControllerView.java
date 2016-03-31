@@ -12,52 +12,52 @@ import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 import java.util.Formatter;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class PbVideoControllerView extends RelativeLayout {
-    private int cVG;
-    private MediaController.MediaPlayerControl cVH;
-    private TextView cVI;
-    private TextView cVJ;
-    private boolean cVK;
-    private boolean cVL;
-    private SeekBar cVM;
-    private StringBuilder cVN;
-    private Formatter cVO;
-    private SeekBar.OnSeekBarChangeListener cVP;
+    private int dqB;
+    private MediaController.MediaPlayerControl dqC;
+    private TextView dqD;
+    private TextView dqE;
+    private boolean dqF;
+    private boolean dqG;
+    private SeekBar dqH;
+    private StringBuilder dqI;
+    private Formatter dqJ;
+    private SeekBar.OnSeekBarChangeListener dqK;
     private Context mContext;
     private Handler mHandler;
 
     public PbVideoControllerView(Context context) {
         super(context);
-        this.cVG = 50;
-        this.cVK = false;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqF = false;
+        this.dqG = true;
         this.mHandler = new i(this, Looper.getMainLooper());
-        this.cVP = new j(this);
+        this.dqK = new j(this);
         init(context);
     }
 
     public PbVideoControllerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cVG = 50;
-        this.cVK = false;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqF = false;
+        this.dqG = true;
         this.mHandler = new i(this, Looper.getMainLooper());
-        this.cVP = new j(this);
+        this.dqK = new j(this);
         init(context);
     }
 
     public PbVideoControllerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cVG = 50;
-        this.cVK = false;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqF = false;
+        this.dqG = true;
         this.mHandler = new i(this, Looper.getMainLooper());
-        this.cVP = new j(this);
+        this.dqK = new j(this);
         init(context);
     }
 
@@ -65,99 +65,99 @@ public class PbVideoControllerView extends RelativeLayout {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(t.h.pb_video_controller, (ViewGroup) null);
         addView(inflate, -1, (int) context.getResources().getDimension(t.e.ds80));
-        this.cVI = (TextView) inflate.findViewById(t.g.textview_cur_time);
-        this.cVJ = (TextView) inflate.findViewById(t.g.textview_duration);
-        this.cVM = (SeekBar) inflate.findViewById(t.g.pb_video_controller_seekBar);
-        this.cVM.setOnSeekBarChangeListener(this.cVP);
-        this.cVN = new StringBuilder();
-        this.cVO = new Formatter(this.cVN, Locale.getDefault());
+        this.dqD = (TextView) inflate.findViewById(t.g.textview_cur_time);
+        this.dqE = (TextView) inflate.findViewById(t.g.textview_duration);
+        this.dqH = (SeekBar) inflate.findViewById(t.g.pb_video_controller_seekBar);
+        this.dqH.setOnSeekBarChangeListener(this.dqK);
+        this.dqI = new StringBuilder();
+        this.dqJ = new Formatter(this.dqI, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.cVH = mediaPlayerControl;
+        this.dqC = mediaPlayerControl;
     }
 
     public void aN(int i, int i2) {
-        this.cVL = false;
+        this.dqG = false;
         this.mHandler.removeMessages(1);
-        this.cVM.setProgress(0);
-        if (this.cVI != null) {
-            this.cVI.setText(lk(i));
+        this.dqH.setProgress(0);
+        if (this.dqD != null) {
+            this.dqD.setText(mt(i));
         }
-        if (this.cVJ != null) {
-            this.cVJ.setText(lk(lj(i2)));
+        if (this.dqE != null) {
+            this.dqE.setText(mt(ms(i2)));
         }
     }
 
-    public void aco() {
-        if (this.cVH != null) {
-            this.cVG = ((this.cVH.getDuration() / 200) / 50) * 50;
-            if (this.cVG < 50) {
-                this.cVG = 50;
+    public void afJ() {
+        if (this.dqC != null) {
+            this.dqB = ((this.dqC.getDuration() / 200) / 50) * 50;
+            if (this.dqB < 50) {
+                this.dqB = 50;
             }
-            this.cVL = true;
+            this.dqG = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.cVG - (this.cVH.getCurrentPosition() % this.cVG));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.dqB - (this.dqC.getCurrentPosition() % this.dqB));
         }
     }
 
-    public void asT() {
-        this.cVL = false;
+    public void aAD() {
+        this.dqG = false;
         this.mHandler.removeMessages(1);
-        this.cVM.setProgress(0);
-        if (this.cVI != null) {
-            this.cVI.setText(lk(0));
+        this.dqH.setProgress(0);
+        if (this.dqD != null) {
+            this.dqD.setText(mt(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int asU() {
-        if (this.cVH == null || this.cVK) {
+    public int aAE() {
+        if (this.dqC == null || this.dqF) {
             return 0;
         }
-        int currentPosition = this.cVH.getCurrentPosition();
-        int duration = this.cVH.getDuration();
-        if (this.cVM != null) {
+        int currentPosition = this.dqC.getCurrentPosition();
+        int duration = this.dqC.getDuration();
+        if (this.dqH != null) {
             if (duration > 0) {
-                this.cVM.setProgress((int) ((10000 * currentPosition) / duration));
+                this.dqH.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.cVH.getBufferPercentage();
+            this.dqC.getBufferPercentage();
         }
-        if (this.cVJ != null && duration > 0) {
-            this.cVJ.setText(lk(lj(duration)));
+        if (this.dqE != null && duration > 0) {
+            this.dqE.setText(mt(ms(duration)));
         }
-        if (this.cVI != null) {
-            this.cVI.setText(lk(currentPosition));
+        if (this.dqD != null) {
+            this.dqD.setText(mt(currentPosition));
             return currentPosition;
         }
         return currentPosition;
     }
 
-    private int lj(int i) {
+    private int ms(int i) {
         return (int) (Math.ceil((1.0f * i) / 1000.0f) * 1000.0d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String lk(int i) {
+    public String mt(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
         int i5 = i2 / 3600;
-        this.cVN.setLength(0);
-        return i5 > 0 ? this.cVO.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.cVO.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
+        this.dqI.setLength(0);
+        return i5 > 0 ? this.dqJ.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.dqJ.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 
     public void onChangeSkinType(int i) {
-        ar.b(this.cVI, t.d.cp_cont_i, 1);
-        ar.b(this.cVJ, t.d.cp_cont_i, 1);
-        this.cVM.setProgressDrawable(ar.c((Resources) null, t.f.pb_video_seekbar));
-        this.cVM.setThumb(ar.c((Resources) null, t.f.pb_video_seekbar_thumb));
-        this.cVM.setThumbOffset(0);
+        at.b(this.dqD, t.d.cp_cont_i, 1);
+        at.b(this.dqE, t.d.cp_cont_i, 1);
+        this.dqH.setProgressDrawable(at.c((Resources) null, t.f.pb_video_seekbar));
+        this.dqH.setThumb(at.c((Resources) null, t.f.pb_video_seekbar_thumb));
+        this.dqH.setThumbOffset(0);
     }
 
     public int getCurProgress() {
-        if (this.cVM != null) {
-            return this.cVM.getProgress();
+        if (this.dqH != null) {
+            return this.dqH.getProgress();
         }
         return 0;
     }

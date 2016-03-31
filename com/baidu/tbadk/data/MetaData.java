@@ -3,6 +3,8 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,6 +42,7 @@ public class MetaData extends i implements Serializable {
     private GodInfo godInfo = null;
     private int giftNum = 0;
     private int isMem = 0;
+    private ThemeCardInUserData themeCard = new ThemeCardInUserData();
 
     public void setUserId(String str) {
         this.userId = str;
@@ -205,6 +208,10 @@ public class MetaData extends i implements Serializable {
         return this.fansNickName;
     }
 
+    public void setFansNickName(String str) {
+        this.fansNickName = str;
+    }
+
     public void setFansNum(int i) {
         this.fansNum = i;
     }
@@ -302,6 +309,7 @@ public class MetaData extends i implements Serializable {
             }
             this.godInfo = user.god_data;
             this.giftNum = user.gift_num.intValue();
+            this.themeCard.parser(user.theme_card);
         }
     }
 
@@ -332,6 +340,7 @@ public class MetaData extends i implements Serializable {
                 this.name_show = jSONObject.optString(IntentConfig.NAME_SHOW);
                 this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
+                this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
@@ -360,9 +369,21 @@ public class MetaData extends i implements Serializable {
                 if (optJSONObject != null) {
                     this.godUserData.parseJson(optJSONObject);
                 }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("theme_card");
+                if (optJSONObject2 != null) {
+                    this.themeCard.parser(optJSONObject2);
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
+    }
+
+    public ThemeCardInUserData getThemeCard() {
+        return this.themeCard;
+    }
+
+    public void setThemeCard(ThemeCardInUserData themeCardInUserData) {
+        this.themeCard = themeCardInUserData;
     }
 }

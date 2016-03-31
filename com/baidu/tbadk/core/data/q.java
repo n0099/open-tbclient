@@ -1,26 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.List;
-import tbclient.TwAnchorProfitItem;
-import tbclient.TwZhiBoUser;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
 public class q {
-    private TwZhiBoUser VJ;
-    private List<TwAnchorProfitItem> VK;
+    private String Tf;
+    private String Tg;
+    private String Th;
+    private String Ti;
+    private int Tj;
 
-    public TwZhiBoUser sm() {
-        return this.VJ;
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.Tf = headSdk.head_pic;
+            this.Tg = headSdk.head_text;
+            this.Th = headSdk.sdk_name;
+            this.Ti = headSdk.sdk_params;
+            this.Tj = headSdk.head_type.intValue();
+        }
     }
 
-    public void a(TwZhiBoUser twZhiBoUser) {
-        this.VJ = twZhiBoUser;
+    public String rG() {
+        return this.Tf;
     }
 
-    public List<TwAnchorProfitItem> sn() {
-        return this.VK;
+    public String rH() {
+        return this.Tg;
     }
 
-    public void k(List<TwAnchorProfitItem> list) {
-        this.VK = list;
+    public int rI() {
+        return this.Tj;
     }
 }

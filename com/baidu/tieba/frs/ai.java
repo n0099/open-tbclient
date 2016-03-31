@@ -1,35 +1,18 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.view.ab;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements ab.a {
-    final /* synthetic */ FrsActivity bgz;
+public class ai implements a.b {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+        this.blk = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.view.ab.a
-    public void go(int i) {
-        switch (i) {
-            case 0:
-                this.bgz.bft = false;
-                this.bgz.gm(0);
-                return;
-            case 1:
-                this.bgz.OX();
-                return;
-            case 2:
-                this.bgz.bft = false;
-                this.bgz.OY();
-                return;
-            case 3:
-                this.bgz.Pc();
-                return;
-            default:
-                return;
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

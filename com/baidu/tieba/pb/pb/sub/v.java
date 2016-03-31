@@ -1,57 +1,69 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.t;
+import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cTK;
+public class v implements a.InterfaceC0041a {
+    final /* synthetic */ NewSubPbActivity doF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.cTK = newSubPbActivity;
+        this.doF = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
-    public void d(Object obj) {
-        ao aoVar;
-        ao aoVar2;
-        ao aoVar3;
-        ao aoVar4;
-        ao aoVar5;
-        ao aoVar6;
-        ao aoVar7;
-        Object[] objArr = (Object[]) obj;
-        String str = "";
-        aoVar = this.cTK.cTz;
-        if (aoVar.asw() != null) {
-            aoVar5 = this.cTK.cTz;
-            if (aoVar5.asw().Ki() != null) {
-                aoVar6 = this.cTK.cTz;
-                if (aoVar6.asw().Ki().getAuthor() != null) {
-                    aoVar7 = this.cTK.cTz;
-                    str = String.valueOf(aoVar7.asw().Ki().getAuthor().getUserId());
-                }
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
+    public void a(boolean z, boolean z2, String str) {
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        ap apVar;
+        ap apVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        ap apVar3;
+        ap apVar4;
+        ap apVar5;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        if (z) {
+            aVar = this.doF.cOZ;
+            if (aVar != null) {
+                aVar4 = this.doF.cOZ;
+                aVar4.X(z2);
             }
+            aVar2 = this.doF.cOZ;
+            MarkData px = aVar2.px();
+            com.baidu.tieba.pb.f fVar = new com.baidu.tieba.pb.f();
+            fVar.setType(2);
+            if (z2) {
+                fVar.setData(px);
+                aVar3 = this.doF.cOZ;
+                if (aVar3 != null) {
+                    if (px != null) {
+                        apVar3 = this.doF.dou;
+                        apVar3.gk(true);
+                        apVar4 = this.doF.dou;
+                        apVar5 = this.doF.dou;
+                        apVar4.mj(apVar5.DH());
+                        this.doF.showToast(MessageFormat.format(this.doF.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(px.getFloor())));
+                    } else {
+                        this.doF.showToast(this.doF.getPageContext().getString(t.j.add_mark));
+                    }
+                }
+            } else {
+                fVar.setData(null);
+                apVar = this.doF.dou;
+                apVar.gk(false);
+                apVar2 = this.doF.dou;
+                apVar2.mj(null);
+                this.doF.showToast(this.doF.getPageContext().getString(t.j.remove_mark));
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, fVar));
+            return;
         }
-        String str2 = "";
-        if (objArr.length > 1) {
-            str2 = String.valueOf(objArr[1]);
-        }
-        String str3 = "";
-        if (objArr.length > 2) {
-            str3 = String.valueOf(objArr[2]);
-        }
-        NewSubPbActivity newSubPbActivity = this.cTK;
-        Activity pageActivity = this.cTK.getPageContext().getPageActivity();
-        aoVar2 = this.cTK.cTz;
-        String id = aoVar2.asw().aoX().getId();
-        aoVar3 = this.cTK.cTz;
-        String name = aoVar3.asw().aoX().getName();
-        aoVar4 = this.cTK.cTz;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, aoVar4.asw().Ki().getId(), str, str2, str3)));
+        this.doF.showToast(this.doF.getPageContext().getString(t.j.update_mark_failed));
     }
 }

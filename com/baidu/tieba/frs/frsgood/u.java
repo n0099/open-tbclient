@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.frsgood;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.s;
 /* loaded from: classes.dex */
-class u implements r.a {
-    final /* synthetic */ FrsGoodActivity bnm;
+class u implements s.a {
+    final /* synthetic */ FrsGoodActivity bsj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsGoodActivity frsGoodActivity) {
-        this.bnm = frsGoodActivity;
+        this.bsj = frsGoodActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r.a
-    public void az(boolean z) {
-        TiebaStatic.eventStat(this.bnm.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.bnm.cy(true);
+    @Override // com.baidu.tbadk.core.view.s.a
+    public void aB(boolean z) {
+        TiebaStatic.eventStat(this.bsj.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.bsj.cK(true);
     }
 }

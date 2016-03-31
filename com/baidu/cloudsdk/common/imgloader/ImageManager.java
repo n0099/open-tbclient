@@ -59,7 +59,7 @@ public class ImageManager {
     }
 
     public ImageManager setHitCountRequired(int i) {
-        this.b.s(i);
+        this.b.r(i);
         return this;
     }
 
@@ -70,7 +70,7 @@ public class ImageManager {
 
     public ImageManager setMaxNumOfPixels(int i) {
         this.c = i;
-        this.b.r(i);
+        this.b.q(i);
         return this;
     }
 

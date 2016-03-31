@@ -9,15 +9,15 @@ public class d {
     private String game_icon;
     private String post_url;
 
-    public String rP() {
+    public String rn() {
         return this.game_icon;
     }
 
-    public String rQ() {
+    public String ro() {
         return this.post_url;
     }
 
-    public String pj() {
+    public String pc() {
         return this.button_text;
     }
 

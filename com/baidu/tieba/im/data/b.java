@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class b {
-    private int bTR;
+    private int ceu;
     private String content;
     private long id;
     private String name;
@@ -48,11 +48,11 @@ public class b {
         this.status = i;
     }
 
-    public int aaK() {
-        return this.bTR;
+    public int aeg() {
+        return this.ceu;
     }
 
-    public void iN(int i) {
-        this.bTR = i;
+    public void ju(int i) {
+        this.ceu = i;
     }
 }

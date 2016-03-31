@@ -4,11 +4,27 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PraiseListActivityConfig extends IntentConfig {
+    public static final String IS_AUTHOR = "is_author";
+    public static final int TYPE_GRAFFITI_PRAISE_LIST = 1;
+    public static final int TYPE_NORMAL_PRAISE_LIST = 0;
+
     public PraiseListActivityConfig(Context context, String str, String str2, String str3, boolean z) {
         super(context);
         getIntent().putExtra("thread_id", str);
         getIntent().putExtra("post_id", str2);
         getIntent().putExtra(IntentConfig.POST_DESC, str3);
         getIntent().putExtra(IntentConfig.IS_FROM_PB, z);
+    }
+
+    public void setIsGraffitiPraiseList() {
+        if (getIntent() != null) {
+            getIntent().putExtra(IntentConfig.LIST_TYPE, 1);
+        }
+    }
+
+    public void setIsAuthor(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(IS_AUTHOR, z);
+        }
     }
 }

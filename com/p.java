@@ -12,19 +12,8 @@ public class p {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#3c3c3c" : "#B4B4B4";
     }
 
-    public static int b(Context context, String str) {
-        if (SocialShare.getInstance(context).getTheme() != SocialShare.Theme.LIGHT) {
-            str = str + "_black";
-        }
-        return c(context, str);
-    }
-
     public static String b(Context context) {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#F2F5F5F5" : "#C7000000";
-    }
-
-    public static int c(Context context, String str) {
-        return context.getApplicationContext().getResources().getIdentifier(str, "drawable", context.getApplicationContext().getPackageName());
     }
 
     public static String c(Context context) {
@@ -35,10 +24,6 @@ public class p {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#F6F6F6" : "#202020";
     }
 
-    public static int e(Context context, String str) {
-        return context.getApplicationContext().getResources().getIdentifier(str, "dimen", context.getApplicationContext().getPackageName());
-    }
-
     public static String e(Context context) {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#323232" : "#C8C8C8";
     }
@@ -47,23 +32,38 @@ public class p {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#323232" : "#787878";
     }
 
+    public static int g(Context context, String str) {
+        if (SocialShare.getInstance(context).getTheme() != SocialShare.Theme.LIGHT) {
+            str = str + "_black";
+        }
+        return h(context, str);
+    }
+
     public static String g(Context context) {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#333333" : "#B3B3B3";
+    }
+
+    public static int h(Context context, String str) {
+        return context.getApplicationContext().getResources().getIdentifier(str, "drawable", context.getApplicationContext().getPackageName());
     }
 
     public static String h(Context context) {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#a9a9a9" : "#B3B3B3";
     }
 
-    public static int s(Context context, String str) {
+    public static int i(Context context, String str) {
         return context.getApplicationContext().getResources().getIdentifier(str, "id", context.getApplicationContext().getPackageName());
     }
 
-    public static int t(Context context, String str) {
+    public static int j(Context context, String str) {
+        return context.getApplicationContext().getResources().getIdentifier(str, "dimen", context.getApplicationContext().getPackageName());
+    }
+
+    public static int k(Context context, String str) {
         return context.getApplicationContext().getResources().getIdentifier(str, "style", context.getApplicationContext().getPackageName());
     }
 
-    public static String z(Context context) {
+    public static String p(Context context) {
         return SocialShare.getInstance(context).getTheme() == SocialShare.Theme.LIGHT ? "#a3a3a3" : "#787878";
     }
 }

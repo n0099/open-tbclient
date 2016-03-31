@@ -1,20 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.AwardUser;
 /* loaded from: classes.dex */
-public class f implements Comparator<c> {
-    final /* synthetic */ BannerListData Va;
+public class f {
+    private String SE;
+    private int SG;
+    private long mUserId;
+    private String mUserName;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(BannerListData bannerListData) {
-        this.Va = bannerListData;
+    public long getUserId() {
+        return this.mUserId;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(c cVar, c cVar2) {
-        return (cVar != null ? com.baidu.adp.lib.h.b.g(cVar.Uz, 0) : 0) - (cVar2 != null ? com.baidu.adp.lib.h.b.g(cVar2.Uz, 0) : 0);
+    public String getUserName() {
+        return this.mUserName;
+    }
+
+    public String rq() {
+        return this.SE;
+    }
+
+    public int rs() {
+        return this.SG;
+    }
+
+    public void a(AwardUser awardUser) {
+        if (awardUser != null) {
+            this.mUserId = awardUser.user_id.longValue();
+            this.mUserName = awardUser.user_name;
+            this.SE = awardUser.award_name;
+            this.SG = awardUser.award_time.intValue();
+        }
     }
 }

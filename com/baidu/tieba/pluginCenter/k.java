@@ -3,16 +3,16 @@ package com.baidu.tieba.pluginCenter;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnDismissListener {
-    final /* synthetic */ PluginDownloadActivity dxg;
+    final /* synthetic */ PluginDownloadActivity dRN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PluginDownloadActivity pluginDownloadActivity) {
-        this.dxg = pluginDownloadActivity;
+        this.dRN = pluginDownloadActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.dxg.setResult(0);
-        this.dxg.finish();
+        this.dRN.setResult(0);
+        this.dRN.finish();
     }
 }

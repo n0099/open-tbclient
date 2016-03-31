@@ -10,85 +10,85 @@ import com.baidu.tieba.t;
 import tbclient.GetForumClassList.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private BaseFragmentActivity aKq;
-    private com.baidu.tieba.enterForum.home.e aWr;
-    private String aWv;
-    public h aXA = null;
-    private boolean aXB = false;
-    private final com.baidu.adp.framework.listener.a aXC = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
-    private e aXy;
-    private a aXz;
+    private BaseFragmentActivity aNm;
+    private com.baidu.tieba.enterForum.home.e bba;
+    private String bbe;
+    private e bch;
+    private a bci;
+    public h bcj = null;
+    private boolean bck = false;
+    private final com.baidu.adp.framework.listener.a bcl = new c(this, CmdConfigHttp.CMD_FORUM_CLASS_LIST, 309089);
 
     public View getView() {
-        return this.aXz.getView();
+        return this.bci.getView();
     }
 
     public b(com.baidu.tieba.enterForum.home.e eVar) {
-        this.aWr = eVar;
-        this.aKq = eVar.getBaseFragmentActivity();
-        this.aXy = new e(this.aKq);
-        qD();
-        pm();
+        this.bba = eVar;
+        this.aNm = eVar.getBaseFragmentActivity();
+        this.bch = new e(this.aNm);
+        pU();
+        pf();
     }
 
-    private void pm() {
-        this.aWr.registerListener(this.aXC);
+    private void pf() {
+        this.bba.registerListener(this.bcl);
     }
 
-    private void qD() {
-        this.aXz = new a(this.aWr);
-        this.aXz.mPullView.a(new d(this));
-        this.aXA = new h(this.aWr.getPageContext(), this.aXz.aXu, this.aWr.getUniqueId());
+    private void pU() {
+        this.bci = new a(this.bba);
+        this.bci.mPullView.a(new d(this));
+        this.bcj = new h(this.bba.getPageContext(), this.bci.bcd, this.bba.getUniqueId());
     }
 
-    public void bY(boolean z) {
-        if (this.aXz != null && this.aWr != null) {
+    public void ck(boolean z) {
+        if (this.bci != null && this.bba != null) {
             if (z) {
-                if (Fq() && this.aWr.isPrimary() && this.aWr.isResumed()) {
-                    Me();
+                if (Gd() && this.bba.isPrimary() && this.bba.isResumed()) {
+                    NS();
                     return;
                 }
-                fV(t.j.no_data_text);
-                this.aXz.MB();
+                gl(t.j.no_data_text);
+                this.bci.Op();
                 return;
             }
-            fV(t.j.neterror);
-            this.aXz.MB();
+            gl(t.j.neterror);
+            this.bci.Op();
         }
     }
 
-    public void Me() {
-        String str = this.aWv;
-        this.aWv = TbadkCoreApplication.getCurrentAccount();
-        if (Fq() || (this.aWv != null && !this.aWv.equals(str))) {
-            this.aXz.ns();
+    public void NS() {
+        String str = this.bbe;
+        this.bbe = TbadkCoreApplication.getCurrentAccount();
+        if (Gd() || (this.bbe != null && !this.bbe.equals(str))) {
+            this.bci.nk();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aXz != null) {
-            this.aXz.onChangeSkinType(i);
+        if (this.bci != null) {
+            this.bci.onChangeSkinType(i);
         }
-        if (this.aXA != null) {
-            this.aXA.db(i);
+        if (this.bcj != null) {
+            this.bcj.de(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fV(int i) {
-        if (Fq()) {
-            this.aXz.fU(i);
+    public void gl(int i) {
+        if (Gd()) {
+            this.bci.gk(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        if (dataRes == null || this.aXA == null) {
-            fV(t.j.no_data_text);
+        if (dataRes == null || this.bcj == null) {
+            gl(t.j.no_data_text);
             return;
         }
-        this.aXz.hideNoDataView();
-        this.aXA.b(dataRes);
+        this.bci.hideNoDataView();
+        this.bcj.b(dataRes);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -97,27 +97,27 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.aXA != null) {
-            this.aXA.onDestroy();
+        if (this.bcj != null) {
+            this.bcj.onDestroy();
         }
     }
 
     public void onPause() {
-        if (this.aXA != null) {
-            this.aXA.onPause();
+        if (this.bcj != null) {
+            this.bcj.onPause();
         }
     }
 
     public void onResume() {
-        if (this.aXA != null) {
-            this.aXA.onResume();
+        if (this.bcj != null) {
+            this.bcj.onResume();
         }
     }
 
-    public boolean Fq() {
-        if (this.aXA == null || this.aXA.getData() == null) {
+    public boolean Gd() {
+        if (this.bcj == null || this.bcj.getData() == null) {
             return true;
         }
-        return this.aXA.getData().isEmpty();
+        return this.bcj.getData().isEmpty();
     }
 }

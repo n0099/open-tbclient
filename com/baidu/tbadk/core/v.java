@@ -6,7 +6,7 @@ import com.baidu.adp.lib.e.a;
 import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements a.InterfaceC0004a {
+public class v implements a.InterfaceC0005a {
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class v implements a.InterfaceC0004a {
         this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.lib.e.a.InterfaceC0004a
+    @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
     public void b(int i, String str, Address address) {
         if (i == 0 && address != null) {
             try {

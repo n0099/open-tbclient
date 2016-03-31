@@ -45,20 +45,20 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         this.responseData = new m();
-        FrsPageResIdl T = this.responseData.T(bArr);
-        if (T != null && T.error != null) {
-            if (T.error.errorno != null) {
-                setError(T.error.errorno.intValue());
+        FrsPageResIdl B = this.responseData.B(bArr);
+        if (B != null && B.error != null) {
+            if (B.error.errorno != null) {
+                setError(B.error.errorno.intValue());
             }
-            setErrorString(T.error.usermsg);
+            setErrorString(B.error.usermsg);
         }
         setData(this.responseData);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aoE() != null) {
-            c.aKN().a(c.aKN().al(this.responseData.aoE().getName(), this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.avu() != null) {
+            c.aRC().a(c.aRC().at(this.responseData.avu().getName(), this.mCategoryId), bArr, true);
         }
     }
 

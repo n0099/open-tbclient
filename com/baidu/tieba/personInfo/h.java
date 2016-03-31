@@ -7,13 +7,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,15 +26,15 @@ public class h extends com.baidu.adp.framework.listener.e {
             int error = responseDeleteFriendMessage.getError();
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error == 0) {
-                biVar = this.diG.dhR;
+                biVar = this.this$0.dCt;
                 if (biVar != null) {
-                    biVar2 = this.diG.dhR;
-                    biVar2.startLoad();
+                    biVar2 = this.this$0.dCt;
+                    biVar2.aiC();
                 }
             } else {
-                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.diG.getResources().getString(t.j.neterror) : responseDeleteFriendMessage.getErrorString();
+                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.this$0.getResources().getString(t.j.neterror) : responseDeleteFriendMessage.getErrorString();
             }
-            this.diG.showToast(errorString);
+            this.this$0.showToast(errorString);
         }
     }
 }

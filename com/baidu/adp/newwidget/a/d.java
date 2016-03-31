@@ -3,50 +3,50 @@ package com.baidu.adp.newwidget.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable BM;
-    public com.baidu.adp.widget.a.a BN;
+    public BitmapDrawable Ch;
+    public com.baidu.adp.widget.a.a Ci;
     public volatile boolean isDefault = true;
 
-    public boolean ku() {
-        return (this.BM == null || this.BM.getBitmap() == null) ? false : true;
+    public boolean kA() {
+        return (this.Ch == null || this.Ch.getBitmap() == null) ? false : true;
     }
 
-    public boolean kv() {
-        return this.BN != null && this.BN.mT();
+    public boolean kB() {
+        return this.Ci != null && this.Ci.mL();
     }
 
     public boolean isAvailable() {
-        return ku() || kv();
+        return kA() || kB();
     }
 
     public int getWidth() {
-        if (ku()) {
-            return this.BM.getIntrinsicWidth();
+        if (kA()) {
+            return this.Ch.getIntrinsicWidth();
         }
-        if (kv()) {
-            return this.BN.getWidth();
+        if (kB()) {
+            return this.Ci.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (ku()) {
-            return this.BM.getIntrinsicHeight();
+        if (kA()) {
+            return this.Ch.getIntrinsicHeight();
         }
-        if (kv()) {
-            return this.BN.getHeight();
+        if (kB()) {
+            return this.Ci.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.BN = null;
-        this.BM = null;
+        this.Ci = null;
+        this.Ch = null;
     }
 
-    public boolean fN() {
-        if (kv()) {
-            return this.BN.fN();
+    public boolean fO() {
+        if (kB()) {
+            return this.Ci.fO();
         }
         return false;
     }

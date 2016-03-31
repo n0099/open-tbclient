@@ -8,58 +8,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.base.e<FrsGoodActivity> {
-    public boolean ayQ;
-    private FrsGoodActivity bjc;
-    public boolean bnp;
-    public int bnq;
-    private ArrayList<com.baidu.adp.widget.ListView.u> bnr;
-    private ArrayList<com.baidu.adp.widget.ListView.u> bns;
-    private final com.baidu.adp.framework.listener.a bnt;
+    public boolean azx;
+    private FrsGoodActivity bnM;
+    public boolean bsm;
+    public int bsn;
+    private ArrayList<com.baidu.adp.widget.ListView.u> bso;
+    private ArrayList<com.baidu.adp.widget.ListView.u> bsp;
+    private final com.baidu.adp.framework.listener.a bsq;
 
     public w(FrsGoodActivity frsGoodActivity) {
         super(frsGoodActivity.getPageContext());
-        this.ayQ = false;
-        this.bnp = false;
-        this.bnq = 0;
-        this.bnr = new ArrayList<>();
-        this.bns = new ArrayList<>();
-        this.bnt = new x(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.bjc = frsGoodActivity;
+        this.azx = false;
+        this.bsm = false;
+        this.bsn = 0;
+        this.bso = new ArrayList<>();
+        this.bsp = new ArrayList<>();
+        this.bsq = new x(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        this.bnM = frsGoodActivity;
     }
 
     public void registerListener() {
-        registerListener(this.bnt);
+        registerListener(this.bsq);
     }
 
     public void a(long j, List<Long> list, String str, int i) {
         if (j == 0 || list == null || list.size() == 0) {
-            this.bnp = true;
+            this.bsm = true;
             return;
         }
-        String af = af(list);
-        if (!TextUtils.isEmpty(af)) {
+        String aj = aj(list);
+        if (!TextUtils.isEmpty(aj)) {
             LoadMoreRequestMessage loadMoreRequestMessage = new LoadMoreRequestMessage();
             loadMoreRequestMessage.setForumId(j);
-            loadMoreRequestMessage.setThreadIds(af);
+            loadMoreRequestMessage.setThreadIds(aj);
             loadMoreRequestMessage.setNeedAbstract(0);
             loadMoreRequestMessage.setForumName(str);
             loadMoreRequestMessage.setPageNumber(i);
             sendMessage(loadMoreRequestMessage);
-            this.ayQ = true;
+            this.azx = true;
         }
     }
 
-    private String af(List<Long> list) {
+    private String aj(List<Long> list) {
         int i = 30;
         if (list == null || list.size() == 0) {
-            this.bnp = true;
+            this.bsm = true;
             return "";
         }
         StringBuilder sb = new StringBuilder();
         int size = list.size();
         int i2 = 0;
-        if (this.bnq != 0) {
-            if (this.bnq != 1) {
+        if (this.bsn != 0) {
+            if (this.bsn != 1) {
                 return "";
             }
             i2 = 30;
@@ -69,12 +69,12 @@ public class w extends com.baidu.adp.base.e<FrsGoodActivity> {
             i = list.size();
         }
         if (i2 >= list.size()) {
-            this.bnp = true;
+            this.bsm = true;
             return "";
         }
         for (int i3 = i2; i3 < i; i3++) {
             if (i3 == list.size() - 1) {
-                this.bnp = true;
+                this.bsm = true;
             }
             Long l = list.get(i3);
             if (l != null) {
@@ -99,17 +99,17 @@ public class w extends com.baidu.adp.base.e<FrsGoodActivity> {
     }
 
     public void resetData() {
-        this.bnq = 0;
-        this.bnp = false;
-        this.bnr.clear();
-        this.bns.clear();
+        this.bsn = 0;
+        this.bsm = false;
+        this.bso.clear();
+        this.bsp.clear();
     }
 
-    public boolean ag(List<Long> list) {
+    public boolean ak(List<Long> list) {
         if (list != null && list.size() != 0) {
-            return (this.bnq == 2 || this.bnp) ? false : true;
+            return (this.bsn == 2 || this.bsm) ? false : true;
         }
-        this.bnp = true;
+        this.bsm = true;
         return false;
     }
 
@@ -118,36 +118,36 @@ public class w extends com.baidu.adp.base.e<FrsGoodActivity> {
             return null;
         }
         if (z) {
-            this.bnr.clear();
-            this.bns.clear();
+            this.bso.clear();
+            this.bsp.clear();
         }
-        int yh = TbadkCoreApplication.m411getInst().getListItemRule().yh() - this.bnr.size();
+        int yI = TbadkCoreApplication.m411getInst().getListItemRule().yI() - this.bso.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < yh) {
-                this.bnr.add(arrayList.get(i));
+            if (i < yI) {
+                this.bso.add(arrayList.get(i));
             } else {
-                this.bns.add(arrayList.get(i));
+                this.bsp.add(arrayList.get(i));
             }
         }
         ArrayList<com.baidu.adp.widget.ListView.u> arrayList2 = new ArrayList<>();
-        arrayList2.addAll(this.bnr);
-        arrayList2.addAll(this.bns);
+        arrayList2.addAll(this.bso);
+        arrayList2.addAll(this.bsp);
         return arrayList2;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.u> QW() {
+    public ArrayList<com.baidu.adp.widget.ListView.u> SK() {
         int i;
-        int size = this.bns.size() + 30;
-        int yg = TbadkCoreApplication.m411getInst().getListItemRule().yg();
-        if (size > yg && this.bns.size() > (i = size - yg)) {
+        int size = this.bsp.size() + 30;
+        int yH = TbadkCoreApplication.m411getInst().getListItemRule().yH();
+        if (size > yH && this.bsp.size() > (i = size - yH)) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.bns.remove(0);
+                this.bsp.remove(0);
             }
         }
         ArrayList<com.baidu.adp.widget.ListView.u> arrayList = new ArrayList<>();
-        arrayList.addAll(this.bnr);
-        arrayList.addAll(this.bns);
+        arrayList.addAll(this.bso);
+        arrayList.addAll(this.bsp);
         return arrayList;
     }
 }

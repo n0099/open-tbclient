@@ -3,19 +3,19 @@ package com.baidu.tieba.recommendfrs.indicator;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class g implements NoNetworkView.a {
-    final /* synthetic */ ScrollFragmentTabHost dFt;
+    final /* synthetic */ ScrollFragmentTabHost dXs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.dFt = scrollFragmentTabHost;
+        this.dXs = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ay(boolean z) {
+    public void aA(boolean z) {
         a aVar;
         if (z) {
-            aVar = this.dFt.dFm;
-            aVar.hp(true);
+            aVar = this.dXs.dXl;
+            aVar.ic(true);
         }
     }
 }

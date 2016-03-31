@@ -4,15 +4,15 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
 class y implements c.a {
-    final /* synthetic */ x TS;
+    final /* synthetic */ x Ro;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.TS = xVar;
+        this.Ro = xVar;
     }
 
     @Override // com.baidu.tbadk.util.c.a
-    public void ag(boolean z) {
+    public void af(boolean z) {
         if (z) {
             BdBaseService.serviceStartFlag = 2;
         } else {

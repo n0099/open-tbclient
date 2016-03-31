@@ -1,27 +1,53 @@
 package com.baidu.tieba.write.write;
 
+import android.content.Intent;
 import android.view.View;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements View.OnClickListener {
-    private final /* synthetic */ String cXd;
     final /* synthetic */ WriteImageActivity this$0;
-    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(WriteImageActivity writeImageActivity, String str, int i) {
+    public bq(WriteImageActivity writeImageActivity) {
         this.this$0 = writeImageActivity;
-        this.cXd = str;
-        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.this$0.aNo.getVisibility() != 0) {
-            this.this$0.aJB.setImageBitmap(this.this$0.mBitmap);
-            this.this$0.cWY = false;
-            this.this$0.kW(this.cXd);
-            this.this$0.cWU = this.val$id;
+        boolean z;
+        int i;
+        boolean z2;
+        boolean pd;
+        z = this.this$0.diQ;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                if (this.this$0.aQj.getVisibility() != 0) {
+                    z2 = this.this$0.drA;
+                    if (z2 && this.this$0.drt != null && !this.this$0.drt.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        pd = this.this$0.pd(str);
+                        if (pd) {
+                            intent.putExtra("change", true);
+                            intent.putExtra("file_name", str);
+                        } else {
+                            intent.putExtra("change", false);
+                        }
+                    } else {
+                        intent.putExtra("change", false);
+                    }
+                    this.this$0.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.this$0.setResult(0, new Intent());
+            }
+        } else {
+            this.this$0.setResult(0, new Intent());
         }
+        this.this$0.finish();
     }
 }

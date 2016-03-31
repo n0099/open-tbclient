@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
@@ -54,9 +54,9 @@ public class WebViewActivityConfig extends IntentConfig {
     }
 
     public static String addTiebaParams(String str) {
-        if (!aw.isEmpty(str)) {
+        if (!ay.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (aw.isEmpty(Uri.parse(str).getQuery())) {
+                if (ay.isEmpty(Uri.parse(str).getQuery())) {
                     str = String.valueOf(str) + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = String.valueOf(str) + "&_client_version=" + TbConfig.getVersion();

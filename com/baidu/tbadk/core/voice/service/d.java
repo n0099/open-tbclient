@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ MediaService aiP;
+    final /* synthetic */ MediaService ajf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(MediaService mediaService) {
-        this.aiP = mediaService;
+        this.ajf = mediaService;
     }
 
     @Override // java.lang.Runnable
@@ -20,24 +20,24 @@ class d implements Runnable {
         Handler handler2;
         Runnable runnable;
         int i3;
-        handler = this.aiP.mHandler;
+        handler = this.ajf.mHandler;
         if (handler == null) {
             return;
         }
-        hVar = this.aiP.mPlayer;
-        int jB = hVar.jB();
-        i = this.aiP.mCurBeginSecond;
-        int i4 = jB + i;
-        i2 = this.aiP.mElapsedTime;
+        hVar = this.ajf.mPlayer;
+        int jH = hVar.jH();
+        i = this.ajf.mCurBeginSecond;
+        int i4 = jH + i;
+        i2 = this.ajf.mElapsedTime;
         if (i4 != i2) {
-            this.aiP.mElapsedTime = i4;
+            this.ajf.mElapsedTime = i4;
             Intent intent = new Intent("com.baidu.playElapsedTime");
-            i3 = this.aiP.mElapsedTime;
+            i3 = this.ajf.mElapsedTime;
             intent.putExtra("com.baidu.msg.playElapsedTime", i3);
-            this.aiP.sendBroadcast(intent);
+            this.ajf.sendBroadcast(intent);
         }
-        handler2 = this.aiP.mHandler;
-        runnable = this.aiP.mPlayTimeThread;
+        handler2 = this.ajf.mHandler;
+        runnable = this.ajf.mPlayTimeThread;
         handler2.postDelayed(runnable, 100L);
     }
 }

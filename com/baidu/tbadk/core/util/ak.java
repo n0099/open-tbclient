@@ -1,21 +1,7 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ak implements Runnable {
-    final /* synthetic */ aj acB;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.acB = ajVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.sharedPref.b.uO().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.uO().remove("pull_image_num");
-        com.baidu.tbadk.core.sharedPref.b.uO().remove("pullview_background_color_day");
-        com.baidu.tbadk.core.sharedPref.b.uO().remove("pullview_background_color_night");
-        this.acB.vV();
-        this.acB.vQ();
-    }
+public interface ak {
+    ArrayList<aj> getImages();
 }

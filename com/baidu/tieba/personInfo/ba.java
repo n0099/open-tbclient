@@ -11,13 +11,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(f fVar, int i, int i2) {
         super(i, i2);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,7 +26,7 @@ public class ba extends com.baidu.adp.framework.listener.a {
         bf bfVar2;
         bf bfVar3;
         bf bfVar4;
-        com.baidu.tbadk.data.f personPrivate;
+        com.baidu.tbadk.data.g personPrivate;
         bf bfVar5;
         BlackListModel blackListModel;
         bf bfVar6;
@@ -51,9 +51,9 @@ public class ba extends com.baidu.adp.framework.listener.a {
         bf bfVar10;
         if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
             if (responsedMessage.getOrginalMessage() != null) {
-                bfVar9 = this.diG.dbl;
+                bfVar9 = this.this$0.dvN;
                 if (bfVar9.getUniqueId() != null) {
-                    bfVar10 = this.diG.dbl;
+                    bfVar10 = this.this$0.dvN;
                     if (bfVar10.getUniqueId() != responsedMessage.getOrginalMessage().getTag()) {
                         return;
                     }
@@ -61,73 +61,73 @@ public class ba extends com.baidu.adp.framework.listener.a {
             }
             if (responsedMessage instanceof ProfileSocketResponseMessage) {
                 ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                bVar3 = this.diG.aXf;
+                bVar3 = this.this$0.bbO;
                 if (bVar3 != null) {
                     long downSize = profileSocketResponseMessage.getDownSize();
                     long costTime = profileSocketResponseMessage.getCostTime();
-                    bVar4 = this.diG.aXf;
+                    bVar4 = this.this$0.bbO;
                     bVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.diG.aXf = null;
+                    this.this$0.bbO = null;
                 }
                 if (profileSocketResponseMessage.getError() == 0) {
                     responsedMessage.getOrginalMessage();
-                    bfVar8 = this.diG.dbl;
+                    bfVar8 = this.this$0.dvN;
                     bfVar8.a(profileSocketResponseMessage);
                 } else {
-                    this.diG.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.diG.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
-                    biVar3 = this.diG.dhR;
+                    this.this$0.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
+                    biVar3 = this.this$0.dCt;
                     if (biVar3 != null) {
-                        frameLayout4 = this.diG.dhY;
+                        frameLayout4 = this.this$0.dCA;
                         if (frameLayout4 != null) {
-                            biVar4 = this.diG.dhR;
-                            biVar4.Oz();
-                            f fVar = this.diG;
-                            frameLayout5 = this.diG.dhY;
-                            fVar.aK(frameLayout5);
-                            f fVar2 = this.diG;
-                            frameLayout6 = this.diG.dhY;
-                            fVar2.showNetRefreshView(frameLayout6, this.diG.getPageContext().getResources().getString(t.j.neterror), false);
+                            biVar4 = this.this$0.dCt;
+                            biVar4.Qo();
+                            f fVar = this.this$0;
+                            frameLayout5 = this.this$0.dCA;
+                            fVar.aD(frameLayout5);
+                            f fVar2 = this.this$0;
+                            frameLayout6 = this.this$0.dCA;
+                            fVar2.showNetRefreshView(frameLayout6, this.this$0.getPageContext().getResources().getString(t.j.neterror), false);
                         }
                     }
                 }
             }
             if (responsedMessage instanceof ProfileHttpResponseMessage) {
                 ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                bVar = this.diG.aXf;
+                bVar = this.this$0.bbO;
                 if (bVar != null) {
                     long downSize2 = profileHttpResponseMessage.getDownSize();
                     long costTime2 = profileHttpResponseMessage.getCostTime();
-                    bVar2 = this.diG.aXf;
+                    bVar2 = this.this$0.bbO;
                     bVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.diG.aXf = null;
+                    this.this$0.bbO = null;
                 }
                 if (profileHttpResponseMessage.getError() == 0) {
-                    bfVar7 = this.diG.dbl;
+                    bfVar7 = this.this$0.dvN;
                     bfVar7.a(profileHttpResponseMessage);
                 } else {
-                    this.diG.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.diG.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
-                    biVar = this.diG.dhR;
+                    this.this$0.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
+                    biVar = this.this$0.dCt;
                     if (biVar != null) {
-                        frameLayout = this.diG.dhY;
+                        frameLayout = this.this$0.dCA;
                         if (frameLayout != null) {
-                            biVar2 = this.diG.dhR;
-                            biVar2.Oz();
-                            f fVar3 = this.diG;
-                            frameLayout2 = this.diG.dhY;
-                            fVar3.aK(frameLayout2);
-                            f fVar4 = this.diG;
-                            frameLayout3 = this.diG.dhY;
-                            fVar4.showNetRefreshView(frameLayout3, this.diG.getPageContext().getResources().getString(t.j.neterror), false);
+                            biVar2 = this.this$0.dCt;
+                            biVar2.Qo();
+                            f fVar3 = this.this$0;
+                            frameLayout2 = this.this$0.dCA;
+                            fVar3.aD(frameLayout2);
+                            f fVar4 = this.this$0;
+                            frameLayout3 = this.this$0.dCA;
+                            fVar4.showNetRefreshView(frameLayout3, this.this$0.getPageContext().getResources().getString(t.j.neterror), false);
                         }
                     }
                 }
             }
-            bfVar = this.diG.dbl;
+            bfVar = this.this$0.dvN;
             if (bfVar != null) {
-                bfVar5 = this.diG.dbl;
+                bfVar5 = this.this$0.dvN;
                 if (bfVar5.getUserData() != null) {
-                    blackListModel = this.diG.dhS;
-                    bfVar6 = this.diG.dbl;
+                    blackListModel = this.this$0.dCu;
+                    bfVar6 = this.this$0.dvN;
                     if (bfVar6.getUserData().isMask()) {
                         i = 1;
                     } else {
@@ -136,17 +136,17 @@ public class ba extends com.baidu.adp.framework.listener.a {
                     blackListModel.setMaskType(i);
                 }
             }
-            bfVar2 = this.diG.dbl;
+            bfVar2 = this.this$0.dvN;
             if (bfVar2 != null) {
-                bfVar3 = this.diG.dbl;
+                bfVar3 = this.this$0.dvN;
                 if (bfVar3.getIsSelf()) {
-                    bfVar4 = this.diG.dbl;
+                    bfVar4 = this.this$0.dvN;
                     UserData userData = bfVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
-                        com.baidu.tbadk.core.a.h.r(5, personPrivate.Cf());
-                        com.baidu.tbadk.core.a.h.r(3, personPrivate.Cd());
-                        com.baidu.tbadk.core.a.h.r(4, personPrivate.Ce());
-                        com.baidu.tbadk.core.a.h.r(2, personPrivate.Cc());
+                        com.baidu.tbadk.core.a.h.n(5, personPrivate.CK());
+                        com.baidu.tbadk.core.a.h.n(3, personPrivate.CI());
+                        com.baidu.tbadk.core.a.h.n(4, personPrivate.CJ());
+                        com.baidu.tbadk.core.a.h.n(2, personPrivate.CH());
                     }
                 }
             }

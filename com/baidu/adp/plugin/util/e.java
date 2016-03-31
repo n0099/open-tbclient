@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.util;
 
-import com.baidu.adp.plugin.a;
+import com.baidu.adp.plugin.Plugin;
 /* loaded from: classes.dex */
 public interface e {
-    void a(a.b bVar, String str);
+    void a(Plugin.b bVar, String str);
 }
