@@ -5,17 +5,17 @@ import android.widget.ScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements Runnable {
-    final /* synthetic */ PersonChangeActivity cYF;
+    final /* synthetic */ PersonChangeActivity dth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PersonChangeActivity personChangeActivity) {
-        this.cYF = personChangeActivity;
+        this.dth = personChangeActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ScrollView scrollView;
-        scrollView = this.cYF.cYl;
+        scrollView = this.dth.dsN;
         scrollView.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
     }
 }

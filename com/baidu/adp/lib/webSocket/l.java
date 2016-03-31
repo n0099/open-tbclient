@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 
 import com.baidu.adp.lib.webSocket.g;
+import com.baidu.adp.lib.webSocket.m;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l implements g.a {
@@ -9,7 +10,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void l(int i, String str) {
+    public void e(int i, String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -17,11 +18,11 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void F(byte[] bArr) {
+    public void p(byte[] bArr) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void w(byte[] bArr) {
+    public void b(m.a aVar) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -29,7 +30,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void jK() {
+    public void jQ() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

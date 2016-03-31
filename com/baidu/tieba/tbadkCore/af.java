@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends HttpMessageListener {
-    final /* synthetic */ ae dVN;
+    final /* synthetic */ ae eos;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(ae aeVar, int i) {
         super(i);
-        this.dVN = aeVar;
+        this.eos = aeVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,24 +26,24 @@ public class af extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.dVN.dVM;
+                aVar = this.eos.eor;
                 if (aVar != null) {
-                    aVar2 = this.dVN.dVM;
-                    aVar2.y(statusCode, null);
+                    aVar2 = this.eos.eor;
+                    aVar2.q(statusCode, null);
                     return;
                 }
                 return;
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.dVN.dVM;
-                aVar5.gx(praiseResponseMessage.getErrMsg());
+                aVar5 = this.eos.eor;
+                aVar5.gJ(praiseResponseMessage.getErrMsg());
                 return;
             }
-            aVar3 = this.dVN.dVM;
+            aVar3 = this.eos.eor;
             if (aVar3 != null) {
-                aVar4 = this.dVN.dVM;
-                aVar4.y(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                aVar4 = this.eos.eor;
+                aVar4.q(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
             }
         }
     }

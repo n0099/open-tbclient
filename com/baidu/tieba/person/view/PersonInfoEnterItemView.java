@@ -8,17 +8,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.person.data.d;
 import com.baidu.tieba.personInfo.b;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu.tieba.person.a.a {
-    private static int dhA = -1;
-    private TbImageView NM;
-    private TextView apm;
-    private ImageView dhz;
+    private static int dCb = -1;
+    private TbImageView NV;
+    private TextView apE;
+    private ImageView dCa;
 
     public PersonInfoEnterItemView(Context context) {
         this(context, null);
@@ -31,76 +31,76 @@ public class PersonInfoEnterItemView extends RelativeLayout implements com.baidu
     }
 
     private void init() {
-        this.NM = (TbImageView) findViewById(t.g.icon);
-        this.apm = (TextView) findViewById(t.g.title);
-        this.dhz = (ImageView) findViewById(t.g.red_tip);
-        this.NM.setDefaultBgResource(0);
+        this.NV = (TbImageView) findViewById(t.g.icon);
+        this.apE = (TextView) findViewById(t.g.title);
+        this.dCa = (ImageView) findViewById(t.g.red_tip);
+        this.NV.setDefaultBgResource(0);
     }
 
     public void setTitle(String str) {
-        if (this.apm != null) {
-            this.apm.setText(str);
+        if (this.apE != null) {
+            this.apE.setText(str);
         }
     }
 
-    public void fX(boolean z) {
-        if (this.dhz != null) {
+    public void gK(boolean z) {
+        if (this.dCa != null) {
             if (z) {
-                this.dhz.setVisibility(0);
+                this.dCa.setVisibility(0);
             } else {
-                this.dhz.setVisibility(8);
+                this.dCa.setVisibility(8);
             }
         }
     }
 
     public TbImageView getIcon() {
-        return this.NM;
+        return this.NV;
     }
 
     public TextView getTitle() {
-        return this.apm;
+        return this.apE;
     }
 
     public void setIcon(int i) {
-        ar.c(this.NM, i);
+        at.c(this.NV, i);
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
-        ar.k(this.NM, i);
+        at.k(this.NV, i);
     }
 
     public void a(d dVar, int i, b bVar) {
-        dhA = i;
+        dCb = i;
         if (dVar == null) {
             setVisibility(8);
         } else {
             setVisibility(0);
-            this.apm.setText(dVar.dbH);
-            ar.b(this.apm, t.d.cp_cont_f, 1);
-            ar.c(this.NM, dVar.dbG);
-            ar.c(this.dhz, t.f.icon_news_down_bar_one);
+            this.apE.setText(dVar.dwk);
+            at.b(this.apE, t.d.cp_cont_f, 1);
+            at.c(this.NV, dVar.dwj);
+            at.c(this.dCa, t.f.icon_news_down_bar_one);
         }
         setOnClickListener(new a(this, bVar, dVar));
     }
 
     public void f(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.i.a.a(tbPageContext, this);
-        ar.b(this.apm, t.d.cp_cont_f, 1);
-        ar.c(this.dhz, t.f.icon_news_down_bar_one);
+        at.b(this.apE, t.d.cp_cont_f, 1);
+        at.c(this.dCa, t.f.icon_news_down_bar_one);
         setBackgroundResource(t.f.bg_icon_mine_selector);
     }
 
     public int getRedTipType() {
-        return dhA;
+        return dCb;
     }
 
     @Override // com.baidu.tieba.person.a.a
     public void setRedTipShow(boolean z) {
-        fX(z);
+        gK(z);
     }
 
     @Override // com.baidu.tieba.person.a.a
-    public void e(boolean z, int i) {
+    public void g(boolean z, int i) {
     }
 }

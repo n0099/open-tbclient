@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ c eqP;
+    final /* synthetic */ c eKJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.eqP = cVar;
+        this.eKJ = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         WriteVoteActivity writeVoteActivity;
         EditText editText;
-        writeVoteActivity = this.eqP.eqM;
+        writeVoteActivity = this.eKJ.eKG;
         Activity pageActivity = writeVoteActivity.getPageContext().getPageActivity();
-        editText = this.eqP.eqL;
+        editText = this.eKJ.eKF;
         com.baidu.adp.lib.util.k.c(pageActivity, editText);
         aVar.dismiss();
     }

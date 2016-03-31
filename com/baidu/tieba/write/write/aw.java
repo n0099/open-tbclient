@@ -1,30 +1,39 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.location.d;
 /* loaded from: classes.dex */
-public class aw implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity ets;
+class aw implements d.a {
+    final /* synthetic */ WriteActivity eNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.ets = writeActivity;
+        this.eNd = writeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.editortools.k kVar;
-        EditText editText;
-        if (motionEvent.getAction() == 1) {
-            view.requestFocus();
-            kVar = this.ets.ath;
-            kVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-            editText = this.ets.epv;
-            editText.requestFocus();
-            return false;
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void Ek() {
+        this.eNd.showToast(t.j.no_network_guide);
+        this.eNd.a(0, true, (String) null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void fC(String str) {
+        WriteActivity writeActivity = this.eNd;
+        if (StringUtils.isNull(str)) {
+            str = this.eNd.getPageContext().getString(t.j.location_fail);
         }
-        return false;
+        writeActivity.showToast(str);
+        this.eNd.a(0, true, (String) null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
+        if (aVar == null || StringUtils.isNull(aVar.aTZ())) {
+            fC(null);
+        } else {
+            this.eNd.a(2, true, aVar.aTZ());
+        }
     }
 }

@@ -1,43 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.media.MediaPlayer;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends ImageSpan {
-    private WeakReference<Drawable> FY;
-    private int offset;
+public class y implements MediaPlayer.OnVideoSizeChangedListener {
+    final /* synthetic */ TextureVideoView ahp;
 
-    public y(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(TextureVideoView textureVideoView) {
+        this.ahp = textureVideoView;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mw = mw();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - mw.getBounds().height()) / 2) + this.offset);
-        mw.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable mw() {
-        WeakReference<Drawable> weakReference = this.FY;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+        int i3;
+        int i4;
+        try {
+            this.ahp.agS = mediaPlayer.getVideoWidth();
+            this.ahp.agT = mediaPlayer.getVideoHeight();
+            i3 = this.ahp.agS;
+            if (i3 != 0) {
+                i4 = this.ahp.agT;
+                if (i4 != 0) {
+                    this.ahp.requestLayout();
+                }
+            }
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.FY = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
     }
 }

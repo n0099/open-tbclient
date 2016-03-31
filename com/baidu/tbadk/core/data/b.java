@@ -8,26 +8,26 @@ import tbclient.FrsPage.Adkiller;
 import tbclient.FrsPage.AdkillerAd;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId Ue = BdUniqueId.gen();
-    private int Uf;
-    private int Ug;
-    private String Uh;
-    private int Ui;
-    private List<a> Uj;
+    public static final BdUniqueId RJ = BdUniqueId.gen();
+    private int RK;
+    private int RL;
+    private String RM;
+    private int RO;
+    private List<a> RP;
 
     public void a(Adkiller adkiller) {
         if (adkiller != null) {
             try {
-                this.Uf = adkiller.show_hint.intValue();
-                this.Ug = adkiller.show_ad.intValue();
-                this.Uh = adkiller.hint_url;
-                this.Ui = adkiller.ad_left_num.intValue();
+                this.RK = adkiller.show_hint.intValue();
+                this.RL = adkiller.show_ad.intValue();
+                this.RM = adkiller.hint_url;
+                this.RO = adkiller.ad_left_num.intValue();
                 if (adkiller.ad_list != null) {
-                    this.Uj = new ArrayList();
+                    this.RP = new ArrayList();
                     for (AdkillerAd adkillerAd : adkiller.ad_list) {
                         a aVar = new a();
                         aVar.a(adkillerAd);
-                        this.Uj.add(aVar);
+                        this.RP.add(aVar);
                     }
                 }
             } catch (Exception e) {
@@ -38,29 +38,29 @@ public class b implements com.baidu.adp.widget.ListView.u {
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return Ue;
+        return RJ;
     }
 
-    public String rH() {
-        return this.Uh;
+    public String rf() {
+        return this.RM;
     }
 
-    public int rI() {
-        return this.Ui;
+    public int rg() {
+        return this.RO;
     }
 
-    public void bE(int i) {
-        this.Ui = i;
+    public void bD(int i) {
+        this.RO = i;
     }
 
-    public List<a> rJ() {
-        return this.Uj;
+    public List<a> rh() {
+        return this.RP;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        private int Uk;
-        private c Ul;
+        private int RQ;
+        private c RR;
         private String tag;
         private String url;
 
@@ -72,12 +72,12 @@ public class b implements com.baidu.adp.widget.ListView.u {
             return this.url;
         }
 
-        public int rK() {
-            return this.Uk;
+        public int ri() {
+            return this.RQ;
         }
 
-        public c rL() {
-            return this.Ul;
+        public c rj() {
+            return this.RR;
         }
 
         public void a(AdkillerAd adkillerAd) {
@@ -85,9 +85,9 @@ public class b implements com.baidu.adp.widget.ListView.u {
                 try {
                     this.tag = adkillerAd.tag;
                     this.url = adkillerAd.game_url;
-                    this.Uk = adkillerAd.can_close.intValue();
-                    this.Ul = new c();
-                    this.Ul.a(adkillerAd.app);
+                    this.RQ = adkillerAd.can_close.intValue();
+                    this.RR = new c();
+                    this.RR.a(adkillerAd.app);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }

@@ -8,13 +8,13 @@ import com.baidu.tbadk.download.DownloadMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ AppDownloadView aeZ;
+    final /* synthetic */ AppDownloadView aeu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AppDownloadView appDownloadView, int i) {
         super(i);
-        this.aeZ = appDownloadView;
+        this.aeu = appDownloadView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ class a extends CustomMessageListener {
         DownloadData downloadData3;
         DownloadData downloadData4;
         if (customResponsedMessage instanceof DownloadMessage) {
-            downloadData = this.aeZ.aeV;
+            downloadData = this.aeu.aeq;
             if (downloadData != null) {
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i = 0;
@@ -41,16 +41,16 @@ class a extends CustomMessageListener {
                         break;
                     }
                     downloadData2 = data.get(i2);
-                    downloadData3 = this.aeZ.aeV;
+                    downloadData3 = this.aeu.aeq;
                     if (!TextUtils.isEmpty(downloadData3.getId())) {
-                        downloadData4 = this.aeZ.aeV;
+                        downloadData4 = this.aeu.aeq;
                     } else {
                         i = i2 + 1;
                     }
                 }
                 downloadData2 = null;
                 if (downloadData2 != null) {
-                    this.aeZ.cT((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
+                    this.aeu.cW((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
                 }
             }
         }

@@ -18,7 +18,7 @@ public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<c> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
-    private com.baidu.tieba.card.a.u recomTopicData;
+    private com.baidu.tieba.card.a.x recomTopicData;
 
     public ArrayList<c> getAllAdvertList() {
         return this.advertAppList;
@@ -31,8 +31,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).Ut)) {
-                sb.append(this.advertAppList.get(i).Ut);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).RZ)) {
+                sb.append(this.advertAppList.get(i).RZ);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -75,7 +75,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            Collections.sort(this.advertAppList, new f(this));
+            Collections.sort(this.advertAppList, new h(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -87,14 +87,14 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                z zVar = new z();
-                zVar.a(bannerList.hot_topic);
-                this.recomTopicData = zVar.sJ();
+                aj ajVar = new aj();
+                ajVar.a(bannerList.hot_topic);
+                this.recomTopicData = ajVar.sE();
             }
         }
     }
 
-    public com.baidu.tieba.card.a.u getRecomTopicData() {
+    public com.baidu.tieba.card.a.x getRecomTopicData() {
         return this.recomTopicData;
     }
 

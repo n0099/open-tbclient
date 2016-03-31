@@ -16,14 +16,9 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        y yVar;
-        y yVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001378) {
-            yVar = this.this$0.eaD;
-            if (yVar.aOn().getCurrentTabType() == 1) {
-                yVar2 = this.this$0.eaD;
-                yVar2.id(true);
-            }
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
+            return;
         }
+        this.this$0.aVc();
     }
 }

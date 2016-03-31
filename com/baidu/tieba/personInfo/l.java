@@ -8,13 +8,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,31 +27,31 @@ public class l extends CustomMessageListener {
         bf bfVar3;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            bfVar = this.diG.dbl;
+            bfVar = this.this$0.dvN;
             UserData userData = bfVar.getUserData();
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && userData != null && updateAttentionMessage.getData().toUid.equals(userData.getUserId())) {
-                if (updateAttentionMessage.getData().CF) {
+                if (updateAttentionMessage.getData().CK) {
                     if (userData.getHave_attention() != 1) {
-                        this.diG.showToast(t.j.like_success);
+                        this.this$0.showToast(t.j.like_success);
                         userData.setHave_attention(1);
                         userData.setFansNum(userData.getFansNum() + 1);
                     } else if (userData.getHave_attention() == 1) {
                         userData.setHave_attention(2);
                         userData.setFansNum(Math.max(0, userData.getFansNum() - 1));
-                        this.diG.showToast(t.j.unlike_success);
+                        this.this$0.showToast(t.j.unlike_success);
                     }
-                    bfVar2 = this.diG.dbl;
+                    bfVar2 = this.this$0.dvN;
                     if (bfVar2 != null) {
-                        bfVar3 = this.diG.dbl;
-                        bfVar3.avX();
+                        bfVar3 = this.this$0.dvN;
+                        bfVar3.aDC();
                     }
-                    biVar = this.diG.dhR;
+                    biVar = this.this$0.dCt;
                     if (biVar != null) {
-                        biVar2 = this.diG.dhR;
-                        biVar2.awh();
+                        biVar2 = this.this$0.dCt;
+                        biVar2.aDM();
                     }
                 } else if (updateAttentionMessage.getData().errorString != null) {
-                    this.diG.showToast(updateAttentionMessage.getData().errorString);
+                    this.this$0.showToast(updateAttentionMessage.getData().errorString);
                 }
             }
         }

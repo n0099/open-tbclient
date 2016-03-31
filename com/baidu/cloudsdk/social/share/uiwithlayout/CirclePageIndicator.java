@@ -33,10 +33,10 @@ public class CirclePageIndicator extends View implements PageIndicator {
         this.j = new Paint(1);
         this.k = new Paint(1);
         this.l = new Paint(1);
-        this.d = getResources().getDimension(p.e(context, "default_circle_indicator_radius"));
+        this.d = getResources().getDimension(p.j(context, "default_circle_indicator_radius"));
         this.j.setStyle(Paint.Style.STROKE);
         this.j.setColor(Color.parseColor(c(context)));
-        this.j.setStrokeWidth(getResources().getDimension(p.e(context, "default_circle_indicator_stroke_width")));
+        this.j.setStrokeWidth(getResources().getDimension(p.j(context, "default_circle_indicator_stroke_width")));
         this.k.setStyle(Paint.Style.FILL);
         this.k.setColor(Color.parseColor(b(context)));
         this.l.setStyle(Paint.Style.FILL);

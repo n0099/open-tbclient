@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CommonVcodeActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Anti;
@@ -24,6 +25,7 @@ public class AntiData implements Serializable {
     private String vcode_md5;
     private String vcode_pic_url;
     private int vcode_stat;
+    private String video_message;
     private String voice_message;
     private boolean has_chance = true;
     private int days_tofree = 0;
@@ -150,6 +152,10 @@ public class AntiData implements Serializable {
         this.block_forum_name = str;
     }
 
+    public String getVideo_message() {
+        return this.video_message;
+    }
+
     public void parserProtobuf(Anti anti) {
         if (anti != null) {
             this.ifpost = anti.ifpost.intValue();
@@ -172,6 +178,7 @@ public class AntiData implements Serializable {
             this.has_chance = anti.has_chance.intValue() == 1;
             this.ifaddition = anti.ifaddition.intValue();
             this.poll_message = anti.poll_message;
+            this.video_message = anti.video_message;
         }
     }
 
@@ -194,8 +201,8 @@ public class AntiData implements Serializable {
                     TbadkCoreApplication.m411getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
-                this.vcode_md5 = jSONObject.optString("vcode_md5");
-                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.vcode_md5 = jSONObject.optString(CommonVcodeActivityConfig.VCODE_MD5);
+                this.vcode_pic_url = jSONObject.optString(CommonVcodeActivityConfig.VCODE_PIC_URL);
                 this.forbid_info = jSONObject.optString("forbid_info");
                 this.ifvoice = jSONObject.optInt("ifvoice", 1);
                 this.voice_message = jSONObject.optString("voice_message");

@@ -15,7 +15,7 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void x(String str, String str2, String str3) {
+    public void z(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
         httpMessage.addParam("video_md5", str);
         httpMessage.addParam("thread_id", str2);

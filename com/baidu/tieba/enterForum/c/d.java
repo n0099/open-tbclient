@@ -8,36 +8,36 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements o.a<byte[]> {
-    final /* synthetic */ c aXk;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aXl;
+    final /* synthetic */ c bbT;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.b bbU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aXk = cVar;
-        this.aXl = bVar;
+        this.bbT = cVar;
+        this.bbU = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: j */
-    public void h(String str, byte[] bArr) {
+    /* renamed from: i */
+    public void g(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.aXl.aq(true);
+            this.bbU.as(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.aXl.a(forumRecommendResIdl.data);
-                    this.aXl.bW(true);
+                    this.bbU.a(forumRecommendResIdl.data);
+                    this.bbU.ci(true);
                 }
             } catch (Exception e) {
-                this.aXl.aq(false);
+                this.bbU.as(false);
             }
-            if (this.aXl.isSuccess() && !this.aXl.LK()) {
-                this.aXl.LJ().LO();
+            if (this.bbU.isSuccess() && !this.bbU.Ny()) {
+                this.bbU.Nx().NC();
             }
-            handler = this.aXk.mUIHandler;
-            handler.post(new e(this, this.aXl));
+            handler = this.bbT.mUIHandler;
+            handler.post(new e(this, this.bbU));
         }
     }
 }

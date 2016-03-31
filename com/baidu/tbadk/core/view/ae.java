@@ -1,51 +1,49 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tbadk.data.IconData;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ae implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout ahP;
+class ae extends CustomMessageListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ahB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(UserIconLayout userIconLayout) {
-        this.ahP = userIconLayout;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i) {
+        super(i);
+        this.ahB = threadCommentAndPraiseInfoLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        com.baidu.tbadk.core.data.ah ahVar;
-        com.baidu.tbadk.core.data.ah ahVar2;
-        com.baidu.tbadk.core.data.ah ahVar3;
-        com.baidu.tbadk.core.data.ah ahVar4;
-        com.baidu.tbadk.core.data.ah ahVar5;
-        Context context2;
-        Context context3;
-        context = this.ahP.mContext;
-        if (bi.ah(context)) {
-            ahVar = this.ahP.afg;
-            if (ahVar != null) {
-                ahVar2 = this.ahP.afg;
-                if (ahVar2.getAuthor() != null) {
-                    ahVar3 = this.ahP.afg;
-                    if (ahVar3.getAuthor().getTShowInfoNew() != null) {
-                        ahVar4 = this.ahP.afg;
-                        ArrayList<IconData> tShowInfoNew = ahVar4.getAuthor().getTShowInfoNew();
-                        if (com.baidu.tbadk.core.util.x.o(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.x.b(tShowInfoNew, 0) != null) {
-                            ahVar5 = this.ahP.afg;
-                            String url = ahVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
-                            if (url != null) {
-                                context2 = this.ahP.mContext;
-                                if (com.baidu.adp.base.l.C(context2) instanceof TbPageContext) {
-                                    be wt = be.wt();
-                                    context3 = this.ahP.mContext;
-                                    wt.c((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{url});
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.core.data.as asVar;
+        com.baidu.tbadk.core.data.as asVar2;
+        com.baidu.tbadk.core.data.as asVar3;
+        com.baidu.tbadk.core.data.as asVar4;
+        com.baidu.tbadk.core.data.as asVar5;
+        com.baidu.tbadk.core.data.as asVar6;
+        com.baidu.tbadk.core.data.as asVar7;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.as)) {
+            asVar = this.ahB.aeC;
+            if (asVar != null) {
+                asVar2 = this.ahB.aeC;
+                if (asVar2 != null) {
+                    asVar3 = this.ahB.aeC;
+                    if (asVar3.getId() != null) {
+                        com.baidu.tbadk.core.data.as asVar8 = (com.baidu.tbadk.core.data.as) customResponsedMessage.getData();
+                        if (!TextUtils.isEmpty(asVar8.getId()) && asVar8.getPraise() != null) {
+                            String id = asVar8.getId();
+                            asVar4 = this.ahB.aeC;
+                            if (id.equals(asVar4.getId())) {
+                                asVar5 = this.ahB.aeC;
+                                if (asVar5.getPraise() != null) {
+                                    asVar7 = this.ahB.aeC;
+                                    asVar7.getPraise().setNum(asVar8.getPraise().getNum());
                                 }
+                                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.ahB;
+                                asVar6 = this.ahB.aeC;
+                                threadCommentAndPraiseInfoLayout.a(asVar6);
                             }
                         }
                     }

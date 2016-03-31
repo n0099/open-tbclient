@@ -14,10 +14,10 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class v {
-    public static final Charset zj = Charset.forName("UTF-8");
-    private static final byte[] zk = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset zA = Charset.forName("UTF-8");
+    private static final byte[] zB = {-92, 11, -56, 52, -42, -107, -13, 19};
 
-    public static PublicKey D(byte[] bArr) {
+    public static PublicKey n(byte[] bArr) {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
@@ -33,13 +33,13 @@ public class v {
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey aX(String str) {
+    public static SecretKey ba(String str) {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, zk, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, zB, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) {
@@ -54,7 +54,7 @@ public class v {
         return cipher.doFinal(bArr, i, i2);
     }
 
-    public static String ar(int i) {
+    public static String aq(int i) {
         String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
         if (bigInteger.length() > i) {
             return bigInteger.substring(0, bigInteger.length());

@@ -1,34 +1,49 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class n extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bgz;
+class n implements ae.a {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bgz = frsActivity;
+    public n(FrsActivity frsActivity) {
+        this.blk = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (updateAttentionMessage.getData().CF) {
-                    if (updateAttentionMessage.isAttention()) {
-                        this.bgz.showToast(t.j.like_success);
-                    }
-                    this.bgz.a(updateAttentionMessage);
-                } else if (updateAttentionMessage.getData().errorString != null) {
-                    this.bgz.showToast(updateAttentionMessage.getData().errorString);
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void gJ(String str) {
+        boolean z;
+        com.baidu.tbadk.core.data.as asVar;
+        com.baidu.tbadk.core.data.as asVar2;
+        int i = 1;
+        z = this.blk.biT;
+        if (z) {
+            asVar = this.blk.bjZ;
+            if (asVar != null) {
+                asVar2 = this.blk.bjZ;
+                if (asVar2.getPraise().getIsLike() == 1) {
+                    i = 0;
                 }
+            }
+            this.blk.gB(i);
+        }
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void q(int i, String str) {
+        boolean z;
+        z = this.blk.biT;
+        if (z && !TextUtils.isEmpty(str)) {
+            if (AntiHelper.pB(i)) {
+                AntiHelper.O(this.blk.getPageContext().getPageActivity(), str);
+            } else {
+                this.blk.showToast(str);
             }
         }
     }

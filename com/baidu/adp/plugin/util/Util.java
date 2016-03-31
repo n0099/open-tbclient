@@ -25,7 +25,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (FD) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (FJ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -36,7 +36,7 @@ public final class Util {
         }
     }
 
-    public static boolean ml() {
+    public static boolean md() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -48,7 +48,7 @@ public final class Util {
         }
     }
 
-    public static h g(InputStream inputStream) {
+    public static i e(InputStream inputStream) {
         if (inputStream == null) {
             return null;
         }
@@ -58,9 +58,9 @@ public final class Util {
         }
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
-        h hVar = new h();
-        hVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
-        return hVar;
+        i iVar = new i();
+        iVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        return iVar;
     }
 
     private static int d(byte[] bArr, int i) {
@@ -71,16 +71,16 @@ public final class Util {
     }
 
     public static final boolean k(long j) {
-        long mn = mn();
+        long mf = mf();
         if (j <= 0) {
-            return mn <= 0 || mn >= 31457280;
+            return mf <= 0 || mf >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < mn;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mf;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
@@ -152,9 +152,9 @@ public final class Util {
         }
     }
 
-    public static void i(File file) {
+    public static void h(File file) {
         if (file != null && file.exists()) {
-            g(file);
+            f(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -163,14 +163,14 @@ public final class Util {
         }
     }
 
-    public static void g(File file) {
+    public static void f(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            h(file2);
+                            g(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -182,10 +182,10 @@ public final class Util {
         }
     }
 
-    public static void h(File file) {
+    public static void g(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                i(file);
+                h(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -214,15 +214,15 @@ public final class Util {
         }
     }
 
-    public static File bQ(String str) {
-        PluginSetting bs = PluginPackageManager.lD().bs(str);
-        if (bs == null || bs.apkPath == null || bs.apkPath.length() <= ".apk".length()) {
+    public static File bO(String str) {
+        PluginSetting bq = PluginPackageManager.ls().bq(str);
+        if (bq == null || bq.apkPath == null || bq.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bs.apkPath.substring(0, bs.apkPath.length() - ".apk".length()));
+        return new File(bq.apkPath.substring(0, bq.apkPath.length() - ".apk".length()));
     }
 
-    public static File mm() {
+    public static File me() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -297,7 +297,14 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("is_patch", false);
     }
 
-    public static VersionCompare M(String str, String str2) {
+    public static String g(ApplicationInfo applicationInfo) {
+        if (applicationInfo == null || applicationInfo.metaData == null) {
+            return null;
+        }
+        return applicationInfo.metaData.getString("replace_method_classes", null);
+    }
+
+    public static VersionCompare L(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -338,7 +345,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bR(String str) {
+    public static String bP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -349,10 +356,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return mm() + File.separator + e(pluginSetting);
+        return me() + File.separator + e(pluginSetting);
     }
 
-    public static long mn() {
+    public static long mf() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

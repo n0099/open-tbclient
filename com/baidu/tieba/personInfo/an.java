@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends CustomMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public an(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class an extends CustomMessageListener {
         if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
             return;
         }
-        this.diG.a((PersonChangeData) customResponsedMessage.getData());
+        this.this$0.a((PersonChangeData) customResponsedMessage.getData());
     }
 }

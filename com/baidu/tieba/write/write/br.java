@@ -1,31 +1,69 @@
 package com.baidu.tieba.write.write;
 
+import android.content.Intent;
 import android.view.View;
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements View.OnClickListener {
-    private final /* synthetic */ String cXd;
     final /* synthetic */ WriteImageActivity this$0;
-    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(WriteImageActivity writeImageActivity, String str, int i) {
+    public br(WriteImageActivity writeImageActivity) {
         this.this$0 = writeImageActivity;
-        this.cXd = str;
-        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        if (this.this$0.aNo.getVisibility() != 0) {
-            String str2 = this.cXd;
-            str = this.this$0.cWW;
-            if (!str2.equals(str)) {
-                this.this$0.nN(this.cXd);
-                this.this$0.kW(this.cXd);
-                this.this$0.cWU = this.val$id;
+        boolean z;
+        int i;
+        boolean z2;
+        boolean pd;
+        boolean z3;
+        boolean pd2;
+        z = this.this$0.diQ;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
+                this.this$0.setResult(-1, intent);
+            } else {
+                Intent intent2 = new Intent();
+                z2 = this.this$0.drA;
+                if (z2) {
+                    if (this.this$0.drt != null && !this.this$0.drt.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        pd = this.this$0.pd(str);
+                        if (pd) {
+                            intent2.putExtra("change", true);
+                            intent2.putExtra("file_name", str);
+                        } else {
+                            intent2.putExtra("change", false);
+                        }
+                    } else {
+                        intent2.putExtra("change", false);
+                    }
+                } else {
+                    intent2.setData(this.this$0.getIntent().getData());
+                    this.this$0.setResult(-1, intent2);
+                }
+                this.this$0.setResult(-1, intent2);
+            }
+            this.this$0.finish();
+            return;
+        }
+        Intent intent3 = new Intent();
+        z3 = this.this$0.drA;
+        if (z3 && this.this$0.drt != null && !this.this$0.drt.isRecycled()) {
+            String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+            pd2 = this.this$0.pd(str2);
+            if (pd2) {
+                intent3.putExtra("filename", str2);
             }
         }
+        this.this$0.setResult(-1, intent3);
+        this.this$0.finish();
     }
 }

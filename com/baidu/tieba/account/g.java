@@ -9,16 +9,16 @@ import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements j.a {
-    final /* synthetic */ AccountActivity aIQ;
+    final /* synthetic */ AccountActivity aLN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AccountActivity accountActivity) {
-        this.aIQ = accountActivity;
+        this.aLN = accountActivity;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public void i(AccountData accountData) {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
-        this.aIQ.k(accountData);
+        this.aLN.k(accountData);
     }
 }

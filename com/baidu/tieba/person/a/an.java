@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends CustomMessageListener {
-    final /* synthetic */ al dbz;
+    final /* synthetic */ al dwc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public an(al alVar, int i) {
         super(i);
-        this.dbz = alVar;
+        this.dwc = alVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,18 +22,18 @@ public class an extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
             if (responseUnreadPointNum.getNum() > 0) {
-                this.dbz.dbr = true;
-                i = this.dbz.dbq;
+                this.dwc.dvT = true;
+                i = this.dwc.dvS;
                 if (i < responseUnreadPointNum.getNum()) {
-                    this.dbz.dbq = responseUnreadPointNum.getNum();
-                    this.dbz.f(true, 3);
-                    this.dbz.auf();
+                    this.dwc.dvS = responseUnreadPointNum.getNum();
+                    this.dwc.h(true, 3);
+                    this.dwc.aBL();
                 }
             } else {
-                this.dbz.dbr = false;
-                this.dbz.dbq = 0;
+                this.dwc.dvT = false;
+                this.dwc.dvS = 0;
             }
-            this.dbz.aud();
+            this.dwc.aBJ();
         }
     }
 }

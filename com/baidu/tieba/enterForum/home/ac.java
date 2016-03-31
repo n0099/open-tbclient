@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.base.g {
-    final /* synthetic */ i aWN;
+    final /* synthetic */ i bbw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(i iVar) {
-        this.aWN = iVar;
+        this.bbw = iVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -22,20 +22,20 @@ public class ac extends com.baidu.adp.base.g {
         com.baidu.tieba.enterForum.c.c cVar;
         String str;
         com.baidu.tieba.tbadkCore.w wVar4;
-        wVar = this.aWN.MS;
-        if (AntiHelper.or(wVar.getErrorCode())) {
-            Activity pageActivity = this.aWN.aKq.getPageContext().getPageActivity();
-            wVar4 = this.aWN.MS;
-            AntiHelper.X(pageActivity, wVar4.getErrorString());
+        wVar = this.bbw.MY;
+        if (AntiHelper.pB(wVar.getErrorCode())) {
+            Activity pageActivity = this.bbw.aNm.getPageContext().getPageActivity();
+            wVar4 = this.bbw.MY;
+            AntiHelper.O(pageActivity, wVar4.getErrorString());
         } else if (obj != null) {
-            cVar = this.aWN.aWt;
-            str = this.aWN.aWv;
-            cVar.cb(!StringUtils.isNull(str));
+            cVar = this.bbw.bbc;
+            str = this.bbw.bbe;
+            cVar.cn(!StringUtils.isNull(str));
         } else {
-            wVar2 = this.aWN.MS;
+            wVar2 = this.bbw.MY;
             if (!StringUtils.isNull(wVar2.getErrorString())) {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                wVar3 = this.aWN.MS;
+                wVar3 = this.bbw.MY;
                 com.baidu.adp.lib.util.k.showToast(m411getInst, wVar3.getErrorString());
             }
         }

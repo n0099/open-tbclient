@@ -5,29 +5,27 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.a.m;
-import com.baidu.tieba.card.ae;
-import com.baidu.tieba.card.ax;
-import com.baidu.tieba.card.w;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.card.bc;
+import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommendfrs.data.c, a> {
-    private TbPageContext<?> Nw;
-    private BdUniqueId aPF;
-    private w dGj;
+    private TbPageContext<?> ND;
+    private BdUniqueId aSu;
+    private com.baidu.tieba.card.y dXV;
 
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.recommendfrs.data.f.dEK);
-        this.Nw = tbPageContext;
-        this.dGj = new w(this.Nw);
-        this.dGj.i("c10714", "c10739", "c10712", "c10738");
-        this.dGj.setFrom("home");
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.recommendfrs.data.f.dWH);
+        this.ND = tbPageContext;
+        this.dXV = new com.baidu.tieba.card.y(this.ND);
+        this.dXV.i("c10714", "c10739", "c10712", "c10738");
+        this.dXV.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aPF = bdUniqueId;
-        if (this.dGj != null) {
-            this.dGj.i(this.aPF);
+        this.aSu = bdUniqueId;
+        if (this.dXV != null) {
+            this.dXV.i(this.aSu);
         }
     }
 
@@ -35,41 +33,41 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendfrs.data.c cVar, a aVar) {
-        if (aVar.dGh == null) {
+        if (aVar.dXT == null) {
             return null;
         }
-        aVar.dGh.a((m) cVar);
-        ax.Kc().a(new au("c10714").aa("obj_param3", ae.JU()));
+        aVar.dXT.a((com.baidu.tieba.card.a.n) cVar);
+        cf.Lx().a(new aw("c10714").ac("obj_param3", bc.Lr()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aT */
+    /* renamed from: bd */
     public a b(ViewGroup viewGroup) {
-        if (this.dGj == null) {
-            this.dGj = new w(this.Nw);
-            this.dGj.i(this.aPF);
-            this.dGj.i("c10714", "c10739", "c10712", "c10738");
+        if (this.dXV == null) {
+            this.dXV = new com.baidu.tieba.card.y(this.ND);
+            this.dXV.i(this.aSu);
+            this.dXV.i("c10714", "c10739", "c10712", "c10738");
         }
-        return new a(this.dGj);
+        return new a(this.dXV);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dGj != null) {
-            this.dGj.d(this.Nw, i);
+        if (this.dXV != null) {
+            this.dXV.d(this.ND, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public w dGh;
+        public com.baidu.tieba.card.y dXT;
 
-        public a(w wVar) {
-            super(wVar.getView());
-            this.dGh = wVar;
+        public a(com.baidu.tieba.card.y yVar) {
+            super(yVar.getView());
+            this.dXT = yVar;
         }
     }
 }

@@ -1,28 +1,82 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.HashMap;
+import tbclient.ReplyMe.DataReq;
+import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
-public class aw extends aj implements com.baidu.tbadk.mvc.b.c {
-    @Override // com.baidu.tbadk.mvc.b.b
-    public boolean Q(byte[] bArr) {
-        try {
-            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+public class aw implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
+    private int cya;
+    private String ids;
+    private int mPn = 1;
+
+    public void d(FeedData feedData) {
+        if (feedData != null) {
+            this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] EA() {
-        return null;
+    public void toNextPage() {
+        this.mPn++;
+        this.cya = 4;
+    }
+
+    public void reset() {
+        this.mPn = 1;
+        this.cya = 1;
+        this.ids = null;
+    }
+
+    public int getUpdateType() {
+        return this.cya;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, Object> oQ() {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+        hashMap.put("pn", String.valueOf(this.mPn));
+        if (this.cya == 4 && !TextUtils.isEmpty(this.ids)) {
+            hashMap.put("ids", this.ids);
+        }
+        return hashMap;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.k
+    public Object W(boolean z) {
+        try {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.mPn);
+            builder.ids = this.ids;
+            if (z) {
+                com.baidu.tbadk.util.l.a(builder, true);
+            }
+            ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
         return "replyme_cache";
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public String Fo() {
+        return "tb_user_replyme";
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public boolean Fp() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.e
+    public boolean isNeedUid() {
+        return true;
     }
 }

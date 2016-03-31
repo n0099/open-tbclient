@@ -4,12 +4,12 @@ import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.ay;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String cIb = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
+    private static final String dbj = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -22,31 +22,32 @@ public class g {
         new a(str, str2, bVar).execute(new String[0]);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aJW;
-        private String aJX;
-        private WeakReference<b> aKa;
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
+        private String aMS;
+        private String aMT;
+        private WeakReference<b> aMW;
 
         public a(String str, String str2, b bVar) {
-            this.aJW = str;
-            this.aJX = str2;
-            this.aKa = new WeakReference<>(bVar);
+            this.aMS = str;
+            this.aMT = str2;
+            this.aMW = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: z */
+        /* renamed from: B */
         public ForbidTplData doInBackground(String... strArr) {
-            aa aaVar = new aa(g.cIb);
-            aaVar.p("forum_id", this.aJW);
-            aaVar.p("user_id", this.aJX);
-            String uZ = aaVar.uZ();
-            if (aaVar.vB().ww().rl()) {
+            ab abVar = new ab(g.dbj);
+            abVar.p("forum_id", this.aMS);
+            abVar.p("user_id", this.aMT);
+            String vw = abVar.vw();
+            if (abVar.vU().wP().qC()) {
                 try {
-                    return (ForbidTplData) i.objectWithJsonStr(uZ, ForbidTplData.class);
+                    return (ForbidTplData) i.objectWithJsonStr(vw, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -55,8 +56,8 @@ public class g {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = aaVar.vF();
-            forbidTplData2.error.errMsg = aaVar.getErrorString();
+            forbidTplData2.error.errno = abVar.vY();
+            forbidTplData2.error.errMsg = abVar.getErrorString();
             return forbidTplData2;
         }
 
@@ -66,9 +67,9 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            b bVar = this.aKa.get();
+            b bVar = this.aMW.get();
             if (bVar != null) {
-                if (forbidTplData.error.errno == 0 && aw.isEmpty(forbidTplData.error.errMsg)) {
+                if (forbidTplData.error.errno == 0 && ay.isEmpty(forbidTplData.error.errMsg)) {
                     bVar.a(forbidTplData);
                 } else {
                     bVar.b(forbidTplData);

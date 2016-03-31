@@ -6,8 +6,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class BarImageView extends TbClipImageView {
-    private int afa;
-    private int afb;
+    private int aev;
+    private int aew;
 
     public BarImageView(Context context) {
         this(context, null, 0);
@@ -19,8 +19,8 @@ public class BarImageView extends TbClipImageView {
 
     public BarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.afa = t.f.icon_default_ba_120;
-        this.afb = t.d.cp_bg_line_c;
+        this.aev = t.f.transparent_bg;
+        this.aew = t.d.cp_bg_line_e;
         init();
     }
 
@@ -28,7 +28,8 @@ public class BarImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.afa);
-        setDefaultBgResource(this.afb);
+        setDefaultResource(this.aev);
+        setDefaultErrorResource(t.f.icon_default_ba_120);
+        setDefaultBgResource(this.aew);
     }
 }

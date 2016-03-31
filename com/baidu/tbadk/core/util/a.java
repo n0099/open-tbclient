@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public abstract class a extends com.baidu.adp.lib.a.b.a.a.i implements w {
+public abstract class a extends com.baidu.adp.lib.a.b.a.a.i implements x {
     public boolean isSupportImageSize() {
         return false;
     }

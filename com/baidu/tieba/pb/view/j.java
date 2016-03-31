@@ -6,18 +6,18 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class j implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ PbVideoControllerView cVQ;
+    final /* synthetic */ PbVideoControllerView dqL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PbVideoControllerView pbVideoControllerView) {
-        this.cVQ = pbVideoControllerView;
+        this.dqL = pbVideoControllerView;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStartTrackingTouch(SeekBar seekBar) {
         Handler handler;
-        this.cVQ.cVK = true;
-        handler = this.cVQ.mHandler;
+        this.dqL.dqF = true;
+        handler = this.dqL.mHandler;
         handler.removeMessages(1);
     }
 
@@ -27,17 +27,17 @@ class j implements SeekBar.OnSeekBarChangeListener {
         MediaController.MediaPlayerControl mediaPlayerControl2;
         TextView textView;
         TextView textView2;
-        String lk;
+        String mt;
         if (z) {
-            mediaPlayerControl = this.cVQ.cVH;
+            mediaPlayerControl = this.dqL.dqC;
             long duration = (mediaPlayerControl.getDuration() * i) / 10000;
-            mediaPlayerControl2 = this.cVQ.cVH;
+            mediaPlayerControl2 = this.dqL.dqC;
             mediaPlayerControl2.seekTo((int) duration);
-            textView = this.cVQ.cVI;
+            textView = this.dqL.dqD;
             if (textView != null) {
-                textView2 = this.cVQ.cVI;
-                lk = this.cVQ.lk((int) duration);
-                textView2.setText(lk);
+                textView2 = this.dqL.dqD;
+                mt = this.dqL.mt((int) duration);
+                textView2.setText(mt);
             }
         }
     }
@@ -45,9 +45,9 @@ class j implements SeekBar.OnSeekBarChangeListener {
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStopTrackingTouch(SeekBar seekBar) {
         Handler handler;
-        this.cVQ.cVK = false;
-        this.cVQ.asU();
-        handler = this.cVQ.mHandler;
+        this.dqL.dqF = false;
+        this.dqL.aAE();
+        handler = this.dqL.mHandler;
         handler.sendEmptyMessage(1);
     }
 }

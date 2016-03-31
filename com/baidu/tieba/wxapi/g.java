@@ -7,20 +7,20 @@ import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements IWXAPIEventHandler {
-    final /* synthetic */ f euk;
+    final /* synthetic */ f eOb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.euk = fVar;
+        this.eOb = fVar;
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
         IWXAPIEventHandler iWXAPIEventHandler;
         IWXAPIEventHandler iWXAPIEventHandler2;
-        iWXAPIEventHandler = this.euk.eui;
+        iWXAPIEventHandler = this.eOb.eNZ;
         if (iWXAPIEventHandler != null) {
-            iWXAPIEventHandler2 = this.euk.eui;
+            iWXAPIEventHandler2 = this.eOb.eNZ;
             iWXAPIEventHandler2.onReq(baseReq);
         }
     }
@@ -30,11 +30,11 @@ public class g implements IWXAPIEventHandler {
         ConcurrentHashMap concurrentHashMap;
         ConcurrentHashMap concurrentHashMap2;
         try {
-            concurrentHashMap = this.euk.euh;
+            concurrentHashMap = this.eOb.eNY;
             IWXAPIEventHandler iWXAPIEventHandler = (IWXAPIEventHandler) concurrentHashMap.get(baseResp.transaction);
             if (iWXAPIEventHandler != null) {
                 iWXAPIEventHandler.onResp(baseResp);
-                concurrentHashMap2 = this.euk.euh;
+                concurrentHashMap2 = this.eOb.eNY;
                 concurrentHashMap2.remove(baseResp.transaction);
             }
         } catch (Exception e) {

@@ -10,9 +10,9 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
     private int cur_score;
-    private int dVx;
-    private int dVy;
-    private List<FeedForumData> dVz = new ArrayList();
+    private int eob;
+    private int eoc;
+    private List<FeedForumData> eod = new ArrayList();
     private String fid;
     private int is_like;
     private String level_name;
@@ -21,8 +21,8 @@ public class x {
 
     public x() {
         setLike(0);
-        this.dVx = 0;
-        this.dVy = 0;
+        this.eob = 0;
+        this.eoc = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
@@ -33,7 +33,7 @@ public class x {
         return this.fid;
     }
 
-    public void mF(String str) {
+    public void nQ(String str) {
         this.fid = str;
     }
 
@@ -61,8 +61,8 @@ public class x {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.dVx = jSONObject.optInt("is_black", 0);
-                this.dVy = jSONObject.optInt("like_num", 0);
+                this.eob = jSONObject.optInt("is_black", 0);
+                this.eoc = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
@@ -89,7 +89,7 @@ public class x {
                     feedForumData.setReason(jSONObject.getString("reason"));
                     feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
                     feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
-                    this.dVz.add(feedForumData);
+                    this.eod.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -133,7 +133,7 @@ public class x {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> aKO() {
-        return this.dVz;
+    public List<FeedForumData> aRD() {
+        return this.eod;
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private String dWi;
-    private String dWj;
-    private String dWk;
+    private String eoP;
+    private String eoQ;
+    private String eoR;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String aLP() {
-        return this.dWi;
+    public String aSJ() {
+        return this.eoP;
     }
 
     public int getImageWidth() {
@@ -23,8 +23,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String aLQ() {
-        return this.dWj;
+    public String aSK() {
+        return this.eoQ;
     }
 
     public String getTitle() {
@@ -32,7 +32,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.dWk;
+        return this.eoR;
     }
 
     public void a(ActHot actHot) {
@@ -53,10 +53,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.dWi = actHot.img_src;
-            this.dWj = actHot.link;
+            this.eoP = actHot.img_src;
+            this.eoQ = actHot.link;
             this.mTitle = actHot.author_name;
-            this.dWk = actHot.img_des;
+            this.eoR = actHot.img_des;
         }
     }
 }

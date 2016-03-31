@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements BdListView.e {
-    final /* synthetic */ f dDl;
+    final /* synthetic */ f dVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.dDl = fVar;
+        this.dVf = fVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void nv() {
+    public void nm() {
         PbListView pbListView;
-        p pVar;
+        q qVar;
         PbListView pbListView2;
-        pbListView = this.dDl.aXw;
+        pbListView = this.dVf.bcf;
         if (pbListView != null) {
-            pbListView2 = this.dDl.aXw;
-            pbListView2.xb();
+            pbListView2 = this.dVf.bcf;
+            pbListView2.xu();
         }
-        pVar = this.dDl.dDh;
-        pVar.OB();
+        qVar = this.dVf.dVb;
+        qVar.Qq();
     }
 }

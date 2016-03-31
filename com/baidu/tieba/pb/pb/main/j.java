@@ -1,76 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
+import android.content.Intent;
 import android.view.View;
-import com.baidu.tieba.pb.b.c;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements c.a {
-    final /* synthetic */ PbActivity cNq;
+public class j implements View.OnClickListener {
+    final /* synthetic */ GetLotteryChanceActivity dfT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    public j(GetLotteryChanceActivity getLotteryChanceActivity) {
+        this.dfT = getLotteryChanceActivity;
     }
 
-    @Override // com.baidu.tieba.pb.b.c.a
-    public boolean a(View view, MotionEvent motionEvent) {
-        dz dzVar;
-        com.baidu.tbadk.editortools.d.e eVar;
-        dz dzVar2;
-        dz dzVar3;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        dz dzVar4;
-        com.baidu.tbadk.editortools.d.e eVar3;
-        dzVar = this.cNq.cMK;
-        dzVar.fE(false);
-        eVar = this.cNq.cMU;
-        if (eVar != null) {
-            dzVar4 = this.cNq.cMK;
-            eVar3 = this.cNq.cMU;
-            dzVar4.ep(eVar3.Dk());
-        }
-        dzVar2 = this.cNq.cMK;
-        dzVar2.aE(view);
-        dzVar3 = this.cNq.cMK;
-        dzVar3.fE(true);
-        eVar2 = this.cNq.cMU;
-        eVar2.Dn();
-        return true;
-    }
-
-    @Override // com.baidu.tieba.pb.b.c.a
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.pb.b.c.a
-    public boolean c(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.editortools.d.e eVar;
-        dz dzVar;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        dz dzVar2;
-        dz dzVar3;
-        com.baidu.tbadk.editortools.d.e eVar3;
-        boolean aA;
-        if (view != null && view.getId() == t.g.richText) {
-            aA = this.cNq.aA(view);
-            if (aA) {
-                return true;
-            }
-        }
-        eVar = this.cNq.cMU;
-        if (eVar != null) {
-            dzVar3 = this.cNq.cMK;
-            eVar3 = this.cNq.cMU;
-            dzVar3.ep(eVar3.Dk());
-        }
-        dzVar = this.cNq.cMK;
-        dzVar.aqT();
-        eVar2 = this.cNq.cMU;
-        eVar2.Dn();
-        dzVar2 = this.cNq.cMK;
-        dzVar2.ajp();
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        long j;
+        Intent intent = new Intent();
+        intent.putExtra("key_action", 2);
+        this.dfT.setResult(-1, intent);
+        this.dfT.closeActivity();
+        com.baidu.tbadk.core.util.aw ac = new com.baidu.tbadk.core.util.aw("c10838").ac("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+        str = this.dfT.forumId;
+        com.baidu.tbadk.core.util.aw ac2 = ac.ac("fid", str);
+        j = this.dfT.threadId;
+        TiebaStatic.log(ac2.ac("tid", String.valueOf(j)));
     }
 }

@@ -13,6 +13,8 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     private CoderException oD;
     private SocketMessage oE;
     private h oG;
+    public long oL;
+    public long oM;
     private SocketMessageTask oz;
     private volatile int oy = 0;
     private Runnable oF = null;
@@ -41,7 +43,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         return 1;
     }
 
-    private void I(int i) {
+    private void H(int i) {
         if (this.oG != null && this.oH) {
             this.oG.a(i, this);
         }
@@ -91,33 +93,33 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.oK == 0) {
             this.oK = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oE.getCmd(), this.oE.getClientLogID(), this.oy, "StartSend", 0, "SenderData: start send size = " + (jG() != null ? jG().length : 0));
+        k.a("SenderData", this.oE.getCmd(), this.oE.getClientLogID(), this.oy, "StartSend", 0, "SenderData: start send size = " + (jM() != null ? jM().length : 0));
         oC.removeCallbacks(eg());
         if (this.oz.getTimeOut() != null) {
-            oC.postDelayed(eg(), this.oz.getTimeOut().fe());
+            oC.postDelayed(eg(), this.oz.getTimeOut().ff());
         }
         ef();
     }
 
     @Override // com.baidu.adp.lib.webSocket.p
-    public void J(int i) {
+    public void I(int i) {
         oC.removeCallbacks(eg());
-        I(i);
+        H(i);
     }
 
     @Override // com.baidu.adp.lib.webSocket.p
     public void el() {
         int i;
         int cmd = this.oE.getCmd();
-        if (jG() != null) {
-            int length = jG().length;
+        if (jM() != null) {
+            int length = jM().length;
             this.oE.setEncodedBinarySize(length);
             i = length;
         } else {
             i = 0;
         }
         k.a("SenderData", cmd, this.oE.getClientLogID(), this.oy, "FinishSend", 0, "SenderData: finish send  size = " + i);
-        if (!this.oz.fh()) {
+        if (!this.oz.fj()) {
             oC.removeCallbacks(eg());
         }
         ee();
@@ -128,7 +130,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     public boolean en() {
-        return this.oz.fh();
+        return this.oz.fj();
     }
 
     public int getPriority() {
@@ -149,17 +151,17 @@ public class e extends com.baidu.adp.lib.webSocket.c {
             this.oK = System.currentTimeMillis();
         }
         this.oD = null;
-        com.baidu.adp.framework.client.socket.coder.b eO = com.baidu.adp.framework.client.socket.coder.b.eO();
+        com.baidu.adp.framework.client.socket.coder.b eP = com.baidu.adp.framework.client.socket.coder.b.eP();
         this.oy = g.ex().er();
-        com.baidu.adp.lib.stats.a ht = com.baidu.adp.lib.stats.a.ht();
+        com.baidu.adp.lib.stats.a hz = com.baidu.adp.lib.stats.a.hz();
         long clientLogID = this.oE == null ? -1L : this.oE.getClientLogID();
         String valueOf = String.valueOf(this.oy & 4294967295L);
         Object[] objArr = new Object[2];
         objArr[0] = IntentConfig.CMD;
         objArr[1] = Integer.valueOf(this.oE == null ? -1 : this.oE.getCmd());
-        ht.a("seqid", clientLogID, valueOf, objArr);
+        hz.a("seqid", clientLogID, valueOf, objArr);
         try {
-            return eO.a(this.oE, this.oy, this.oz.fj(), this.oz.getNeedEncrypt());
+            return eP.a(this.oE, this.oy, this.oz.fk(), this.oz.getNeedEncrypt());
         } catch (CoderException e) {
             this.oD = e;
             return null;
@@ -178,7 +180,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     public boolean es() {
-        return this.oz.fk();
+        return this.oz.fl();
     }
 
     public int et() {

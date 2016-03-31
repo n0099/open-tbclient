@@ -1,29 +1,28 @@
 package com.baidu.tbadk.pluign;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a aCp;
+    private static a aDn;
 
-    public static a Gm() {
-        if (aCp == null) {
+    public static a Hi() {
+        if (aDn == null) {
             synchronized (a.class) {
-                if (aCp == null) {
-                    aCp = new a();
+                if (aDn == null) {
+                    aDn = new a();
                 }
             }
         }
-        return aCp;
+        return aDn;
     }
 
     private a() {
     }
 
-    public String[] Gn() {
-        return com.baidu.tbadk.core.sharedPref.b.uO().getString("key_discover_show_plugin_list", "").split(ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR);
+    public String[] Hj() {
+        return com.baidu.tbadk.core.sharedPref.b.vk().getString("key_discover_show_plugin_list", "").split("#");
     }
 
     private void p(String[] strArr) {
@@ -31,38 +30,38 @@ public class a {
         if (strArr != null) {
             for (int i = 0; i < strArr.length; i++) {
                 if (!StringUtils.isNull(strArr[i])) {
-                    sb.append(strArr[i]).append(ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR);
+                    sb.append(strArr[i]).append("#");
                 }
             }
         }
-        com.baidu.tbadk.core.sharedPref.b.uO().putString("key_discover_show_plugin_list", sb.toString());
+        com.baidu.tbadk.core.sharedPref.b.vk().putString("key_discover_show_plugin_list", sb.toString());
     }
 
-    public void fU(String str) {
-        String[] Gn;
-        if (!StringUtils.isNull(str) && (Gn = Gn()) != null && Gn.length != 0) {
-            for (int i = 0; i < Gn.length; i++) {
-                if (str.equals(Gn[i])) {
-                    Gn[i] = "";
+    public void gd(String str) {
+        String[] Hj;
+        if (!StringUtils.isNull(str) && (Hj = Hj()) != null && Hj.length != 0) {
+            for (int i = 0; i < Hj.length; i++) {
+                if (str.equals(Hj[i])) {
+                    Hj[i] = "";
                 }
             }
-            p(Gn);
+            p(Hj);
         }
     }
 
-    public void fV(String str) {
+    public void ge(String str) {
         String string;
         if (!StringUtils.isNull(str)) {
-            for (String str2 : com.baidu.tbadk.core.sharedPref.b.uO().getString("key_discover_show_plugin_list", "").split(ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR)) {
+            for (String str2 : com.baidu.tbadk.core.sharedPref.b.vk().getString("key_discover_show_plugin_list", "").split("#")) {
                 if (str.equals(str2)) {
                     return;
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.uO().putString("key_discover_show_plugin_list", String.valueOf(string) + ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR + str);
+            com.baidu.tbadk.core.sharedPref.b.vk().putString("key_discover_show_plugin_list", String.valueOf(string) + "#" + str);
         }
     }
 
-    private int fW(String str) {
+    private int gf(String str) {
         if (str == null) {
             return 0;
         }
@@ -74,7 +73,7 @@ public class a {
         }
     }
 
-    public boolean fX(String str) {
-        return fW(str) == 1;
+    public boolean gg(String str) {
+        return gf(str) == 1;
     }
 }

@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.fe;
-import com.baidu.tieba.frs.ff;
-import com.baidu.tieba.frs.fh;
-import com.baidu.tieba.frs.fi;
+import com.baidu.tieba.frs.fo;
+import com.baidu.tieba.frs.fp;
+import com.baidu.tieba.frs.fq;
+import com.baidu.tieba.frs.fr;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h implements fe {
-    private ff bcR;
+public class h implements fo {
+    private fp bhC;
 
-    @Override // com.baidu.tieba.frs.fe
-    public void a(int i, int i2, fh fhVar) {
-        if (i > 100 && this.bcR != null && fhVar != null && fhVar.bmd != null && (fhVar.bmd instanceof String)) {
+    @Override // com.baidu.tieba.frs.fo
+    public void a(int i, int i2, fq fqVar) {
+        if (i > 100 && this.bhC != null && fqVar != null && fqVar.brs != null && (fqVar.brs instanceof String)) {
             ArrayList<u> arrayList = new ArrayList<>();
-            g gVar = new g((String) fhVar.bmd);
-            gVar.stType = fhVar.stType;
+            g gVar = new g((String) fqVar.brs);
+            gVar.stType = fqVar.stType;
             arrayList.add(gVar);
-            fi fiVar = new fi();
-            fiVar.hasMore = false;
-            fiVar.bme = false;
-            fiVar.bmf = false;
-            fiVar.pn = fhVar.pn;
-            fiVar.bmd = fhVar.bmd;
-            this.bcR.a(i, i2, fiVar, arrayList);
+            fr frVar = new fr();
+            frVar.hasMore = false;
+            frVar.brt = false;
+            frVar.bru = false;
+            frVar.pn = fqVar.pn;
+            frVar.brs = fqVar.brs;
+            this.bhC.a(i, i2, frVar, arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.frs.fe
-    public void a(ff ffVar) {
-        this.bcR = ffVar;
+    @Override // com.baidu.tieba.frs.fo
+    public void a(fp fpVar) {
+        this.bhC = fpVar;
     }
 
-    @Override // com.baidu.tieba.frs.fe
+    @Override // com.baidu.tieba.frs.fo
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.fe
-    public void Op() {
+    @Override // com.baidu.tieba.frs.fo
+    public void Qe() {
     }
 }

@@ -10,10 +10,10 @@ import java.util.Set;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class j implements h {
-    private JSONArray sx;
+    private JSONArray sG;
 
     public j(JSONArray jSONArray) {
-        this.sx = jSONArray;
+        this.sG = jSONArray;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
@@ -22,10 +22,10 @@ public class j implements h {
         Type[] fS = cVar.fS();
         if (fT.isArray()) {
             Class<?> componentType = fT.getComponentType();
-            Object newInstance = Array.newInstance(componentType, this.sx.length());
-            int length = this.sx.length();
+            Object newInstance = Array.newInstance(componentType, this.sG.length());
+            int length = this.sG.length();
             for (int i = 0; i < length; i++) {
-                Object g = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i)).g(new com.baidu.adp.lib.a.b.a.e.c(componentType));
+                Object g = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i)).g(new com.baidu.adp.lib.a.b.a.e.c(componentType));
                 if (g != null) {
                     Array.set(newInstance, i, g);
                 }
@@ -34,11 +34,11 @@ public class j implements h {
         }
         if (fS != null && fS.length >= 1) {
             if (com.baidu.adp.lib.a.a.a.a(fT, List.class)) {
-                List<Object> a = com.baidu.adp.lib.a.b.a.e.a.a(cVar, this.sx.length());
+                List<Object> a = com.baidu.adp.lib.a.b.a.e.a.a(cVar, this.sG.length());
                 if (a != null) {
-                    int length2 = this.sx.length();
+                    int length2 = this.sG.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        Object g2 = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i2)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
+                        Object g2 = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i2)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
                         if (g2 != null) {
                             a.add(g2);
                         }
@@ -47,11 +47,11 @@ public class j implements h {
                 }
                 return a;
             } else if (com.baidu.adp.lib.a.a.a.a(fT, Set.class)) {
-                Set<Object> b = com.baidu.adp.lib.a.b.a.e.a.b(cVar, this.sx.length());
+                Set<Object> b = com.baidu.adp.lib.a.b.a.e.a.b(cVar, this.sG.length());
                 if (b != null) {
-                    int length3 = this.sx.length();
+                    int length3 = this.sG.length();
                     for (int i3 = 0; i3 < length3; i3++) {
-                        Object g3 = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i3)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
+                        Object g3 = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i3)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
                         if (g3 != null) {
                             b.add(g3);
                         }
@@ -60,11 +60,11 @@ public class j implements h {
                 }
                 return b;
             } else if (com.baidu.adp.lib.a.a.a.a(fT, Map.class)) {
-                Map<String, Object> d = com.baidu.adp.lib.a.b.a.e.a.d(cVar, this.sx.length());
+                Map<String, Object> d = com.baidu.adp.lib.a.b.a.e.a.d(cVar, this.sG.length());
                 if (d != null) {
-                    int length4 = this.sx.length();
+                    int length4 = this.sG.length();
                     for (int i4 = 0; i4 < length4; i4++) {
-                        Object g4 = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i4)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
+                        Object g4 = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i4)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
                         if (g4 != null) {
                             d.put(String.valueOf(i4), g4);
                         }
@@ -73,11 +73,11 @@ public class j implements h {
                 }
                 return d;
             } else if (com.baidu.adp.lib.a.a.a.a(fT, Queue.class)) {
-                Queue<Object> c = com.baidu.adp.lib.a.b.a.e.a.c(cVar, this.sx.length());
+                Queue<Object> c = com.baidu.adp.lib.a.b.a.e.a.c(cVar, this.sG.length());
                 if (c != null) {
-                    int length5 = this.sx.length();
+                    int length5 = this.sG.length();
                     for (int i5 = 0; i5 < length5; i5++) {
-                        Object g5 = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i5)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
+                        Object g5 = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i5)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
                         if (g5 != null) {
                             c.add(g5);
                         }
@@ -86,10 +86,10 @@ public class j implements h {
                 }
                 return c;
             } else if (fT == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.sx.length());
-                int length6 = this.sx.length();
+                SparseArray sparseArray = new SparseArray(this.sG.length());
+                int length6 = this.sG.length();
                 for (int i6 = 0; i6 < length6; i6++) {
-                    Object g6 = com.baidu.adp.lib.a.b.a.e.g.j(this.sx.opt(i6)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
+                    Object g6 = com.baidu.adp.lib.a.b.a.e.g.j(this.sG.opt(i6)).g(new com.baidu.adp.lib.a.b.a.e.c(fS[0]));
                     if (g6 != null) {
                         sparseArray.put(i6, g6);
                     }

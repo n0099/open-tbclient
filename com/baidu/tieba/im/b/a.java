@@ -3,7 +3,7 @@ package com.baidu.tieba.im.b;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    public static int jm(int i) {
+    public static int jS(int i) {
         switch (i) {
             case 1:
                 return -2;

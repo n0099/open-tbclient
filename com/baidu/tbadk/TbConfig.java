@@ -38,11 +38,12 @@ public class TbConfig {
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
-    public static final int BUILD_NUMBER = 141;
+    public static final int BUILD_NUMBER = 155;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
     public static final String CLEAR_LOCATION_INFO = "c/u/recent/hide_position";
+    public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
@@ -62,6 +63,7 @@ public class TbConfig {
     public static final int EMOTION_HEIGHT_LOW = 160;
     public static final int EMOTION_WIDTH = 240;
     public static final int EMOTION_WIDTH_LOW = 160;
+    public static final String ENTERTAINMENT_ADDRESS = "lego/lego";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
     public static final String FATAL_ERROR_DEBUG_FILE = "fatal_error_debug.log";
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
@@ -91,6 +93,7 @@ public class TbConfig {
     public static final String GAME_SEARCH_RESULT = "c/u/game/searchGame";
     public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
+    public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
@@ -102,9 +105,12 @@ public class TbConfig {
     public static final String GET_HOT_GAME = "c/u/game/getHotGameList";
     public static final String GET_IP_LIST = "c/s/getipinfo";
     public static final String GET_LEVEL_INFO_URL = "c/f/forum/getLevelInfo";
+    public static final String GET_MANGA_COVER = "c/e/cartoon/getBookCover";
+    public static final String GET_MANGA_STORE_INFO = "c/e/cartoon/getBookStore";
     public static final String GET_MEMBER_INFO = "c/f/forum/getMemberInfo";
     public static final String GET_MY_GAMELIST = "c/u/game/getmygamelist";
     public static final String GET_MY_POST = "c/f/frs/getmypost";
+    public static final String GET_MY_SHELF = "c/e/cartoon/getMyShelf";
     public static final String GET_NEW_GAME = "c/u/game/getNewGameList";
     public static final String GET_OPEN_USER_INFO = "c/e/xiuba/getopenid";
     public static final String GET_ORDER = "c/e/mema/getOrder";
@@ -113,6 +119,7 @@ public class TbConfig {
     public static final String GET_PACKAGE_LIST = "c/e/faces/getpacklist";
     public static final String GET_PACKAGE_PURCHASE_RECORDS = "c/e/faces/getpackhis";
     public static final String GET_PAY_CONFIG = "c/s/getClientConfig";
+    public static final String GET_PERSONAL_CARD_BY_CATEGORY = "c/e/theme/getCardByCategory";
     public static final String GET_PERSONAL_GIFT_LIST = "c/e/present/getMyGift";
     public static final String GET_PRIVATE_INFO = "c/u/user/getPrivateInfo";
     public static final String GET_SINGLE_GAME = "c/u/game/getsinglegamelist";
@@ -262,9 +269,12 @@ public class TbConfig {
     public static final String REPORT_APPLIST = "http://als.baidu.com/device/logForC";
     public static final String SAVE_GAME_STATUS = "c/c/game/saveGameStatus";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
+    public static final String SEND_BLESS = "c/b/commit/sendBless";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
     public static final String SEND_GIFT = "c/c/gift/send";
     public static final String SETTINGFILE = "settings";
+    public static final String SET_MEMBER_CLOSE_AD = "c/c/encourage/member/closeAd";
+    public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
@@ -314,12 +324,20 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
+    public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
+    public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
+    public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
+    public static final String URL_MANGA_CHAPTER_ALL = "c/e/cartoon/getAllChapters";
+    public static final String URL_MANGA_CHAPTER_DETAIL = "c/e/cartoon/cartoonReader";
+    public static final String URL_MANGA_OFFLINE_RESOURCE = "c/e/cartoon/getOfflineResource";
+    public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
+    public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
@@ -344,6 +362,7 @@ public class TbConfig {
     public static final String VOICE_CACHE_DIR_NAME = "voice";
     public static final int VOICE_CHUNK_UPLOAD_SIZE = 30720;
     public static final String VOICE_DATA = "c/p/voice";
+    public static final String VOTE_GRAFFITI = "c/c/graffiti/vote";
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_URL_TDOU_UEG = "http://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
@@ -387,10 +406,12 @@ public class TbConfig {
     public static String ADD_USER_ATTR_URL = "c/c/user/addUserAttr";
     public static String VOTE_ADD = "c/c/post/addPollPost";
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
+    public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
+    public static String GET_HOT_GOD = "c/u/user/getHotGod";
 
     /* loaded from: classes.dex */
     public static final class PassConfig {
@@ -634,7 +655,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.K(context) * k.L(context));
+            int sqrt = (int) Math.sqrt(k.B(context) * k.C(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

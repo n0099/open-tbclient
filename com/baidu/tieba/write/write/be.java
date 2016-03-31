@@ -1,38 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be extends CustomMessageListener {
-    final /* synthetic */ WriteActivity ets;
+public class be extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ WriteActivity eNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(WriteActivity writeActivity, int i) {
-        super(i);
-        this.ets = writeActivity;
+    public be(WriteActivity writeActivity) {
+        this.eNd = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        com.baidu.tieba.tbadkCore.location.d dVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.ets.auU;
-                dVar2.hW(false);
-                dVar3 = this.ets.auU;
-                dVar3.bp(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.ets.a(2, true, responsedSelectLocation.getName());
-                return;
-            }
-            dVar = this.ets.auU;
-            dVar.hW(true);
-            this.ets.a(0, true, (String) null);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.eNd.avt;
+        com.baidu.tbadk.core.util.m.p(new File(append.append(str).toString()));
+        return null;
     }
 }

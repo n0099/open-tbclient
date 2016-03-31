@@ -1,59 +1,60 @@
 package com.baidu.tieba.usermute;
 
+import android.content.Context;
+import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.usermute.request.UserMuteCheckRequestMessage;
-import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
-import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
-import tbclient.UserMuteCheck.DataRes;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.t;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.e {
-    private com.baidu.adp.framework.listener.a dEl;
-    private a elg;
-    private Object mExtra;
+public class i implements a.b {
+    final /* synthetic */ UserMuteAddAndDelModel eED;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(DataRes dataRes, int i, String str, Object obj);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(UserMuteAddAndDelModel userMuteAddAndDelModel) {
+        this.eED = userMuteAddAndDelModel;
     }
 
-    public i(com.baidu.adp.base.h<?> hVar, a aVar) {
-        super(hVar);
-        this.dEl = new j(this, CmdConfigHttp.CMD_USER_MUTE_CHECK, 303040);
-        this.elg = aVar;
-        this.dEl.eV().setSelfListener(true);
-        this.dEl.eW().setSelfListener(true);
-        registerListener(this.dEl);
-        com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
-        com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
-    }
-
-    public void e(long j, long j2) {
-        a(j, j2, null);
-    }
-
-    public void a(long j, long j2, Object obj) {
-        UserMuteCheckRequestMessage userMuteCheckRequestMessage = new UserMuteCheckRequestMessage();
-        userMuteCheckRequestMessage.setUserIdF(j);
-        userMuteCheckRequestMessage.setUserIdT(j2);
-        if (obj != null) {
-            this.mExtra = obj;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        UserMuteAddAndDelModel.From from;
+        UserMuteAddAndDelModel.From from2;
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        if (Build.VERSION.SDK_INT < 11) {
+            aVar.dismiss();
+            hVar2 = this.eED.eEv;
+            ((TbPageContext) hVar2).showToast(t.j.frs_header_games_unavailable);
+            return;
         }
-        sendMessage(userMuteCheckRequestMessage);
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dEl);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+        int i = -1;
+        String str = "";
+        from = this.eED.eEw;
+        if (from != UserMuteAddAndDelModel.From.PB) {
+            from2 = this.eED.eEw;
+            if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
+                TiebaStatic.log("c10038");
+                i = 5;
+                str = "4010001002";
+            }
+        } else {
+            TiebaStatic.log("c10025");
+            i = 4;
+            str = "4010001001";
+        }
+        aVar.dismiss();
+        hVar = this.eED.eEv;
+        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) hVar.getPageActivity(), 2, true, i);
+        if (!StringUtils.isNULL(str)) {
+            memberPayActivityConfig.setSceneId(str);
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
     }
 }

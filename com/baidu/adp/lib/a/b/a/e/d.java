@@ -12,7 +12,7 @@ public class d {
         if (gVar == null || cVar == null) {
             return false;
         }
-        for (Field field : com.baidu.adp.lib.a.a.a.d(gVar.getClass())) {
+        for (Field field : com.baidu.adp.lib.a.a.a.e(gVar.getClass())) {
             if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                 String name = field.getName();
                 if (!TextUtils.isEmpty(name) && (i = f.i(com.baidu.adp.lib.a.a.a.c(gVar, name))) != null) {
@@ -32,7 +32,7 @@ public class d {
                         obj = i.f(new c(field.getGenericType()));
                     }
                     if (obj != null) {
-                        cVar.e(name, obj);
+                        cVar.d(name, obj);
                     }
                 }
             }

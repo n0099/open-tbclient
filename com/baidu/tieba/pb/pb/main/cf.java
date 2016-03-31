@@ -1,17 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class cf extends cg {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cf(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class cf implements com.baidu.adp.lib.f.c<LinearLayout> {
+    final /* synthetic */ PbActivity dht;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cf(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cg
-    protected PbRecBaseViewHolder al(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aEE().j(this.mContext, 3);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: awM */
+    public LinearLayout hq() {
+        LinearLayout linearLayout = new LinearLayout(this.dht.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(0);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public void l(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public LinearLayout m(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public LinearLayout n(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

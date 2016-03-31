@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,17 +17,17 @@ class b extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.c.a aVar;
-        com.baidu.tbadk.mainTab.c Ey;
+        com.baidu.tbadk.mainTab.c Fl;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016220 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.c.a) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!aw.isEmpty(currentAccount) && (aVar = (com.baidu.tbadk.c.a) customResponsedMessage.getData()) != null) {
+            if (!ay.isEmpty(currentAccount) && (aVar = (com.baidu.tbadk.c.a) customResponsedMessage.getData()) != null) {
                 PersonPhotoLiveDelegateStatic personPhotoLiveDelegateStatic = new PersonPhotoLiveDelegateStatic();
                 aVar.a(personPhotoLiveDelegateStatic);
-                if (aVar.getContext() != null && (Ey = personPhotoLiveDelegateStatic.Ey()) != null) {
+                if (aVar.getContext() != null && (Fl = personPhotoLiveDelegateStatic.Fl()) != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("key_uid", currentAccount);
                     bundle.putString("thread_type_key", "photolive");
-                    Ey.ayo.setArguments(bundle);
+                    Fl.ayV.setArguments(bundle);
                 }
             }
         }

@@ -7,60 +7,61 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class m {
-    private static int epS = 31;
-    private static int epT = -100;
-    private View aCv;
-    private View aQK;
-    private TbImageView aQN;
-    private ImageView aQO;
-    private WriteVideoActivity epU;
-    private TextView epV;
-    private EditText epW;
-    private TextView epX;
-    private WriteLocationView epY;
+    private static int eJO = 31;
+    private static int eJP = -100;
+    private View aDt;
+    private TbImageView aTv;
+    private ImageView aTw;
+    private View aUw;
+    private WriteVideoActivity eJQ;
+    private TextView eJR;
+    private EditText eJS;
+    private TextView eJT;
+    private WriteLocationView eJU;
     private NavigationBar mNavigationBar;
 
     public m(WriteVideoActivity writeVideoActivity) {
-        this.epU = writeVideoActivity;
-        this.epU.setContentView(t.h.write_video_activity);
-        aTK();
+        this.eJQ = writeVideoActivity;
+        this.eJQ.setContentView(t.h.write_video_activity);
+        bal();
         initView();
     }
 
-    private void aTK() {
-        this.aQK = this.epU.findViewById(t.g.layout_root);
-        this.mNavigationBar = (NavigationBar) this.epU.findViewById(t.g.navigation_bar);
-        this.epW = (EditText) this.epU.findViewById(t.g.edit_content);
-        this.epX = (TextView) this.epU.findViewById(t.g.text_content_size);
-        this.aQN = (TbImageView) this.epU.findViewById(t.g.image_video);
-        this.aQO = (ImageView) this.epU.findViewById(t.g.image_video_play);
-        this.epY = (WriteLocationView) this.epU.findViewById(t.g.location);
+    private void bal() {
+        this.aUw = this.eJQ.findViewById(t.g.layout_root);
+        this.mNavigationBar = (NavigationBar) this.eJQ.findViewById(t.g.navigation_bar);
+        this.eJS = (EditText) this.eJQ.findViewById(t.g.edit_content);
+        this.eJT = (TextView) this.eJQ.findViewById(t.g.text_content_size);
+        this.aTv = (TbImageView) this.eJQ.findViewById(t.g.image_video);
+        this.aTw = (ImageView) this.eJQ.findViewById(t.g.image_video_play);
+        this.eJU = (WriteLocationView) this.eJQ.findViewById(t.g.location);
     }
 
     private void initView() {
-        this.aQN.setOnClickListener(this.epU);
-        this.aCv = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.epU);
-        this.mNavigationBar.setTitleText(this.epU.getPageContext().getString(t.j.new_video_post));
-        this.epV = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.epU.getResources().getString(t.j.publish), this.epU, true);
-        this.epX.setText(String.valueOf(epS));
-        this.epW.addTextChangedListener(new n(this));
-        this.epW.setOnKeyListener(new o(this));
+        this.aTv.setOnClickListener(this.eJQ);
+        this.aDt = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.eJQ);
+        this.mNavigationBar.setTitleText(this.eJQ.getPageContext().getString(t.j.new_video_post));
+        this.eJR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.eJQ.getResources().getString(t.j.publish), this.eJQ, true);
+        this.eJT.setText(String.valueOf(eJO));
+        this.eJS.addTextChangedListener(new n(this));
+        this.eJS.setOnKeyListener(new o(this));
     }
 
-    public void nF(String str) {
-        Bitmap nG = nG(str);
-        if (nG != null) {
-            this.aQN.setImageBitmap(nG);
+    public void oS(String str) {
+        Bitmap oT = oT(str);
+        if (oT != null) {
+            this.aTv.setImageBitmap(oT);
         }
     }
 
-    private Bitmap nG(String str) {
+    private Bitmap oT(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -76,35 +77,35 @@ public class m {
     }
 
     public void onChangeSkinType(int i) {
-        this.epU.getLayoutMode().ac(i == 1);
-        this.epU.getLayoutMode().x(this.aQK);
-        this.mNavigationBar.onChangeSkinType(this.epU.getPageContext(), i);
-        ar.k(this.epV, t.f.s_navbar_button_bg);
-        this.epY.xf();
+        this.eJQ.getLayoutMode().ab(i == 1);
+        this.eJQ.getLayoutMode().x(this.aUw);
+        this.mNavigationBar.onChangeSkinType(this.eJQ.getPageContext(), i);
+        at.k(this.eJR, t.f.s_navbar_button_bg);
+        this.eJU.xy();
     }
 
     public String getContent() {
-        if (this.epW.getText() == null) {
+        if (this.eJS.getText() == null) {
             return null;
         }
-        return this.epW.getText().toString();
+        return this.eJS.getText().toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTL() {
-        if (epS - aTM() < 0) {
-            this.epV.setEnabled(false);
+    public void bam() {
+        if (eJO - ban() < 0) {
+            this.eJR.setEnabled(false);
         } else {
-            this.epV.setEnabled(true);
+            this.eJR.setEnabled(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long aTM() {
-        if (this.epW.getText() == null || this.epW.getText().toString() == null) {
+    public long ban() {
+        if (this.eJS.getText() == null || this.eJS.getText().toString() == null) {
             return 0L;
         }
-        return g(this.epW.getText().toString().trim());
+        return g(this.eJS.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -120,23 +121,29 @@ public class m {
         return Math.round(d);
     }
 
-    public WriteLocationView aTN() {
-        return this.epY;
+    public WriteLocationView bao() {
+        return this.eJU;
     }
 
-    public View aTO() {
-        return this.aQN;
+    public View bap() {
+        return this.aTv;
     }
 
-    public View aTP() {
-        return this.epV;
+    public View baq() {
+        return this.eJR;
     }
 
-    public View aay() {
-        return this.aCv;
+    public View adU() {
+        return this.aDt;
     }
 
-    public View aTQ() {
-        return this.epW;
+    public View bar() {
+        return this.eJS;
+    }
+
+    public void ch(long j) {
+        if (this.aTv != null) {
+            this.aTv.setContentDescription(String.valueOf(this.eJQ.getResources().getString(t.j.video)) + ay.y(j));
+        }
     }
 }

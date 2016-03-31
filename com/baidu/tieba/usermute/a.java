@@ -7,20 +7,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.t;
 import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel eld;
+    final /* synthetic */ UserMuteAddAndDelModel eED;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.eld = userMuteAddAndDelModel;
+        this.eED = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,46 +36,46 @@ public class a extends HttpMessageListener {
         UserMuteAddAndDelModel.From from2;
         UserMuteAddAndDelModel.a aVar;
         UserMuteAddAndDelModel.a aVar2;
-        bVar = this.eld.aWB;
-        bVar.aw(false);
+        bVar = this.eED.bbk;
+        bVar.ay(false);
         if (httpResponsedMessage instanceof UserMuteAddResponseMessage) {
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) httpResponsedMessage;
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_NEED_REFRESH));
-                hVar4 = this.eld.ekZ;
-                hVar5 = this.eld.ekV;
+                hVar4 = this.eED.eEz;
+                hVar5 = this.eED.eEv;
                 hVar4.c(hVar5.getResources().getString(t.j.mute_success));
-                from = this.eld.ekW;
+                from = this.eED.eEw;
                 if (from != UserMuteAddAndDelModel.From.PB) {
-                    from2 = this.eld.ekW;
+                    from2 = this.eED.eEw;
                     if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                         TiebaStatic.log("c10043");
                     }
                 } else {
                     TiebaStatic.log("c10034");
                 }
-                aVar = this.eld.ekX;
+                aVar = this.eED.eEx;
                 if (aVar != null) {
-                    aVar2 = this.eld.ekX;
+                    aVar2 = this.eED.eEx;
                     aVar2.a(userMuteAddResponseMessage);
                 }
             } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                 String errorString = userMuteAddResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    hVar3 = this.eld.ekV;
+                    hVar3 = this.eED.eEv;
                     errorString = hVar3.getResources().getString(t.j.mute_error_beyond_limit);
                 }
-                this.eld.fw(errorString);
+                this.eED.fE(errorString);
             } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                 String errorString2 = userMuteAddResponseMessage.getErrorString();
-                if (aw.isEmpty(errorString2)) {
-                    hVar2 = this.eld.ekV;
+                if (ay.isEmpty(errorString2)) {
+                    hVar2 = this.eED.eEv;
                     errorString2 = hVar2.getResources().getString(t.j.mute_fail);
                 }
-                hVar = this.eld.ekZ;
+                hVar = this.eED.eEz;
                 hVar.d(errorString2);
             } else {
-                this.eld.aRP();
+                this.eED.aYp();
             }
         }
     }

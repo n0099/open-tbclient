@@ -7,11 +7,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ BaobaoTailView cVi;
+    final /* synthetic */ BaobaoTailView dqd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaobaoTailView baobaoTailView) {
-        this.cVi = baobaoTailView;
+        this.dqd = baobaoTailView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,20 +19,20 @@ class a implements View.OnClickListener {
         com.baidu.tbadk.data.a aVar;
         com.baidu.tbadk.data.a aVar2;
         com.baidu.tbadk.data.a aVar3;
-        aVar = this.cVi.cVh;
+        aVar = this.dqd.dqc;
         if (aVar != null) {
-            aVar2 = this.cVi.cVh;
-            if (aVar2.BX() != 1) {
-                aVar3 = this.cVi.cVh;
-                String BW = aVar3.BW();
-                if (!com.baidu.adp.lib.util.j.isEmpty(BW)) {
-                    com.baidu.tbadk.browser.f.B(this.cVi.getContext(), BW);
+            aVar2 = this.dqd.dqc;
+            if (aVar2.CA() != 1) {
+                aVar3 = this.dqd.dqc;
+                String Cz = aVar3.Cz();
+                if (!com.baidu.adp.lib.util.j.isEmpty(Cz)) {
+                    com.baidu.tbadk.browser.f.s(this.dqd.getContext(), Cz);
                     return;
                 }
                 return;
             }
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_LAUNCHBAOBAO, this.cVi.getContext()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_LAUNCHBAOBAO, this.dqd.getContext()));
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ WriteLocationView epK;
+    final /* synthetic */ WriteLocationView eJG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(WriteLocationView writeLocationView, int i) {
         super(i);
-        this.epK = writeLocationView;
+        this.eJG = writeLocationView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.epK.auU;
-                dVar2.hW(false);
-                dVar3 = this.epK.auU;
-                dVar3.bp(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.epK.b(2, true, responsedSelectLocation.getName());
+                dVar2 = this.eJG.avu;
+                dVar2.iL(false);
+                dVar3 = this.eJG.avu;
+                dVar3.bH(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.eJG.b(2, true, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.epK.auU;
-            dVar.hW(true);
-            this.epK.b(0, true, null);
+            dVar = this.eJG.avu;
+            dVar.iL(true);
+            this.eJG.b(0, true, null);
         }
     }
 }

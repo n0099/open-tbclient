@@ -1,15 +1,36 @@
 package com.baidu.adp.framework.message;
+
+import com.baidu.adp.framework.client.socket.j;
+import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> implements a<T> {
     private final int mCmd;
     private Message<?> mOrginalMessage;
     private int mError = 0;
     private String mErrorString = null;
+    private long mStartTime = 0;
+    private long mProcessTime = 0;
     private int mDownSize = 0;
     private long mCostTime = 0;
     public b performanceData = new b();
 
     public abstract boolean hasError();
+
+    public long getStartTime() {
+        return this.mStartTime;
+    }
+
+    public void setStartTime(long j) {
+        this.mStartTime = j;
+    }
+
+    public long getProcessTime() {
+        return this.mProcessTime;
+    }
+
+    public void setProcessTime(long j) {
+        this.mProcessTime = j;
+    }
 
     public Message<?> getmOrginalMessage() {
         return this.mOrginalMessage;
@@ -71,5 +92,11 @@ public abstract class ResponsedMessage<T> implements a<T> {
 
     public void setCostTime(long j) {
         this.mCostTime = j;
+    }
+
+    public void onDecodeFailedInBackGround(int i, T t, int i2) {
+        if (i2 == j.pe) {
+            setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
+        }
     }
 }

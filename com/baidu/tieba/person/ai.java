@@ -12,11 +12,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity cYF;
+    final /* synthetic */ PersonChangeActivity dth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PersonChangeActivity personChangeActivity) {
-        this.cYF = personChangeActivity;
+        this.dth = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -30,23 +30,23 @@ public class ai implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.cYF.cYq;
+        editText = this.dth.dsS;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.cYF.cYs;
+        textView = this.dth.dsU;
         textView.setText(String.valueOf(length));
-        linearLayout = this.cYF.cYr;
+        linearLayout = this.dth.dsT;
         linearLayout.setVisibility(0);
-        this.cYF.lq(0);
-        this.cYF.atI();
+        this.dth.mz(0);
+        this.dth.aBo();
         if (length > 50) {
-            this.cYF.showToast(t.j.over_limit_tip);
+            this.dth.showToast(t.j.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.cYF.cYq;
+            editText2 = this.dth.dsS;
             editText2.setText(substring);
-            editText3 = this.cYF.cYq;
+            editText3 = this.dth.dsS;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -61,16 +61,16 @@ public class ai implements TextWatcher {
         View view;
         TextView textView;
         TextView textView2;
-        if (!editable.toString().replaceAll("\\s*", "").equals(this.cYF.cYw.atN().getIntro())) {
-            view = this.cYF.cYk;
+        if (!editable.toString().replaceAll("\\s*", "").equals(this.dth.dsY.aBt().getIntro())) {
+            view = this.dth.dsM;
             view.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView2 = this.cYF.bYI;
-                com.baidu.tbadk.core.util.ar.b(textView2, t.d.navi_op_text, 1);
+                textView2 = this.dth.cjl;
+                com.baidu.tbadk.core.util.at.b(textView2, t.d.navi_op_text, 1);
                 return;
             }
-            textView = this.cYF.bYI;
-            com.baidu.tbadk.core.util.ar.b(textView, t.d.cp_link_tip_a, 1);
+            textView = this.dth.cjl;
+            com.baidu.tbadk.core.util.at.b(textView, t.d.cp_link_tip_a, 1);
         }
     }
 }

@@ -1,26 +1,55 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class x extends ah {
-    public static final BdUniqueId VY = BdUniqueId.gen();
-    private PhotoLiveCardData VZ;
+public class x {
+    private ArrayList<String> TR;
+    private int smsCodeTime = 0;
+    private UserData TP = new UserData();
+    private AntiData TQ = new AntiData();
 
-    public PhotoLiveCardData sA() {
-        return this.VZ;
+    public x() {
+        this.TR = null;
+        this.TR = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public void a(PhotoLiveCardData photoLiveCardData) {
-        this.VZ = photoLiveCardData;
+    public UserData getUser() {
+        return this.TP;
     }
 
-    @Override // com.baidu.tbadk.core.data.ah, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return VY;
+    public AntiData sf() {
+        return this.TQ;
     }
 
-    @Override // com.baidu.tbadk.core.data.ah
-    public String getTid() {
-        return this.VZ != null ? String.valueOf(this.VZ.getThreadId()) : super.getTid();
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.TP.parserJson(jSONObject.optJSONObject("user"));
+            this.TQ.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.TR.add(optJSONArray.optString(i, null));
+                }
+            }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

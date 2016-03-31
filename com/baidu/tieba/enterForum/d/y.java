@@ -4,33 +4,34 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class y extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.v, com.baidu.tbadk.mvc.d.b> {
-    final View.OnClickListener OS;
-    private ViewEventCenter aWA;
-    private View aYZ;
-    private TextView aZc;
-    private TextView aZd;
-    private TextView aZe;
-    private TbImageView aZf;
-    final View.OnLongClickListener aZg;
+    final View.OnClickListener OZ;
+    private ViewEventCenter bbj;
+    private View bdJ;
+    private TextView bdM;
+    private TextView bdN;
+    private TextView bdO;
+    private TbImageView bdP;
+    final View.OnLongClickListener bdQ;
 
     public y(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.OS = new z(this);
-        this.aZg = new aa(this);
-        this.aWA = viewEventCenter;
-        this.aYZ = view.findViewById(t.g.container);
-        this.aZc = (TextView) view.findViewById(t.g.forum_icon_sign);
-        this.aZd = (TextView) view.findViewById(t.g.home_lv_like_forum);
-        this.aZe = (TextView) view.findViewById(t.g.forum_lv_like_grade);
-        this.aZf = (TbImageView) view.findViewById(t.g.home_lv_like_forum_icon);
-        this.aZf.setDefaultBgResource(t.d.cp_cont_e);
-        this.aZf.setDefaultResource(t.f.icon_default_ba_120);
+        this.OZ = new z(this);
+        this.bdQ = new aa(this);
+        this.bbj = viewEventCenter;
+        this.bdJ = view.findViewById(t.g.container);
+        this.bdM = (TextView) view.findViewById(t.g.forum_icon_sign);
+        this.bdN = (TextView) view.findViewById(t.g.home_lv_like_forum);
+        this.bdO = (TextView) view.findViewById(t.g.forum_lv_like_grade);
+        this.bdP = (TbImageView) view.findViewById(t.g.home_lv_like_forum_icon);
+        this.bdP.setDefaultBgResource(t.d.cp_bg_line_e);
+        this.bdP.setDefaultResource(t.f.transparent_bg);
+        this.bdP.setDefaultErrorResource(t.f.icon_default_ba_120);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,31 +41,31 @@ public class y extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.v, com.
         super.B(vVar);
         if (vVar != null) {
             int level = vVar.getLevel();
-            this.aZd.setText(vVar.getName());
-            if (vVar.aLD() == 0) {
-                this.aZc.setVisibility(8);
+            this.bdN.setText(vVar.getName());
+            if (vVar.aSw() == 0) {
+                this.bdM.setVisibility(8);
             } else {
-                this.aZc.setVisibility(0);
+                this.bdM.setVisibility(0);
             }
             if (level == 0) {
-                this.aZe.setVisibility(4);
+                this.bdO.setVisibility(4);
             } else {
-                this.aZe.setVisibility(0);
-                ar.k(this.aZe, BitmapHelper.getGradeResourceIdNew(level));
+                this.bdO.setVisibility(0);
+                at.k(this.bdO, BitmapHelper.getGradeResourceIdNew(level));
             }
-            this.aZf.d(vVar.getAvatar(), 10, false);
-            this.aYZ.setOnClickListener(this.OS);
-            this.aYZ.setOnLongClickListener(this.aZg);
+            this.bdP.c(vVar.getAvatar(), 10, false);
+            this.bdJ.setOnClickListener(this.OZ);
+            this.bdJ.setOnLongClickListener(this.bdQ);
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        ar.k(this.aYZ, t.f.addresslist_item_bg);
-        this.aZf.invalidate();
-        if (this.aZe.isShown() && getData() != null) {
-            ar.k(this.aZe, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
+        at.k(this.bdJ, t.f.addresslist_item_bg);
+        this.bdP.invalidate();
+        if (this.bdO.isShown() && getData() != null) {
+            at.k(this.bdO, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
             return true;
         }
         return true;

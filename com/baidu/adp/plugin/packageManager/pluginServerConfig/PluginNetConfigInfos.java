@@ -14,32 +14,33 @@ public class PluginNetConfigInfos extends i implements Serializable {
     /* loaded from: classes.dex */
     public static class Newest extends i implements Serializable {
         private static final long serialVersionUID = 8713611233991534353L;
-        public String change_log;
-        public int download_type;
-        public int is_force_update;
-        public String md5;
-        public String newest_ext;
-        public int size;
-        public String url;
-        public String version;
-        public int version_code;
+        public String version = null;
+        public int version_code = 0;
+        public String change_log = null;
+        public String url = null;
+        public String md5 = null;
+        public int size = 0;
+        public int download_type = 0;
+        public int is_force_update = 0;
+        public String newest_ext = null;
     }
 
     /* loaded from: classes.dex */
     public static class PluginConfig extends i implements Serializable {
         private static final long serialVersionUID = -5184076118455114028L;
-        public String display_name;
         public int enable;
-        public String ext;
-        public int forbidden;
-        public String forbidden_features;
-        public String icon;
-        public Newest newest;
-        public String package_name;
-        public String verbose;
-        public int version_code;
-        public int priority = 1000;
-        public int load_priority = 1000;
+        public int[] enable_version_code;
+        public String package_name = null;
+        public int version_code = 0;
+        public String display_name = null;
+        public String forbidden_features = null;
+        public int forbidden = -1;
+        public String verbose = null;
+        public String icon = null;
+        public Newest newest = null;
+        public int priority = -1;
+        public int load_priority = -1;
+        public String ext = null;
     }
 
     public String getConfig_version() {
@@ -55,6 +56,27 @@ public class PluginNetConfigInfos extends i implements Serializable {
             return null;
         }
         return (PluginNetConfigInfos) i.objectWithJsonStr(str, PluginNetConfigInfos.class);
+    }
+
+    public void addOrUpdateConfig(PluginConfig pluginConfig) {
+        if (this.plugin_config != null && this.plugin_config.size() != 0 && pluginConfig != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.plugin_config.size()) {
+                    PluginConfig pluginConfig2 = this.plugin_config.get(i2);
+                    if (pluginConfig2 == null || TextUtils.isEmpty(pluginConfig2.package_name) || !pluginConfig2.package_name.equals(pluginConfig.package_name)) {
+                        i = i2 + 1;
+                    } else {
+                        this.plugin_config.set(i2, pluginConfig2);
+                        return;
+                    }
+                } else {
+                    this.plugin_config.add(pluginConfig);
+                    return;
+                }
+            }
+        }
     }
 
     public PluginConfig getPluginConfig(String str) {

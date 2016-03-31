@@ -26,14 +26,14 @@ public class TransportMediator extends TransportController {
     final AudioManager lD;
     final Object lE;
     final d lF;
-    final c lG;
-    final KeyEvent.Callback lH;
+    final ArrayList<TransportStateListener> lG;
+    final c lH;
+    final KeyEvent.Callback lI;
     final Context mContext;
-    final ArrayList<TransportStateListener> mListeners;
     final View mView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean j(int i) {
+    public static boolean g(int i) {
         switch (i) {
             case 79:
             case 85:
@@ -61,16 +61,16 @@ public class TransportMediator extends TransportController {
     }
 
     private TransportMediator(Activity activity, View view, TransportPerformer transportPerformer) {
-        this.mListeners = new ArrayList<>();
-        this.lG = new a(this);
-        this.lH = new b(this);
+        this.lG = new ArrayList<>();
+        this.lH = new a(this);
+        this.lI = new b(this);
         this.mContext = activity != null ? activity : view.getContext();
         this.lC = transportPerformer;
         this.lD = (AudioManager) this.mContext.getSystemService("audio");
         this.mView = activity != null ? activity.getWindow().getDecorView() : view;
         this.lE = KeyEventCompat.getKeyDispatcherState(this.mView);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.lF = new d(this.mContext, this.lD, this.mView, this.lG);
+            this.lF = new d(this.mContext, this.lD, this.mView, this.lH);
         } else {
             this.lF = null;
         }
@@ -84,25 +84,25 @@ public class TransportMediator extends TransportController {
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return KeyEventCompat.dispatch(keyEvent, this.lH, this.lE, this);
+        return KeyEventCompat.dispatch(keyEvent, this.lI, this.lE, this);
     }
 
     @Override // android.support.v4.media.TransportController
     public void registerStateListener(TransportStateListener transportStateListener) {
-        this.mListeners.add(transportStateListener);
+        this.lG.add(transportStateListener);
     }
 
     @Override // android.support.v4.media.TransportController
     public void unregisterStateListener(TransportStateListener transportStateListener) {
-        this.mListeners.remove(transportStateListener);
+        this.lG.remove(transportStateListener);
     }
 
     private TransportStateListener[] dj() {
-        if (this.mListeners.size() <= 0) {
+        if (this.lG.size() <= 0) {
             return null;
         }
-        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.mListeners.size()];
-        this.mListeners.toArray(transportStateListenerArr);
+        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.lG.size()];
+        this.lG.toArray(transportStateListenerArr);
         return transportStateListenerArr;
     }
 

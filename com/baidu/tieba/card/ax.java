@@ -1,54 +1,23 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax {
-    private static ax aRq;
-    private List<com.baidu.tbadk.core.util.au> aRp;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ au aTQ;
 
-    public static ax Kc() {
-        if (aRq == null) {
-            synchronized (ax.class) {
-                if (aRq == null) {
-                    aRq = new ax();
-                }
-            }
-        }
-        return aRq;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(au auVar) {
+        this.aTQ = auVar;
     }
 
-    public void a(com.baidu.tbadk.core.util.au auVar) {
-        if (auVar != null) {
-            if (this.aRp == null) {
-                this.aRp = new ArrayList();
-            }
-            if (this.aRp != null) {
-                this.aRp.add(auVar);
-            }
-        }
-    }
-
-    public void gQ(String str) {
-        if (str != null) {
-            if (this.aRp == null) {
-                this.aRp = new ArrayList();
-            }
-            if (this.aRp != null) {
-                this.aRp.add(new com.baidu.tbadk.core.util.au(str));
-            }
-        }
-    }
-
-    public void Kd() {
-        if (com.baidu.tbadk.core.util.x.o(this.aRp) != 0) {
-            for (com.baidu.tbadk.core.util.au auVar : this.aRp) {
-                if (auVar != null) {
-                    TiebaStatic.log(auVar);
-                }
-            }
-            this.aRp.clear();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.a.v vVar;
+        if (this.aTQ.Ld() != null) {
+            cj<com.baidu.tieba.card.a.v> Ld = this.aTQ.Ld();
+            vVar = this.aTQ.aTM;
+            Ld.a(view, vVar);
         }
     }
 }

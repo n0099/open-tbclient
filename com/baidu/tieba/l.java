@@ -5,15 +5,15 @@ import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.p;
 /* loaded from: classes.dex */
 class l implements p.a {
-    final /* synthetic */ k aHO;
+    final /* synthetic */ k aKK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.aHO = kVar;
+        this.aKK = kVar;
     }
 
     @Override // com.baidu.tieba.p.a
-    public void HZ() {
+    public void Jv() {
         LogoActivity logoActivity;
         boolean z;
         LogoActivity logoActivity2;
@@ -22,22 +22,22 @@ class l implements p.a {
         Bitmap bitmap;
         LogoActivity logoActivity4;
         Runnable runnable;
-        logoActivity = this.aHO.aHJ;
-        z = logoActivity.aHv;
+        logoActivity = this.aKK.aKF;
+        z = logoActivity.aKr;
         if (!z) {
-            logoActivity3 = this.aHO.aHJ;
-            bitmap = logoActivity3.aHy;
-            if (bitmap != null && com.baidu.tieba.a.a.Lb().Le()) {
-                com.baidu.adp.lib.h.h hr = com.baidu.adp.lib.h.h.hr();
-                logoActivity4 = this.aHO.aHJ;
-                runnable = logoActivity4.aHD;
-                hr.post(runnable);
+            logoActivity3 = this.aKK.aKF;
+            bitmap = logoActivity3.aKu;
+            if (bitmap != null && com.baidu.tieba.a.a.Mw().My()) {
+                com.baidu.adp.lib.h.h hx = com.baidu.adp.lib.h.h.hx();
+                logoActivity4 = this.aKK.aKF;
+                runnable = logoActivity4.aKz;
+                hx.post(runnable);
                 return;
             }
         }
-        com.baidu.adp.lib.h.h hr2 = com.baidu.adp.lib.h.h.hr();
-        logoActivity2 = this.aHO.aHJ;
-        aVar = logoActivity2.aHC;
-        hr2.post(aVar);
+        com.baidu.adp.lib.h.h hx2 = com.baidu.adp.lib.h.h.hx();
+        logoActivity2 = this.aKK.aKF;
+        aVar = logoActivity2.aKy;
+        hx2.post(aVar);
     }
 }

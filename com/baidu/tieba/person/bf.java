@@ -16,41 +16,41 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bf extends BaseAdapter {
-    private boolean bDM;
-    private View.OnClickListener byd;
-    private PersonFriendActivity cYU;
-    private View.OnClickListener cYW;
+    private View.OnClickListener bDC;
+    private boolean bJj;
+    private PersonFriendActivity dtw;
+    private View.OnClickListener dtz;
     private int mPageType;
-    private ArrayList<UserData> YX = null;
+    private ArrayList<UserData> Xq = null;
     private boolean mHasMore = false;
-    private boolean cYV = false;
-    private boolean cES = false;
-    private ArrayList<ProgressBar> cGb = new ArrayList<>();
+    private boolean dtx = false;
+    private boolean cYk = false;
+    private ArrayList<ProgressBar> dty = new ArrayList<>();
 
-    public void anm() {
-        if (this.cGb != null) {
+    public void auf() {
+        if (this.dty != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.cGb.size()) {
+                if (i2 < this.dty.size()) {
                     try {
-                        this.cGb.get(i2).setVisibility(8);
+                        this.dty.get(i2).setVisibility(8);
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
-                    this.cGb.clear();
+                    this.dty.clear();
                     return;
                 }
             }
         }
     }
 
-    public void ann() {
-        this.cES = false;
-        if (this.YX != null && this.YX.size() == 0) {
-            this.cES = true;
+    public void aug() {
+        this.cYk = false;
+        if (this.Xq != null && this.Xq.size() == 0) {
+            this.cYk = true;
         }
     }
 
@@ -58,35 +58,35 @@ public class bf extends BaseAdapter {
         this.mHasMore = z;
     }
 
-    public void fS(boolean z) {
-        this.cYV = z;
+    public void gF(boolean z) {
+        this.dtx = z;
     }
 
     public bf(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.cYU = null;
-        this.bDM = true;
+        this.dtw = null;
+        this.bJj = true;
         this.mPageType = 0;
-        this.cYW = null;
-        this.byd = null;
-        this.cYU = personFriendActivity;
-        this.bDM = z;
+        this.dtz = null;
+        this.bDC = null;
+        this.dtw = personFriendActivity;
+        this.bJj = z;
         this.mPageType = i;
-        this.cYW = onClickListener;
-        this.byd = onClickListener2;
+        this.dtz = onClickListener;
+        this.bDC = onClickListener2;
     }
 
     public void setData(ArrayList<UserData> arrayList) {
-        this.YX = arrayList;
+        this.Xq = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cES) {
+        if (this.cYk) {
             return 1;
         }
         int i = 0;
-        if (this.YX != null) {
-            i = this.YX.size();
+        if (this.Xq != null) {
+            i = this.Xq.size();
         }
         if (this.mHasMore) {
             return i + 1;
@@ -96,15 +96,15 @@ public class bf extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.YX == null || i >= this.YX.size()) {
+        if (this.Xq == null || i >= this.Xq.size()) {
             return null;
         }
-        return this.YX.get(i);
+        return this.Xq.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.YX == null || i >= this.YX.size()) {
+        if (this.Xq == null || i >= this.Xq.size()) {
             return -1L;
         }
         return i;
@@ -114,28 +114,28 @@ public class bf extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         View view2;
-        if (this.YX != null) {
+        if (this.Xq != null) {
             if (view == null) {
                 a aVar2 = new a(this, null);
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.cYU.getPageContext().getPageActivity()).inflate(t.h.person_list_item_friend, (ViewGroup) null);
-                    aVar2.beU = (HeadImageView) inflate.findViewById(t.g.photo);
-                    aVar2.beU.setIsRound(false);
-                    aVar2.beU.setAutoChangeStyle(true);
-                    aVar2.cYY = (LinearLayout) inflate.findViewById(t.g.info);
-                    aVar2.bPr = (TextView) inflate.findViewById(t.g.name);
-                    aVar2.cYZ = (TextView) inflate.findViewById(t.g.at_list_nodata);
-                    aVar2.bbT = (TextView) inflate.findViewById(t.g.intro);
-                    aVar2.cYX = (ImageView) inflate.findViewById(t.g.chat);
-                    aVar2.cdN = (ImageView) inflate.findViewById(t.g.diver_buttom_px);
-                    aVar2.cYX.setOnClickListener(this.cYW);
+                    View inflate = LayoutInflater.from(this.dtw.getPageContext().getPageActivity()).inflate(t.h.person_list_item_friend, (ViewGroup) null);
+                    aVar2.bjG = (HeadImageView) inflate.findViewById(t.g.photo);
+                    aVar2.bjG.setIsRound(false);
+                    aVar2.bjG.setAutoChangeStyle(true);
+                    aVar2.dtB = (LinearLayout) inflate.findViewById(t.g.info);
+                    aVar2.bZJ = (TextView) inflate.findViewById(t.g.name);
+                    aVar2.dtC = (TextView) inflate.findViewById(t.g.at_list_nodata);
+                    aVar2.bgE = (TextView) inflate.findViewById(t.g.intro);
+                    aVar2.dtA = (ImageView) inflate.findViewById(t.g.chat);
+                    aVar2.cos = (ImageView) inflate.findViewById(t.g.diver_buttom_px);
+                    aVar2.dtA.setOnClickListener(this.dtz);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.cYU.getPageContext().getPageActivity()).inflate(t.h.new_pb_list_more, (ViewGroup) null);
-                    aVar2.bPr = (TextView) inflate2.findViewById(t.g.pb_more_text);
-                    inflate2.setOnClickListener(this.byd);
-                    aVar2.aNo = (ProgressBar) inflate2.findViewById(t.g.progress);
-                    this.cGb.add(aVar2.aNo);
+                    View inflate2 = LayoutInflater.from(this.dtw.getPageContext().getPageActivity()).inflate(t.h.new_pb_list_more, (ViewGroup) null);
+                    aVar2.bZJ = (TextView) inflate2.findViewById(t.g.pb_more_text);
+                    inflate2.setOnClickListener(this.bDC);
+                    aVar2.aQj = (ProgressBar) inflate2.findViewById(t.g.progress);
+                    this.dty.add(aVar2.aQj);
                     view2 = inflate2;
                 }
                 view2.setTag(aVar2);
@@ -145,31 +145,31 @@ public class bf extends BaseAdapter {
                 aVar = (a) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.cES) {
-                    aVar.cYY.setVisibility(8);
-                    aVar.cYX.setVisibility(8);
-                    aVar.cYZ.setVisibility(8);
-                    aVar.cdN.setVisibility(8);
+                if (this.cYk) {
+                    aVar.dtB.setVisibility(8);
+                    aVar.dtA.setVisibility(8);
+                    aVar.dtC.setVisibility(8);
+                    aVar.cos.setVisibility(8);
                 } else {
-                    if (!this.bDM && this.mPageType == 0) {
-                        aVar.cYX.setVisibility(8);
+                    if (!this.bJj && this.mPageType == 0) {
+                        aVar.dtA.setVisibility(8);
                     } else {
-                        aVar.cYX.setVisibility(0);
+                        aVar.dtA.setVisibility(0);
                     }
-                    aVar.cYY.setVisibility(0);
-                    aVar.cYY.setTag(Integer.valueOf(i));
-                    aVar.cdN.setVisibility(0);
-                    aVar.cYZ.setVisibility(8);
-                    String portrait = this.YX.get(i).getPortrait();
-                    aVar.beU.setImageDrawable(null);
-                    aVar.beU.d(portrait, 12, false);
-                    aVar.bPr.setText(this.YX.get(i).getName_show());
-                    aVar.bbT.setText(this.YX.get(i).getIntro());
-                    aVar.cYX.setTag(Integer.valueOf(i));
+                    aVar.dtB.setVisibility(0);
+                    aVar.dtB.setTag(Integer.valueOf(i));
+                    aVar.cos.setVisibility(0);
+                    aVar.dtC.setVisibility(8);
+                    String portrait = this.Xq.get(i).getPortrait();
+                    aVar.bjG.setImageDrawable(null);
+                    aVar.bjG.c(portrait, 12, false);
+                    aVar.bZJ.setText(this.Xq.get(i).getName_show());
+                    aVar.bgE.setText(this.Xq.get(i).getIntro());
+                    aVar.dtA.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.bPr.setText(this.cYU.getPageContext().getString(t.j.loading));
-                aVar.aNo.setVisibility(0);
+                aVar.bZJ.setText(this.dtw.getPageContext().getString(t.j.loading));
+                aVar.aQj.setVisibility(0);
             }
             u(view);
         }
@@ -177,16 +177,16 @@ public class bf extends BaseAdapter {
     }
 
     private void u(View view) {
-        this.cYU.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.cYU.getLayoutMode().x(view);
+        this.dtw.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.dtw.getLayoutMode().x(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.cES) {
+        if (this.cYk) {
             return 0;
         }
-        return (this.YX == null || i >= this.YX.size()) ? 1 : 0;
+        return (this.Xq == null || i >= this.Xq.size()) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -196,7 +196,7 @@ public class bf extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.cES) {
+        if (this.cYk) {
             return false;
         }
         return super.isEnabled(i);
@@ -204,14 +204,14 @@ public class bf extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        ProgressBar aNo;
-        TextView bPr;
-        TextView bbT;
-        HeadImageView beU;
-        ImageView cYX;
-        LinearLayout cYY;
-        TextView cYZ;
-        ImageView cdN;
+        ProgressBar aQj;
+        TextView bZJ;
+        TextView bgE;
+        HeadImageView bjG;
+        ImageView cos;
+        ImageView dtA;
+        LinearLayout dtB;
+        TextView dtC;
 
         private a() {
         }

@@ -5,74 +5,74 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private TextView aHk;
-    private HeadImageView brG;
-    private ShareFromFrsMsgData brJ;
-    private TextView cgM;
-    private TextView cgN;
-    private TextView cgO;
-    private TextView cgP;
+    private TextView aKg;
+    private HeadImageView bwO;
+    private ShareFromFrsMsgData bwR;
     private Context context;
+    private TextView crr;
+    private TextView crs;
+    private TextView crt;
+    private TextView cru;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        qD();
+        pU();
     }
 
     public ShareFromFrsView(Context context) {
         super(context);
         this.context = context;
-        qD();
+        pU();
     }
 
-    private void qD() {
+    private void pU() {
         LayoutInflater.from(getContext()).inflate(t.h.share_from_frs_view, this);
-        this.aHk = (TextView) findViewById(t.g.frs_name);
-        this.brG = (HeadImageView) findViewById(t.g.frs_img);
-        this.cgN = (TextView) findViewById(t.g.frs_member_num);
-        this.cgP = (TextView) findViewById(t.g.frs_post_num);
-        this.cgM = (TextView) findViewById(t.g.frs_member_num_label);
-        this.cgO = (TextView) findViewById(t.g.frs_post_num_label);
+        this.aKg = (TextView) findViewById(t.g.frs_name);
+        this.bwO = (HeadImageView) findViewById(t.g.frs_img);
+        this.crs = (TextView) findViewById(t.g.frs_member_num);
+        this.cru = (TextView) findViewById(t.g.frs_post_num);
+        this.crr = (TextView) findViewById(t.g.frs_member_num_label);
+        this.crt = (TextView) findViewById(t.g.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.aHk.setTextColor(getContext().getResources().getColor(t.d.cp_cont_b));
-            this.cgN.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
-            this.cgP.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
-            this.cgM.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
-            this.cgO.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
+            this.aKg.setTextColor(getContext().getResources().getColor(t.d.cp_cont_b));
+            this.crs.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
+            this.cru.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
+            this.crr.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
+            this.crt.setTextColor(getContext().getResources().getColor(t.d.cp_cont_f));
             return;
         }
-        this.aHk.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
-        this.cgN.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
-        this.cgP.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
-        this.cgM.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
-        this.cgO.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.aKg.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.crs.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.cru.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.crr.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
+        this.crt.setTextColor(getContext().getResources().getColor(t.d.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.brJ = shareFromFrsMsgData;
-        wV();
+        this.bwR = shareFromFrsMsgData;
+        xo();
     }
 
-    private void wV() {
-        this.aHk.setText(dA(this.brJ.getName()));
-        this.brG.setDefaultResource(t.f.icon_default_ba_120);
-        this.brG.setAutoChangeStyle(false);
-        this.brG.d(this.brJ.getImageUrl(), 10, false);
-        this.cgN.setText(aw.y(this.brJ.getMemberNum()));
-        this.cgP.setText(aw.y(this.brJ.getPostNum()));
+    private void xo() {
+        this.aKg.setText(dD(this.bwR.getName()));
+        this.bwO.setDefaultResource(t.f.icon_default_ba_120);
+        this.bwO.setAutoChangeStyle(false);
+        this.bwO.c(this.bwR.getImageUrl(), 10, false);
+        this.crs.setText(ay.A(this.bwR.getMemberNum()));
+        this.cru.setText(ay.A(this.bwR.getPostNum()));
     }
 
-    private String dA(String str) {
-        return String.valueOf(aw.j(str, 8)) + this.context.getString(t.j.forum);
+    private String dD(String str) {
+        return String.valueOf(ay.j(str, 8)) + this.context.getString(t.j.forum);
     }
 }

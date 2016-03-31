@@ -1,25 +1,25 @@
 package com.baidu.tieba.recommendfrs.control;
-
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
+class j extends com.baidu.tbadk.pageStayDuration.b {
+    final /* synthetic */ a dVV;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(int i) {
-        super(i);
+    public j(a aVar) {
+        this.dVV = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c Ey;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Ey = recommendFrsDelegateStatic.Ey()) != null) {
-                Ey.ayo.setArguments(new Bundle());
-            }
-        }
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean Gl() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int Gm() {
+        return com.baidu.tbadk.pageStayDuration.e.Gr().Gt();
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
+        return false;
     }
 }

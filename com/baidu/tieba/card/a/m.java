@@ -4,38 +4,29 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class m extends a {
-    public static final BdUniqueId aSf = BdUniqueId.gen();
-    private String aQd;
-    private List<com.baidu.tieba.horizonalList.widget.m> mList = new ArrayList();
-    private String stType;
+public class m extends com.baidu.tieba.card.a.a {
+    public static final BdUniqueId TC = BdUniqueId.gen();
+    private final List<a> aTc = new ArrayList();
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public long id;
+        public String link;
+        public int position;
+        public String title;
+        public String url;
+    }
+
+    public void a(a aVar) {
+        this.aTc.add(aVar);
+    }
+
+    public List<a> FZ() {
+        return this.aTc;
+    }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aSf;
-    }
-
-    public void b(com.baidu.tieba.horizonalList.widget.m mVar) {
-        this.mList.add(mVar);
-    }
-
-    public List<com.baidu.tieba.horizonalList.widget.m> Fm() {
-        return this.mList;
-    }
-
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String Kr() {
-        return this.aQd;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.aQd = str;
+        return TC;
     }
 }

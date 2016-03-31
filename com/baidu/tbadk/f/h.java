@@ -6,59 +6,80 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h extends a {
-    private TbImageView axV;
-    private TextView axW;
-    private TextView axX;
-    private TextView axY;
+    private TbImageView ayC;
+    private TextView ayD;
+    private TextView ayE;
+    private TextView ayF;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(t.h.net_refresh_view_layout, (ViewGroup) null));
-        this.axV = (TbImageView) this.axO.findViewById(t.g.net_refresh_image);
-        this.axW = (TextView) this.axO.findViewById(t.g.net_refresh_desc);
-        this.axX = (TextView) this.axO.findViewById(t.g.net_refresh_title);
-        this.axY = (TextView) this.axO.findViewById(t.g.net_refresh_button);
-        this.axY.setOnClickListener(onClickListener);
-        this.axO.setOnClickListener(null);
-        uv();
+        this.ayC = (TbImageView) this.ayv.findViewById(t.g.net_refresh_image);
+        this.ayD = (TextView) this.ayv.findViewById(t.g.net_refresh_desc);
+        this.ayE = (TextView) this.ayv.findViewById(t.g.net_refresh_title);
+        this.ayF = (TextView) this.ayv.findViewById(t.g.net_refresh_button);
+        this.ayF.setOnClickListener(onClickListener);
+        this.ayv.setOnClickListener(null);
+        uA();
     }
 
-    public void fN(String str) {
-        this.axW.setText(str);
+    public void fU(String str) {
+        if (str == null) {
+            this.ayD.setVisibility(8);
+            return;
+        }
+        this.ayD.setVisibility(0);
+        this.ayD.setText(str);
     }
 
-    public void eP(int i) {
-        ViewGroup.LayoutParams layoutParams = this.axV.getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.topMargin = i;
-            this.axV.setLayoutParams(marginLayoutParams);
+    public void setTitle(String str) {
+        if (str != null) {
+            this.ayE.setText(str);
         }
     }
 
-    public void Eu() {
-        this.axY.setVisibility(0);
-        this.axX.setVisibility(0);
-        ar.b(this.axW, t.d.cp_cont_d, 1);
+    public void fV(String str) {
+        if (str != null) {
+            this.ayF.setText(str);
+        }
     }
 
-    public void Ev() {
-        this.axY.setVisibility(8);
-        this.axX.setVisibility(8);
-        ar.b(this.axW, t.d.cp_cont_b, 1);
+    public void eV(int i) {
+        ViewGroup.LayoutParams layoutParams = this.ayC.getLayoutParams();
+        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            marginLayoutParams.topMargin = i;
+            this.ayC.setLayoutParams(marginLayoutParams);
+        }
     }
 
-    public void uv() {
+    public void Fh() {
+        this.ayF.setVisibility(0);
+        this.ayE.setVisibility(0);
+        at.b(this.ayD, t.d.cp_cont_d, 1);
+    }
+
+    public void Fi() {
+        this.ayF.setVisibility(8);
+        this.ayE.setVisibility(8);
+        at.b(this.ayD, t.d.cp_cont_b, 1);
+    }
+
+    public void uA() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        ar.c(this.axV, t.f.net_refresh_emotion);
-        ar.a(this.axW, t.d.cp_cont_d, 1, skinType);
-        ar.a(this.axX, t.d.cp_cont_b, 1, skinType);
-        ar.a(this.axY, t.d.cp_cont_g, 1, skinType);
-        ar.c(this.axY, t.f.btn_appdownload, skinType);
-        ar.l(this.axO, t.d.cp_bg_line_d);
+        at.c(this.ayC, t.f.net_refresh_emotion);
+        at.a(this.ayD, t.d.cp_cont_d, 1, skinType);
+        at.a(this.ayE, t.d.cp_cont_b, 1, skinType);
+        at.a(this.ayF, t.d.cp_cont_g, 1, skinType);
+        at.c(this.ayF, t.f.btn_appdownload, skinType);
+        at.l(this.ayv, t.d.cp_bg_line_d);
+    }
+
+    public View Fg() {
+        return this.ayv;
     }
 }

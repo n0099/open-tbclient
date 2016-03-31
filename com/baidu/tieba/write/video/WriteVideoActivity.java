@@ -26,85 +26,99 @@ import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
-    private com.baidu.tieba.tbadkCore.writeModel.a auV;
-    private m epL;
-    private com.baidu.tbadk.core.dialog.e epM;
-    private GestureDetector epN;
-    private int epO;
+    private com.baidu.tieba.tbadkCore.writeModel.a avv;
+    private m eJH;
+    private com.baidu.tbadk.core.dialog.e eJI;
+    private GestureDetector eJJ;
+    private int eJK;
     private InputMethodManager mInputManager;
-    private final WriteData dZC = new WriteData();
-    private Runnable epP = new f(this);
-    private final a.d avl = new g(this);
-    private Runnable epQ = new h(this);
-    private a.InterfaceC0085a dZK = new i(this);
-    private DialogInterface.OnCancelListener cYA = new j(this);
+    private final WriteData esv = new WriteData();
+    private Runnable eJL = new f(this);
+    private final a.d avL = new g(this);
+    private Runnable eJM = new h(this);
+    private a.InterfaceC0082a esD = new i(this);
+    private DialogInterface.OnCancelListener dtc = new j(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.epL = new m(this);
+        this.eJH = new m(this);
         setSwipeBackEnabled(false);
-        aTF();
-        if (this.dZC.getVideoInfo() != null) {
-            this.epL.nF(this.dZC.getVideoInfo().getThumbPath());
+        baf();
+        if (this.esv.getVideoInfo() != null) {
+            this.eJH.oS(this.esv.getVideoInfo().getThumbPath());
         }
-        if (this.epL.aTN() != null) {
-            this.epL.aTN().e(this);
+        if (this.eJH.bao() != null) {
+            this.eJH.bao().e(this);
         }
         adjustResizeForSoftInput();
-        this.epN = new GestureDetector(getPageContext().getPageActivity(), new a(this, null));
+        this.eJJ = new GestureDetector(getPageContext().getPageActivity(), new a(this, null));
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        ShowSoftKeyPadDelay(this.epL.aTQ());
+        ShowSoftKeyPadDelay(this.eJH.bar());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        com.baidu.adp.lib.h.h.hr().postDelayed(this.epP, 200L);
+        com.baidu.adp.lib.h.h.hx().postDelayed(this.eJL, 500L);
     }
 
-    private void aTF() {
+    private void baf() {
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(WriteVideoActivityConfig.VIDEO_INFO);
             if (serializableExtra instanceof VideoInfo) {
-                this.dZC.setVideoInfo((VideoInfo) serializableExtra);
+                this.esv.setVideoInfo((VideoInfo) serializableExtra);
             }
-            this.dZC.setForumId(intent.getStringExtra("forum_id"));
-            this.dZC.setForumName(intent.getStringExtra("forum_name"));
+            this.esv.setForumId(intent.getStringExtra("forum_id"));
+            this.esv.setForumName(intent.getStringExtra("forum_name"));
+            if (this.eJH != null && this.esv.getVideoInfo() != null) {
+                this.eJH.ch((this.esv.getVideoInfo().getVideoDuration() + 1) * 1000);
+            }
         }
     }
 
-    private void aTG() {
-        this.dZC.setTitle(this.epL.getContent());
-        this.dZC.setContent("");
-        this.dZC.setType(0);
-        if (this.epL.aTN() != null) {
-            this.dZC.setHasLocationData(this.epL.aTN().aNi());
+    private void bag() {
+        this.esv.setTitle(this.eJH.getContent());
+        this.esv.setContent("");
+        this.esv.setType(0);
+        if (this.eJH.bao() != null) {
+            this.esv.setHasLocationData(this.eJH.bao().aUk());
         }
-        this.dZC.setIsNoTitle(TextUtils.isEmpty(this.dZC.getTitle()));
+        this.esv.setIsNoTitle(TextUtils.isEmpty(this.esv.getTitle()));
     }
 
-    private void DE() {
-        aTp();
-        agV();
-        if (this.auV == null) {
-            this.auV = new com.baidu.tieba.tbadkCore.writeModel.a(this);
+    private void Eo() {
+        aZP();
+        akp();
+        if (this.avv == null) {
+            this.avv = new com.baidu.tieba.tbadkCore.writeModel.a(this);
         }
-        this.auV.c(this.dZC);
-        this.auV.b(this.avl);
-        this.auV.a(this.dZK);
-        this.auV.aNE();
+        this.avv.d(this.esv);
+        this.avv.b(this.avL);
+        this.avv.a(this.esD);
+        this.avv.aUG();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bah() {
+        VideoInfo videoInfo;
+        if (this.esv != null && (videoInfo = this.esv.getVideoInfo()) != null && videoInfo.getVideoType() == 2 && videoInfo.isCompressedVideo()) {
+            File file = new File(videoInfo.getVideoPath());
+            if (file.exists() && file.isFile()) {
+                file.delete();
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             postWriteCallBackData.getErrorString();
-            if (AntiHelper.or(postWriteCallBackData.getErrorCode())) {
-                AntiHelper.X(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
+            if (AntiHelper.pB(postWriteCallBackData.getErrorCode())) {
+                AntiHelper.O(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
@@ -112,32 +126,32 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 }
                 showToast(errorString);
             } else {
-                com.baidu.tieba.tbadkCore.writeModel.e.d(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                com.baidu.tieba.tbadkCore.writeModel.e.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
             }
         }
     }
 
-    public void agV() {
-        this.epM = new com.baidu.tbadk.core.dialog.e(getPageContext().getPageActivity());
-        this.epM.setOnCancelListener(this.cYA);
-        this.epM.setCancelable(true);
-        this.epM.setCanceledOnTouchOutside(false);
-        com.baidu.adp.lib.h.j.a(this.epM, getPageContext().getPageActivity());
+    public void akp() {
+        this.eJI = new com.baidu.tbadk.core.dialog.e(getPageContext().getPageActivity());
+        this.eJI.setOnCancelListener(this.dtc);
+        this.eJI.setCancelable(true);
+        this.eJI.setCanceledOnTouchOutside(false);
+        com.baidu.adp.lib.h.j.a(this.eJI, getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        aTp();
+        aZP();
         destroyWaitingDialog();
-        this.cYA = null;
+        this.dtc = null;
         closeLoadingDialog();
-        com.baidu.adp.lib.h.h.hr().removeCallbacks(this.epQ);
+        com.baidu.adp.lib.h.h.hx().removeCallbacks(this.eJM);
         super.finish();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void destroyWaitingDialog() {
-        this.epM = null;
+        this.eJI = null;
     }
 
     @Override // android.app.Activity
@@ -158,86 +172,86 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.epL.onChangeSkinType(i);
+        this.eJH.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.h.h.hr().removeCallbacks(this.epP);
+        com.baidu.adp.lib.h.h.hx().removeCallbacks(this.eJL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aTp() {
-        if (this.auV != null) {
-            this.auV.cancelLoadData();
+    public void aZP() {
+        if (this.avv != null) {
+            this.avv.cancelLoadData();
         }
-        if (this.epL.aTN() != null) {
-            this.epL.aTN().aTp();
+        if (this.eJH.bao() != null) {
+            this.eJH.bao().aZP();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.epM != null && this.epM.isShowing()) {
-                com.baidu.adp.lib.h.j.b(this.epM, getPageContext());
+            if (this.eJI != null && this.eJI.isShowing()) {
+                com.baidu.adp.lib.h.j.b(this.eJI, getPageContext());
                 return true;
             }
-            aTH();
+            bai();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void aTH() {
+    private void bai() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.bY(t.j.give_up_video_confirm);
+        aVar.ca(t.j.give_up_video_confirm);
         aVar.a(t.j.dialog_ok, new k(this));
         aVar.b(t.j.dialog_cancel, new l(this));
-        aVar.b(getPageContext()).uj();
+        aVar.b(getPageContext()).up();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.epL.aTO()) {
-            aTI();
-        } else if (view == this.epL.aTP()) {
-            aTJ();
-        } else if (view == this.epL.aay()) {
-            aTH();
+        if (view == this.eJH.bap()) {
+            baj();
+        } else if (view == this.eJH.baq()) {
+            bak();
+        } else if (view == this.eJH.adU()) {
+            bai();
         }
     }
 
-    private void aTI() {
-        if (this.dZC.getVideoInfo() != null) {
-            if (TextUtils.isEmpty(this.dZC.getVideoInfo().getVideoPath())) {
+    private void baj() {
+        if (this.esv.getVideoInfo() != null) {
+            if (TextUtils.isEmpty(this.esv.getVideoInfo().getVideoPath())) {
                 showToast(t.j.file_not_exist);
-            } else if (!new File(this.dZC.getVideoInfo().getVideoPath()).exists()) {
+            } else if (!new File(this.esv.getVideoInfo().getVideoPath()).exists()) {
                 showToast(t.j.file_not_exist);
             } else {
-                XiaoyingUtil.startPlayXiaoyingVideo(getPageContext().getPageActivity(), this.dZC.getVideoInfo().getVideoPath(), this.dZC.getVideoInfo().getVideoWidth(), this.dZC.getVideoInfo().getVideoHeight(), this.dZC.getVideoInfo().getThumbPath());
+                XiaoyingUtil.startPlayXiaoyingVideo(getPageContext().getPageActivity(), this.esv.getVideoInfo().getVideoPath(), this.esv.getVideoInfo().getVideoWidth(), this.esv.getVideoInfo().getVideoHeight(), this.esv.getVideoInfo().getThumbPath(), false);
             }
         }
     }
 
-    private void aTJ() {
-        if (!com.baidu.adp.lib.util.i.iZ()) {
+    private void bak() {
+        if (!com.baidu.adp.lib.util.i.jf()) {
             showToast(t.j.neterror);
             return;
         }
-        aTG();
-        DE();
+        bag();
+        Eo();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeLoadingDialog() {
-        if (this.epM != null) {
-            if (this.epM.isShowing()) {
-                com.baidu.adp.lib.h.j.b(this.epM, getPageContext());
+        if (this.eJI != null) {
+            if (this.eJI.isShowing()) {
+                com.baidu.adp.lib.h.j.b(this.eJI, getPageContext());
             }
-            this.epM = null;
+            this.eJI = null;
         }
     }
 
@@ -259,7 +273,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.epN.onTouchEvent(motionEvent)) {
+        if (this.eJJ.onTouchEvent(motionEvent)) {
             motionEvent.setAction(3);
         }
         return super.dispatchTouchEvent(motionEvent);

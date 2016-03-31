@@ -2,20 +2,20 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class aa extends com.baidu.tbadk.util.m<Void> {
-    private final /* synthetic */ LinkedList bQM;
-    final /* synthetic */ z ckx;
+class aa extends com.baidu.tbadk.util.p<Void> {
+    private final /* synthetic */ LinkedList cbf;
+    final /* synthetic */ z cvd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar, LinkedList linkedList) {
-        this.ckx = zVar;
-        this.bQM = linkedList;
+        this.cvd = zVar;
+        this.cbf = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.m
-    /* renamed from: IB */
+    @Override // com.baidu.tbadk.util.p
+    /* renamed from: JX */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.l.abi().l(this.bQM);
+        return com.baidu.tieba.im.db.l.aeE().l(this.cbf);
     }
 }

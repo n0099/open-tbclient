@@ -4,41 +4,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class bo {
-    BaseActivity bdK;
+    BaseActivity bix;
     String mUrl;
 
     public bo(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.bdK = baseActivity;
+        this.bix = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.bdK.getPageContext().getString(t.j.save_error));
+                showToast(this.bix.getPageContext().getString(t.j.save_error));
             }
-            com.baidu.adp.lib.g.c.hl().a(this.mUrl, 10, new bp(this), this.bdK.getUniqueId());
+            com.baidu.adp.lib.g.c.hr().a(this.mUrl, 10, new bp(this), this.bix.getUniqueId());
         } catch (Exception e) {
-            showToast(this.bdK.getPageContext().getString(t.j.save_error));
+            showToast(this.bix.getPageContext().getString(t.j.save_error));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String l(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.m.a(str, bArr, this.bdK.getPageContext().getPageActivity())) {
+    public String k(String str, byte[] bArr) {
+        switch (com.baidu.tbadk.core.util.m.a(str, bArr, this.bix.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.m.uU();
+                return com.baidu.tbadk.core.util.m.vq();
             case -1:
             default:
-                return this.bdK.getPageContext().getString(t.j.save_error);
+                return this.bix.getPageContext().getString(t.j.save_error);
             case 0:
-                return this.bdK.getPageContext().getString(t.j.save_image_to_album);
+                return this.bix.getPageContext().getString(t.j.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.bdK.showToast(str);
+        this.bix.showToast(str);
     }
 }

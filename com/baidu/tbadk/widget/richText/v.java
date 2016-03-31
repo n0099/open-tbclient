@@ -1,50 +1,29 @@
 package com.baidu.tbadk.widget.richText;
 
-import org.json.JSONObject;
-import tbclient.PbContent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.lib.a.b.a.a.i {
-    private int aGD;
-    private Object aGE;
-    private int duration;
-    private String md5;
+public class v implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aJw;
+    private final /* synthetic */ c aJy;
 
-    public v() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(TbRichTextView tbRichTextView, c cVar) {
+        this.aJw = tbRichTextView;
+        this.aJy = cVar;
     }
 
-    public v(PbContent pbContent) {
-        if (pbContent != null) {
-            this.md5 = pbContent.voice_md5;
-            this.duration = pbContent.during_time.intValue() / 1000;
-            this.aGD = pbContent.is_sub.intValue();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.aJy.Is() != null) {
+            if (this.aJw.getContext() instanceof m) {
+                ((m) this.aJw.getContext()).A(this.aJw.getContext(), this.aJy.Is().toString());
+                return;
+            }
+            com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(this.aJw.getContext());
+            if (s != null && (s.getOrignalPage() instanceof m)) {
+                ((m) s.getOrignalPage()).A(this.aJw.getContext(), this.aJy.Is().toString());
+            }
         }
-    }
-
-    public v(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.md5 = jSONObject.optString("voice_md5");
-            this.duration = jSONObject.optInt("during_time") / 1000;
-            this.aGD = jSONObject.optInt("is_sub");
-        }
-    }
-
-    public String getMd5() {
-        return this.md5;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public int HG() {
-        return this.aGD;
-    }
-
-    public Object HH() {
-        return this.aGE;
-    }
-
-    public void C(Object obj) {
-        this.aGE = obj;
     }
 }

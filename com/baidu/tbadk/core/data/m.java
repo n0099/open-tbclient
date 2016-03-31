@@ -1,68 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class m {
-    private int Vr;
-    private String Vs;
-    private String Vt;
-    private int Vu;
-    private int mType;
-    private String mValue;
+    private String ST;
+    private int SU;
+    private ArrayList<n> SV = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public int sa() {
-        return this.Vr;
+    public ArrayList<n> ry() {
+        return this.SV;
     }
 
-    public String sb() {
-        return this.Vs;
+    public void f(ArrayList<n> arrayList) {
+        this.SV = arrayList;
     }
 
-    public String getValue() {
-        return this.mValue;
+    public String rz() {
+        return this.obj_id;
     }
 
-    public int getType() {
-        return this.mType;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Vr = jSONObject.optInt("bannerType");
-                this.Vs = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.Vt = jSONObject.optString("desc");
-                this.Vu = jSONObject.optInt("template_id");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.SU = activityHead.activity_type.intValue();
+            this.ST = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                n nVar = new n();
+                nVar.a(headImgs);
+                this.SV.add(nVar);
             }
         }
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.Vr = banner.banner_type.intValue();
-            this.Vs = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.Vt = banner.desc;
-            this.Vu = banner.template_id.intValue();
-        }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.Vr == 1 || this.Vr == 4 || this.Vr == 2 || this.Vr == 3 : this.mType == 2 && !StringUtils.isNull(this.Vt);
-    }
-
-    public int sc() {
-        return this.Vu;
     }
 }

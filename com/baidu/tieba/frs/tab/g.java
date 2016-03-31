@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.tab;
 /* loaded from: classes.dex */
 public interface g {
-    void gK(int i);
+    void hb(int i);
 
-    void gL(int i);
+    void hc(int i);
 }

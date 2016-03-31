@@ -12,24 +12,24 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        aCO();
-        aCP();
-        aCQ();
+        aKC();
+        aKD();
+        aKE();
     }
 
-    private static void aCO() {
+    private static void aKC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aCP() {
+    private static void aKD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new i());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aCQ() {
+    private static void aKE() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new j());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

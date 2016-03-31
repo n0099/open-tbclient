@@ -8,7 +8,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
     private SQLiteDatabase nB = null;
-    private a.InterfaceC0002a nE;
+    private a.InterfaceC0003a nE;
     private int nG;
     private final String nH;
 
@@ -17,8 +17,8 @@ public abstract class d implements a {
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0002a interfaceC0002a) {
-        this.nE = interfaceC0002a;
+    public void a(a.InterfaceC0003a interfaceC0003a) {
+        this.nE = interfaceC0003a;
     }
 
     public d(String str, int i) {
@@ -70,7 +70,7 @@ public abstract class d implements a {
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean D(Context context) {
+    public boolean t(Context context) {
         File file = new File(this.nH);
         if (file.exists()) {
             return file.delete();

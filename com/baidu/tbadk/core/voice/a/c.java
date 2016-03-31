@@ -14,7 +14,7 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.g.e
-    public boolean ho() {
+    public boolean hu() {
         return true;
     }
 
@@ -24,21 +24,21 @@ public class c implements e<a> {
     public a a(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
+        diskFileOperate.n(false);
         diskFileOperate.o(false);
-        diskFileOperate.p(false);
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.vK = dVar;
+            aVar.wb = dVar;
         }
-        diskFileOperate.fs();
+        diskFileOperate.ft();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String fJ = diskFileOperate.fJ();
+        String fK = diskFileOperate.fK();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = fJ;
+        aVar2.path = fK;
         return aVar2;
     }
 
@@ -55,14 +55,14 @@ public class c implements e<a> {
         a aVar2 = new a();
         k kVar = new k();
         if (aVar != null) {
-            aVar.vK = kVar;
+            aVar.wb = kVar;
         }
-        byte[] dI = kVar.dI(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.wF()) {
+        byte[] dN = kVar.dN(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!kVar.wX()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(t.j.neterror);
             return aVar2;
-        } else if (dI == null || dI.length == 0) {
+        } else if (dN == null || dN.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = l.getString(t.j.voice_cache_error_no_file);
             return aVar2;
@@ -70,23 +70,23 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dI == null || dI.length == 0) {
+            } else if (dN == null || dN.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-                diskFileOperate.o(false);
-                diskFileOperate.setData(dI);
+                diskFileOperate.n(false);
+                diskFileOperate.setData(dN);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.vK = dVar;
+                    aVar.wb = dVar;
                 }
-                diskFileOperate.fs();
-                if (diskFileOperate.isSuccess() && diskFileOperate.fG() != null) {
-                    str5 = diskFileOperate.fG().getAbsolutePath();
+                diskFileOperate.ft();
+                if (diskFileOperate.isSuccess() && diskFileOperate.fH() != null) {
+                    str5 = diskFileOperate.fH().getAbsolutePath();
                     i3 = 0;
-                } else if (m.uX() < dI.length) {
+                } else if (m.vu() < dN.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.du(i3);
+                aVar2.error_msg = a.dz(i3);
             }
             return aVar2;
         }
@@ -108,19 +108,19 @@ public class c implements e<a> {
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public BdAsyncTaskParallel hp() {
+    public BdAsyncTaskParallel hv() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public int hq() {
+    public int hw() {
         return 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.g.e
-    /* renamed from: g */
-    public a c(String str, String str2, Object... objArr) {
+    /* renamed from: d */
+    public a b(String str, String str2, Object... objArr) {
         return null;
     }
 }

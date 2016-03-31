@@ -1,23 +1,24 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.util.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements a.b {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ am cKT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cKU;
+public class z implements View.OnClickListener {
+    final /* synthetic */ r dej;
+    private final /* synthetic */ PraiseData deq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(q qVar, am amVar, com.baidu.tieba.tbadkCore.data.r rVar) {
-        this.cKS = qVar;
-        this.cKT = amVar;
-        this.cKU = rVar;
+    public z(r rVar, PraiseData praiseData) {
+        this.dej = rVar;
+        this.deq = praiseData;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.cKS.b(this.cKT, this.cKU);
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if ((this.deq == null || this.deq.getIsLike() != 1) && this.dej.dfw != null && bl.ad(this.dej.dfw.getPageContext().getPageActivity())) {
+            this.dej.dfw.awh();
+        }
     }
 }

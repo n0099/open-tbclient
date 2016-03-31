@@ -100,9 +100,9 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> P = com.baidu.tbadk.core.b.a.ug().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> N = com.baidu.tbadk.core.b.a.um().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            P.f(PROFILE_CACHE_KEY, bArr);
+            N.e(PROFILE_CACHE_KEY, bArr);
         }
     }
 }

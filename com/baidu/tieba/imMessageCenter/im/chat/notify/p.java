@@ -1,26 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ e cil;
+    final /* synthetic */ f csQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(e eVar) {
-        this.cil = eVar;
+    public p(f fVar) {
+        this.csQ = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdBaseFragmentActivity bdBaseFragmentActivity;
-        BdBaseFragmentActivity bdBaseFragmentActivity2;
-        bdBaseFragmentActivity = this.cil.chX;
-        TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-        bdBaseFragmentActivity2 = this.cil.chX;
-        bi.af(bdBaseFragmentActivity2.getPageContext().getPageActivity());
+        if (TbadkCoreApplication.isLogin()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.csQ.getPageContext().getPageActivity(), true, true)));
+        }
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int axF = 0;
+    private int aym = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String getActionName() {
+    public String EV() {
         return "rotate";
     }
 
-    public static ImageOperation eO(int i) {
+    public static ImageOperation eU(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -21,9 +21,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void fJ(String str) {
+    public void setParams(String str) {
         if (str != null) {
-            this.axF = Integer.parseInt(str);
+            this.aym = Integer.parseInt(str);
         }
     }
 
@@ -32,19 +32,19 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Ed().eN(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.axF == 0 || this.axF == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.axF);
+        com.baidu.tbadk.imageManager.c.EO().eT(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.aym == 0 || this.aym == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.aym);
         }
-        if (this.axF == 2 || this.axF == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.axF);
+        if (this.aym == 2 || this.aym == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.aym);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fK(String str) {
-        int max = Math.max(k.K(TbadkCoreApplication.m411getInst().getApp()), k.L(TbadkCoreApplication.m411getInst().getApp()));
+    public Bitmap fR(String str) {
+        int max = Math.max(k.B(TbadkCoreApplication.m411getInst().getApp()), k.C(TbadkCoreApplication.m411getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }
 }

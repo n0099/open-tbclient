@@ -1,49 +1,51 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class v extends t {
-    public long aAE;
-    public long aAF;
-    public long aAG;
-    public long aAH;
-    public long aAI;
-    public long aAJ;
-    public long aAK;
-    public long aAL;
-    public long aAM;
-    public long aAN;
-    public long aAO;
-    public long aAP;
-    public boolean aAQ;
+    public long aBB;
+    public long aBD;
+    public long aBE;
+    public long aBF;
+    public long aBG;
+    public boolean aBH;
+    public long aBL;
+    public long aBt;
+    public long aBu;
+    public long aBv;
+    public long aBw;
+    public long aBx;
+    public long aBy;
+    public long aBz;
     public int errCode;
     public boolean isSuccess;
+    public long sequenceID;
     public long socketCostTime;
     public int socketErrNo;
+    public long oL = 0;
+    public long oM = 0;
+    public long aBA = 0;
+    public long aBC = 0;
+    public long aBI = 0;
+    public long aBJ = 0;
+    public boolean aBK = false;
 
-    public void FS() {
-        ac acVar = (ac) aa.FY().fb(this.aAC);
-        if (acVar != null) {
-            acVar.b(this);
-        }
-    }
-
-    public void FT() {
-        ac acVar = (ac) aa.FY().fb(this.aAC);
+    public void GP() {
+        ac acVar = (ac) aa.GU().fj(this.aBr);
         if (acVar != null) {
             acVar.a(this);
         }
     }
 
-    public void FU() {
-        ac acVar = (ac) aa.FY().fb(this.aAC);
+    public void GQ() {
+        ac acVar = (ac) aa.GU().fj(this.aBr);
         if (acVar != null) {
-            acVar.c(this);
+            acVar.b(this);
         }
     }
 
-    public void FV() {
-        ac acVar = (ac) aa.FY().fb(this.aAC);
+    public void GR() {
+        ac acVar = (ac) aa.GU().fj(this.aBr);
         if (acVar != null) {
-            acVar.d(this);
+            acVar.c(this);
         }
     }
 }

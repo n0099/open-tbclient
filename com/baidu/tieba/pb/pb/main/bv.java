@@ -1,45 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class bv implements a.b {
-    final /* synthetic */ bo cNE;
-    private final /* synthetic */ String cfq;
+class bv implements com.baidu.adp.lib.f.c<GifView> {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bo boVar, String str) {
-        this.cNE = boVar;
-        this.cfq = str;
+    public bv(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        PbActivity pbActivity;
-        cm cmVar;
-        PbActivity pbActivity2;
-        cm cmVar2;
-        PbActivity pbActivity3;
-        cm cmVar3;
-        PbActivity pbActivity4;
-        cm cmVar4;
-        aVar.dismiss();
-        pbActivity = this.cNE.cNq;
-        cmVar = pbActivity.cMF;
-        if (cmVar != null) {
-            pbActivity2 = this.cNE.cNq;
-            cmVar2 = pbActivity2.cMF;
-            if (cmVar2.getPbData() != null) {
-                com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10398");
-                pbActivity3 = this.cNE.cNq;
-                cmVar3 = pbActivity3.cMF;
-                com.baidu.tbadk.core.util.au aa = auVar.aa(ImageViewerConfig.FORUM_ID, cmVar3.getPbData().getForumId()).aa("uid", this.cfq);
-                pbActivity4 = this.cNE.cNq;
-                cmVar4 = pbActivity4.cMF;
-                TiebaStatic.log(aa.aa("tid", cmVar4.getPbData().getThreadId()).aa("is_like", "2"));
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: awL */
+    public GifView hq() {
+        return new GifView(this.dht.getPageContext().getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: g */
+    public void l(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: h */
+    public GifView m(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: i */
+    public GifView n(GifView gifView) {
+        return gifView;
     }
 }

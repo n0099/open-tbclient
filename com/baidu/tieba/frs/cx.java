@@ -1,29 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class cx extends CustomMessageListener {
-    final /* synthetic */ FrsMoreFeedForumsActivity bjY;
+class cx implements AbsListView.RecyclerListener {
+    final /* synthetic */ cs bpe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
-        super(i);
-        this.bjY = frsMoreFeedForumsActivity;
+    public cx(cs csVar) {
+        this.bpe = csVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cy cyVar;
-        List<FeedForumData> list;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.x)) {
-            cyVar = this.bjY.bjW;
-            list = this.bjY.biw;
-            cyVar.a(list, (com.baidu.tieba.tbadkCore.x) customResponsedMessage.getData());
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).reset();
         }
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tieba.account.appeal;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
-    final /* synthetic */ AppealActivity aJS;
+    final /* synthetic */ AppealActivity aMO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AppealActivity appealActivity) {
-        this.aJS = appealActivity;
+        this.aMO = appealActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,16 +28,16 @@ class a implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        textView = this.aJS.aJN;
+        textView = this.aMO.aMJ;
         int length = 150 - textView.getText().toString().length();
-        textView2 = this.aJS.aJO;
+        textView2 = this.aMO.aMK;
         textView2.setText(String.valueOf(length));
         if (length < 0) {
-            textView4 = this.aJS.aJO;
-            textView4.setTextColor(this.aJS.getResources().getColor(t.d.red));
+            textView4 = this.aMO.aMK;
+            textView4.setTextColor(this.aMO.getResources().getColor(t.d.red));
             return;
         }
-        textView3 = this.aJS.aJO;
-        ar.b(textView3, t.d.appeal_hint, 1);
+        textView3 = this.aMO.aMK;
+        at.b(textView3, t.d.appeal_hint, 1);
     }
 }

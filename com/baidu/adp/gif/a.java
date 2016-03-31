@@ -5,38 +5,38 @@ public interface a {
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0003a implements a {
-        private static a qY;
-        private int qZ;
-        private final f ra = new f();
+    public static class C0004a implements a {
+        private static a ri;
+        private int rj;
+        private final f rk = new f();
 
-        public C0003a() {
-            this.qZ = 0;
-            if (NSGif.rb) {
-                this.qZ = 0;
+        public C0004a() {
+            this.rj = 0;
+            if (NSGif.rl) {
+                this.rj = 0;
             } else {
-                this.qZ = 1;
+                this.rj = 1;
             }
         }
 
-        public static synchronized a fm() {
+        public static synchronized a fn() {
             a aVar;
-            synchronized (C0003a.class) {
-                if (qY == null) {
-                    qY = new C0003a();
+            synchronized (C0004a.class) {
+                if (ri == null) {
+                    ri = new C0004a();
                 }
-                aVar = qY;
+                aVar = ri;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.a.a d(byte[] bArr, int i, int i2) {
-            if (this.qZ != 0) {
+            if (this.rj != 0) {
                 return null;
             }
             try {
-                return this.ra.d(bArr, i, i2);
+                return this.rk.d(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

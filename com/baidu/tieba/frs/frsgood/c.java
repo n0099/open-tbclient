@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.frsgood;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class c implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsGoodActivity bnm;
+    final /* synthetic */ FrsGoodActivity bsj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FrsGoodActivity frsGoodActivity) {
-        this.bnm = frsGoodActivity;
+        this.bsj = frsGoodActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -17,27 +17,33 @@ class c implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         boolean z;
+        com.baidu.tbadk.performanceLog.e eVar;
+        com.baidu.tbadk.performanceLog.e eVar2;
+        com.baidu.tbadk.performanceLog.e eVar3;
         com.baidu.adp.widget.ListView.w wVar;
         if (i == 2 || i == 1) {
-            z = this.bnm.bfM;
+            z = this.bsj.bkx;
             if (!z) {
-                this.bnm.bfM = true;
-                this.bnm.bng.Qm();
+                this.bsj.bkx = true;
+                this.bsj.bsd.Sf();
             }
         }
         if (i == 0) {
-            y yVar = this.bnm.bng;
-            wVar = this.bnm.bgv;
+            y yVar = this.bsj.bsd;
+            wVar = this.bsj.blg;
             yVar.a(wVar);
-            this.bnm.Kg = false;
+            this.bsj.Km = false;
         } else {
-            this.bnm.bng.a((com.baidu.adp.widget.ListView.w) null);
-            this.bnm.Kg = true;
+            this.bsj.bsd.a((com.baidu.adp.widget.ListView.w) null);
+            this.bsj.Km = true;
         }
-        if (this.bnm.bfN == null) {
-            this.bnm.bfN = new com.baidu.tbadk.performanceLog.e();
-            this.bnm.bfN.eZ(1000);
+        eVar = this.bsj.bky;
+        if (eVar == null) {
+            this.bsj.bky = new com.baidu.tbadk.performanceLog.e();
+            eVar3 = this.bsj.bky;
+            eVar3.fh(1000);
         }
-        this.bnm.bfN.FF();
+        eVar2 = this.bsj.bky;
+        eVar2.GB();
     }
 }

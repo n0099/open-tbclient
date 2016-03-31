@@ -1,50 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.f.a;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class u extends com.baidu.adp.base.g {
-    final /* synthetic */ PbActivity cNq;
+class u implements ae.a {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        dz dzVar;
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
-        com.baidu.tieba.tbadkCore.f.a aVar3;
-        cm cmVar;
-        if (obj != null) {
-            aVar2 = this.cNq.cMH;
-            switch (aVar2.getLoadDataMode()) {
-                case 0:
-                    cmVar = this.cNq.cMF;
-                    cmVar.aqb();
-                    this.cNq.a((a.b) obj);
-                    return;
-                case 1:
-                    this.cNq.a((a.d) obj);
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    PbActivity pbActivity = this.cNq;
-                    aVar3 = this.cNq.cMH;
-                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
-                    return;
-                case 6:
-                    this.cNq.a((a.f) obj);
-                    return;
-                default:
-                    return;
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void gJ(String str) {
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        df dfVar;
+        this.dht.biR = false;
+        aeVar = this.dht.bjd;
+        if (aeVar != null) {
+            dfVar = this.dht.dfV;
+            com.baidu.tieba.pb.data.e pbData = dfVar.getPbData();
+            if (pbData.avv().getPraise().getIsLike() == 1) {
+                this.dht.gB(0);
+            } else {
+                this.dht.gB(1);
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.avv()));
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void q(int i, String str) {
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        this.dht.biR = false;
+        aeVar = this.dht.bjd;
+        if (aeVar != null && str != null) {
+            if (AntiHelper.pB(i)) {
+                AntiHelper.O(this.dht.getPageContext().getPageActivity(), str);
+            } else {
+                this.dht.showToast(str);
             }
         }
-        dzVar = this.cNq.cMK;
-        aVar = this.cNq.cMH;
-        dzVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

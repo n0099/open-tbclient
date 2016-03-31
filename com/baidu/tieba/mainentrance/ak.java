@@ -1,15 +1,15 @@
 package com.baidu.tieba.mainentrance;
 /* loaded from: classes.dex */
 class ak implements Runnable {
-    final /* synthetic */ aj cxe;
+    final /* synthetic */ aj cLZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.cxe = ajVar;
+        this.cLZ = ajVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.tbadkCore.util.m.aNr();
+        com.baidu.tieba.tbadkCore.util.m.aUs();
     }
 }

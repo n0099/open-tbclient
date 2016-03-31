@@ -1,9 +1,8 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.adp.widget.ListView.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public List<u> bfi;
-    public int dEk = 0;
+    public List<com.baidu.adp.widget.ListView.u> bjU;
+    public int dWc = 0;
 }

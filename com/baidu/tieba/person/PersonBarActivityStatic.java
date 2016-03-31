@@ -11,7 +11,7 @@ public class PersonBarActivityStatic {
         TbadkCoreApplication.m411getInst().RegisterIntent(PersonBarActivityConfig.class, PersonBarActivity.class);
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(107129);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
-        bVar.j(false);
+        bVar.i(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
         MessageManager.getInstance().registerTask(bVar);
     }

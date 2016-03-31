@@ -8,11 +8,11 @@ import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ a dEd;
+    final /* synthetic */ a dVV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.dEd = aVar;
+        this.dVV = aVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -21,14 +21,14 @@ public class g implements CustomMessageTask.CustomRunnable<Boolean> {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.dEd.dDV;
-        if (scrollFragmentTabHost.aFI()) {
-            scrollFragmentTabHost2 = this.dEd.dDV;
-            if (scrollFragmentTabHost2.dFp) {
-                scrollFragmentTabHost3 = this.dEd.dDV;
-                scrollFragmentTabHost3.aFK();
-                scrollFragmentTabHost4 = this.dEd.dDV;
-                scrollFragmentTabHost4.dFp = false;
+        scrollFragmentTabHost = this.dVV.dVM;
+        if (scrollFragmentTabHost.aof()) {
+            scrollFragmentTabHost2 = this.dVV.dVM;
+            if (scrollFragmentTabHost2.dXo) {
+                scrollFragmentTabHost3 = this.dVV.dVM;
+                scrollFragmentTabHost3.aoh();
+                scrollFragmentTabHost4 = this.dVV.dVM;
+                scrollFragmentTabHost4.dXo = false;
             }
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }

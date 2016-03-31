@@ -7,13 +7,13 @@ import com.baidu.tieba.write.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.write.data.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity eoG;
+    final /* synthetic */ SearchLocationActivity eIC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.eoG = searchLocationActivity;
+        this.eIC = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.eoG.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.eoG.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
+                    this.eIC.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.eIC.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.eoG.eoz = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.eIC.eIv = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.eoG.eoz = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.eIC.eIv = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.eoG.eoA;
-                bVar = this.eoG.eoz;
+                hVar = this.eIC.eIw;
+                bVar = this.eIC.eIv;
                 hVar.a(bVar);
-                hVar2 = this.eoG.eoA;
+                hVar2 = this.eIC.eIw;
                 hVar2.notifyDataSetChanged();
             }
         }

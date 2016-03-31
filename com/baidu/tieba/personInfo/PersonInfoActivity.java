@@ -11,23 +11,23 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* loaded from: classes.dex */
 public class PersonInfoActivity extends BaseFragmentActivity implements VoiceManager.c, FrsCommonImageLayout.c {
-    protected VoiceManager ben;
-    private bf dbl;
-    private com.baidu.adp.lib.f.b<TbImageView> dcq;
-    private Fragment dhL;
+    protected VoiceManager bja;
+    private Fragment dCn;
+    private bf dvN;
+    private com.baidu.adp.lib.f.b<TbImageView> dwT;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onCreate(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onCreate(getPageContext());
         }
-        this.dbl = new bf(this);
+        this.dvN = new bf(this);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        this.dhL = Fragment.instantiate(getPageContext().getContext(), f.class.getName());
-        beginTransaction.add(16908290, this.dhL);
+        this.dCn = Fragment.instantiate(getPageContext().getContext(), f.class.getName());
+        beginTransaction.add(16908290, this.dCn);
         beginTransaction.commit();
     }
 
@@ -39,26 +39,26 @@ public class PersonInfoActivity extends BaseFragmentActivity implements VoiceMan
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onSaveInstanceState(getPageContext().getPageActivity());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.dhL != null) {
-            this.dhL.onActivityResult(i, i2, intent);
+        if (this.dCn != null) {
+            this.dCn.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.ben == null) {
-            this.ben = VoiceManager.instance();
+        if (this.bja == null) {
+            this.bja = VoiceManager.instance();
         }
-        return this.ben;
+        return this.bja;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -70,9 +70,9 @@ public class PersonInfoActivity extends BaseFragmentActivity implements VoiceMan
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onPause(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onPause(getPageContext());
         }
     }
 
@@ -80,29 +80,32 @@ public class PersonInfoActivity extends BaseFragmentActivity implements VoiceMan
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onResume(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onResume(getPageContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onDestory(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onDestory(getPageContext());
         }
-        super.onDestroy();
+        try {
+            super.onDestroy();
+        } catch (Exception e) {
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onStart(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onStart(getPageContext());
         }
     }
 
@@ -110,17 +113,22 @@ public class PersonInfoActivity extends BaseFragmentActivity implements VoiceMan
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.ben = getVoiceManager();
-        if (this.ben != null) {
-            this.ben.onStop(getPageContext());
+        this.bja = getVoiceManager();
+        if (this.bja != null) {
+            this.bja.onStop(getPageContext());
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> OC() {
-        if (this.dcq == null) {
-            this.dcq = FrsCommonImageLayout.l(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.f.b<TbImageView> Qr() {
+        if (this.dwT == null) {
+            this.dwT = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
         }
-        return this.dcq;
+        return this.dwT;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.a
+    public String getCurrentPageKey() {
+        return "a011";
     }
 }

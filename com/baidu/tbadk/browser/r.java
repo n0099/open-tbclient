@@ -1,18 +1,19 @@
 package com.baidu.tbadk.browser;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ p Sy;
+class r implements Runnable {
+    final /* synthetic */ q PI;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f PJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(p pVar) {
-        this.Sy = pVar;
+    public r(q qVar, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.PI = qVar;
+        this.PJ = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.Sy.qH();
+    @Override // java.lang.Runnable
+    public void run() {
+        TbWebViewActivity tbWebViewActivity;
+        tbWebViewActivity = this.PI.PH;
+        tbWebViewActivity.mView.a(this.PJ);
     }
 }

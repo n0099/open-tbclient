@@ -1,43 +1,56 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import android.os.Build;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
-class b extends Handler {
-    final /* synthetic */ FileDownloader cHJ;
+public class b {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(FileDownloader fileDownloader) {
-        this.cHJ = fileDownloader;
+    /* loaded from: classes.dex */
+    public interface a {
+        int avb();
+
+        void y(String str, String str2, String str3);
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        String str2;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            if (message.arg2 > 0) {
-                this.cHJ.progress = (int) ((message.arg1 * 100) / message.arg2);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / 1000));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / 1000));
-                stringBuffer.append("K");
-                this.cHJ.schedule = stringBuffer.toString();
-                Context baseContext = this.cHJ.getBaseContext();
-                int i = this.cHJ.progress;
-                str = this.cHJ.schedule;
-                str2 = this.cHJ.mInfo;
-                NotificationHelper.showProgressNotification(baseContext, 10, null, i, str, str2, true);
+    public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        if (j != 0) {
+            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", str2, "locate", "c0114", "loc_param", str3, "action_type", str4, "task", str5, "obj_id", String.valueOf(j), "obj_name", String.valueOf(j), "obj_cpid", 0, "obj_url", str, "obj_good_id", 0, "obj_throw_type", "BY_POST", SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP", "fid", str6, ImageViewerConfig.FORUM_NAME, str7, "tid", str8, "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", SocialConstants.ANDROID_CLIENT_TYPE, "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+        }
+    }
+
+    public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        if (j > 0) {
+            aw ac = new aw("ad_tpoint").ac("obj_id", String.valueOf(j)).ac("obj_name", str);
+            if (str3 != null) {
+                ac = ac.ac("page", str3);
             }
-        } else if (message.what == 1) {
-            UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), (String) message.obj);
-            this.cHJ.stopSelf();
+            if (str4 != null) {
+                ac = ac.ac("loc_param", str4);
+            }
+            if (str5 != null) {
+                ac = ac.ac("action_type", str5);
+            }
+            if (str6 != null) {
+                ac = ac.ac("task", str6);
+            }
+            if (str7 != null) {
+                ac = ac.ac("fid", str7);
+            }
+            if (str8 != null) {
+                ac = ac.ac(ImageViewerConfig.FORUM_NAME, str8);
+            }
+            if (str9 != null) {
+                ac = ac.ac("tid", str9);
+            }
+            aw ac2 = ac.ac("line", "PT").ac("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ac("obj_throw_type", "BY_POST").ac(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ac("user_timestamp", String.valueOf(System.currentTimeMillis())).ac("os", SocialConstants.ANDROID_CLIENT_TYPE).ac("os_version", Build.VERSION.RELEASE).ac("log_ver", "1.1");
+            if (str2 != null) {
+                ac2 = ac2.ac("link", str2);
+            }
+            TiebaStatic.log(ac2);
         }
     }
 }

@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.ai;
+import com.baidu.tieba.tbadkCore.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.b {
-    final /* synthetic */ a bpO;
+    final /* synthetic */ a buP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.bpO = aVar;
+        this.buP = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -25,18 +25,18 @@ public class g implements a.b {
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        ai aiVar;
+        aj ajVar;
         aVar.dismiss();
-        frsActivity = this.bpO.bot;
-        com.baidu.tieba.tbadkCore.o Pk = frsActivity.Pk();
+        frsActivity = this.buP.bts;
+        com.baidu.tieba.tbadkCore.o QZ = frsActivity.QZ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-            frsActivity2 = this.bpO.bot;
-            m411getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bpO.getPageContext().getPageActivity(), this.bpO.getPageContext().getString(t.j.login_to_use), true, 11036)));
-        } else if (Pk != null && Pk.aoE() != null) {
-            aiVar = this.bpO.bpG;
-            aiVar.m(Pk.aoE().getName(), com.baidu.adp.lib.h.b.c(Pk.aoE().getId(), 0L));
+            frsActivity2 = this.buP.bts;
+            m411getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.buP.getPageContext().getPageActivity(), this.buP.getPageContext().getString(t.j.login_to_use), true, 11036)));
+        } else if (QZ != null && QZ.avu() != null) {
+            ajVar = this.buP.buH;
+            ajVar.m(QZ.avu().getName(), com.baidu.adp.lib.h.b.c(QZ.avu().getId(), 0L));
         }
     }
 }

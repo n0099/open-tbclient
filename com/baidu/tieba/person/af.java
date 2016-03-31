@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cYF;
+    final /* synthetic */ PersonChangeActivity dth;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PersonChangeActivity personChangeActivity) {
-        this.cYF = personChangeActivity;
+        this.dth = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,27 +17,27 @@ class af implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.cYF.cYw.atN().getSex();
-        i = this.cYF.mSex;
+        int sex = this.dth.dsY.aBt().getSex();
+        i = this.dth.mSex;
         if (sex != i) {
-            this.cYF.cWY = true;
+            this.dth.drA = true;
         }
-        z = this.cYF.cWY;
+        z = this.dth.drA;
         if (!z) {
-            if (this.cYF.cYw != null && this.cYF.cYw.atN().getPhotoChanged()) {
+            if (this.dth.dsY != null && this.dth.dsY.aBt().getPhotoChanged()) {
                 Intent intent = new Intent();
-                if (this.cYF.cYi.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cYF.cYw.atN());
+                if (this.dth.dsK.booleanValue()) {
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.dth.dsY.aBt());
                 } else {
-                    intent.putExtra("data", this.cYF.cYw.atN());
+                    intent.putExtra("data", this.dth.dsY.aBt());
                 }
-                this.cYF.atM();
-                this.cYF.setResult(-1, intent);
+                this.dth.aBs();
+                this.dth.setResult(-1, intent);
             }
-            this.cYF.finish();
+            this.dth.finish();
             return;
         }
-        aVar = this.cYF.cYB;
-        aVar.uj();
+        aVar = this.dth.dtd;
+        aVar.up();
     }
 }

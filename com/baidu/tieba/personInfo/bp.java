@@ -6,9 +6,9 @@ import tbclient.UcCard;
 import tbclient.UcCardInfo;
 /* loaded from: classes.dex */
 public class bp {
-    private String dcf;
-    private String dcg;
-    private List<a> dch;
+    private String dwI;
+    private String dwJ;
+    private List<a> dwK;
     private String icon;
     private String name;
 
@@ -20,31 +20,31 @@ public class bp {
         return this.icon;
     }
 
-    public String aut() {
-        return this.dcf;
+    public String aBZ() {
+        return this.dwI;
     }
 
-    public String auu() {
-        return this.dcg;
+    public String aCa() {
+        return this.dwJ;
     }
 
-    public List<a> auv() {
-        return this.dch;
+    public List<a> aCb() {
+        return this.dwK;
     }
 
     public void a(UcCard ucCard) {
         if (ucCard != null) {
             this.name = ucCard.name;
             this.icon = ucCard.icon;
-            this.dcf = ucCard.doc;
-            this.dcg = ucCard.jmp;
-            this.dch = new ArrayList();
+            this.dwI = ucCard.doc;
+            this.dwJ = ucCard.jmp;
+            this.dwK = new ArrayList();
             if (ucCard.uc_cards != null) {
                 for (UcCardInfo ucCardInfo : ucCard.uc_cards) {
                     if (ucCardInfo != null) {
                         a aVar = new a();
                         aVar.a(ucCardInfo);
-                        this.dch.add(aVar);
+                        this.dwK.add(aVar);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class bp {
 
     /* loaded from: classes.dex */
     public static class a {
-        private String dcg;
+        private String dwJ;
         private String pic;
         private String tip;
         private String title;
@@ -66,11 +66,11 @@ public class bp {
             return this.pic;
         }
 
-        public String auu() {
-            return this.dcg;
+        public String aCa() {
+            return this.dwJ;
         }
 
-        public String ut() {
+        public String uy() {
             return this.tip;
         }
 
@@ -78,7 +78,7 @@ public class bp {
             if (ucCardInfo != null) {
                 this.title = ucCardInfo.title;
                 this.pic = ucCardInfo.pic;
-                this.dcg = ucCardInfo.jmp;
+                this.dwJ = ucCardInfo.jmp;
                 this.tip = ucCardInfo.tip;
             }
         }

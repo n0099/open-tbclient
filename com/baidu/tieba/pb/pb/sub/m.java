@@ -1,27 +1,27 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class m implements com.baidu.adp.lib.f.c<ImageView> {
-    final /* synthetic */ NewSubPbActivity cTK;
+    final /* synthetic */ NewSubPbActivity doF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.cTK = newSubPbActivity;
+        this.doF = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: apD */
-    public ImageView hk() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.cTK.getPageContext().getPageActivity());
-        boolean rt = com.baidu.tbadk.core.l.rn().rt();
-        foreDrawableImageView.setDefaultBg(ar.getDrawable(t.d.pb_default_image_bg));
-        if (rt) {
+    /* renamed from: awK */
+    public ImageView hq() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.doF.getPageContext().getPageActivity());
+        boolean qK = com.baidu.tbadk.core.l.qE().qK();
+        foreDrawableImageView.setDefaultBg(at.getDrawable(t.d.pb_default_image_bg));
+        if (qK) {
             foreDrawableImageView.setAdjustViewBounds(false);
             foreDrawableImageView.setInterceptOnClick(false);
         } else {
@@ -55,7 +55,7 @@ class m implements com.baidu.adp.lib.f.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.l.rn().rt()) {
+            if (com.baidu.tbadk.core.l.qE().qK()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {

@@ -3,12 +3,16 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MarkData implements Serializable {
     private static final long serialVersionUID = 2647743141824773827L;
+    private long cartoonId;
+    private int chapterId;
+    private boolean isManga;
     private String mAccount;
     private String mForumId;
     private String mForumName;
@@ -159,6 +163,30 @@ public class MarkData implements Serializable {
         this.isApp = z;
     }
 
+    public boolean isManga() {
+        return this.isManga;
+    }
+
+    public void setManga(boolean z) {
+        this.isManga = z;
+    }
+
+    public long getCartoonId() {
+        return this.cartoonId;
+    }
+
+    public void setCartoonId(long j) {
+        this.cartoonId = j;
+    }
+
+    public int getChapterId() {
+        return this.chapterId;
+    }
+
+    public void setChapterId(int i) {
+        this.chapterId = i;
+    }
+
     public JSONObject toJson() {
         int i;
         try {
@@ -193,6 +221,12 @@ public class MarkData implements Serializable {
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
             this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
             int optInt = jSONObject.optInt("mark_status");
+            JSONObject optJSONObject = jSONObject.optJSONObject("cartoon_info");
+            if (optJSONObject != null) {
+                this.isManga = true;
+                this.cartoonId = optJSONObject.optLong("cartoon_id");
+                this.chapterId = optJSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            }
             if (optInt == 0) {
                 this.mSequence = true;
                 this.mHostMode = false;

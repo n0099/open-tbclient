@@ -1,27 +1,23 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.view.View;
+import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ am cKT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cKU;
+public class w implements MediaPlayer.OnCompletionListener {
+    final /* synthetic */ r dej;
+    private final /* synthetic */ an dek;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s del;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(q qVar, am amVar, com.baidu.tieba.tbadkCore.data.r rVar) {
-        this.cKS = qVar;
-        this.cKT = amVar;
-        this.cKU = rVar;
+    public w(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dej = rVar;
+        this.dek = anVar;
+        this.del = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.cKT.cLk.isPlaying()) {
-            this.cKT.cLk.pause();
-            this.cKT.cLp.setVisibility(0);
-            return;
-        }
-        this.cKS.a(this.cKT, this.cKU);
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        this.dek.deD.setVisibility(0);
+        this.dej.a(this.del, this.dek);
     }
 }

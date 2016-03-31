@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ClearResourceStatic {
-    private static long SJ = 86400000;
+    private static long Qg = 86400000;
 
     static {
         MessageManager.getInstance().registerListener(new a(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void m(File file) {
+    public static void k(File file) {
         if (file != null) {
             try {
                 if (file.isDirectory()) {
@@ -21,7 +21,7 @@ public class ClearResourceStatic {
                     if (listFiles != null) {
                         for (int i = 0; i < listFiles.length; i++) {
                             if (listFiles[i].isDirectory()) {
-                                m(listFiles[i]);
+                                k(listFiles[i]);
                             } else {
                                 listFiles[i].delete();
                             }

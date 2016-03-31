@@ -1,54 +1,34 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class i {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+public class i extends ClickableSpan {
+    private Context mContext;
+
+    public i(Context context) {
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.m411getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.m411getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m411getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.m411getInst().getTbs();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
-        }
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public void gm(String str) {
+        com.baidu.tbadk.browser.f.s(this.mContext, str);
+    }
+
+    public void gn(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

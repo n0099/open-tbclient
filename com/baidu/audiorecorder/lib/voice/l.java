@@ -1,22 +1,22 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes.dex */
 class l implements Runnable {
-    private final /* synthetic */ int Ls;
-    final /* synthetic */ j Lt;
-    private final /* synthetic */ String Lu;
+    final /* synthetic */ j LA;
+    private final /* synthetic */ String LB;
+    private final /* synthetic */ int Lz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar, String str, int i) {
-        this.Lt = jVar;
-        this.Lu = str;
-        this.Ls = i;
+        this.LA = jVar;
+        this.LB = str;
+        this.Lz = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         g gVar;
-        com.baidu.adp.lib.voice.l.zx = 1;
-        gVar = this.Lt.Lp;
-        gVar.Ll.onSendVoice(this.Lu, this.Ls);
+        com.baidu.adp.lib.voice.l.zP = 1;
+        gVar = this.LA.Lw;
+        gVar.Ls.onSendVoice(this.LB, this.Lz);
     }
 }

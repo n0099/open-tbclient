@@ -22,11 +22,11 @@ public class bk implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.ady().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.agR().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void f(String str, List<CommonMsgPojo> list) {
+    public void d(String str, List<CommonMsgPojo> list) {
         if (list != null && list.size() != 0) {
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (commonMsgPojo.getMsg_type() == 11) {

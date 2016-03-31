@@ -1,49 +1,75 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.util.SparseIntArray;
+import com.baidu.tieba.t;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class t extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<r> atc;
+public class t extends com.baidu.tbadk.editortools.view.c {
+    LinkedList<s> atB;
+    private SparseIntArray aui;
+
+    public t(Context context) {
+        super(context);
+        this.aui = new SparseIntArray();
+        setPadding(context.getResources().getDimensionPixelSize(t.e.ds34), 0, context.getResources().getDimensionPixelSize(t.e.ds34), 0);
+        setBackgroundColorId(t.d.pb_editor_tool_view_bg);
+        setToolId(2);
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void i(LinkedList<r> linkedList) {
-        this.atc = linkedList;
+    public void i(LinkedList<s> linkedList) {
+        this.atB = linkedList;
     }
 
-    @Override // com.baidu.tbadk.editortools.b
+    @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
+    public void init() {
+        setShowDelete(false);
+        u uVar = new u();
+        uVar.i(this.atB);
+        b(uVar);
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.b
     public void a(a aVar) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public e ey(int i) {
-        if (i < 0 || i >= getCount()) {
-            return null;
+        super.a(aVar);
+        if (aVar != null && aVar.code == 2 && aVar.id != 5) {
+            c(aVar);
+            Du();
         }
-        return (e) this.atc.get(i);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.a
-    public int getCount() {
-        if (this.atc != null) {
-            return this.atc.size();
+    private void c(a aVar) {
+        Integer valueOf = Integer.valueOf(this.aui.get(aVar.id));
+        int intValue = valueOf != null ? valueOf.intValue() : 0;
+        if (aVar.data == null) {
+            intValue = 0;
+        } else if (aVar.data instanceof String) {
+            String str = (String) aVar.data;
+            if (TextUtils.isEmpty(str)) {
+                intValue = 0;
+            } else {
+                intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
+            }
         }
-        return 0;
+        this.aui.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.a
-    public void init(Context context) {
-        eI(4);
-        eJ(2);
-        a(new u(this));
-        DM().c(this);
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.a
-    public void CM() {
-        if (this.atc != null) {
-            this.atc.clear();
+    private void Du() {
+        int i = 0;
+        for (int i2 = 0; i2 < this.aui.size(); i2++) {
+            i += this.aui.valueAt(i2);
         }
-        this.atc = null;
+        if (i > 0) {
+            b(new a(2, 2, " "));
+        } else {
+            b(new a(2, 2, null));
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
+    public void op() {
+        super.op();
     }
 }

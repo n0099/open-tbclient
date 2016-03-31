@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -18,99 +16,99 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float yQ;
-    static int yR;
-    static int yS;
-    private static String yV;
-    static boolean yP = false;
-    private static Toast yT = null;
-    private static a yU = null;
+    private static float zh;
+    static int zi;
+    static int zj;
+    private static String zm;
+    static boolean zg = false;
+    private static Toast zk = null;
+    private static a zl = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
     /* loaded from: classes.dex */
     public interface a {
-        void aW(String str);
+        void aY(String str);
 
-        View jw();
+        View jC();
     }
 
-    public static void J(Context context) {
+    public static void A(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yR = displayMetrics.heightPixels;
-            yS = displayMetrics.widthPixels;
+            zi = displayMetrics.heightPixels;
+            zj = displayMetrics.widthPixels;
         } else {
-            yR = displayMetrics.widthPixels;
-            yS = displayMetrics.heightPixels;
+            zi = displayMetrics.widthPixels;
+            zj = displayMetrics.heightPixels;
         }
-        yQ = displayMetrics.density;
-        yP = true;
+        zh = displayMetrics.density;
+        zg = true;
     }
 
-    public static int K(Context context) {
-        if (!yP) {
-            J(context);
+    public static int B(Context context) {
+        if (!zg) {
+            A(context);
         }
-        return yR;
+        return zi;
     }
 
-    public static int L(Context context) {
-        if (!yP) {
-            J(context);
+    public static int C(Context context) {
+        if (!zg) {
+            A(context);
         }
-        return yS;
+        return zj;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!yP) {
-            J(context);
+        if (!zg) {
+            A(context);
         }
-        return (int) ((yQ * f) + 0.5f);
+        return (int) ((zh * f) + 0.5f);
     }
 
-    public static float M(Context context) {
-        if (!yP) {
-            J(context);
+    public static float D(Context context) {
+        if (!zg) {
+            A(context);
         }
-        return yQ;
+        return zh;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yT == null) {
-                if (yU == null || yU.jw() == null) {
-                    yT = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (zk == null) {
+                if (zl == null || zl.jC() == null) {
+                    zk = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    yT = new Toast(BdBaseApplication.getInst().getApp());
-                    yT.setDuration(0);
-                    yU.aW(str);
-                    yT.setView(yU.jw());
+                    zk = new Toast(BdBaseApplication.getInst().getApp());
+                    zk.setDuration(0);
+                    zl.aY(str);
+                    zk.setView(zl.jC());
                 }
-                yT.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(yV)) {
-                if (yU == null || yU.jw() == null) {
-                    yT.setText(str);
+                zk.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(zm)) {
+                if (zl == null || zl.jC() == null) {
+                    zk.setText(str);
                 } else {
-                    yU.aW(str);
+                    zl.aY(str);
                 }
             }
-            yV = str;
+            zm = str;
             mHandler.postDelayed(mRunnable, i);
-            yT.show();
+            zk.show();
         }
     }
 
@@ -122,31 +120,12 @@ public class k {
         showToast(context, context.getResources().getString(i));
     }
 
-    public static void u(Context context, String str) {
+    public static void l(Context context, String str) {
         showToast(context, str, 3500);
     }
 
     public static void b(Context context, int i) {
-        u(context, context.getResources().getString(i));
-    }
-
-    public static ProgressDialog a(Context context, String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (str != null) {
-            return ProgressDialog.show(context, "", str, true, true, onCancelListener);
-        }
-        return ProgressDialog.show(context, "", context.getResources().getString(R.string.Waiting), true, true, onCancelListener);
-    }
-
-    public static void a(ProgressDialog progressDialog) {
-        if (progressDialog != null) {
-            try {
-                if (progressDialog.isShowing()) {
-                    progressDialog.dismiss();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        l(context, context.getResources().getString(i));
     }
 
     public static void c(Context context, View view) {
@@ -169,7 +148,7 @@ public class k {
         }
     }
 
-    public static int l(Activity activity) {
+    public static int g(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -203,7 +182,7 @@ public class k {
         return i;
     }
 
-    public static int[] N(Context context) {
+    public static int[] E(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
     }
@@ -220,14 +199,14 @@ public class k {
         return null;
     }
 
-    public static boolean z(byte[] bArr) {
+    public static boolean j(byte[] bArr) {
         if (bArr == null || bArr.length < 3) {
             return false;
         }
         return bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
-    public static boolean A(byte[] bArr) {
+    public static boolean k(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -242,7 +221,7 @@ public class k {
         }
     }
 
-    public static DisplayMetrics m(Activity activity) {
+    public static DisplayMetrics h(Activity activity) {
         DisplayMetrics displayMetrics;
         Exception e;
         try {
@@ -313,7 +292,7 @@ public class k {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static boolean v(Context context, String str) {
+    public static boolean m(Context context, String str) {
         List<PackageInfo> installedPackages;
         if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
             return false;
@@ -326,9 +305,9 @@ public class k {
         return false;
     }
 
-    public static void jo() {
+    public static void ju() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (jp() ? false : true) {
+            if (jv() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -345,12 +324,12 @@ public class k {
         }
     }
 
-    public static boolean jp() {
+    public static boolean jv() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean jq() {
-        return i.iZ();
+    public static boolean jw() {
+        return i.jf();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -362,7 +341,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String jr() {
+    public static String jx() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -371,16 +350,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a(bufferedReader);
+                    o.a((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a(bufferedReader);
+                    o.a((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a(bufferedReader);
+                o.a((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -389,13 +368,13 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a(bufferedReader);
+            o.a((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static String js() {
+    public static String jy() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -404,16 +383,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a(bufferedReader);
+                    o.a((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a(bufferedReader);
+                    o.a((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a(bufferedReader);
+                o.a((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -422,18 +401,18 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a(bufferedReader);
+            o.a((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static boolean jt() {
-        String aV;
+    public static boolean jz() {
+        String aX;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aV = aV(str)) != null && aV.length() >= 3) {
-            int g = com.baidu.adp.lib.h.b.g(aV(aV.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.h.b.g(aV(aV.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aX = aX(str)) != null && aX.length() >= 3) {
+            int g = com.baidu.adp.lib.h.b.g(aX(aX.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.h.b.g(aX(aX.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -444,18 +423,18 @@ public class k {
         return false;
     }
 
-    public static String aV(String str) {
+    public static String aX(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a ju() {
-        return yU;
+    public static a jA() {
+        return zl;
     }
 
     public static void a(a aVar) {
-        yU = aVar;
+        zl = aVar;
     }
 }

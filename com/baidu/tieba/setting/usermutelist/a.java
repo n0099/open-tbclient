@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 class a implements m.a {
-    final /* synthetic */ UserMuteListActivity dMp;
+    final /* synthetic */ UserMuteListActivity eeP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(UserMuteListActivity userMuteListActivity) {
-        this.dMp = userMuteListActivity;
+        this.eeP = userMuteListActivity;
     }
 
     @Override // com.baidu.tieba.setting.usermutelist.m.a
@@ -21,26 +21,26 @@ class a implements m.a {
         ArrayList arrayList3;
         h hVar;
         ArrayList<MuteUser> arrayList4;
-        bVar = this.dMp.aWB;
-        bVar.aw(false);
-        if (i != m.dMw) {
-            lVar = this.dMp.dMh;
-            lVar.Ri();
-            this.dMp.showToast(str);
+        bVar = this.eeP.bbk;
+        bVar.ay(false);
+        if (i != m.eeW) {
+            lVar = this.eeP.eeH;
+            lVar.SV();
+            this.eeP.showToast(str);
             return;
         }
-        this.dMp.YX = arrayList;
-        arrayList2 = this.dMp.YX;
+        this.eeP.Xq = arrayList;
+        arrayList2 = this.eeP.Xq;
         if (arrayList2 != null) {
-            arrayList3 = this.dMp.YX;
+            arrayList3 = this.eeP.Xq;
             if (arrayList3.size() > 0) {
-                hVar = this.dMp.dMi;
-                arrayList4 = this.dMp.YX;
+                hVar = this.eeP.eeI;
+                arrayList4 = this.eeP.Xq;
                 hVar.setData(arrayList4);
                 return;
             }
         }
-        lVar2 = this.dMp.dMh;
-        lVar2.Ri();
+        lVar2 = this.eeP.eeH;
+        lVar2.SV();
     }
 }

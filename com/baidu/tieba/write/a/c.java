@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.a;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.y;
+import com.baidu.tbadk.editortools.aa;
 /* loaded from: classes.dex */
-public class c extends y {
+public class c extends aa {
     public c(Context context) {
         super(context, (String) null, 15);
         this.toolNeedAction = false;

@@ -20,7 +20,7 @@ public class d {
     public static boolean nU = false;
     public static boolean nV = false;
 
-    public static void B(int i) {
+    public static void A(int i) {
         nK = i;
         try {
             if (mHandler != null) {
@@ -46,7 +46,7 @@ public class d {
         return nR;
     }
 
-    public static double b(double d) {
+    public static double a(double d) {
         return new BigDecimal(d).setScale(2, 4).doubleValue();
     }
 }

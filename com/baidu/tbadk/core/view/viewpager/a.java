@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a<T extends u, V extends C0044a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, e<T, V>> ahS = new HashMap<>();
+    private HashMap<BdUniqueId, e<T, V>> aii = new HashMap<>();
     private List<u> mListData = new ArrayList();
-    private List<View> ahT = new ArrayList();
+    private List<View> aij = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, e<T, V> eVar) {
         if (eVar != null && eVar.getType() != null) {
-            this.ahS.put(eVar.getType(), eVar);
+            this.aii.put(eVar.getType(), eVar);
         }
     }
 
@@ -34,9 +34,9 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         e<T, V> eVar;
-        C0044a E = E(view);
-        if (E != null && E.xq() != null && E.xq().getType() != null && (eVar = this.ahS.get(E.xq().getType())) != null && eVar.xs() != null) {
-            eVar.xs().c(E, E.xq());
+        C0044a F = F(view);
+        if (F != null && F.xQ() != null && F.xQ().getType() != null && (eVar = this.aii.get(F.xQ().getType())) != null && eVar.xS() != null) {
+            eVar.xS().c(F, F.xQ());
         }
     }
 
@@ -44,8 +44,8 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.ahT == null) {
-                this.ahT = new ArrayList();
+            if (this.aij == null) {
+                this.aij = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
                     if (uVar != null) {
                         View a = a(uVar);
                         a.setOnClickListener(this);
-                        this.ahT.add(a);
+                        this.aij.add(a);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
     }
 
     private View a(u uVar) {
-        e<T, V> eVar = this.ahS.get(uVar.getType());
+        e<T, V> eVar = this.aii.get(uVar.getType());
         if (eVar != null) {
             V d = eVar.d(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.ahT.size() > 0 && i >= 0 && i < this.ahT.size() && (view = this.ahT.get(i)) != null) {
+        if (this.aij.size() > 0 && i >= 0 && i < this.aij.size() && (view = this.aij.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
         if (i >= this.mListData.size()) {
             return null;
         }
-        View dm = dm(i);
-        if (dm != null && dm.getParent() != viewGroup) {
-            viewGroup.addView(dm);
-            return dm;
+        View dr = dr(i);
+        if (dr != null && dr.getParent() != viewGroup) {
+            viewGroup.addView(dr);
+            return dr;
         }
-        return dm;
+        return dr;
     }
 
-    public View dm(int i) {
-        if (i >= this.ahT.size() || i >= this.mListData.size()) {
+    public View dr(int i) {
+        if (i >= this.aij.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.ahT.get(i);
-        C0044a E = E(view);
-        if (E != null && E.xq() == null) {
+        View view = this.aij.get(i);
+        C0044a F = F(view);
+        if (F != null && F.xQ() == null) {
             a((C0044a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,13 +142,13 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
 
     private void a(C0044a c0044a, u uVar) {
         e<T, V> eVar;
-        if (c0044a != null && uVar != null && (eVar = this.ahS.get(uVar.getType())) != null) {
+        if (c0044a != null && uVar != null && (eVar = this.aii.get(uVar.getType())) != null) {
             c0044a.b(uVar);
             eVar.a((ViewGroup) null, (ViewGroup) c0044a, (C0044a) uVar);
         }
     }
 
-    private C0044a E(View view) {
+    private C0044a F(View view) {
         if (view == null || !(view.getTag() instanceof C0044a)) {
             return null;
         }
@@ -162,28 +162,28 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
 
     public void destory() {
         e<T, V> eVar;
-        if (this.ahT != null) {
-            for (View view : this.ahT) {
-                C0044a E = E(view);
-                if (E != null && E.xq() != null && (eVar = this.ahS.get(E.xq().getType())) != null) {
-                    eVar.b(E, E.xq());
+        if (this.aij != null) {
+            for (View view : this.aij) {
+                C0044a F = F(view);
+                if (F != null && F.xQ() != null && (eVar = this.aii.get(F.xQ().getType())) != null) {
+                    eVar.b(F, F.xQ());
                 }
             }
-            this.ahT.clear();
-            this.ahT = null;
+            this.aij.clear();
+            this.aij = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
         }
     }
 
-    public void db(int i) {
+    public void de(int i) {
         e<T, V> eVar;
-        if (this.ahT != null) {
-            for (View view : this.ahT) {
-                C0044a E = E(view);
-                if (E != null && E.xq() != null && (eVar = this.ahS.get(E.xq().getType())) != null) {
-                    eVar.a(i, (int) E, (C0044a) E.xq());
+        if (this.aij != null) {
+            for (View view : this.aij) {
+                C0044a F = F(view);
+                if (F != null && F.xQ() != null && (eVar = this.aii.get(F.xQ().getType())) != null) {
+                    eVar.a(i, (int) F, (C0044a) F.xQ());
                 }
             }
         }
@@ -192,8 +192,8 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
     /* renamed from: com.baidu.tbadk.core.view.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0044a {
-        public int ahU = 3;
-        private u ahV = null;
+        public int aik = 3;
+        private u ail = null;
         private View view;
 
         public C0044a(View view) {
@@ -209,12 +209,12 @@ public class a<T extends u, V extends C0044a> extends PagerAdapter implements Vi
             return this.view;
         }
 
-        public u xq() {
-            return this.ahV;
+        public u xQ() {
+            return this.ail;
         }
 
         public void b(u uVar) {
-            this.ahV = uVar;
+            this.ail = uVar;
         }
     }
 }

@@ -10,121 +10,121 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class y {
-    private FragmentTabHost aTI;
-    private PostSearchActivity dxA;
-    private s dyn;
-    private s dyo;
-    private s dyp;
+    private FragmentTabHost aXu;
+    private s dST;
+    private s dSU;
+    private s dSV;
+    private PostSearchActivity dSg;
     private View mRootView;
 
     public y(PostSearchActivity postSearchActivity, View view) {
-        this.dxA = postSearchActivity;
+        this.dSg = postSearchActivity;
         this.mRootView = view;
     }
 
     public int getCurrentTabType() {
-        return this.aTI.getCurrentTabType();
+        return this.aXu.getCurrentTabType();
     }
 
-    public void na(int i) {
-        if (this.aTI == null) {
-            nb(1);
+    public void oj(int i) {
+        if (this.aXu == null) {
+            ok(1);
             return;
         }
-        aDc();
-        if (this.aTI.getCurrentTabType() == i) {
-            s nd = nd(i);
-            if (nd != null) {
-                nd.hh(true);
+        aKQ();
+        if (this.aXu.getCurrentTabType() == i) {
+            s om = om(i);
+            if (om != null) {
+                om.hU(true);
                 return;
             }
             return;
         }
-        this.aTI.setCurrentTabByType(i);
+        this.aXu.setCurrentTabByType(i);
     }
 
-    public void hi(boolean z) {
-        if (this.aTI != null) {
+    public void hV(boolean z) {
+        if (this.aXu != null) {
             if (z) {
-                this.aTI.setVisibility(0);
+                this.aXu.setVisibility(0);
             } else {
-                this.aTI.setVisibility(8);
+                this.aXu.setVisibility(8);
             }
         }
     }
 
     public void a(int i, k kVar, boolean z) {
-        hi(true);
-        s nd = nd(i);
-        if (nd != null) {
-            nd.a(kVar, z);
+        hV(true);
+        s om = om(i);
+        if (om != null) {
+            om.a(kVar, z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aTI != null) {
-            this.aTI.onChangeSkinType(i);
+        if (this.aXu != null) {
+            this.aXu.onChangeSkinType(i);
         }
     }
 
-    private void nb(int i) {
+    private void ok(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(t.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
-        this.aTI = (FragmentTabHost) inflate.findViewById(t.g.post_search_tab_host);
-        this.aTI.setup(this.dxA.getSupportFragmentManager());
-        this.aTI.setShouldDrawIndicatorLine(true);
-        aDb();
-        this.aTI.initViewPager();
-        this.aTI.setCurrentTabByType(i);
-        this.aTI.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        this.aXu = (FragmentTabHost) inflate.findViewById(t.g.post_search_tab_host);
+        this.aXu.setup(this.dSg.getSupportFragmentManager());
+        this.aXu.setShouldDrawIndicatorLine(true);
+        aKP();
+        this.aXu.initViewPager();
+        this.aXu.setCurrentTabByType(i);
+        this.aXu.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    private void aDb() {
+    private void aKP() {
         FragmentTabHost.c cVar = new FragmentTabHost.c();
-        this.dyn = new s(1);
-        cVar.aay = this.dyn;
-        cVar.aax = nc(t.j.searching_time_tab);
+        this.dST = new s(1);
+        cVar.ZK = this.dST;
+        cVar.ZJ = ol(t.j.searching_time_tab);
         cVar.mType = 1;
-        this.aTI.a(cVar);
+        this.aXu.a(cVar);
         FragmentTabHost.c cVar2 = new FragmentTabHost.c();
-        this.dyo = new s(2);
-        cVar2.aay = this.dyo;
-        cVar2.aax = nc(t.j.searching_relative_tab);
+        this.dSU = new s(2);
+        cVar2.ZK = this.dSU;
+        cVar2.ZJ = ol(t.j.searching_relative_tab);
         cVar2.mType = 2;
-        this.aTI.a(cVar2);
+        this.aXu.a(cVar2);
         FragmentTabHost.c cVar3 = new FragmentTabHost.c();
-        this.dyp = new s(3);
-        cVar3.aay = this.dyp;
-        cVar3.aax = nc(t.j.searching_only_thread_tab);
+        this.dSV = new s(3);
+        cVar3.ZK = this.dSV;
+        cVar3.ZJ = ol(t.j.searching_only_thread_tab);
         cVar3.mType = 3;
-        this.aTI.a(cVar3);
+        this.aXu.a(cVar3);
     }
 
-    private FragmentTabIndicator nc(int i) {
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.dxA.getPageContext().getPageActivity()).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator ol(int i) {
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.dSg.getPageContext().getPageActivity()).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.dxA.getResources().getDimensionPixelSize(t.e.ds32));
-        fragmentTabIndicator.ayd = t.d.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.dxA.getResources().getDimensionPixelSize(t.e.ds4));
+        fragmentTabIndicator.setTextSize(0, this.dSg.getResources().getDimensionPixelSize(t.e.ds32));
+        fragmentTabIndicator.ayK = t.d.s_actionbar_text_color;
+        fragmentTabIndicator.setContentTvTopMargin(this.dSg.getResources().getDimensionPixelSize(t.e.ds4));
         return fragmentTabIndicator;
     }
 
-    private s nd(int i) {
+    private s om(int i) {
         switch (i) {
             case 1:
-                return this.dyn;
+                return this.dST;
             case 2:
-                return this.dyo;
+                return this.dSU;
             case 3:
-                return this.dyp;
+                return this.dSV;
             default:
                 return null;
         }
     }
 
-    private void aDc() {
-        this.dyn.aCU();
-        this.dyo.aCU();
-        this.dyp.aCU();
+    private void aKQ() {
+        this.dST.aKI();
+        this.dSU.aKI();
+        this.dSV.aKI();
     }
 }

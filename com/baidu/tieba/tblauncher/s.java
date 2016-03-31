@@ -1,25 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class s implements be.a {
-    @Override // com.baidu.tbadk.core.util.be.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
+class s extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.f)) {
+            this.this$0.a((com.baidu.tbadk.data.f) customResponsedMessage.getData());
+            TbadkCoreApplication.m411getInst().setPaymemberInfo((com.baidu.tbadk.data.f) customResponsedMessage.getData());
         }
-        String str = strArr[0];
-        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
-            if (str.contains("jump_enter_forum=1")) {
-                com.baidu.tbadk.core.c.b.a(tbPageContext.getPageActivity(), 1, true);
-                return 1;
-            } else if (str.contains("jump_chosen_post=1")) {
-                com.baidu.tbadk.core.c.b.a(tbPageContext.getPageActivity(), 2, true);
-                return 1;
-            }
-        }
-        return 3;
     }
 }

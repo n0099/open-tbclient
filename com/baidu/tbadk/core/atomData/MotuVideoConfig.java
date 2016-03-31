@@ -9,6 +9,7 @@ public class MotuVideoConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
     public static final String IS_SINGLE_GOD_USER = "is_single_god_user";
+    public static final String LOCAL_VIDEO_OPEN = "is_local_video_open";
 
     public MotuVideoConfig(Context context) {
         this(context, false, null, null);
@@ -16,9 +17,9 @@ public class MotuVideoConfig extends IntentConfig {
 
     public MotuVideoConfig(Context context, boolean z, String str, String str2) {
         super(context);
-        getIntent().putExtra(IS_SINGLE_GOD_USER, z);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
+        getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
         setRequestCode(13010);
         setIntentAction(IntentAction.ActivityForResult);
     }

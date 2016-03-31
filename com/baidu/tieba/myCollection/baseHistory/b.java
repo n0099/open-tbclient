@@ -2,12 +2,15 @@ package com.baidu.tieba.myCollection.baseHistory;
 
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.mvc.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements f {
+    private long cartoonId;
+    private int chapterId;
     private String threadId = "";
     private String threadName = "";
     private String forumName = "";
@@ -16,6 +19,7 @@ public class b implements f {
     private boolean isHostOnly = false;
     private boolean isSquence = false;
     private int threadType = 0;
+    private boolean isManga = false;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof b)) {
@@ -54,7 +58,7 @@ public class b implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean o(JSONObject jSONObject) {
+    public boolean q(JSONObject jSONObject) {
         try {
             String string = jSONObject.getString("forum_name");
             String string2 = jSONObject.getString("thread_id");
@@ -63,6 +67,9 @@ public class b implements f {
             this.postID = jSONObject.optString("post_id");
             this.isHostOnly = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
             this.isSquence = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
+            this.isManga = jSONObject.optBoolean("is_manga");
+            this.cartoonId = jSONObject.optLong("cartoon_id");
+            this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
             if (!TextUtils.isEmpty(string)) {
                 this.forumName = string;
             }
@@ -82,7 +89,7 @@ public class b implements f {
         }
     }
 
-    public JSONObject Jk() {
+    public JSONObject KF() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -93,9 +100,36 @@ public class b implements f {
             jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.isHostOnly);
             jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.isSquence);
             jSONObject.put("thread_type", this.threadType);
+            jSONObject.put("is_manga", this.isManga);
+            jSONObject.put("cartoon_id", this.cartoonId);
+            jSONObject.put(MangaBrowserActivityConfig.CHAPTER_ID, this.chapterId);
         } catch (JSONException e) {
         }
         return jSONObject;
+    }
+
+    public boolean isManga() {
+        return this.isManga;
+    }
+
+    public void setManga(boolean z) {
+        this.isManga = z;
+    }
+
+    public long getCartoonId() {
+        return this.cartoonId;
+    }
+
+    public void setCartoonId(long j) {
+        this.cartoonId = j;
+    }
+
+    public int getChapterId() {
+        return this.chapterId;
+    }
+
+    public void setChapterId(int i) {
+        this.chapterId = i;
     }
 
     public void setThreadType(int i) {
@@ -110,7 +144,7 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String anv() {
+    public String auo() {
         return this.threadName;
     }
 
@@ -126,7 +160,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void km(String str) {
+    public void lh(String str) {
         this.threadName = str;
     }
 
@@ -134,27 +168,27 @@ public class b implements f {
         this.forumName = str;
     }
 
-    public String CZ() {
+    public String DH() {
         return this.postID;
     }
 
-    public void kn(String str) {
+    public void li(String str) {
         this.postID = str;
     }
 
-    public boolean anw() {
+    public boolean aup() {
         return this.isHostOnly;
     }
 
-    public void eS(boolean z) {
+    public void fE(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean anx() {
+    public boolean auq() {
         return this.isSquence;
     }
 
-    public void eT(boolean z) {
+    public void fF(boolean z) {
         this.isSquence = z;
     }
 
@@ -164,15 +198,15 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String ED() {
-        return Jk().toString();
+    public String Fq() {
+        return KF().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fP(String str) {
+    public boolean fX(String str) {
         if (str != null) {
             try {
-                return o(new JSONObject(str));
+                return q(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

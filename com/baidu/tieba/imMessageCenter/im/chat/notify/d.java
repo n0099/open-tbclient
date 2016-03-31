@@ -1,32 +1,39 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.message.RequestUpdateForumMask;
+import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
-    final /* synthetic */ ImMessageCenterDelegateStatic chV;
+public class d extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMessageCenterDelegateStatic csB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
         super(i);
-        this.chV = imMessageCenterDelegateStatic;
+        this.csB = imMessageCenterDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         TextView textView;
-        TextView textView2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
-            int a = r.a((NewsNotifyMessage) customResponsedMessage);
-            textView = this.chV.aqc;
-            if (textView != null) {
-                textView2 = this.chV.aqc;
-                ImMessageCenterDelegateStatic.r(textView2, a);
+        int i = 0;
+        if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
+            RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
+            boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
+            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.zp().getMsgChat();
+            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.zp().getMsgReplyme();
+            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.zp().getMsgAtme();
+            int zw = com.baidu.tbadk.coreExtra.messageCenter.a.zp().zw();
+            com.baidu.tbadk.coreExtra.d.e zK = com.baidu.tbadk.coreExtra.messageCenter.a.zp().zK();
+            if (zK != null && flag) {
+                i = zK.AU();
             }
+            textView = this.csB.aqt;
+            ImMessageCenterDelegateStatic.r(textView, (((msgChat - i) + msgReplyme) + msgAtme) - zw);
         }
     }
 }

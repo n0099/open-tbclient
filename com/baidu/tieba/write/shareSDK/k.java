@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnKeyListener {
-    final /* synthetic */ WriteShareActivity epq;
+    final /* synthetic */ WriteShareActivity eJm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.epq = writeShareActivity;
+        this.eJm = writeShareActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -19,27 +19,27 @@ class k implements DialogInterface.OnKeyListener {
         o oVar3;
         o oVar4;
         if (i == 4) {
-            oVar = this.epq.epa;
+            oVar = this.eJm.eIW;
             if (oVar != null) {
-                oVar2 = this.epq.epa;
-                if (oVar2.aTA() != null) {
-                    oVar3 = this.epq.epa;
-                    if (oVar3.aTA().isShowing()) {
-                        oVar4 = this.epq.epa;
-                        com.baidu.adp.lib.h.j.a(oVar4.aTA(), this.epq.getPageContext().getPageActivity());
+                oVar2 = this.eJm.eIW;
+                if (oVar2.baa() != null) {
+                    oVar3 = this.eJm.eIW;
+                    if (oVar3.baa().isShowing()) {
+                        oVar4 = this.eJm.eIW;
+                        com.baidu.adp.lib.h.j.a(oVar4.baa(), this.eJm.getPageContext().getPageActivity());
                         return true;
                     }
                 }
             }
-            this.epq.aTp();
-            z = this.epq.epd;
+            this.eJm.aZP();
+            z = this.eJm.eIZ;
             if (z) {
-                this.epq.setResult(-1);
+                this.eJm.setResult(-1);
             } else {
-                this.epq.setResult(0);
+                this.eJm.setResult(0);
             }
-            com.baidu.tbadk.core.c.b.b(this.epq.getPageContext().getPageActivity(), 200, false);
-            this.epq.finish();
+            com.baidu.tbadk.core.d.b.b(this.eJm.getPageContext().getPageActivity(), 200, false);
+            this.eJm.finish();
             return true;
         }
         return false;

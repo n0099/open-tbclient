@@ -5,23 +5,23 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aXb;
+    private static b bbK;
 
-    public static b Mk() {
-        if (aXb == null) {
+    public static b NY() {
+        if (bbK == null) {
             synchronized (b.class) {
-                if (aXb == null) {
-                    aXb = new b();
+                if (bbK == null) {
+                    bbK = new b();
                 }
             }
         }
-        return aXb;
+        return bbK;
     }
 
     private b() {
     }
 
-    public <T> void a(List<T> list, int i, int i2) {
+    public <T> void b(List<T> list, int i, int i2) {
         if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {
             if (i < i2) {
                 while (i < i2) {

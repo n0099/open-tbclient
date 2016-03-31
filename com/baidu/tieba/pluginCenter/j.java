@@ -6,11 +6,11 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 /* loaded from: classes.dex */
 class j implements DialogInterface.OnKeyListener {
-    final /* synthetic */ PluginDownloadActivity dxg;
+    final /* synthetic */ PluginDownloadActivity dRN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PluginDownloadActivity pluginDownloadActivity) {
-        this.dxg = pluginDownloadActivity;
+        this.dRN = pluginDownloadActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -27,28 +27,28 @@ class j implements DialogInterface.OnKeyListener {
         LinearLayout linearLayout4;
         PluginDownloadActivity.a aVar6;
         LinearLayout linearLayout5;
-        z = this.dxg.dxf;
+        z = this.dRN.dRM;
         if (!z) {
-            aVar = this.dxg.dxe;
-            com.baidu.adp.lib.h.j.b(aVar, this.dxg.getPageContext());
+            aVar = this.dRN.dRL;
+            com.baidu.adp.lib.h.j.b(aVar, this.dRN.getPageContext());
             return true;
         } else if (i == 4 && keyEvent.getAction() == 1) {
-            aVar2 = this.dxg.dxe;
-            linearLayout = aVar2.aIn;
+            aVar2 = this.dRN.dRL;
+            linearLayout = aVar2.aLj;
             if (linearLayout.getVisibility() == 0) {
-                aVar5 = this.dxg.dxe;
-                linearLayout4 = aVar5.aIn;
+                aVar5 = this.dRN.dRL;
+                linearLayout4 = aVar5.aLj;
                 linearLayout4.setVisibility(8);
-                aVar6 = this.dxg.dxe;
-                linearLayout5 = aVar6.dxh;
+                aVar6 = this.dRN.dRL;
+                linearLayout5 = aVar6.dRO;
                 linearLayout5.setVisibility(0);
                 return true;
             }
-            aVar3 = this.dxg.dxe;
-            linearLayout2 = aVar3.aIn;
+            aVar3 = this.dRN.dRL;
+            linearLayout2 = aVar3.aLj;
             linearLayout2.setVisibility(0);
-            aVar4 = this.dxg.dxe;
-            linearLayout3 = aVar4.dxh;
+            aVar4 = this.dRN.dRL;
+            linearLayout3 = aVar4.dRO;
             linearLayout3.setVisibility(8);
             return true;
         } else {

@@ -12,86 +12,86 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class b {
-    private static b ebh;
-    private com.baidu.tbadk.clientConfig.a ebf;
-    private a ebg;
-    private boolean aXB = false;
-    private final com.baidu.tbadk.clientConfig.c SL = new c(this);
-    private final CustomMessageListener ebi = new d(this, CmdConfigCustom.CMD_REMIND_RECOMMEND_SWITCH);
-    CustomMessageListener xC = new e(this, 2000994);
-    private CustomMessageListener cnP = new f(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static b euc;
+    private com.baidu.tbadk.clientConfig.a eua;
+    private a eub;
+    private boolean bck = false;
+    private final com.baidu.tbadk.clientConfig.c Qi = new c(this);
+    private final CustomMessageListener eud = new d(this, CmdConfigCustom.CMD_REMIND_RECOMMEND_SWITCH);
+    CustomMessageListener xT = new e(this, 2000994);
+    private CustomMessageListener cyr = new f(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
-    public static b aOr() {
-        if (ebh == null) {
+    public static b aVt() {
+        if (euc == null) {
             synchronized (b.class) {
-                if (ebh == null) {
-                    ebh = new b();
+                if (euc == null) {
+                    euc = new b();
                 }
             }
         }
-        return ebh;
+        return euc;
     }
 
     private b() {
     }
 
     public void g(BaseFragmentActivity baseFragmentActivity) {
-        this.ebg = new a();
-        baseFragmentActivity.registerListener(this.ebg);
-        baseFragmentActivity.registerListener(this.xC);
-        baseFragmentActivity.registerListener(this.ebi);
-        baseFragmentActivity.registerListener(this.cnP);
-        this.ebf = new com.baidu.tbadk.clientConfig.a(baseFragmentActivity, this.SL);
-        com.baidu.tbadk.core.sharedPref.b.uO().putLong("tieba_last_active_time", System.currentTimeMillis());
-        if (aOt()) {
-            ih(true);
-            aOs();
+        this.eub = new a();
+        baseFragmentActivity.registerListener(this.eub);
+        baseFragmentActivity.registerListener(this.xT);
+        baseFragmentActivity.registerListener(this.eud);
+        baseFragmentActivity.registerListener(this.cyr);
+        this.eua = new com.baidu.tbadk.clientConfig.a(baseFragmentActivity, this.Qi);
+        com.baidu.tbadk.core.sharedPref.b.vk().putLong("tieba_last_active_time", System.currentTimeMillis());
+        if (aVv()) {
+            iW(true);
+            aVu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOs() {
-        if (!com.baidu.tieba.tblauncher.alarmRemind.a.bS(TbadkSettings.getInst().loadLong(na("remind_recommend_data_time"), 0L))) {
-            aOu();
+    public void aVu() {
+        if (!com.baidu.tieba.tblauncher.alarmRemind.a.cc(TbadkSettings.getInst().loadLong(on("remind_recommend_data_time"), 0L))) {
+            aVw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aOt() {
+    public boolean aVv() {
         if (!TbadkCoreApplication.isLogin()) {
-            ih(false);
+            iW(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.aOq()) {
-            ih(false);
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.aVs()) {
+            iW(false);
             return false;
-        } else if (!com.baidu.tbadk.coreExtra.messageCenter.c.zk().zE()) {
-            ih(false);
+        } else if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().Ag()) {
+            iW(false);
             return false;
-        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.aFW()) {
-            ih(false);
+        } else if (!com.baidu.tieba.tblauncher.alarmRemind.a.aMG()) {
+            iW(false);
             return false;
         } else {
             return true;
         }
     }
 
-    public String na(String str) {
+    public String on(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str;
     }
 
-    private void aOu() {
-        if (this.ebf != null && !this.aXB) {
-            this.aXB = true;
-            this.ebf.cd("local_dialog");
+    private void aVw() {
+        if (this.eua != null && !this.bck) {
+            this.bck = true;
+            this.eua.ca("local_dialog");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ih(boolean z) {
+    public void iW(boolean z) {
         AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.m411getInst().getApp().getSystemService("alarm");
         PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.m411getInst().getApp(), 0, new Intent(TbadkCoreApplication.m411getInst().getApp(), AlarmReceiver.class), 134217728);
         if (z) {
-            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.aOp() + 86400000, 86400000L, broadcast);
+            alarmManager.setRepeating(0, com.baidu.tieba.tblauncher.alarmRemind.a.aVr() + 86400000, 86400000L, broadcast);
         } else {
             alarmManager.cancel(broadcast);
         }
@@ -108,10 +108,10 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean data;
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && !data.booleanValue()) {
-                com.baidu.tbadk.core.sharedPref.b.uO().putLong("tieba_last_active_time", System.currentTimeMillis());
-                if (b.this.aOt()) {
-                    b.this.ih(true);
-                    b.this.aOs();
+                com.baidu.tbadk.core.sharedPref.b.vk().putLong("tieba_last_active_time", System.currentTimeMillis());
+                if (b.this.aVv()) {
+                    b.this.iW(true);
+                    b.this.aVu();
                 }
             }
         }

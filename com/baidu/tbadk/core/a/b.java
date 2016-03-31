@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ck(String str) {
+    public static boolean ch(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().b("delete from account_data where account=?", new String[]{str});
     }
 
@@ -18,10 +18,10 @@ public class b {
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getAccount() != null) {
             if (accountData.getIsActive() == 1) {
-                rx();
+                qO();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!ck(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
+            if (!ch(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.D("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.dQ();
                 }
@@ -31,16 +31,16 @@ public class b {
         }
     }
 
-    public static void rx() {
+    public static void qO() {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().D("update account_data set isactive=0 where isactive=1");
     }
 
     public static void c(AccountData accountData) {
-        rx();
+        qO();
         TiebaDatabase.getInstance().getMainDBDatabaseManager().b("update account_data set isactive=1 where account=?", new String[]{accountData.getAccount()});
     }
 
-    public static int ry() {
+    public static int qP() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -60,19 +60,19 @@ public class b {
                             exc = e;
                             try {
                                 mainDBDatabaseManager.d(exc, "getAccountNum");
-                                com.baidu.adp.lib.h.a.b(cursor);
+                                com.baidu.adp.lib.h.a.a(cursor);
                                 return i;
                             } catch (Throwable th) {
                                 th = th;
                                 cursor2 = cursor;
-                                com.baidu.adp.lib.h.a.b(cursor2);
+                                com.baidu.adp.lib.h.a.a(cursor2);
                                 throw th;
                             }
                         }
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    com.baidu.adp.lib.h.a.b(cursor2);
+                    com.baidu.adp.lib.h.a.a(cursor2);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -80,7 +80,7 @@ public class b {
                 exc = e2;
             }
         }
-        com.baidu.adp.lib.h.a.b(cursor2);
+        com.baidu.adp.lib.h.a.a(cursor2);
         return i;
     }
 
@@ -89,7 +89,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData rz() {
+    public static AccountData qQ() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -121,13 +121,13 @@ public class b {
                                     e = e;
                                     try {
                                         mainDBDatabaseManager.d(e, "getActiveAccountData");
-                                        com.baidu.adp.lib.h.a.b(cursor);
+                                        com.baidu.adp.lib.h.a.a(cursor);
                                         accountData = cursor2;
                                         return accountData;
                                     } catch (Throwable th) {
                                         th = th;
                                         cursor2 = cursor;
-                                        com.baidu.adp.lib.h.a.b(cursor2);
+                                        com.baidu.adp.lib.h.a.a(cursor2);
                                         throw th;
                                     }
                                 }
@@ -135,7 +135,7 @@ public class b {
                         } catch (Throwable th2) {
                             cursor2 = rawQuery;
                             th = th2;
-                            com.baidu.adp.lib.h.a.b(cursor2);
+                            com.baidu.adp.lib.h.a.a(cursor2);
                             throw th;
                         }
                     } catch (Exception e2) {
@@ -152,7 +152,7 @@ public class b {
         } else {
             rawQuery = null;
         }
-        com.baidu.adp.lib.h.a.b(rawQuery);
+        com.baidu.adp.lib.h.a.a(rawQuery);
         accountData = cursor2;
         return accountData;
     }
@@ -162,7 +162,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData cl(String str) {
+    public static AccountData ci(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -193,13 +193,13 @@ public class b {
                                 e = e;
                                 try {
                                     mainDBDatabaseManager.d(e, "getAccountData");
-                                    com.baidu.adp.lib.h.a.b(cursor);
+                                    com.baidu.adp.lib.h.a.a(cursor);
                                     accountData = cursor2;
                                     return accountData;
                                 } catch (Throwable th) {
                                     th = th;
                                     cursor2 = cursor;
-                                    com.baidu.adp.lib.h.a.b(cursor2);
+                                    com.baidu.adp.lib.h.a.a(cursor2);
                                     throw th;
                                 }
                             }
@@ -207,7 +207,7 @@ public class b {
                     } catch (Throwable th2) {
                         cursor2 = rawQuery;
                         th = th2;
-                        com.baidu.adp.lib.h.a.b(cursor2);
+                        com.baidu.adp.lib.h.a.a(cursor2);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -223,12 +223,12 @@ public class b {
         } else {
             rawQuery = null;
         }
-        com.baidu.adp.lib.h.a.b(rawQuery);
+        com.baidu.adp.lib.h.a.a(rawQuery);
         accountData = cursor2;
         return accountData;
     }
 
-    public static ArrayList<AccountData> rA() {
+    public static ArrayList<AccountData> qR() {
         Cursor cursor;
         Throwable th;
         Exception exc;
@@ -257,17 +257,17 @@ public class b {
                         exc = e;
                         try {
                             mainDBDatabaseManager.d(exc, "getAllAccountData");
-                            com.baidu.adp.lib.h.a.b(cursor);
+                            com.baidu.adp.lib.h.a.a(cursor);
                             return arrayList;
                         } catch (Throwable th2) {
                             th = th2;
-                            com.baidu.adp.lib.h.a.b(cursor);
+                            com.baidu.adp.lib.h.a.a(cursor);
                             throw th;
                         }
                     } catch (Throwable th3) {
                         cursor = cursor2;
                         th = th3;
-                        com.baidu.adp.lib.h.a.b(cursor);
+                        com.baidu.adp.lib.h.a.a(cursor);
                         throw th;
                     }
                 }
@@ -279,7 +279,7 @@ public class b {
                 th = th4;
             }
         }
-        com.baidu.adp.lib.h.a.b(cursor2);
+        com.baidu.adp.lib.h.a.a(cursor2);
         return arrayList;
     }
 }

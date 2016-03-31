@@ -17,7 +17,7 @@ public class g implements com.baidu.tieba.tbadkCore.e.b {
         this.mTbPageContext = tbPageContext;
     }
 
-    private String qy() {
+    private String pM() {
         TbadkCoreApplication.m411getInst().login(this.mTbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
@@ -31,7 +31,7 @@ public class g implements com.baidu.tieba.tbadkCore.e.b {
         if ("CommonJSBridge".equals(str) && "startLoginModule".equals(str2)) {
             try {
                 new JSONObject(str3);
-                jsPromptResult.confirm(qy());
+                jsPromptResult.confirm(pM());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

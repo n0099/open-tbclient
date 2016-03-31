@@ -1,39 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.df;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dg implements View.OnClickListener {
-    private final /* synthetic */ String cKW;
-    private final /* synthetic */ String cKX;
-    private final /* synthetic */ String cKY;
-    final /* synthetic */ de cPG;
+public class dg extends CustomMessageListener {
+    final /* synthetic */ df dju;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dg(de deVar, String str, String str2, String str3) {
-        this.cPG = deVar;
-        this.cKW = str;
-        this.cKX = str2;
-        this.cKY = str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dg(df dfVar, int i) {
+        super(i);
+        this.dju = dfVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cKW) && !StringUtils.isNull(this.cKX)) {
-            if (com.baidu.adp.lib.util.i.iZ()) {
-                context = this.cPG.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cKW) + "," + this.cKX, this.cKY, this.cKY, context.getString(t.j.app_info_for_map));
-                context2 = this.cPG.mContext;
-                com.baidu.tbadk.browser.f.B(context2, format);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
+        com.baidu.tieba.pb.data.e pbData;
+        df.c cVar;
+        this.dju.djh = true;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.dju.unique_id;
+            if (tag != bdUniqueId || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
                 return;
             }
-            this.cPG.cNL.showToast(t.j.neterror);
+            this.dju.i(pbData);
+            this.dju.d(pbData);
+            if (pbData.avv() != null) {
+                pbData.avv().bV(0);
+            }
+            cVar = this.dju.diX;
+            if (cVar != null && pbData != null) {
+                com.baidu.adp.lib.h.h.hx().post(new dh(this, pbPageReadLocalResponseMessage, pbData));
+            }
         }
     }
 }

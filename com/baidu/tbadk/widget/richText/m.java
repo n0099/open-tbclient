@@ -1,70 +1,41 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.PbContent;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class m {
-    private String aFI;
-    private int aFJ;
-    private String aFK;
-    private int aFL;
-    private int aFM;
-    private int duration;
-    private int height;
-    private String videoUrl;
-    private int width;
+public interface m {
+    void A(Context context, String str);
 
-    public void b(PbContent pbContent) {
-        if (pbContent != null) {
-            this.videoUrl = pbContent.link;
-            this.aFI = pbContent.src;
-            this.width = pbContent.width.intValue();
-            this.height = pbContent.height.intValue();
-            this.aFJ = pbContent.e_type.intValue();
-            this.aFK = pbContent.text;
-            this.duration = pbContent.during_time.intValue();
-            this.aFL = pbContent.count.intValue();
-            this.aFM = pbContent.origin_size.intValue();
-        }
-    }
+    void B(Context context, String str);
 
-    public String getVideoUrl() {
-        return this.videoUrl;
-    }
+    void C(Context context, String str);
 
-    public String Hx() {
-        return this.aFI;
-    }
+    void D(Context context, String str);
 
-    public int getWidth() {
-        return this.width;
-    }
+    int IN();
 
-    public int getHeight() {
-        return this.height;
-    }
+    com.baidu.adp.lib.f.b<ImageView> IO();
 
-    public String Hy() {
-        return this.aFK;
-    }
+    com.baidu.adp.lib.f.b<TextView> IP();
 
-    public boolean Hz() {
-        return this.aFJ == 15;
-    }
+    com.baidu.adp.lib.f.b<GifView> IQ();
 
-    public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
-    }
+    com.baidu.adp.lib.f.b<View> IR();
 
-    public int getDuration() {
-        return this.duration;
-    }
+    com.baidu.adp.lib.f.b<LinearLayout> IS();
 
-    public int HA() {
-        return this.aFL;
-    }
+    com.baidu.adp.lib.f.b<View> IT();
 
-    public void fn(int i) {
-        this.aFL = i;
-    }
+    void d(Context context, String str, String str2);
+
+    ListView getListView();
+
+    void y(Context context, String str);
+
+    void z(Context context, String str);
 }

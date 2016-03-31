@@ -8,40 +8,40 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class bn extends com.baidu.adp.base.f {
-    TextView cZd;
-    TextView cZe;
-    TextView cZf;
-    View cZg;
-    BaseFragment cZh;
+    TextView dtG;
+    TextView dtH;
+    TextView dtI;
+    View dtJ;
+    BaseFragment dtK;
     View mView;
 
     public bn(BaseFragment baseFragment) {
         super(baseFragment.getPageContext());
-        this.cZh = baseFragment;
+        this.dtK = baseFragment;
         a(baseFragment);
     }
 
     private void a(BaseFragment baseFragment) {
         this.mView = LayoutInflater.from(baseFragment.getPageContext().getPageActivity()).inflate(t.h.person_info_more_view, (ViewGroup) null);
-        this.cZd = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_friend);
-        this.cZd.setOnClickListener(baseFragment);
-        this.cZe = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_black);
-        this.cZe.setOnClickListener(baseFragment);
-        this.cZf = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_mute);
-        this.cZg = this.mView.findViewById(t.g.person_info_more_view_item_line_mute);
-        this.cZf.setOnClickListener(baseFragment);
+        this.dtG = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_friend);
+        this.dtG.setOnClickListener(baseFragment);
+        this.dtH = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_black);
+        this.dtH.setOnClickListener(baseFragment);
+        this.dtI = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_mute);
+        this.dtJ = this.mView.findViewById(t.g.person_info_more_view_item_line_mute);
+        this.dtI.setOnClickListener(baseFragment);
     }
 
-    public void q(boolean z, boolean z2) {
+    public void s(boolean z, boolean z2) {
         if (z) {
-            this.cZd.setVisibility(0);
+            this.dtG.setVisibility(0);
         } else {
-            this.cZd.setVisibility(8);
+            this.dtG.setVisibility(8);
         }
         if (z2) {
-            this.cZe.setText(t.j.remove_block_chat);
+            this.dtH.setText(t.j.remove_block_chat);
         } else {
-            this.cZe.setText(t.j.block_chat_message);
+            this.dtH.setText(t.j.block_chat_message);
         }
     }
 
@@ -49,25 +49,25 @@ public class bn extends com.baidu.adp.base.f {
         return this.mView;
     }
 
-    public View atS() {
-        return this.cZd;
+    public View aBy() {
+        return this.dtG;
     }
 
-    public View atT() {
-        return this.cZe;
+    public View aBz() {
+        return this.dtH;
     }
 
-    public View atU() {
-        return this.cZf;
+    public View aBA() {
+        return this.dtI;
     }
 
-    public void ls(int i) {
-        this.cZf.setVisibility(0);
-        this.cZg.setVisibility(0);
+    public void mB(int i) {
+        this.dtI.setVisibility(0);
+        this.dtJ.setVisibility(0);
         if (i == 0) {
-            this.cZf.setText(this.cZh.getPageContext().getResources().getString(t.j.mute));
+            this.dtI.setText(this.dtK.getPageContext().getResources().getString(t.j.mute));
         } else if (i == 1) {
-            this.cZf.setText(this.cZh.getPageContext().getResources().getString(t.j.un_mute));
+            this.dtI.setText(this.dtK.getPageContext().getResources().getString(t.j.un_mute));
         }
     }
 }

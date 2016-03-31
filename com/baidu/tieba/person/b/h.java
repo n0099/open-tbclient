@@ -7,20 +7,20 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h extends x.a {
-    public int ahU;
-    public View biq;
-    public ImageView ddU;
-    public TextView ddV;
-    public ImageView ddW;
-    public View den;
+    public int aik;
+    public View bMO;
+    public View bnb;
+    public ImageView cJc;
+    public TextView dyv;
+    public ImageView dyw;
 
     public h(View view) {
         super(view);
-        this.ahU = 3;
-        this.biq = view.findViewById(t.g.friendfeed_divider);
-        this.ddU = (ImageView) view.findViewById(t.g.friend_feed_icon);
-        this.ddV = (TextView) view.findViewById(t.g.friend_feed_title);
-        this.ddW = (ImageView) view.findViewById(t.g.nav_indicator);
-        this.den = view.findViewById(t.g.friendfeed_bottom_divider);
+        this.aik = 3;
+        this.bnb = view.findViewById(t.g.friendfeed_divider);
+        this.cJc = (ImageView) view.findViewById(t.g.friend_feed_icon);
+        this.dyv = (TextView) view.findViewById(t.g.friend_feed_title);
+        this.dyw = (ImageView) view.findViewById(t.g.nav_indicator);
+        this.bMO = view.findViewById(t.g.friendfeed_bottom_divider);
     }
 }

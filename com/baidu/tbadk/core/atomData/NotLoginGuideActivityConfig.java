@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class NotLoginGuideActivityConfig extends IntentConfig {
-    public static String FROM_PAGE = GuildActivityConfig.FROM_PAGE;
+    public static String FROM_PAGE = "from_page";
     public static String FROM_ACCOUNT = "from_account";
     public static String FROM_LOGO = "form_logo";
 

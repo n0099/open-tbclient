@@ -30,6 +30,7 @@ public class PluginSetting implements Serializable, Cloneable {
     public boolean hasRes = false;
     public boolean isThird = false;
     public boolean isPatch = false;
+    public String replaceMethodClasses = null;
 
     public boolean isContainCmd(int i) {
         if (this.cmdRangeInt == null) {
@@ -52,11 +53,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bE(str);
+        this.cmdRangeInt = bC(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bE(String str) {
+    private int[] bC(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -124,6 +125,7 @@ public class PluginSetting implements Serializable, Cloneable {
         pluginSetting.isThird = this.isThird;
         pluginSetting.isPatch = this.isPatch;
         pluginSetting.load_priority = this.load_priority;
+        pluginSetting.replaceMethodClasses = this.replaceMethodClasses;
         return pluginSetting;
     }
 

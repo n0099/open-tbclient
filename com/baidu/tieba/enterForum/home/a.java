@@ -10,9 +10,9 @@ import java.util.Iterator;
 class a implements c.b {
     @Override // com.baidu.tieba.enterForum.c.c.b
     public void a(c.a aVar) {
-        com.baidu.tieba.enterForum.b.d LJ = aVar.aXp.LJ();
+        com.baidu.tieba.enterForum.b.d Nx = aVar.bbY.Nx();
         ArrayList arrayList = new ArrayList();
-        Iterator<com.baidu.tieba.tbadkCore.v> it = LJ.LN().iterator();
+        Iterator<com.baidu.tieba.tbadkCore.v> it = Nx.NB().iterator();
         while (it.hasNext()) {
             arrayList.add(it.next().getName());
         }

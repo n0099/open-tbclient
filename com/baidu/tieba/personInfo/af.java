@@ -5,15 +5,15 @@ import com.baidu.tieba.person.listview.BdPersonListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements BdPersonListView.a {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(f fVar) {
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void nh() {
+    public void mY() {
         bi biVar;
         bf bfVar;
         bi biVar2;
@@ -21,37 +21,37 @@ public class af implements BdPersonListView.a {
         com.baidu.tieba.person.god.h hVar;
         com.baidu.tieba.person.god.h hVar2;
         bi biVar3;
-        if (!com.baidu.adp.lib.util.i.iZ()) {
-            biVar = this.diG.dhR;
-            biVar.Oz();
+        if (!com.baidu.adp.lib.util.i.jf()) {
+            biVar = this.this$0.dCt;
+            biVar.Qo();
             return;
         }
-        bfVar = this.diG.dbl;
-        bfVar.avF();
-        biVar2 = this.diG.dhR;
-        if (biVar2.awf() != null) {
-            biVar3 = this.diG.dhR;
-            biVar3.awf().nf();
+        bfVar = this.this$0.dvN;
+        bfVar.aDk();
+        biVar2 = this.this$0.dCt;
+        if (biVar2.aDK() != null) {
+            biVar3 = this.this$0.dCt;
+            biVar3.aDK().mW();
         }
-        z = this.diG.bDs;
+        z = this.this$0.bIP;
         if (!z && TbadkCoreApplication.isLogin()) {
-            this.diG.ave();
+            this.this$0.aCK();
         }
-        hVar = this.diG.dcn;
+        hVar = this.this$0.dwQ;
         if (hVar != null) {
-            hVar2 = this.diG.dcn;
+            hVar2 = this.this$0.dwQ;
             hVar2.reset();
         }
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void ng() {
+    public void mX() {
         bi biVar;
         bi biVar2;
-        biVar = this.diG.dhR;
-        if (biVar.awf() != null) {
-            biVar2 = this.diG.dhR;
-            biVar2.awf().Oz();
+        biVar = this.this$0.dCt;
+        if (biVar.aDK() != null) {
+            biVar2 = this.this$0.dCt;
+            biVar2.aDK().Qo();
         }
     }
 
@@ -59,10 +59,10 @@ public class af implements BdPersonListView.a {
     public void m(float f) {
         bi biVar;
         bi biVar2;
-        biVar = this.diG.dhR;
-        if (biVar.awf() != null) {
-            biVar2 = this.diG.dhR;
-            biVar2.awf().l(f);
+        biVar = this.this$0.dCt;
+        if (biVar.aDK() != null) {
+            biVar2 = this.this$0.dCt;
+            biVar2.aDK().l(f);
         }
     }
 }

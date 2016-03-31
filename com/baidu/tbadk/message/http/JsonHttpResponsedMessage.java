@@ -1,7 +1,7 @@
 package com.baidu.tbadk.message.http;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.network.http.e;
+import com.baidu.adp.lib.network.http.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -28,9 +28,9 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, e eVar) {
-        super.logStatInBackground(i, eVar);
-        TiebaStatic.netJson(eVar, getError(), getErrorString());
+    public void logStatInBackground(int i, f fVar) {
+        super.logStatInBackground(i, fVar);
+        TiebaStatic.netJson(fVar, getError(), getErrorString());
     }
 
     protected JSONObject parseServerResponsedData(String str) {

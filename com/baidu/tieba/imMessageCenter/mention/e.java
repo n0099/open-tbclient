@@ -18,83 +18,83 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tbadk.mvc.model.a;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.InterfaceC0055a<i> {
-    final CustomMessageListener MF;
-    private com.baidu.tbadk.mvc.d.a aTd;
-    private bd cmH;
-    private h cmI;
-    private g cmJ;
-    private a cmK;
-    private FeedData cmL;
-    private ae cmM;
+public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.InterfaceC0055a<i> {
+    final CustomMessageListener ML;
+    private com.baidu.tbadk.mvc.d.a aWP;
+    private be cxj;
+    private h cxk;
+    private g cxl;
+    private a cxm;
+    private FeedData cxn;
+    private af cxo;
 
-    public e(bd bdVar) {
-        super(com.baidu.adp.base.l.C(bdVar.getPageContext().getPageActivity()));
-        this.MF = new f(this, 2000994);
-        this.cmH = bdVar;
+    public e(be beVar) {
+        super(com.baidu.adp.base.l.s(beVar.getPageContext().getPageActivity()));
+        this.ML = new f(this, 2000994);
+        this.cxj = beVar;
     }
 
     public void c(Bundle bundle) {
-        this.cmI = new h();
-        this.cmJ = new g((TbPageContext) com.baidu.adp.base.l.C(this.cmH.getPageContext().getPageActivity()), this.cmI);
-        this.cmJ.a(this);
-        if (this.cmH != null) {
-            this.cmJ.setUniqueId(this.cmH.getUniqueId());
+        this.cxk = new h();
+        this.cxl = new g((TbPageContext) com.baidu.adp.base.l.s(this.cxj.getPageContext().getPageActivity()), this.cxk);
+        this.cxl.a(this);
+        if (this.cxj != null) {
+            this.cxl.setUniqueId(this.cxj.getUniqueId());
         }
-        this.cmJ.registerListener(this.MF);
-        this.cmK = new a((TbPageContext) com.baidu.adp.base.l.C(this.cmH.getPageContext().getPageActivity()));
-        this.cmK.a(this);
-        if (this.cmH != null) {
-            this.cmK.setUniqueId(this.cmH.getUniqueId());
+        this.cxl.registerListener(this.ML);
+        this.cxm = new a((TbPageContext) com.baidu.adp.base.l.s(this.cxj.getPageContext().getPageActivity()));
+        this.cxm.a(this);
+        if (this.cxj != null) {
+            this.cxm.setUniqueId(this.cxj.getUniqueId());
         }
-        this.cmM = new ae();
-        this.aTd = new com.baidu.tbadk.mvc.d.a();
+        this.cxo = new af();
+        this.aWP = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean KJ() {
-        if (!this.cmJ.isLoading() && this.aTd.Fc() && ahC()) {
-            this.aTd.bx(true);
-            this.aTd.bz(true);
-            this.cmI.b(this.cmL);
-            this.cmJ.setNeedCache(false);
-            this.cmJ.ET();
-            this.cmH.ahV().d(this.aTd);
+    public boolean Md() {
+        if (!this.cxl.isLoading() && this.aWP.FP() && akW()) {
+            this.aWP.bC(true);
+            this.aWP.bE(true);
+            this.cxk.d(this.cxn);
+            this.cxl.setNeedCache(false);
+            this.cxl.FG();
+            this.cxj.alp().d(this.aWP);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bU(boolean z) {
-        if (this.cmJ.isLoading() || !ahC()) {
+    public boolean ce(boolean z) {
+        if (this.cxl.isLoading() || !akW()) {
             return false;
         }
-        this.cmL = null;
-        this.cmI.reset();
-        this.cmJ.setNeedCache(true);
-        this.cmJ.ET();
+        this.cxn = null;
+        this.cxk.reset();
+        this.cxl.setNeedCache(true);
+        this.cxl.FG();
         return true;
     }
 
-    protected boolean ahC() {
+    protected boolean akW() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.cmM != null && this.cmM.cnj != null) {
-            this.cmM.cnj.clear();
+        if (this.cxo != null && this.cxo.cxL != null) {
+            this.cxo.cxL.clear();
         }
-        this.cmH.ahV().ahE();
-        this.cmH.ahV().a(this.cmM);
+        this.cxj.alp().akY();
+        this.cxj.alp().a(this.cxo);
         return false;
     }
 
-    public boolean oR() {
-        if (ahC()) {
-            if (this.cmH != null && this.cmH.ahV() != null) {
-                this.cmH.ahV().ahD();
+    public boolean oK() {
+        if (akW()) {
+            if (this.cxj != null && this.cxj.alp() != null) {
+                this.cxj.alp().akX();
             }
-            this.cmK.a((com.baidu.tbadk.mvc.b.e) this.cmI);
+            this.cxm.a((com.baidu.tbadk.mvc.b.e) this.cxk);
             return true;
         }
         return true;
@@ -102,47 +102,47 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
 
     protected boolean a(h hVar, i iVar) {
         if (hVar.getUpdateType() != 4) {
-            this.cmM.ahQ().clear();
+            this.cxo.alk().clear();
         }
-        this.cmM.a(iVar);
-        if (iVar != null && iVar.ahQ() != null && iVar.ahQ().size() > 0) {
-            this.cmL = iVar.ahQ().get(iVar.ahQ().size() - 1);
-            if (this.cmM.getPage() != null) {
-                this.aTd.by(this.cmM.getPage().sv() == 1);
+        this.cxo.a(iVar);
+        if (iVar != null && iVar.alk() != null && iVar.alk().size() > 0) {
+            this.cxn = iVar.alk().get(iVar.alk().size() - 1);
+            if (this.cxo.getPage() != null) {
+                this.aWP.bD(this.cxo.getPage().sq() == 1);
             } else {
-                this.aTd.by(true);
+                this.aWP.bD(true);
             }
             if (hVar != null) {
                 hVar.toNextPage();
             }
-            this.aTd.bz(true);
+            this.aWP.bE(true);
         } else {
-            this.cmL = null;
-            this.aTd.by(false);
-            this.aTd.bz(false);
+            this.cxn = null;
+            this.aWP.bD(false);
+            this.aWP.bE(false);
         }
-        this.aTd.bx(false);
-        this.aTd.bw(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.yN().zd();
-        this.cmH.ahZ().p(2, true);
+        this.aWP.bC(false);
+        this.aWP.bB(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.zp().zF();
+        this.cxj.alt().p(2, true);
         if (!TbadkCoreApplication.isLogin()) {
-            this.cmM.ahQ().clear();
+            this.cxo.alk().clear();
         } else {
-            this.cmH.ahV().d(this.aTd);
+            this.cxj.alp().d(this.aWP);
         }
-        this.cmH.ahV().a(this.cmM);
+        this.cxj.alp().a(this.cxo);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
     public void a(ReadCacheRespMsg<List<i>> readCacheRespMsg, ReadCacheMessage<i> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.cmI, readCacheRespMsg.getData().get(0));
+            a(this.cxk, readCacheRespMsg.getData().get(0));
         }
-        this.cmL = null;
-        this.cmI.reset();
-        this.cmJ.setNeedCache(true);
-        this.cmJ.ET();
+        this.cxn = null;
+        this.cxk.reset();
+        this.cxl.setNeedCache(true);
+        this.cxl.FG();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
@@ -152,7 +152,7 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<i> mvcHttpResponsedMessage, MvcHttpMessage<h, i> mvcHttpMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cmH.ahV().ahE();
+        this.cxj.alp().akY();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             iVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -160,7 +160,7 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yN().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -171,15 +171,15 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.cmH.a(errorData);
-            this.cmH.ahV().a(errorData);
+            this.cxj.a(errorData);
+            this.cxj.alp().a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<i, ?> mvcSocketResponsedMessage, MvcSocketMessage<h, i> mvcSocketMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cmH.ahV().ahE();
+        this.cxj.alp().akY();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             iVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -187,7 +187,7 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yN().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -198,8 +198,8 @@ public class e extends com.baidu.adp.base.e<bd> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.cmH.a(errorData);
-            this.cmH.ahV().a(errorData);
+            this.cxj.a(errorData);
+            this.cxj.alp().a(errorData);
         }
     }
 

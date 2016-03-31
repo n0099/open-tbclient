@@ -3,10 +3,10 @@ package com.baidu.adp.framework.client;
 import com.baidu.adp.framework.client.HttpClient;
 import com.baidu.adp.framework.message.HttpProgressResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.network.http.h;
+import com.baidu.adp.lib.network.http.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements h {
+public class c implements i {
     final /* synthetic */ HttpClient.a ot;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class c implements h {
         this.ot = aVar;
     }
 
-    @Override // com.baidu.adp.lib.network.http.h
+    @Override // com.baidu.adp.lib.network.http.i
     public void d(int i, int i2) {
         HttpMessageTask httpMessageTask;
         httpMessageTask = this.ot.om;

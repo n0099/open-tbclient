@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Handler {
-    final /* synthetic */ AbsMsglistView bNS;
+    final /* synthetic */ AbsMsglistView bYk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(AbsMsglistView absMsglistView) {
-        this.bNS = absMsglistView;
+        this.bYk = absMsglistView;
     }
 
     @Override // android.os.Handler
@@ -18,10 +18,10 @@ public class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.bNS.mHandler;
+                handler = this.bYk.mHandler;
                 handler.removeMessages(1);
-                this.bNS.closeRecordCancel();
-                this.bNS.closeRecordTooShort();
+                this.bYk.closeRecordCancel();
+                this.bYk.closeRecordTooShort();
                 return;
             default:
                 return;

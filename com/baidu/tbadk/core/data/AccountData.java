@@ -10,11 +10,14 @@ public class AccountData implements Serializable {
     private String mDisplayName;
     private int mGodType;
     private boolean mIsSelectTail;
+    private int mMemberCloseAdIsOpen;
+    private int mMemberCloseAdVipClose;
     private String mMemberIconUrl;
     private int mMemberType;
     private int mSex;
     private List<IconData> mUserIcons;
     private UserVipInfoData mVipInfo;
+    private String personalBgUrl;
     private String portrait;
     private String mID = null;
     private String mAccount = null;
@@ -145,6 +148,26 @@ public class AccountData implements Serializable {
         this.mMemberIconUrl = str;
     }
 
+    public void setMemberCloseAdIsOpen(int i) {
+        this.mMemberCloseAdIsOpen = i;
+    }
+
+    public void setMemberCloseAdVipClose(int i) {
+        this.mMemberCloseAdVipClose = i;
+    }
+
+    public int getMemberCloseAdIsOpen() {
+        return this.mMemberCloseAdIsOpen;
+    }
+
+    public boolean isMemberCloseAdIsOpen() {
+        return this.mMemberCloseAdIsOpen == 1;
+    }
+
+    public int getMemberCloseAdVipClose() {
+        return this.mMemberCloseAdVipClose;
+    }
+
     public boolean getIsSelectTail() {
         return this.mIsSelectTail;
     }
@@ -159,5 +182,13 @@ public class AccountData implements Serializable {
 
     public void setGodType(int i) {
         this.mGodType = i;
+    }
+
+    public String getPersonalBgUrl() {
+        return this.personalBgUrl;
+    }
+
+    public void setPersonalBgUrl(String str) {
+        this.personalBgUrl = str;
     }
 }

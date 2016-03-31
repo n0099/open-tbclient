@@ -1,23 +1,34 @@
 package com.baidu.tieba.pb.pb.sub;
+
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements Runnable {
-    final /* synthetic */ w cUl;
-    private final /* synthetic */ String cUn;
-    private final /* synthetic */ String cUo;
+    private final /* synthetic */ int WS;
+    final /* synthetic */ x dpf;
+    private final /* synthetic */ View zn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(w wVar, String str, String str2) {
-        this.cUl = wVar;
-        this.cUn = str;
-        this.cUo = str2;
+    public ac(x xVar, View view, int i) {
+        this.dpf = xVar;
+        this.zn = view;
+        this.WS = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.editortools.d.p pVar;
-        this.cUl.kS(this.cUn);
-        pVar = this.cUl.cnC;
-        pVar.fx(this.cUo);
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (this.zn != null) {
+            int[] iArr = new int[2];
+            pVar = this.dpf.cye;
+            pVar.Dh().getLocationInWindow(iArr);
+            bdListView = this.dpf.Je;
+            bdListView.setSelectionFromTop(this.WS + 1, iArr[1] - this.zn.getHeight());
+            bdListView2 = this.dpf.Je;
+            bdListView2.invalidate();
+        }
     }
 }

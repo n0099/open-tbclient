@@ -7,37 +7,37 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
-    private a afc;
-    private a afd;
+    private a aex;
+    private a aey;
     private GestureDetector mGestureDetector;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cU(int i);
+        void cX(int i);
     }
 
     public BaseViewPager(Context context) {
         super(context);
         this.mGestureDetector = null;
-        this.afc = null;
-        this.afd = null;
+        this.aex = null;
+        this.aey = null;
         init();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mGestureDetector = null;
-        this.afc = null;
-        this.afd = null;
+        this.aex = null;
+        this.aey = null;
         init();
     }
 
     public void setOnFlipOutListener(a aVar) {
-        this.afc = aVar;
+        this.aex = aVar;
     }
 
     public void setOnScrollOutListener(a aVar) {
-        this.afd = aVar;
+        this.aey = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
@@ -60,12 +60,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.afc != null) {
+        if (this.aex != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.afc.cU(0);
+                this.aex.cX(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.afc.cU(1);
+                this.aex.cX(1);
                 return true;
             }
         }
@@ -78,12 +78,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.afd != null) {
+        if (this.aey != null) {
             if (f > 10.0d && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.afd.cU(0);
+                this.aey.cX(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.afd.cU(1);
+                this.aey.cX(1);
                 return true;
             }
         }

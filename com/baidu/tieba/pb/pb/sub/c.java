@@ -4,36 +4,36 @@ import com.baidu.tieba.tbadkCore.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.g {
-    final /* synthetic */ NewSubPbActivity cTK;
+    final /* synthetic */ NewSubPbActivity doF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewSubPbActivity newSubPbActivity) {
-        this.cTK = newSubPbActivity;
+        this.doF = newSubPbActivity;
     }
 
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
-        w wVar;
+        x xVar;
         com.baidu.tieba.tbadkCore.f.a aVar;
         com.baidu.tieba.tbadkCore.f.a aVar2;
-        w wVar2;
+        x xVar2;
         if (obj != null) {
-            aVar2 = this.cTK.cTA;
+            aVar2 = this.doF.dov;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
-                    this.cTK.a((a.b) obj);
+                    this.doF.a((a.b) obj);
                     return;
                 case 1:
                     a.d dVar = (a.d) obj;
-                    wVar2 = this.cTK.cTB;
-                    wVar2.a(1, dVar.AD, dVar.dZa, true);
+                    xVar2 = this.doF.dow;
+                    xVar2.a(1, dVar.AU, dVar.erS, true);
                     return;
                 default:
                     return;
             }
         }
-        wVar = this.cTK.cTB;
-        aVar = this.cTK.cTA;
-        wVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        xVar = this.doF.dow;
+        aVar = this.doF.dov;
+        xVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

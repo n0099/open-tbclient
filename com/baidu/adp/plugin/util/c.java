@@ -7,13 +7,13 @@ import java.util.Comparator;
 public class c implements Comparator<File> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    /* renamed from: b */
+    /* renamed from: c */
     public int compare(File file, File file2) {
-        int K;
+        int J;
         if (file == null || file2 == null) {
             return 0;
         }
-        K = a.K(file.getAbsolutePath(), file2.getAbsolutePath());
-        return K;
+        J = a.J(file.getAbsolutePath(), file2.getAbsolutePath());
+        return J;
     }
 }

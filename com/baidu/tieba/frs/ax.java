@@ -2,6 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class ax extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +13,15 @@ class ax extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            int g = com.baidu.adp.lib.h.b.g(customResponsedMessage.getData().toString(), 1);
-            if (g == 1 || g == 0) {
-                FrsActivityStatic.bgS = false;
-                FrsActivityStatic.bgR = false;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                FrsActivityStatic.blD = true;
+                FrsActivityStatic.blC = true;
+                return;
             }
+            FrsActivityStatic.blD = false;
+            FrsActivityStatic.blC = false;
         }
     }
 }

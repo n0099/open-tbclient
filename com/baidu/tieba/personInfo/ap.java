@@ -6,11 +6,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.base.g {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(f fVar) {
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -30,48 +30,48 @@ public class ap extends com.baidu.adp.base.g {
         bf bfVar3;
         FrameLayout frameLayout3;
         bf bfVar4;
-        this.diG.dih = false;
-        biVar = this.diG.dhR;
+        this.this$0.dCJ = false;
+        biVar = this.this$0.dCt;
         if (biVar != null) {
-            biVar2 = this.diG.dhR;
-            biVar2.Oz();
+            biVar2 = this.this$0.dCt;
+            biVar2.Qo();
             if (obj == null || !(obj instanceof Integer) || ((Integer) obj).intValue() != 3) {
-                this.diG.avd();
-                biVar3 = this.diG.dhR;
+                this.this$0.aCJ();
+                biVar3 = this.this$0.dCt;
                 biVar3.b(new aq(this));
-                bfVar = this.diG.dbl;
-                if (bfVar.avP() != null) {
-                    f fVar = this.diG;
-                    bfVar3 = this.diG.dbl;
-                    fVar.dib = bfVar3.avP().getPhotoAlbum();
+                bfVar = this.this$0.dvN;
+                if (bfVar.aDu() != null) {
+                    f fVar = this.this$0;
+                    bfVar3 = this.this$0.dvN;
+                    fVar.dCD = bfVar3.aDu().getPhotoAlbum();
                 }
-                biVar4 = this.diG.dhR;
-                com.baidu.tieba.person.a.b bVar = biVar4.djZ;
-                bfVar2 = this.diG.dbl;
-                bVar.aa(bfVar2.getDataList());
-                biVar5 = this.diG.dhR;
-                biVar5.djZ.notifyDataSetChanged();
-                biVar6 = this.diG.dhR;
-                biVar6.awh();
+                biVar4 = this.this$0.dCt;
+                com.baidu.tieba.person.a.b bVar = biVar4.dEz;
+                bfVar2 = this.this$0.dvN;
+                bVar.ab(bfVar2.getDataList());
+                biVar5 = this.this$0.dCt;
+                biVar5.dEz.notifyDataSetChanged();
+                biVar6 = this.this$0.dCt;
+                biVar6.aDM();
                 if (obj != null && (obj instanceof Integer)) {
-                    f fVar2 = this.diG;
-                    frameLayout = this.diG.dhY;
-                    fVar2.aK(frameLayout);
-                    alVar = this.diG.dhZ;
+                    f fVar2 = this.this$0;
+                    frameLayout = this.this$0.dCA;
+                    fVar2.aD(frameLayout);
+                    alVar = this.this$0.dCB;
                     if (alVar != null) {
-                        alVar2 = this.diG.dhZ;
-                        alVar2.fU(false);
+                        alVar2 = this.this$0.dCB;
+                        alVar2.gH(false);
                     }
-                    this.diG.avu();
+                    this.this$0.aDa();
                     if (((Integer) obj).intValue() == 1) {
-                        this.diG.cIp = true;
-                        this.diG.dhU = false;
-                        this.diG.avv();
+                        this.this$0.dbx = true;
+                        this.this$0.dCw = false;
+                        this.this$0.XY();
                         return;
-                    } else if (((Integer) obj).intValue() == 0 && this.diG.getPageContext() != null && this.diG.getPageContext().getResources() != null) {
-                        f fVar3 = this.diG;
-                        frameLayout2 = this.diG.dhY;
-                        fVar3.showNetRefreshView(frameLayout2, this.diG.getPageContext().getResources().getString(t.j.neterror), false);
+                    } else if (((Integer) obj).intValue() == 0 && this.this$0.getPageContext() != null && this.this$0.getPageContext().getResources() != null) {
+                        f fVar3 = this.this$0;
+                        frameLayout2 = this.this$0.dCA;
+                        fVar3.showNetRefreshView(frameLayout2, this.this$0.getPageContext().getResources().getString(t.j.neterror), false);
                         return;
                     } else {
                         return;
@@ -79,11 +79,11 @@ public class ap extends com.baidu.adp.base.g {
                 }
                 return;
             }
-            f fVar4 = this.diG;
-            frameLayout3 = this.diG.dhY;
+            f fVar4 = this.this$0;
+            frameLayout3 = this.this$0.dCA;
             fVar4.a((View) frameLayout3, false, -1);
-            bfVar4 = this.diG.dbl;
-            bfVar4.avF();
+            bfVar4 = this.this$0.dvN;
+            bfVar4.aDk();
         }
     }
 }

@@ -6,21 +6,21 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bi implements View.OnLongClickListener {
-    final /* synthetic */ PersonImageActivity cZc;
+    final /* synthetic */ PersonImageActivity dtF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(PersonImageActivity personImageActivity) {
-        this.cZc = personImageActivity;
+        this.dtF = personImageActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         c.b bVar;
-        String[] strArr = {this.cZc.getPageContext().getString(t.j.save)};
-        PersonImageActivity personImageActivity = this.cZc;
-        bVar = this.cZc.cph;
+        String[] strArr = {this.dtF.getPageContext().getString(t.j.save)};
+        PersonImageActivity personImageActivity = this.dtF;
+        bVar = this.dtF.czJ;
         personImageActivity.createListMenu(strArr, bVar);
-        this.cZc.showListMenu();
+        this.dtF.showListMenu();
         return false;
     }
 }

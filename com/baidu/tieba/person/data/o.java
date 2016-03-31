@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o extends a {
-    public static final BdUniqueId dcb = BdUniqueId.gen();
-    private boolean bDM = true;
-    private List<PersonInfoPostList> daF = new ArrayList();
-    private PersonTainInfo dbW;
+    public static final BdUniqueId dwE = BdUniqueId.gen();
+    private boolean bJj = true;
+    private List<PersonInfoPostList> dvh = new ArrayList();
+    private PersonTainInfo dwz;
     private UserData mUserData;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dcb;
+        return dwE;
     }
 
     public String getPortrait() {
@@ -34,11 +34,11 @@ public class o extends a {
     }
 
     public void d(List<PersonInfoPostList> list) {
-        this.daF = list;
+        this.dvh = list;
     }
 
-    public List<PersonInfoPostList> auq() {
-        return this.daF;
+    public List<PersonInfoPostList> aBW() {
+        return this.dvh;
     }
 
     public void f(UserData userData) {
@@ -50,11 +50,11 @@ public class o extends a {
     }
 
     public void setIsSelf(boolean z) {
-        this.bDM = z;
+        this.bJj = z;
     }
 
     public boolean getIsSelf() {
-        return this.bDM;
+        return this.bJj;
     }
 
     public int getSex() {
@@ -65,14 +65,14 @@ public class o extends a {
     }
 
     public void a(PersonTainInfo personTainInfo) {
-        this.dbW = personTainInfo;
+        this.dwz = personTainInfo;
     }
 
-    public PersonTainInfo aum() {
-        return this.dbW;
+    public PersonTainInfo aBS() {
+        return this.dwz;
     }
 
-    public com.baidu.tbadk.data.f aun() {
+    public com.baidu.tbadk.data.g aBT() {
         if (this.mUserData != null) {
             return this.mUserData.getPersonPrivate();
         }

@@ -1,36 +1,27 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
-public class s extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.recommendfrs.data.n, BaseFragmentActivity> {
-    public s(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        super(tbPageContext);
+class s extends CustomMessageListener {
+    final /* synthetic */ q dWE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(q qVar, int i) {
+        super(i);
+        this.dWE = qVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a
-    public Class<com.baidu.tieba.recommendfrs.data.n> EP() {
-        return com.baidu.tieba.recommendfrs.data.n.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public String EB() {
-        return "RecommendGodCache";
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public int EQ() {
-        return CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public int ER() {
-        return CmdConfigCustom.CMD_RECOMMEND_FRS_WRITE_CACHE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean EI() {
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.isSucc() && !updateAttentionMessage.isAttention() && updateAttentionMessage.isGod()) {
+                this.dWE.dWB = true;
+            }
+        }
     }
 }

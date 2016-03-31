@@ -6,11 +6,11 @@ import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class o implements com.baidu.adp.plugin.packageManager.e {
-    final /* synthetic */ n dxr;
+    final /* synthetic */ n dRX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.dxr = nVar;
+        this.dRX = nVar;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.e
@@ -30,22 +30,22 @@ class o implements com.baidu.adp.plugin.packageManager.e {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            aVar = this.dxr.dxq;
+            aVar = this.dRX.dRW;
             pluginDownloadActivity = PluginDownloadActivity.this;
-            if (id.equals(pluginDownloadActivity.dxc.package_name)) {
-                aVar2 = this.dxr.dxq;
+            if (id.equals(pluginDownloadActivity.dRJ.package_name)) {
+                aVar2 = this.dRX.dRW;
                 pluginDownloadActivity2 = PluginDownloadActivity.this;
-                z = pluginDownloadActivity2.bJb;
+                z = pluginDownloadActivity2.bTx;
                 if (!z) {
-                    aVar3 = this.dxr.dxq;
+                    aVar3 = this.dRX.dRW;
                     pluginDownloadActivity3 = PluginDownloadActivity.this;
-                    aVar4 = pluginDownloadActivity3.dxe;
-                    textView = aVar4.dxk;
+                    aVar4 = pluginDownloadActivity3.dRL;
+                    textView = aVar4.cQt;
                     textView.setText(String.format("正在下载插件：%d%%", Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    aVar5 = this.dxr.dxq;
+                    aVar5 = this.dRX.dRW;
                     pluginDownloadActivity4 = PluginDownloadActivity.this;
-                    aVar6 = pluginDownloadActivity4.dxe;
-                    textView2 = aVar6.dxk;
+                    aVar6 = pluginDownloadActivity4.dRL;
+                    textView2 = aVar6.cQt;
                     textView2.setEnabled(false);
                 }
             }
@@ -75,34 +75,34 @@ class o implements com.baidu.adp.plugin.packageManager.e {
         PluginDownloadActivity.a aVar10;
         PluginDownloadActivity pluginDownloadActivity10;
         if (i == 0) {
-            aVar6 = this.dxr.dxq;
+            aVar6 = this.dRX.dRW;
             pluginDownloadActivity6 = PluginDownloadActivity.this;
-            aVar7 = this.dxr.dxq;
+            aVar7 = this.dRX.dRW;
             pluginDownloadActivity7 = PluginDownloadActivity.this;
             pluginDownloadActivity6.showToast(pluginDownloadActivity7.getPageContext().getString(t.j.plugin_installation_finished));
-            aVar8 = this.dxr.dxq;
+            aVar8 = this.dRX.dRW;
             pluginDownloadActivity8 = PluginDownloadActivity.this;
             pluginDownloadActivity8.setResult(-1);
-            aVar9 = this.dxr.dxq;
+            aVar9 = this.dRX.dRW;
             pluginDownloadActivity9 = PluginDownloadActivity.this;
             pluginDownloadActivity9.setResult(-1);
-            aVar10 = this.dxr.dxq;
+            aVar10 = this.dRX.dRW;
             pluginDownloadActivity10 = PluginDownloadActivity.this;
             pluginDownloadActivity10.finish();
             return;
         }
-        aVar = this.dxr.dxq;
+        aVar = this.dRX.dRW;
         pluginDownloadActivity = PluginDownloadActivity.this;
         pluginDownloadActivity.setResult(0);
-        aVar2 = this.dxr.dxq;
+        aVar2 = this.dRX.dRW;
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        aVar3 = this.dxr.dxq;
+        aVar3 = this.dRX.dRW;
         pluginDownloadActivity3 = PluginDownloadActivity.this;
         pluginDownloadActivity2.showToast(pluginDownloadActivity3.getPageContext().getString(t.j.plugin_installation_failed), false);
-        aVar4 = this.dxr.dxq;
+        aVar4 = this.dRX.dRW;
         pluginDownloadActivity4 = PluginDownloadActivity.this;
         pluginDownloadActivity4.setResult(0);
-        aVar5 = this.dxr.dxq;
+        aVar5 = this.dRX.dRW;
         pluginDownloadActivity5 = PluginDownloadActivity.this;
         pluginDownloadActivity5.finish();
     }
@@ -125,24 +125,24 @@ class o implements com.baidu.adp.plugin.packageManager.e {
         PluginDownloadActivity pluginDownloadActivity5;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            aVar = this.dxr.dxq;
+            aVar = this.dRX.dRW;
             pluginDownloadActivity = PluginDownloadActivity.this;
-            if (id.equals(pluginDownloadActivity.dxc.package_name)) {
-                aVar2 = this.dxr.dxq;
+            if (id.equals(pluginDownloadActivity.dRJ.package_name)) {
+                aVar2 = this.dRX.dRW;
                 pluginDownloadActivity2 = PluginDownloadActivity.this;
-                aVar3 = pluginDownloadActivity2.dxe;
-                textView = aVar3.dxk;
-                aVar4 = this.dxr.dxq;
+                aVar3 = pluginDownloadActivity2.dRL;
+                textView = aVar3.cQt;
+                aVar4 = this.dRX.dRW;
                 pluginDownloadActivity3 = PluginDownloadActivity.this;
                 textView.setText(pluginDownloadActivity3.getPageContext().getString(t.j.plugin_download_finished));
-                aVar5 = this.dxr.dxq;
+                aVar5 = this.dRX.dRW;
                 pluginDownloadActivity4 = PluginDownloadActivity.this;
-                aVar6 = pluginDownloadActivity4.dxe;
-                textView2 = aVar6.dxk;
+                aVar6 = pluginDownloadActivity4.dRL;
+                textView2 = aVar6.cQt;
                 textView2.setEnabled(false);
-                aVar7 = this.dxr.dxq;
+                aVar7 = this.dRX.dRW;
                 pluginDownloadActivity5 = PluginDownloadActivity.this;
-                pluginDownloadActivity5.bJb = true;
+                pluginDownloadActivity5.bTx = true;
             }
         }
     }
@@ -162,19 +162,19 @@ class o implements com.baidu.adp.plugin.packageManager.e {
         PluginDownloadActivity pluginDownloadActivity5;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            aVar = this.dxr.dxq;
+            aVar = this.dRX.dRW;
             pluginDownloadActivity = PluginDownloadActivity.this;
-            if (id.equals(pluginDownloadActivity.dxc.package_name)) {
-                aVar2 = this.dxr.dxq;
+            if (id.equals(pluginDownloadActivity.dRJ.package_name)) {
+                aVar2 = this.dRX.dRW;
                 pluginDownloadActivity2 = PluginDownloadActivity.this;
                 pluginDownloadActivity2.showToast(bdFileDownloadData.getStatusMsg());
-                aVar3 = this.dxr.dxq;
+                aVar3 = this.dRX.dRW;
                 pluginDownloadActivity3 = PluginDownloadActivity.this;
-                pluginDownloadActivity3.bJb = true;
-                aVar4 = this.dxr.dxq;
+                pluginDownloadActivity3.bTx = true;
+                aVar4 = this.dRX.dRW;
                 pluginDownloadActivity4 = PluginDownloadActivity.this;
-                aVar5 = pluginDownloadActivity4.dxe;
-                aVar6 = this.dxr.dxq;
+                aVar5 = pluginDownloadActivity4.dRL;
+                aVar6 = this.dRX.dRW;
                 pluginDownloadActivity5 = PluginDownloadActivity.this;
                 com.baidu.adp.lib.h.j.b(aVar5, pluginDownloadActivity5.getPageContext());
             }

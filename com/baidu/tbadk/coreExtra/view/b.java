@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements BaseWebView.b {
-    final /* synthetic */ BaseWebView ans;
+    final /* synthetic */ BaseWebView anJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BaseWebView baseWebView) {
-        this.ans = baseWebView;
+        this.anJ = baseWebView;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
@@ -19,8 +19,8 @@ public class b implements BaseWebView.b {
         Context context;
         if (str != null) {
             try {
-                context = this.ans.mContext;
-                com.baidu.tbadk.browser.f.D(context, str);
+                context = this.anJ.mContext;
+                com.baidu.tbadk.browser.f.u(context, str);
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

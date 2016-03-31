@@ -1,191 +1,131 @@
 package com.baidu.tbadk.editortools.view;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.editortools.k;
-import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
-import com.baidu.tbadk.editortools.view.a;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.view.CommonTabContentView;
+import com.baidu.tbadk.editortools.view.c;
 /* loaded from: classes.dex */
-public class b extends f implements CommonTabWidgetView.a {
-    private int Lw;
-    private k Lx;
-    private ArrayList<com.baidu.tbadk.editortools.view.a> YX;
-    private int ahU;
-    private int asV;
-    private a avN;
-    private int avR;
-    private CommonTabContentView avZ;
-    private CommonTabWidgetView awa;
-    private boolean awb;
-    private Context mContext;
-    private ProgressBar mProgressBar;
+public abstract class b implements com.baidu.tbadk.editortools.b {
+    protected l LE;
+    private CommonTabContentView.c awk;
+    private C0050b awp;
+    private a awq;
+    private c.a awt;
+    private int column = 0;
+    private int row = 0;
+    private int verticalSpacing = 0;
+    private int horizontalSpacing = 0;
+    private int awr = 0;
+    private int aws = 0;
+    private int awu = 0;
 
     /* loaded from: classes.dex */
     public interface a {
-        void DN();
-
-        void DO();
-
-        void c(com.baidu.tbadk.editortools.view.a aVar);
+        View getView(int i, View view, ViewGroup viewGroup);
     }
 
-    public b(Context context) {
-        super(context);
-        this.YX = new ArrayList<>();
-        this.avR = -1;
-        this.ahU = -1;
-        this.Lw = 0;
-        this.asV = t.d.editor_background;
-        this.avN = new c(this);
-        this.awb = false;
-        init(context);
+    /* renamed from: com.baidu.tbadk.editortools.view.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0050b {
+        public int awv;
+        public int aww;
     }
 
-    public void b(com.baidu.tbadk.editortools.view.a aVar) {
-        aVar.a(this.avN);
-        aVar.setEditorTools(this.Lx);
-        this.YX.add(aVar);
+    public abstract void Dv();
+
+    public abstract int getCount();
+
+    public abstract void init(Context context);
+
+    public void a(c.a aVar) {
+        this.awt = aVar;
     }
 
-    private void init(Context context) {
-        this.mContext = context;
-        removeAllViews();
-        LayoutInflater.from(context).inflate(t.h.common_tab_host, (ViewGroup) this, true);
-        this.avZ = (CommonTabContentView) findViewById(t.g.common_tab_content);
-        this.awa = (CommonTabWidgetView) findViewById(t.g.common_tab_widget);
-        this.mProgressBar = (ProgressBar) findViewById(t.g.common_progress);
-        this.awa.setOnTabSelectedListener(this);
-        this.awa.setEditorTools(this.Lx);
-        setOrientation(1);
-        this.ahU = TbadkCoreApplication.m411getInst().getSkinType();
-        setBackgroundColor(t.d.editor_background);
+    public void setEditorTools(l lVar) {
+        this.LE = lVar;
     }
 
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
-        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.ahU) {
-            this.ahU = skinType;
-            onChangeSkinType(this.ahU);
-        }
-        if (i != 8 && i != 4 && !this.awb) {
-            this.awb = true;
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.YX.iterator();
-            while (it.hasNext()) {
-                it.next().init(this.mContext);
-            }
+    protected void b(com.baidu.tbadk.editortools.a aVar) {
+        if (this.LE != null) {
+            this.LE.b(aVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(a.b bVar) {
-        this.awa.c(bVar);
+    public C0050b Et() {
+        return this.awp;
     }
 
-    public void setShowDelete(boolean z) {
-        this.awa.setShowDelete(z);
+    public void a(C0050b c0050b) {
+        this.awp = c0050b;
     }
 
-    public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.YX.size()) {
-            this.avZ.a(this.YX.get(i));
-            this.awa.setCurrentTab(i);
-            this.avR = i;
-        }
+    public a Eu() {
+        return this.awq;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void eK(int i) {
-        setCurrentTab(i);
+    public void a(a aVar) {
+        this.awq = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showProgressBar() {
-        this.mProgressBar.setVisibility(0);
+    public int Ev() {
+        return this.column;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hideProgressBar() {
-        this.mProgressBar.setVisibility(8);
+    public void eN(int i) {
+        this.column = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void onChangeSkinType(int i) {
-        ar.d(this, this.asV, i);
-        this.awa.onChangeSkinType(i);
-        this.avZ.onChangeSkinType(i);
+    public int getRow() {
+        return this.row;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.YX.iterator();
-        while (it.hasNext()) {
-            it.next().CM();
-        }
+    public void eO(int i) {
+        this.row = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void setEditorTools(k kVar) {
-        this.Lx = kVar;
-        if (this.YX != null && this.YX.size() != 0) {
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.YX.iterator();
-            while (it.hasNext()) {
-                it.next().setEditorTools(this.Lx);
-            }
-        }
-        if (this.awa != null) {
-            this.awa.setEditorTools(this.Lx);
-        }
+    public int getVerticalSpacing() {
+        return this.verticalSpacing;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Lx != null) {
-            this.Lx.b(aVar);
-        }
+    public void setVerticalSpacing(int i) {
+        this.verticalSpacing = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void setToolId(int i) {
-        this.Lw = i;
+    public int getHorizontalSpacing() {
+        return this.horizontalSpacing;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public int getToolId() {
-        return this.Lw;
+    public void setHorizontalSpacing(int i) {
+        this.horizontalSpacing = i;
     }
 
-    public void init() {
+    public int getPaddingLeft() {
+        return this.awr;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void ow() {
-        setVisibility(0);
+    public int getPaddingRight() {
+        return this.aws;
     }
 
-    @Override // com.baidu.tbadk.editortools.z
-    public void hide() {
-        setVisibility(8);
+    public int Ew() {
+        return this.awu;
     }
 
-    public void a(com.baidu.tbadk.editortools.a aVar) {
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.YX.iterator();
-        while (it.hasNext()) {
-            it.next().a(aVar);
-        }
+    public void eP(int i) {
+        this.awu = i;
     }
 
-    public void setBackgroundColorId(int i) {
-        super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.asV = i;
+    public c.a Ex() {
+        return this.awt;
+    }
+
+    public void a(CommonTabContentView.c cVar) {
+        this.awk = cVar;
+    }
+
+    public CommonTabContentView.c Ey() {
+        return this.awk;
     }
 }

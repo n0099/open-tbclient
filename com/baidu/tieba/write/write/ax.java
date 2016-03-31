@@ -1,27 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements TextWatcher {
-    final /* synthetic */ WriteActivity ets;
+public class ax implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity eNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.ets = writeActivity;
+        this.eNd = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.ets.aTx();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.editortools.l lVar;
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            lVar = this.eNd.atG;
+            lVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+            editText = this.eNd.eJr;
+            editText.requestFocus();
+            return false;
+        }
+        return false;
     }
 }

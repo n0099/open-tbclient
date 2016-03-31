@@ -7,15 +7,15 @@ import com.baidu.tieba.write.view.ShareSDKImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements TbImageView.a {
-    final /* synthetic */ o epJ;
+    final /* synthetic */ o eJF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.epJ = oVar;
+        this.eJF = oVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
+    public void s(String str, boolean z) {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
         ShareSDKImageView shareSDKImageView;
@@ -28,28 +28,28 @@ public class p implements TbImageView.a {
         WriteShareActivity writeShareActivity5;
         int i2;
         if (z) {
-            shareSDKImageView = this.epJ.epD;
+            shareSDKImageView = this.eJF.eJz;
             if (shareSDKImageView.getLoadedWidth() != 0) {
-                shareSDKImageView2 = this.epJ.epD;
+                shareSDKImageView2 = this.eJF.eJz;
                 if (shareSDKImageView2.getLoadedHeight() != 0) {
-                    o oVar = this.epJ;
-                    shareSDKImageView3 = this.epJ.epD;
+                    o oVar = this.eJF;
+                    shareSDKImageView3 = this.eJF.eJz;
                     oVar.width = shareSDKImageView3.getLoadedWidth();
-                    o oVar2 = this.epJ;
-                    shareSDKImageView4 = this.epJ.epD;
+                    o oVar2 = this.eJF;
+                    shareSDKImageView4 = this.eJF.eJz;
                     oVar2.height = shareSDKImageView4.getLoadedHeight();
-                    writeShareActivity3 = this.epJ.epG;
+                    writeShareActivity3 = this.eJF.eJC;
                     if (writeShareActivity3 != null) {
-                        writeShareActivity4 = this.epJ.epG;
-                        WriteData aND = writeShareActivity4.aND();
-                        i = this.epJ.width;
-                        aND.setShareSummaryImgWidth(i);
-                        writeShareActivity5 = this.epJ.epG;
-                        WriteData aND2 = writeShareActivity5.aND();
-                        i2 = this.epJ.height;
-                        aND2.setShareSummaryImgHeight(i2);
-                        this.epJ.epI = true;
-                        this.epJ.aTx();
+                        writeShareActivity4 = this.eJF.eJC;
+                        WriteData aUF = writeShareActivity4.aUF();
+                        i = this.eJF.width;
+                        aUF.setShareSummaryImgWidth(i);
+                        writeShareActivity5 = this.eJF.eJC;
+                        WriteData aUF2 = writeShareActivity5.aUF();
+                        i2 = this.eJF.height;
+                        aUF2.setShareSummaryImgHeight(i2);
+                        this.eJF.eJE = true;
+                        this.eJF.aZX();
                         return;
                     }
                     return;
@@ -58,12 +58,12 @@ public class p implements TbImageView.a {
             }
             return;
         }
-        this.epJ.epI = false;
-        this.epJ.aTx();
-        writeShareActivity = this.epJ.epG;
+        this.eJF.eJE = false;
+        this.eJF.aZX();
+        writeShareActivity = this.eJF.eJC;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.epJ.epG;
-            writeShareActivity2.pD(t.j.share_load_image_fail_tip);
+            writeShareActivity2 = this.eJF.eJC;
+            writeShareActivity2.qw(t.j.share_load_image_fail_tip);
         }
     }
 
@@ -71,12 +71,12 @@ public class p implements TbImageView.a {
     public void onCancel() {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        this.epJ.epI = false;
-        this.epJ.aTx();
-        writeShareActivity = this.epJ.epG;
+        this.eJF.eJE = false;
+        this.eJF.aZX();
+        writeShareActivity = this.eJF.eJC;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.epJ.epG;
-            writeShareActivity2.pD(t.j.share_load_image_fail_tip);
+            writeShareActivity2 = this.eJF.eJC;
+            writeShareActivity2.qw(t.j.share_load_image_fail_tip);
         }
     }
 }

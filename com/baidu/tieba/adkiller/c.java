@@ -4,23 +4,23 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class c implements o.a<String> {
-    private final /* synthetic */ String aMJ;
-    private final /* synthetic */ o aMK;
+    private final /* synthetic */ String aPE;
+    private final /* synthetic */ o aPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str, o oVar) {
-        this.aMJ = str;
-        this.aMK = oVar;
+        this.aPE = str;
+        this.aPF = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: ap */
-    public void h(String str, String str2) {
+    /* renamed from: aw */
+    public void g(String str, String str2) {
         if (StringUtils.isNull(str2)) {
-            str2 = "start*" + this.aMJ;
-        } else if (!str2.contains(this.aMJ)) {
-            str2 = String.valueOf(str2) + ",start*" + this.aMJ;
+            str2 = "start*" + this.aPE;
+        } else if (!str2.contains(this.aPE)) {
+            str2 = String.valueOf(str2) + ",start*" + this.aPE;
         } else {
             String[] split = str2.split(",");
             if (split != null) {
@@ -31,16 +31,16 @@ class c implements o.a<String> {
                         break;
                     }
                     String str3 = split[i];
-                    if (!str3.endsWith(this.aMJ)) {
+                    if (!str3.endsWith(this.aPE)) {
                         i++;
                     } else if (!str3.startsWith("start*")) {
-                        String str4 = "start*" + this.aMJ;
+                        String str4 = "start*" + this.aPE;
                     } else {
                         return;
                     }
                 }
             }
         }
-        this.aMK.f(str, str2);
+        this.aPF.e(str, str2);
     }
 }

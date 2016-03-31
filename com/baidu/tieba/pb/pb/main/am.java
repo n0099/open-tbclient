@@ -1,26 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class am implements a.b {
-    final /* synthetic */ PbActivity cNq;
+class am extends CustomMessageListener {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am(PbActivity pbActivity, int i) {
+        super(i);
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.cNq.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.m411getInst().getPackageName())));
-        } catch (Throwable th) {
-            th.printStackTrace();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        df dfVar;
+        com.baidu.tbadk.editortools.d.e eVar;
+        eu euVar;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        eu euVar2;
+        eu euVar3;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        dfVar = this.dht.dfV;
+        if (dfVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            eVar = this.dht.dgP;
+            if (eVar != null) {
+                euVar3 = this.dht.dgF;
+                eVar3 = this.dht.dgP;
+                euVar3.eL(eVar3.DT());
+            }
+            euVar = this.dht.dgF;
+            euVar.ayk();
+            eVar2 = this.dht.dgP;
+            eVar2.DW();
+            euVar2 = this.dht.dgF;
+            euVar2.amI();
         }
-        aVar.dismiss();
     }
 }

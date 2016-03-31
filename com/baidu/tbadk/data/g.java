@@ -1,40 +1,53 @@
 package com.baidu.tbadk.data;
+
+import com.baidu.adp.lib.a.b.a.a.i;
+import org.json.JSONObject;
+import tbclient.PrivSets;
 /* loaded from: classes.dex */
-public class g {
-    private String arZ;
-    private String asa;
-    private boolean asb = false;
-    private boolean isAdded = false;
+public class g extends i {
+    private int aso = 1;
+    private int asp = 1;
+    private int asq = 1;
+    private int asr = 1;
+    private int ass = 1;
 
-    public String Cg() {
-        return this.arZ;
+    public int CH() {
+        return this.asp;
     }
 
-    public void eS(String str) {
-        this.arZ = str;
+    public int CI() {
+        return this.asq;
     }
 
-    public String getSmallUrl() {
-        return this.asa;
+    public int CJ() {
+        return this.asr;
     }
 
-    public void eT(String str) {
-        this.asa = str;
+    public int CK() {
+        return this.ass;
     }
 
-    public boolean Ch() {
-        return this.asb;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aso = jSONObject.optInt("location", 1);
+            this.asp = jSONObject.optInt("like", 1);
+            this.asq = jSONObject.optInt("group", 1);
+            this.asr = jSONObject.optInt("post", 1);
+            this.ass = jSONObject.optInt("friend", 1);
+        }
     }
 
-    public void bd(boolean z) {
-        this.asb = z;
-    }
-
-    public boolean isAdded() {
-        return this.isAdded;
-    }
-
-    public void be(boolean z) {
-        this.isAdded = z;
+    public void a(PrivSets privSets) {
+        if (privSets != null) {
+            try {
+                this.aso = privSets.location.intValue();
+                this.asp = privSets.like.intValue();
+                this.asq = privSets.group.intValue();
+                this.asr = privSets.post.intValue();
+                this.ass = privSets.friend.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

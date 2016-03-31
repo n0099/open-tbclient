@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
@@ -13,6 +12,8 @@ public class GodUserData extends i implements Serializable {
     private Long id;
     private String intro;
     private boolean isFromNetWork = true;
+    private String mForumName;
+    private String mRecommendReason;
     private int type;
 
     public int getFollowed() {
@@ -37,6 +38,14 @@ public class GodUserData extends i implements Serializable {
 
     public boolean getIsFromNetWork() {
         return this.isFromNetWork;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public String getRecommendReason() {
+        return this.mRecommendReason;
     }
 
     public void setFollowed(int i) {
@@ -68,8 +77,10 @@ public class GodUserData extends i implements Serializable {
             this.id = Long.valueOf(jSONObject.optLong("id"));
             this.intro = jSONObject.optString("intro");
             this.type = jSONObject.optInt("type");
-            this.fid = jSONObject.optLong(ImageViewerConfig.FORUM_ID);
+            this.fid = jSONObject.optLong("fid");
             this.followed = jSONObject.optInt("followed");
+            this.mForumName = jSONObject.optString("forum_name");
+            this.mRecommendReason = jSONObject.optString("recommend_reason");
         }
     }
 
@@ -80,6 +91,8 @@ public class GodUserData extends i implements Serializable {
             this.type = godInfo.type.intValue();
             this.fid = godInfo.fid.longValue();
             this.followed = godInfo.followed.intValue();
+            this.mForumName = godInfo.forum_name;
+            this.mRecommendReason = godInfo.recommend_reason;
         }
     }
 }

@@ -1,19 +1,16 @@
 package com.baidu.tbadk.widget.richText;
 
-import tbclient.PbContent;
+import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.lib.a.b.a.a.i {
-    public int aFH;
-    public String link;
-
-    public j(PbContent pbContent) {
-        if (pbContent != null) {
-            this.aFH = pbContent.btn_type.intValue();
-            this.link = pbContent.link;
+public class j {
+    public static Drawable fz(int i) {
+        switch (i) {
+            case 0:
+                return at.getDrawable(t.f.icon_xiangqing_n);
+            default:
+                return at.getDrawable(t.f.icon_xiangqing_n);
         }
-    }
-
-    public String getLink() {
-        return this.link;
     }
 }

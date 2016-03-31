@@ -1,72 +1,37 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.x;
-import java.util.List;
-import tbclient.Personalized.TagInfo;
+import com.baidu.tieba.recommendfrs.control.a.g;
+import com.baidu.tieba.recommendfrs.control.a.m;
+import tbclient.Personalized.DataRes;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
-    public static int dEA = 3;
-    private static n dEG;
-    public BdUniqueId aPF;
-    public boolean dED;
-    public int dEB = -1;
-    public int dEC = 0;
-    public int cnb = -1;
-    public boolean dEE = false;
-    private CustomMessageListener dEF = new o(this, CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED);
-    private CustomMessageListener aPK = new p(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+public class n implements g.a {
+    final /* synthetic */ m dWx;
 
-    public static synchronized n aFn() {
-        n nVar;
-        synchronized (n.class) {
-            if (dEG == null) {
-                dEG = new n();
-            }
-            nVar = dEG;
-        }
-        return nVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(m mVar) {
+        this.dWx = mVar;
     }
 
-    public void onDestory() {
-        this.dEC = 0;
-        if (this.aPF != null) {
-            MessageManager.getInstance().unRegisterListener(this.aPF);
+    @Override // com.baidu.tieba.recommendfrs.control.a.g.a
+    public void b(long j, DataRes dataRes, boolean z) {
+        m.a aVar;
+        m.a aVar2;
+        aVar = this.dWx.dWt;
+        if (aVar != null) {
+            aVar2 = this.dWx.dWt;
+            aVar2.a(j, dataRes, z);
         }
     }
 
-    public void n(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null) {
-            this.aPF = bdUniqueId;
-            this.dEF.setTag(bdUniqueId);
-            this.aPK.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.dEF);
-            MessageManager.getInstance().registerListener(this.aPK);
-        }
-    }
-
-    public void bR(List<TagInfo> list) {
-        if (!x.p(list)) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    TagInfo tagInfo = (TagInfo) x.b(list, i2);
-                    if (tagInfo != null) {
-                        if (tagInfo.tag_type.intValue() == dEA) {
-                            this.dEB = i2;
-                            return;
-                        }
-                        this.dEB = -1;
-                    }
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+    @Override // com.baidu.tieba.recommendfrs.control.a.g.a
+    public void e(long j, int i, String str) {
+        m.a aVar;
+        m.a aVar2;
+        aVar = this.dWx.dWt;
+        if (aVar != null) {
+            aVar2 = this.dWx.dWt;
+            aVar2.a(j, str, i);
         }
     }
 }

@@ -37,7 +37,7 @@ public class j extends com.baidu.adp.framework.a.j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.aea().aeh();
+                b.aht().ahA();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -64,10 +64,10 @@ public class j extends com.baidu.adp.framework.a.j {
                 return false;
             }
             SparseArray<Long> sparseArray = new SparseArray<>();
-            SparseArray<Long> adI = com.baidu.tieba.im.memorycache.b.ady().adI();
+            SparseArray<Long> ahb = com.baidu.tieba.im.memorycache.b.agR().ahb();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
-                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && bz.ji(groupMsgData.getGroupInfo().getCustomType()) && (l = adI.get((int) groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
+                if (groupMsgData != null && groupMsgData.getGroupInfo() != null && bz.jO(groupMsgData.getGroupInfo().getCustomType()) && (l = ahb.get((int) groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get((int) groupMsgData.getGroupInfo().getGroupId())) != null) {
                     boolean z2 = l.longValue() > l2.longValue() ? true : z;
                     if (groupMsgData.hasMore()) {
                         sparseArray.put((int) groupMsgData.getGroupInfo().getGroupId(), l);
@@ -78,7 +78,7 @@ public class j extends com.baidu.adp.framework.a.j {
             if (!z || sparseArray.size() <= 0) {
                 return false;
             }
-            b.aea().c(sparseArray);
+            b.aht().c(sparseArray);
             return true;
         }
         return false;

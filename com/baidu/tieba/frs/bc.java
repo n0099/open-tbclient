@@ -1,10 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes.dex */
-class bc implements a.b {
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+class bc implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(FrsActivity.class);
+        }
+        return null;
     }
 }

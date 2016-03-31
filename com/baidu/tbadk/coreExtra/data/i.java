@@ -1,34 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class i {
-    private int ajU;
-    private int ajV;
-    private int ajW;
+    private int akk;
+    private int akl;
+    private int akm;
 
-    public int yf() {
-        if (this.ajU == 0) {
+    public int yG() {
+        if (this.akk == 0) {
             return Integer.MAX_VALUE;
         }
-        return this.ajU;
+        return this.akk;
     }
 
-    public void dX(String str) {
-        this.ajU = com.baidu.adp.lib.h.b.g(str, 0);
+    public void ee(String str) {
+        this.akk = com.baidu.adp.lib.h.b.g(str, 0);
     }
 
-    public int yg() {
-        return this.ajV;
+    public int yH() {
+        return this.akl;
     }
 
-    public void dY(String str) {
-        this.ajV = com.baidu.adp.lib.h.b.g(str, 0);
+    public void ef(String str) {
+        this.akl = com.baidu.adp.lib.h.b.g(str, 0);
     }
 
-    public int yh() {
-        return this.ajW;
+    public int yI() {
+        return this.akm;
     }
 
-    public void dZ(String str) {
-        this.ajW = com.baidu.adp.lib.h.b.g(str, 0);
+    public void eg(String str) {
+        this.akm = com.baidu.adp.lib.h.b.g(str, 0);
     }
 }

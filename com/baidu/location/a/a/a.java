@@ -15,10 +15,10 @@ public class a {
     /* renamed from: if  reason: not valid java name */
     public static String m65if(Context context) {
         String a = a(context);
-        String U = b.U(context);
-        if (TextUtils.isEmpty(U)) {
-            U = "0";
+        String H = b.H(context);
+        if (TextUtils.isEmpty(H)) {
+            H = "0";
         }
-        return a + "|" + new StringBuffer(U).reverse().toString();
+        return a + "|" + new StringBuffer(H).reverse().toString();
     }
 }

@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.g {
-    final /* synthetic */ a bpO;
+    final /* synthetic */ a buP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.bpO = aVar;
+        this.buP = aVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -34,45 +34,45 @@ public class i extends com.baidu.adp.base.g {
         FrsActivity frsActivity5;
         w wVar6;
         boolean z = false;
-        wVar = this.bpO.MS;
-        if (!AntiHelper.or(wVar.getErrorCode())) {
-            frsActivity = this.bpO.bot;
-            com.baidu.tieba.tbadkCore.o Pk = frsActivity.Pk();
-            if (Pk != null && Pk.aoE() != null) {
-                String name = Pk.aoE().getName();
+        wVar = this.buP.MY;
+        if (!AntiHelper.pB(wVar.getErrorCode())) {
+            frsActivity = this.buP.bts;
+            com.baidu.tieba.tbadkCore.o QZ = frsActivity.QZ();
+            if (QZ != null && QZ.avu() != null) {
+                String name = QZ.avu().getName();
                 if (obj != null && (obj instanceof x)) {
-                    com.baidu.tieba.tbadkCore.c.aKN().I(name, false);
+                    com.baidu.tieba.tbadkCore.c.aRC().J(name, false);
                     ((x) obj).setLike(1);
-                    Pk.c((x) obj);
-                    Pk.cc(((x) obj).aKO());
+                    QZ.c((x) obj);
+                    QZ.cs(((x) obj).aRD());
                     z = true;
                 }
-                frsActivity2 = this.bpO.bot;
-                frsActivity2.bgy.d(Boolean.valueOf(z));
+                frsActivity2 = this.buP.bts;
+                frsActivity2.blj.d(Boolean.valueOf(z));
                 if (!z) {
-                    wVar2 = this.bpO.MS;
+                    wVar2 = this.buP.MY;
                     if (wVar2.getErrorCode() == 22) {
-                        frsActivity4 = this.bpO.bot;
-                        frsActivity4.showToast(this.bpO.getPageContext().getString(t.j.had_liked_forum));
+                        frsActivity4 = this.buP.bts;
+                        frsActivity4.showToast(this.buP.getPageContext().getString(t.j.had_liked_forum));
                         return;
                     }
-                    wVar3 = this.bpO.MS;
-                    if (!AntiHelper.or(wVar3.getErrorCode())) {
-                        frsActivity3 = this.bpO.bot;
-                        wVar4 = this.bpO.MS;
+                    wVar3 = this.buP.MY;
+                    if (!AntiHelper.pB(wVar3.getErrorCode())) {
+                        frsActivity3 = this.buP.bts;
+                        wVar4 = this.buP.MY;
                         frsActivity3.showToast(wVar4.getErrorString());
                         return;
                     }
-                    Activity pageActivity = this.bpO.getPageContext().getPageActivity();
-                    wVar5 = this.bpO.MS;
-                    AntiHelper.X(pageActivity, wVar5.getErrorString());
+                    Activity pageActivity = this.buP.getPageContext().getPageActivity();
+                    wVar5 = this.buP.MY;
+                    AntiHelper.O(pageActivity, wVar5.getErrorString());
                     return;
                 }
-                this.bpO.a(Pk, true);
-                frsActivity5 = this.bpO.bot;
-                frsActivity5.showToast(this.bpO.getPageContext().getString(t.j.like_success));
+                this.buP.a(QZ, true);
+                frsActivity5 = this.buP.bts;
+                frsActivity5.showToast(this.buP.getPageContext().getString(t.j.like_success));
                 TbadkCoreApplication.m411getInst().addLikeForum(name);
-                this.bpO.f(true, Pk.aoE().getId());
+                this.buP.f(true, QZ.avu().getId());
                 x xVar = (x) obj;
                 xVar.setLike(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));
@@ -80,8 +80,8 @@ public class i extends com.baidu.adp.base.g {
             }
             return;
         }
-        Activity pageActivity2 = this.bpO.getPageContext().getPageActivity();
-        wVar6 = this.bpO.MS;
-        AntiHelper.X(pageActivity2, wVar6.getErrorString());
+        Activity pageActivity2 = this.buP.getPageContext().getPageActivity();
+        wVar6 = this.buP.MY;
+        AntiHelper.O(pageActivity2, wVar6.getErrorString());
     }
 }

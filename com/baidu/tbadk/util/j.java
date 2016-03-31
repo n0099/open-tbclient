@@ -1,63 +1,41 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
 /* loaded from: classes.dex */
 public class j {
-    private static final byte[] aCW = new byte[1];
-    private static j aCX = null;
-    private CustomMessageListener xC;
-
-    public static j Gz() {
-        if (aCX == null) {
-            synchronized (aCW) {
-                if (aCX == null) {
-                    aCX = new j();
-                }
+    public static final boolean Hu() {
+        int i = 0;
+        Object c = com.baidu.adp.lib.a.a.a.c(Looper.myQueue(), "mMessages");
+        if (c == null || !(c instanceof Message)) {
+            return false;
+        }
+        Message message = (Message) c;
+        boolean z = false;
+        while (message != null && message.obj != null && !z && i < 10) {
+            i++;
+            boolean b = b(message);
+            Object c2 = com.baidu.adp.lib.a.a.a.c(message, "next");
+            if (c2 != null && (c2 instanceof Message)) {
+                message = (Message) c2;
+                z = b;
+            } else {
+                message = null;
+                z = b;
             }
         }
-        return aCX;
+        return z;
     }
 
-    private j() {
-        com.baidu.adp.lib.util.i.init();
-    }
-
-    public void GA() {
-        try {
-            if (this.xC == null) {
-                this.xC = GB();
-                MessageManager.getInstance().registerListener(this.xC);
-            }
-        } catch (Exception e) {
-            this.xC = null;
-            BdLog.e(e.getMessage());
+    private static final boolean b(Message message) {
+        Object c;
+        ComponentName component;
+        if (message == null) {
+            return false;
         }
-    }
-
-    private CustomMessageListener GB() {
-        return new k(this, 2000994);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void GC() {
-        try {
-            boolean iZ = com.baidu.adp.lib.util.i.iZ();
-            if (iZ) {
-                if (com.baidu.adp.lib.util.i.ja()) {
-                    ax.wg().at(true);
-                } else if (com.baidu.adp.lib.util.i.jb()) {
-                    ax.wg().at(false);
-                }
-            }
-            NoNetworkView.setIsHasNetwork(iZ);
-            CompatibleUtile.dealWebView(null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
+        Object obj = message.obj;
+        return (obj == null || (c = com.baidu.adp.lib.a.a.a.c(obj, "intent")) == null || !(c instanceof Intent) || (component = ((Intent) c).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

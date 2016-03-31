@@ -17,8 +17,10 @@ import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
+    public static final String TYPE_GRAFFITI = "graffiti";
     public static final String TYPE_ZAN = "zan";
     private static final long serialVersionUID = -7837936115460478133L;
+    private boolean isAuthor;
     private int isFloor;
     private String mPraiseItemType;
     private String quote_pid;
@@ -105,6 +107,10 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.thread_type;
     }
 
+    public boolean isAuthor() {
+        return this.isAuthor;
+    }
+
     public String toJson() {
         JSONArray jSONArray = new JSONArray();
         try {
@@ -140,6 +146,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
             try {
                 this.type = jSONObject.optInt("type", 0);
@@ -153,10 +160,10 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = jSONObject.optInt("is_floor");
                 this.quote_pid = jSONObject.optString("quote_pid");
                 this.mPraiseItemType = jSONObject.optString("item_type");
-                if (!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject(TYPE_ZAN);
+                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
+                    this.isAuthor = optJSONObject.optInt("consent_type") == 2;
                     JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
                     if (optJSONArray != null) {
                         this.mPraiseList = new ArrayList();
@@ -178,6 +185,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public void parserProtoBuf(ReplyList replyList) {
         Zan zan;
+        int i = 0;
         if (replyList != null) {
             try {
                 this.type = replyList.type.intValue();
@@ -191,13 +199,13 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = replyList.is_floor.intValue();
                 this.quote_pid = String.valueOf(replyList.quote_pid);
                 this.mPraiseItemType = replyList.item_type;
-                if (!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN) && (zan = replyList.zan) != null) {
+                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI)) && (zan = replyList.zan) != null) {
                     this.mPraiseNum = zan.num.intValue();
                     this.mPraiseLiked = zan.is_liked.intValue();
+                    this.isAuthor = zan.consent_type.intValue() == 2;
                     List<User> list = zan.liker_list;
                     if (list != null) {
                         this.mPraiseList = new ArrayList();
-                        int i = 0;
                         while (true) {
                             int i2 = i;
                             if (i2 >= list.size()) {

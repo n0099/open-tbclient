@@ -33,7 +33,7 @@ public class SubmitCloseNetMessage extends NetMessage {
     }
 
     private String createMd5() {
-        return t.toMd5("tb_adkiller" + this.type + this.killTag).toLowerCase();
+        return t.aZ("tb_adkiller" + this.type + this.killTag).toLowerCase();
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -44,7 +44,7 @@ public class SubmitCloseNetMessage extends NetMessage {
         builder.ak_sign = createMd5();
         KillAdReqIdl.Builder builder2 = new KillAdReqIdl.Builder();
         if (z) {
-            com.baidu.tbadk.util.i.a(builder, true);
+            com.baidu.tbadk.util.l.a(builder, true);
         }
         builder2.data = builder.build(false);
         return builder2.build(false);

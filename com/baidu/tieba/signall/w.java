@@ -5,62 +5,62 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private b dOq;
-    private u dOr;
-    private a dOs;
-    private c dOt;
-    public boolean qc;
+    private b egP;
+    private u egQ;
+    private a egR;
+    private c egS;
+    public boolean qg;
 
     /* loaded from: classes.dex */
     public interface a {
         void b(u uVar);
 
-        void iB(String str);
+        void jk(String str);
     }
 
     public w(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.dOq = null;
-        this.dOr = null;
-        this.dOs = null;
-        this.dOr = new u();
+        this.egP = null;
+        this.egQ = null;
+        this.egR = null;
+        this.egQ = new u();
     }
 
     public void a(a aVar) {
-        this.dOs = aVar;
+        this.egR = aVar;
     }
 
     public void d(c cVar) {
-        this.dOt = cVar;
+        this.egS = cVar;
     }
 
-    public c aJm() {
-        return this.dOt;
+    public c aQc() {
+        return this.egS;
     }
 
-    private String aJn() {
-        ArrayList<e> aIL = this.dOt.aIL();
-        if (aIL == null) {
+    private String aQd() {
+        ArrayList<e> aPB = this.egS.aPB();
+        if (aPB == null) {
             return "";
         }
-        if (!this.dOt.aIM()) {
+        if (!this.egS.aPC()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = aIL.iterator();
+            Iterator<e> it = aPB.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.getUserLevel() < this.dOt.getLevel()) {
+                if (next.getUserLevel() < this.egS.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            aIL.removeAll(arrayList);
+            aPB.removeAll(arrayList);
         }
-        int size = aIL.size();
+        int size = aPB.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = aIL.get(i);
-            if (eVar.aIY()) {
-                if (!eVar.aIZ()) {
-                    eVar.hJ(true);
+            e eVar = aPB.get(i);
+            if (eVar.aPO()) {
+                if (!eVar.aPP()) {
+                    eVar.iy(true);
                 }
             }
             if (i > 0) {
@@ -74,19 +74,19 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.dOq != null) {
+        if (this.egP != null) {
             return false;
         }
-        String aJn = aJn();
-        this.dOq = new b();
-        this.dOq.execute(aJn);
+        String aQd = aQd();
+        this.egP = new b();
+        this.egP.execute(aQd);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.dOq != null) {
-            this.dOq.cancel();
+        if (this.egP != null) {
+            this.egP.cancel();
             return true;
         }
         return false;
@@ -94,7 +94,7 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, u> {
-        private h dOu = null;
+        private h egT = null;
 
         public b() {
             setPriority(3);
@@ -104,13 +104,13 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            w.this.qc = true;
+            w.this.qg = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: D */
+        /* renamed from: F */
         public u doInBackground(String... strArr) {
             if (strArr[0] == null) {
                 return null;
@@ -127,31 +127,31 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
                         sb.append(String.valueOf(split[i2 + i3]) + ",");
                     }
                 }
-                this.dOu = new h();
-                if (com.baidu.adp.lib.util.i.iZ()) {
-                    mq(sb.toString());
+                this.egT = new h();
+                if (com.baidu.adp.lib.util.i.jf()) {
+                    nB(sb.toString());
                 }
             }
-            return w.this.dOr;
+            return w.this.egQ;
         }
 
-        private u mq(String str) {
-            String mn = this.dOu.mn(str);
-            if (this.dOu.rl()) {
-                w.this.dOr.parserJson(mn);
-                return w.this.dOr;
+        private u nB(String str) {
+            String ny = this.egT.ny(str);
+            if (this.egT.qC()) {
+                w.this.egQ.parserJson(ny);
+                return w.this.egQ;
             }
-            w.this.dOr = null;
+            w.this.egQ = null;
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.dOu.cancel();
-            this.dOu = null;
-            w.this.dOq = null;
-            w.this.qc = false;
+            this.egT.cancel();
+            this.egT = null;
+            w.this.egP = null;
+            w.this.qg = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,13 +159,13 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(u uVar) {
-            w.this.qc = false;
-            w.this.dOq = null;
-            if (w.this.dOs != null) {
-                if (w.this.dOr != null) {
-                    w.this.dOs.b(w.this.dOr);
+            w.this.qg = false;
+            w.this.egP = null;
+            if (w.this.egR != null) {
+                if (w.this.egQ != null) {
+                    w.this.egR.b(w.this.egQ);
                 } else {
-                    w.this.dOs.iB(this.dOu != null ? this.dOu.rm() : null);
+                    w.this.egR.jk(this.egT != null ? this.egT.qD() : null);
                 }
             }
         }

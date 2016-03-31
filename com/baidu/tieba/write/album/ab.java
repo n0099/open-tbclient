@@ -7,38 +7,38 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
-    private com.baidu.tbadk.img.b aqu;
-    private boolean eha;
-    private AlbumActivity emU;
-    private o enN;
-    private boolean enO;
-    private z enP;
-    private x enQ;
-    private aa enR;
+    private com.baidu.tbadk.img.b aqL;
+    private boolean eAY;
+    private AlbumActivity eGS;
+    private o eHK;
+    private boolean eHL;
+    private z eHM;
+    private x eHN;
+    private aa eHO;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, o oVar) {
-        this.emU = albumActivity;
-        this.aqu = albumActivity.aSw();
-        this.enN = oVar;
-        this.mWidth = (int) this.emU.getResources().getDimension(t.e.album_gridview_item_height);
+        this.eGS = albumActivity;
+        this.aqL = albumActivity.YO();
+        this.eHK = oVar;
+        this.mWidth = (int) this.eGS.getResources().getDimension(t.e.album_gridview_item_height);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.enO = z;
+        this.eHL = z;
         notifyDataSetChanged();
     }
 
-    public int g(ImageFileInfo imageFileInfo) {
+    public int i(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null || imageFileInfo.getFilePath() == null) {
             return -1;
         }
@@ -70,7 +70,7 @@ public class ab extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pv */
+    /* renamed from: qo */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -85,7 +85,7 @@ public class ab extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.enO && i == 0) ? 1 : 0;
+        return (this.eHL && i == 0) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -100,14 +100,14 @@ public class ab extends BaseAdapter {
         if (view == null) {
             bVar = new b(this, null);
             if (itemViewType == 0) {
-                view = LayoutInflater.from(this.emU.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view, viewGroup, false);
-                bVar.enY = (HeadImageView) view.findViewById(t.g.pic);
-                bVar.csZ = (ImageView) view.findViewById(t.g.select_icon);
-                bVar.cta = (RelativeLayout) view.findViewById(t.g.lay_select);
+                view = LayoutInflater.from(this.eGS.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view, viewGroup, false);
+                bVar.eHV = (HeadImageView) view.findViewById(t.g.pic);
+                bVar.cDz = (ImageView) view.findViewById(t.g.select_icon);
+                bVar.cDA = (RelativeLayout) view.findViewById(t.g.lay_select);
                 view.setTag(bVar);
             } else {
-                view = LayoutInflater.from(this.emU.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view_camera, viewGroup, false);
-                bVar.enZ = (ViewGroup) view.findViewById(t.g.item_camera);
+                view = LayoutInflater.from(this.eGS.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view_camera, viewGroup, false);
+                bVar.eHW = (ViewGroup) view.findViewById(t.g.item_camera);
                 view.setTag(bVar);
             }
         } else {
@@ -115,75 +115,82 @@ public class ab extends BaseAdapter {
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            bVar.enY.setTag(null);
-            bVar.enY.setRadius(1);
-            bVar.enY.setDefaultResource(t.f.img_default_100);
-            bVar.enY.d(null, 12, false);
-            bVar.enY.invalidate();
+            bVar.eHV.setTag(null);
+            bVar.eHV.setRadius(1);
+            bVar.eHV.setDefaultResource(t.f.img_default_100);
+            bVar.eHV.c(null, 12, false);
+            int i2 = i + 1;
+            if (this.eHL) {
+                i2 = i;
+            }
+            bVar.eHV.setContentDescription(String.valueOf(view.getResources().getString(t.j.log_msg_pic)) + i2 + " " + item.getModifyTime());
+            bVar.eHV.invalidate();
             a aVar = new a(this, null);
-            aVar.enX = true;
+            aVar.eHU = true;
             if (item != null) {
                 item.clearPageActions();
-                item.addPageAction(com.baidu.tbadk.img.effect.d.G(this.mWidth, this.mWidth));
-                bVar.enY.setTag(item.toCachedKey(false));
-                if (this.aqu.a(item, false) != null) {
-                    bVar.enY.invalidate();
+                item.addPageAction(com.baidu.tbadk.img.effect.d.D(this.mWidth, this.mWidth));
+                bVar.eHV.setTag(item.toCachedKey(false));
+                if (this.aqL.a(item, false) != null) {
+                    bVar.eHV.invalidate();
                 } else {
-                    this.aqu.a(item, new ac(this, viewGroup, aVar), false, this.eha);
+                    this.aqL.a(item, new ac(this, viewGroup, aVar), false, this.eAY);
                 }
             } else {
-                aVar.enX = false;
+                aVar.eHU = false;
             }
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-            if (this.enN != null) {
-                if (this.enN.isAdded(item)) {
-                    ar.k(bVar.csZ, t.f.chx_camera_pic_s);
+            if (this.eHK != null) {
+                if (this.eHK.isAdded(item)) {
+                    bVar.cDz.setContentDescription(this.eGS.getResources().getString(t.j.check_box_checked));
+                    at.k(bVar.cDz, t.f.chx_camera_pic_s);
                 } else {
-                    ar.k(bVar.csZ, t.f.chx_camera_pic_n);
+                    bVar.cDz.setContentDescription(this.eGS.getResources().getString(t.j.check_box_not_checked));
+                    at.k(bVar.cDz, t.f.chx_camera_pic_n);
                 }
-                a(bVar, aVar, i, item, skinType, this.enN);
+                a(bVar, aVar, i, item, skinType, this.eHK);
             }
-            bVar.enY.setOnClickListener(new ad(this, aVar, i, item));
+            bVar.eHV.setOnClickListener(new ad(this, aVar, i, item));
         } else {
-            ar.k(bVar.enZ, t.f.icon_camera_pic);
-            bVar.enZ.setOnClickListener(new ae(this, i, item));
+            at.k(bVar.eHW, t.f.icon_camera_pic);
+            bVar.eHW.setOnClickListener(new ae(this, i, item));
         }
         u(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.eha;
+        return this.eAY;
     }
 
-    public void io(boolean z) {
-        this.eha = z;
+    public void je(boolean z) {
+        this.eAY = z;
     }
 
     private void u(View view) {
-        this.emU.getLayoutMode().ac(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.emU.getLayoutMode().x(view);
+        this.eGS.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.eGS.getLayoutMode().x(view);
     }
 
     public void a(z zVar) {
-        this.enP = zVar;
+        this.eHM = zVar;
     }
 
     public void a(aa aaVar) {
-        this.enR = aaVar;
+        this.eHO = aaVar;
     }
 
     public void a(x xVar) {
-        this.enQ = xVar;
+        this.eHN = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        ImageView csZ;
-        RelativeLayout cta;
-        HeadImageView enY;
-        ViewGroup enZ;
+        RelativeLayout cDA;
+        ImageView cDz;
+        HeadImageView eHV;
+        ViewGroup eHW;
 
         private b() {
         }
@@ -196,7 +203,7 @@ public class ab extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        boolean enX;
+        boolean eHU;
 
         private a() {
         }
@@ -207,6 +214,6 @@ public class ab extends BaseAdapter {
     }
 
     private void a(b bVar, a aVar, int i, ImageFileInfo imageFileInfo, int i2, o oVar) {
-        bVar.cta.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
+        bVar.cDA.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
     }
 }

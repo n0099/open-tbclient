@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.editortools.k;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.editortools.l;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
@@ -19,36 +19,35 @@ import com.baidu.tieba.t;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private GridView cxr;
-    private BaseActivity dke;
+    private GridView cQM;
+    private BaseActivity dEE;
     private Context mContext;
-    private com.baidu.tbadk.img.b auh = new com.baidu.tbadk.img.b();
-    private k asQ = null;
-    private int auk = 13;
-    private int eqo = 6;
-    private boolean eqp = false;
+    private com.baidu.tbadk.img.b auH = new com.baidu.tbadk.img.b();
+    private l atp = null;
+    private int auK = 13;
+    private int eKk = 6;
+    private boolean eKl = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    public final String eqq = "android.resource://";
-    private InterfaceC0091a eqr = new b(this);
+    private InterfaceC0089a eKm = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0091a {
-        void pL(int i);
+    public interface InterfaceC0089a {
+        void qE(int i);
     }
 
-    public void aTT() {
+    public void bat() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            aTU();
-        } else if (this.chosedFiles.size() < this.eqo) {
+            bau();
+        } else if (this.chosedFiles.size() < this.eKk) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                aTU();
+                bau();
             }
         }
     }
 
-    private void aTU() {
+    private void bau() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + t.f.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -59,14 +58,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean aTV() {
+    public boolean bav() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void aTW() {
+    public void baw() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -77,11 +76,11 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.dke = null;
-        this.cxr = null;
-        this.dke = baseActivity;
-        this.mContext = this.dke.getActivity();
-        this.cxr = gridView;
+        this.dEE = null;
+        this.cQM = null;
+        this.dEE = baseActivity;
+        this.mContext = this.dEE.getActivity();
+        this.cQM = gridView;
     }
 
     @Override // android.widget.Adapter
@@ -108,8 +107,8 @@ public class a extends BaseAdapter {
         return i;
     }
 
-    public void setEditorTools(k kVar) {
-        this.asQ = kVar;
+    public void setEditorTools(l lVar) {
+        this.atp = lVar;
     }
 
     public void b(WriteImagesInfo writeImagesInfo) {
@@ -123,7 +122,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        aTT();
+        bat();
         notifyDataSetInvalidated();
     }
 
@@ -145,21 +144,21 @@ public class a extends BaseAdapter {
         }
         if (z) {
             imageView.setVisibility(8);
-            ar.c(tbImageView, t.f.btn_addpic_n);
+            at.c(tbImageView, t.f.btn_addpic_n);
         } else {
-            ar.c(imageView, t.f.icon_live_close_n);
+            at.c(imageView, t.f.icon_live_close_n);
         }
-        frameLayout.setForeground(ar.getDrawable(t.f.bg_add_photo_foregroundselector));
+        frameLayout.setForeground(at.getDrawable(t.f.bg_add_photo_foregroundselector));
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(t.e.ds206);
-        ImageOperation G = com.baidu.tbadk.img.effect.d.G(dimensionPixelSize, dimensionPixelSize);
+        ImageOperation D = com.baidu.tbadk.img.effect.d.D(dimensionPixelSize, dimensionPixelSize);
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(G);
+            imageFileInfo.addPageAction(D);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         c cVar = new c(this, viewGroup);
-        if (imageFileInfo != null && this.auh != null) {
-            aVar = this.auh.a(imageFileInfo, cVar, true);
+        if (imageFileInfo != null && this.auH != null) {
+            aVar = this.auH.a(imageFileInfo, cVar, true);
         }
         if (aVar != null) {
             tbImageView.invalidate();
@@ -169,7 +168,7 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    public void pK(int i) {
-        this.eqo = i;
+    public void qD(int i) {
+        this.eKk = i;
     }
 }

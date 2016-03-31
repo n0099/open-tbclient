@@ -1,19 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import java.util.Comparator;
+import android.view.View;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd implements Comparator<Integer> {
-    final /* synthetic */ cb cOa;
+public class cd implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f blr;
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cb cbVar) {
-        this.cOa = cbVar;
+    public cd(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.dht = pbActivity;
+        this.blr = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.aD(this.blr.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.dht.getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
     }
 }

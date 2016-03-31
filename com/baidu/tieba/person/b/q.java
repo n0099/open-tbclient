@@ -5,10 +5,10 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.x;
 /* loaded from: classes.dex */
 public class q extends x.a {
-    public LinearLayout dgo;
+    public LinearLayout dAN;
 
     public q(View view) {
         super(view);
-        this.dgo = (LinearLayout) view;
+        this.dAN = (LinearLayout) view;
     }
 }

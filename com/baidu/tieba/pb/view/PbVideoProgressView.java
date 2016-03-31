@@ -7,97 +7,97 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PbVideoProgressView extends RelativeLayout {
-    private int cVG;
-    private MediaController.MediaPlayerControl cVH;
-    private boolean cVL;
-    private View cVR;
+    private int dqB;
+    private MediaController.MediaPlayerControl dqC;
+    private boolean dqG;
+    private View dqM;
     private Handler mHandler;
 
     public PbVideoProgressView(Context context) {
         super(context);
-        this.cVG = 50;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqG = true;
         this.mHandler = new k(this, Looper.getMainLooper());
         init(context);
     }
 
     public PbVideoProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cVG = 50;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqG = true;
         this.mHandler = new k(this, Looper.getMainLooper());
         init(context);
     }
 
     public PbVideoProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cVG = 50;
-        this.cVL = true;
+        this.dqB = 50;
+        this.dqG = true;
         this.mHandler = new k(this, Looper.getMainLooper());
         init(context);
     }
 
     private void init(Context context) {
-        this.cVR = new View(context);
-        this.cVR.setBackgroundColor(getResources().getColor(t.d.cp_other_d));
-        addView(this.cVR, 0, (int) context.getResources().getDimension(t.e.ds6));
+        this.dqM = new View(context);
+        this.dqM.setBackgroundColor(getResources().getColor(t.d.cp_other_d));
+        addView(this.dqM, 0, (int) context.getResources().getDimension(t.e.ds6));
         setBackgroundColor(getResources().getColor(t.d.cp_bg_line_a));
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.cVH = mediaPlayerControl;
+        this.dqC = mediaPlayerControl;
     }
 
-    public void asV() {
-        this.cVL = false;
+    public void aAF() {
+        this.dqG = false;
         this.mHandler.removeMessages(1);
-        if (this.cVR != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cVR.getLayoutParams();
+        if (this.dqM != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dqM.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 layoutParams.width = 0;
-                this.cVR.setLayoutParams(layoutParams);
+                this.dqM.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public void aco() {
-        if (this.cVH != null) {
-            this.cVG = ((this.cVH.getDuration() / 200) / 50) * 50;
-            if (this.cVG < 50) {
-                this.cVG = 50;
+    public void afJ() {
+        if (this.dqC != null) {
+            this.dqB = ((this.dqC.getDuration() / 200) / 50) * 50;
+            if (this.dqB < 50) {
+                this.dqB = 50;
             }
-            this.cVL = true;
+            this.dqG = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.cVG - (this.cVH.getCurrentPosition() % this.cVG));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.dqB - (this.dqC.getCurrentPosition() % this.dqB));
         }
     }
 
-    public void asT() {
-        asV();
+    public void aAD() {
+        aAF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int asU() {
-        if (this.cVH == null || this.cVR == null) {
+    public int aAE() {
+        if (this.dqC == null || this.dqM == null) {
             return 0;
         }
-        int currentPosition = this.cVH.getCurrentPosition();
-        int duration = this.cVH.getDuration();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cVR.getLayoutParams();
+        int currentPosition = this.dqC.getCurrentPosition();
+        int duration = this.dqC.getDuration();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dqM.getLayoutParams();
         if ((layoutParams instanceof RelativeLayout.LayoutParams) && duration > 0) {
             layoutParams.width = (int) (((1.0f * getWidth()) * currentPosition) / duration);
-            this.cVR.setLayoutParams(layoutParams);
+            this.dqM.setLayoutParams(layoutParams);
         }
         return currentPosition;
     }
 
     public void onChangeSkinType(int i) {
-        ar.l(this, t.d.cp_bg_line_a);
-        ar.l(this.cVR, t.d.cp_other_d);
+        at.l(this, t.d.cp_bg_line_a);
+        at.l(this.dqM, t.d.cp_other_d);
     }
 
     public void destroy() {

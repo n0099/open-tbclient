@@ -9,24 +9,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.fj;
+import com.baidu.tieba.frs.fs;
 import com.baidu.tieba.frs.mc.FrsGoodActivityConfig;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ l bpS;
+    final /* synthetic */ l buT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bpS = lVar;
+        this.buT = lVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -62,101 +61,101 @@ public class m implements View.OnClickListener {
         FrsActivity frsActivity29;
         int id = view.getId();
         if (id == t.g.message_layout) {
-            frsActivity27 = this.bpS.bot;
-            frsActivity27.Pm();
+            frsActivity27 = this.buT.bts;
+            frsActivity27.Rb();
             TiebaStatic.log("c10528");
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                frsActivity28 = this.bpS.bot;
+                frsActivity28 = this.buT.bts;
                 ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(frsActivity28.getPageContext().getPageActivity());
-                frsActivity29 = this.bpS.bot;
+                frsActivity29 = this.buT.bts;
                 frsActivity29.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
             }
         } else if (id == t.g.history_tv) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.bpS.getPageContext().getPageActivity())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.buT.getPageContext().getPageActivity())));
         } else if (id == t.g.bar_info_tv) {
-            frsActivity24 = this.bpS.bot;
-            if (frsActivity24.Pk() != null) {
-                frsActivity25 = this.bpS.bot;
-                if (frsActivity25.Pk().aoE() != null) {
+            frsActivity24 = this.buT.bts;
+            if (frsActivity24.QZ() != null) {
+                frsActivity25 = this.buT.bts;
+                if (frsActivity25.QZ().avu() != null) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    Activity pageActivity = this.bpS.getPageContext().getPageActivity();
-                    frsActivity26 = this.bpS.bot;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity26.Pk().aoE().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
+                    Activity pageActivity = this.buT.getPageContext().getPageActivity();
+                    frsActivity26 = this.buT.bts;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity26.QZ().avu().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
                 }
             }
         } else if (id == t.g.forum_manager_center) {
-            frsActivity18 = this.bpS.bot;
-            if (frsActivity18.Pk() != null) {
-                frsActivity19 = this.bpS.bot;
-                if (frsActivity19.Pk().aoE() != null) {
-                    frsActivity20 = this.bpS.bot;
-                    String id2 = frsActivity20.Pk().aoE().getId();
-                    frsActivity21 = this.bpS.bot;
-                    com.baidu.tbadk.browser.f.B(this.bpS.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity21.Pk().aoE().getName() + "&fid=" + id2);
-                    frsActivity22 = this.bpS.bot;
-                    if (frsActivity22.Pk().getUserData() != null) {
-                        au aa = new au("c10503").aa(ImageViewerConfig.FORUM_ID, id2);
-                        frsActivity23 = this.bpS.bot;
-                        TiebaStatic.log(aa.aa("uid", frsActivity23.Pk().getUserData().getUserId()));
+            frsActivity18 = this.buT.bts;
+            if (frsActivity18.QZ() != null) {
+                frsActivity19 = this.buT.bts;
+                if (frsActivity19.QZ().avu() != null) {
+                    frsActivity20 = this.buT.bts;
+                    String id2 = frsActivity20.QZ().avu().getId();
+                    frsActivity21 = this.buT.bts;
+                    com.baidu.tbadk.browser.f.s(this.buT.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity21.QZ().avu().getName() + "&fid=" + id2);
+                    frsActivity22 = this.buT.bts;
+                    if (frsActivity22.QZ().getUserData() != null) {
+                        aw ac = new aw("c10503").ac("fid", id2);
+                        frsActivity23 = this.buT.bts;
+                        TiebaStatic.log(ac.ac("uid", frsActivity23.QZ().getUserData().getUserId()));
                     }
                 }
             }
         } else if (id == t.g.recommend_forum_item_layout) {
-            fj.a aVar = (fj.a) view.getTag();
+            fs.a aVar = (fs.a) view.getTag();
             if (aVar != null) {
-                frsActivity13 = this.bpS.bot;
-                if (frsActivity13.Pk() != null) {
-                    frsActivity14 = this.bpS.bot;
-                    if (frsActivity14.Pk().aoE() != null) {
-                        frsActivity15 = this.bpS.bot;
-                        String name = frsActivity15.Pk().aoE().getName();
+                frsActivity13 = this.buT.bts;
+                if (frsActivity13.QZ() != null) {
+                    frsActivity14 = this.buT.bts;
+                    if (frsActivity14.QZ().avu() != null) {
+                        frsActivity15 = this.buT.bts;
+                        String name = frsActivity15.QZ().avu().getName();
                         String str = aVar.name;
                         if (!str.equals(name)) {
-                            frsActivity16 = this.bpS.bot;
+                            frsActivity16 = this.buT.bts;
                             frsActivity16.resetData();
-                            frsActivity17 = this.bpS.bot;
+                            frsActivity17 = this.buT.bts;
                             frsActivity17.a(aVar, str);
-                        } else if (this.bpS.Si().isMenuShowing()) {
-                            this.bpS.Si().toggle(true);
+                        } else if (this.buT.TX().isMenuShowing()) {
+                            this.buT.TX().toggle(true);
                         }
                     }
                 }
             }
         } else if (id == t.g.unfollow_layout) {
-            if (com.baidu.adp.lib.util.i.iZ()) {
-                frsActivity12 = this.bpS.bot;
-                frsActivity12.Pn();
+            if (com.baidu.adp.lib.util.i.jf()) {
+                frsActivity12 = this.buT.bts;
+                frsActivity12.Rc();
                 return;
             }
-            frsActivity11 = this.bpS.bot;
+            frsActivity11 = this.buT.bts;
             frsActivity11.showToast(t.j.neterror);
         } else if (id == t.g.post_search_ll) {
-            frsActivity6 = this.bpS.bot;
-            if (frsActivity6.Pk() != null) {
-                frsActivity7 = this.bpS.bot;
-                if (frsActivity7.Pk().aoE() != null) {
-                    frsActivity8 = this.bpS.bot;
-                    String name2 = frsActivity8.Pk().aoE().getName();
+            frsActivity6 = this.buT.bts;
+            if (frsActivity6.QZ() != null) {
+                frsActivity7 = this.buT.bts;
+                if (frsActivity7.QZ().avu() != null) {
+                    frsActivity8 = this.buT.bts;
+                    String name2 = frsActivity8.QZ().avu().getName();
                     if (!StringUtils.isNull(name2)) {
-                        frsActivity9 = this.bpS.bot;
-                        frsActivity10 = this.bpS.bot;
+                        frsActivity9 = this.buT.bts;
+                        frsActivity10 = this.buT.bts;
                         frsActivity9.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(frsActivity10.getPageContext().getPageActivity(), name2)));
                     }
                 }
             }
         } else if (id == t.g.frs_sidebar_good_tv) {
-            frsActivity3 = this.bpS.bot;
-            frsActivity4 = this.bpS.bot;
+            frsActivity3 = this.buT.bts;
+            frsActivity4 = this.buT.bts;
             FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity4.getPageContext().getPageActivity());
-            frsActivity5 = this.bpS.bot;
-            frsActivity3.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity5.bfv, FrsActivityConfig.FRS_FROM_LIKE)));
+            frsActivity5 = this.buT.bts;
+            frsActivity3.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity5.bkf, FrsActivityConfig.FRS_FROM_LIKE)));
         } else if (id == t.g.frs_sidebar_add_to_desktop) {
-            frsActivity2 = this.bpS.bot;
-            frsActivity2.Pe();
+            frsActivity2 = this.buT.bts;
+            frsActivity2.QT();
         } else if (id == t.g.bar_share_tv) {
-            frsActivity = this.bpS.bot;
-            frsActivity.Pq();
+            frsActivity = this.buT.bts;
+            frsActivity.Rf();
         }
     }
 }

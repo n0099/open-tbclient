@@ -3,30 +3,30 @@ package com.baidu.tieba.recommendfrs.indicator;
 import com.baidu.tieba.recommendfrs.indicator.l;
 /* loaded from: classes.dex */
 class h implements l.a {
-    final /* synthetic */ ScrollFragmentTabHost dFt;
+    final /* synthetic */ ScrollFragmentTabHost dXs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.dFt = scrollFragmentTabHost;
+        this.dXs = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tieba.recommendfrs.indicator.l.a
-    public void aFO() {
+    public void aok() {
         i iVar;
         l lVar;
         l lVar2;
         i iVar2;
-        iVar = this.dFt.dFl;
+        iVar = this.dXs.dXk;
         if (iVar != null) {
-            iVar2 = this.dFt.dFl;
-            iVar2.aFQ();
+            iVar2 = this.dXs.dXk;
+            iVar2.aom();
         }
-        lVar = this.dFt.dFo;
+        lVar = this.dXs.dXn;
         if (lVar != null) {
-            lVar2 = this.dFt.dFo;
+            lVar2 = this.dXs.dXn;
             lVar2.a((l.a) null);
-            this.dFt.dFp = true;
-            this.dFt.dFo = null;
+            this.dXs.dXo = true;
+            this.dXs.dXn = null;
         }
     }
 }

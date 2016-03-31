@@ -9,20 +9,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class p extends x.a {
-    public int ahU;
-    public LinearLayout dgj;
-    public TbImageView dgk;
-    public TextView dgl;
-    public TextView dgm;
-    public WholeDisplayGridView dgn;
+    public int aik;
+    public LinearLayout dAI;
+    public TbImageView dAJ;
+    public TextView dAK;
+    public TextView dAL;
+    public WholeDisplayGridView dAM;
 
     public p(View view) {
         super(view);
-        this.ahU = 3;
-        this.dgj = (LinearLayout) view.findViewById(t.g.title_layout);
-        this.dgk = (TbImageView) view.findViewById(t.g.title_icon);
-        this.dgl = (TextView) view.findViewById(t.g.title_text);
-        this.dgm = (TextView) view.findViewById(t.g.title_tip);
-        this.dgn = (WholeDisplayGridView) view.findViewById(t.g.wallet_items);
+        this.aik = 3;
+        this.dAI = (LinearLayout) view.findViewById(t.g.title_layout);
+        this.dAJ = (TbImageView) view.findViewById(t.g.title_icon);
+        this.dAK = (TextView) view.findViewById(t.g.title_text);
+        this.dAL = (TextView) view.findViewById(t.g.title_tip);
+        this.dAM = (WholeDisplayGridView) view.findViewById(t.g.wallet_items);
     }
 }

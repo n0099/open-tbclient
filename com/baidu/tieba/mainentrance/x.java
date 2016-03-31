@@ -5,38 +5,38 @@ import android.view.View;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cwZ;
+    final /* synthetic */ SquareSearchActivity cLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(SquareSearchActivity squareSearchActivity) {
-        this.cwZ = squareSearchActivity;
+        this.cLU = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean akm;
+        boolean aov;
         boolean z;
-        if (this.cwZ.cws == null || this.cwZ.cws.trim().length() < 1) {
-            com.baidu.adp.lib.util.k.c(this.cwZ.getPageContext().getPageActivity(), this.cwZ.cvX);
-            akm = this.cwZ.akm();
-            if (!akm) {
-                this.cwZ.showToast(this.cwZ.getResources().getString(t.j.write_keyword));
+        if (this.cLU.cLn == null || this.cLU.cLn.trim().length() < 1) {
+            com.baidu.adp.lib.util.k.c(this.cLU.getPageContext().getPageActivity(), this.cLU.cKS);
+            aov = this.cLU.aov();
+            if (!aov) {
+                this.cLU.showToast(this.cLU.getResources().getString(t.j.write_keyword));
             }
-        } else if (this.cwZ.mMode != 0) {
-            if (this.cwZ.mMode == 3) {
-                com.baidu.adp.lib.util.k.c(this.cwZ.getPageContext().getPageActivity(), this.cwZ.cvX);
-                if (!TextUtils.isEmpty(this.cwZ.cws) && this.cwZ.cws.trim().length() != 0) {
-                    this.cwZ.cws = this.cwZ.cws.trim();
-                    this.cwZ.gA(this.cwZ.cws);
+        } else if (this.cLU.mMode != 0) {
+            if (this.cLU.mMode == 3) {
+                com.baidu.adp.lib.util.k.c(this.cLU.getPageContext().getPageActivity(), this.cLU.cKS);
+                if (!TextUtils.isEmpty(this.cLU.cLn) && this.cLU.cLn.trim().length() != 0) {
+                    this.cLU.cLn = this.cLU.cLn.trim();
+                    this.cLU.gM(this.cLU.cLn);
                     return;
                 }
                 return;
             }
-            this.cwZ.K(1, this.cwZ.cws);
+            this.cLU.D(1, this.cLU.cLn);
         } else {
-            z = this.cwZ.aut;
+            z = this.cLU.auT;
             if (z) {
-                this.cwZ.akv();
+                this.cLU.aoE();
             }
         }
     }

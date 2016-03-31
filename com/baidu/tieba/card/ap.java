@@ -1,23 +1,19 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements View.OnClickListener {
-    final /* synthetic */ an aQz;
+public class ap implements MediaPlayer.OnCompletionListener {
+    final /* synthetic */ al aTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(an anVar) {
-        this.aQz = anVar;
+    public ap(al alVar) {
+        this.aTK = alVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.a.r rVar;
-        if (this.aQz.JL() != null) {
-            bb<com.baidu.tieba.card.a.r> JL = this.aQz.JL();
-            rVar = this.aQz.aQv;
-            JL.a(view, rVar);
-        }
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        this.aTK.aTF = 0;
+        this.aTK.Lo();
     }
 }

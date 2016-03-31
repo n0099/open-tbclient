@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u aqx;
-    private final /* synthetic */ boolean aqz;
+    final /* synthetic */ u aqO;
+    private final /* synthetic */ boolean aqQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(u uVar, boolean z) {
-        this.aqx = uVar;
-        this.aqz = z;
+        this.aqO = uVar;
+        this.aqQ = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,32 +19,32 @@ public class y extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
-        this.aqx.aY(this.aqz);
-        z = this.aqx.aqn;
+        this.aqO.be(this.aqQ);
+        z = this.aqO.aqE;
         if (!z) {
             if (aVar != null) {
-                Bitmap mS = aVar.mS();
-                if (mS != null) {
-                    this.aqx.aqm = true;
-                    if (aVar.fN()) {
-                        byte[] mX = aVar.mX();
-                        if (mX == null) {
-                            mX = BitmapHelper.Bitmap2Bytes(mS, 100);
+                Bitmap mK = aVar.mK();
+                if (mK != null) {
+                    this.aqO.aqD = true;
+                    if (aVar.fO()) {
+                        byte[] mP = aVar.mP();
+                        if (mP == null) {
+                            mP = BitmapHelper.Bitmap2Bytes(mK, 100);
                         }
-                        this.aqx.aqh.a(mX, mS);
-                        this.aqx.aqh.invalidate();
-                        this.aqx.aqh.play();
-                        this.aqx.aqs = false;
+                        this.aqO.aqy.a(mP, mK);
+                        this.aqO.aqy.invalidate();
+                        this.aqO.aqy.play();
+                        this.aqO.aqJ = false;
                     } else {
-                        this.aqx.aqh.setImageBitmap(mS);
-                        this.aqx.aqh.setImageData(aVar.mX());
+                        this.aqO.aqy.setImageBitmap(mK);
+                        this.aqO.aqy.setImageData(aVar.mP());
                     }
-                    this.aqx.Bo();
-                } else if (!this.aqz) {
-                    this.aqx.aqh.setDefaultBitmap();
+                    this.aqO.BR();
+                } else if (!this.aqQ) {
+                    this.aqO.aqy.setDefaultBitmap();
                 }
-            } else if (!this.aqz) {
-                this.aqx.aqh.setDefaultBitmap();
+            } else if (!this.aqQ) {
+                this.aqO.aqy.setDefaultBitmap();
             }
         }
     }

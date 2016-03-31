@@ -5,5 +5,6 @@ import java.util.LinkedList;
 public class TabData extends LinkedList<h> {
     public static final int TYPE_H5 = 1;
     public static final int TYPE_NATIVE = 0;
+    public static final int TYPE_NEWPAGE = 11;
     private static final long serialVersionUID = -5491033066240609561L;
 }

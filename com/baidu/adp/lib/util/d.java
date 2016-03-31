@@ -16,52 +16,43 @@ import java.io.File;
 import java.io.FileOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d yh = null;
+    private static d yy = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config yi = Bitmap.Config.RGB_565;
+    private Bitmap.Config yz = Bitmap.Config.RGB_565;
 
-    public static synchronized d iH() {
+    public static synchronized d iN() {
         d dVar;
         synchronized (d.class) {
-            if (yh == null) {
-                yh = new d();
+            if (yy == null) {
+                yy = new d();
             }
-            dVar = yh;
+            dVar = yy;
         }
         return dVar;
     }
 
-    public synchronized void I(Context context) {
+    public synchronized void z(Context context) {
         this.mContext = context;
     }
 
     public void a(Bitmap.Config config) {
-        this.yi = config;
+        this.yz = config;
     }
 
     private d() {
-    }
-
-    public synchronized Bitmap getCashBitmap(int i) {
-        Bitmap bitmap;
-        bitmap = this.mBitmapHash.get(i);
-        if (bitmap == null && (bitmap = getResBitmap(this.mContext, i)) != null) {
-            this.mBitmapHash.put(i, bitmap);
-        }
-        return bitmap;
     }
 
     public synchronized void clearCashBitmap() {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap aC(String str) {
+    public Bitmap aE(String str) {
         return BitmapFactory.decodeFile(str);
     }
 
     public String a(String str, String str2, Bitmap bitmap, int i) {
-        if (e.aF(str) && bitmap != null && e.u(str, str2)) {
+        if (e.aH(str) && bitmap != null && e.u(str, str2)) {
             File x = e.x(str, str2);
             try {
                 if ((!x.exists() || x.delete()) && x.createNewFile()) {
@@ -146,7 +137,7 @@ public class d {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = this.yi;
+        options.inPreferredConfig = this.yz;
         return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
     }
 }

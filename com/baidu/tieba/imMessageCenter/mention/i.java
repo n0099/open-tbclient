@@ -2,19 +2,19 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class i extends aj implements com.baidu.tbadk.mvc.b.f {
+public class i extends ak implements com.baidu.tbadk.mvc.b.f {
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
         return "atme_cache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String ED() {
+    public String Fq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fP(String str) {
+    public boolean fX(String str) {
         try {
             g(new JSONObject(str));
             return true;

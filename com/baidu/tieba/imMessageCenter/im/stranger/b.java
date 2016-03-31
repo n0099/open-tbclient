@@ -17,10 +17,10 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.bOO != null && aVar.context != null) {
+            if (aVar.bZg != null && aVar.context != null) {
                 MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
-                msgReplyCardViewItemAdapter.di(true);
-                aVar.bOO.add(msgReplyCardViewItemAdapter);
+                msgReplyCardViewItemAdapter.dC(true);
+                aVar.bZg.add(msgReplyCardViewItemAdapter);
             }
         }
     }

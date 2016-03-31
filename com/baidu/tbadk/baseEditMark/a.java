@@ -13,21 +13,21 @@ public abstract class a {
         void a(boolean z, boolean z2, String str);
     }
 
-    public abstract void Y(boolean z);
+    public abstract void X(boolean z);
 
     public abstract void a(MarkData markData);
 
     public abstract void a(InterfaceC0041a interfaceC0041a);
 
-    public abstract String qf();
+    public abstract String ps();
 
-    public abstract boolean qg();
+    public abstract boolean pu();
 
-    public abstract void qh();
+    public abstract void pv();
 
-    public abstract void qi();
+    public abstract void pw();
 
-    public abstract MarkData qj();
+    public abstract MarkData px();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

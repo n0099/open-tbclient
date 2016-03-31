@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor sl;
-    private final Set<String> sm;
+    private Cursor sw;
+    private final Set<String> sx;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.sl = cursor;
+        this.sw = cursor;
         this.values = null;
-        this.sm = new TreeSet();
+        this.sx = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.sm.add(columnName);
+                    this.sx.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.sm = new TreeSet();
+        this.sx = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public Set<String> fR() {
-        return this.sm;
+        return this.sx;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.sl.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.sl.getColumnCount()) {
+        int columnIndex = this.sw.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.sw.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.sl.getShort(columnIndex));
+                valueOf = Short.valueOf(this.sw.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.sl.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.sw.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.sl.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.sw.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.sl.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.sw.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.sl.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.sw.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.sl.getString(columnIndex);
+                    string = this.sw.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.sl.getBlob(columnIndex);
+                        return this.sw.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -124,7 +124,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public void e(String str, Object obj) {
+    public void d(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
                 this.values.putNull(str);

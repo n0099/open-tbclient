@@ -8,24 +8,24 @@ import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 /* loaded from: classes.dex */
 public class p implements u {
-    public static final BdUniqueId dcc = BdUniqueId.gen();
-    private PersonUserGodInfo dcd;
+    public static final BdUniqueId dwF = BdUniqueId.gen();
+    private PersonUserGodInfo dwG;
     private List<ForumGodDetailInfo> forumGodList;
     private GodDetailInfo godDetailInfo;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dcc;
+        return dwF;
     }
 
-    public int aur() {
-        if (this.dcd == null) {
+    public int aBX() {
+        if (this.dwG == null) {
             return -1;
         }
-        return this.dcd.getGodType();
+        return this.dwG.getGodType();
     }
 
-    public GodDetailInfo aus() {
+    public GodDetailInfo aBY() {
         return this.godDetailInfo;
     }
 

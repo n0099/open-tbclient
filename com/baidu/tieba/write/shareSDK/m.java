@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity epq;
+    final /* synthetic */ WriteShareActivity eJm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(WriteShareActivity writeShareActivity) {
-        this.epq = writeShareActivity;
+        this.eJm = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,14 +17,14 @@ class m implements View.OnClickListener {
         o oVar;
         InputMethodManager inputMethodManager2;
         o oVar2;
-        WriteShareActivity writeShareActivity = this.epq;
-        inputMethodManager = this.epq.mInputManager;
-        oVar = this.epq.epa;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aTz());
-        WriteShareActivity writeShareActivity2 = this.epq;
-        inputMethodManager2 = this.epq.mInputManager;
-        oVar2 = this.epq.epa;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.aAU());
-        this.epq.aTs();
+        WriteShareActivity writeShareActivity = this.eJm;
+        inputMethodManager = this.eJm.mInputManager;
+        oVar = this.eJm.eIW;
+        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aZZ());
+        WriteShareActivity writeShareActivity2 = this.eJm;
+        inputMethodManager2 = this.eJm.mInputManager;
+        oVar2 = this.eJm.eIW;
+        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.aII());
+        this.eJm.aZS();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.img;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.img.effect.d;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -196,7 +196,7 @@ public class WriteImagesInfo implements Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(d.G(ax.wg().wm(), ax.wg().wm()));
+                    imageFileInfo.addPersistAction(d.D(az.wz().wF(), az.wz().wF()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

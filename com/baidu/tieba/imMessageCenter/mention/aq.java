@@ -1,56 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class aq extends com.baidu.adp.base.e<bd> {
-    private bd cmQ;
-    private BdUniqueId cnr;
-    private a cns;
+class aq implements View.OnClickListener {
+    final /* synthetic */ am cxS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public interface a {
-        void c(long j, long j2, long j3);
+    public aq(am amVar) {
+        this.cxS = amVar;
     }
 
-    static {
-        com.baidu.tieba.tbadkCore.a.a.c(303010, CheckPostResponseMessage.class, false);
-    }
-
-    public aq(bd bdVar) {
-        super(com.baidu.adp.base.l.C(bdVar.getPageContext().getPageActivity()));
-        this.cnr = BdUniqueId.gen();
-        this.cmQ = bdVar;
-        ahR();
-    }
-
-    public void a(long j, int i, String str) {
-        CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
-        checkPostRequestMessage.setPid(j);
-        checkPostRequestMessage.setPostType(i);
-        checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.cmQ.getUniqueId());
-        sendMessage(checkPostRequestMessage);
-    }
-
-    public void ahR() {
-        ar arVar = new ar(this, 303010);
-        arVar.setTag(this.cmQ.getUniqueId());
-        arVar.setSelfListener(true);
-        this.cmQ.registerListener(arVar);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(a aVar) {
-        this.cns = aVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        ViewEventCenter oy;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.cxS.getData(), null, null);
+        bVar.setView(this.cxS.getRootView());
+        i = this.cxS.position;
+        bVar.eW(i);
+        oy = this.cxS.oy();
+        oy.dispatchMvcEvent(bVar);
+        TiebaStatic.log("c10096");
     }
 }

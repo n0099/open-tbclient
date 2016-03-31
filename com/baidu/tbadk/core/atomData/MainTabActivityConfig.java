@@ -53,7 +53,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public MainTabActivityConfig createRefreshCfg(int i, boolean z) {
         Intent intent = getIntent();
         intent.setFlags(603979776);
-        if (i == 200 || i == 12 || i == 11) {
+        if (i == 200 || i == 12) {
             intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
         } else {
             intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);

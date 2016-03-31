@@ -1,16 +1,83 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class dp implements Runnable {
-    final /* synthetic */ Cdo bkH;
+public class dp extends x.a {
+    public TextView aSh;
+    public UserIconBox ahN;
+    public UserIconBox ahO;
+    public TextView ahr;
+    public TextView ahs;
+    public int aik;
+    public LinearLayout bjB;
+    public TextView bjC;
+    public PlayVoiceBnt bjD;
+    public FrsCommonImageLayout bjE;
+    public TextView bjF;
+    public HeadImageView bjG;
+    public TextView bjK;
+    public TextView bjM;
+    public TextView bnF;
+    public RelativeLayout bpA;
+    public TbImageView bpB;
+    public TextView bpC;
+    public RelativeLayout bpD;
+    public LinearLayout bpE;
+    public LinearLayout bpF;
+    public LinearLayout bpG;
+    public View bpH;
+    public TbImageView bpI;
+    public RelativeLayout bpJ;
+    public TbImageView bpK;
+    public TextView bpL;
+    public int bpy;
+    public FrameLayout bpz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dp(Cdo cdo) {
-        this.bkH = cdo;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bkH.Qv();
+    public dp(View view, int i) {
+        super(view);
+        this.aik = 3;
+        this.bpy = 0;
+        this.bpy = i;
+        this.bpz = (FrameLayout) view.findViewById(t.g.frs_list);
+        this.bpD = (RelativeLayout) view.findViewById(t.g.frs_item_user_info_view);
+        this.bpE = (LinearLayout) view.findViewById(t.g.frs_item_base_user_info);
+        this.bjB = (LinearLayout) view.findViewById(t.g.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bjB.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.bjB.setLayoutParams(layoutParams);
+        this.bpA = (RelativeLayout) view.findViewById(t.g.frs_list_item_top_card);
+        this.bpB = (TbImageView) view.findViewById(t.g.frs_normal_item_theme_card);
+        this.bjG = (HeadImageView) view.findViewById(t.g.frs_photo);
+        this.ahN = (UserIconBox) view.findViewById(t.g.frs_user_tshow_icon_box);
+        this.ahO = (UserIconBox) view.findViewById(t.g.frs_user_icon_box);
+        this.bjF = (TextView) view.findViewById(t.g.frs_lv_author);
+        this.ahr = (TextView) view.findViewById(t.g.frs_lv_reply_time);
+        this.aSh = (TextView) view.findViewById(t.g.frs_lv_title);
+        this.bjC = (TextView) view.findViewById(t.g.abstract_text);
+        this.bjD = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
+        this.bjE = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
+        this.ahs = (TextView) view.findViewById(t.g.frs_praise_num);
+        this.bpC = (TextView) view.findViewById(t.g.action_button);
+        this.bjK = (TextView) view.findViewById(t.g.frs_reply_num);
+        this.bjM = (TextView) view.findViewById(t.g.frs_more_abstract);
+        this.bpF = (LinearLayout) view.findViewById(t.g.frs_item_num);
+        this.bpG = (LinearLayout) view.findViewById(t.g.frs_item_loc_view);
+        this.bnF = (TextView) view.findViewById(t.g.frs_item_location_address);
+        this.bpH = view.findViewById(t.g.frs_item_location_sep);
+        this.bpI = (TbImageView) view.findViewById(t.g.game_activity_banner);
+        this.bpK = (TbImageView) view.findViewById(t.g.app_code_banner);
+        this.bpL = (TextView) view.findViewById(t.g.app_code_btn);
+        this.bpJ = (RelativeLayout) view.findViewById(t.g.app_code_wrapper);
     }
 }

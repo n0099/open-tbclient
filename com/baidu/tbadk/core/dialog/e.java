@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e extends AlertDialog {
-    private String XT;
-    private TextView YG;
-    private CircleView YH;
+    private TextView WY;
+    private CircleView WZ;
+    private String mMessage;
 
     public e(Context context) {
         super(context);
@@ -22,20 +22,20 @@ public class e extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(t.h.progress_dialog);
-            if (!StringUtils.isNull(this.XT)) {
-                ((TextView) window.findViewById(t.g.text_progress_dialog_message)).setText(this.XT);
+            if (!StringUtils.isNull(this.mMessage)) {
+                ((TextView) window.findViewById(t.g.text_progress_dialog_message)).setText(this.mMessage);
             }
-            this.YG = (TextView) window.findViewById(t.g.text_progress_dialog_percent);
-            this.YH = (CircleView) window.findViewById(t.g.circle_progress_dialog);
+            this.WY = (TextView) window.findViewById(t.g.text_progress_dialog_percent);
+            this.WZ = (CircleView) window.findViewById(t.g.circle_progress_dialog);
         }
     }
 
-    public void cg(int i) {
-        if (this.YG != null) {
-            this.YG.setText(String.valueOf(i) + "%");
+    public void ci(int i) {
+        if (this.WY != null) {
+            this.WY.setText(String.valueOf(i) + "%");
         }
-        if (this.YH != null) {
-            this.YH.setProgress(i);
+        if (this.WZ != null) {
+            this.WZ.setProgress(i);
         }
     }
 }

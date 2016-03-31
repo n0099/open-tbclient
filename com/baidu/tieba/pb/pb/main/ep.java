@@ -1,30 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.RelativeLayout;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ep implements Runnable {
-    final /* synthetic */ eo cSz;
-
+class ep extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ep(eo eoVar) {
-        this.cSz = eoVar;
+    public ep(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dz dzVar;
-        PbActivity pbActivity;
-        dz dzVar2;
-        PbActivity pbActivity2;
-        dz dzVar3;
-        RelativeLayout relativeLayout;
-        dzVar = this.cSz.cSw;
-        pbActivity = dzVar.cNL;
-        dzVar2 = this.cSz.cSw;
-        pbActivity2 = dzVar2.cNL;
-        dzVar3 = this.cSz.cSw;
-        relativeLayout = dzVar3.cFw;
-        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        en.aya().reset();
     }
 }

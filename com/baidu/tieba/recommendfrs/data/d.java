@@ -1,27 +1,28 @@
 package com.baidu.tieba.recommendfrs.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.card.a.t;
-import com.baidu.tieba.card.a.u;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.card.a.w;
+import com.baidu.tieba.card.a.x;
 import java.util.ArrayList;
 import tbclient.Personalized.CardTopic;
 import tbclient.Personalized.TopicInfo;
 /* loaded from: classes.dex */
-public class d extends u {
+public class d extends x {
     public void a(CardTopic cardTopic) {
-        if (cardTopic != null && !StringUtils.isNull(cardTopic.card_title) && x.o(cardTopic.topic_list) >= 4) {
-            this.aSI = cardTopic.card_title;
+        if (cardTopic != null && !StringUtils.isNull(cardTopic.card_title) && y.p(cardTopic.topic_list) >= 4) {
+            this.aWu = cardTopic.card_title;
             this.position = cardTopic.position.intValue();
-            this.aSJ = new ArrayList();
+            this.aWv = new ArrayList();
             for (TopicInfo topicInfo : cardTopic.topic_list) {
                 if (!StringUtils.isNull(topicInfo.topic_name)) {
-                    t tVar = new t();
-                    tVar.Wl = topicInfo.topic_id.longValue();
-                    tVar.Wm = topicInfo.topic_name;
-                    tVar.desc = topicInfo.desc;
-                    tVar.aSG = topicInfo.is_hot.intValue() == 1;
-                    this.aSJ.add(tVar);
+                    w wVar = new w();
+                    wVar.Uu = topicInfo.topic_id.longValue();
+                    wVar.Uv = topicInfo.topic_name;
+                    wVar.desc = topicInfo.desc;
+                    wVar.aWs = topicInfo.is_hot.intValue() == 1;
+                    wVar.tag = topicInfo.tag.intValue();
+                    this.aWv.add(wVar);
                 }
             }
         }

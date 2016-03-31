@@ -11,10 +11,10 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c extends FrameLayout {
-    private final View IJ;
-    private boolean ayQ;
-    private boolean bnQ;
-    private final LinearLayout bnR;
+    private final View IP;
+    private boolean azx;
+    private boolean bsN;
+    private final LinearLayout bsO;
     private boolean isError;
     private final BaseWebView.c mOnPageFinishedListener;
     private final BaseWebView.d mOnPageStartedListener;
@@ -23,60 +23,60 @@ public class c extends FrameLayout {
 
     public c(Context context) {
         super(context);
-        this.bnQ = false;
-        this.ayQ = false;
+        this.bsN = false;
+        this.azx = false;
         this.mOnPageStartedListener = new d(this);
         this.mOnPageFinishedListener = new e(this);
         this.mOnReceivedErrorListener = new f(this);
         this.isError = false;
-        setLayoutParams(new ViewGroup.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90)));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, (com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90)));
         this.mWebView = new BaseWebView(TbadkCoreApplication.m411getInst());
         this.mWebView.setOnPageStartedListener(this.mOnPageStartedListener);
         this.mWebView.setOnPageFinishedListener(this.mOnPageFinishedListener);
         this.mWebView.setOnReceivedErrorListener(this.mOnReceivedErrorListener);
         addView(this.mWebView);
-        this.IJ = LayoutInflater.from(context).inflate(t.h.frs_no_list_item_view, (ViewGroup) this, false);
-        this.IJ.setVisibility(8);
-        addView(this.IJ);
-        this.bnR = (LinearLayout) inflate(getContext(), t.h.custom_loading_toast, null);
+        this.IP = LayoutInflater.from(context).inflate(t.h.frs_no_list_item_view, (ViewGroup) this, false);
+        this.IP.setVisibility(8);
+        addView(this.IP);
+        this.bsO = (LinearLayout) inflate(getContext(), t.h.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(t.e.ds220), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(t.e.ds140);
-        addView(this.bnR, layoutParams);
+        addView(this.bsO, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
-        this.IJ.setVisibility(8);
-        this.bnR.setVisibility(0);
+        this.IP.setVisibility(8);
+        this.bsO.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rh() {
+    public void SU() {
         this.mWebView.setVisibility(0);
-        this.bnR.setVisibility(8);
-        this.IJ.setVisibility(8);
+        this.bsO.setVisibility(8);
+        this.IP.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ri() {
+    public void SV() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.height = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90);
+        layoutParams.height = (com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.bnR.setVisibility(8);
-        this.IJ.setVisibility(0);
+        this.bsO.setVisibility(8);
+        this.IP.setVisibility(0);
     }
 
     public BaseWebView getWebView() {
         return this.mWebView;
     }
 
-    public boolean Rj() {
-        return this.ayQ;
+    public boolean SW() {
+        return this.azx;
     }
 
     public void setWebViewLoading(boolean z) {
-        this.ayQ = z;
+        this.azx = z;
     }
 }

@@ -15,6 +15,7 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
     private String src_pic = null;
     private String original_url = null;
     private long original_size = 0;
+    private String thumbnails_url = null;
 
     public MediaData() {
         this.postId = -1L;
@@ -31,6 +32,14 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
 
     public void setSrc_pic(String str) {
         this.src_pic = str;
+    }
+
+    public String getThumbnails_url() {
+        return this.thumbnails_url;
+    }
+
+    public void setThumbnails_url(String str) {
+        this.thumbnails_url = str;
     }
 
     public int getType() {
@@ -112,6 +121,7 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
                 this.video_url = media.vsrc;
                 this.e_type = media.e_type.intValue();
             }
+            this.thumbnails_url = media.dynamic_pic;
             this.original_url = media.origin_pic;
             this.original_size = media.origin_size.intValue();
             this.postId = media.post_id.longValue();

@@ -1,68 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class dx {
-    private View.OnClickListener OS;
-    private TbPageContext<?> baN;
-    private View mView = null;
-    private TextView cPi = null;
-    private TextView cQg = null;
-    private ImageView cQh = null;
-    private ImageView cQi = null;
-    private boolean cQj = true;
+public class dx extends db<com.baidu.tbadk.core.data.aw, dw> {
+    private View.OnClickListener bKS;
 
-    public void fw(boolean z) {
-        this.cQj = z;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public dx(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    public dx(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        this.baN = null;
-        this.OS = null;
-        this.baN = tbPageContext;
-        this.OS = onClickListener;
-        qD();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ay */
+    public dw b(ViewGroup viewGroup) {
+        return new dw(LayoutInflater.from(this.mContext).inflate(t.h.pb_u9_news_layout, viewGroup, false));
     }
 
-    public View getView() {
-        return this.mView;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.db, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aw awVar, dw dwVar) {
+        super.a(i, view, viewGroup, (ViewGroup) awVar, (com.baidu.tbadk.core.data.aw) dwVar);
+        if (awVar != null) {
+            dwVar.djU.setOnClickListener(this.bKS);
+            dwVar.djU.setText(awVar.getSummary());
+            dwVar.djU.setTag(awVar);
+            com.baidu.tbadk.core.util.at.l(dwVar.djV, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.at.b(dwVar.djU, t.d.cp_cont_b, 1);
+            dwVar.djU.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+        }
+        return view;
     }
 
-    public void fv(boolean z) {
-        this.cQi.setVisibility(z ? 0 : 8);
-    }
-
-    public TextView aql() {
-        return this.cPi;
-    }
-
-    public TextView aqO() {
-        return this.cQg;
-    }
-
-    public ImageView aqP() {
-        return this.cQh;
-    }
-
-    public ImageView aqQ() {
-        return this.cQi;
-    }
-
-    private void qD() {
-        this.mView = LayoutInflater.from(this.baN.getPageActivity()).inflate(t.h.pb_reply_view, (ViewGroup) null);
-        this.cPi = (TextView) this.mView.findViewById(t.g.pb_reply_view_item_mark);
-        this.cPi.setOnClickListener(this.OS);
-        this.cQg = (TextView) this.mView.findViewById(t.g.pb_reply_view_item_reply);
-        this.cQg.setOnClickListener(this.OS);
-        this.cQh = (ImageView) this.mView.findViewById(t.g.pb_reply_view_item_manage);
-        this.cQh.setOnClickListener(this.OS);
-        this.cQi = (ImageView) this.mView.findViewById(t.g.pb_reply_view_item_report);
-        this.cQi.setOnClickListener(this.OS);
+    public void y(View.OnClickListener onClickListener) {
+        this.bKS = onClickListener;
     }
 }

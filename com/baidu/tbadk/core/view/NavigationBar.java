@@ -16,12 +16,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
     private static final int ID_STATEBAR_FILL_VIEW = 1;
     private int containerWidth;
+    private boolean isAutoNight;
     private boolean isFixedHeight;
     private boolean isNeedAddStatusBarHeight;
     private ImageView mBackImageView;
@@ -46,7 +47,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (agk) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (afK) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -61,7 +62,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (agl) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (afL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -75,30 +76,33 @@ public class NavigationBar extends RelativeLayout {
     public NavigationBar(Context context) {
         super(context);
         this.mClickIsVaild = true;
+        this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new o(this);
         init(context, null);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mClickIsVaild = true;
+        this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new o(this);
         init(context, attributeSet);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mClickIsVaild = true;
+        this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new o(this);
         init(context, attributeSet);
     }
 
@@ -269,7 +273,8 @@ public class NavigationBar extends RelativeLayout {
         if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(t.g.navigationBarGoBack)) == null) {
             linearLayout = (LinearLayout) getViewFromLayoutFile(t.h.widget_nb_item_back);
             this.mBackImageView = (ImageView) linearLayout.findViewById(t.g.widget_navi_back_button);
-            ar.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg);
+            this.mBackImageView.setContentDescription("返回");
+            at.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg);
             if (linearLayout != null) {
                 getViewGroup(controlAlign).addView(linearLayout);
                 if (onClickListener != null) {
@@ -383,18 +388,24 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
-        setBackgroundDrawable(new BitmapDrawable(ar.cP(t.f.s_navbar_bg)));
-        ar.l(this.mNavBottomLine, t.d.navbar_under_line_color);
-        ar.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg);
+        BitmapDrawable bitmapDrawable;
+        if (this.isAutoNight) {
+            bitmapDrawable = new BitmapDrawable(at.cS(t.f.s_navbar_bg));
+        } else {
+            bitmapDrawable = new BitmapDrawable(at.p(t.f.s_navbar_bg, i));
+        }
+        setBackgroundDrawable(bitmapDrawable);
+        at.d(this.mNavBottomLine, t.d.navbar_under_line_color, i);
+        at.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg, i);
         initPadding();
         if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ac(i == 1);
+            ((TbPageContext) hVar).getLayoutMode().ab(i == 1);
             ((TbPageContext) hVar).getLayoutMode().x(this);
         }
     }
 
     public void onBackBtnOnChangeSkin() {
-        ar.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg);
+        at.a(this.mBackImageView, t.f.icon_return_bg_s, t.f.icon_return_bg);
     }
 
     public ImageView getBackImageView() {
@@ -403,5 +414,13 @@ public class NavigationBar extends RelativeLayout {
 
     public void release() {
         removeAllViews();
+    }
+
+    public boolean isAutoNight() {
+        return this.isAutoNight;
+    }
+
+    public void setAutoNight(boolean z) {
+        this.isAutoNight = z;
     }
 }

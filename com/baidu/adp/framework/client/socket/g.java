@@ -5,18 +5,18 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class g {
-    private static g oM = null;
+    private static g oO = null;
     private int oy = 0;
 
     public static g ex() {
-        if (oM == null) {
+        if (oO == null) {
             synchronized (g.class) {
-                if (oM == null) {
-                    oM = new g();
+                if (oO == null) {
+                    oO = new g();
                 }
             }
         }
-        return oM;
+        return oO;
     }
 
     public synchronized void b(Map<String, String> map) {
@@ -25,7 +25,7 @@ public class g {
                 this.oy = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                k.a("SequenceManager", 0, 0, "setSequenceId", j.pD, "parser Seq-Id error");
+                k.a("SequenceManager", 0, 0, "setSequenceId", j.pF, "parser Seq-Id error");
                 if (this.oy == 0) {
                     this.oy = new Random().nextInt();
                 }

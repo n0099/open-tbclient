@@ -2,6 +2,7 @@ package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class ImageFileInfo implements Serializable {
     private boolean hasAddPostQualityAction;
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
+    private String modifyTime;
     private Bitmap orginalBitmap;
     private LinkedList<ImageOperation> pageActionsList;
     private LinkedList<ImageOperation> persistActionsList;
@@ -69,12 +71,21 @@ public class ImageFileInfo implements Serializable {
         this.isOrginalBitmapShared = z;
     }
 
+    public void setModifyTime(String str) {
+        this.modifyTime = str;
+    }
+
+    public String getModifyTime() {
+        return this.modifyTime;
+    }
+
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.filePath = jSONObject.optString("filePath", "");
             this.albumId = jSONObject.optString("albumId", null);
             this.isTempFile = jSONObject.optBoolean("isTempFile", false);
             this.serverImageCode = jSONObject.optString("serverImageCode", null);
+            this.modifyTime = jSONObject.optString("modifyTime");
             JSONArray optJSONArray = jSONObject.optJSONArray("actionsList");
             this.persistActionsList = new LinkedList<>();
             if (optJSONArray != null) {
@@ -100,6 +111,9 @@ public class ImageFileInfo implements Serializable {
             jSONObject.put("isTempFile", this.isTempFile);
             if (this.serverImageCode != null) {
                 jSONObject.put("serverImageCode", this.serverImageCode);
+            }
+            if (!StringUtils.isNull(this.modifyTime)) {
+                jSONObject.put("modifyTime", this.modifyTime);
             }
             if (this.persistActionsList != null) {
                 JSONArray jSONArray = new JSONArray();
@@ -281,6 +295,7 @@ public class ImageFileInfo implements Serializable {
     public ImageFileInfo cloneWithoutFilterAction(boolean z) {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(getFilePath());
+        imageFileInfo.setModifyTime(getModifyTime());
         if (getPageActionsList() != null) {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {

@@ -3,14 +3,14 @@ package com.baidu.adp.lib.a.b.a.d;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class q implements h {
-    private Queue<Object> sg;
+    private Queue<Object> ss;
 
     public q(Queue<Object> queue) {
-        this.sg = queue;
+        this.ss = queue;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return com.baidu.adp.lib.a.b.a.e.b.a(this.sg, cVar);
+        return com.baidu.adp.lib.a.b.a.e.b.a(this.ss, cVar);
     }
 }

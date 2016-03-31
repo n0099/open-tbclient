@@ -16,7 +16,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         BAR_RANK,
         BAR_SQUARE;
 
-        /* JADX DEBUG: Replace access to removed values field (Ua) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Rw) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();
@@ -30,6 +30,6 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public ForumDetailActivityConfig(Context context, String str, FromType fromType) {
         super(context);
         getIntent().putExtra("forum_id", str);
-        getIntent().putExtra("from_type", fromType.toString());
+        getIntent().putExtra(FROM_TYPE, fromType.toString());
     }
 }

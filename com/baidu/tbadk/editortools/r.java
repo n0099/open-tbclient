@@ -1,11 +1,14 @@
 package com.baidu.tbadk.editortools;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public interface r extends b {
-    int getToolId();
-
-    void hide();
-
-    void onChangeSkinType(int i);
-
-    void ow();
+public class r {
+    public static s a(Context context, aa aaVar, int i) {
+        switch (i) {
+            case 1:
+                return new c(context, aaVar.launcherIcon, aaVar.id);
+            default:
+                return new e(context, aaVar.launcherIcon, aaVar.name, aaVar.id);
+        }
+    }
 }

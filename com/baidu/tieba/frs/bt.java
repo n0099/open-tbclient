@@ -1,51 +1,24 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.AppDownloadView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends x.a {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    public int ahU;
-    public LinearLayout bhK;
-    public HeadImageView bhM;
-    public TextView bhN;
-    public TextView bhO;
-    public TextView bhQ;
-    public ViewStub bhV;
-    public ViewGroup bhW;
-    public ViewStub bhX;
-    public ViewGroup bhY;
-    public AppDownloadView bii;
-    public TbImageView bij;
-    public TextView bik;
+public class bt implements View.OnClickListener {
+    final /* synthetic */ bs bmN;
+    private final /* synthetic */ com.baidu.tbadk.core.data.c bmu;
 
-    static {
-        $assertionsDisabled = !bt.class.desiredAssertionStatus();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(bs bsVar, com.baidu.tbadk.core.data.c cVar) {
+        this.bmN = bsVar;
+        this.bmu = cVar;
     }
 
-    public bt(View view) {
-        super(view);
-        this.ahU = 3;
-        if (!$assertionsDisabled && view == null) {
-            throw new AssertionError();
-        }
-        this.bhK = (LinearLayout) view.findViewById(t.g.frs_app_item_parent);
-        this.bhM = (HeadImageView) view.findViewById(t.g.frs_app_icon);
-        this.bhN = (TextView) view.findViewById(t.g.frs_app_name);
-        this.bhO = (TextView) view.findViewById(t.g.frs_app_time);
-        this.bii = (AppDownloadView) view.findViewById(t.g.frs_app_download_view);
-        this.bhQ = (TextView) view.findViewById(t.g.frs_app_desc);
-        this.bij = (TbImageView) view.findViewById(t.g.frs_app_url);
-        this.bik = (TextView) view.findViewById(t.g.frs_app_download);
-        this.bhV = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
-        this.bhX = (ViewStub) view.findViewById(t.g.item_adkiller_close);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10827");
+        awVar.ac("obj_id", new StringBuilder(String.valueOf(this.bmu.getFid())).toString());
+        TiebaStatic.log(awVar);
+        com.baidu.tbadk.browser.f.a(this.bmN.bix.getPageContext().getPageActivity(), true, this.bmu.Sq);
     }
 }

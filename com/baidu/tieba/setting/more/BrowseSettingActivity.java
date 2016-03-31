@@ -7,49 +7,49 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private l dJY = null;
+    private l ecs = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dJY = new l(this);
+        this.ecs = new l(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dJY.onChangeSkinType(i);
+        this.ecs.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dJY.aGO()) {
-            this.dJY.aGT();
+        if (view == this.ecs.aNy()) {
+            this.ecs.aND();
             TiebaStatic.log("c10650");
             return;
         }
-        if (view == this.dJY.aGN()) {
-            this.dJY.aGS();
+        if (view == this.ecs.aNx()) {
+            this.ecs.aNC();
             TiebaStatic.log("c10649");
         }
-        if (view == this.dJY.aGP()) {
-            this.dJY.aGU();
+        if (view == this.ecs.aNz()) {
+            this.ecs.aNE();
             TiebaStatic.log("c10653");
-        } else if (view == this.dJY.aGQ()) {
-            this.dJY.aGV();
-        } else if (view == this.dJY.aGR()) {
-            this.dJY.aGW();
+        } else if (view == this.ecs.aNA()) {
+            this.ecs.aNF();
+        } else if (view == this.ecs.aNB()) {
+            this.ecs.aNG();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.dJY.nL(1);
+            this.ecs.oQ(1);
         } else {
-            this.dJY.nL(0);
+            this.ecs.oQ(0);
         }
     }
 }

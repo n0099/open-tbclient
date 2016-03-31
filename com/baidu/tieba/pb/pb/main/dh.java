@@ -1,25 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.df;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements View.OnClickListener {
-    final /* synthetic */ de cPG;
-    private final /* synthetic */ String cPH;
+public class dh implements Runnable {
+    final /* synthetic */ dg djv;
+    private final /* synthetic */ PbPageReadLocalResponseMessage djw;
+    private final /* synthetic */ com.baidu.tieba.pb.data.e djx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(de deVar, String str) {
-        this.cPG = deVar;
-        this.cPH = str;
+    public dh(dg dgVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.e eVar) {
+        this.djv = dgVar;
+        this.djw = pbPageReadLocalResponseMessage;
+        this.djx = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.cPH) && com.baidu.adp.lib.util.k.jq()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.C(this.cPG.cNL.getActivity(), this.cPH);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        df dfVar;
+        df.c cVar;
+        dfVar = this.djv.dju;
+        cVar = dfVar.diX;
+        cVar.a(true, 0, this.djw.getUpdateType(), 0, this.djx, this.djw.getErrorString(), 0);
     }
 }

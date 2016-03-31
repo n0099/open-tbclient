@@ -18,40 +18,40 @@ class b implements Handler.Callback {
         f fVar8;
         switch (message.what) {
             case 0:
-                fVar5 = a.zm;
+                fVar5 = a.zE;
                 if (fVar5 != null) {
-                    fVar6 = a.zm;
+                    fVar6 = a.zE;
                     str = a.mFileName;
                     fVar6.k(str, message.arg1);
                     break;
                 }
                 break;
             case 1:
-                fVar3 = a.zm;
+                fVar3 = a.zE;
                 if (fVar3 != null) {
-                    fVar4 = a.zm;
-                    fVar4.m(message.what, l.getString(R.string.voice_err_no_file));
+                    fVar4 = a.zE;
+                    fVar4.f(message.what, l.getString(R.string.voice_err_no_file));
                     break;
                 }
                 break;
             case 6:
-                fVar = a.zm;
+                fVar = a.zE;
                 if (fVar != null) {
-                    fVar2 = a.zm;
-                    fVar2.au(message.arg1);
+                    fVar2 = a.zE;
+                    fVar2.at(message.arg1);
                 }
                 return true;
             default:
-                fVar7 = a.zm;
+                fVar7 = a.zE;
                 if (fVar7 != null) {
-                    fVar8 = a.zm;
-                    fVar8.m(message.what, l.getString(R.string.voice_err_play));
+                    fVar8 = a.zE;
+                    fVar8.f(message.what, l.getString(R.string.voice_err_play));
                     break;
                 }
                 break;
         }
-        a.mPlayingState = 0;
-        a.zm = null;
+        a.zC = 0;
+        a.zE = null;
         return false;
     }
 }

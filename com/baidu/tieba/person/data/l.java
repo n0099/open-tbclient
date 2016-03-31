@@ -2,11 +2,12 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.u;
+import com.baidu.tbadk.core.data.w;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class l implements u {
-    public static final BdUniqueId dbX = BdUniqueId.gen();
-    private com.baidu.tbadk.core.data.q profitData;
+    public static final BdUniqueId dwA = BdUniqueId.gen();
+    private w profitData;
     private User user;
 
     public User getUser() {
@@ -16,23 +17,23 @@ public class l implements u {
     public void setUser(User user) {
         this.user = user;
         if (user != null) {
-            com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
-            qVar.a(user.tw_anchor_info);
-            qVar.k(user.profit_list);
-            a(qVar);
+            w wVar = new w();
+            wVar.a(user.tw_anchor_info);
+            wVar.l(user.profit_list);
+            a(wVar);
         }
     }
 
-    public void a(com.baidu.tbadk.core.data.q qVar) {
-        this.profitData = qVar;
+    public void a(w wVar) {
+        this.profitData = wVar;
     }
 
-    public com.baidu.tbadk.core.data.q auo() {
+    public w aBU() {
         return this.profitData;
     }
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return dbX;
+        return dwA;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.person.SetUserPicsResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends HttpMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class ac extends HttpMessageListener {
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
             SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
             if (setUserPicsResponse.getErrCode() != 0) {
-                this.diG.showToast(setUserPicsResponse.getErrorString());
+                this.this$0.showToast(setUserPicsResponse.getErrorString());
             } else {
-                this.diG.avk();
+                this.this$0.aCQ();
             }
         }
     }

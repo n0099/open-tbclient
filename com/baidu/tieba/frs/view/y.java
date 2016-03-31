@@ -1,20 +1,23 @@
 package com.baidu.tieba.frs.view;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements a.b {
-    final /* synthetic */ t brL;
+public class y implements View.OnTouchListener {
+    final /* synthetic */ u bwT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(t tVar) {
-        this.brL = tVar;
+    public y(u uVar) {
+        this.bwT = uVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        TiebaStatic.eventStat(this.brL.bgW.getPageContext().getPageActivity(), "consume_7", "click");
-        aVar.dismiss();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 4) {
+            com.baidu.adp.lib.h.j.a(this.bwT.bvI);
+            this.bwT.blH.bkb = false;
+        }
+        return false;
     }
 }

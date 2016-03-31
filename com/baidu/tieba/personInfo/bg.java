@@ -10,13 +10,13 @@ import tbclient.PostInfoList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg extends CustomMessageListener {
-    final /* synthetic */ bf djH;
+    final /* synthetic */ bf dEh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bg(bf bfVar, int i) {
         super(i);
-        this.djH = bfVar;
+        this.dEh = bfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,53 +44,53 @@ public class bg extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsePersonInfoMessage) {
             ResponsePersonInfoMessage responsePersonInfoMessage = (ResponsePersonInfoMessage) customResponsedMessage;
             if (responsePersonInfoMessage.getUser() == null) {
-                gVar2 = this.djH.mLoadDataCallBack;
+                gVar2 = this.dEh.mLoadDataCallBack;
                 gVar2.d(3);
                 return;
             }
-            userData = this.djH.mUserData;
+            userData = this.dEh.mUserData;
             if (userData == null) {
-                this.djH.mUserData = new UserData();
+                this.dEh.mUserData = new UserData();
             }
-            this.djH.djn = responsePersonInfoMessage.getUser();
-            userData2 = this.djH.mUserData;
+            this.dEh.dDN = responsePersonInfoMessage.getUser();
+            userData2 = this.dEh.mUserData;
             userData2.parserProtobuf(responsePersonInfoMessage.getUser());
-            personTainInfo = this.djH.daC;
+            personTainInfo = this.dEh.dve;
             if (personTainInfo == null) {
-                this.djH.daC = new PersonTainInfo();
+                this.dEh.dve = new PersonTainInfo();
             }
-            personTainInfo2 = this.djH.daC;
+            personTainInfo2 = this.dEh.dve;
             personTainInfo2.parseProto(responsePersonInfoMessage.getTainfo());
-            antiData = this.djH.cJM;
+            antiData = this.dEh.ddd;
             if (antiData == null) {
-                this.djH.cJM = new AntiData();
+                this.dEh.ddd = new AntiData();
             }
-            antiData2 = this.djH.cJM;
+            antiData2 = this.dEh.ddd;
             antiData2.parserProtobuf(responsePersonInfoMessage.getAnti_stat());
-            antiData3 = this.djH.cJM;
-            userData3 = this.djH.mUserData;
+            antiData3 = this.dEh.ddd;
+            userData3 = this.dEh.mUserData;
             antiData3.setUser_id(userData3.getUserId());
-            antiData4 = this.djH.cJM;
-            userData4 = this.djH.mUserData;
+            antiData4 = this.dEh.ddd;
+            userData4 = this.dEh.mUserData;
             antiData4.setUser_name(userData4.getUserName());
-            personUserGodInfo = this.djH.dcd;
+            personUserGodInfo = this.dEh.dwG;
             if (personUserGodInfo == null) {
-                this.djH.dcd = new PersonUserGodInfo();
+                this.dEh.dwG = new PersonUserGodInfo();
             }
-            personUserGodInfo2 = this.djH.dcd;
+            personUserGodInfo2 = this.dEh.dwG;
             personUserGodInfo2.parserProtobuf(responsePersonInfoMessage.getUserGodInfo());
-            metaData = this.djH.dcp;
+            metaData = this.dEh.dwS;
             if (metaData == null) {
-                this.djH.dcp = new MetaData();
+                this.dEh.dwS = new MetaData();
             }
-            metaData2 = this.djH.dcp;
+            metaData2 = this.dEh.dwS;
             metaData2.parserProtobuf(responsePersonInfoMessage.getUser());
             if (responsePersonInfoMessage.getUcCard() != null) {
-                this.djH.djo = new bp();
-                bpVar = this.djH.djo;
+                this.dEh.dDO = new bp();
+                bpVar = this.dEh.dDO;
                 bpVar.a(responsePersonInfoMessage.getUcCard());
             }
-            list = this.djH.daF;
+            list = this.dEh.dvh;
             list.clear();
             List<PostInfoList> post_list = responsePersonInfoMessage.getPost_list();
             if (post_list != null) {
@@ -102,13 +102,13 @@ public class bg extends CustomMessageListener {
                     }
                     PersonInfoPostList personInfoPostList = new PersonInfoPostList();
                     personInfoPostList.parseProto(post_list.get(i2));
-                    list2 = this.djH.daF;
+                    list2 = this.dEh.dvh;
                     list2.add(personInfoPostList);
                     i = i2 + 1;
                 }
             }
-            this.djH.avQ();
-            gVar = this.djH.mLoadDataCallBack;
+            this.dEh.aDv();
+            gVar = this.dEh.mLoadDataCallBack;
             gVar.d(2);
         }
     }

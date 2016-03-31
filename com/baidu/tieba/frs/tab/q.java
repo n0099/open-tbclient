@@ -2,29 +2,29 @@ package com.baidu.tieba.frs.tab;
 
 import android.view.View;
 import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.fm;
+import com.baidu.tieba.frs.fu;
 import com.baidu.tieba.frs.tab.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements TabMenuPopView.a {
-    final /* synthetic */ p bpu;
+    final /* synthetic */ p buv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.bpu = pVar;
+        this.buv = pVar;
     }
 
     @Override // com.baidu.tieba.frs.TabMenuPopView.a
-    public void a(View view, fm fmVar) {
+    public void a(View view, fu fuVar) {
         i iVar;
-        i.a aVar;
+        i.b bVar;
         i iVar2;
-        iVar = this.bpu.bpn;
+        iVar = this.buv.bup;
         if (iVar != null) {
-            iVar2 = this.bpu.bpn;
-            iVar2.RF();
+            iVar2 = this.buv.bup;
+            iVar2.Tt();
         }
-        aVar = this.bpu.bpr;
-        aVar.gM(fmVar.blu);
+        bVar = this.buv.bus;
+        bVar.he(fuVar.bqM);
     }
 }

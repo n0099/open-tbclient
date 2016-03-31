@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as eDX;
+    final /* synthetic */ as eXQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.eDX = asVar;
+        this.eXQ = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.eDX.a = asInterface.getPackageName();
-            this.eDX.b = asInterface.getActivityName();
-            if (!this.eDX.startSingleSignOn()) {
-                this.eDX.startAuthDialog();
+            this.eXQ.a = asInterface.getPackageName();
+            this.eXQ.b = asInterface.getActivityName();
+            if (!this.eXQ.startSingleSignOn()) {
+                this.eXQ.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.eDX.startAuthDialog();
+            this.eXQ.startAuthDialog();
         } finally {
-            Context applicationContext = this.eDX.mActivity.getApplicationContext();
-            serviceConnection = this.eDX.eDW;
+            Context applicationContext = this.eXQ.mActivity.getApplicationContext();
+            serviceConnection = this.eXQ.eXP;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.eDX.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.eXQ.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.eDX.startAuthDialog();
+            this.eXQ.startAuthDialog();
         }
     }
 }

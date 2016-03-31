@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn implements AbsListView.OnScrollListener {
-    final /* synthetic */ bi dkc;
+    final /* synthetic */ bi dEC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bi biVar) {
-        this.dkc = biVar;
+        this.dEC = biVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -21,28 +21,28 @@ public class bn implements AbsListView.OnScrollListener {
         BdListView.e eVar;
         View view4;
         if (i == 0) {
-            view3 = this.dkc.aHm;
+            view3 = this.dEC.aKi;
             if (view3 != null) {
-                view4 = this.dkc.aHm;
+                view4 = this.dEC.aKi;
                 view4.setVisibility(0);
             }
             if (absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getChildCount() > 0) {
-                eVar = this.dkc.IE;
-                eVar.nv();
+                eVar = this.dEC.IL;
+                eVar.nm();
                 return;
             }
             return;
         }
-        view = this.dkc.aHm;
+        view = this.dEC.aKi;
         if (view != null) {
-            view2 = this.dkc.aHm;
+            view2 = this.dEC.aKi;
             view2.setVisibility(8);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.dkc.awc();
-        this.dkc.awd();
+        this.dEC.aDH();
+        this.dEC.aDI();
     }
 }

@@ -32,7 +32,7 @@ public final class b {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        static a V(Context context) {
+        static a I(Context context) {
             String str;
             Exception e;
             boolean z;
@@ -84,25 +84,25 @@ public final class b {
         }
     }
 
-    public static String U(Context context) {
-        return a.V(context).f27if;
+    public static String H(Context context) {
+        return a.I(context).f27if;
     }
 
     public static String a(Context context) {
         a(context, "android.permission.WRITE_SETTINGS");
         a(context, "android.permission.READ_PHONE_STATE");
         a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-        a V = a.V(context);
-        String str = V.f27if;
-        boolean z = !V.a;
+        a I = a.I(context);
+        String str = I.f27if;
+        boolean z = !I.a;
         String m66if = m66if(context);
         if (z) {
-            return c.a(("com.baidu" + m66if).getBytes(), true);
+            return c.b(("com.baidu" + m66if).getBytes(), true);
         }
         String str2 = null;
         String string = Settings.System.getString(context.getContentResolver(), "com.baidu.deviceid");
         if (TextUtils.isEmpty(string)) {
-            str2 = c.a(("com.baidu" + str + m66if).getBytes(), true);
+            str2 = c.b(("com.baidu" + str + m66if).getBytes(), true);
             string = Settings.System.getString(context.getContentResolver(), str2);
             if (!TextUtils.isEmpty(string)) {
                 Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", string);
@@ -117,11 +117,11 @@ public final class b {
             }
         }
         if (TextUtils.isEmpty(string)) {
-            String a2 = c.a((str + m66if + UUID.randomUUID().toString()).getBytes(), true);
-            Settings.System.putString(context.getContentResolver(), str2, a2);
-            Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", a2);
-            a(str, a2);
-            return a2;
+            String b = c.b((str + m66if + UUID.randomUUID().toString()).getBytes(), true);
+            Settings.System.putString(context.getContentResolver(), str2, b);
+            Settings.System.putString(context.getContentResolver(), "com.baidu.deviceid", b);
+            a(str, b);
+            return b;
         }
         return string;
     }
@@ -142,7 +142,7 @@ public final class b {
                 sb.append("\r\n");
             }
             bufferedReader.close();
-            Object[] split = new String(com.baidu.location.a.b.a.a("30212102dicudiab", "30212102dicudiab", com.baidu.location.a.b.b.a(sb.toString().getBytes()))).split("=");
+            Object[] split = new String(com.baidu.location.a.b.a.d("30212102dicudiab", "30212102dicudiab", com.baidu.location.a.b.b.a(sb.toString().getBytes()))).split("=");
             return (split != null && split.length == 2 && str.equals(split[0])) ? split[1] : "";
         } catch (FileNotFoundException e) {
             return "";
@@ -167,7 +167,7 @@ public final class b {
         try {
             new File(file.getParent()).mkdirs();
             FileWriter fileWriter = new FileWriter(file, false);
-            fileWriter.write(com.baidu.location.a.b.b.a(com.baidu.location.a.b.a.e("30212102dicudiab", "30212102dicudiab", (str + "=" + str2).getBytes()), "utf-8"));
+            fileWriter.write(com.baidu.location.a.b.b.a(com.baidu.location.a.b.a.c("30212102dicudiab", "30212102dicudiab", (str + "=" + str2).getBytes()), "utf-8"));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

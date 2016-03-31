@@ -24,13 +24,13 @@ public class av extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
             ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
-            if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.c.a.ceW && responsedPersonalMsgReadMessage.getToUserType() == 0) {
-                ImMessageCenterPojo P = b.ady().P(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
-                if (P != null) {
-                    long be = com.baidu.tieba.im.util.g.be(responsedPersonalMsgReadMessage.getHasSentMsgId());
-                    if (be > P.getSent_msgId()) {
-                        P.setSent_msgId(be);
-                        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aw(this, P));
+            if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.c.a.cpB && responsedPersonalMsgReadMessage.getToUserType() == 0) {
+                ImMessageCenterPojo W = b.agR().W(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
+                if (W != null) {
+                    long bk = com.baidu.tieba.im.util.g.bk(responsedPersonalMsgReadMessage.getHasSentMsgId());
+                    if (bk > W.getSent_msgId()) {
+                        W.setSent_msgId(bk);
+                        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aw(this, W));
                         customMessageTask.setParallel(TiebaIMConfig.getParallel());
                         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                         customMessageTask.setPriority(4);

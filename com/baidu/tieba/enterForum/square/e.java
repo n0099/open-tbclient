@@ -17,11 +17,11 @@ public class e extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    private ForumClassRequestNetMessage MC() {
+    private ForumClassRequestNetMessage Oq() {
         return new ForumClassRequestNetMessage();
     }
 
     public void sendMessage() {
-        sendMessage(MC());
+        sendMessage(Oq());
     }
 }

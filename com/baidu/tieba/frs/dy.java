@@ -1,45 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dy implements View.OnClickListener {
-    final /* synthetic */ dx blc;
-    private final /* synthetic */ com.baidu.tbadk.core.data.y bld;
+    final /* synthetic */ dx bqd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dy(dx dxVar, com.baidu.tbadk.core.data.y yVar) {
-        this.blc = dxVar;
-        this.bld = yVar;
+    public dy(dx dxVar) {
+        this.bqd = dxVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.y yVar;
-        Context context;
-        Context context2;
-        com.baidu.tbadk.core.data.y yVar2;
-        TiebaStatic.log("cluster_btn_addFd");
-        com.baidu.tbadk.core.data.aa sE = this.bld.sE();
-        yVar = this.blc.blb;
-        if (yVar != null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.blc.mContext;
-            String valueOf = String.valueOf(sE.getUserId());
-            String name = sE.getName();
-            String sO = sE.sO();
-            yVar2 = this.blc.blb;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context2, valueOf, name, sO, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, yVar2.sH())));
-            return;
+        com.baidu.adp.widget.ListView.u aF;
+        BaseActivity baseActivity;
+        if (this.bqd.aF(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.as) {
+            String str = String.valueOf(com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.as) aF).getAuthor().getUserId();
+            String string = TbadkCoreApplication.m411getInst().getString(t.j.user_icon_web_view_title);
+            baseActivity = this.bqd.bix;
+            com.baidu.tbadk.browser.f.a(baseActivity.getApplicationContext(), string, str, true, true, false);
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10134").r("obj_type", 3));
         }
-        MessageManager messageManager2 = MessageManager.getInstance();
-        context = this.blc.mContext;
-        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(sE.getUserId()), sE.getName(), sE.sO(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
     }
 }

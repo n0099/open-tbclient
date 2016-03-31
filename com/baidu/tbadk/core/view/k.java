@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class k {
-    private View afZ;
-    private int aga;
-    private ViewGroup.LayoutParams agb;
-    private Runnable agc;
-    private FrameLayout agd;
+    private int afA;
+    private ViewGroup.LayoutParams afB;
+    private Runnable afC;
+    private FrameLayout afD;
+    private View afz;
     private int mScreenHeight;
     private int mSkinType = 3;
-    private int agf = t.d.usual_page_bg;
-    private boolean agg = false;
-    private ViewTreeObserver.OnGlobalLayoutListener agh = null;
+    private int afE = t.d.usual_page_bg;
+    private boolean afF = false;
+    private ViewTreeObserver.OnGlobalLayoutListener afG = null;
 
-    public static k r(Activity activity) {
+    public static k l(Activity activity) {
         return new k(activity);
     }
 
@@ -46,90 +46,90 @@ public class k {
         b(activity, i, z);
     }
 
-    public void db(int i) {
-        if (this.agg) {
-            if (i != this.mSkinType && this.agd != null) {
-                ar.l(this.agd, this.agf);
+    public void de(int i) {
+        if (this.afF) {
+            if (i != this.mSkinType && this.afD != null) {
+                at.l(this.afD, this.afE);
             }
             this.mSkinType = i;
         }
     }
 
     public void onDestory() {
-        if (this.agc != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.agc);
-            this.agc = null;
+        if (this.afC != null) {
+            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.afC);
+            this.afC = null;
         }
-        if (this.afZ != null) {
-            this.afZ.getViewTreeObserver().removeGlobalOnLayoutListener(this.agh);
-            this.afZ.getViewTreeObserver().addOnGlobalLayoutListener(null);
-            this.agh = null;
+        if (this.afz != null) {
+            this.afz.getViewTreeObserver().removeGlobalOnLayoutListener(this.afG);
+            this.afz.getViewTreeObserver().addOnGlobalLayoutListener(null);
+            this.afG = null;
         }
-        this.afZ = null;
-        this.agd = null;
+        this.afz = null;
+        this.afD = null;
     }
 
     private void b(Activity activity, int i, boolean z) {
-        this.agf = i;
-        this.agg = z;
-        this.agd = (FrameLayout) activity.findViewById(16908290);
+        this.afE = i;
+        this.afF = z;
+        this.afD = (FrameLayout) activity.findViewById(16908290);
         FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
         if (z) {
-            ar.l(frameLayout, i);
+            at.l(frameLayout, i);
         } else {
-            ar.d(frameLayout, i, 0);
+            at.d(frameLayout, i, 0);
         }
-        this.afZ = frameLayout.getChildAt(0);
-        if (this.afZ != null) {
-            this.agh = new l(this);
-            this.afZ.getViewTreeObserver().addOnGlobalLayoutListener(this.agh);
-            this.agb = this.afZ.getLayoutParams();
+        this.afz = frameLayout.getChildAt(0);
+        if (this.afz != null) {
+            this.afG = new l(this);
+            this.afz.getViewTreeObserver().addOnGlobalLayoutListener(this.afG);
+            this.afB = this.afz.getLayoutParams();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wR() {
-        if (this.afZ != null) {
-            int height = this.afZ.getHeight();
+    public void xk() {
+        if (this.afz != null) {
+            int height = this.afz.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
-            int wS = wS();
-            if (wS != this.aga) {
+            int xl = xl();
+            if (xl != this.afA) {
                 int i = this.mScreenHeight;
-                int i2 = i - wS;
+                int i2 = i - xl;
                 if (i2 == 0) {
-                    this.agb.height = i;
-                    wT();
+                    this.afB.height = i;
+                    xm();
                 } else {
-                    this.agb.height = i - i2;
-                    dc(200);
+                    this.afB.height = i - i2;
+                    df(200);
                     if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.m411getInst().getKeyboardHeight() != i2) {
                         TbadkCoreApplication.m411getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.aga = wS;
+                this.afA = xl;
             }
         }
     }
 
-    private int wS() {
+    private int xl() {
         Rect rect = new Rect();
-        this.afZ.getWindowVisibleDisplayFrame(rect);
+        this.afz.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wT() {
-        this.afZ.requestLayout();
+    public void xm() {
+        this.afz.requestLayout();
     }
 
-    private void dc(int i) {
-        if (this.agc != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.agc);
-            this.agc = null;
+    private void df(int i) {
+        if (this.afC != null) {
+            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.afC);
+            this.afC = null;
         }
-        this.agc = new m(this);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.agc, i);
+        this.afC = new m(this);
+        TbadkCoreApplication.m411getInst().handler.postDelayed(this.afC, i);
     }
 }

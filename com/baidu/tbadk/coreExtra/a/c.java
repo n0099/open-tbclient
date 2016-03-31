@@ -11,9 +11,9 @@ public interface c {
 
     void g(AccountData accountData);
 
-    AccountData uM();
+    AccountData vi();
 
-    void xO();
+    void yp();
 
-    List<AccountData> xP();
+    List<AccountData> yq();
 }

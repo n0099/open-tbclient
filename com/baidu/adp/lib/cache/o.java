@@ -4,15 +4,15 @@ public interface o<T> {
 
     /* loaded from: classes.dex */
     public interface a<T> {
-        void h(String str, T t);
+        void g(String str, T t);
     }
 
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public T sz;
-        public long tH;
-        public long ts;
+        public T sI;
+        public long tB;
+        public long tQ;
     }
 
     /* loaded from: classes.dex */
@@ -34,9 +34,9 @@ public interface o<T> {
 
     void b(String str, T t, long j);
 
-    void f(String str, T t);
+    void e(String str, T t);
 
-    void g(String str, T t);
+    void f(String str, T t);
 
     T get(String str);
 

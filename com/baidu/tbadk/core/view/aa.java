@@ -1,25 +1,36 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.bi;
+import android.media.MediaPlayer;
+import android.widget.MediaController;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements bi.a {
-    final /* synthetic */ z ahF;
-    private final /* synthetic */ String ahG;
+public class aa implements MediaPlayer.OnCompletionListener {
+    final /* synthetic */ TextureVideoView ahp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, String str) {
-        this.ahF = zVar;
-        this.ahG = str;
+    public aa(TextureVideoView textureVideoView) {
+        this.ahp = textureVideoView;
     }
 
-    @Override // com.baidu.tbadk.core.util.bi.a
-    public boolean A(View view) {
-        Object tag = view.getTag();
-        if (tag != null && this.ahG.equals(tag)) {
-            view.invalidate();
-            return false;
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        MediaController mediaController;
+        MediaPlayer.OnCompletionListener onCompletionListener;
+        MediaPlayer.OnCompletionListener onCompletionListener2;
+        MediaPlayer mediaPlayer2;
+        MediaController mediaController2;
+        this.ahp.agP = 5;
+        this.ahp.agQ = 5;
+        mediaController = this.ahp.agU;
+        if (mediaController != null) {
+            mediaController2 = this.ahp.agU;
+            mediaController2.hide();
         }
-        return false;
+        onCompletionListener = this.ahp.agV;
+        if (onCompletionListener != null) {
+            onCompletionListener2 = this.ahp.agV;
+            mediaPlayer2 = this.ahp.agR;
+            onCompletionListener2.onCompletion(mediaPlayer2);
+        }
     }
 }

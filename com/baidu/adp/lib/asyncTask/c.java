@@ -19,45 +19,45 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class c implements Executor {
     private Handler mHandler;
-    private volatile int sJ = 0;
-    private volatile int sK = 0;
-    private volatile int sL = 0;
-    private volatile int sM = 0;
-    private final SparseIntArray sN = new SparseIntArray();
-    private final LinkedList<a> sO = new LinkedList<>();
-    private final LinkedList<a> sP = new LinkedList<>();
-    private final LinkedList<a> sQ = new LinkedList<>();
-    private HandlerThread sR;
-    private static c sI = null;
+    private volatile int sS = 0;
+    private volatile int sT = 0;
+    private volatile int sU = 0;
+    private volatile int sV = 0;
+    private final SparseIntArray sW = new SparseIntArray();
+    private final LinkedList<a> sX = new LinkedList<>();
+    private final LinkedList<a> sY = new LinkedList<>();
+    private final LinkedList<a> sZ = new LinkedList<>();
+    private HandlerThread tb;
+    private static c sR = null;
     private static final ThreadFactory sThreadFactory = new d();
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new SynchronousQueue();
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory, new ThreadPoolExecutor.DiscardPolicy());
 
     c() {
-        this.sR = null;
+        this.tb = null;
         this.mHandler = null;
-        this.sR = new HandlerThread("BdAsyncTaskExecutor");
-        this.sR.start();
-        this.mHandler = new e(this, this.sR.getLooper());
+        this.tb = new HandlerThread("BdAsyncTaskExecutor");
+        this.tb.start();
+        this.mHandler = new e(this, this.tb.getLooper());
     }
 
     public String toString() {
-        return "mWaitingTasks = " + this.sO.size() + " mRunningTasks = " + this.sP.size() + " mTimeOutTasks = " + this.sQ.size();
+        return "mWaitingTasks = " + this.sX.size() + " mRunningTasks = " + this.sY.size() + " mTimeOutTasks = " + this.sZ.size();
     }
 
     public String fV() {
-        return String.valueOf(this.sO.size()) + "/" + this.sP.size() + "/" + this.sQ.size();
+        return String.valueOf(this.sX.size()) + "/" + this.sY.size() + "/" + this.sZ.size();
     }
 
     public static c fW() {
-        if (sI == null) {
+        if (sR == null) {
             synchronized (c.class) {
-                if (sI == null) {
-                    sI = new c();
+                if (sR == null) {
+                    sR = new c();
                 }
             }
         }
-        return sI;
+        return sR;
     }
 
     @Override // java.util.concurrent.Executor
@@ -76,12 +76,12 @@ public class c implements Executor {
 
     private synchronized void a(a aVar) {
         if (aVar != null) {
-            int size = this.sO.size();
+            int size = this.sX.size();
             int i = 0;
-            while (i < size && this.sO.get(i).getPriority() >= aVar.getPriority()) {
+            while (i < size && this.sX.get(i).getPriority() >= aVar.getPriority()) {
                 i++;
             }
-            this.sO.add(i, aVar);
+            this.sX.add(i, aVar);
         }
     }
 
@@ -91,8 +91,8 @@ public class c implements Executor {
         c(aVar);
         if (!aVar.isCancelled()) {
             aVar.setTimeout(true);
-            this.sQ.add(aVar);
-            if (this.sQ.size() > 242 && (poll = this.sQ.poll()) != null) {
+            this.sZ.add(aVar);
+            if (this.sZ.size() > 242 && (poll = this.sZ.poll()) != null) {
                 poll.fU();
             }
         } else {
@@ -104,31 +104,31 @@ public class c implements Executor {
     private synchronized void c(a aVar) {
         if (aVar != null) {
             if (aVar.fZ()) {
-                this.sQ.remove(aVar);
+                this.sZ.remove(aVar);
             } else {
-                this.sP.remove(aVar);
+                this.sY.remove(aVar);
                 this.mHandler.removeMessages(1, aVar);
                 switch (aVar.getPriority()) {
                     case 1:
-                        this.sM--;
+                        this.sV--;
                         break;
                     case 2:
-                        this.sL--;
+                        this.sU--;
                         break;
                     case 3:
-                        this.sK--;
+                        this.sT--;
                         break;
                     case 4:
-                        this.sJ--;
+                        this.sS--;
                         break;
                 }
                 int ga = aVar.ga();
                 if (ga != 0) {
-                    int i = this.sN.get(ga) - 1;
+                    int i = this.sW.get(ga) - 1;
                     if (i <= 0) {
-                        this.sN.delete(ga);
+                        this.sW.delete(ga);
                     } else {
-                        this.sN.put(ga, i);
+                        this.sW.put(ga, i);
                     }
                     if (i < 0) {
                         BdLog.e("removeTask error < 0");
@@ -140,31 +140,31 @@ public class c implements Executor {
 
     private synchronized void d(a aVar) {
         if (aVar != null) {
-            this.sP.add(aVar);
-            this.sO.remove(aVar);
+            this.sY.add(aVar);
+            this.sX.remove(aVar);
             THREAD_POOL_EXECUTOR.execute(aVar);
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1, aVar), 180000L);
             switch (aVar.getPriority()) {
                 case 1:
-                    this.sM++;
+                    this.sV++;
                     break;
                 case 2:
-                    this.sL++;
+                    this.sU++;
                     break;
                 case 3:
-                    this.sK++;
+                    this.sT++;
                     break;
                 case 4:
-                    this.sJ++;
-                    if (this.sJ >= 7) {
-                        BdLog.e("SuperHight Task too much num = " + this.sJ);
+                    this.sS++;
+                    if (this.sS >= 7) {
+                        BdLog.e("SuperHight Task too much num = " + this.sS);
                         break;
                     }
                     break;
             }
             int ga = aVar.ga();
             if (ga != 0) {
-                this.sN.put(ga, this.sN.get(ga, 0) + 1);
+                this.sW.put(ga, this.sW.get(ga, 0) + 1);
             }
         }
     }
@@ -183,22 +183,22 @@ public class c implements Executor {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.sO.size()) {
-                a aVar2 = this.sO.get(i2);
+            if (i2 < this.sX.size()) {
+                a aVar2 = this.sX.get(i2);
                 int ga = aVar2.ga();
                 switch (aVar2.getPriority()) {
                     case 1:
-                        if (this.sK + this.sL + this.sM >= 5) {
+                        if (this.sT + this.sU + this.sV >= 5) {
                             break;
                         }
                         break;
                     case 2:
-                        if (this.sK + this.sL + this.sM >= 6) {
+                        if (this.sT + this.sU + this.sV >= 6) {
                             break;
                         }
                         break;
                     case 3:
-                        if (this.sK + this.sL + this.sM >= 7) {
+                        if (this.sT + this.sU + this.sV >= 7) {
                             break;
                         }
                         break;
@@ -209,7 +209,7 @@ public class c implements Executor {
                         }
                         break;
                 }
-                if (!a(this.sN.get(ga), aVar2)) {
+                if (!a(this.sW.get(ga), aVar2)) {
                     i = i2 + 1;
                 } else {
                     d(aVar2);
@@ -224,8 +224,8 @@ public class c implements Executor {
 
     public synchronized void removeAllTask(BdUniqueId bdUniqueId, String str) {
         removeAllWaitingTask(bdUniqueId, str);
-        a(this.sP, false, bdUniqueId, str);
-        a(this.sQ, false, bdUniqueId, str);
+        a(this.sY, false, bdUniqueId, str);
+        a(this.sZ, false, bdUniqueId, str);
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId) {
@@ -233,7 +233,7 @@ public class c implements Executor {
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId, String str) {
-        a(this.sO, true, bdUniqueId, str);
+        a(this.sX, true, bdUniqueId, str);
     }
 
     private synchronized void a(LinkedList<a> linkedList, boolean z, BdUniqueId bdUniqueId, String str) {
@@ -261,7 +261,7 @@ public class c implements Executor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        Iterator<a> it = this.sO.iterator();
+        Iterator<a> it = this.sX.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -274,7 +274,7 @@ public class c implements Executor {
     }
 
     public int getTaskNum(String str, BdUniqueId bdUniqueId) {
-        return a(this.sO, str, bdUniqueId) + a(this.sP, str, bdUniqueId) + a(this.sQ, str, bdUniqueId);
+        return a(this.sX, str, bdUniqueId) + a(this.sY, str, bdUniqueId) + a(this.sZ, str, bdUniqueId);
     }
 
     private synchronized int a(LinkedList<a> linkedList, String str, BdUniqueId bdUniqueId) {
@@ -302,12 +302,12 @@ public class c implements Executor {
 
     public synchronized BdAsyncTask<?, ?, ?> searchTask(String str) {
         BdAsyncTask<?, ?, ?> a2;
-        a2 = a(this.sO, str);
+        a2 = a(this.sX, str);
         if (a2 == null) {
-            a2 = a(this.sP, str);
+            a2 = a(this.sY, str);
         }
         if (a2 == null) {
-            a2 = a(this.sQ, str);
+            a2 = a(this.sZ, str);
         }
         return a2;
     }
@@ -319,15 +319,15 @@ public class c implements Executor {
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(BdUniqueId bdUniqueId, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.sO, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.sX, bdUniqueId, str);
         if (a2 != null) {
             linkedList.addAll(a2);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.sP, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.sY, bdUniqueId, str);
         if (a3 != null) {
             linkedList.addAll(a3);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a4 = a(this.sQ, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a4 = a(this.sZ, bdUniqueId, str);
         if (a4 != null) {
             linkedList.addAll(a4);
         }
@@ -335,13 +335,13 @@ public class c implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return a(this.sO, str);
+        return a(this.sX, str);
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(BdUniqueId bdUniqueId) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.sO, bdUniqueId, (String) null);
+        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.sX, bdUniqueId, (String) null);
         if (a2 != null) {
             linkedList.addAll(a2);
         }
@@ -349,7 +349,7 @@ public class c implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return a(this.sP, str);
+        return a(this.sY, str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0031, code lost:
@@ -405,76 +405,76 @@ public class c implements Executor {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static abstract class a implements Runnable {
-        private g<?> sT;
+        private g<?> td;
 
         public a(g<?> gVar) {
-            this.sT = null;
+            this.td = null;
             if (gVar == null || gVar.fY() == null) {
                 throw new InvalidParameterException("parameter is null");
             }
-            this.sT = gVar;
+            this.td = gVar;
         }
 
         public void fX() {
             try {
-                this.sT.run();
+                this.td.run();
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
             }
         }
 
         public void fU() {
-            this.sT.fU();
+            this.td.fU();
         }
 
         public boolean isCancelled() {
-            return this.sT.isCancelled();
+            return this.td.isCancelled();
         }
 
         public BdAsyncTask<?, ?, ?> fY() {
-            return this.sT.fY();
+            return this.td.fY();
         }
 
         public int getPriority() {
-            return this.sT.fY().getPriority();
+            return this.td.fY().getPriority();
         }
 
         public void setTimeout(boolean z) {
-            this.sT.fY().setTimeout(z);
+            this.td.fY().setTimeout(z);
         }
 
         public boolean fZ() {
-            return this.sT.fY().isTimeout();
+            return this.td.fY().isTimeout();
         }
 
         public int getTag() {
-            return this.sT.fY().getTag();
+            return this.td.fY().getTag();
         }
 
         public int ga() {
-            if (this.sT.fY().getParallel() != null) {
-                return this.sT.fY().getParallel().getTag();
+            if (this.td.fY().getParallel() != null) {
+                return this.td.fY().getParallel().getTag();
             }
             return 0;
         }
 
         public String getKey() {
-            return this.sT.fY().getKey();
+            return this.td.fY().getKey();
         }
 
         public BdAsyncTaskParallel.BdAsyncTaskParallelType gb() {
-            return this.sT.fY().getParallel() != null ? this.sT.fY().getParallel().gf() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+            return this.td.fY().getParallel() != null ? this.td.fY().getParallel().gf() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
         }
 
         public int gd() {
-            if (this.sT.fY().getParallel() != null) {
-                return this.sT.fY().getParallel().ge();
+            if (this.td.fY().getParallel() != null) {
+                return this.td.fY().getParallel().ge();
             }
             return 1;
         }
 
         public boolean isSelfExecute() {
-            return this.sT.fY().isSelfExecute();
+            return this.td.fY().isSelfExecute();
         }
     }
 }

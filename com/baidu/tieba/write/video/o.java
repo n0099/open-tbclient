@@ -4,11 +4,11 @@ import android.view.KeyEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements View.OnKeyListener {
-    final /* synthetic */ m epZ;
+    final /* synthetic */ m eJV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.epZ = mVar;
+        this.eJV = mVar;
     }
 
     @Override // android.view.View.OnKeyListener

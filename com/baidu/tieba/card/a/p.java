@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends a {
-    public static final BdUniqueId aSh = BdUniqueId.gen();
-    private List<h> aQh = new ArrayList();
+    public static final BdUniqueId aVP = BdUniqueId.gen();
+    private List<g> aTc = new ArrayList();
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return aSh;
+        return aVP;
     }
 
-    public List<h> Fm() {
-        return this.aQh;
+    public List<g> FZ() {
+        return this.aTc;
     }
 }

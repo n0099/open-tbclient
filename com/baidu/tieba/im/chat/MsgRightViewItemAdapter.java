@@ -8,23 +8,23 @@ import com.baidu.tieba.im.chat.ap;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends ap<MsgrightView> {
-    private boolean bPa;
+    private boolean bZs;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bPa = false;
+        this.bZs = false;
     }
 
-    public void dk(boolean z) {
-        this.bPa = z;
+    public void dE(boolean z) {
+        this.bZs = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: ac */
     public ap.a<MsgrightView> b(ViewGroup viewGroup) {
-        MsgrightView msgrightView = new MsgrightView(this.Nw);
+        MsgrightView msgrightView = new MsgrightView(this.ND);
         return new a(msgrightView.dM(), msgrightView);
     }
 
@@ -32,19 +32,19 @@ public class MsgRightViewItemAdapter extends ap<MsgrightView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgrightView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgrightView YX = aVar.YX();
-        YX.iE(this.bOR);
-        YX.dk(this.bPa);
+        MsgrightView acq = aVar.acq();
+        acq.jl(this.bZj);
+        acq.dE(this.bZs);
         chatMessage.getCacheData().setIs_left(0);
-        YX.a(this.bOI);
-        YX.setOnItemViewLongClickListener(this.bOJ);
-        YX.setPosition(i);
-        YX.aQ(this.mCurrentTime);
-        YX.aP(chatMessage.getCacheData().getLastMsgTime());
-        YX.a(viewGroup, chatMessage);
-        YX.b(viewGroup, chatMessage);
-        this.Nw.getLayoutMode().ac(false);
-        this.Nw.getLayoutMode().x(view);
+        acq.a(this.bZa);
+        acq.setOnItemViewLongClickListener(this.bZb);
+        acq.setPosition(i);
+        acq.aW(this.mCurrentTime);
+        acq.aV(chatMessage.getCacheData().getLastMsgTime());
+        acq.a(viewGroup, chatMessage);
+        acq.b(viewGroup, chatMessage);
+        this.ND.getLayoutMode().ab(false);
+        this.ND.getLayoutMode().x(view);
         return view;
     }
 

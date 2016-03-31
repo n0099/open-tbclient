@@ -1,20 +1,20 @@
 package com.baidu.tbadk.editortools.imagetool;
 
 import android.view.View;
-import com.baidu.tbadk.editortools.z;
+import com.baidu.tbadk.editortools.ab;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    private final /* synthetic */ z aub;
+    private final /* synthetic */ ab auB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(z zVar) {
-        this.aub = zVar;
+    public d(ab abVar) {
+        this.auB = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aub != null) {
-            this.aub.b(new com.baidu.tbadk.editortools.a(14, -1, true));
+        if (this.auB != null) {
+            this.auB.b(new com.baidu.tbadk.editortools.a(14, -1, true));
         }
     }
 }

@@ -1,19 +1,12 @@
 package com.baidu.tbadk.editortools;
+
+import android.content.Context;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public interface z extends b {
-    void b(a aVar);
-
-    int getToolId();
-
-    void hide();
-
-    void init();
-
-    void onChangeSkinType(int i);
-
-    void ow();
-
-    void setEditorTools(k kVar);
-
-    void setToolId(int i);
+public class z extends aa {
+    public z(Context context) {
+        super((String) null, 23, 0);
+        this.launcherIcon = t.f.selector_editor_btn_more;
+        this.toolLaunchAction = new int[]{32};
+    }
 }

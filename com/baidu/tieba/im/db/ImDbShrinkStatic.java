@@ -14,25 +14,25 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic bUe;
-    private static long bUh = -1;
-    private static int bUi = 0;
-    private a bUf = new a(null);
-    private b bUg = null;
+    private static ImDbShrinkStatic ceH;
+    private static long ceK = -1;
+    private static int ceL = 0;
+    private a ceI = new a(null);
+    private b ceJ = null;
 
     static {
-        aaZ();
+        aev();
     }
 
-    public static ImDbShrinkStatic aaZ() {
-        if (bUe == null) {
+    public static ImDbShrinkStatic aev() {
+        if (ceH == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (bUe == null) {
-                    bUe = new ImDbShrinkStatic();
+                if (ceH == null) {
+                    ceH = new ImDbShrinkStatic();
                 }
             }
         }
-        return bUe;
+        return ceH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,8 +50,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.aaZ().bUf.removeMessages(1);
-                    ImDbShrinkStatic.aaZ().execute();
+                    ImDbShrinkStatic.aev().ceI.removeMessages(1);
+                    ImDbShrinkStatic.aev().execute();
                     return;
                 default:
                     return;
@@ -65,21 +65,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.bUg != null) {
-            this.bUg.cancel();
-            this.bUg = null;
+        if (this.ceJ != null) {
+            this.ceJ.cancel();
+            this.ceJ = null;
         }
-        this.bUg = new b(this, null);
-        this.bUg.setParallel(TiebaIMConfig.getParallel());
-        this.bUg.setPriority(4);
-        this.bUg.execute(new String[0]);
+        this.ceJ = new b(this, null);
+        this.ceJ.setParallel(TiebaIMConfig.getParallel());
+        this.ceJ.setPriority(4);
+        this.ceJ.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.bUg != null) {
-            this.bUg.cancel();
-            this.bUg = null;
+        if (this.ceJ != null) {
+            this.ceJ.cancel();
+            this.ceJ = null;
         }
     }
 
@@ -99,48 +99,48 @@ public class ImDbShrinkStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: m */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> abf = i.abc().abf();
-            if (abf == null || abf.size() == 0) {
+            LinkedList<ImMessageCenterPojo> aeB = i.aey().aeB();
+            if (aeB == null || aeB.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.bUh < 0) {
+            if (ImDbShrinkStatic.ceK < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.bUh = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.bUh > 2147483648L) {
-                        ImDbShrinkStatic.bUi = 5000;
-                    } else if (ImDbShrinkStatic.bUh > 1073741824) {
-                        ImDbShrinkStatic.bUi = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+                    ImDbShrinkStatic.ceK = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.ceK > 2147483648L) {
+                        ImDbShrinkStatic.ceL = 5000;
+                    } else if (ImDbShrinkStatic.ceK > 1073741824) {
+                        ImDbShrinkStatic.ceL = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
                     } else {
-                        ImDbShrinkStatic.bUi = 1000;
+                        ImDbShrinkStatic.ceL = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.bUi < 1000) {
-                ImDbShrinkStatic.bUi = 1000;
+            if (ImDbShrinkStatic.ceL < 1000) {
+                ImDbShrinkStatic.ceL = 1000;
             }
             try {
-                g.aaX().aaY();
-                for (ImMessageCenterPojo imMessageCenterPojo : abf) {
+                g.aet().aeu();
+                for (ImMessageCenterPojo imMessageCenterPojo : aeB) {
                     if (isCancelled()) {
-                        g.aaX().endTransaction();
+                        g.aet().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.aaT().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
+                        c.aep().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.abi().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
+                        l.aeE().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.abh().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
+                        k.aeD().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.aaU().H(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bUi);
+                        d.aeq().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.aaX().endTransaction();
+                g.aet().endTransaction();
             }
             return true;
         }

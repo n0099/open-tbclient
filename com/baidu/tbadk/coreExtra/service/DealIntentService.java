@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
-import com.baidu.tbadk.core.c.b;
+import com.baidu.tbadk.core.d.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -36,7 +36,6 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_NATIVE_BUY_TBEAN = 25;
     public static final int CLASS_TYPE_NATIVE_JUMP = 30;
     public static final int CLASS_TYPE_NATIVE_PAY = 23;
-    public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
     public static final int CLASS_TYPE_OFFICAL_BAR = 22;
     public static final int CLASS_TYPE_PAY = 15;
     public static final int CLASS_TYPE_PAYMENT_CONFIRM = 32;
@@ -113,7 +112,7 @@ public class DealIntentService extends BdBaseService {
             }
             int i = this.intent.getExtras().getInt("class", -1);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                ed(i);
+                eg(i);
             }
             String string = this.intent.getExtras().getString("stat");
             String stringExtra = this.intent.getStringExtra("link");
@@ -126,7 +125,7 @@ public class DealIntentService extends BdBaseService {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.uI())) {
+                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.ve())) {
                             this.intent.putExtra("class", 11);
                         }
                         if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -142,7 +141,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                ec(i);
+                ef(i);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -150,7 +149,7 @@ public class DealIntentService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: ek */
+        /* renamed from: er */
         public void onPostExecute(String str) {
             if (str != null) {
                 if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
@@ -167,7 +166,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void ec(int i) {
+        private void ef(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -183,7 +182,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void ed(int i) {
+        private void eg(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

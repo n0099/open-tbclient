@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class aa implements View.OnLongClickListener {
-    final /* synthetic */ y aZh;
+    final /* synthetic */ y bdR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(y yVar) {
-        this.aZh = yVar;
+        this.bdR = yVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -16,12 +16,12 @@ class aa implements View.OnLongClickListener {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
         int i;
-        viewEventCenter = this.aZh.aWA;
-        if (viewEventCenter == null || this.aZh.getData() == null || this.aZh.getData().getType() != 0) {
+        viewEventCenter = this.bdR.bbj;
+        if (viewEventCenter == null || this.bdR.getData() == null || this.bdR.getData().getType() != 0) {
             return false;
         }
-        viewEventCenter2 = this.aZh.aWA;
-        i = this.aZh.position;
+        viewEventCenter2 = this.bdR.bbj;
+        i = this.bdR.position;
         return viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, new com.baidu.tieba.enterForum.b.e(i), null, null));
     }
 }

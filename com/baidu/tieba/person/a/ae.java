@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ae implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId daX = BdUniqueId.gen();
+    public static final BdUniqueId dvz = BdUniqueId.gen();
     private boolean isSelf;
-    private List<com.baidu.tbadk.data.g> mPhotoAlbum;
+    private List<com.baidu.tbadk.data.h> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return daX;
+        return dvz;
     }
 
-    public List<com.baidu.tbadk.data.g> getPhotoAlbum() {
+    public List<com.baidu.tbadk.data.h> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 
-    public void setPhotoAlbum(List<com.baidu.tbadk.data.g> list) {
+    public void setPhotoAlbum(List<com.baidu.tbadk.data.h> list) {
         this.mPhotoAlbum = list;
     }
 

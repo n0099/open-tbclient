@@ -68,7 +68,7 @@ public abstract class DisplayManagerCompat {
         private final Object lA;
 
         public a(Context context) {
-            this.lA = android.support.v4.hardware.display.a.y(context);
+            this.lA = android.support.v4.hardware.display.a.o(context);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat

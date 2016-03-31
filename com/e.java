@@ -30,16 +30,16 @@ public class e extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
-        private Uri mN;
+        private Uri mM;
 
         public a(Uri uri) {
-            this.mN = uri;
+            this.mM = uri;
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
         public void onComplete(Bitmap bitmap) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                e.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.mN)));
+                e.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.mM)));
             }
             e.this.c();
         }
@@ -165,7 +165,7 @@ public class e extends c {
         bundle.putString("appid", this.a);
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(b));
         intent.putExtra(MobileQQ.KEY_REQUEST_CODE, this.mRequestCode);
-        intent.putExtra(MobileQQ.KEY_ACTION, "action_share_qq");
+        intent.putExtra("key_action", "action_share_qq");
         intent.putExtra(MobileQQ.KEY_PARAMS, bundle);
         try {
             ((Activity) this.mContext).startActivityForResult(intent, this.mRequestCode);

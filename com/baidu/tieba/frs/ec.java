@@ -1,95 +1,65 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.view.FrsPicVoteLayout;
+import com.baidu.tieba.frs.view.FrsPicVotePhotoFrame;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ec extends bv<com.baidu.tbadk.core.data.ab, ed> implements View.OnClickListener, PhotoLiveCardView.b {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ec(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-    }
+public class ec extends x.a {
+    public TextView aSh;
+    public UserIconBox ahN;
+    public UserIconBox ahO;
+    public TextView ahr;
+    public int aik;
+    public LinearLayout bjB;
+    public TextView bjC;
+    public TextView bjF;
+    public HeadImageView bjG;
+    public TextView bjK;
+    public LinearLayout bjO;
+    public TextView bnF;
+    public TbImageView bpB;
+    public View bpH;
+    public RelativeLayout bqe;
+    public TextView bqf;
+    public FrsPicVoteLayout bqg;
+    public FrsPicVotePhotoFrame bqh;
+    public FrsPicVotePhotoFrame bqi;
+    public FrsPicVotePhotoFrame bqj;
+    public TextView bqk;
+    public TextView bql;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
-    public ed b(ViewGroup viewGroup) {
-        return new ed(LayoutInflater.from(this.mContext).inflate(t.h.frs_item_single_photolivecard, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bv, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ab abVar, ed edVar) {
-        super.a(i, view, viewGroup, (ViewGroup) abVar, (com.baidu.tbadk.core.data.ab) edVar);
-        if (edVar.ahU != this.mSkinType) {
-            com.baidu.tbadk.i.a.a(this.bdK.getPageContext(), view);
-            edVar.ahU = this.mSkinType;
-        }
-        PhotoLiveCardData sS = abVar.sS();
-        if (2 == b(sS)) {
-            edVar.blk.setShowContent(true);
-            edVar.blk.setShowCover(false);
-            edVar.blk.setShowExpression(false);
-        } else {
-            edVar.blk.setShowContent(false);
-            edVar.blk.setShowCover(true);
-            edVar.blk.setShowExpression(true);
-        }
-        edVar.blk.setChooseStyle(sS.getShowStyle());
-        edVar.blk.setShowLiveIcon(true);
-        edVar.blk.setHeadPaddingTop(t.e.ds24);
-        edVar.blk.setPortraitClicklistener(this);
-        edVar.blk.setShowImage(com.baidu.tbadk.core.l.rn().rt());
-        if (sS.isShowDiffViewInSameAdapter()) {
-            edVar.blk.setShowBottom(true);
-            edVar.blk.setShowRefreshTimeInButtom(true);
-            edVar.blk.setShowHeadLiveIcon(true);
-            edVar.blk.setShowRefreshTimeInHead(false);
-            edVar.blk.setContentPaddingBottom(0);
-        } else {
-            edVar.blk.setShowBottom(false);
-            edVar.blk.setShowRefreshTimeInHead(true);
-            edVar.blk.setShowHeadLiveIcon(false);
-            edVar.blk.setShowRefreshTimeInButtom(false);
-            edVar.blk.setContentPaddingBottom(t.e.ds36);
-        }
-        edVar.blk.setData(sS);
-        return view;
-    }
-
-    private int b(PhotoLiveCardData photoLiveCardData) {
-        return (photoLiveCardData == null || StringUtils.isNull(photoLiveCardData.getPhotoLiveCover())) ? 2 : 1;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() != t.g.live_card_layout || !this.bdK.checkUpIsLogin()) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.b
-    public void onPortraitClick(View view) {
-        Object tag = view.getTag();
-        if (tag instanceof PhotoLiveCardData) {
-            PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
-            if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10246").aa(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
-            }
-        }
+    public ec(View view) {
+        super(view);
+        this.aik = 3;
+        this.bjO = (LinearLayout) view.findViewById(t.g.frs_item_user_info_view);
+        this.bjB = (LinearLayout) view.findViewById(t.g.frs_list_item_top_linear_layout);
+        this.bqe = (RelativeLayout) view.findViewById(t.g.frs_pic_vote_top_view);
+        this.bpB = (TbImageView) view.findViewById(t.g.theme_card_view);
+        this.bjG = (HeadImageView) view.findViewById(t.g.frs_photo);
+        this.ahN = (UserIconBox) view.findViewById(t.g.frs_user_tshow_icon_box);
+        this.ahO = (UserIconBox) view.findViewById(t.g.frs_user_icon_box);
+        this.bjF = (TextView) view.findViewById(t.g.frs_lv_author);
+        this.ahr = (TextView) view.findViewById(t.g.frs_lv_reply_time);
+        this.aSh = (TextView) view.findViewById(t.g.frs_lv_title);
+        this.bjC = (TextView) view.findViewById(t.g.abstract_text);
+        this.bjK = (TextView) view.findViewById(t.g.frs_reply_num);
+        this.bqf = (TextView) view.findViewById(t.g.frs_vote_num);
+        this.bnF = (TextView) view.findViewById(t.g.frs_item_location_address);
+        this.bpH = view.findViewById(t.g.frs_item_location_sep);
+        this.bqg = (FrsPicVoteLayout) view.findViewById(t.g.vote_img_layout);
+        this.bqh = (FrsPicVotePhotoFrame) view.findViewById(t.g.frs_pic_vote_photoframe_1);
+        this.bqi = (FrsPicVotePhotoFrame) view.findViewById(t.g.frs_pic_vote_photoframe_2);
+        this.bqj = (FrsPicVotePhotoFrame) view.findViewById(t.g.frs_pic_vote_photoframe_3);
+        this.bqk = (TextView) view.findViewById(t.g.frs_pic_vote_total_option_num);
+        this.bql = (TextView) view.findViewById(t.g.frs_pic_vote_now_state);
+        view.setBackgroundResource(t.d.transparent);
     }
 }

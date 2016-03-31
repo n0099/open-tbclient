@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e ub = null;
-    private HashMap<String, d> uc;
+    private static e uk = null;
+    private HashMap<String, d> ul;
 
     private e() {
-        this.uc = null;
-        this.uc = new HashMap<>();
+        this.ul = null;
+        this.ul = new HashMap<>();
     }
 
     public static synchronized e gE() {
         e eVar;
         synchronized (e.class) {
-            if (ub == null) {
-                ub = new e();
+            if (uk == null) {
+                uk = new e();
             }
-            eVar = ub;
+            eVar = uk;
         }
         return eVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.uc.containsKey(cVar.getName())) {
-            this.uc.put(cVar.getName(), new d(cVar));
+        if (cVar != null && !this.ul.containsKey(cVar.getName())) {
+            this.ul.put(cVar.getName(), new d(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<d> it = this.uc.values().iterator();
+        Iterator<d> it = this.ul.values().iterator();
         while (it.hasNext() && !it.next().ah(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         d dVar;
-        if (i >= 0 && (dVar = this.uc.get(str)) != null) {
-            return dVar.V(i);
+        if (i >= 0 && (dVar = this.ul.get(str)) != null) {
+            return dVar.U(i);
         }
         return false;
     }
 
     public int ai(String str) {
-        d dVar = this.uc.get(str);
+        d dVar = this.ul.get(str);
         if (dVar != null) {
             return dVar.getType();
         }
@@ -55,20 +55,20 @@ public class e {
     }
 
     public void clear() {
-        if (this.uc != null) {
+        if (this.ul != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (d dVar : this.uc.values()) {
+            for (d dVar : this.ul.values()) {
                 if (dVar != null) {
-                    dVar.Y(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.tW, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.tX, dVar.getDefaultType());
+                    dVar.X(0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.uf, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.ug, dVar.getDefaultType());
                 }
             }
             edit.commit();
         }
     }
 
-    public void e(Class<?> cls) {
+    public void f(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {

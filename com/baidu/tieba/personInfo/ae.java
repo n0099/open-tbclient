@@ -5,11 +5,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class ae implements View.OnTouchListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(f fVar) {
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // android.view.View.OnTouchListener

@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ c anD;
+    final /* synthetic */ c anU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.anD = cVar;
+        this.anU = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.anD.F(view);
+        this.anU.G(view);
     }
 }

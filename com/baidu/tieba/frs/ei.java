@@ -1,27 +1,48 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import android.content.Context;
 /* loaded from: classes.dex */
-class ei implements TbImageView.a {
-    final /* synthetic */ ee blm;
-    private final /* synthetic */ TbImageView bln;
+public class ei {
+    private long bqv;
+    private long bqw;
+    private long bqx;
+    private long bqy;
+    private long bqz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ei(ee eeVar, TbImageView tbImageView) {
-        this.blm = eeVar;
-        this.bln = tbImageView;
+    public ei(Context context) {
+        aB(0L);
+        aC(0L);
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
-        if (!z) {
-            this.bln.reset();
-            this.bln.setImageResource(t.f.pic_interview_top);
-        }
+    public void aB(long j) {
+        this.bqv = j;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    public void aC(long j) {
+        this.bqw = j;
+    }
+
+    public long Sq() {
+        return this.bqw + this.bqv + this.bqx;
+    }
+
+    public void aD(long j) {
+        this.bqx = j;
+    }
+
+    public void aE(long j) {
+        this.bqy = j;
+    }
+
+    public long Sr() {
+        return this.bqy;
+    }
+
+    public long Ss() {
+        return this.bqz;
+    }
+
+    public void aF(long j) {
+        this.bqz = j;
     }
 }

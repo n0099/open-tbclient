@@ -5,15 +5,16 @@ public class f {
     public String mClientId;
     public String mCuid;
     public String mNetType;
-    public String wB;
-    public String wC;
-    public String wD;
-    public String wE;
-    public String wF;
-    public String wG;
-    public String wH;
-    public String wI;
-    public String wJ;
-    public String wK;
-    public String wL;
+    public String wR;
+    public String wS;
+    public String wT;
+    public String wU;
+    public String wV;
+    public String wW;
+    public String wX;
+    public String wY;
+    public String wZ;
+    public String xa;
+    public String xb;
+    public String xc;
 }

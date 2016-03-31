@@ -1,20 +1,21 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e implements ai {
+public class e implements ak {
     private String avatar;
-    private int dNh;
-    private int dNi;
-    private int dNj;
-    private int dNk;
-    private boolean dNl;
-    private boolean dNm;
-    private boolean dNn;
-    private boolean dNo;
-    private int dNp;
+    private boolean dfO;
+    private int efH;
+    private int efI;
+    private int efJ;
+    private int efK;
+    private boolean efL;
+    private boolean efM;
+    private boolean efN;
+    private int efO;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -32,70 +33,70 @@ public class e implements ai {
         return this.avatar;
     }
 
-    public int aIT() {
-        return this.dNh;
+    public int aPJ() {
+        return this.efH;
     }
 
-    public int aIU() {
-        return this.dNi;
+    public int aPK() {
+        return this.efI;
     }
 
     public int getUserLevel() {
         return this.userLevel;
     }
 
-    public int aIV() {
-        return this.dNj;
+    public int aPL() {
+        return this.efJ;
     }
 
-    public int aIW() {
-        return this.dNk;
+    public int aPM() {
+        return this.efK;
     }
 
-    public void nO(int i) {
-        this.dNh = i;
+    public void oV(int i) {
+        this.efH = i;
     }
 
-    public void nP(int i) {
-        this.dNi = i;
+    public void oW(int i) {
+        this.efI = i;
     }
 
     public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean aIX() {
-        return this.dNl;
+    public boolean aPN() {
+        return this.dfO;
     }
 
-    public void hH(boolean z) {
-        this.dNl = z;
-        this.dNh = 1;
+    public void iw(boolean z) {
+        this.dfO = z;
+        this.efH = 1;
     }
 
-    public boolean aIY() {
-        return this.dNn;
+    public boolean aPO() {
+        return this.efM;
     }
 
-    public void hI(boolean z) {
-        this.dNn = z;
-        this.dNh = 0;
+    public void ix(boolean z) {
+        this.efM = z;
+        this.efH = 0;
     }
 
-    public boolean aIZ() {
-        return this.dNo;
+    public boolean aPP() {
+        return this.efN;
     }
 
-    public void hJ(boolean z) {
-        this.dNo = z;
+    public void iy(boolean z) {
+        this.efN = z;
     }
 
-    public int aJa() {
-        return this.dNp;
+    public int aPQ() {
+        return this.efO;
     }
 
-    public void nQ(int i) {
-        this.dNp = i;
+    public void oX(int i) {
+        this.efO = i;
     }
 
     public String getErrorMsg() {
@@ -106,12 +107,12 @@ public class e implements ai {
         this.errorMsg = str;
     }
 
-    public boolean aJb() {
-        return this.dNm;
+    public boolean aPR() {
+        return this.efL;
     }
 
-    public void hK(boolean z) {
-        this.dNm = z;
+    public void iz(boolean z) {
+        this.efL = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -119,25 +120,25 @@ public class e implements ai {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.dNh = jSONObject.optInt("is_sign_in");
-            this.dNi = jSONObject.optInt("cont_sign_num");
+            this.efH = jSONObject.optInt("is_sign_in");
+            this.efI = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt("user_level");
-            this.dNj = jSONObject.optInt("user_exp");
-            this.dNk = jSONObject.optInt("need_exp");
-            if (this.dNh != 0) {
-                this.dNl = true;
-                this.dNn = false;
+            this.efJ = jSONObject.optInt("user_exp");
+            this.efK = jSONObject.optInt("need_exp");
+            if (this.efH != 0) {
+                this.dfO = true;
+                this.efM = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
-    public ArrayList<com.baidu.tbadk.core.util.ah> getImages() {
-        ArrayList<com.baidu.tbadk.core.util.ah> arrayList = new ArrayList<>();
-        com.baidu.tbadk.core.util.ah ahVar = new com.baidu.tbadk.core.util.ah();
-        ahVar.imgUrl = this.avatar;
-        ahVar.acq = 10;
-        arrayList.add(ahVar);
+    @Override // com.baidu.tbadk.core.util.ak
+    public ArrayList<aj> getImages() {
+        ArrayList<aj> arrayList = new ArrayList<>();
+        aj ajVar = new aj();
+        ajVar.imgUrl = this.avatar;
+        ajVar.abD = 10;
+        arrayList.add(ajVar);
         return arrayList;
     }
 }

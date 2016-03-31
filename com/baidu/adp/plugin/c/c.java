@@ -7,11 +7,11 @@ import com.baidu.adp.plugin.PluginCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements d<Message<?>> {
-    final /* synthetic */ a DR;
+    final /* synthetic */ a DX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.DR = aVar;
+        this.DX = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.d
@@ -19,18 +19,18 @@ public class c implements d<Message<?>> {
         if (message == null) {
             return false;
         }
-        String aA = com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().aA(message.getCmd());
-        if (TextUtils.isEmpty(aA) || com.baidu.adp.plugin.packageManager.pluginSettings.c.mc().bJ(aA)) {
+        String az = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().az(message.getCmd());
+        if (TextUtils.isEmpty(az) || com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().bH(az)) {
             return false;
         }
-        if (PluginCenter.getInstance().hasInstance(aA)) {
-            if (PluginCenter.getInstance().isLoaded(aA)) {
+        if (PluginCenter.getInstance().hasInstance(az)) {
+            if (PluginCenter.getInstance().isLoaded(az)) {
                 return false;
             }
-            this.DR.a(aA, message);
+            this.DX.a(az, message);
             return true;
         }
-        this.DR.a(aA, message);
-        return PluginCenter.getInstance().launch(aA).CF;
+        this.DX.a(az, message);
+        return PluginCenter.getInstance().launch(az).CK;
     }
 }

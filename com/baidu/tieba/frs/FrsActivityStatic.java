@@ -19,19 +19,19 @@ import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
 public class FrsActivityStatic {
-    public static boolean bgR = true;
-    public static boolean bgS = true;
-    public static final CustomMessageListener bgT = new aw(CmdConfigCustom.MSG_NEW);
-    private static final CustomMessageListener bgU = new ax(CmdConfigCustom.MSG_READ);
+    public static boolean blC = true;
+    public static boolean blD = true;
+    public static final CustomMessageListener blE = new ax(CmdConfigCustom.MSG_NEW);
+    private static final CustomMessageListener blF = new az(CmdConfigCustom.MSG_READ);
 
     static {
-        Pt();
-        Pu();
-        Jw();
-        MessageManager.getInstance().registerListener(bgT);
-        MessageManager.getInstance().registerListener(bgU);
+        Rj();
+        Rk();
+        KR();
+        MessageManager.getInstance().registerListener(blE);
+        MessageManager.getInstance().registerListener(blF);
         com.baidu.tieba.tbadkCore.a.a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.am(TbConfig.FRS_ADDRESS, 301001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.au(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -40,39 +40,43 @@ public class FrsActivityStatic {
         tbHttpMessageTask.setIsImm(true);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.aNh();
+        com.baidu.tieba.tbadkCore.location.d.aUj();
+        ba baVar = new ba();
+        baVar.setSelfExecute(true);
+        baVar.setPriority(4);
+        baVar.execute(new Void[0]);
     }
 
-    private static void Pt() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new ay());
+    private static void Rj() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new bb());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Pu() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new az());
+    private static void Rk() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new bc());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Jw() {
-        com.baidu.tbadk.core.util.be.wt().a(new ba());
+    private static void KR() {
+        com.baidu.tbadk.core.util.bg.wM().a(new bd());
     }
 
     public static void j(TbPageContext<?> tbPageContext) {
         TiebaStatic.log("c10103");
         if (tbPageContext != null) {
-            PluginNetConfigInfos.PluginConfig pluginConfig = PluginPackageManager.lD().getPluginConfig("com.baidu.tieba.pluginHomework");
+            PluginNetConfigInfos.PluginConfig pluginConfig = PluginPackageManager.ls().getPluginConfig("com.baidu.tieba.pluginHomework");
             if (pluginConfig == null) {
                 UtilHelper.showToast(tbPageContext.getPageActivity(), t.j.plugin_config_not_found);
                 return;
             }
             boolean appResponseToCmd = TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_HOMEWORK);
-            if (PluginPackageManager.lD().bw("com.baidu.tieba.pluginHomework")) {
-                if (PluginPackageManager.lD().bx("com.baidu.tieba.pluginHomework")) {
-                    com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, t.j.plugin_homework_not_install, new bb(tbPageContext), new bc());
+            if (PluginPackageManager.ls().bu("com.baidu.tieba.pluginHomework")) {
+                if (PluginPackageManager.ls().bv("com.baidu.tieba.pluginHomework")) {
+                    com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, t.j.plugin_homework_not_install, new be(tbPageContext), new bf());
                     return;
-                } else if (PluginPackageManager.lD().by("com.baidu.tieba.pluginHomework")) {
+                } else if (PluginPackageManager.ls().bw("com.baidu.tieba.pluginHomework")) {
                     a(tbPageContext, pluginConfig, true);
                     return;
                 } else if (appResponseToCmd) {
@@ -103,11 +107,11 @@ public class FrsActivityStatic {
                 string = TbadkCoreApplication.m411getInst().getString(t.j.download);
             }
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.cE(format);
-            aVar.a(string, new bd(tbPageContext, pluginConfig));
-            aVar.b(TbadkCoreApplication.m411getInst().getString(t.j.cancel), new be());
+            aVar.cC(format);
+            aVar.a(string, new bg(tbPageContext, pluginConfig));
+            aVar.b(TbadkCoreApplication.m411getInst().getString(t.j.cancel), new ay());
             aVar.b(tbPageContext);
-            aVar.uj();
+            aVar.up();
         }
     }
 }

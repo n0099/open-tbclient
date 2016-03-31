@@ -1,32 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.tbadkCore.aa;
+import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements aa.a {
-    final /* synthetic */ cn bjV;
+public class ct implements BannerView.a {
+    final /* synthetic */ cs bpe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cn cnVar) {
-        this.bjV = cnVar;
+    public ct(cs csVar) {
+        this.bpe = csVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Qs() {
-        FrsActivity frsActivity;
-        frsActivity = this.bjV.bgW;
-        frsActivity.Pj();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Qt() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bjV.bjt;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.bjV.bjt;
-            bdTypeListView2.setSelection(0);
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void Bp() {
+        com.baidu.tbadk.core.data.p pVar;
+        com.baidu.tbadk.core.data.p pVar2;
+        pVar = this.bpe.boT;
+        if (pVar != null) {
+            pVar2 = this.bpe.boT;
+            if (pVar2.getType() == 2) {
+                this.bpe.RF();
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void Bq() {
+        this.bpe.RT();
     }
 }

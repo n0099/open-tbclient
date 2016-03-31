@@ -1,38 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class eq implements View.OnClickListener {
-    private final /* synthetic */ String bUY;
-    private final /* synthetic */ MetaData biQ;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.d.a biU;
-    final /* synthetic */ dz cSw;
-
+class eq extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eq(dz dzVar, String str, com.baidu.tbadk.coreExtra.d.a aVar, MetaData metaData) {
-        this.cSw = dzVar;
-        this.bUY = str;
-        this.biU = aVar;
-        this.biQ = metaData;
+    public eq(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        if (!com.baidu.adp.lib.util.i.iZ()) {
-            pbActivity2 = this.cSw.cNL;
-            pbActivity2.showToast(t.j.neterror);
-            return;
-        }
-        pbActivity = this.cSw.cNL;
-        if (com.baidu.tbadk.core.util.bi.ah(pbActivity.getApplicationContext())) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10803").aa("tid", this.bUY).r("obj_locate", 3));
-            this.biU.a(true, this.biQ.getPortrait(), this.biQ.getUserId());
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        en.aya().a(1, customResponsedMessage);
     }
 }

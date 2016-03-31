@@ -9,12 +9,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e {
-    public static void Y(Context context, String str) {
+    public static void P(Context context, String str) {
         if (!StringUtils.isNull(str)) {
             Toast makeText = Toast.makeText(context, str, 0);
             if (makeText.getView() != null) {
@@ -27,7 +27,7 @@ public class e {
         }
     }
 
-    public static void e(Context context, View view) {
+    public static void g(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -35,7 +35,7 @@ public class e {
         toast.show();
     }
 
-    public static void d(Context context, String str, String str2, String str3) {
+    public static void b(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(t.h.post_write_or_reply_lay, (ViewGroup) null);
         View findViewById = inflate.findViewById(t.g.experience_score);
         TextView textView = (TextView) inflate.findViewById(t.g.success_text);
@@ -50,21 +50,21 @@ public class e {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        e(context, inflate);
+        g(context, inflate);
     }
 
-    public static void a(aa aaVar, WriteData writeData) {
+    public static void a(ab abVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            aaVar.p("is_location", "2");
-            Address y = com.baidu.adp.lib.e.a.gL().y(false);
-            if (y != null) {
-                aaVar.p("lat", String.valueOf(y.getLatitude()));
-                aaVar.p("lng", String.valueOf(y.getLongitude()));
+            abVar.p("is_location", "2");
+            Address x = com.baidu.adp.lib.e.a.gL().x(false);
+            if (x != null) {
+                abVar.p("lat", String.valueOf(x.getLatitude()));
+                abVar.p("lng", String.valueOf(x.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aNb().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aUd().getLocationData();
             if (locationData != null) {
-                aaVar.p("name", locationData.aMX());
-                aaVar.p("sn", locationData.aMZ());
+                abVar.p("name", locationData.aTZ());
+                abVar.p("sn", locationData.aUb());
             }
         }
     }

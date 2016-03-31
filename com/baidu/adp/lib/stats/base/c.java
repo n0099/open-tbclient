@@ -2,12 +2,12 @@ package com.baidu.adp.lib.stats.base;
 /* loaded from: classes.dex */
 public class c {
     public String mFileName;
-    public long xm;
-    public long xn;
+    public long xD;
+    public long xE;
 
     public c(String str, long j, long j2) {
         this.mFileName = str;
-        this.xm = j;
-        this.xn = j2;
+        this.xD = j;
+        this.xE = j2;
     }
 }

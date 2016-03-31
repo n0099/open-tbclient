@@ -6,69 +6,69 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String dCA;
-    private int dCB;
-    private String dCE;
-    private JSONObject dCF;
-    private JSONObject dCz;
+    private JSONObject dUr;
+    private String dUs;
+    private int dUt;
+    private String dUw;
+    private JSONObject dUx;
     private String extInfo;
     private int pageNumber;
-    private long dCD = System.currentTimeMillis() / 1000;
-    private int dCC = i.jf();
+    private long dUv = System.currentTimeMillis() / 1000;
+    private int dUu = i.jl();
 
-    public void mh(String str) {
+    public void nq(String str) {
         this.extInfo = str;
     }
 
-    public void mi(String str) {
-        this.dCA = str;
+    public void nr(String str) {
+        this.dUs = str;
     }
 
-    public void no(int i) {
-        this.dCB = i;
+    public void or(int i) {
+        this.dUt = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void mj(String str) {
-        this.dCE = str;
+    public void ns(String str) {
+        this.dUw = str;
     }
 
-    public void bj(String str, String str2) {
-        if (this.dCz == null) {
-            this.dCz = new JSONObject();
+    public void bz(String str, String str2) {
+        if (this.dUr == null) {
+            this.dUr = new JSONObject();
         }
         try {
-            this.dCz.put(str, str2);
+            this.dUr.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject aEJ() {
-        if (this.dCF != null) {
-            return this.dCF;
+    public JSONObject aLB() {
+        if (this.dUx != null) {
+            return this.dUx;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.dCB);
-            jSONObject.put("da_type", this.dCA);
+            jSONObject.put("da_locate", this.dUt);
+            jSONObject.put("da_type", this.dUs);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.dCD);
-            jSONObject.put("net_type", this.dCC);
+            jSONObject.put("origin_time", this.dUv);
+            jSONObject.put("net_type", this.dUu);
             jSONObject.put("page_num", this.pageNumber);
-            jSONObject.put("da_price", this.dCE);
+            jSONObject.put("da_price", this.dUw);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
         } catch (JSONException e) {
         }
-        if (this.dCz != null) {
+        if (this.dUr != null) {
             try {
-                jSONObject.put("ext", this.dCz);
+                jSONObject.put("ext", this.dUr);
             } catch (Exception e2) {
             }
         }
-        this.dCF = jSONObject;
+        this.dUx = jSONObject;
         return jSONObject;
     }
 }

@@ -4,16 +4,16 @@ import com.baidu.tieba.frs.c.o;
 import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class a implements ff {
-    final /* synthetic */ FrsActivity bgz;
+class a implements fp {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+        this.blk = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ff
-    public void a(int i, int i2, fi fiVar, ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
+    @Override // com.baidu.tieba.frs.fp
+    public void a(int i, int i2, fr frVar, ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
         int i3;
         int i4;
         com.baidu.tieba.frs.c.o oVar;
@@ -25,77 +25,77 @@ class a implements ff {
         int i5;
         int i6;
         d.a aVar3 = new d.a();
-        if (fiVar != null) {
-            aVar3.isSuccess = fiVar.errCode == 0;
-            aVar3.errorCode = fiVar.errCode;
-            aVar3.errorMsg = fiVar.errMsg;
+        if (frVar != null) {
+            aVar3.isSuccess = frVar.errCode == 0;
+            aVar3.errorCode = frVar.errCode;
+            aVar3.errorMsg = frVar.errMsg;
             if (aVar3.isSuccess) {
                 if (arrayList == null || arrayList.size() == 0) {
-                    this.bgz.bfD.Qp();
-                } else if (fiVar.hasMore) {
-                    this.bgz.bfD.Qn();
-                } else if (fiVar.bmf) {
-                    cn cnVar = this.bgz.bfD;
-                    i5 = FrsActivity.bfn;
+                    this.blk.bko.Si();
+                } else if (frVar.hasMore) {
+                    this.blk.bko.Sg();
+                } else if (frVar.bru) {
+                    cs csVar = this.blk.bko;
+                    i5 = FrsActivity.bjX;
                     int size = arrayList.size();
-                    i6 = FrsActivity.bfo;
-                    cnVar.gy(i5 - (size * i6));
-                    this.bgz.bfD.Qo();
+                    i6 = FrsActivity.bjY;
+                    csVar.gP(i5 - (size * i6));
+                    this.blk.bko.Sh();
                 } else {
-                    this.bgz.bfD.Qp();
+                    this.blk.bko.Si();
                 }
             }
         } else {
-            fiVar = new fi();
-            fiVar.pn = 1;
-            fiVar.hasMore = false;
-            fiVar.bmf = false;
+            frVar = new fr();
+            frVar.pn = 1;
+            frVar.hasMore = false;
+            frVar.bru = false;
             if (arrayList != null) {
-                cn cnVar2 = this.bgz.bfD;
-                i3 = FrsActivity.bfn;
+                cs csVar2 = this.blk.bko;
+                i3 = FrsActivity.bjX;
                 int size2 = arrayList.size();
-                i4 = FrsActivity.bfo;
-                cnVar2.gy(i3 - (size2 * i4));
+                i4 = FrsActivity.bjY;
+                csVar2.gP(i3 - (size2 * i4));
             }
         }
-        oVar = this.bgz.bfR;
-        if (!oVar.ad(i, i2)) {
-            aVar = this.bgz.bfS;
-            if (aVar.Sd()) {
+        oVar = this.blk.bkC;
+        if (!oVar.aa(i, i2)) {
+            aVar = this.blk.bkD;
+            if (aVar.TR()) {
                 o.a aVar4 = new o.a();
-                aVar2 = this.bgz.bfS;
-                if (aVar2.Sf()) {
-                    aVar4.auF = this.bgz.bfD.KM().getHeaderViewsCount() - 2;
+                aVar2 = this.blk.bkD;
+                if (aVar2.TU()) {
+                    aVar4.avf = this.blk.bko.Mg().getHeaderViewsCount() - 2;
                 } else {
-                    aVar4.auF = this.bgz.bfD.KM().getHeaderViewsCount() - 1;
+                    aVar4.avf = this.blk.bko.Mg().getHeaderViewsCount() - 1;
                 }
                 aVar4.top = 0;
-                oVar4 = this.bgz.bfR;
+                oVar4 = this.blk.bkC;
                 oVar4.a(i, i2, aVar4);
             }
         }
         if (i == 1) {
-            this.bgz.bfP = false;
-            this.bgz.bgd.a(this.bgz.bfQ.getType(), false, aVar3);
-            this.bgz.bfP = true;
+            this.blk.bkA = false;
+            this.blk.bkP.a(this.blk.bkB.getType(), false, aVar3);
+            this.blk.bkA = true;
         } else {
-            if (fiVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
+            if (frVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
                 if (340001 == aVar3.errorCode) {
-                    this.bgz.showNetRefreshViewNoClick(this.bgz.bfD.getRootView(), aVar3.errorMsg, true);
+                    this.blk.showNetRefreshViewNoClick(this.blk.bko.getRootView(), aVar3.errorMsg, true);
                 } else {
-                    this.bgz.showNetRefreshView(this.bgz.bfD.getRootView(), aVar3.errorMsg, true);
+                    this.blk.showNetRefreshView(this.blk.bko.getRootView(), aVar3.errorMsg, true);
                 }
             }
-            this.bgz.bfD.cs(false);
-            if (this.bgz.Po().Rc() != null) {
-                this.bgz.bfF = this.bgz.Po().Rc();
+            this.blk.bko.cE(false);
+            if (this.blk.Rd().SP() != null) {
+                this.blk.bkq = this.blk.Rd().SP();
             }
-            this.bgz.Pa();
+            this.blk.QP();
         }
-        oVar2 = this.bgz.bfR;
-        if (oVar2.Sk() != null) {
-            oVar3 = this.bgz.bfR;
-            oVar3.Sk().a(i, i2, fiVar, arrayList);
+        oVar2 = this.blk.bkC;
+        if (oVar2.TZ() != null) {
+            oVar3 = this.blk.bkC;
+            oVar3.TZ().a(i, i2, frVar, arrayList);
         }
     }
 }

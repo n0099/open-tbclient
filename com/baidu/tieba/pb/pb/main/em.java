@@ -1,28 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em implements View.OnClickListener {
-    final /* synthetic */ dz cSw;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cSy;
+public class em extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ el dkr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public em(dz dzVar, com.baidu.tieba.tbadkCore.data.r rVar) {
-        this.cSw = dzVar;
-        this.cSy = rVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public em(el elVar, int i, int i2) {
+        super(i, i2);
+        this.dkr = elVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10630").aa("obj_id", this.cSy.getAuthor().getUserId()));
-        pbActivity = this.cSw.cNL;
-        if (pbActivity.cML.cSE != null) {
-            pbActivity2 = this.cSw.cNL;
-            pbActivity2.cML.cSE.onClick(view);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        BdUniqueId bdUniqueId;
+        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
+            z = this.dkr.dkp;
+            if (!z) {
+                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
+                bdUniqueId = this.dkr.mTag;
+                if (tag == bdUniqueId && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                        this.dkr.a((pbPageSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                        this.dkr.a((pbPageHttpResponseMessage) responsedMessage);
+                    }
+                }
+            }
         }
     }
 }

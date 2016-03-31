@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements a.b {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(f fVar) {
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     @Override // com.baidu.tieba.person.a.b
@@ -21,9 +21,9 @@ public class ao implements a.b {
             if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                 str2 = imageUploadResult.picInfo.bigPic.picUrl;
             }
-            f fVar = this.diG;
-            list = this.diG.dib;
-            fVar.g(str2, list);
+            f fVar = this.this$0;
+            list = this.this$0.dCD;
+            fVar.f(str2, list);
         }
     }
 }

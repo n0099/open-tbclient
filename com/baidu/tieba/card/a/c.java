@@ -1,68 +1,66 @@
 package com.baidu.tieba.card.a;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.ae;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.card.bc;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public abstract class c extends b implements ai {
-    private String aRL;
-    private int aRM;
-    private String aRN;
-    private String aRO;
+public abstract class c extends b implements ak {
+    private String aVt;
+    private int aVu;
+    private String aVv;
+    private String aVw;
     private String mSource;
 
     public void setWeight(String str) {
-        this.aRL = str;
+        this.aVt = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void fB(int i) {
-        this.aRM = i;
+    public void fP(int i) {
+        this.aVu = i;
     }
 
-    public void gS(String str) {
-        this.aRN = str;
+    public void hf(String str) {
+        this.aVv = str;
     }
 
-    public int Ke() {
-        return this.aRM;
+    public int Ly() {
+        return this.aVu;
     }
 
-    public String Kf() {
-        return String.valueOf(this.mSource) + ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR + this.aRM + ContentProviderProxy.PROVIDER_FRAGMENT_SEPARATOR + this.aRN;
+    public String Lz() {
+        return String.valueOf(this.mSource) + "#" + this.aVu + "#" + this.aVv;
     }
 
     public String getWeight() {
-        return this.aRL;
+        return this.aVt;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String Kg() {
-        return this.aRN;
+    public String LA() {
+        return this.aVv;
     }
 
-    public String Kh() {
-        return this.aRO;
+    public String LB() {
+        return this.aVw;
     }
 
-    public void gT(String str) {
-        this.aRO = str;
+    public void hg(String str) {
+        this.aVw = str;
     }
 
-    public ah Ki() {
+    public as LC() {
         return null;
     }
 
@@ -70,41 +68,41 @@ public abstract class c extends b implements ai {
         return true;
     }
 
-    public au gU(String str) {
-        ah Ki = Ki();
-        if (Ki == null) {
+    public aw hh(String str) {
+        as LC = LC();
+        if (LC == null) {
             return null;
         }
-        return new au(str).aa(ImageViewerConfig.FORUM_ID, String.valueOf(Ki.getFid())).aa("tid", String.valueOf(Ki.getTid())).aa("obj_param1", getWeight()).aa("obj_source", getSource()).r("obj_locate", Ke()).aa("obj_param3", ae.JU()).r("obj_type", Kj());
+        return new aw(str).ac("fid", String.valueOf(LC.getFid())).ac("tid", String.valueOf(LC.getTid())).ac("obj_param1", getWeight()).ac("obj_source", getSource()).r("obj_locate", Ly()).ac("obj_param3", bc.Lr()).r("obj_type", LD());
     }
 
-    private int Kj() {
-        boolean z;
-        ah Ki = Ki();
-        if (Ki == null) {
+    private int LD() {
+        int i;
+        as LC = LC();
+        if (LC == null) {
             return 0;
         }
-        boolean z2 = (StringUtils.isNull(Ki.tr()) && StringUtils.isNull(Ki.getTitle())) ? false : true;
-        ArrayList<MediaData> medias = Ki.getMedias();
-        if (medias != null) {
+        ArrayList<MediaData> medias = LC.getMedias();
+        if (medias == null) {
+            i = 0;
+        } else {
             Iterator<MediaData> it = medias.iterator();
+            i = 0;
             while (it.hasNext()) {
                 MediaData next = it.next();
-                if (next != null && (next.getType() == 3 || next.getType() == 5)) {
-                    z = true;
-                    break;
+                if (next != null && next.getType() == 3) {
+                    i++;
                 }
             }
         }
-        z = false;
-        return z2 ? z ? 3 : 1 : z ? 2 : 0;
+        return i;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
-    public ArrayList<com.baidu.tbadk.core.util.ah> getImages() {
-        ah Ki = Ki();
-        if (Ki != null) {
-            return Ki.getImages();
+    @Override // com.baidu.tbadk.core.util.ak
+    public ArrayList<aj> getImages() {
+        as LC = LC();
+        if (LC != null) {
+            return LC.getImages();
         }
         return null;
     }

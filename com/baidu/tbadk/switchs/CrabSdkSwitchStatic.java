@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class CrabSdkSwitchStatic extends a {
     static {
-        e.gE().e(CrabSdkSwitchStatic.class);
+        e.gE().f(CrabSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

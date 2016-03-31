@@ -10,19 +10,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements View.OnClickListener {
-    final /* synthetic */ bc dji;
+    final /* synthetic */ bc dDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(bc bcVar) {
-        this.dji = bcVar;
+        this.dDI = bcVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BaseFragmentActivity baseFragmentActivity;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.au("c10606"));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10606"));
         MessageManager messageManager = MessageManager.getInstance();
-        baseFragmentActivity = this.dji.cZG;
+        baseFragmentActivity = this.dDI.duj;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), 0L)));
     }
 }

@@ -1,20 +1,18 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements NoNetworkView.a {
-    final /* synthetic */ AtListActivity erI;
+public class e implements View.OnClickListener {
+    final /* synthetic */ AtListActivity eLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.erI = atListActivity;
+        this.eLC = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ay(boolean z) {
-        if (!z) {
-            return;
-        }
-        this.erI.nJ(null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.eLC.Je.requestFocus();
     }
 }

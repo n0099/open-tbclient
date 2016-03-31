@@ -18,35 +18,35 @@ class c extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> qN;
-        y yVar;
+        ArrayList<com.baidu.tbadk.mainTab.b> qe;
+        aa aaVar;
         boolean z;
-        y yVar2;
+        aa aaVar2;
         int i;
-        y yVar3;
+        aa aaVar3;
         boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qN = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qN()) != null && qN.size() != 0) {
-            yVar = this.this$0.eaD;
-            yVar.R(qN);
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qe = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qe()) != null && qe.size() != 0) {
+            aaVar = this.this$0.etw;
+            aaVar.S(qe);
             z = this.this$0.isUserChanged;
             if (!z) {
-                z2 = this.this$0.eay;
+                z2 = this.this$0.etr;
                 if (!z2) {
-                    this.this$0.Y(this.this$0.getIntent());
+                    this.this$0.w(this.this$0.getIntent());
                     this.this$0.isUserChanged = false;
-                    this.this$0.eay = false;
-                    yVar3 = this.this$0.eaD;
-                    yVar3.aOl();
+                    this.this$0.etr = false;
+                    aaVar3 = this.this$0.etw;
+                    aaVar3.aVn();
                 }
             }
-            yVar2 = this.this$0.eaD;
-            FragmentTabHost aOn = yVar2.aOn();
-            i = this.this$0.eax;
-            aOn.setCurrentTabByType(i);
+            aaVar2 = this.this$0.etw;
+            FragmentTabHost aVp = aaVar2.aVp();
+            i = this.this$0.etq;
+            aVp.setCurrentTabByType(i);
             this.this$0.isUserChanged = false;
-            this.this$0.eay = false;
-            yVar3 = this.this$0.eaD;
-            yVar3.aOl();
+            this.this$0.etr = false;
+            aaVar3 = this.this$0.etw;
+            aaVar3.aVn();
         }
     }
 }

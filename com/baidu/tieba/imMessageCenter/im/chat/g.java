@@ -11,13 +11,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity chF;
+    final /* synthetic */ PersonalChatActivity csk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.chF = personalChatActivity;
+        this.csk = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,36 +46,36 @@ class g extends CustomMessageListener {
                         JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
                         if (optJSONObject != null) {
                             long optLong = optJSONObject.optLong("user_id");
-                            personalMsglistModel = this.chF.chy;
+                            personalMsglistModel = this.csk.csd;
                             if (optLong == com.baidu.adp.lib.h.b.c(personalMsglistModel.getUser().getUserId(), 0L)) {
                                 String optString = optJSONObject.optString("message");
                                 if (cmd.equals("apply_new_friend")) {
-                                    personalChatView6 = this.chF.chz;
+                                    personalChatView6 = this.csk.cse;
                                     personalChatView6.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                                    personalMsglistModel7 = this.chF.chy;
+                                    personalMsglistModel7 = this.csk.csd;
                                     personalMsglistModel7.a(PersonalMsglistModel.CardStatus.AGREE);
                                 } else if (cmd.equals("passed_new_friend")) {
-                                    personalChatView4 = this.chF.chz;
+                                    personalChatView4 = this.csk.cse;
                                     personalChatView4.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel5 = this.chF.chy;
+                                    personalMsglistModel5 = this.csk.csd;
                                     personalMsglistModel5.a(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel6 = this.chF.chy;
+                                    personalMsglistModel6 = this.csk.csd;
                                     personalMsglistModel6.setIsFriend(1);
-                                    personalChatView5 = this.chF.chz;
+                                    personalChatView5 = this.csk.cse;
                                     personalChatView5.getBtnGroupInfo().setVisibility(0);
                                 } else if (cmd.equals("apply_add_friend")) {
-                                    personalChatView3 = this.chF.chz;
+                                    personalChatView3 = this.csk.cse;
                                     personalChatView3.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                                    personalMsglistModel4 = this.chF.chy;
+                                    personalMsglistModel4 = this.csk.csd;
                                     personalMsglistModel4.a(PersonalMsglistModel.CardStatus.WAIT);
                                 } else if (cmd.equals("apply_pass_friend")) {
-                                    personalChatView = this.chF.chz;
+                                    personalChatView = this.csk.cse;
                                     personalChatView.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel2 = this.chF.chy;
+                                    personalMsglistModel2 = this.csk.csd;
                                     personalMsglistModel2.a(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel3 = this.chF.chy;
+                                    personalMsglistModel3 = this.csk.csd;
                                     personalMsglistModel3.setIsFriend(1);
-                                    personalChatView2 = this.chF.chz;
+                                    personalChatView2 = this.csk.cse;
                                     personalChatView2.getBtnGroupInfo().setVisibility(0);
                                 }
                             }

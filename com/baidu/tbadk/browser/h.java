@@ -14,7 +14,7 @@ class h extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            f.W(TbadkCoreApplication.m411getInst());
+            f.J(TbadkCoreApplication.m411getInst());
         }
     }
 }

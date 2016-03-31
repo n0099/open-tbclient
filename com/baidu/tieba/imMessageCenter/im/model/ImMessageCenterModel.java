@@ -34,9 +34,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData aO = com.baidu.tieba.im.settingcache.c.aeR().aO(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (aO != null) {
-                buildNormalItem.setGroupSetting(aO);
+            GroupSettingItemData bb = com.baidu.tieba.im.settingcache.c.aik().bb(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bb != null) {
+                buildNormalItem.setGroupSetting(bb);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -56,9 +56,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if (buildNormalItem != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData aO = j.aeU().aO(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (aO != null) {
-                    buildNormalItem.setGroupSetting(aO);
+                PersonalSettingItemData bb = j.ain().bb(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                if (bb != null) {
+                    buildNormalItem.setGroupSetting(bb);
                 }
                 insertShowData(buildNormalItem, this.mList);
             }

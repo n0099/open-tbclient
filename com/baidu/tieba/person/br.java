@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity cZq;
+    final /* synthetic */ PersonListActivity dtT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(PersonListActivity personListActivity) {
-        this.cZq = personListActivity;
+        this.dtT = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,13 +23,13 @@ public class br implements View.OnClickListener {
         bu buVar3;
         if (view.getTag() instanceof Integer) {
             int intValue = ((Integer) view.getTag()).intValue();
-            buVar = this.cZq.cZl;
+            buVar = this.dtT.dtO;
             if (buVar != null) {
-                buVar2 = this.cZq.cZl;
-                if (buVar2.getItemViewType(this.cZq.cYM) == 0) {
-                    buVar3 = this.cZq.cZl;
+                buVar2 = this.dtT.dtO;
+                if (buVar2.getItemViewType(this.dtT.dto) == 0) {
+                    buVar3 = this.dtT.dtO;
                     UserData userData = (UserData) buVar3.getItem(intValue);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.cZq.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.dtT.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
                 }
             }
         }

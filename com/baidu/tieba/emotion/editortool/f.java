@@ -11,6 +11,6 @@ class f implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_VALID, Boolean.valueOf(x.Lz().fg(customMessage.getData())));
+        return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_VALID, Boolean.valueOf(x.Nn().fo(customMessage.getData())));
     }
 }

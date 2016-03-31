@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
-    private int BF;
-    private com.baidu.tbadk.img.b aqu;
-    private AlbumActivity emU;
-    private Map<Integer, Boolean> enh = new HashMap();
+    private int Ca;
+    private com.baidu.tbadk.img.b aqL;
+    private AlbumActivity eGS;
+    private Map<Integer, Boolean> eHe = new HashMap();
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.emU = albumActivity;
-        this.aqu = bVar;
-        this.BF = com.baidu.adp.lib.util.k.K(this.emU.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.emU.getPageContext().getContext()) - ((int) this.emU.getResources().getDimension(t.e.album_bottom_height));
+        this.eGS = albumActivity;
+        this.aqL = bVar;
+        this.Ca = com.baidu.adp.lib.util.k.B(this.eGS.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.C(this.eGS.getPageContext().getContext()) - ((int) this.eGS.getResources().getDimension(t.e.album_bottom_height));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -35,7 +35,7 @@ public class j extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         if (this.mList != null) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.b(this.mList, 0);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.y.b(this.mList, 0);
             if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId()) && this.mList.size() > 1) {
                 return this.mList.size() - 1;
             }
@@ -54,41 +54,42 @@ public class j extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo pv(int i) {
-        return (ImageFileInfo) com.baidu.tbadk.core.util.x.b(this.mList, i);
+    public ImageFileInfo qo(int i) {
+        return (ImageFileInfo) com.baidu.tbadk.core.util.y.b(this.mList, i);
     }
 
-    public boolean pw(int i) {
-        if (this.enh.get(Integer.valueOf(i)) == null) {
+    public boolean qp(int i) {
+        if (this.eHe.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.enh.get(Integer.valueOf(i)).booleanValue();
+        return this.eHe.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ImageFileInfo pv;
-        View inflate = LayoutInflater.from(this.emU.getPageContext().getContext()).inflate(t.h.album_big_image_item, (ViewGroup) null);
+        ImageFileInfo qo;
+        View inflate = LayoutInflater.from(this.eGS.getPageContext().getContext()).inflate(t.h.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(t.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
+        tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(0);
-        ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.b(this.mList, 0);
+        ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.y.b(this.mList, 0);
         if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId())) {
-            pv = pv(i + 1);
+            qo = qo(i + 1);
         } else {
-            pv = pv(i);
+            qo = qo(i);
         }
-        this.enh.put(Integer.valueOf(i), false);
-        if (pv != null) {
-            pv.clearPageActions();
-            pv.addPageAction(com.baidu.tbadk.img.effect.d.G(this.BF, this.mMaxHeight));
-            tbImageView.setTag(pv.toCachedKey(false));
-            if (this.aqu.a(pv, false) != null) {
+        this.eHe.put(Integer.valueOf(i), false);
+        if (qo != null) {
+            qo.clearPageActions();
+            qo.addPageAction(com.baidu.tbadk.img.effect.d.D(this.Ca, this.mMaxHeight));
+            tbImageView.setTag(qo.toCachedKey(false));
+            if (this.aqL.a(qo, false) != null) {
                 tbImageView.invalidate();
-                this.enh.put(Integer.valueOf(i), true);
+                this.eHe.put(Integer.valueOf(i), true);
             } else {
-                this.aqu.a(pv, new k(this, viewGroup, i), false);
+                this.aqL.a(qo, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

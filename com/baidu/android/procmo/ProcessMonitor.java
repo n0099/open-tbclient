@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -80,7 +81,7 @@ public class ProcessMonitor {
     private static String getNativeLibraryDir(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return Build.VERSION.SDK_INT >= 9 ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
+            return Build.VERSION.SDK_INT >= 9 ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, Plugin.SO_LIB_DIR_NAME).getAbsolutePath();
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";

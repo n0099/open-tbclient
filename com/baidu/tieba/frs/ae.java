@@ -1,16 +1,18 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements Runnable {
-    final /* synthetic */ FrsActivity bgz;
+public class ae implements a.b {
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(FrsActivity frsActivity) {
-        this.bgz = frsActivity;
+        this.blk = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.tbadkCore.util.m.mO(this.bgz.bfv);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

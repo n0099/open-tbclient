@@ -7,13 +7,13 @@ import com.baidu.tbadk.download.DownloadMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class h extends CustomMessageListener {
-    final /* synthetic */ f dDl;
+    final /* synthetic */ f dVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(f fVar, int i) {
         super(i);
-        this.dDl = fVar;
+        this.dVf = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ class h extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         List<DownloadData> data;
         if (customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-            this.dDl.Yc();
+            this.dVf.Zt();
         }
     }
 }

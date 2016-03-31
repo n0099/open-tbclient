@@ -4,24 +4,24 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements a.b {
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.voice.a MA;
-    final /* synthetic */ s Mz;
+    final /* synthetic */ s MF;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.voice.a MG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, com.baidu.tieba.tbadkCore.voice.a aVar) {
-        this.Mz = sVar;
-        this.MA = aVar;
+        this.MF = sVar;
+        this.MG = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.Mz.oA();
-        if (this.Mz.getVoiceManager() != null && this.Mz.mModel != null) {
-            if (this.MA != null) {
-                this.MA.bT(this.Mz.mModel.voiceId);
+        this.MF.ot();
+        if (this.MF.getVoiceManager() != null && this.MF.mModel != null) {
+            if (this.MG != null) {
+                this.MG.bR(this.MF.mModel.voiceId);
             }
-            this.Mz.mModel = null;
+            this.MF.mModel = null;
         }
     }
 }

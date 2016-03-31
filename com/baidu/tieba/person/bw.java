@@ -8,13 +8,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw extends HttpMessageListener {
-    final /* synthetic */ bv cZD;
+    final /* synthetic */ bv dug;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(bv bvVar, int i) {
         super(i);
-        this.cZD = bvVar;
+        this.dug = bvVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class bw extends HttpMessageListener {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode != 200 || error != 0) {
-                aVar = this.cZD.cZp;
+                aVar = this.dug.dtS;
                 if (aVar != null) {
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        personListActivity = this.cZD.cZB;
+                        personListActivity = this.dug.due;
                         errorString = personListActivity.getResources().getString(t.j.neterror);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
-                    aVar2 = this.cZD.cZp;
-                    aVar2.F(errorString, false);
+                    aVar2 = this.dug.dtS;
+                    aVar2.G(errorString, false);
                     return;
                 }
                 return;
             }
             ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
-            responseNetPersonListMessage.setModel(this.cZD);
+            responseNetPersonListMessage.setModel(this.dug);
             com.baidu.tieba.person.data.r data = responseNetPersonListMessage.getData();
-            aVar3 = this.cZD.cZp;
+            aVar3 = this.dug.dtS;
             if (aVar3 != null) {
-                aVar4 = this.cZD.cZp;
+                aVar4 = this.dug.dtS;
                 aVar4.d(data, false);
             }
         }

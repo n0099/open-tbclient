@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements be.a {
-    @Override // com.baidu.tbadk.core.util.be.a
+public class j implements bg.a {
+    @Override // com.baidu.tbadk.core.util.bg.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gg;
+        Bundle gp;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -40,13 +40,13 @@ public class j implements be.a {
             String substring = str.substring(4);
             String str4 = "";
             if (str.contains("body=")) {
-                str4 = com.baidu.tbadk.util.q.am(str, "body=");
+                str4 = com.baidu.tbadk.util.t.ar(str, "body=");
                 substring = substring.substring(0, substring.indexOf("?") - 1);
             }
             UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str4);
             return 0;
         } else if (str.contains("jump=outer")) {
-            f.D(tbPageContext.getPageActivity(), str);
+            f.u(tbPageContext.getPageActivity(), str);
             return 1;
         } else if (str.contains("jump=finish_this_page") && tbPageContext.getPageActivity() != null) {
             tbPageContext.getPageActivity().finish();
@@ -66,10 +66,10 @@ public class j implements be.a {
             tbPageContext.getPageActivity().startActivity(intent);
             return 0;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.q.am(str, "bindid=")));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.t.ar(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gg = com.baidu.tbadk.util.q.gg(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gg.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gp = com.baidu.tbadk.util.t.gp(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gp.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {
@@ -91,10 +91,10 @@ public class j implements be.a {
                         Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);
                     }
                 } else {
-                    Static.c(tbPageContext, f.O(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
+                    Static.c(tbPageContext, f.M(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
                 }
             } else {
-                Static.c(tbPageContext, f.O(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
+                Static.c(tbPageContext, f.M(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
             }
             return 3;
         }

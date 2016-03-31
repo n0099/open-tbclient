@@ -1,40 +1,32 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.widget.TextView;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.write.write.AtSelectFriendList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ AtListActivity erI;
+public class k implements AtSelectFriendList.a {
+    final /* synthetic */ AtListActivity eLC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(AtListActivity atListActivity) {
-        this.erI = atListActivity;
+        this.eLC = atListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        View view3;
-        View view4;
-        TextView textView;
-        View view5;
-        view2 = this.erI.clG;
-        if (view2 != null) {
-            view3 = this.erI.clG;
-            if (view3.getVisibility() == 0) {
-                com.baidu.adp.lib.util.k.c(this.erI.getPageContext().getPageActivity(), this.erI.cfX);
-                view4 = this.erI.clG;
-                view4.setVisibility(8);
-                textView = this.erI.erD;
-                textView.setVisibility(0);
-                view5 = this.erI.clH;
-                view5.setVisibility(0);
-                this.erI.cfX.getText().clear();
-                return;
+    @Override // com.baidu.tieba.write.write.AtSelectFriendList.a
+    public void a(View view, Object obj) {
+        if (obj != null) {
+            if (obj instanceof TbCheckBox.b) {
+                ((TbCheckBox.b) obj).setChecked(false);
+            }
+            View findViewWithTag = this.eLC.Je.findViewWithTag(obj);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
+                ((TbCheckBox) findViewWithTag).setChecked(false);
+            } else if (!(obj instanceof MetaData)) {
+            } else {
+                this.eLC.b((MetaData) obj);
             }
         }
-        com.baidu.adp.lib.util.k.c(this.erI.getPageContext().getPageActivity(), this.erI.cfX);
-        this.erI.finish();
     }
 }

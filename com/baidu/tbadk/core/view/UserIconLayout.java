@@ -7,41 +7,45 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UserIconLayout extends LinearLayout {
-    private com.baidu.tbadk.core.data.ah afg;
-    private TextView ahH;
-    private UserIconBox ahI;
-    private UserIconBox ahJ;
-    public boolean ahK;
-    private View.OnClickListener ahL;
-    private View.OnClickListener ahM;
-    private View.OnClickListener ahN;
-    private View.OnClickListener ahO;
+    private com.baidu.tbadk.core.data.as aeC;
+    public TextView ahM;
+    private UserIconBox ahN;
+    private UserIconBox ahO;
+    public boolean ahP;
+    private View.OnClickListener ahQ;
+    private View.OnClickListener ahR;
+    private View.OnClickListener ahS;
+    private View.OnClickListener ahT;
     private Context mContext;
 
     public UserIconLayout(Context context) {
         super(context);
-        this.ahK = false;
-        this.ahM = new ad(this);
-        this.ahN = new ae(this);
-        this.ahO = new af(this);
+        this.ahP = false;
+        this.ahR = new ak(this);
+        this.ahS = new al(this);
+        this.ahT = new am(this);
         this.mContext = context;
         init();
     }
 
     public UserIconLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ahK = false;
-        this.ahM = new ad(this);
-        this.ahN = new ae(this);
-        this.ahO = new af(this);
+        this.ahP = false;
+        this.ahR = new ak(this);
+        this.ahS = new al(this);
+        this.ahT = new am(this);
         this.mContext = context;
         init();
+    }
+
+    public void setUserNameTextSizeRid(int i) {
+        this.ahM.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, i));
     }
 
     private void init() {
@@ -50,57 +54,76 @@ public class UserIconLayout extends LinearLayout {
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
         layoutParams2.gravity = 16;
-        this.ahI = new UserIconBox(this.mContext);
-        this.ahJ = new UserIconBox(this.mContext);
-        this.ahH = new TextView(this.mContext);
+        this.ahN = new UserIconBox(this.mContext);
+        this.ahO = new UserIconBox(this.mContext);
+        this.ahM = new TextView(this.mContext);
         layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds10), com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds4));
         layoutParams2.setMargins(com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds14), 0, 0, 0);
-        this.ahH.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.fontsize28));
-        this.ahH.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
-        this.ahI.setLayoutParams(layoutParams);
-        this.ahJ.setLayoutParams(layoutParams2);
-        this.ahH.setLayoutParams(layoutParams3);
-        addView(this.ahI);
-        addView(this.ahH);
-        addView(this.ahJ);
+        layoutParams3.setMargins(0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds2), 0, 0);
+        this.ahM.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.fontsize24));
+        this.ahM.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
+        this.ahN.setLayoutParams(layoutParams);
+        this.ahO.setLayoutParams(layoutParams2);
+        this.ahM.setLayoutParams(layoutParams3);
+        this.ahM.setId(t.g.user_name);
+        addView(this.ahN);
+        addView(this.ahM);
+        addView(this.ahO);
     }
 
-    public void setData(com.baidu.tbadk.core.data.ah ahVar) {
-        if (ahVar != null && ahVar.getAuthor() != null) {
-            this.afg = ahVar;
-            this.ahI.setOnClickListener(this.ahN);
-            this.ahJ.setOnClickListener(this.ahM);
-            this.ahH.setOnClickListener(this.ahO);
-            if (StringUtils.isNull(this.afg.getAuthor().getName_show())) {
-                this.ahH.setVisibility(8);
+    public void setData(com.baidu.tbadk.core.data.as asVar) {
+        if (asVar != null && asVar.getAuthor() != null) {
+            this.aeC = asVar;
+            this.ahN.setOnClickListener(this.ahS);
+            this.ahO.setOnClickListener(this.ahR);
+            this.ahM.setOnClickListener(this.ahT);
+            if (StringUtils.isNull(this.aeC.getAuthor().getName_show())) {
+                this.ahM.setVisibility(8);
             } else {
-                this.ahH.setVisibility(0);
-                this.ahH.setText(this.afg.getAuthor().getName_show());
+                this.ahM.setVisibility(0);
+                this.ahM.setText(this.aeC.getAuthor().getName_show());
             }
-            ArrayList<IconData> iconInfo = ahVar.getAuthor().getIconInfo();
-            if (this.ahK && com.baidu.tbadk.core.util.x.o(iconInfo) != 0) {
-                this.ahJ.setVisibility(0);
-                this.ahJ.a(iconInfo, 3, this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds10), true);
+            ArrayList<IconData> iconInfo = asVar.getAuthor().getIconInfo();
+            if (this.ahP && com.baidu.tbadk.core.util.y.p(iconInfo) != 0) {
+                this.ahO.setVisibility(0);
+                this.ahO.a(iconInfo, 3, this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds10), true);
             } else {
-                this.ahJ.setVisibility(8);
+                this.ahO.setVisibility(8);
             }
-            ArrayList<IconData> tShowInfoNew = ahVar.getAuthor().getTShowInfoNew();
-            if (com.baidu.tbadk.core.util.x.o(tShowInfoNew) != 0) {
-                ar.j((View) this.ahH, t.d.cp_cont_h);
-                this.ahI.setVisibility(0);
-                this.ahI.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_margin), true);
-                return;
+            ArrayList<IconData> tShowInfoNew = asVar.getAuthor().getTShowInfoNew();
+            if (com.baidu.tbadk.core.util.y.p(tShowInfoNew) != 0) {
+                this.ahN.setVisibility(0);
+                this.ahN.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_margin), true);
+            } else {
+                this.ahN.setVisibility(8);
             }
-            ar.j((View) this.ahH, t.d.cp_cont_b);
-            this.ahI.setVisibility(8);
+            xJ();
         }
     }
 
-    public void xk() {
-        ar.j((View) this.ahH, t.d.cp_cont_b);
+    private void xJ() {
+        if (this.aeC != null && this.aeC.getAuthor() != null) {
+            ArrayList<IconData> tShowInfoNew = this.aeC.getAuthor().getTShowInfoNew();
+            ArrayList<IconData> iconInfo = this.aeC.getAuthor().getIconInfo();
+            if (this.ahP) {
+                if (!com.baidu.tbadk.core.util.y.q(tShowInfoNew) || !com.baidu.tbadk.core.util.y.q(iconInfo)) {
+                    at.j((View) this.ahM, t.d.cp_cont_h);
+                } else {
+                    at.j((View) this.ahM, t.d.cp_cont_b);
+                }
+            } else if (!com.baidu.tbadk.core.util.y.q(tShowInfoNew)) {
+                at.j((View) this.ahM, t.d.cp_cont_h);
+            } else {
+                at.j((View) this.ahM, t.d.cp_cont_b);
+            }
+        }
+    }
+
+    public void uA() {
+        xJ();
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.ahL = onClickListener;
+        this.ahQ = onClickListener;
     }
 }

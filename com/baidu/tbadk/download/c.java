@@ -1,13 +1,10 @@
 package com.baidu.tbadk.download;
+
+import java.io.File;
 /* loaded from: classes.dex */
-public interface c {
-    void a(DownloadData downloadData, int i, String str);
-
-    boolean c(DownloadData downloadData);
-
-    void d(DownloadData downloadData);
-
-    boolean e(DownloadData downloadData);
-
-    void f(DownloadData downloadData);
+public class c {
+    public File ata;
+    public String atb;
+    public String atc;
+    public int maxSize;
 }

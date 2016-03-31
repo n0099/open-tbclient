@@ -1,39 +1,51 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
+import android.os.Handler;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ q cKS;
-    private final /* synthetic */ am cKT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.r cKU;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.m cKV;
+public class t extends CustomMessageListener {
+    final /* synthetic */ r dej;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar, am amVar, com.baidu.tieba.tbadkCore.data.r rVar, com.baidu.tbadk.widget.richText.m mVar) {
-        this.cKS = qVar;
-        this.cKT = amVar;
-        this.cKU = rVar;
-        this.cKV = mVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(r rVar, int i) {
+        super(i);
+        this.dej = rVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.pb.a.c cVar;
-        com.baidu.tieba.pb.a.c cVar2;
-        this.cKT.cLn.setVisibility(8);
-        this.cKT.cLk.start();
-        this.cKS.b(this.cKU, this.cKT);
-        this.cKS.apc();
-        this.cKS.c(this.cKV);
-        this.cKS.a(this.cKT, this.cKV);
-        cVar = this.cKS.cJZ;
-        if (cVar != null) {
-            au auVar = new au("c10795");
-            cVar2 = this.cKS.cJZ;
-            TiebaStatic.log(auVar.aa("tid", cVar2.getThreadId()));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Runnable runnable;
+        Handler handler;
+        an anVar;
+        an anVar2;
+        an anVar3;
+        an anVar4;
+        an anVar5;
+        Handler handler2;
+        com.baidu.adp.lib.h.h hx = com.baidu.adp.lib.h.h.hx();
+        runnable = this.dej.ded;
+        hx.removeCallbacks(runnable);
+        handler = this.dej.mHandler;
+        if (handler != null) {
+            handler2 = this.dej.mHandler;
+            handler2.removeMessages(1);
+        }
+        anVar = this.dej.ddX;
+        if (anVar != null) {
+            anVar2 = this.dej.ddX;
+            if (anVar2.deB != null) {
+                anVar3 = this.dej.ddX;
+                if (anVar3.deC != null) {
+                    anVar4 = this.dej.ddX;
+                    anVar4.deB.destroy();
+                    anVar5 = this.dej.ddX;
+                    anVar5.deC.destroy();
+                }
+            }
         }
     }
 }

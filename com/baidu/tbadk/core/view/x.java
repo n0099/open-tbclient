@@ -1,54 +1,58 @@
 package com.baidu.tbadk.core.view;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.SurfaceTexture;
+import android.view.TextureView;
+import android.widget.MediaController;
+import com.baidu.tbadk.core.view.TextureVideoView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ahw;
+public class x implements TextureView.SurfaceTextureListener {
+    final /* synthetic */ TextureVideoView ahp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i) {
-        super(i);
-        this.ahw = threadCommentAndPraiseInfoLayout;
+    public x(TextureVideoView textureVideoView) {
+        this.ahp = textureVideoView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.core.data.ah ahVar;
-        com.baidu.tbadk.core.data.ah ahVar2;
-        com.baidu.tbadk.core.data.ah ahVar3;
-        com.baidu.tbadk.core.data.ah ahVar4;
-        com.baidu.tbadk.core.data.ah ahVar5;
-        com.baidu.tbadk.core.data.ah ahVar6;
-        com.baidu.tbadk.core.data.ah ahVar7;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.ah)) {
-            ahVar = this.ahw.afg;
-            if (ahVar != null) {
-                ahVar2 = this.ahw.afg;
-                if (ahVar2 != null) {
-                    ahVar3 = this.ahw.afg;
-                    if (ahVar3.getId() != null) {
-                        com.baidu.tbadk.core.data.ah ahVar8 = (com.baidu.tbadk.core.data.ah) customResponsedMessage.getData();
-                        if (!TextUtils.isEmpty(ahVar8.getId()) && ahVar8.getPraise() != null) {
-                            String id = ahVar8.getId();
-                            ahVar4 = this.ahw.afg;
-                            if (id.equals(ahVar4.getId())) {
-                                ahVar5 = this.ahw.afg;
-                                if (ahVar5.getPraise() != null) {
-                                    ahVar7 = this.ahw.afg;
-                                    ahVar7.getPraise().setNum(ahVar8.getPraise().getNum());
-                                }
-                                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.ahw;
-                                ahVar6 = this.ahw.afg;
-                                threadCommentAndPraiseInfoLayout.a(ahVar6);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+        boolean z;
+        this.ahp.mSurfaceTexture = surfaceTexture;
+        this.ahp.ahh = true;
+        z = this.ahp.ahi;
+        if (z) {
+            this.ahp.ahi = false;
+            this.ahp.xA();
         }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        TextureVideoView.a aVar;
+        MediaController mediaController;
+        MediaController mediaController2;
+        TextureVideoView.a aVar2;
+        aVar = this.ahp.ahe;
+        if (aVar != null) {
+            aVar2 = this.ahp.ahe;
+            aVar2.xF();
+        }
+        this.ahp.mSurfaceTexture = null;
+        mediaController = this.ahp.agU;
+        if (mediaController != null) {
+            mediaController2 = this.ahp.agU;
+            mediaController2.hide();
+        }
+        this.ahp.aC(true);
+        this.ahp.ahi = false;
+        return false;
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 }

@@ -1,37 +1,69 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ NavigationBar agj;
+public class n extends BdGridView {
+    private int afI;
+    private int columnCount;
+    private int rowCount;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(NavigationBar navigationBar) {
-        this.agj = navigationBar;
+    public n(Context context) {
+        super(context);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        Activity activity;
-        Activity activity2;
-        z = this.agj.mClickIsVaild;
-        if (z) {
-            int id = view.getId();
-            if (id == t.g.navigationBarGoBack) {
-                activity2 = this.agj.mCurrentActivity;
-                activity2.finish();
-            } else if (id == t.g.navigationBarHome) {
-                MessageManager messageManager = MessageManager.getInstance();
-                activity = this.agj.mCurrentActivity;
-                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        View childAt;
+        super.dispatchDraw(canvas);
+        if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(this.afI);
+            paint.setStrokeWidth(1.0f);
+            int width = childAt.getWidth() * this.columnCount;
+            int height = childAt.getHeight() * this.rowCount;
+            int width2 = childAt.getWidth();
+            int height2 = childAt.getHeight();
+            int i = 1;
+            while (true) {
+                int i2 = i;
+                if (i2 >= this.rowCount) {
+                    break;
+                }
+                canvas.drawLine(0.0f, height2 * i2, width, height2 * i2, paint);
+                i = i2 + 1;
+            }
+            for (int i3 = 0; i3 < this.columnCount; i3++) {
+                canvas.drawLine(width2 * i3, 0.0f, width2 * i3, height, paint);
             }
         }
+    }
+
+    public int getRowCount() {
+        return this.rowCount;
+    }
+
+    public void setRowCount(int i) {
+        this.rowCount = i;
+    }
+
+    public int getColumnCount() {
+        return this.columnCount;
+    }
+
+    public void setColumnCount(int i) {
+        this.columnCount = i;
+    }
+
+    public int getBackgroundLineResource() {
+        return this.afI;
+    }
+
+    public void setBackgroundLineResource(int i) {
+        this.afI = i;
     }
 }

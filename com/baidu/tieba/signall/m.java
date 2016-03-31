@@ -6,16 +6,16 @@ import com.baidu.tieba.signall.w;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class m implements w.a {
-    final /* synthetic */ SignAllForumActivity dNI;
+    final /* synthetic */ SignAllForumActivity egh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SignAllForumActivity signAllForumActivity) {
-        this.dNI = signAllForumActivity;
+        this.egh = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.w.a
-    public void iB(String str) {
-        this.dNI.mo(str);
+    public void jk(String str) {
+        this.egh.nz(str);
     }
 
     @Override // com.baidu.tieba.signall.w.a
@@ -26,43 +26,43 @@ class m implements w.a {
         af afVar3;
         com.baidu.tbadk.core.dialog.a aVar;
         boolean z2;
-        a aIJ = uVar.aIJ();
-        if (aIJ != null && aIJ.getErrorNumber() == 0) {
-            afVar = this.dNI.dNA;
-            c aJv = afVar.aJv();
-            aJv.a(uVar);
-            z = this.dNI.dND;
+        a aPz = uVar.aPz();
+        if (aPz != null && aPz.getErrorNumber() == 0) {
+            afVar = this.egh.efZ;
+            c aQm = afVar.aQm();
+            aQm.a(uVar);
+            z = this.egh.egc;
             if (z) {
-                Intent intent = new Intent(this.dNI.getPageContext().getPageActivity(), SignAllForumActivity.class);
+                Intent intent = new Intent(this.egh.getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                this.dNI.a(this.dNI.getPageContext().getPageActivity().getString(t.j.signallforum_back_finish, new Object[]{Integer.valueOf(aJv.aIQ()), Integer.valueOf(aJv.aIR())}), PendingIntent.getActivity(this.dNI.getPageContext().getPageActivity(), 0, intent, 134217728), false);
-                z2 = this.dNI.dNE;
+                this.egh.a(this.egh.getPageContext().getPageActivity().getString(t.j.signallforum_back_finish, new Object[]{Integer.valueOf(aQm.aPG()), Integer.valueOf(aQm.aPH())}), PendingIntent.getActivity(this.egh.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                z2 = this.egh.egd;
                 if (z2) {
                     return;
                 }
             }
-            afVar2 = this.dNI.dNA;
-            afVar2.aJw().notifyDataSetChanged();
-            afVar3 = this.dNI.dNA;
-            x aJt = afVar3.aJt();
-            if (!aJv.aIP()) {
-                if (uVar.aJh() == 0) {
-                    if (uVar.aJj() != 0) {
-                        this.dNI.showToast(uVar.aJk());
+            afVar2 = this.egh.efZ;
+            afVar2.aQn().notifyDataSetChanged();
+            afVar3 = this.egh.efZ;
+            x aQk = afVar3.aQk();
+            if (!aQm.aPF()) {
+                if (uVar.aPX() == 0) {
+                    if (uVar.aPZ() != 0) {
+                        this.egh.showToast(uVar.aQa());
                     } else {
-                        this.dNI.showToast(t.j.signallforum_error);
+                        this.egh.showToast(t.j.signallforum_error);
                     }
                 } else {
-                    this.dNI.mp(uVar.aIH());
-                    aVar = this.dNI.Ms;
-                    aVar.uj();
+                    this.egh.nA(uVar.aPx());
+                    aVar = this.egh.My;
+                    aVar.up();
                 }
             }
-            aJt.aJo();
-            this.dNI.b(aJv);
+            aQk.aQe();
+            this.egh.b(aQm);
             return;
         }
-        this.dNI.mo(aIJ.getUserMsg());
+        this.egh.nz(aPz.getUserMsg());
     }
 }

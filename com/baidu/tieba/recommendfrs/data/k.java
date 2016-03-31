@@ -1,54 +1,47 @@
 package com.baidu.tieba.recommendfrs.data;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ax;
-import java.util.HashMap;
-import tbclient.ExcFrsPage.DataReq;
-import tbclient.ExcFrsPage.ExcFrsPageReqIdl;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.u;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.mvc.b.h {
-    private long dEY;
-    private int pn;
-    private long tagCode;
+public class k implements u {
+    public static final BdUniqueId dWP = BdUniqueId.gen();
+    public List<j> dWQ = null;
+    public List<j> dWR = null;
 
-    public void setPn(int i) {
-        this.pn = i;
+    public static k f(DataRes.Builder builder) {
+        if (builder == null || builder.age_sex == null) {
+            return null;
+        }
+        if ((builder.age_sex.sex_tag == null || builder.age_sex.sex_tag.size() == 0) && (builder.age_sex.age_tag == null || builder.age_sex.age_tag.size() == 0)) {
+            return null;
+        }
+        k kVar = new k();
+        kVar.dWQ = new ArrayList();
+        kVar.dWR = new ArrayList();
+        if (builder.age_sex.sex_tag != null && builder.age_sex.sex_tag.size() == 2) {
+            j a = j.a(builder.age_sex.sex_tag.get(0));
+            j a2 = j.a(builder.age_sex.sex_tag.get(1));
+            if (a != null && a2 != null) {
+                kVar.dWQ.add(a);
+                kVar.dWQ.add(a2);
+            }
+        }
+        if (builder.age_sex.age_tag != null && builder.age_sex.age_tag.size() > 0) {
+            for (int i = 0; i < builder.age_sex.age_tag.size() && i < 5; i++) {
+                j a3 = j.a(builder.age_sex.age_tag.get(i));
+                if (a3 != null) {
+                    kVar.dWR.add(a3);
+                }
+            }
+        }
+        return kVar;
     }
 
-    public long getTagCode() {
-        return this.tagCode;
-    }
-
-    public void setTagCode(long j) {
-        this.tagCode = j;
-    }
-
-    public long aFw() {
-        return this.dEY;
-    }
-
-    public void bJ(long j) {
-        this.dEY = j;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oX() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object X(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()));
-        builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()));
-        builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.M(TbadkCoreApplication.m411getInst()));
-        builder.tag_code = Long.valueOf(this.tagCode);
-        builder.q_type = Integer.valueOf(ax.wg().wi() ? 2 : 1);
-        builder.last_rank = Long.valueOf(this.dEY);
-        ExcFrsPageReqIdl.Builder builder2 = new ExcFrsPageReqIdl.Builder();
-        builder2.data = builder.build(false);
-        com.baidu.tbadk.util.i.a(builder2.data, true);
-        return builder2.build(false);
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return dWP;
     }
 }

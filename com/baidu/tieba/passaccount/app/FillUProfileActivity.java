@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -18,11 +19,12 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
+    private BdAsyncTask<?, ?, ?> aLL;
     private String bduss;
-    private SapiWebView cGl;
+    private SapiWebView cZt;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.j axI = null;
-    private final a.InterfaceC0042a ZI = new a(this);
+    private com.baidu.tbadk.coreExtra.view.j ayp = null;
+    private final a.InterfaceC0042a YU = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -42,12 +44,12 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.cGl = (SapiWebView) findViewById(t.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.cGl);
-        this.cGl.setOnBackCallback(new c(this));
-        this.cGl.setOnFinishCallback(new d(this));
-        this.cGl.setAuthorizationListener(new e(this));
-        this.cGl.loadFillUProfile(this.bduss);
+        this.cZt = (SapiWebView) findViewById(t.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.cZt);
+        this.cZt.setOnBackCallback(new c(this));
+        this.cZt.setOnFinishCallback(new d(this));
+        this.cZt.setAuthorizationListener(new e(this));
+        this.cZt.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,7 +60,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anL() {
+    public void auz() {
         TbadkCoreApplication.m411getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -67,22 +69,34 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anM() {
+    public void auA() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rv().a(session.username, session.bduss, session.ptoken, this.ZI);
+            if (this.aLL != null) {
+                this.aLL.cancel();
+            }
+            this.aLL = com.baidu.tbadk.core.a.a.qM().a(session.username, session.bduss, session.ptoken, this.YU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(AccountData accountData) {
-        if (this.axI == null) {
-            this.axI = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
-            this.axI.a(new f(this));
+        if (this.ayp == null) {
+            this.ayp = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
+            this.ayp.a(new f(this));
         }
-        this.axI.AT();
-        this.axI.h(accountData);
-        this.axI.AP();
+        this.ayp.Bw();
+        this.ayp.h(accountData);
+        this.ayp.Bs();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.aLL != null) {
+            this.aLL.cancel();
+        }
     }
 }

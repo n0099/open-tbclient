@@ -7,15 +7,15 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements y {
-    final /* synthetic */ AlbumActivity emP;
+    final /* synthetic */ AlbumActivity eGN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AlbumActivity albumActivity) {
-        this.emP = albumActivity;
+        this.eGN = albumActivity;
     }
 
     @Override // com.baidu.tieba.write.album.y
-    public boolean c(ImageFileInfo imageFileInfo) {
+    public boolean e(ImageFileInfo imageFileInfo) {
         if (imageFileInfo != null) {
             String filePath = imageFileInfo.getFilePath();
             if (!StringUtils.isNULL(filePath)) {
@@ -28,7 +28,7 @@ public class b implements y {
                 }
             }
         }
-        this.emP.showToastWithIcon(this.emP.getPageContext().getPageActivity().getString(t.j.uploade_attation), t.f.icon_toast_game_error);
+        this.eGN.showToastWithIcon(this.eGN.getPageContext().getPageActivity().getString(t.j.uploade_attation), t.f.icon_toast_game_error);
         return false;
     }
 }

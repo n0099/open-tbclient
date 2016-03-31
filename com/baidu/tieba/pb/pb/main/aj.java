@@ -1,66 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
-public class aj implements c.b {
-    final /* synthetic */ PbActivity cNq;
+class aj extends com.baidu.adp.base.g {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity) {
-        this.cNq = pbActivity;
+        this.dht = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        cm cmVar;
-        String str5;
-        String str6;
-        String str7;
-        cm cmVar2;
-        String str8;
-        if (i == 0) {
-            TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_phone_call", "call");
-            PbActivity pbActivity = this.cNq;
-            str6 = this.cNq.cMf;
-            pbActivity.cMf = str6.trim();
-            Activity pageActivity = this.cNq.getPageContext().getPageActivity();
-            str7 = this.cNq.cMf;
-            UtilHelper.callPhone(pageActivity, str7);
-            cmVar2 = this.cNq.cMF;
-            String threadID = cmVar2.getThreadID();
-            str8 = this.cNq.cMf;
-            new a(threadID, str8, "1").start();
-            cVar.dismiss();
-        } else if (i == 1) {
-            TiebaStatic.eventStat(this.cNq.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-            PbActivity pbActivity2 = this.cNq;
-            str3 = this.cNq.cMf;
-            pbActivity2.cMf = str3.trim();
-            Activity pageActivity2 = this.cNq.getPageContext().getPageActivity();
-            str4 = this.cNq.cMf;
-            UtilHelper.smsPhone(pageActivity2, str4);
-            cmVar = this.cNq.cMF;
-            String threadID2 = cmVar.getThreadID();
-            str5 = this.cNq.cMf;
-            new a(threadID2, str5, "2").start();
-            cVar.dismiss();
-        } else if (i == 2) {
-            PbActivity pbActivity3 = this.cNq;
-            str = this.cNq.cMf;
-            pbActivity3.cMf = str.trim();
-            Activity pageActivity3 = this.cNq.getPageContext().getPageActivity();
-            str2 = this.cNq.cMf;
-            UtilHelper.startBaiDuBar(pageActivity3, str2);
-            cVar.dismiss();
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        eu euVar;
+        com.baidu.tieba.tbadkCore.f.a aVar;
+        com.baidu.tieba.tbadkCore.f.a aVar2;
+        com.baidu.tieba.tbadkCore.f.a aVar3;
+        df dfVar;
+        if (obj != null) {
+            aVar2 = this.dht.dgC;
+            switch (aVar2.getLoadDataMode()) {
+                case 0:
+                    dfVar = this.dht.dfV;
+                    dfVar.axq();
+                    this.dht.a((a.b) obj);
+                    return;
+                case 1:
+                    this.dht.a((a.d) obj);
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    PbActivity pbActivity = this.dht;
+                    aVar3 = this.dht.dgC;
+                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
+                    return;
+                case 6:
+                    this.dht.a((a.f) obj);
+                    return;
+                default:
+                    return;
+            }
         }
+        euVar = this.dht.dgF;
+        aVar = this.dht.dgC;
+        euVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

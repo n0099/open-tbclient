@@ -6,60 +6,60 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.a.o;
-import com.baidu.tieba.card.ac;
+import com.baidu.tieba.card.a.p;
+import com.baidu.tieba.card.ae;
 /* loaded from: classes.dex */
-public class f extends com.baidu.tieba.enterForum.square.a.a<o, a> {
-    private ac aXR;
+public class f extends com.baidu.tieba.enterForum.square.a.a<p, a> {
+    private ae bcA;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, o.aSg);
+        super(tbPageContext, p.aVP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: j */
+    /* renamed from: k */
     public a b(ViewGroup viewGroup) {
-        this.aXR = new ac(this.Nw);
-        this.aXR.setTag(getTag());
-        this.aXE = true;
-        this.aXR.setFrom(FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND);
-        this.aXR.n("c10578", "c10577", "c10576");
-        return new a(this.aXR);
+        this.bcA = new ae(this.ND);
+        this.bcA.setTag(getTag());
+        this.bcn = true;
+        this.bcA.setFrom(FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND);
+        this.bcA.p("c10578", "c10577", "c10576");
+        return new a(this.bcA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, o oVar, a aVar) {
-        if (aVar.aXS == null) {
+    public View a(int i, View view, ViewGroup viewGroup, p pVar, a aVar) {
+        if (aVar.bcB == null) {
             return null;
         }
         TiebaStatic.log("c10575");
-        if (this.aXE) {
-            aVar.aXS.a(oVar);
-            this.aXE = false;
+        if (this.bcn) {
+            aVar.bcB.a(pVar);
+            this.bcn = false;
         }
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.enterForum.square.a.a
-    public void db(int i) {
-        if (this.aXR != null) {
-            this.aXR.d(this.Nw, i);
+    public void de(int i) {
+        if (this.bcA != null) {
+            this.bcA.d(this.ND, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends x.a {
-        public ac aXS;
+        public ae bcB;
 
-        public a(ac acVar) {
-            super(acVar.getView());
-            this.aXS = acVar;
+        public a(ae aeVar) {
+            super(aeVar.getView());
+            this.bcB = aeVar;
         }
     }
 }

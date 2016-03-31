@@ -2,6 +2,7 @@ package com.baidu.tieba.personInfo;
 
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
@@ -35,20 +36,20 @@ public class a {
         return null;
     }
 
-    public void Oz() {
+    public void Qo() {
     }
 
     public UserIconBox getUserIcon() {
         return null;
     }
 
-    public void auL() {
+    public void aCr() {
     }
 
-    public void oO() {
+    public void oH() {
     }
 
-    public void akY() {
+    public void arP() {
     }
 
     public void setBackBitmap(UserData userData) {
@@ -57,9 +58,13 @@ public class a {
     public void l(float f) {
     }
 
-    public void nf() {
+    public void mW() {
     }
 
     public void setGiftIcon(boolean z) {
+    }
+
+    public BdExpandImageView getExpandImg() {
+        return null;
     }
 }

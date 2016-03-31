@@ -14,13 +14,13 @@ public class a implements ab {
     private int c;
     private int d;
     private Map e = new HashMap();
-    private ab mK;
+    private ab mJ;
 
     public a(String str, int i, int i2, ab abVar) {
         this.a = str;
         this.c = i;
         this.d = i2;
-        this.mK = abVar;
+        this.mJ = abVar;
     }
 
     public Bitmap A(String str) {
@@ -35,11 +35,11 @@ public class a implements ab {
             if (num == null) {
                 num = 0;
             }
-            if (num.intValue() + 1 < this.c || this.mK == null) {
+            if (num.intValue() + 1 < this.c || this.mJ == null) {
                 this.e.put(str, Integer.valueOf(num.intValue() + 1));
                 return decodeFile;
             }
-            this.mK.a(str, decodeFile);
+            this.mJ.a(str, decodeFile);
             this.e.remove(str);
             return decodeFile;
         }
@@ -96,12 +96,12 @@ public class a implements ab {
         return this.a + "/" + str + ".png";
     }
 
-    public a r(int i) {
+    public a q(int i) {
         this.d = i;
         return this;
     }
 
-    public a s(int i) {
+    public a r(int i) {
         this.c = i;
         return this;
     }

@@ -1,29 +1,29 @@
 package com.baidu.tieba.im.settingcache;
 
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends m<Boolean> {
-    private final /* synthetic */ String ccA;
-    final /* synthetic */ c cfB;
-    private final /* synthetic */ long cfC;
-    private final /* synthetic */ String cfq;
+public class d extends p<Boolean> {
+    private final /* synthetic */ String cnf;
+    private final /* synthetic */ String cpV;
+    final /* synthetic */ c cqg;
+    private final /* synthetic */ long cqh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, long j) {
-        this.cfB = cVar;
-        this.cfq = str;
-        this.ccA = str2;
-        this.cfC = j;
+        this.cqg = cVar;
+        this.cpV = str;
+        this.cnf = str2;
+        this.cqh = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.m
+    @Override // com.baidu.tbadk.util.p
     public Boolean doInBackground() {
-        GroupSettingItemData aO = this.cfB.aO(this.cfq, this.ccA);
-        if (aO != null && aO.isAlreadyApply()) {
-            if (System.currentTimeMillis() - aO.getLastApplyTimeStamp() <= this.cfC) {
+        GroupSettingItemData bb = this.cqg.bb(this.cpV, this.cnf);
+        if (bb != null && bb.isAlreadyApply()) {
+            if (System.currentTimeMillis() - bb.getLastApplyTimeStamp() <= this.cqh) {
                 return false;
             }
         }

@@ -3,44 +3,44 @@ package com.baidu.tieba.frs.a;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.tieba.frs.dj;
+import com.baidu.tieba.frs.dp;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.lib.f.c<dj> {
-    final /* synthetic */ a boe;
+public class c implements com.baidu.adp.lib.f.c<dp> {
+    final /* synthetic */ a btb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.boe = aVar;
+        this.btb = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Ro */
-    public dj hk() {
+    /* renamed from: Tb */
+    public dp hq() {
         Context context;
-        context = this.boe.mContext;
-        return new dj(LayoutInflater.from(context).inflate(t.h.frs_item, (ViewGroup) null), 0);
+        context = this.btb.mContext;
+        return new dp(LayoutInflater.from(context).inflate(t.h.frs_item, (ViewGroup) null), 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void l(dj djVar) {
+    public void l(dp dpVar) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public dj m(dj djVar) {
-        return djVar;
+    public dp m(dp dpVar) {
+        return dpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public dj n(dj djVar) {
-        return djVar;
+    public dp n(dp dpVar) {
+        return dpVar;
     }
 }

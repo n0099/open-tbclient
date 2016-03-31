@@ -1,75 +1,57 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class dw extends com.baidu.adp.widget.ListView.c {
-    private View.OnClickListener agz;
-    private final int beB;
-    private boolean bkW;
-    private a bkb;
-    private Context mContext;
+public class dw extends x.a {
+    public int aik;
+    ViewGroup bpX;
+    TextView bpY;
+    View bpZ;
+    PhotoLiveCardView bqa;
+    View bqb;
+    View bqc;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public static class a {
-        FrameLayout bkX;
-        LinearLayout bkY;
-        TextView bkZ;
-        ProgressBar bla;
+    public dw(View view) {
+        super(view);
+        this.aik = 3;
+        this.bpX = (ViewGroup) view.findViewById(t.g.live_content_layout);
+        this.bpY = (TextView) this.bpX.findViewById(t.g.live_title);
+        this.bpZ = this.bpX.findViewById(t.g.live_title_card_line);
+        this.bqa = (PhotoLiveCardView) this.bpX.findViewById(t.g.item_live_card);
+        this.bqb = this.bpX.findViewById(t.g.live_bottom_card_line);
+        this.bqc = this.bpX.findViewById(t.g.all_live_list);
+        c(this.bqa);
+        xy();
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public View ni() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(t.h.frs_item_control, (ViewGroup) null);
-        this.bkb = new a();
-        this.bkb.bkX = (FrameLayout) inflate.findViewById(t.g.frs_list_control);
-        this.bkb.bkY = (LinearLayout) inflate.findViewById(t.g.frs_list_control_in);
-        this.bkb.bla = (ProgressBar) inflate.findViewById(t.g.frs_list_control_progress);
-        this.bkb.bkZ = (TextView) inflate.findViewById(t.g.frs_list_control_tv);
-        inflate.setTag(this.bkb);
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        return inflate;
+    private void c(PhotoLiveCardView photoLiveCardView) {
+        photoLiveCardView.setShowContent(false);
+        photoLiveCardView.setShowBottom(true);
+        photoLiveCardView.setHeadPaddingTop(t.e.ds24);
+        photoLiveCardView.setShowLiveIcon(true);
+        photoLiveCardView.setShowRefreshTimeInButtom(true);
+        photoLiveCardView.setShowHeadLiveIcon(true);
+        photoLiveCardView.setParentBackground(t.f.addresslist_item_bg);
+        photoLiveCardView.setTitleMaxLines(1);
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.bkb != null) {
-            com.baidu.tbadk.core.util.ar.k(this.bkb.bkY, t.f.frs_item_control_bg);
-            com.baidu.tbadk.core.util.ar.c(this.bkb.bkZ, i);
-        }
-    }
-
-    public void cr(boolean z) {
-        this.bkW = z;
-        if (this.bkb != null) {
-            this.bkb.bkX.setVisibility(0);
-            this.bkb.bkX.setPadding(0, this.beB, 0, 0);
-            if (z) {
-                this.bkb.bkZ.setText(t.j.loading);
-                this.bkb.bla.setVisibility(0);
-                return;
-            }
-            this.bkb.bkZ.setText(t.j.frs_pre);
-            this.bkb.bla.setVisibility(8);
-        }
-    }
-
-    public void o(View.OnClickListener onClickListener) {
-        this.agz = onClickListener;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
-        if (this.agz != null) {
-            this.agz.onClick(getView());
+    public void xy() {
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (skinType != this.aik) {
+            this.aik = skinType;
+            com.baidu.tbadk.core.util.at.k(this.bpX, t.f.frs_item_control_btn_bg);
+            com.baidu.tbadk.core.util.at.j((View) this.bpY, t.d.cp_cont_f);
+            com.baidu.tbadk.core.util.at.l(this.bpZ, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.at.l(this.bqb, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.at.j(this.bqc, t.d.cp_link_tip_c);
+            com.baidu.tbadk.core.util.at.k(this.bqc, t.f.frs_item_control_btn_bg);
+            this.bqa.xy();
         }
     }
 }

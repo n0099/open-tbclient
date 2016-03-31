@@ -1,39 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.ArrayList;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class l {
-    private String Vq;
-    private String mName;
-    private String mUrl;
+    private ArrayList<String> SR = new ArrayList<>();
+    private int SS;
 
-    public String getIcon() {
-        return this.Vq;
+    public ArrayList<String> rw() {
+        return this.SR;
     }
 
-    public String getUrl() {
-        return this.mUrl;
+    public int rx() {
+        return this.SS;
     }
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.Vq = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
+    public boolean a(ColorEgg colorEgg) {
+        this.SS = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
+            return false;
         }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Vq = jSONObject.optString("icon");
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.SR.add(str);
             }
         }
+        if (this.SR.size() <= 0) {
+            return false;
+        }
+        this.SS = colorEgg.style_flag.intValue();
+        return true;
     }
 }

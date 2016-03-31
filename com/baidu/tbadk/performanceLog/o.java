@@ -3,105 +3,98 @@ package com.baidu.tbadk.performanceLog;
 public class o extends ac {
     @Override // com.baidu.tbadk.performanceLog.ac
     public void a(v vVar) {
-        if (aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "time_t");
-            a(hm, vVar);
-            hm.r("ishttp", vVar.aAQ ? "1" : "0");
-            hm.r("issuccess", vVar.isSuccess ? "1" : "0");
-            hm.r("nettype", aa.FY().getNetType());
-            hm.r("ct", String.valueOf(vVar.aAE));
-            hm.r("wt", String.valueOf(vVar.aAL));
-            hm.r("qt", String.valueOf(vVar.aAF));
-            hm.r("connt", String.valueOf(vVar.aAG));
-            hm.r("rwt", String.valueOf(vVar.aAH));
-            hm.r("dect", String.valueOf(vVar.aAI));
-            hm.r("parset", String.valueOf(vVar.aAJ));
-            hm.r("rendert", String.valueOf(vVar.aAK));
-            hm.r("ss", String.valueOf(vVar.aAO));
-            hm.r("hs", String.valueOf(vVar.aAP));
-            if (vVar.aAQ && vVar.socketErrNo != 0) {
-                hm.r("salno", String.valueOf(vVar.socketErrNo));
+        if (aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "time_t");
+            a(hs, vVar);
+            hs.r("ishttp", vVar.aBH ? "1" : "0");
+            hs.r("issuccess", vVar.isSuccess ? "1" : "0");
+            hs.r("nettype", aa.GU().getNetType());
+            hs.r("ct", String.valueOf(vVar.aBu));
+            hs.r("wt", String.valueOf(vVar.aBC));
+            hs.r("qt", String.valueOf(vVar.aBv));
+            hs.r("connt", String.valueOf(vVar.aBw));
+            hs.r("rwt", String.valueOf(vVar.aBx));
+            hs.r("dect", String.valueOf(vVar.aBy));
+            hs.r("parset", String.valueOf(vVar.aBz));
+            hs.r("rendert", String.valueOf(vVar.aBB));
+            hs.r("ss", String.valueOf(vVar.aBF));
+            hs.r("hs", String.valueOf(vVar.aBG));
+            if (vVar.aBH && vVar.socketErrNo != 0) {
+                hs.r("salno", String.valueOf(vVar.socketErrNo));
                 if (vVar.socketCostTime != 0) {
-                    hm.r("scosttime", String.valueOf(vVar.socketCostTime));
+                    hs.r("scosttime", String.valueOf(vVar.socketCostTime));
                 }
             }
             if (vVar.errCode != 0) {
-                hm.b("errcode", Integer.valueOf(vVar.errCode));
+                hs.b("errcode", Integer.valueOf(vVar.errCode));
             }
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+            if (vVar.aBH) {
+                hs.r("c_logid", String.valueOf(vVar.aBL));
+            } else {
+                hs.r("seq_id", String.valueOf(vVar.sequenceID & 4294967295L));
+            }
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void b(v vVar) {
-        if (aa.FY().FZ() && vVar.aAL > 0) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "white_t");
-            a(hm, vVar);
-            hm.r("ct", String.valueOf(vVar.aAE));
-            hm.r("wt", String.valueOf(vVar.aAL));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        if (aa.GU().GV() && vVar.aBD > 0) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "readCache_t");
+            a(hs, vVar);
+            hs.r("rct", String.valueOf(vVar.aBD));
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void c(v vVar) {
-        if (aa.FY().FZ() && vVar.aAM > 0) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "readCache_t");
-            a(hm, vVar);
-            hm.r("rct", String.valueOf(vVar.aAM));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
-        }
-    }
-
-    @Override // com.baidu.tbadk.performanceLog.ac
-    public void d(v vVar) {
-        if (aa.FY().FZ() && vVar.aAN > 0) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "writeCache_t");
-            a(hm, vVar);
-            hm.r("wct", String.valueOf(vVar.aAN));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        if (aa.GU().GV() && vVar.aBE > 0) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "writeCache_t");
+            a(hs, vVar);
+            hs.r("wct", String.valueOf(vVar.aBE));
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void a(u uVar, String str) {
-        if (uVar != null && str != null && aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "resource_t");
-            hm.r("actype", str);
-            hm.r("issuccess", uVar.isSuccess ? "1" : "0");
-            hm.r("isfs", uVar.aAD ? "1" : "0");
-            hm.r("ct", String.valueOf(uVar.Hm));
-            hm.r("from", String.valueOf(uVar.Hl));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        if (uVar != null && str != null && aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "resource_t");
+            hs.r("actype", str);
+            hs.r("issuccess", uVar.isSuccess ? "1" : "0");
+            hs.r("isfs", uVar.aBs ? "1" : "0");
+            hs.r("ct", String.valueOf(uVar.Hs));
+            hs.r("from", String.valueOf(uVar.Hr));
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void g(e eVar) {
-        if (eVar != null && aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "fluency_t");
-            a(hm, eVar);
-            hm.r("fps", String.valueOf(eVar.FI()));
-            hm.r("memp", String.valueOf(eVar.FK()));
-            hm.r("cpu", String.valueOf(eVar.getCpuString()));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        if (eVar != null && aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "fluency_t");
+            a(hs, eVar);
+            hs.r("fps", String.valueOf(eVar.GE()));
+            hs.r("memp", String.valueOf(eVar.GG()));
+            hs.r("cpu", String.valueOf(eVar.GH()));
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void h(e eVar) {
-        if (aa.FY().FZ()) {
-            com.baidu.adp.lib.stats.d hm = hm();
-            hm.r("action", "gc_t");
-            a(hm, eVar);
-            hm.r("gc", String.valueOf(eVar.FJ()));
-            com.baidu.adp.lib.stats.a.ht().a(this.subType, hm);
+        if (aa.GU().GV()) {
+            com.baidu.adp.lib.stats.d hs = hs();
+            hs.r("action", "gc_t");
+            a(hs, eVar);
+            hs.r("gc", String.valueOf(eVar.GF()));
+            com.baidu.adp.lib.stats.a.hz().a(this.subType, hs);
         }
     }
 

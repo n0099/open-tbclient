@@ -44,8 +44,8 @@ public class g extends BroadcastReceiver {
                     } catch (Exception e) {
                         l lVar = new l();
                         if (this.this$0.mCurPlayModel != null) {
-                            lVar.i("id", this.this$0.mCurPlayModel.getId());
-                            lVar.i("from", this.this$0.mCurPlayModel.from);
+                            lVar.h("id", this.this$0.mCurPlayModel.getId());
+                            lVar.h("from", this.this$0.mCurPlayModel.from);
                         }
                         TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), lVar.toString());
                     }
@@ -54,7 +54,7 @@ public class g extends BroadcastReceiver {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                 VoiceManager.b playView2 = this.this$0.getPlayView();
                 if (playView2 != null) {
-                    playView2.aP(intExtra);
+                    playView2.aO(intExtra);
                 }
                 if (this.this$0.mCurPlayModel != null) {
                     this.this$0.mCurPlayModel.elapse = intExtra;
@@ -104,7 +104,7 @@ public class g extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.oD();
+                    playView5.ow();
                 }
                 MediaService.startPlay(context);
             } else {

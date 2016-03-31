@@ -14,13 +14,13 @@ import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 class aq extends HttpMessageListener {
-    final /* synthetic */ SquareSearchActivity cwZ;
+    final /* synthetic */ SquareSearchActivity cLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aq(SquareSearchActivity squareSearchActivity, int i) {
         super(i);
-        this.cwZ = squareSearchActivity;
+        this.cLU = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,31 +32,31 @@ class aq extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
-            if ((httpResponsedMessage instanceof ResponseSearchFriendMessage) && (responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage) != null && (httpMessage = (HttpMessage) responseSearchFriendMessage.getOrginalMessage()) != null && httpMessage.getTag() == this.cwZ.getUniqueId()) {
+            if ((httpResponsedMessage instanceof ResponseSearchFriendMessage) && (responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage) != null && (httpMessage = (HttpMessage) responseSearchFriendMessage.getOrginalMessage()) != null && httpMessage.getTag() == this.cLU.getUniqueId()) {
                 if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                     List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                     if (userInfo.size() > 0) {
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                         if (String.valueOf(userInfo2.getUserId()) != null && userInfo2.getUserName() != null) {
-                            z = this.cwZ.ayG;
+                            z = this.cLU.azn;
                             if (!z) {
                                 RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
                                 requestSearchPersonHistoryWriteMessage.setData(userInfo2.getUserName());
-                                this.cwZ.ayG = true;
-                                this.cwZ.sendMessage(requestSearchPersonHistoryWriteMessage);
+                                this.cLU.azn = true;
+                                this.cLU.sendMessage(requestSearchPersonHistoryWriteMessage);
                             }
-                            this.cwZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cwZ.getPageContext().getPageActivity(), String.valueOf(userInfo2.getUserId()), userInfo2.getUserName())));
+                            this.cLU.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cLU.getPageContext().getPageActivity(), String.valueOf(userInfo2.getUserId()), userInfo2.getUserName())));
                             return;
                         }
                         return;
                     }
-                    this.cwZ.showToast(t.j.neterror);
+                    this.cLU.showToast(t.j.neterror);
                 } else if (TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
-                    this.cwZ.showToast(t.j.neterror);
+                    this.cLU.showToast(t.j.neterror);
                 } else {
-                    this.cwZ.showToast(httpResponsedMessage.getErrorString());
-                    this.cwZ.akF();
-                    this.cwZ.mNoDataView.setTextOption(NoDataViewFactory.d.dd(t.j.text_no_suggest));
+                    this.cLU.showToast(httpResponsedMessage.getErrorString());
+                    this.cLU.aoO();
+                    this.cLU.mNoDataView.setTextOption(NoDataViewFactory.d.dg(t.j.text_no_suggest));
                 }
             }
         }

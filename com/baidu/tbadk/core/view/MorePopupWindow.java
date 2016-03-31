@@ -93,7 +93,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ac(i == 1);
+            cVar.ab(i == 1);
             try {
                 cVar.x(this.mContentView);
             } catch (IllegalArgumentException e) {
@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int K = com.baidu.adp.lib.util.k.K(context);
-        this.mContentView.getLayoutParams().width = K;
-        setWidth(K);
+        int B = com.baidu.adp.lib.util.k.B(context);
+        this.mContentView.getLayoutParams().width = B;
+        setWidth(B);
     }
 
     public void setWindowHeight(int i) {
@@ -124,6 +124,14 @@ public class MorePopupWindow extends PopupWindow {
             com.baidu.adp.lib.h.j.a(this, this.mActivity);
         } else if (this.mHostView != null) {
             com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
+        }
+    }
+
+    public void showWindowInRightBottomOfHost(int i) {
+        if (isShowing()) {
+            com.baidu.adp.lib.h.j.a(this, this.mActivity);
+        } else if (this.mHostView != null) {
+            com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
         }
     }
 
@@ -149,9 +157,9 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(t.e.ds4));
             setHeight(this.mWindowHeight);
-            int[] N = com.baidu.adp.lib.util.k.N(this.mActivity);
-            if (N != null && N.length > 1 && N[1] > measuredWidth) {
-                this.mShowRightTopXOff = N[1] - measuredWidth;
+            int[] E = com.baidu.adp.lib.util.k.E(this.mActivity);
+            if (E != null && E.length > 1 && E[0] > measuredWidth) {
+                this.mShowRightTopXOff = E[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

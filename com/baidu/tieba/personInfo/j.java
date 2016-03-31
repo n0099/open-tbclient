@@ -8,13 +8,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
-    final /* synthetic */ f diG;
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(f fVar, int i) {
         super(i);
-        this.diG = fVar;
+        this.this$0 = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,20 +37,20 @@ public class j extends CustomMessageListener {
                     replyInfo.setUserId(c);
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
-                    bfVar3 = this.diG.dbl;
-                    bfVar3.avA().getReplyInfo().add(replyInfo);
-                    bfVar4 = this.diG.dbl;
-                    bfVar4.avF();
+                    bfVar3 = this.this$0.dvN;
+                    bfVar3.aDf().getReplyInfo().add(replyInfo);
+                    bfVar4 = this.this$0.dvN;
+                    bfVar4.aDk();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                bfVar = this.diG.dbl;
-                if (bfVar.avA() != null) {
-                    biVar = this.diG.dhR;
+                bfVar = this.this$0.dvN;
+                if (bfVar.aDf() != null) {
+                    biVar = this.this$0.dCt;
                     if (biVar != null) {
-                        bfVar2 = this.diG.dbl;
-                        bfVar2.avA().setIsFriend(1);
-                        biVar2 = this.diG.dhR;
-                        biVar2.awh();
+                        bfVar2 = this.this$0.dvN;
+                        bfVar2.aDf().setIsFriend(1);
+                        biVar2 = this.this$0.dCt;
+                        biVar2.aDM();
                     }
                 }
             }

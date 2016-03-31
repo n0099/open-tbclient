@@ -8,11 +8,11 @@ public class d extends b {
     private int maxWidth;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String getActionName() {
+    public String EV() {
         return "resize";
     }
 
-    public static ImageOperation G(int i, int i2) {
+    public static ImageOperation D(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "resize";
         imageOperation.actionParam = String.valueOf(i) + "," + i2;
@@ -20,7 +20,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void fJ(String str) {
+    public void setParams(String str) {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
@@ -35,12 +35,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Ed().eN(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.EO().eT(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fK(String str) {
+    public Bitmap fR(String str) {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

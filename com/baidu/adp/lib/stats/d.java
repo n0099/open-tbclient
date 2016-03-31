@@ -11,62 +11,66 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
     private long mStartTime;
     public String mType;
-    private StringBuilder wA;
-    public long ww;
-    public long wx;
-    boolean wy;
-    private ArrayList<BasicNameValuePair> wz;
+    public long sequenceID;
+    public long wN;
+    boolean wO;
+    private ArrayList<BasicNameValuePair> wP;
+    private StringBuilder wQ;
 
     public d(String str) {
-        this.ww = 1L;
-        this.wx = -1L;
-        this.wy = false;
+        this.wN = 1L;
+        this.sequenceID = -1L;
+        this.wO = false;
         this.mType = null;
-        this.wA = new StringBuilder(100);
+        this.wQ = new StringBuilder(100);
         this.mType = str;
-        this.wy = false;
-        this.ww = -1L;
-        this.wx = -1L;
+        this.wO = false;
+        this.wN = -1L;
+        this.sequenceID = -1L;
     }
 
     public d() {
-        this.ww = 1L;
-        this.wx = -1L;
-        this.wy = false;
+        this.wN = 1L;
+        this.sequenceID = -1L;
+        this.wO = false;
         this.mType = null;
-        this.wA = new StringBuilder(100);
+        this.wQ = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wz == null) {
-                this.wz = new ArrayList<>();
+            if (this.wP == null) {
+                this.wP = new ArrayList<>();
             }
-            this.wz.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wP.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.wz != null) {
-            Iterator<BasicNameValuePair> it = this.wz.iterator();
+        StringBuilder sb = new StringBuilder(200);
+        if (this.wQ.length() > 0) {
+            sb.append((CharSequence) this.wQ);
+        }
+        if (this.wP != null) {
+            Iterator<BasicNameValuePair> it = this.wP.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.wA.length() > 0) {
-                        this.wA.append('&');
+                    if (sb.length() > 0) {
+                        sb.append('&');
                     }
-                    this.wA.append(next.getName());
-                    this.wA.append('=');
+                    sb.append(next.getName());
+                    sb.append('=');
                     try {
-                        this.wA.append(URLEncoder.encode(ar(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(at(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.wA.append(ar(next.getValue()));
+                        sb.append(at(next.getValue()));
                     }
                 }
             }
         }
-        return this.wA.toString();
+        return sb.toString();
     }
 
     public void b(Object... objArr) {
@@ -84,29 +88,29 @@ public class d {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wA.length() > 0) {
-                this.wA.append('&');
+            if (this.wQ.length() > 0) {
+                this.wQ.append('&');
             }
-            this.wA.append(str);
-            this.wA.append("=");
+            this.wQ.append(str);
+            this.wQ.append("=");
             try {
-                this.wA.append(URLEncoder.encode(ar(str2), "utf-8"));
+                this.wQ.append(URLEncoder.encode(at(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wA.append(ar(str2));
+                this.wQ.append(at(str2));
             }
         }
     }
 
-    public void hJ() {
+    public void hP() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long hK() {
+    public long hQ() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String ar(String str) {
+    public static String at(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

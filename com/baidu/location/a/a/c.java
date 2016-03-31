@@ -19,7 +19,7 @@ public final class c {
         return sb.toString();
     }
 
-    public static String a(byte[] bArr, boolean z) {
+    public static String b(byte[] bArr, boolean z) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();

@@ -1,81 +1,84 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class r {
-    public static int readPictureDegree(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public static boolean e(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int go(String str) {
+        if (TextUtils.isEmpty(str)) {
             return 0;
         }
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (e(str.charAt(i2))) {
+                i++;
+            } else {
+                i += 2;
+            }
+        }
+        return i;
     }
 
-    private static Bitmap fh(int i) {
-        Exception e;
-        try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.m.cQ("camera.jpg"));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
-            if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
+    public static String fn(int i) {
+        if (i >= 100000000) {
+            return String.valueOf(i / 100000000) + "亿+";
+        }
+        if (i >= 10000) {
+            return String.valueOf(i / 10000) + "万+";
+        }
+        return new StringBuilder().append(i).toString();
+    }
+
+    public static String D(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (go(str) > i) {
+            return String.valueOf(d(str, 0, i - 2)) + "...";
+        }
+        return str;
+    }
+
+    public static String E(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (go(str) > i) {
+            return d(str, 0, i);
+        }
+        return str;
+    }
+
+    public static String d(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                char charAt = str.charAt(i4);
+                if (i3 >= i2) {
+                    if (i3 == i2) {
+                        return sb.toString();
+                    }
+                    return sb.deleteCharAt(sb.length() - 1).toString();
+                }
+                if (i3 >= i) {
+                    sb.append(charAt);
+                }
+                if (e(charAt)) {
+                    i3++;
+                } else {
+                    i3 += 2;
                 }
             }
-            return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
         }
-    }
-
-    private static Bitmap b(Context context, String str, int i) {
-        try {
-            return BitmapHelper.loadResizedBitmap(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
-        try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
-        if (i == 12001) {
-            return fh(i2);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            return b(context, str, i2);
-        }
-        return a(context, uri, i2);
+        return sb.toString();
     }
 }

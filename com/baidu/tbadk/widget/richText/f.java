@@ -1,142 +1,37 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    private String aFA;
-    private boolean aFB;
-    private boolean aFC;
-    private String aFD;
-    private long aFE;
-    private String aFy;
-    private String aFz;
-    private int mHeight;
-    private int mWidth;
+    static final int aIq = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds360);
+    static final int aIr = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m411getInst(), t.e.ds300);
+    public long gid;
+    public String url;
+    public int width = aIr;
+    public int height = this.width;
 
-    public f() {
-        this.aFy = null;
-        this.aFz = null;
-        this.aFA = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aFB = false;
-        this.aFC = true;
-        this.aFD = null;
-        this.aFE = 0L;
-    }
-
-    public f(PbContent pbContent) {
-        this.aFy = null;
-        this.aFz = null;
-        this.aFA = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aFB = false;
-        this.aFC = true;
-        this.aFD = null;
-        this.aFE = 0L;
-        if (pbContent != null) {
-            this.aFy = pbContent.src;
-            this.aFz = pbContent.cdn_src;
-            if (this.aFz == null || this.aFz.length() == 0) {
-                this.aFz = this.aFy;
-            }
-            this.aFA = pbContent.big_cdn_src;
+    public void a(PbContent pbContent) {
+        String[] split;
+        if (pbContent != null && pbContent.graffiti_info != null) {
+            this.url = pbContent.graffiti_info.url;
+            this.gid = pbContent.graffiti_info.gid.longValue();
             String str = pbContent.bsize;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.mWidth = Integer.valueOf(split[0]).intValue();
-                    this.mHeight = Integer.valueOf(split[1]).intValue();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            if (this.aFz != null && this.aFz.indexOf(".baidu.com") != -1) {
-                this.aFB = true;
-            }
-            this.aFD = pbContent.origin_src;
-            this.aFE = pbContent.origin_size.intValue();
-        }
-    }
-
-    public f(JSONObject jSONObject) {
-        this.aFy = null;
-        this.aFz = null;
-        this.aFA = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aFB = false;
-        this.aFC = true;
-        this.aFD = null;
-        this.aFE = 0L;
-        if (jSONObject != null) {
-            this.aFy = jSONObject.optString("src");
-            this.aFz = jSONObject.optString("cdn_src", "");
-            if (this.aFz == null || this.aFz.length() == 0) {
-                this.aFz = this.aFy;
-            }
-            this.aFA = jSONObject.optString("big_cdn_src", null);
-            try {
-                String[] split = jSONObject.optString("bsize").split(",");
-                this.mWidth = Integer.valueOf(split[0]).intValue();
-                this.mHeight = Integer.valueOf(split[1]).intValue();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            if (this.aFz != null && this.aFz.indexOf(".baidu.com") != -1) {
-                this.aFB = true;
+            if (str != null && (split = str.split(",")) != null && split.length == 2) {
+                this.width = com.baidu.adp.lib.h.b.g(split[0], 0);
+                this.height = com.baidu.adp.lib.h.b.g(split[1], 0);
             }
         }
     }
 
-    public String Hg() {
-        return this.aFA;
-    }
-
-    public int getHeight() {
-        return this.mHeight;
-    }
-
-    public int getWidth() {
-        return this.mWidth;
-    }
-
-    public boolean Hh() {
-        return this.aFB;
-    }
-
-    public String getSrc() {
-        return this.aFy;
-    }
-
-    public String Hi() {
-        return this.aFz;
-    }
-
-    public boolean Hj() {
-        return this.aFC;
-    }
-
-    public String Hk() {
-        return this.aFD;
-    }
-
-    public long getOriginalSize() {
-        return this.aFE;
+    public void fx(int i) {
+        if (i == 1) {
+            this.width = aIq;
+            this.height = this.width;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aIr) {
+            this.width = aIr;
+            this.height = this.width;
+        }
     }
 }

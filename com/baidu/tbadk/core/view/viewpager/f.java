@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private int aid;
-    private List<u> ail;
-    private List<u> aim;
-    private boolean ain;
-    private boolean aio;
-    private int aip = 2;
-    private int aiq = 1;
+    private List<u> aiB;
+    private List<u> aiC;
+    private boolean aiD;
+    private boolean aiE;
+    private int aiF = 2;
+    private int aiG = 1;
+    private int ait;
 
     public f(List<u> list, boolean z, int i) {
-        this.aid = 2;
-        this.ail = list;
-        this.aio = z;
-        this.aid = i;
-        q(list);
+        this.ait = 2;
+        this.aiB = list;
+        this.aiE = z;
+        this.ait = i;
+        r(list);
     }
 
-    public void q(List<u> list) {
-        if (list != null && list.size() >= this.aip && list.size() <= this.aid) {
-            this.ain = true;
-        } else if (list.size() > this.aid && this.aio) {
-            this.ain = true;
+    public void r(List<u> list) {
+        if (list != null && list.size() >= this.aiF && list.size() <= this.ait) {
+            this.aiD = true;
+        } else if (list.size() > this.ait && this.aiE) {
+            this.aiD = true;
         } else {
-            this.ain = false;
+            this.aiD = false;
         }
-        this.aim = xt();
+        this.aiC = xT();
     }
 
-    private List<u> xt() {
+    private List<u> xT() {
         ArrayList arrayList = new ArrayList();
-        if (this.ail != null) {
-            if (this.ain) {
-                if (this.ail.size() > this.aid && this.ail.size() >= this.aiq) {
-                    arrayList.addAll(this.ail.subList(0, this.aid));
-                    arrayList.addAll(0, this.ail.subList(this.aid - this.aiq, this.aid));
-                    arrayList.addAll(this.ail.subList(0, this.aiq));
+        if (this.aiB != null) {
+            if (this.aiD) {
+                if (this.aiB.size() > this.ait && this.aiB.size() >= this.aiG) {
+                    arrayList.addAll(this.aiB.subList(0, this.ait));
+                    arrayList.addAll(0, this.aiB.subList(this.ait - this.aiG, this.ait));
+                    arrayList.addAll(this.aiB.subList(0, this.aiG));
                 } else {
-                    arrayList.addAll(this.ail);
-                    arrayList.addAll(0, this.ail.subList(this.ail.size() - this.aiq, this.ail.size()));
-                    arrayList.addAll(this.ail.subList(0, this.aiq));
+                    arrayList.addAll(this.aiB);
+                    arrayList.addAll(0, this.aiB.subList(this.aiB.size() - this.aiG, this.aiB.size()));
+                    arrayList.addAll(this.aiB.subList(0, this.aiG));
                 }
-            } else if (this.ail != null && this.ail.size() > 0 && this.ail.size() >= this.aiq) {
-                arrayList.addAll(this.ail.subList(0, this.aiq));
+            } else if (this.aiB != null && this.aiB.size() > 0 && this.aiB.size() >= this.aiG) {
+                arrayList.addAll(this.aiB.subList(0, this.aiG));
             }
         }
         return arrayList;
     }
 
-    public int dp(int i) {
-        if (this.ain) {
-            int size = this.aim.size();
+    public int ds(int i) {
+        if (this.aiD) {
+            int size = this.aiC.size();
             if (i == 0) {
-                return (size - 1) - this.aiq;
+                return (size - 1) - this.aiG;
             }
-            if (i == size - this.aiq) {
-                return this.aiq;
+            if (i == size - this.aiG) {
+                return this.aiG;
             }
             return i;
         }
         return i;
     }
 
-    public int dq(int i) {
-        if (this.ain) {
-            return i - this.aiq;
+    public int dt(int i) {
+        if (this.aiD) {
+            return i - this.aiG;
         }
         return i;
     }
 
-    public int xu() {
-        if (this.ail == null) {
+    public int xU() {
+        if (this.aiB == null) {
             return 0;
         }
-        return this.ail.size();
+        return this.aiB.size();
     }
 
-    public int xv() {
-        if (this.ain) {
-            return this.aiq;
+    public int xV() {
+        if (this.aiD) {
+            return this.aiG;
         }
         return 0;
     }
 
-    public void dr(int i) {
-        this.aid = i;
-        q(this.ail);
+    public void du(int i) {
+        this.ait = i;
+        r(this.aiB);
     }
 
-    public void ds(int i) {
-        this.aip = i;
-        q(this.ail);
+    public void dv(int i) {
+        this.aiF = i;
+        r(this.aiB);
     }
 
-    public List<u> xw() {
-        return this.aim;
+    public List<u> xW() {
+        return this.aiC;
     }
 
-    public void dt(int i) {
-        this.aiq = i;
-        q(this.ail);
+    public void dw(int i) {
+        this.aiG = i;
+        r(this.aiB);
     }
 }

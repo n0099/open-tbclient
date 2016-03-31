@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 /* loaded from: classes.dex */
 public class a extends n {
-    public static void c(Context context, String str, String str2, String str3) {
+    public static void a(Context context, String str, String str2, String str3) {
         LightAppPlugin lightAppPlugin;
-        b.DQ().al(str3, str2);
+        b.EB().aq(str3, str2);
         if (com.baidu.adp.lib.c.e.gE().ai("t5core") == 0 && (lightAppPlugin = (LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
             lightAppPlugin.launchLightApp(context, TbConfig.api_key, TbWebViewActivityConfig.addTiebaParams(str2));
             return;
         }
-        e.DT().x(str3, 2);
+        e.EE().C(str3, 2);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameWebViewActivityConfig(context, str, str2, str3, true)));
     }
 }

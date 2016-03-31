@@ -9,11 +9,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements PersonPostModel.a {
-    final /* synthetic */ k dhb;
+    final /* synthetic */ k dBB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.dhb = kVar;
+        this.dBB = kVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
@@ -34,58 +34,58 @@ public class l implements PersonPostModel.a {
         View view2;
         BdListView bdListView4;
         boolean z2;
-        if (this.dhb.isAdded()) {
-            progressBar = this.dhb.mProgressBar;
+        if (this.dBB.isAdded()) {
+            progressBar = this.dBB.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.dhb.dgR;
-            bdListView.nr();
+            bdListView = this.dBB.dBr;
+            bdListView.nj();
             if (personPostModel != null) {
-                if (k.br(personPostModel.post_list) == 0) {
-                    z2 = this.dhb.dgY;
+                if (k.bN(personPostModel.post_list) == 0) {
+                    z2 = this.dBB.dBy;
                     if (z2) {
                     }
                 }
-                if (k.br(personPostModel.post_list) == 0) {
-                    this.dhb.mNoDataView.setVisibility(0);
-                    bdListView4 = this.dhb.dgR;
+                if (k.bN(personPostModel.post_list) == 0) {
+                    this.dBB.mNoDataView.setVisibility(0);
+                    bdListView4 = this.dBB.dBr;
                     bdListView4.setVisibility(0);
                 } else {
-                    this.dhb.mNoDataView.setVisibility(8);
-                    bdListView3 = this.dhb.dgR;
+                    this.dBB.mNoDataView.setVisibility(8);
+                    bdListView3 = this.dBB.dBr;
                     bdListView3.setVisibility(0);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    com.baidu.adp.lib.util.k.showToast(this.dhb.getActivity(), personPostModel.getErrorString());
+                    com.baidu.adp.lib.util.k.showToast(this.dBB.getActivity(), personPostModel.getErrorString());
                 }
-                int br = k.br(personPostModel.post_list);
-                if (br < 20) {
-                    if (!com.baidu.adp.lib.util.i.iZ() || br <= 0) {
-                        view = this.dhb.dgV;
+                int bN = k.bN(personPostModel.post_list);
+                if (bN < 20) {
+                    if (!com.baidu.adp.lib.util.i.jf() || bN <= 0) {
+                        view = this.dBB.dBv;
                         view.setVisibility(8);
                     } else {
-                        this.dhb.dgW = false;
-                        pbListView2 = this.dhb.dgU;
-                        pbListView2.setText(this.dhb.getResources().getString(t.j.person_post_reply_no_more));
-                        view2 = this.dhb.dgV;
+                        this.dBB.dBw = false;
+                        pbListView2 = this.dBB.dBu;
+                        pbListView2.setText(this.dBB.getResources().getString(t.j.person_post_reply_no_more));
+                        view2 = this.dBB.dBv;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.dhb.dgU;
-                pbListView.xc();
+                pbListView = this.dBB.dBu;
+                pbListView.xv();
                 if (z) {
-                    if (k.br(personPostModel.post_list) < 20) {
-                        this.dhb.dgW = false;
+                    if (k.bN(personPostModel.post_list) < 20) {
+                        this.dBB.dBw = false;
                     } else {
-                        this.dhb.dgW = true;
+                        this.dBB.dBw = true;
                     }
-                    this.dhb.dgX = 0;
-                    this.dhb.dgY = false;
+                    this.dBB.dBx = 0;
+                    this.dBB.dBy = false;
                     return;
                 }
                 return;
             }
-            this.dhb.mNoDataView.setVisibility(0);
-            bdListView2 = this.dhb.dgR;
+            this.dBB.mNoDataView.setVisibility(0);
+            bdListView2 = this.dBB.dBr;
             bdListView2.setVisibility(0);
         }
     }

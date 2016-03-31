@@ -6,13 +6,13 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 class i extends Handler {
-    final /* synthetic */ PbVideoControllerView cVQ;
+    final /* synthetic */ PbVideoControllerView dqL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PbVideoControllerView pbVideoControllerView, Looper looper) {
         super(looper);
-        this.cVQ = pbVideoControllerView;
+        this.dqL = pbVideoControllerView;
     }
 
     @Override // android.os.Handler
@@ -21,26 +21,26 @@ class i extends Handler {
         boolean z2;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int asU;
+        int aAE;
         int i;
         int i2;
         switch (message.what) {
             case 1:
-                z = this.cVQ.cVK;
+                z = this.dqL.dqF;
                 if (!z) {
-                    z2 = this.cVQ.cVL;
+                    z2 = this.dqL.dqG;
                     if (z2) {
-                        mediaPlayerControl = this.cVQ.cVH;
+                        mediaPlayerControl = this.dqL.dqC;
                         if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.cVQ.cVH;
+                            mediaPlayerControl2 = this.dqL.dqC;
                             if (!mediaPlayerControl2.isPlaying()) {
                                 return;
                             }
-                            asU = this.cVQ.asU();
+                            aAE = this.dqL.aAE();
                             Message obtainMessage = obtainMessage(1);
-                            i = this.cVQ.cVG;
-                            i2 = this.cVQ.cVG;
-                            sendMessageDelayed(obtainMessage, i - (asU % i2));
+                            i = this.dqL.dqB;
+                            i2 = this.dqL.dqB;
+                            sendMessageDelayed(obtainMessage, i - (aAE % i2));
                             return;
                         }
                         return;

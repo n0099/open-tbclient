@@ -1,34 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
-class ak extends CustomMessageListener {
-    final /* synthetic */ PbActivity cNq;
+class ak implements PbActivity.c {
+    final /* synthetic */ PbActivity dht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak(PbActivity pbActivity, int i) {
-        super(i);
-        this.cNq = pbActivity;
+    public ak(PbActivity pbActivity) {
+        this.dht = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.editortools.d.e eVar;
-        dz dzVar;
-        dz dzVar2;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        if (customResponsedMessage != null) {
-            eVar = this.cNq.cMU;
-            if (eVar != null) {
-                dzVar2 = this.cNq.cMK;
-                eVar2 = this.cNq.cMU;
-                dzVar2.ep(eVar2.Dk());
-            }
-            dzVar = this.cNq.cMK;
-            dzVar.eq(false);
+    @Override // com.baidu.tieba.pb.pb.main.PbActivity.c
+    public void fZ(boolean z) {
+        df dfVar;
+        eu euVar;
+        df dfVar2;
+        eu euVar2;
+        dfVar = this.dht.dfV;
+        if (dfVar.gc(true)) {
+            euVar2 = this.dht.dgF;
+            euVar2.ayG();
+            return;
         }
+        euVar = this.dht.dgF;
+        euVar.azf();
+        dfVar2 = this.dht.dfV;
+        dfVar2.lY(1);
     }
 }

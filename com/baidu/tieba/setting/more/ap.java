@@ -1,16 +1,19 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-class ap implements CustomMessageTask.CustomRunnable<IntentConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().startActivity(MoreActivity.class);
-        }
-        return null;
+class ap extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        SettingStatic.eer = false;
+        SettingStatic.maskInfo = null;
+        SettingStatic.eeq = false;
     }
 }

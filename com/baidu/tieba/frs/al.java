@@ -1,22 +1,25 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bgG;
-    final /* synthetic */ FrsActivity bgz;
+    final /* synthetic */ FrsActivity blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsActivity frsActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.bgz = frsActivity;
-        this.bgG = fVar;
+    public al(FrsActivity frsActivity) {
+        this.blk = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.a.aB(this.bgG.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.bgz.getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
+        this.blk.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.blk.getPageContext().getPageActivity(), 23007)));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10125").ac("fid", this.blk.getForumId()).r("obj_type", 1));
     }
 }

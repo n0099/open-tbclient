@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -33,6 +33,9 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
     public static final String KEY_IS_TOP = "is_top";
     public static final String KEY_LOCATE = "locate";
+    public static final String KEY_MANGA_NEXT_CHAPTER = "key_manga_next_chapter";
+    public static final String KEY_MANGA_PREV_CHAPTER = "key_manga_prev_chapter";
+    public static final String KEY_MANGA_TITLE = "key_manga_title";
     public static final String KEY_MARK = "mark";
     public static final String KEY_MSG_ID = "msg_id";
     public static final String KEY_MSG_OP_STAT = "op_stat";
@@ -221,15 +224,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(ah ahVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (ahVar != null) {
+    public PbActivityConfig createFromThreadCfg(as asVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (asVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", ahVar.getId());
-            intent.putExtra(KEY_IS_GOOD, ahVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, ahVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, ahVar.getLast_time_int());
+            intent.putExtra("thread_id", asVar.getId());
+            intent.putExtra(KEY_IS_GOOD, asVar.getIs_good());
+            intent.putExtra(KEY_IS_TOP, asVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, asVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", ahVar.getIs_top() != 2);
+            intent.putExtra("from_frs", asVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -238,10 +241,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (ahVar.getPraise() == null ? 0L : ahVar.getPraise().getNum()));
-            if (ahVar.getAuthor() != null && ahVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, ahVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, ahVar.getAuthor().getGodUserData().getFollowed());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (asVar.getPraise() == null ? 0L : asVar.getPraise().getNum()));
+            if (asVar.getAuthor() != null && asVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, asVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, asVar.getAuthor().getGodUserData().getFollowed());
             }
         }
         return this;
@@ -267,6 +270,30 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_PB_KEY_NEED_POSTID, true);
+        }
+        return this;
+    }
+
+    public PbActivityConfig putMangaPrevChapterId(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_MANGA_PREV_CHAPTER, i);
+        }
+        return this;
+    }
+
+    public PbActivityConfig putMangaNextChapterId(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_MANGA_NEXT_CHAPTER, i);
+        }
+        return this;
+    }
+
+    public PbActivityConfig putMangaTitle(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_MANGA_TITLE, str);
         }
         return this;
     }

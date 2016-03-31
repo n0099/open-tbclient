@@ -42,6 +42,7 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.base.j;
 import com.baidu.adp.base.k;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
@@ -54,6 +55,11 @@ import java.io.PrintWriter;
 public class ActivityProxy extends MAActivity implements Handler.Callback, i, k, com.baidu.adp.plugin.a.a {
     private PluginBaseActivity mEntity = null;
 
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
+    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return this.mEntity != null ? this.mEntity.onCreateView(view, str, context, attributeSet) : super.onCreateView(view, str, context, attributeSet);
+    }
+
     public void loadEntityActivity() {
         if (this.mEntity == null && !super.isFinishing()) {
             Intent intent = getIntent();
@@ -61,22 +67,22 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
                 finish();
                 return;
             }
-            String stringExtra = intent.getStringExtra("intent_extra_package_name");
+            String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
             if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
                 finish();
                 BdLog.e("plugin not loaded. pluginname is " + stringExtra);
                 return;
             }
             try {
-                String stringExtra2 = intent.getStringExtra("intent_extra_activity");
+                String stringExtra2 = intent.getStringExtra(Plugin.INTENT_EXTRA_ACTIVITY);
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-                    com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.mEntity = (PluginBaseActivity) plugin2.kD().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                    Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
+                    this.mEntity = (PluginBaseActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
                     this.mEntity.setActivityProxy(this);
                     this.mEntity.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.kG());
+                    setTheme(plugin2.getActivityThemeResource());
                 } else {
-                    this.mEntity = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).kD().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                    this.mEntity = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
                     this.mEntity.setActivityProxy(this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
@@ -131,10 +137,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        if (this.mEntity != null) {
-            return this.mEntity.dispatchGenericMotionEvent(motionEvent);
-        }
-        return false;
+        return this.mEntity != null ? this.mEntity.dispatchGenericMotionEvent(motionEvent) : super.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -144,10 +147,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        if (this.mEntity != null) {
-            return this.mEntity.dispatchKeyShortcutEvent(keyEvent);
-        }
-        return false;
+        return this.mEntity != null ? this.mEntity.dispatchKeyShortcutEvent(keyEvent) : super.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -767,6 +767,16 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     @Override // com.baidu.adp.plugin.a.a
+    public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(str, context, attributeSet);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
+    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
     public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.addContentView(view, layoutParams);
     }
@@ -1181,6 +1191,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     @Override // com.baidu.adp.plugin.a.a
+    public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        return super.dispatchKeyShortcutEvent(keyEvent);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
     public void proxyOverridePendingTransition(int i, int i2) {
         super.overridePendingTransition(i, i2);
     }
@@ -1238,6 +1253,11 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     @Override // com.baidu.adp.plugin.a.a
     public void proxyStartActivity(Intent intent) {
         super.startActivity(intent);
+    }
+
+    @Override // com.baidu.adp.plugin.a.a
+    public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
+        return super.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1525,6 +1545,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     public void proxysetFinishOnTouchOutside(boolean z) {
+        super.setFinishOnTouchOutside(z);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context, com.baidu.adp.plugin.a.a

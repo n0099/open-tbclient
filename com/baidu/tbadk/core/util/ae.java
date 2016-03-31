@@ -1,45 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ae {
-    private static ArrayList<a> acb = new ArrayList<>();
-    public static AtomicInteger acc = new AtomicInteger(0);
+    private static ae abi;
+    private static volatile int abj = 0;
+    private static int abk = 300000;
+    private static int abl = 10;
+    public static int abm;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int acd;
-        public long ace;
-        public int acf;
-        public int mMode;
-        public long mTime;
+    private ae() {
+        abm = TbadkCoreApplication.m411getInst().getNetWorkCoreType();
     }
 
-    public static int cF(int i) {
-        return acc.getAndSet(i);
-    }
-
-    public static int cG(int i) {
-        return acc.addAndGet(i);
-    }
-
-    public static synchronized void a(a aVar) {
+    public static synchronized ae wd() {
+        ae aeVar;
         synchronized (ae.class) {
-            if (aVar != null) {
-                if (acb.size() <= 20) {
-                    acb.add(aVar);
-                }
+            if (abi == null) {
+                abi = new ae();
             }
+            aeVar = abi;
         }
+        return aeVar;
     }
 
-    public static synchronized a vL() {
-        a remove;
-        synchronized (ae.class) {
-            int size = acb.size();
-            remove = size > 0 ? acb.remove(size - 1) : null;
-        }
-        return remove;
+    public t a(com.baidu.tbadk.core.util.a.a aVar) {
+        return new ac(aVar);
+    }
+
+    public static void cH(int i) {
+        abm = i;
     }
 }

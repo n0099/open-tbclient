@@ -44,9 +44,9 @@ public class AddMsgRecordModel extends e {
 
     private List<MsgRecord> getMsgRecords() {
         ArrayList arrayList = null;
-        List<ImMessageCenterPojo> adF = b.ady().adF();
-        if (adF != null && adF.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : adF) {
+        List<ImMessageCenterPojo> agY = b.agR().agY();
+        if (agY != null && agY.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : agY) {
                 String taskId = imMessageCenterPojo.getTaskId();
                 if (taskId != null && taskId.length() != 0 && !"0".equals(taskId)) {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;

@@ -1,5 +1,14 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
-public interface d<T> {
-    void onReturnDataInUI(T t);
+public class d {
+    private static long lastClickTime;
+
+    public static boolean isFastDoubleClick() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - lastClickTime < 500) {
+            return true;
+        }
+        lastClickTime = currentTimeMillis;
+        return false;
+    }
 }
