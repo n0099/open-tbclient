@@ -18,83 +18,83 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tbadk.mvc.model.a;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.InterfaceC0055a<i> {
-    final CustomMessageListener ML;
-    private com.baidu.tbadk.mvc.d.a aWP;
-    private be cxj;
-    private h cxk;
-    private g cxl;
-    private a cxm;
-    private FeedData cxn;
-    private af cxo;
+public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.InterfaceC0046a<i> {
+    final CustomMessageListener Dc;
+    private com.baidu.tbadk.mvc.d.a aSJ;
+    private bf cyh;
+    private h cyi;
+    private g cyj;
+    private a cyk;
+    private FeedData cyl;
+    private ag cym;
 
-    public e(be beVar) {
-        super(com.baidu.adp.base.l.s(beVar.getPageContext().getPageActivity()));
-        this.ML = new f(this, 2000994);
-        this.cxj = beVar;
+    public e(bf bfVar) {
+        super(com.baidu.adp.base.l.s(bfVar.getPageContext().getPageActivity()));
+        this.Dc = new f(this, 2000994);
+        this.cyh = bfVar;
     }
 
     public void c(Bundle bundle) {
-        this.cxk = new h();
-        this.cxl = new g((TbPageContext) com.baidu.adp.base.l.s(this.cxj.getPageContext().getPageActivity()), this.cxk);
-        this.cxl.a(this);
-        if (this.cxj != null) {
-            this.cxl.setUniqueId(this.cxj.getUniqueId());
+        this.cyi = new h();
+        this.cyj = new g((TbPageContext) com.baidu.adp.base.l.s(this.cyh.getPageContext().getPageActivity()), this.cyi);
+        this.cyj.a(this);
+        if (this.cyh != null) {
+            this.cyj.setUniqueId(this.cyh.getUniqueId());
         }
-        this.cxl.registerListener(this.ML);
-        this.cxm = new a((TbPageContext) com.baidu.adp.base.l.s(this.cxj.getPageContext().getPageActivity()));
-        this.cxm.a(this);
-        if (this.cxj != null) {
-            this.cxm.setUniqueId(this.cxj.getUniqueId());
+        this.cyj.registerListener(this.Dc);
+        this.cyk = new a((TbPageContext) com.baidu.adp.base.l.s(this.cyh.getPageContext().getPageActivity()));
+        this.cyk.a(this);
+        if (this.cyh != null) {
+            this.cyk.setUniqueId(this.cyh.getUniqueId());
         }
-        this.cxo = new af();
-        this.aWP = new com.baidu.tbadk.mvc.d.a();
+        this.cym = new ag();
+        this.aSJ = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Md() {
-        if (!this.cxl.isLoading() && this.aWP.FP() && akW()) {
-            this.aWP.bC(true);
-            this.aWP.bE(true);
-            this.cxk.d(this.cxn);
-            this.cxl.setNeedCache(false);
-            this.cxl.FG();
-            this.cxj.alp().d(this.aWP);
+    public boolean KM() {
+        if (!this.cyj.isLoading() && this.aSJ.DH() && alc()) {
+            this.aSJ.bI(true);
+            this.aSJ.bK(true);
+            this.cyi.d(this.cyl);
+            this.cyj.setNeedCache(false);
+            this.cyj.Dy();
+            this.cyh.alx().d(this.aSJ);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ce(boolean z) {
-        if (this.cxl.isLoading() || !akW()) {
+    public boolean ck(boolean z) {
+        if (this.cyj.isLoading() || !alc()) {
             return false;
         }
-        this.cxn = null;
-        this.cxk.reset();
-        this.cxl.setNeedCache(true);
-        this.cxl.FG();
+        this.cyl = null;
+        this.cyi.reset();
+        this.cyj.setNeedCache(true);
+        this.cyj.Dy();
         return true;
     }
 
-    protected boolean akW() {
+    protected boolean alc() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.cxo != null && this.cxo.cxL != null) {
-            this.cxo.cxL.clear();
+        if (this.cym != null && this.cym.cyK != null) {
+            this.cym.cyK.clear();
         }
-        this.cxj.alp().akY();
-        this.cxj.alp().a(this.cxo);
+        this.cyh.alx().ale();
+        this.cyh.alx().a(this.cym);
         return false;
     }
 
-    public boolean oK() {
-        if (akW()) {
-            if (this.cxj != null && this.cxj.alp() != null) {
-                this.cxj.alp().akX();
+    public boolean kX() {
+        if (alc()) {
+            if (this.cyh != null && this.cyh.alx() != null) {
+                this.cyh.alx().ald();
             }
-            this.cxm.a((com.baidu.tbadk.mvc.b.e) this.cxk);
+            this.cyk.a((com.baidu.tbadk.mvc.b.e) this.cyi);
             return true;
         }
         return true;
@@ -102,57 +102,57 @@ public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.I
 
     protected boolean a(h hVar, i iVar) {
         if (hVar.getUpdateType() != 4) {
-            this.cxo.alk().clear();
+            this.cym.alr().clear();
         }
-        this.cxo.a(iVar);
-        if (iVar != null && iVar.alk() != null && iVar.alk().size() > 0) {
-            this.cxn = iVar.alk().get(iVar.alk().size() - 1);
-            if (this.cxo.getPage() != null) {
-                this.aWP.bD(this.cxo.getPage().sq() == 1);
+        this.cym.a(iVar);
+        if (iVar != null && iVar.alr() != null && iVar.alr().size() > 0) {
+            this.cyl = iVar.alr().get(iVar.alr().size() - 1);
+            if (this.cym.getPage() != null) {
+                this.aSJ.bJ(this.cym.getPage().pK() == 1);
             } else {
-                this.aWP.bD(true);
+                this.aSJ.bJ(true);
             }
             if (hVar != null) {
                 hVar.toNextPage();
             }
-            this.aWP.bE(true);
+            this.aSJ.bK(true);
         } else {
-            this.cxn = null;
-            this.aWP.bD(false);
-            this.aWP.bE(false);
+            this.cyl = null;
+            this.aSJ.bJ(false);
+            this.aSJ.bK(false);
         }
-        this.aWP.bC(false);
-        this.aWP.bB(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.zp().zF();
-        this.cxj.alt().p(2, true);
+        this.aSJ.bI(false);
+        this.aSJ.bH(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.xi().xy();
+        this.cyh.alB().s(2, true);
         if (!TbadkCoreApplication.isLogin()) {
-            this.cxo.alk().clear();
+            this.cym.alr().clear();
         } else {
-            this.cxj.alp().d(this.aWP);
+            this.cyh.alx().d(this.aSJ);
         }
-        this.cxj.alp().a(this.cxo);
+        this.cyh.alx().a(this.cym);
         return false;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0046a
     public void a(ReadCacheRespMsg<List<i>> readCacheRespMsg, ReadCacheMessage<i> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.cxk, readCacheRespMsg.getData().get(0));
+            a(this.cyi, readCacheRespMsg.getData().get(0));
         }
-        this.cxn = null;
-        this.cxk.reset();
-        this.cxl.setNeedCache(true);
-        this.cxl.FG();
+        this.cyl = null;
+        this.cyi.reset();
+        this.cyj.setNeedCache(true);
+        this.cyj.Dy();
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0055a
+    @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0046a
     public void a(WriteCacheRespMsg<List<i>> writeCacheRespMsg, WriteCacheMessage<i> writeCacheMessage) {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<i> mvcHttpResponsedMessage, MvcHttpMessage<h, i> mvcHttpMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cxj.alp().akY();
+        this.cyh.alx().ale();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             iVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -160,7 +160,7 @@ public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -171,15 +171,15 @@ public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.cxj.a(errorData);
-            this.cxj.alp().a(errorData);
+            this.cyh.a(errorData);
+            this.cyh.alx().a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<i, ?> mvcSocketResponsedMessage, MvcSocketMessage<h, i> mvcSocketMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cxj.alp().akY();
+        this.cyh.alx().ale();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             iVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -187,7 +187,7 @@ public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -198,8 +198,8 @@ public class e extends com.baidu.adp.base.e<be> implements NetModel.b<h, i>, a.I
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.cxj.a(errorData);
-            this.cxj.alp().a(errorData);
+            this.cyh.a(errorData);
+            this.cyh.alx().a(errorData);
         }
     }
 

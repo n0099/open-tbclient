@@ -1,37 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements Runnable {
-    final /* synthetic */ bm eNl;
+public class bn implements a.b {
+    final /* synthetic */ WriteActivity feb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bm bmVar) {
-        this.eNl = bmVar;
+    public bn(WriteActivity writeActivity) {
+        this.feb = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.l lVar;
-        com.baidu.tbadk.editortools.l lVar2;
-        com.baidu.tbadk.editortools.j jVar2;
-        BaseActivity baseActivity;
-        jVar = this.eNl.eNi;
-        if (jVar != null) {
-            lVar = this.eNl.atG;
-            if (lVar != null) {
-                lVar2 = this.eNl.atG;
-                com.baidu.tbadk.editortools.s eA = lVar2.eA(24);
-                if (eA instanceof View) {
-                    jVar2 = this.eNl.eNi;
-                    baseActivity = this.eNl.bix;
-                    jVar2.e(baseActivity.getPageContext().getPageActivity(), (View) eA);
-                }
-                this.eNl.eNj = true;
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        d.a aVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        if (!com.baidu.adp.lib.util.i.fq()) {
+            aVar2 = this.feb.arI;
+            aVar2.Cd();
+        } else {
+            this.feb.a(1, true, (String) null);
+            dVar = this.feb.art;
+            dVar.aUG();
         }
+        aVar.dismiss();
     }
 }

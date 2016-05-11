@@ -3,26 +3,26 @@ package com.baidu.tbadk.coreExtra.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l {
-    private String ako;
-    private ArrayList<Object> akp;
+    private String aga;
+    private ArrayList<Object> agb;
 
     public l() {
         l(new ArrayList<>());
     }
 
-    public String yJ() {
-        return this.ako;
+    public String wC() {
+        return this.aga;
     }
 
-    public void ei(String str) {
-        this.ako = str;
+    public void ee(String str) {
+        this.aga = str;
     }
 
-    public ArrayList<Object> yK() {
-        return this.akp;
+    public ArrayList<Object> wD() {
+        return this.agb;
     }
 
     public void l(ArrayList<Object> arrayList) {
-        this.akp = arrayList;
+        this.agb = arrayList;
     }
 }

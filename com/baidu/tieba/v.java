@@ -8,11 +8,11 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ u aLu;
+    final /* synthetic */ u aHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.aLu = uVar;
+        this.aHF = uVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,18 +23,18 @@ class v implements View.OnClickListener {
         boolean z2;
         TextView textView2;
         com.baidu.tbadk.core.util.TiebaStatic.log("c10003");
-        textView = this.aLu.aLe;
+        textView = this.aHF.aHp;
         textView.setEnabled(false);
-        this.aLu.aKV = true;
-        z = this.aLu.aKU;
+        this.aHF.aHg = true;
+        z = this.aHF.aHf;
         if (z) {
             Drawable drawable = at.getDrawable(t.f.btn_dailog_choose_d);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.aLu.aLc;
+            textView2 = this.aHF.aHn;
             textView2.setCompoundDrawables(drawable, null, null, null);
         }
-        aVar = this.aLu.aLp;
-        z2 = this.aLu.aKU;
-        aVar.bR(z2);
+        aVar = this.aHF.aHA;
+        z2 = this.aHF.aHf;
+        aVar.bX(z2);
     }
 }

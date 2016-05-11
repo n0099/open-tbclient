@@ -1,69 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.graphics.drawable.Drawable;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.adp.widget.ListView.x.a;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.ref.SoftReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class db<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected ListView bjr;
-    protected PbActivity dfw;
-    private SparseArray<SoftReference<Drawable>> diw;
-    private SparseArray<Integer> dix;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+public class db implements Runnable {
+    final /* synthetic */ cw dlN;
+    private final /* synthetic */ com.baidu.tieba.pb.data.e dlR;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public db(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mSkinType = 3;
-        this.mIsFromCDN = false;
-        this.diw = new SparseArray<>();
-        this.dix = new SparseArray<>();
-        this.dfw = pbActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public db(cw cwVar, com.baidu.tieba.pb.data.e eVar) {
+        this.dlN = cwVar;
+        this.dlR = eVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.bjr = (ListView) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getDimensionPixelSize(int i) {
-        Integer num = this.dix.get(i);
-        if (num != null) {
-            return num.intValue();
-        }
-        int dimensionPixelSize = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i);
-        this.dix.put(i, Integer.valueOf(dimensionPixelSize));
-        return dimensionPixelSize;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Drawable getDrawable(int i) {
-        Drawable drawable;
-        SoftReference<Drawable> softReference = this.diw.get(i);
-        if (softReference == null) {
-            drawable = null;
-        } else {
-            drawable = softReference.get();
-        }
-        if (drawable == null && (drawable = com.baidu.tbadk.core.util.at.getDrawable(i)) != null) {
-            this.diw.put(i, new SoftReference<>(drawable));
-        }
-        return drawable;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.dlN.a(this.dlR, 3, false, 0, "", false, 0, 0L, 0L, true);
+        this.dlN.avz = false;
     }
 }

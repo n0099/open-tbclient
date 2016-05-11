@@ -1,42 +1,20 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes.dex */
-class bw implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ PbActivity dht;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(PbActivity pbActivity) {
-        this.dht = pbActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Yh */
-    public View hq() {
-        return new PlayVoiceBnt(this.dht.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ag */
-    public void l(View view) {
-        ((PlayVoiceBnt) view).reset();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ah */
-    public View m(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ai */
-    public View n(View view) {
-        ((PlayVoiceBnt) view).reset();
-        return view;
+class bw implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
+                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
+            } else {
+                customMessage.getData().startActivity(PbActivity.class);
+            }
+        }
+        return null;
     }
 }

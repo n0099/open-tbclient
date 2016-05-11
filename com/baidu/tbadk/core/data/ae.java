@@ -1,22 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
-public class ae extends as {
-    public static final BdUniqueId Ue = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Uf;
+public class ae {
+    private int OT;
+    private ArrayList<a> OU;
 
-    public List<PhotoLiveCardData> su() {
-        return this.Uf;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String EV;
+        public int giftId;
+        public int num;
+        public String thumbnailUrl;
     }
 
-    public void m(List<PhotoLiveCardData> list) {
-        this.Uf = list;
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.OT = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.OU = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.EV = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.OU.add(aVar);
+                    }
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tbadk.core.data.as, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return Ue;
+    public int pM() {
+        return this.OT;
+    }
+
+    public void bF(int i) {
+        this.OT = i;
+    }
+
+    public ArrayList<a> pN() {
+        return this.OU;
+    }
+
+    public void g(ArrayList<a> arrayList) {
+        this.OU = arrayList;
     }
 }

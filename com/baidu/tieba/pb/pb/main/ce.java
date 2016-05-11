@@ -1,26 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-class ce extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ce(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+public class ce extends cf {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ce(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ListAdapter adapter = this.dht.getListView().getAdapter();
-        if (adapter != null && (adapter instanceof BaseAdapter)) {
-            ((BaseAdapter) adapter).notifyDataSetChanged();
-        }
+    @Override // com.baidu.tieba.pb.pb.main.cf
+    protected PbRecBaseViewHolder aF(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aLA().m(this.mContext, 3);
     }
 }

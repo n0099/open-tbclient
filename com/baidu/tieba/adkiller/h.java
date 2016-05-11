@@ -4,13 +4,13 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class h implements o.a<String> {
-    private final /* synthetic */ o aPF;
-    private final /* synthetic */ String aPK;
+    private final /* synthetic */ o aLP;
+    private final /* synthetic */ String aLU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str, o oVar) {
-        this.aPK = str;
-        this.aPF = oVar;
+        this.aLU = str;
+        this.aLP = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class h implements o.a<String> {
                 strArr = new String[split.length];
                 int i = 0;
                 for (String str3 : split) {
-                    if (str3.endsWith(this.aPK)) {
+                    if (str3.endsWith(this.aLU)) {
                         strArr[i] = null;
                     } else {
                         strArr[i] = str3;
@@ -43,7 +43,7 @@ class h implements o.a<String> {
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-            this.aPF.e("ad_killer_tag_key", sb.toString());
+            this.aLP.e("ad_killer_tag_key", sb.toString());
         }
     }
 }

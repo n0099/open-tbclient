@@ -1,45 +1,175 @@
 package com.baidu.sapi2.utils;
+
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.android.common.security.MD5Util;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.utils.e;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public interface d {
-    public static final String A = "/yunid/device/service/status";
-    public static final String B = "/yunid/device/reg";
-    public static final String C = "/yunid/device/login";
-    public static final String D = "/yunid/device/forcereg";
-    public static final String E = "/v2/sapi/bdussexchangeaccesstoken";
-    public static final String F = "/v2/security/sapibindwidgetsend";
-    public static final String G = "/v2/security/sapibindwidgetbind";
-    public static final String H = "/v2/sapi/getvoiceid";
-    public static final String I = "/v2/sapi/regvoice";
-    public static final String J = "/v2/sapi/voicelogin";
-    public static final String K = "/v2/sapi/updatevoicepassword";
-    public static final String L = "baiduvoice35hy12";
-    public static final String M = "/v2/sapi/sdk-e7e3227a11d7e4d3a3a1a8ea89bc76d8";
-    public static final String N = "/v2/sapi/sdk-9fc05608ec97ba19262c82c1aa7770e7";
-    public static final String O = "/export/mobilesdk/update.txt";
-    public static final String a = "/v2/sapi/login";
-    public static final String b = "/wp/login/proxy";
-    public static final String c = "http://119.75.220.29";
-    public static final String d = "http://220.181.111.48";
-    public static final String e = "http://123.125.115.81";
-    public static final String f = "/cgi-bin/genimage?";
-    public static final String g = "/v2/sapi/applyregcode";
-    public static final String h = "/v2/sapi/phoneregverify";
-    public static final String i = "/v2/sapi/reg/quick";
-    public static final String j = "2512457640";
-    public static final String k = "/phoenix/account/ssologin";
-    public static final String l = "/phoenix/account/ssologin";
-    public static final String m = "/phoenix/account/startlogin";
-    public static final String n = "/phoenix/account/afterauth";
-    public static final String o = "/phoenix/account/finishbind";
-    public static final String p = "/v2/sapi/qrlogin?lp=pc";
-    public static final String q = "/v2/sapi/qrlogin?lp=app";
-    public static final String r = "/v2/sapi/smsgetlogin";
-    public static final String s = "10698000036592";
-    public static final String t = "/v2/sapi/getdpass";
-    public static final String u = "AES/CBC/PKCS5Padding";
-    public static final String v = "AES";
-    public static final String w = "8070605040302010";
-    public static final String x = "js52je)927!hsm^%3m";
-    public static final String y = "AES/CBC/NoPadding";
-    public static final String z = "/static/appsapi/conf/config.txt";
+public class d {
+    private static final int a = 6;
+    private static final String c = "android";
+    private static final String b = Character.toString(1);
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
+
+    static String a() {
+        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
+    }
+
+    static String b() {
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
+    }
+
+    static List<String> c() {
+        List<SapiAccount> shareAccounts = SapiAccountManager.getInstance().getShareAccounts();
+        ArrayList arrayList = new ArrayList();
+        for (SapiAccount sapiAccount : shareAccounts) {
+            arrayList.add(sapiAccount.uid);
+        }
+        return arrayList;
+    }
+
+    static List<String> a(String str) {
+        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(context.getPackageName());
+        arrayList.add(SapiUtils.getVersionName(context));
+        arrayList.add(SapiAccountManager.VERSION_NAME);
+        arrayList.add(b());
+        arrayList.add(a());
+        arrayList.add("android");
+        arrayList.add(SapiUtils.getClientId(context));
+        arrayList.add(SapiAccountManager.getInstance().getSapiConfiguration().tpl);
+        arrayList.add(String.valueOf(SapiAccountManager.getInstance().getShareAccounts().size()));
+        arrayList.add(TextUtils.join(",", c()));
+        if (str == null) {
+            str = "";
+        }
+        arrayList.add(str);
+        arrayList.add(String.valueOf(com.baidu.sapi2.c.a(context).x()));
+        SapiAccount session = SapiAccountManager.getInstance().getSession();
+        arrayList.add(session != null ? session.uid : "");
+        arrayList.add(SapiUtils.getNetworkClass(context));
+        String z = com.baidu.sapi2.c.a(context).z();
+        if (TextUtils.isEmpty(z)) {
+            z = String.valueOf(SapiUtils.isRoot());
+            com.baidu.sapi2.c.a(context).g(z);
+        }
+        arrayList.add(z);
+        arrayList.add(SapiUtils.getWifiInfo(context));
+        arrayList.add(SapiUtils.getImei(context));
+        arrayList.add(SapiUtils.isEmulator(context) ? "emulator" : "android");
+        arrayList.add(SapiUtils.getMacAddress(context));
+        arrayList.add(SapiUtils.getCpuName() != null ? SapiUtils.getCpuName() : "");
+        arrayList.add(SapiUtils.getRamMemorySize());
+        arrayList.add(SapiUtils.getInternalMemorySize() + "");
+        arrayList.add(SapiUtils.getInternalAvailableMemorySize() + "");
+        arrayList.add(SapiUtils.getTimeSinceBoot() + "");
+        arrayList.add(SapiUtils.getGPSInfo(context));
+        arrayList.add(TextUtils.join(",", SapiUtils.getPackageList(context)));
+        arrayList.add(SapiUtils.getLocalIpAddress() != null ? SapiUtils.getLocalIpAddress() : "");
+        arrayList.add(SapiUtils.getBlueToothDeviceName(context));
+        arrayList.add(SapiUtils.getLocation(context));
+        arrayList.add("");
+        arrayList.add("");
+        return arrayList;
+    }
+
+    static String d() {
+        return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 6) + "0";
+    }
+
+    public static String b(String str) {
+        List<String> a2 = a(str);
+        a.a(a2);
+        return c(TextUtils.join(b, a2));
+    }
+
+    private static String c(String str) {
+        try {
+            String d2 = d();
+            String b2 = e.a.b(new com.baidu.sapi2.utils.a().a(str, d2, d));
+            return TextUtils.join("_", new String[]{d2, b2, MD5Util.toMd5(TextUtils.join("_", new String[]{d2, b2, "check"}).getBytes(), false).substring(0, 6)});
+        } catch (Throwable th) {
+            L.e(th);
+            return "";
+        }
+    }
+
+    public static String a(List<String> list) {
+        JSONObject jSONObject = new JSONObject();
+        if (a.a.isEmpty()) {
+            return null;
+        }
+        for (String str : list) {
+            try {
+                jSONObject.put(str, a.a.get(str));
+            } catch (JSONException e) {
+                L.e(e);
+            }
+        }
+        return c(jSONObject.toString());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public static final class a {
+        static Map<String, String> a = new HashMap();
+
+        a() {
+        }
+
+        static List<String> a() {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("PackageName");
+            arrayList.add("AppVersion");
+            arrayList.add("SdkVersion");
+            arrayList.add("PhoneModel");
+            arrayList.add("SystemVersion");
+            arrayList.add("SystemType");
+            arrayList.add(SocialConstants.PARAM_CUID);
+            arrayList.add("tpl");
+            arrayList.add("uid_count");
+            arrayList.add("uid_list");
+            arrayList.add("usetype");
+            arrayList.add("used_times");
+            arrayList.add("cur_uid");
+            arrayList.add("net_type");
+            arrayList.add("is_root");
+            arrayList.add("wifi");
+            arrayList.add("imei");
+            arrayList.add("emulator");
+            arrayList.add("mac_address");
+            arrayList.add("cpu_info");
+            arrayList.add("ram");
+            arrayList.add("internal_memory");
+            arrayList.add("internal_avail_memory");
+            arrayList.add("up_time");
+            arrayList.add("gps");
+            arrayList.add("package_list");
+            arrayList.add("ip");
+            arrayList.add("device_name");
+            arrayList.add("map_location");
+            arrayList.add("device_sn");
+            arrayList.add("device_uuid");
+            return arrayList;
+        }
+
+        static void a(List<String> list) {
+            List<String> a2 = a();
+            for (int i = 0; i < a2.size(); i++) {
+                a.put(a2.get(i), list.get(i));
+            }
+        }
+    }
 }

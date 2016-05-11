@@ -5,11 +5,11 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements Runnable {
-    final /* synthetic */ x ehb;
+    final /* synthetic */ x ekn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(x xVar) {
-        this.ehb = xVar;
+        this.ekn = xVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,13 +17,13 @@ public class aa implements Runnable {
         Context context;
         Context context2;
         ProgressBar progressBar;
-        context = this.ehb.mContext;
+        context = this.ekn.mContext;
         int dip2px = com.baidu.adp.lib.util.k.dip2px(context, 6.0f);
-        context2 = this.ehb.mContext;
+        context2 = this.ekn.mContext;
         int dip2px2 = com.baidu.adp.lib.util.k.dip2px(context2, 100.0f);
         int i = dip2px2 - (dip2px * 2);
         int i2 = (dip2px2 - i) / 2;
-        progressBar = this.ehb.aQj;
+        progressBar = this.ekn.bDI;
         progressBar.getProgressDrawable().setBounds(i2, i2, i2 + i, i + i2);
     }
 }

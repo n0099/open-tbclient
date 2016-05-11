@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cLU;
+    final /* synthetic */ SquareSearchActivity cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(SquareSearchActivity squareSearchActivity) {
-        this.cLU = squareSearchActivity;
+        this.cMQ = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b bVar;
-        com.baidu.adp.lib.util.k.c(this.cLU.getPageContext().getPageActivity(), this.cLU.cKS);
-        if (this.cLU.mMode == 0 && (view.getTag() instanceof Integer)) {
+        com.baidu.adp.lib.util.k.a(this.cMQ.getPageContext().getPageActivity(), this.cMQ.cLO);
+        if (this.cMQ.mMode == 0 && (view.getTag() instanceof Integer)) {
             int intValue = ((Integer) view.getTag()).intValue();
-            bVar = this.cLU.cKZ;
+            bVar = this.cMQ.cLV;
             c item = bVar.getItem(intValue);
             long j = 0;
             if (item != null) {
@@ -31,8 +31,8 @@ public class aa implements View.OnClickListener {
             TiebaStatic.log(new aw("c10364").ac("fid", new StringBuilder(String.valueOf(j)).toString()));
             if (item != null) {
                 String forumName = item.getForumName();
-                TiebaStatic.eventStat(this.cLU.getPageContext().getPageActivity(), "search_hot_word", "click", 1, "loc", Integer.valueOf(intValue));
-                this.cLU.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cLU.getPageContext().getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SEARCH)));
+                TiebaStatic.eventStat(this.cMQ.getPageContext().getPageActivity(), "search_hot_word", "click", 1, "loc", Integer.valueOf(intValue));
+                this.cMQ.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cMQ.getPageContext().getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SEARCH)));
             }
         }
     }

@@ -26,16 +26,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dq(int i);
+        void cY(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int xL();
+        int vB();
 
-        com.baidu.adp.lib.f.b<HeadImageView> xM();
+        com.baidu.adp.lib.f.b<HeadImageView> vC();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,13 +75,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(t.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.xM();
+            this.mUserPhotoPool = dVar.vC();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.xL());
+                this.mTbRecyclerListener = new c(dVar.vB());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new ap(this));
+        setOnHierarchyChangeListener(new ar(this));
     }
 
     @Override // android.view.ViewGroup
@@ -188,7 +188,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dq(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.cY(this.mIndex);
             }
         }
     }
@@ -207,13 +207,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     public static com.baidu.adp.lib.f.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.f.b<>(new aq(context), i, 0);
+        return new com.baidu.adp.lib.f.b<>(new as(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.hp();
+            headImageView = this.mUserPhotoPool.dD();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

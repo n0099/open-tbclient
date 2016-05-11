@@ -6,15 +6,15 @@ import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 class c implements NoNetworkView.a {
-    final /* synthetic */ GodThreadListActivity dwU;
+    final /* synthetic */ GodThreadListActivity dzZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GodThreadListActivity godThreadListActivity) {
-        this.dwU = godThreadListActivity;
+        this.dzZ = godThreadListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aA(boolean z) {
+    public void aF(boolean z) {
         h hVar;
         g gVar;
         List list;
@@ -25,34 +25,34 @@ class c implements NoNetworkView.a {
         h hVar3;
         g gVar4;
         g gVar5;
-        hVar = this.dwU.dwQ;
+        hVar = this.dzZ.dzV;
         if (hVar != null) {
-            gVar = this.dwU.dwP;
+            gVar = this.dzZ.dzU;
             if (gVar != null) {
-                list = this.dwU.dwR;
+                list = this.dzZ.dzW;
                 if (list != null) {
-                    list2 = this.dwU.dwR;
+                    list2 = this.dzZ.dzW;
                     if (list2.isEmpty()) {
                         if (z) {
-                            hVar2 = this.dwU.dwQ;
+                            hVar2 = this.dzZ.dzV;
                             if (!hVar2.isLoading()) {
-                                hVar3 = this.dwU.dwQ;
+                                hVar3 = this.dzZ.dzV;
                                 if (hVar3.hasMore()) {
-                                    gVar4 = this.dwU.dwP;
-                                    gVar4.nk();
-                                    gVar5 = this.dwU.dwP;
-                                    gVar5.aCh();
+                                    gVar4 = this.dzZ.dzU;
+                                    gVar4.jy();
+                                    gVar5 = this.dzZ.dzU;
+                                    gVar5.aCy();
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        String string = TbadkCoreApplication.m411getInst().getString(t.j.neterror);
-                        gVar2 = this.dwU.dwP;
-                        gVar2.mf(string);
-                        gVar3 = this.dwU.dwP;
-                        gVar3.aCh();
+                        String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
+                        gVar2 = this.dzZ.dzU;
+                        gVar2.mj(string);
+                        gVar3 = this.dzZ.dzU;
+                        gVar3.aCy();
                     }
                 }
             }

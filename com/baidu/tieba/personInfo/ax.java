@@ -1,7 +1,10 @@
 package com.baidu.tieba.personInfo;
+
+import android.view.View;
+import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements Runnable {
+public class ax implements View.OnClickListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,10 +12,15 @@ public class ax implements Runnable {
         this.this$0 = fVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bf bfVar;
-        bfVar = this.this$0.dvN;
-        bfVar.aDk();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        FrameLayout frameLayout;
+        bg bgVar;
+        f fVar = this.this$0;
+        frameLayout = this.this$0.dFH;
+        fVar.a((View) frameLayout, false, -1);
+        this.this$0.Pe();
+        bgVar = this.this$0.dyP;
+        bgVar.aDF();
     }
 }

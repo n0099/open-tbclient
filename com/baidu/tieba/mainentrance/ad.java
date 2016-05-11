@@ -11,19 +11,19 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity cLU;
-    private final /* synthetic */ TextView cLV;
-    private final /* synthetic */ ImageView cLW;
-    private final /* synthetic */ TextView cLX;
-    private final /* synthetic */ ImageView cLY;
+    final /* synthetic */ SquareSearchActivity cMQ;
+    private final /* synthetic */ TextView cMR;
+    private final /* synthetic */ ImageView cMS;
+    private final /* synthetic */ TextView cMT;
+    private final /* synthetic */ ImageView cMU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(SquareSearchActivity squareSearchActivity, TextView textView, ImageView imageView, TextView textView2, ImageView imageView2) {
-        this.cLU = squareSearchActivity;
-        this.cLV = textView;
-        this.cLW = imageView;
-        this.cLX = textView2;
-        this.cLY = imageView2;
+        this.cMQ = squareSearchActivity;
+        this.cMR = textView;
+        this.cMS = imageView;
+        this.cMT = textView2;
+        this.cMU = imageView2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,21 +31,21 @@ public class ad implements View.OnClickListener {
         View view2;
         FragmentTabIndicator fragmentTabIndicator;
         FragmentTabIndicator fragmentTabIndicator2;
-        this.cLU.cLv = false;
-        this.cLV.setTextColor(com.baidu.tbadk.core.util.at.getColor(t.d.cp_link_tip_a));
-        this.cLW.setVisibility(0);
-        this.cLX.setTextColor(com.baidu.tbadk.core.util.at.getColor(t.d.cp_cont_c));
-        this.cLY.setVisibility(8);
-        view2 = this.cLU.cKX;
+        this.cMQ.cMr = false;
+        this.cMR.setTextColor(com.baidu.tbadk.core.util.at.getColor(t.d.cp_link_tip_a));
+        this.cMS.setVisibility(0);
+        this.cMT.setTextColor(com.baidu.tbadk.core.util.at.getColor(t.d.cp_cont_c));
+        this.cMU.setVisibility(8);
+        view2 = this.cMQ.cLT;
         view2.setVisibility(8);
-        fragmentTabIndicator = this.cLU.cKO;
+        fragmentTabIndicator = this.cMQ.cLK;
         fragmentTabIndicator.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down_s);
-        fragmentTabIndicator2 = this.cLU.cKO;
-        fragmentTabIndicator2.dn(TbadkCoreApplication.m411getInst().getSkinType());
-        this.cLU.aoB();
-        if (!TextUtils.isEmpty(this.cLU.cLn)) {
-            this.cLU.D(1, this.cLU.cLn);
+        fragmentTabIndicator2 = this.cMQ.cLK;
+        fragmentTabIndicator2.cW(TbadkCoreApplication.m11getInst().getSkinType());
+        this.cMQ.aoF();
+        if (!TextUtils.isEmpty(this.cMQ.cMj)) {
+            this.cMQ.C(1, this.cMQ.cMj);
         }
-        TiebaStatic.eventStat(this.cLU.getPageContext().getPageActivity(), "search_2", "click", 1, new Object[0]);
+        TiebaStatic.eventStat(this.cMQ.getPageContext().getPageActivity(), "search_2", "click", 1, new Object[0]);
     }
 }

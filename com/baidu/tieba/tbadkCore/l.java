@@ -5,7 +5,6 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private String ahv = "";
     private int categoryId;
     private int cid;
     private int ctime;
@@ -25,6 +24,8 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     private String stType;
     private int updateType;
     private int withGroup;
+    private String adm = "";
+    private int mSortType = 0;
 
     public boolean isNeedCache() {
         return this.needCache;
@@ -43,7 +44,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     public void setYuelaouLocate(String str) {
-        this.ahv = str;
+        this.adm = str;
     }
 
     public void setLastId(String str) {
@@ -60,6 +61,14 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
 
     public void setCategoryId(int i) {
         this.categoryId = i;
+    }
+
+    public void pc(int i) {
+        this.mSortType = i;
+    }
+
+    public int aRZ() {
+        return this.mSortType;
     }
 
     public String getKw() {
@@ -84,6 +93,10 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
 
     public void setWithGroup(int i) {
         this.withGroup = i;
+    }
+
+    public int getIsGood() {
+        return this.isGood;
     }
 
     public void setIsGood(int i) {
@@ -123,7 +136,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oQ() {
+    public HashMap<String, Object> ld() {
         return null;
     }
 
@@ -148,9 +161,10 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.ahv;
+        builder.yuelaou_locate = this.adm;
+        builder.sort_type = Integer.valueOf(this.mSortType);
         if (z) {
-            com.baidu.tbadk.util.l.a(builder, true);
+            com.baidu.tbadk.util.o.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -158,12 +172,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Fo() {
+    public String Dg() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Fp() {
+    public boolean Dh() {
         return false;
     }
 

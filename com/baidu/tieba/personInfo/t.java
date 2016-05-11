@@ -19,10 +19,10 @@ public class t extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         int g;
-        bf bfVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.g) && (g = com.baidu.adp.lib.h.b.g(((com.baidu.tieba.tbadkCore.data.g) customResponsedMessage.getData()).aSQ(), 0)) > 0) {
-            bfVar = this.this$0.dvN;
-            UserData userData = bfVar.getUserData();
+        bg bgVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.g) && (g = com.baidu.adp.lib.h.b.g(((com.baidu.tieba.tbadkCore.data.g) customResponsedMessage.getData()).aTr(), 0)) > 0) {
+            bgVar = this.this$0.dyP;
+            UserData userData = bgVar.getUserData();
             if (userData != null) {
                 userData.setTDouNum(userData.getTDouNum() + g);
             }

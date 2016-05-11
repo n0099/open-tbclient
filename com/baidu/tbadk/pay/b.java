@@ -1,5 +1,6 @@
 package com.baidu.tbadk.pay;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigNetMessage;
@@ -9,14 +10,14 @@ import com.baidu.tieba.t;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a aAu;
-    private final com.baidu.adp.framework.listener.a aAv;
+    private a awx;
+    private final com.baidu.adp.framework.listener.a awy;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.aAv = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.aAu = aVar;
-        registerListener(this.aAv);
+        this.awy = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.awx = aVar;
+        registerListener(this.awy);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +30,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Gw() {
-        if (!e.Gx().Gy()) {
-            if (this.aAu != null) {
-                this.aAu.Gu();
+    public void Eo() {
+        if (!e.Ep().Eq()) {
+            if (this.awx != null) {
+                this.awx.Em();
                 return;
             }
             return;
@@ -40,6 +41,10 @@ public class b extends com.baidu.adp.base.e {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType("payType");
         sendMessage(clientConfigNetMessage);
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.awy);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,19 +55,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.aAu != null) {
-                this.aAu.onError(TbadkCoreApplication.m411getInst().getString(t.j.data_load_error));
+            if (this.awx != null) {
+                this.awx.onError(TbadkCoreApplication.m11getInst().getString(t.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.aAu != null) {
-                this.aAu.Gv();
+            if (this.awx != null) {
+                this.awx.En();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.aAu != null) {
-                this.aAu.Gu();
+            if (this.awx != null) {
+                this.awx.Em();
             }
-        } else if (this.aAu != null) {
-            this.aAu.onError("");
+        } else if (this.awx != null) {
+            this.awx.onError("");
         }
     }
 }

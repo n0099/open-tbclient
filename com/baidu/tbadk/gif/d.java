@@ -9,13 +9,13 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ GiftGifView axG;
+    final /* synthetic */ GiftGifView atH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(GiftGifView giftGifView, Looper looper) {
         super(looper);
-        this.axG = giftGifView;
+        this.atH = giftGifView;
     }
 
     @Override // android.os.Handler
@@ -32,49 +32,49 @@ public class d extends Handler {
         int i4;
         boolean z2;
         boolean z3;
-        weakReference = this.axG.axC;
+        weakReference = this.atH.atD;
         if (weakReference != null) {
-            weakReference2 = this.axG.axC;
+            weakReference2 = this.atH.atD;
             com.baidu.adp.gif.b bVar = (com.baidu.adp.gif.b) weakReference2.get();
             if (bVar != null) {
                 if (message.what == 2) {
-                    this.axG.axF = true;
+                    this.atH.atG = true;
                     removeMessages(2);
                 } else if (message.what == 1) {
-                    GiftGifView giftGifView = this.axG;
-                    i = giftGifView.axe;
-                    giftGifView.axe = i + 1;
-                    i2 = this.axG.axe;
-                    if (i2 >= bVar.fo()) {
-                        z2 = this.axG.axw;
+                    GiftGifView giftGifView = this.atH;
+                    i = giftGifView.atf;
+                    giftGifView.atf = i + 1;
+                    i2 = this.atH.atf;
+                    if (i2 >= bVar.bC()) {
+                        z2 = this.atH.atx;
                         if (!z2) {
-                            z3 = this.axG.axF;
+                            z3 = this.atH.atG;
                             if (!z3) {
                                 z = false;
-                                this.axG.axe = 0;
+                                this.atH.atf = 0;
                             }
                         }
-                        this.axG.setVisibility(4);
-                        this.axG.axw = false;
+                        this.atH.setVisibility(4);
+                        this.atH.atx = false;
                         z = true;
-                        this.axG.axe = 0;
+                        this.atH.atf = 0;
                     } else {
                         z = false;
                     }
-                    i3 = this.axG.axe;
-                    bVar.Q(i3);
-                    bitmap = this.axG.mBitmap;
+                    i3 = this.atH.atf;
+                    bVar.E(i3);
+                    bitmap = this.atH.mBitmap;
                     bVar.a(bitmap, null);
-                    this.axG.invalidate();
+                    this.atH.invalidate();
                     removeMessages(1);
                     if (!z) {
-                        i4 = this.axG.axe;
-                        sendEmptyMessageDelayed(1, bVar.R(i4));
+                        i4 = this.atH.atf;
+                        sendEmptyMessageDelayed(1, bVar.F(i4));
                         return;
                     }
-                    aVar = this.axG.axD;
+                    aVar = this.atH.atE;
                     if (aVar != null) {
-                        aVar2 = this.axG.axD;
+                        aVar2 = this.atH.atE;
                         aVar2.onStop();
                     }
                 }

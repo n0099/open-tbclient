@@ -1,31 +1,50 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.VipCloseAd;
+import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int arQ = 1;
-    private int arR;
+    private int anF;
+    private String content;
+    private String icon_link;
+    private String icon_url;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.arQ = jSONObject.optInt("is_open");
-            this.arR = jSONObject.optInt("vip_close");
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.icon_url = jSONObject.optString("icon_url");
+            this.icon_link = jSONObject.optString("icon_link");
+            this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+            this.anF = jSONObject.optInt("tail_type");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void a(VipCloseAd vipCloseAd) {
-        if (vipCloseAd != null) {
-            this.arQ = vipCloseAd.is_open.intValue();
-            this.arR = vipCloseAd.vip_close.intValue();
+    public void a(TailInfo tailInfo) {
+        try {
+            this.icon_url = tailInfo.icon_url;
+            this.icon_link = tailInfo.icon_link;
+            this.content = tailInfo.content;
+            this.anF = tailInfo.tail_type.intValue();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public int CB() {
-        return this.arQ;
+    public String getIconUrl() {
+        return this.icon_url;
     }
 
-    public int CC() {
-        return this.arR;
+    public String At() {
+        return this.icon_link;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public int Au() {
+        return this.anF;
     }
 }

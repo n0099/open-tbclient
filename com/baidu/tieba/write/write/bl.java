@@ -1,15 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bg;
-import java.util.Map;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bl implements bg.b {
-    @Override // com.baidu.tbadk.core.util.bg.b
-    public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
-        if (tbPageContext == null) {
-            return;
+class bl extends CustomMessageListener {
+    final /* synthetic */ WriteActivity feb;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(WriteActivity writeActivity, int i) {
+        super(i);
+        this.feb = writeActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.feb.aMm();
         }
-        WriteActivityStatic.n(tbPageContext);
     }
 }

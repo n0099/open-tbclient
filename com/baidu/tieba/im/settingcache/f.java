@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.settingcache;
 
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends p<Void> {
-    final /* synthetic */ c cqg;
-    private final /* synthetic */ String tU;
+public class f extends s<Void> {
+    final /* synthetic */ c crd;
+    private final /* synthetic */ String jI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, String str) {
-        this.cqg = cVar;
-        this.tU = str;
+        this.crd = cVar;
+        this.jI = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.p
-    /* renamed from: JX */
+    @Override // com.baidu.tbadk.util.s
+    /* renamed from: Io */
     public Void doInBackground() {
-        this.cqg.aij().remove(this.tU);
+        this.crd.aiq().remove(this.jI);
         return null;
     }
 }

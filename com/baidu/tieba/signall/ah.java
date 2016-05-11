@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private b ehp;
-    private a ehq;
+    private b ekB;
+    private a ekC;
     private String mForumId;
     private String mForumName;
 
@@ -22,7 +22,7 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.ehp = null;
+        this.ekB = null;
     }
 
     @Override // com.baidu.adp.base.e
@@ -35,30 +35,30 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
         return false;
     }
 
-    public void aQp() {
-        if (this.ehp != null) {
-            this.ehp.cancel();
-            this.ehp = null;
+    public void aQI() {
+        if (this.ekB != null) {
+            this.ekB.cancel();
+            this.ekB = null;
         }
     }
 
-    public void bB(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.ehp == null) {
+    public void bG(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.ekB == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.ehp = new b(this, null);
-            this.ehp.setPriority(2);
-            this.ehp.execute(new Object[0]);
+            this.ekB = new b(this, null);
+            this.ekB.setPriority(2);
+            this.ekB.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<Object, Integer, SignData> {
-        private volatile com.baidu.tbadk.core.util.ab aiW;
+        private volatile com.baidu.tbadk.core.util.ab aeI;
 
         private b() {
-            this.aiW = null;
+            this.aeI = null;
         }
 
         /* synthetic */ b(ah ahVar, b bVar) {
@@ -73,22 +73,22 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: w */
+        /* renamed from: y */
         public SignData doInBackground(Object... objArr) {
             SignData signData;
             Exception e;
             try {
-                this.aiW = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-                this.aiW.p("kw", ah.this.mForumName);
-                this.aiW.p("fid", ah.this.mForumId);
-                this.aiW.vU().wO().mIsNeedTbs = true;
-                String vw = this.aiW.vw();
-                if (!this.aiW.vX() || !this.aiW.vU().wP().qC()) {
+                this.aeI = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
+                this.aeI.n("kw", ah.this.mForumName);
+                this.aeI.n("fid", ah.this.mForumId);
+                this.aeI.tA().uu().mIsNeedTbs = true;
+                String tc = this.aeI.tc();
+                if (!this.aeI.tD() || !this.aeI.tA().uv().nZ()) {
                     return null;
                 }
                 signData = new SignData();
                 try {
-                    signData.parserJson(vw);
+                    signData.parserJson(tc);
                     signData.setForumId(ah.this.mForumId);
                     signData.setForumName(ah.this.mForumName);
                     return signData;
@@ -105,12 +105,12 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.aiW != null) {
-                this.aiW.gX();
+            if (this.aeI != null) {
+                this.aeI.dl();
             }
-            ah.this.ehp = null;
+            ah.this.ekB = null;
             super.cancel(true);
-            ah.this.ehq.onError(ah.this.mForumId, null);
+            ah.this.ekC.onError(ah.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,18 +118,18 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(SignData signData) {
-            ah.this.ehp = null;
-            if (signData != null || this.aiW == null) {
-                ah.this.ehq.b(signData);
+            ah.this.ekB = null;
+            if (signData != null || this.aeI == null) {
+                ah.this.ekC.b(signData);
                 return;
             }
-            ah.this.mErrorCode = this.aiW.vY();
-            ah.this.mErrorString = this.aiW.getErrorString();
-            ah.this.ehq.onError(ah.this.mForumId, ah.this.mErrorString);
+            ah.this.mErrorCode = this.aeI.tE();
+            ah.this.mErrorString = this.aeI.getErrorString();
+            ah.this.ekC.onError(ah.this.mForumId, ah.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.ehq = aVar;
+        this.ekC = aVar;
     }
 }

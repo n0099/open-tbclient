@@ -9,11 +9,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ NavigationBar afJ;
+    final /* synthetic */ NavigationBar abi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NavigationBar navigationBar) {
-        this.afJ = navigationBar;
+        this.abi = navigationBar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class o implements View.OnClickListener {
         boolean z;
         Activity activity;
         Activity activity2;
-        z = this.afJ.mClickIsVaild;
+        z = this.abi.mClickIsVaild;
         if (z) {
             int id = view.getId();
             if (id == t.g.navigationBarGoBack) {
-                activity2 = this.afJ.mCurrentActivity;
+                activity2 = this.abi.mCurrentActivity;
                 activity2.finish();
             } else if (id == t.g.navigationBarHome) {
                 MessageManager messageManager = MessageManager.getInstance();
-                activity = this.afJ.mCurrentActivity;
+                activity = this.abi.mCurrentActivity;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
             }
         }

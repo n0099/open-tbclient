@@ -3,11 +3,11 @@ package com.baidu.tieba.signall;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class d implements Comparator<e> {
-    final /* synthetic */ c efG;
+    final /* synthetic */ c eiR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.efG = cVar;
+        this.eiR = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

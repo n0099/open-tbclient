@@ -1,24 +1,37 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fb implements View.OnClickListener {
-    final /* synthetic */ fa bqT;
+public class fb implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.core.data.ax bjh;
+    final /* synthetic */ fa bmw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(fa faVar) {
-        this.bqT = faVar;
+    public fb(fa faVar, com.baidu.tbadk.core.data.ax axVar) {
+        this.bmw = faVar;
+        this.bjh = axVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aF;
-        if (this.bqT.aF(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.as) {
-            com.baidu.tbadk.browser.f.a(this.bqT.bix.getApplicationContext(), TbadkCoreApplication.m411getInst().getString(t.j.user_icon_web_view_title), String.valueOf(com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.as) aF).getAuthor().getUserId(), true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10134").r("obj_type", 3));
+        Context context;
+        if (this.bjh != null) {
+            if (this.bjh.getAuthor() != null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                context = this.bmw.mContext;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.bmw.bgq.avA().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            }
+            if (this.bjh.rt()) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10241").ac("fid", String.valueOf(this.bjh.getFid())).s("obj_type", 2));
+            }
         }
     }
 }

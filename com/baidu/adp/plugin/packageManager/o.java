@@ -20,14 +20,14 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        PluginNetConfigInfos lP;
+        PluginNetConfigInfos id;
         List<PluginNetConfigInfos.PluginConfig> configs;
         String e;
         boolean z = false;
         Object data = customResponsedMessage.getData();
         if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig)) {
             PluginNetConfigInfos.PluginConfig pluginConfig = (PluginNetConfigInfos.PluginConfig) data;
-            if (!TextUtils.isEmpty(pluginConfig.package_name) && (lP = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.lO().lP()) != null && (configs = lP.getConfigs()) != null) {
+            if (!TextUtils.isEmpty(pluginConfig.package_name) && (id = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ic().id()) != null && (configs = id.getConfigs()) != null) {
                 int i = 0;
                 while (true) {
                     if (i >= configs.size()) {
@@ -43,10 +43,10 @@ public class o extends CustomMessageListener {
                 if (z) {
                     configs.add(pluginConfig);
                 }
-                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.lO().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().lR()), pluginConfig);
+                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ic().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if()), pluginConfig);
                 e = this.this$0.e(configs);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().setForbiddenFeatures(e);
-                this.this$0.lD();
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().setForbiddenFeatures(e);
+                this.this$0.hQ();
             }
         }
     }

@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String ept;
-    private int epu;
-    private String epv;
-    private String epw;
-    private String epx;
+    private String esD;
+    private int esE;
+    private String esF;
+    private String esG;
+    private String esH;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.ept = null;
-        this.epu = 0;
-        this.epv = null;
-        this.epw = null;
-        this.epx = null;
+        this.esD = null;
+        this.esE = 0;
+        this.esF = null;
+        this.esG = null;
+        this.esH = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.ept = timgs.img_url;
-            this.epu = timgs.flag.intValue();
-            this.epv = timgs.url;
-            this.epw = timgs.big_cdn_url;
-            this.epx = timgs.des_main;
+            this.esD = timgs.img_url;
+            this.esE = timgs.flag.intValue();
+            this.esF = timgs.url;
+            this.esG = timgs.big_cdn_url;
+            this.esH = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,16 +50,16 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.ept;
+        return this.esD;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rA() {
-        return this.epv;
+    public String oU() {
+        return this.esF;
     }
 
-    public String aSX() {
-        return this.epx;
+    public String aTy() {
+        return this.esH;
     }
 
     public String getSubTitle() {
@@ -74,7 +74,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String aSY() {
-        return this.epw;
+    public String aTz() {
+        return this.esG;
     }
 }

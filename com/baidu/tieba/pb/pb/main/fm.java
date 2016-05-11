@@ -1,26 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fm implements DialogInterface.OnCancelListener {
-    final /* synthetic */ eu dnc;
+public class fm implements a.b {
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fm(eu euVar) {
-        this.dnc = euVar;
+    public fm(el elVar) {
+        this.dpu = elVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.dnc.dmv;
-        if (runnable == null) {
-            this.dnc.dmv = new fn(this);
-        }
-        com.baidu.adp.lib.h.h hx = com.baidu.adp.lib.h.h.hx();
-        runnable2 = this.dnc.dmv;
-        hx.postDelayed(runnable2, 150L);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

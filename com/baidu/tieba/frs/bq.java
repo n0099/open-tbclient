@@ -1,24 +1,50 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.c bmu;
-    final /* synthetic */ bp bmw;
+public class bq extends y.a {
+    public AppDownloadView ZT;
+    public LinearLayout bhU;
+    public View bhV;
+    public HeadImageView bhW;
+    public TextView bhX;
+    public TextView bhY;
+    public TextView bhZ;
+    public TextView bia;
+    public TbImageView bib;
+    public TbImageView bic;
+    public TbImageView bie;
+    public TextView bif;
+    public ViewStub bih;
+    public ViewGroup bii;
+    public ViewStub bij;
+    public ViewGroup bik;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bp bpVar, com.baidu.tbadk.core.data.c cVar) {
-        this.bmw = bpVar;
-        this.bmu = cVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10827");
-        awVar.ac("obj_id", new StringBuilder(String.valueOf(this.bmu.getFid())).toString());
-        TiebaStatic.log(awVar);
-        com.baidu.tbadk.browser.f.a(this.bmw.bix.getPageContext().getPageActivity(), true, this.bmu.Sq);
+    public bq(View view) {
+        super(view);
+        this.bhU = (LinearLayout) view.findViewById(t.g.frs_app_item_parent);
+        this.bhW = (HeadImageView) view.findViewById(t.g.frs_app_multi_pic_icon);
+        this.bhX = (TextView) view.findViewById(t.g.frs_app_multi_pic_name);
+        this.bhY = (TextView) view.findViewById(t.g.frs_app_multi_pic_time);
+        this.ZT = (AppDownloadView) view.findViewById(t.g.frs_app_download_view);
+        this.bhZ = (TextView) view.findViewById(t.g.frs_app_multi_pic_title);
+        this.bia = (TextView) view.findViewById(t.g.frs_app_multi_pic_desc);
+        this.bib = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_left);
+        this.bic = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_center);
+        this.bie = (TbImageView) view.findViewById(t.g.frs_app_multi_pic_right);
+        this.bif = (TextView) view.findViewById(t.g.frs_app_download);
+        this.bhV = view.findViewById(t.g.frs_app_multi_pic_container);
+        this.bih = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
+        this.bij = (ViewStub) view.findViewById(t.g.item_adkiller_close);
+        this.ZT.uO();
     }
 }

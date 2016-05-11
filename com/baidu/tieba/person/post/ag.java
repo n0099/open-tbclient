@@ -12,17 +12,17 @@ import com.baidu.tieba.person.god.GodThreadListSocketResponseMessage;
 /* loaded from: classes.dex */
 public class ag {
     public static void init() {
-        abB();
-        aCG();
+        abA();
+        aDa();
     }
 
-    public static void abB() {
+    public static void abA() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309291, GodThreadListSocketResponseMessage.class, false, false);
     }
 
-    private static void aCG() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.au("c/u/feed/userpost", 303002));
+    private static void aDa() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ay("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -33,7 +33,7 @@ public class ag {
         tbHttpMessageTask2.setIsNeedLogin(true);
         tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(CmdConfigHttp.CMD_GOD_THREAD_LIST, com.baidu.tieba.tbadkCore.a.a.au(TbConfig.GOD_THREAD_LIST, 309291));
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(CmdConfigHttp.CMD_GOD_THREAD_LIST, com.baidu.tieba.tbadkCore.a.a.ay(TbConfig.GOD_THREAD_LIST, 309291));
         tbHttpMessageTask3.setIsNeedLogin(true);
         tbHttpMessageTask3.setResponsedClass(GodThreadListHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);

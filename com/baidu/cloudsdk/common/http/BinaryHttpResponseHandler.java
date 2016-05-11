@@ -1,5 +1,6 @@
 package com.baidu.cloudsdk.common.http;
 
+import android.os.Looper;
 import android.os.Message;
 import java.io.IOException;
 import org.apache.http.Header;
@@ -18,6 +19,17 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
     }
 
     public BinaryHttpResponseHandler(String[] strArr) {
+        this.mAllowedContentTypes = new String[]{"image/jpeg", "image/png"};
+        this.mAllowedContentTypes = strArr;
+    }
+
+    public BinaryHttpResponseHandler(Looper looper) {
+        super(looper);
+        this.mAllowedContentTypes = new String[]{"image/jpeg", "image/png"};
+    }
+
+    public BinaryHttpResponseHandler(Looper looper, String[] strArr) {
+        super(looper);
         this.mAllowedContentTypes = new String[]{"image/jpeg", "image/png"};
         this.mAllowedContentTypes = strArr;
     }
@@ -72,6 +84,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
             } catch (IOException e) {
                 sendFailureMessage(e, (byte[]) null);
                 return;
+            } finally {
+                AsyncHttpClient.endEntityViaReflection(entity);
             }
         }
         if (statusLine.getStatusCode() >= 300) {

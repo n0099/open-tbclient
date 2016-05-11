@@ -11,19 +11,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private static i ceN;
+    private static i cft;
 
-    public static synchronized i aey() {
+    public static synchronized i aex() {
         i iVar;
         synchronized (i.class) {
-            if (ceN == null) {
+            if (cft == null) {
                 synchronized (i.class) {
-                    if (ceN == null) {
-                        ceN = new i();
+                    if (cft == null) {
+                        cft = new i();
                     }
                 }
             }
-            iVar = ceN;
+            iVar = cft;
         }
         return iVar;
     }
@@ -31,7 +31,7 @@ public class i {
     private i() {
     }
 
-    public boolean R(String str, int i) {
+    public boolean V(String str, int i) {
         try {
             return g.aet().a("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class i {
         }
     }
 
-    public LinkedList<ImMessageCenterPojo> aez() {
+    public LinkedList<ImMessageCenterPojo> aey() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
         Cursor rawQuery = g.aet().rawQuery("SELECT * FROM tb_message_center", null);
         if (rawQuery != null) {
@@ -68,7 +68,7 @@ public class i {
         return linkedList;
     }
 
-    public LinkedList<ImMessageCenterPojo> aeA() {
+    public LinkedList<ImMessageCenterPojo> aez() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
         Cursor rawQuery = g.aet().rawQuery("SELECT * FROM tb_message_center", null);
         if (rawQuery != null) {
@@ -101,7 +101,7 @@ public class i {
         return linkedList;
     }
 
-    public ImMessageCenterPojo S(String str, int i) {
+    public ImMessageCenterPojo W(String str, int i) {
         Cursor cursor;
         ImMessageCenterPojo imMessageCenterPojo;
         Exception e;
@@ -168,7 +168,7 @@ public class i {
         return imMessageCenterPojo;
     }
 
-    public LinkedList<ImMessageCenterPojo> aeB() {
+    public LinkedList<ImMessageCenterPojo> aeA() {
         Cursor cursor;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
         try {
@@ -394,7 +394,7 @@ public class i {
         }
     }
 
-    public void T(String str, int i) {
+    public void X(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("unread_count", (Integer) 0);

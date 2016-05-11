@@ -8,11 +8,13 @@ public enum FastLoginFeature {
     SINA_WEIBO_WEBVIEW("tsina"),
     TX_WEIBO_WEBVIEW("tqq"),
     TX_QQ_WEBVIEW("qzone"),
-    RENREN_WEBVIEW("renren"),
     DEVICE_LOGIN("device_login"),
     QR_LOGIN("qr_app_login"),
     NM_LOGIN("nuomi_login"),
-    VOICE_LOGIN("voice_login");
+    VOICE_LOGIN("voice_login"),
+    HUAWEI_LOGIN("huawei_login"),
+    CHUANKE_LOGIN("chuanke"),
+    WANDA_FEIFAN_LOGIN("feifan");
     
     private String a;
 

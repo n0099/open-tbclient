@@ -7,18 +7,18 @@ import tbclient.GraffitiRankItem;
 import tbclient.GraffitiRankListInfo;
 /* loaded from: classes.dex */
 public class v extends com.baidu.tieba.tbadkCore.data.s {
-    public static final BdUniqueId TC = BdUniqueId.gen();
-    private int TD;
-    private int TE;
-    private int TG;
-    private int TH;
-    private boolean TI;
-    private int TL;
+    public static final BdUniqueId Oq = BdUniqueId.gen();
+    private int Or;
+    private int Os;
+    private int Ou;
+    private int Ov;
+    private boolean Ow;
+    private int Oz;
     private String mForumId;
     private String mThreadId;
-    private boolean TJ = false;
-    private boolean TK = false;
-    private List<u> TF = new ArrayList();
+    private boolean Ox = false;
+    private boolean Oy = false;
+    private List<u> Ot = new ArrayList();
 
     public void setThreadId(String str) {
         this.mThreadId = str;
@@ -37,79 +37,79 @@ public class v extends com.baidu.tieba.tbadkCore.data.s {
     }
 
     public List<u> getItems() {
-        return this.TF;
+        return this.Ot;
     }
 
     public void setItems(List<u> list) {
-        this.TF = list;
+        this.Ot = list;
     }
 
-    public int rY() {
-        return this.TG;
+    public int pr() {
+        return this.Ou;
     }
 
-    public int rZ() {
-        return this.TH;
+    public int ps() {
+        return this.Ov;
     }
 
-    public boolean sa() {
-        return this.TI;
+    public boolean pt() {
+        return this.Ow;
     }
 
-    public void ah(boolean z) {
-        this.TI = z;
+    public void ak(boolean z) {
+        this.Ow = z;
     }
 
     public int getRole() {
-        return this.TL;
+        return this.Oz;
     }
 
-    public void bL(int i) {
-        this.TL = i;
+    public void bx(int i) {
+        this.Oz = i;
     }
 
-    public boolean sb() {
-        return this.TJ;
+    public boolean pu() {
+        return this.Ox;
     }
 
-    public void ai(boolean z) {
-        this.TJ = z;
+    public void al(boolean z) {
+        this.Ox = z;
     }
 
-    public boolean sc() {
-        return this.TK;
+    public boolean pv() {
+        return this.Oy;
     }
 
-    public void aj(boolean z) {
-        this.TK = z;
+    public void am(boolean z) {
+        this.Oy = z;
     }
 
     public void a(GraffitiRankListInfo graffitiRankListInfo) {
         if (graffitiRankListInfo != null) {
-            this.TD = graffitiRankListInfo.has_more.intValue();
-            this.TE = graffitiRankListInfo.total.intValue();
-            this.TG = graffitiRankListInfo.show_list_count.intValue();
-            this.TH = graffitiRankListInfo.quick_list_count.intValue();
-            this.TI = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.TF == null) {
-                this.TF = new ArrayList();
+            this.Or = graffitiRankListInfo.has_more.intValue();
+            this.Os = graffitiRankListInfo.total.intValue();
+            this.Ou = graffitiRankListInfo.show_list_count.intValue();
+            this.Ov = graffitiRankListInfo.quick_list_count.intValue();
+            this.Ow = graffitiRankListInfo.has_state.intValue() == 1;
+            if (this.Ot == null) {
+                this.Ot = new ArrayList();
             }
-            this.TF.clear();
+            this.Ot.clear();
             List<GraffitiRankItem> list = graffitiRankListInfo.list;
             if (list != null) {
                 for (GraffitiRankItem graffitiRankItem : list) {
                     u uVar = new u();
                     uVar.a(graffitiRankItem);
-                    if (uVar.rX()) {
-                        this.TF.add(uVar);
+                    if (uVar.pq()) {
+                        this.Ot.add(uVar);
                     }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return TC;
+        return Oq;
     }
 }

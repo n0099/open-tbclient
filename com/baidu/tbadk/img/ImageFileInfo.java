@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.core.atomData.ThFollowActivityConfig;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -82,7 +83,7 @@ public class ImageFileInfo implements Serializable {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.filePath = jSONObject.optString("filePath", "");
-            this.albumId = jSONObject.optString("albumId", null);
+            this.albumId = jSONObject.optString(ThFollowActivityConfig.PARAM_ALBUMID_KEY, null);
             this.isTempFile = jSONObject.optBoolean("isTempFile", false);
             this.serverImageCode = jSONObject.optString("serverImageCode", null);
             this.modifyTime = jSONObject.optString("modifyTime");
@@ -106,7 +107,7 @@ public class ImageFileInfo implements Serializable {
         try {
             jSONObject.put("filePath", this.filePath);
             if (this.albumId != null) {
-                jSONObject.put("albumId", this.albumId);
+                jSONObject.put(ThFollowActivityConfig.PARAM_ALBUMID_KEY, this.albumId);
             }
             jSONObject.put("isTempFile", this.isTempFile);
             if (this.serverImageCode != null) {

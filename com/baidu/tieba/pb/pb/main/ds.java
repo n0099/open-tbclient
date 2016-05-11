@@ -1,24 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds implements TbRichTextView.e {
-    final /* synthetic */ dq djQ;
+public class ds implements View.OnClickListener {
+    private final /* synthetic */ String dgG;
+    private final /* synthetic */ String dgH;
+    private final /* synthetic */ String dgI;
+    final /* synthetic */ dq dmt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ds(dq dqVar) {
-        this.djQ = dqVar;
+    public ds(dq dqVar, String str, String str2, String str3) {
+        this.dmt = dqVar;
+        this.dgG = str;
+        this.dgH = str2;
+        this.dgI = str3;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
-    public void b(View view, String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.util.bg.wM().c(this.djQ.dfw.getPageContext(), new String[]{str});
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m11getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dgG) && !StringUtils.isNull(this.dgH)) {
+            if (com.baidu.adp.lib.util.i.fq()) {
+                context = this.dmt.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dgG) + "," + this.dgH, this.dgI, this.dgI, context.getString(t.j.app_info_for_map));
+                context2 = this.dmt.mContext;
+                com.baidu.tbadk.browser.f.t(context2, format);
+                return;
+            }
+            this.dmt.dhY.showToast(t.j.neterror);
         }
     }
 }

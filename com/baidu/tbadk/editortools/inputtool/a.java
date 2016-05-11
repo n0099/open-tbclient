@@ -10,8 +10,8 @@ import com.baidu.tbadk.editortools.y;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a extends aa {
-    private static final int[] auX = {4, 17, 24, 3, 9, 6};
-    private InputView auY;
+    private static final int[] aqW = {4, 17, 24, 3, 9, 6};
+    private InputView aqX;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -21,37 +21,37 @@ public class a extends aa {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.auY != null) {
-            this.auY.setNeedFaceMaxCount(z2);
+        if (this.aqX != null) {
+            this.aqX.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.toolNeedAction = false;
-        this.toolPosition = 2;
-        this.toolLaunchAction = auX;
-        this.auY = new InputView(context, z);
-        this.toolView = this.auY;
+        this.aqp = false;
+        this.aqo = 2;
+        this.aqq = aqW;
+        this.aqX = new InputView(context, z);
+        this.aps = this.aqX;
         y.a aVar = new y.a(0, -2);
         aVar.topMargin = context.getResources().getDimensionPixelSize(t.e.ds22);
         aVar.bottomMargin = context.getResources().getDimensionPixelSize(t.e.ds20);
         aVar.leftMargin = context.getResources().getDimensionPixelSize(t.e.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(t.e.ds10);
         aVar.weight = 1.0f;
-        ((View) this.toolView).setLayoutParams(aVar);
+        ((View) this.aps).setLayoutParams(aVar);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.toolView).setIsOnlyLocalEmotion(z);
+        ((InputView) this.aps).setIsOnlyLocalEmotion(z);
     }
 
     public void b(TextWatcher textWatcher) {
-        ((InputView) this.toolView).setOutTextWather(textWatcher);
+        ((InputView) this.aps).setOutTextWather(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.toolView != null && !StringUtils.isNull(str)) {
-            ((EditText) this.toolView).setHint(str);
+        if (this.aps != null && !StringUtils.isNull(str)) {
+            ((EditText) this.aps).setHint(str);
         }
     }
 }

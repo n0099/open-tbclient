@@ -1,33 +1,25 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements Runnable {
-    final /* synthetic */ FrsActivity blk;
-    private final /* synthetic */ long bll;
-    private final /* synthetic */ long blm;
-    private final /* synthetic */ long bln;
+class ab extends com.baidu.adp.base.g {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(FrsActivity frsActivity, long j, long j2, long j3) {
-        this.blk = frsActivity;
-        this.bll = j;
-        this.blm = j2;
-        this.bln = j3;
+    public ab(FrsActivity frsActivity) {
+        this.bhl = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int B = com.baidu.adp.lib.util.k.B(this.blk.getPageContext().getPageActivity());
-        int C = com.baidu.adp.lib.util.k.C(this.blk.getPageContext().getPageActivity());
-        float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i = 1;
-        if (com.baidu.tbadk.core.util.az.wz().wB()) {
-            i = 2;
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        com.baidu.tieba.frs.h.y yVar;
+        boolean z = false;
+        if (obj instanceof Boolean) {
+            z = ((Boolean) obj).booleanValue();
         }
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setParams(this.bll, this.blm, this.bln, B, C, f, i);
-        this.blk.sendMessage(requestGetMyPostNetMessage);
+        if (z) {
+            yVar = this.bhl.bgF;
+            yVar.dn(true);
+            return;
+        }
+        this.bhl.refresh();
     }
 }

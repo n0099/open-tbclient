@@ -19,45 +19,45 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private TbPageContext<BaseFragmentActivity> bfx;
-    private String dBb;
-    private PersonPostModel.a dBi;
-    private PersonPostModel dBj;
-    private BdUniqueId dBk;
-    private final PersonPostModel.a dBl = new i(this);
-    private final a.InterfaceC0077a dBm = new j(this);
-    private final String wY;
+    private BdUniqueId aoj;
+    private TbPageContext<BaseFragmentActivity> bbm;
+    private String dEi;
+    private PersonPostModel.a dEr;
+    private PersonPostModel dEs;
+    private final PersonPostModel.a dEt = new i(this);
+    private final a.InterfaceC0070a dEu = new j(this);
+    private final String mV;
 
     public h(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
-        this.bfx = tbPageContext;
-        this.wY = str;
-        this.dBk = bdUniqueId;
+        this.bbm = tbPageContext;
+        this.mV = str;
+        this.aoj = bdUniqueId;
     }
 
     public void a(PersonPostModel.a aVar) {
-        this.dBi = aVar;
+        this.dEr = aVar;
     }
 
-    public void gL(boolean z) {
-        if (this.dBj == null) {
-            this.dBj = new PersonPostModel(this.bfx);
-            this.dBj.setUniqueId(this.dBk);
+    public void hr(boolean z) {
+        if (this.dEs == null) {
+            this.dEs = new PersonPostModel(this.bbm);
+            this.dEs.setUniqueId(this.aoj);
         }
-        this.dBj.fetchPost(this.bfx, this.dBl, z, this.wY, false);
+        this.dEs.fetchPost(this.bbm, this.dEt, z, this.mV, false);
     }
 
-    public void aCy() {
-        if (this.dBj != null) {
-            this.dBj.cancelLoadData();
+    public void aCR() {
+        if (this.dEs != null) {
+            this.dEs.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dBj == null || this.dBj.post_list == null) {
+        if (this.dEs == null || this.dEs.post_list == null) {
             return 0;
         }
-        return this.dBj.post_list.size();
+        return this.dEs.post_list.size();
     }
 
     @Override // android.widget.Adapter
@@ -75,93 +75,93 @@ public class h extends BaseAdapter {
         a aVar;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(t.h.person_post_item_reply, viewGroup, false);
-            aVar = new a(view, this.bfx);
+            aVar = new a(view, this.bbm);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (i == 0) {
-            aVar.dAY.setVisibility(0);
+            aVar.dEf.setVisibility(0);
         } else {
-            aVar.dAY.setVisibility(8);
+            aVar.dEf.setVisibility(8);
         }
         a(i, aVar, viewGroup);
         return view;
     }
 
-    public PersonPostModel.PostInfoList mJ(int i) {
-        return this.dBj.post_list.get(i);
+    public PersonPostModel.PostInfoList mA(int i) {
+        return this.dEs.post_list.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
-        PersonPostModel.PostInfoList mJ = mJ(i);
-        if (this.dBb == null) {
-            this.dBb = mJ.user_portrait;
+        PersonPostModel.PostInfoList mA = mA(i);
+        if (this.dEi == null) {
+            this.dEi = mA.user_portrait;
         }
-        aVar.a(mJ, false, this.dBb);
+        aVar.a(mA, false, this.dEi);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = mJ.content.length;
+        int length = mA.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (mJ.content[i2].post_content.length != 0) {
+            if (mA.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!mJ.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!mA.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = mJ.content[i2].post_content.length;
+                int length2 = mA.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(mJ.content[i2].post_content[i3].text);
+                    stringBuffer.append(mA.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(mJ.thread_id), String.valueOf(mJ.content[i2].post_id), String.valueOf(mJ.content[i2].post_type), ay.w(mJ.content[i2].create_time * 1000), String.valueOf(mJ.thread_type)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(mA.thread_id), String.valueOf(mA.content[i2].post_id), String.valueOf(mA.content[i2].post_type), ay.x(mA.content[i2].create_time * 1000), String.valueOf(mA.thread_type)});
             }
         }
-        aVar.dBo.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(mJ.title).find()) {
-            aVar.dBp.setText(mJ.title.replaceFirst("回复：", "原贴："));
+        aVar.dEw.setContent(arrayList);
+        if (Pattern.compile("^回复：").matcher(mA.title).find()) {
+            aVar.dEx.setText(mA.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.dBp.setText(mJ.title);
+            aVar.dEx.setText(mA.title);
         }
-        TextView textView = aVar.dBp;
+        TextView textView = aVar.dEx;
         String[] strArr = new String[4];
-        strArr[0] = String.valueOf(mJ.thread_id);
-        strArr[3] = String.valueOf(mJ.thread_type);
+        strArr[0] = String.valueOf(mA.thread_id);
+        strArr[3] = String.valueOf(mA.thread_type);
         textView.setTag(strArr);
-        if (mJ.thread_type == 33) {
-            aVar.dBp.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (mA.thread_type == 33) {
+            aVar.dEx.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            aVar.dBp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.dEx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        at.k(aVar.dBp, t.f.person_post_line);
-        at.b(aVar.dBp, t.d.person_post_content_ori, 1);
+        at.k(aVar.dEx, t.f.person_post_line);
+        at.c(aVar.dEx, t.d.person_post_content_ori, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(t.e.person_post_reply_ori_padding);
-        aVar.dBp.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        aVar.a(this.dBm);
-        aVar.dj(TbadkCoreApplication.m411getInst().getSkinType());
+        aVar.dEx.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        aVar.a(this.dEu);
+        aVar.cS(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends com.baidu.tieba.person.post.a {
-        private View aRI;
-        private View aUK;
-        public ReplyLinearLayout dBo;
-        public TextView dBp;
+        private View aOf;
+        private View bottomLine;
+        public ReplyLinearLayout dEw;
+        public TextView dEx;
 
         public a(View view, TbPageContext<BaseFragmentActivity> tbPageContext) {
             super(view, tbPageContext);
-            this.dBo = (ReplyLinearLayout) view.findViewById(t.g.content_container);
-            this.dBp = (TextView) view.findViewById(t.g.original_post_title);
-            this.aRI = view.findViewById(t.g.reply_top_line);
-            this.aUK = view.findViewById(t.g.reply_bottom_line);
-            this.dBp.setOnClickListener(this);
+            this.dEw = (ReplyLinearLayout) view.findViewById(t.g.content_container);
+            this.dEx = (TextView) view.findViewById(t.g.original_post_title);
+            this.aOf = view.findViewById(t.g.reply_top_line);
+            this.bottomLine = view.findViewById(t.g.reply_bottom_line);
+            this.dEx.setOnClickListener(this);
         }
 
         @Override // com.baidu.tieba.person.post.a
-        public void dj(int i) {
-            super.dj(i);
-            at.k(this.dBp, t.d.cp_bg_line_e);
-            at.b(this.dBp, t.d.cp_cont_b, 1);
-            at.k(this.aRI, t.d.cp_bg_line_b);
-            at.k(this.aUK, t.d.cp_bg_line_b);
+        public void cS(int i) {
+            super.cS(i);
+            at.k(this.dEx, t.d.cp_bg_line_e);
+            at.c(this.dEx, t.d.cp_cont_b, 1);
+            at.k(this.aOf, t.d.cp_bg_line_b);
+            at.k(this.bottomLine, t.d.cp_bg_line_b);
         }
     }
 }

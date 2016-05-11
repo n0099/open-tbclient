@@ -1,15 +1,17 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
-import java.util.ArrayList;
+import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class c implements u {
-    public static final BdUniqueId dwh = BdUniqueId.gen();
-    public ArrayList<d> dwi = new ArrayList<>();
+public class c implements v {
+    public static final BdUniqueId dzj = BdUniqueId.gen();
+    public int dzk;
+    public boolean isSelf;
+    public int sex;
+    public String userId;
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dwh;
+        return dzj;
     }
 }

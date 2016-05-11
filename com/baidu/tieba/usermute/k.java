@@ -9,8 +9,8 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.e {
-    private com.baidu.adp.framework.listener.a cIL;
-    private a eEG;
+    private com.baidu.adp.framework.listener.a cJp;
+    private a eVn;
     private Object mExtra;
 
     /* loaded from: classes.dex */
@@ -20,16 +20,16 @@ public class k extends com.baidu.adp.base.e {
 
     public k(com.baidu.adp.base.h<?> hVar, a aVar) {
         super(hVar);
-        this.cIL = new l(this, CmdConfigHttp.CMD_USER_MUTE_CHECK, 303040);
-        this.eEG = aVar;
-        this.cIL.eW().setSelfListener(true);
-        this.cIL.eX().setSelfListener(true);
-        registerListener(this.cIL);
+        this.cJp = new l(this, CmdConfigHttp.CMD_USER_MUTE_CHECK, 303040);
+        this.eVn = aVar;
+        this.cJp.bm().setSelfListener(true);
+        this.cJp.bn().setSelfListener(true);
+        registerListener(this.cJp);
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    public void d(long j, long j2) {
+    public void e(long j, long j2) {
         a(j, j2, null);
     }
 
@@ -44,7 +44,7 @@ public class k extends com.baidu.adp.base.e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cIL);
+        MessageManager.getInstance().unRegisterListener(this.cJp);
     }
 
     @Override // com.baidu.adp.base.e

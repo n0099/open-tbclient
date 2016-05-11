@@ -3,55 +3,57 @@ package com.baidu.tieba.frs.view;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.card.cc;
-import com.baidu.tieba.frs.bx;
+import com.baidu.tieba.card.bu;
+import com.baidu.tieba.frs.bw;
 /* loaded from: classes.dex */
-public class s extends bx<com.baidu.tieba.card.a.x, a> {
-    private BaseActivity<?> bix;
+public class s extends bw<com.baidu.tieba.card.a.p, a> {
+    private BaseActivity<?> bek;
+    private boolean bwk;
 
-    public s(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+    public s(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseActivity, bdUniqueId);
-        this.bix = baseActivity;
+        this.bek = baseActivity;
+        this.bwk = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: O */
+    /* renamed from: T */
     public a b(ViewGroup viewGroup) {
-        cc ccVar = new cc(this.bix.getPageContext());
-        ccVar.at(null, "c10819");
-        return new a(ccVar);
+        bu buVar = new bu(this.bek.getPageContext());
+        buVar.ax(null, "c10819");
+        return new a(buVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bx, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.x xVar, a aVar) {
+    @Override // com.baidu.tieba.frs.bw, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.p pVar, a aVar) {
         TiebaStatic.log(new aw("c10835"));
-        if (xVar != null) {
-            xVar.aWw = i + 1;
-            aVar.bwB.fO(com.baidu.adp.lib.util.k.dip2px(this.bix.getActivity(), 7.0f));
-            aVar.bwB.cb(false);
-            aVar.bwB.d(this.bix.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        if (pVar != null) {
+            pVar.aSq = i + 1;
+            aVar.bwl.fw(com.baidu.adp.lib.util.k.dip2px(this.bek.getActivity(), 7.0f));
+            aVar.bwl.showBottomLine(this.bwk);
+            aVar.bwl.d(this.bek.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
         }
-        aVar.bwB.a(xVar);
+        aVar.bwl.a(pVar);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a extends x.a {
-        public cc bwB;
+    public class a extends y.a {
+        public bu bwl;
 
-        public a(cc ccVar) {
-            super(ccVar.getView());
-            this.bwB = ccVar;
+        public a(bu buVar) {
+            super(buVar.getView());
+            this.bwl = buVar;
         }
     }
 }

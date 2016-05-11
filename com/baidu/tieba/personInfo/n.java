@@ -18,14 +18,14 @@ public class n implements k.a {
         String str2;
         if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
             if (dataRes.is_mute.equals("0")) {
-                this.this$0.dCF = 0;
-                this.this$0.dCG = dataRes.mute_confirm;
-                str2 = this.this$0.dCG;
+                this.this$0.dFM = 0;
+                this.this$0.dFN = dataRes.mute_confirm;
+                str2 = this.this$0.dFN;
                 if (com.baidu.tbadk.core.util.ay.isEmpty(str2)) {
-                    this.this$0.dCG = "确定禁言？";
+                    this.this$0.dFN = "确定禁言？";
                 }
             } else if (dataRes.is_mute.equals("1")) {
-                this.this$0.dCF = 1;
+                this.this$0.dFM = 1;
             }
         }
     }

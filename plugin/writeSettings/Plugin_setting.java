@@ -1,5 +1,6 @@
 package plugin.writeSettings;
 
+import com.baidu.tbadk.TbConfig;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -24,6 +25,8 @@ public final class Plugin_setting extends Message {
     public final String display_name;
     @ProtoField(tag = 5, type = Message.Datatype.UINT32)
     public final Integer enable;
+    @ProtoField(tag = 25, type = Message.Datatype.STRING)
+    public final String ext;
     @ProtoField(tag = 6, type = Message.Datatype.UINT32)
     public final Integer forbidden;
     @ProtoField(tag = 20, type = Message.Datatype.UINT32)
@@ -50,6 +53,8 @@ public final class Plugin_setting extends Message {
     public final String replaceMethodClasses;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String requireLoad;
+    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.UINT32)
+    public final int rollback;
     @ProtoField(tag = 8, type = Message.Datatype.UINT32)
     public final Integer size;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
@@ -199,7 +204,14 @@ public final class Plugin_setting extends Message {
                 this.is_Patch = builder.is_Patch;
             }
             this.replaceMethodClasses = builder.replaceMethodClasses;
-            return;
+            this.ext = builder.ext;
+            if (builder.rollback == null) {
+                this.rollback = -1;
+                return;
+            } else {
+                this.rollback = builder.rollback.intValue();
+                return;
+            }
         }
         this.package_name = builder.package_name;
         this.display_name = builder.display_name;
@@ -225,6 +237,8 @@ public final class Plugin_setting extends Message {
         this.load_priority = builder.load_priority;
         this.is_Patch = builder.is_Patch;
         this.replaceMethodClasses = builder.replaceMethodClasses;
+        this.ext = builder.ext;
+        this.rollback = builder.rollback.intValue();
     }
 
     /* loaded from: classes.dex */
@@ -234,6 +248,7 @@ public final class Plugin_setting extends Message {
         public String cmd_range;
         public String display_name;
         public Integer enable;
+        public String ext;
         public Integer forbidden;
         public Integer has_res;
         public Integer install_fail_count;
@@ -247,6 +262,7 @@ public final class Plugin_setting extends Message {
         public Integer priority;
         public String replaceMethodClasses;
         public String requireLoad;
+        public Integer rollback;
         public Integer size;
         public String temp_md5;
         public Integer temp_version_code;
@@ -284,6 +300,8 @@ public final class Plugin_setting extends Message {
                 this.load_priority = plugin_setting.load_priority;
                 this.is_Patch = plugin_setting.is_Patch;
                 this.replaceMethodClasses = plugin_setting.replaceMethodClasses;
+                this.ext = plugin_setting.ext;
+                this.rollback = Integer.valueOf(plugin_setting.rollback);
             }
         }
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.util.a {
-    private String cer;
+    private String ceX;
     private long userId;
     private String userName;
 
@@ -31,10 +31,10 @@ public class a extends com.baidu.tbadk.core.util.a {
     }
 
     public String aef() {
-        return this.cer;
+        return this.ceX;
     }
 
-    public void iW(String str) {
-        this.cer = str;
+    public void iY(String str) {
+        this.ceX = str;
     }
 }

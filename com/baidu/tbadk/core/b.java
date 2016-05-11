@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int QA;
-    private int QB;
-    private int QC;
-    private int QD;
-    private int QE;
-    private int QF;
-    private int QG;
-    private int QH;
-    private int QI;
-    private int QJ;
-    private StringBuffer QK = new StringBuffer();
-    private String Qp;
-    private int Qq;
-    private int Qr;
-    private int Qs;
-    private int Qt;
-    private int Qu;
-    private int Qv;
-    private int Qw;
-    private int Qx;
-    private int Qy;
-    private int Qz;
+    private int LA;
+    private StringBuffer LB = new StringBuffer();
+    private String Lg;
+    private int Lh;
+    private int Li;
+    private int Lj;
+    private int Lk;
+    private int Ll;
+    private int Lm;
+    private int Ln;
+    private int Lo;
+    private int Lp;
+    private int Lq;
+    private int Lr;
+    private int Ls;
+    private int Lt;
+    private int Lu;
+    private int Lv;
+    private int Lw;
+    private int Lx;
+    private int Ly;
+    private int Lz;
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.QK.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.LB.toString() + "]";
     }
 
-    public void cb(String str) {
-        this.QK.append(str).append(" || ");
+    public void bZ(String str) {
+        this.LB.append(str).append(" || ");
     }
 
-    public int qh() {
-        return this.QE;
+    public int nE() {
+        return this.Lv;
     }
 
-    public void aZ(int i) {
-        this.QE = i;
+    public void aO(int i) {
+        this.Lv = i;
     }
 
-    public int qi() {
-        return this.QF;
+    public int nF() {
+        return this.Lw;
     }
 
-    public void ba(int i) {
-        this.QF = i;
+    public void aP(int i) {
+        this.Lw = i;
     }
 
-    public int qj() {
-        return this.QC;
+    public int nG() {
+        return this.Lt;
     }
 
-    public void bb(int i) {
-        this.QC = i;
+    public void aQ(int i) {
+        this.Lt = i;
     }
 
-    public int qk() {
-        return this.QD;
+    public int nH() {
+        return this.Lu;
     }
 
-    public void bc(int i) {
-        this.QD = i;
+    public void aR(int i) {
+        this.Lu = i;
     }
 
-    public int ql() {
-        return this.QA;
+    public int nI() {
+        return this.Lr;
     }
 
-    public void bd(int i) {
-        this.QA = i;
+    public void aS(int i) {
+        this.Lr = i;
     }
 
-    public int qm() {
-        return this.QB;
+    public int nJ() {
+        return this.Ls;
     }
 
-    public void be(int i) {
-        this.QB = i;
+    public void aT(int i) {
+        this.Ls = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int qn() {
-        return this.QG;
+    public int nK() {
+        return this.Lx;
     }
 
-    public void bf(int i) {
-        this.QG = i;
+    public void aU(int i) {
+        this.Lx = i;
     }
 
-    public int qo() {
-        return this.QH;
+    public int nL() {
+        return this.Ly;
     }
 
-    public void bg(int i) {
-        this.QH = i;
+    public void aV(int i) {
+        this.Ly = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void cc(String str) {
-        this.Qp = str;
+    public void ca(String str) {
+        this.Lg = str;
     }
 
-    public int qp() {
-        return this.Qq;
+    public int nM() {
+        return this.Lh;
+    }
+
+    public void aW(int i) {
+        this.Lh = i;
+    }
+
+    public int nN() {
+        return this.Li;
+    }
+
+    public void aX(int i) {
+        this.Li = i;
+    }
+
+    public int nO() {
+        return this.Ll;
+    }
+
+    public void aY(int i) {
+        this.Ll = i;
+    }
+
+    public int nP() {
+        return this.Lm;
+    }
+
+    public void aZ(int i) {
+        this.Lm = i;
+    }
+
+    public int nQ() {
+        return this.Lj;
+    }
+
+    public void ba(int i) {
+        this.Lj = i;
+    }
+
+    public int nR() {
+        return this.Lk;
+    }
+
+    public void bb(int i) {
+        this.Lk = i;
+    }
+
+    public int nS() {
+        return this.Lo;
+    }
+
+    public int nT() {
+        return this.Ln;
+    }
+
+    public void bc(int i) {
+        this.Ln = i;
+    }
+
+    public void bd(int i) {
+        this.Lo = i;
+    }
+
+    public int nU() {
+        return this.Lq;
+    }
+
+    public void be(int i) {
+        this.Lq = i;
+    }
+
+    public int nV() {
+        return this.Lp;
+    }
+
+    public void bf(int i) {
+        this.Lp = i;
+    }
+
+    public int nW() {
+        return this.Lz;
+    }
+
+    public void bg(int i) {
+        this.Lz = i;
+    }
+
+    public int nX() {
+        return this.LA;
     }
 
     public void bh(int i) {
-        this.Qq = i;
-    }
-
-    public int qq() {
-        return this.Qr;
-    }
-
-    public void bi(int i) {
-        this.Qr = i;
-    }
-
-    public int qr() {
-        return this.Qu;
-    }
-
-    public void bj(int i) {
-        this.Qu = i;
-    }
-
-    public int qs() {
-        return this.Qv;
-    }
-
-    public void bk(int i) {
-        this.Qv = i;
-    }
-
-    public int qt() {
-        return this.Qs;
-    }
-
-    public void bl(int i) {
-        this.Qs = i;
-    }
-
-    public int qu() {
-        return this.Qt;
-    }
-
-    public void bm(int i) {
-        this.Qt = i;
-    }
-
-    public int qv() {
-        return this.Qx;
-    }
-
-    public int qw() {
-        return this.Qw;
-    }
-
-    public void bn(int i) {
-        this.Qw = i;
-    }
-
-    public void bo(int i) {
-        this.Qx = i;
-    }
-
-    public int qx() {
-        return this.Qz;
-    }
-
-    public void bp(int i) {
-        this.Qz = i;
-    }
-
-    public int qy() {
-        return this.Qy;
-    }
-
-    public void bq(int i) {
-        this.Qy = i;
-    }
-
-    public int qz() {
-        return this.QI;
-    }
-
-    public void br(int i) {
-        this.QI = i;
-    }
-
-    public int qA() {
-        return this.QJ;
-    }
-
-    public void bs(int i) {
-        this.QJ = i;
+        this.LA = i;
     }
 }

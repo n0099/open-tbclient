@@ -1,50 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fb implements Animation.AnimationListener {
-    final /* synthetic */ eu dnc;
+public class fb implements View.OnClickListener {
+    final /* synthetic */ el dpu;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(eu euVar) {
-        this.dnc = euVar;
+    public fb(el elVar, String str) {
+        this.dpu = elVar;
+        this.val$url = str;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        com.baidu.tbadk.editortools.l lVar;
-        com.baidu.tbadk.editortools.l lVar2;
-        View view;
-        boolean z2;
-        z = this.dnc.dmb;
-        if (!z) {
-            lVar = this.dnc.LE;
-            if (lVar != null) {
-                lVar2 = this.dnc.LE;
-                lVar2.op();
-                return;
-            }
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        if (!com.baidu.adp.lib.util.k.fH()) {
+            pbActivity = this.dpu.dhY;
+            pbActivity.showToast(t.j.neterror);
             return;
         }
-        view = this.dnc.dlV;
-        if (view != null) {
-            z2 = this.dnc.cCe;
-            if (z2) {
-                this.dnc.eN(false);
-            } else {
-                this.dnc.eO(false);
-            }
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        com.baidu.tbadk.core.util.bg us = com.baidu.tbadk.core.util.bg.us();
+        pbActivity2 = this.dpu.dhY;
+        us.c(pbActivity2.getPageContext(), new String[]{this.val$url});
+        pbActivity3 = this.dpu.dhY;
+        pbActivity3.finish();
     }
 }

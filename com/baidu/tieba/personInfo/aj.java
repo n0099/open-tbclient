@@ -1,11 +1,9 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tieba.person.god.h;
-import java.util.List;
-import tbclient.ThreadInfo;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements h.a {
+public class aj implements BdListView.e {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,43 +11,63 @@ public class aj implements h.a {
         this.this$0 = fVar;
     }
 
-    @Override // com.baidu.tieba.person.god.h.a
-    public void d(int i, List<ThreadInfo> list) {
-        bi biVar;
-        bf bfVar;
-        bf bfVar2;
-        bi biVar2;
-        biVar = this.this$0.dCt;
-        if (biVar != null) {
-            bfVar = this.this$0.dvN;
-            if (bfVar != null) {
-                bfVar2 = this.this$0.dvN;
-                bfVar2.bP(list);
-                biVar2 = this.this$0.dCt;
-                biVar2.aDM();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.person.god.h.a
-    public void fC(String str) {
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void jA() {
         com.baidu.tieba.person.god.h hVar;
-        bi biVar;
-        bf bfVar;
-        bi biVar2;
-        bi biVar3;
-        hVar = this.this$0.dwQ;
+        bj bjVar;
+        bg bgVar;
+        bg bgVar2;
+        com.baidu.tieba.person.god.h hVar2;
+        com.baidu.tieba.person.god.h hVar3;
+        bg bgVar3;
+        bj bjVar2;
+        bj bjVar3;
+        bg bgVar4;
+        com.baidu.tieba.person.god.h hVar4;
+        bj bjVar4;
+        bg bgVar5;
+        bj bjVar5;
+        bj bjVar6;
+        hVar = this.this$0.dzV;
         if (hVar != null) {
-            biVar = this.this$0.dCt;
-            if (biVar != null) {
-                bfVar = this.this$0.dvN;
-                if (com.baidu.tbadk.core.util.y.q(bfVar.aDe())) {
-                    biVar3 = this.this$0.dCt;
-                    biVar3.aDJ();
-                    return;
+            bjVar = this.this$0.dFA;
+            if (bjVar != null) {
+                bgVar = this.this$0.dyP;
+                if (bgVar != null) {
+                    bgVar2 = this.this$0.dyP;
+                    if (!bgVar2.aDW()) {
+                        bgVar5 = this.this$0.dyP;
+                        if (com.baidu.tbadk.core.util.y.s(bgVar5.aDz())) {
+                            bjVar6 = this.this$0.dFA;
+                            bjVar6.aEg();
+                            return;
+                        }
+                        bjVar5 = this.this$0.dFA;
+                        bjVar5.aCx();
+                        return;
+                    }
+                    hVar2 = this.this$0.dzV;
+                    if (!hVar2.isLoading()) {
+                        hVar3 = this.this$0.dzV;
+                        if (hVar3.hasMore()) {
+                            bgVar4 = this.this$0.dyP;
+                            long c = com.baidu.adp.lib.h.b.c(bgVar4.getId(), 0L);
+                            hVar4 = this.this$0.dzV;
+                            hVar4.bG(c);
+                            bjVar4 = this.this$0.dFA;
+                            bjVar4.OJ();
+                            return;
+                        }
+                        bgVar3 = this.this$0.dyP;
+                        if (com.baidu.tbadk.core.util.y.s(bgVar3.aDz())) {
+                            bjVar3 = this.this$0.dFA;
+                            bjVar3.aEg();
+                            return;
+                        }
+                        bjVar2 = this.this$0.dFA;
+                        bjVar2.aCx();
+                    }
                 }
-                biVar2 = this.this$0.dCt;
-                biVar2.aCg();
             }
         }
     }

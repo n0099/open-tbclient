@@ -6,10 +6,10 @@ import java.util.Comparator;
 public class b implements Comparator<Object> {
     @Override // java.util.Comparator
     public int compare(Object obj, Object obj2) {
-        int J;
+        int I;
         if ((obj instanceof String) && (obj2 instanceof String)) {
-            J = a.J((String) obj, (String) obj2);
-            return J;
+            I = a.I((String) obj, (String) obj2);
+            return I;
         }
         return 0;
     }

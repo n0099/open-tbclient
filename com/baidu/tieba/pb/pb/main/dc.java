@@ -1,84 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class dc {
-    private BaseActivity bix;
-    private df dfV;
-    private boolean diy = false;
-    private final CustomMessageListener diz = new dd(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
-    private final CustomMessageListener diA = new de(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
+    private BaseActivity bek;
+    private cw dih;
 
-    public dc(df dfVar, BaseActivity baseActivity) {
-        this.dfV = dfVar;
-        this.bix = baseActivity;
-        this.bix.registerListener(this.diz);
-        this.bix.registerListener(this.diA);
+    public dc(cw cwVar, BaseActivity baseActivity) {
+        this.dih = cwVar;
+        this.bek = baseActivity;
     }
 
-    public boolean awS() {
-        return (this.dfV == null || this.dfV.getPbData() == null || this.dfV.getPbData().avs() == null || this.dfV.getPbData().getPage() == null || !this.dfV.axe() || this.dfV.getPbData().avs().sa() || !awX() || com.baidu.tbadk.core.util.y.p(this.dfV.getPbData().avs().getItems()) == 0 || this.dfV.getPbData().getPage().sq() != 0 || this.dfV.getPbData().getPage().sl() < 4 || this.dfV.getPbData().avs().sc()) ? false : true;
-    }
-
-    public boolean awT() {
-        return (this.dfV == null || this.dfV.getPbData() == null || this.dfV.getPbData().avs() == null || this.dfV.getPbData().getPage() == null || !this.dfV.axe() || this.dfV.getPbData().avs().sa() || !awX() || com.baidu.tbadk.core.util.y.p(this.dfV.getPbData().avs().getItems()) == 0 || this.dfV.getPbData().getPage().so() != 2 || this.dfV.getPbData().avs().sb()) ? false : true;
-    }
-
-    public void awU() {
-        if (this.dfV != null && this.dfV.getPbData() != null && this.dfV.getPbData().avs() != null) {
-            this.dfV.getPbData().avs().aj(true);
-        }
-    }
-
-    public void awV() {
-        if (this.dfV != null && this.dfV.getPbData() != null && this.dfV.getPbData().avs() != null) {
-            this.dfV.getPbData().avs().ai(true);
-        }
-    }
-
-    public com.baidu.tbadk.core.data.v awW() {
-        if (!awX() || this.dfV == null || this.dfV.getPbData() == null) {
+    public String t(Intent intent) {
+        int indexOf;
+        int length;
+        if (intent == null || intent.getData() == null) {
             return null;
         }
-        return this.dfV.getPbData().avs();
-    }
-
-    public boolean awX() {
-        return com.baidu.tieba.graffiti.d.Yf() && awY();
-    }
-
-    private boolean awY() {
-        if (this.dfV == null || this.dfV.getPbData() == null) {
-            return false;
+        String dataString = intent.getDataString();
+        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbpb://")) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10320").s("obj_locate", 3).s("obj_type", 1));
         }
-        com.baidu.tieba.tbadkCore.data.s sVar = (com.baidu.tieba.tbadkCore.data.s) com.baidu.tbadk.core.util.y.b(this.dfV.getPbData().avw(), 0);
-        return sVar != null && (sVar.getType() == com.baidu.tieba.tbadkCore.data.s.epG || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.UX || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.epJ);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean awZ() {
-        if (com.baidu.tieba.graffiti.d.Yf() && !this.diy) {
-            this.diy = true;
-            int i = com.baidu.tbadk.core.sharedPref.b.vk().getInt("graffiti_tips_show_config", 0);
-            if (i < 3) {
-                com.baidu.tbadk.core.sharedPref.b.vk().putInt("graffiti_tips_show_config", i + 1);
-                return true;
-            }
-            return false;
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode) || (indexOf = decode.indexOf("tid=")) < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
         }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (this.dfV != null && this.dfV.getPbData() != null && this.dfV.getPbData().avs() != null && str.equals(this.dfV.getThreadID())) {
-                this.dfV.getPbData().avs().ah(true);
-            }
-        }
+        return decode.substring(length);
     }
 }

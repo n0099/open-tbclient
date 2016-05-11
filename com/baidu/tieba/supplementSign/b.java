@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class b implements com.baidu.tieba.tbadkCore.e.b {
-    final /* synthetic */ SupplementSignActivity emK;
+    final /* synthetic */ SupplementSignActivity epZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SupplementSignActivity supplementSignActivity) {
-        this.emK = supplementSignActivity;
+        this.epZ = supplementSignActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.b
@@ -21,13 +21,13 @@ class b implements com.baidu.tieba.tbadkCore.e.b {
             if (!StringUtils.isNull(str3)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    this.emK.emG = jSONObject.optInt("all");
-                    SupplementSignActivity supplementSignActivity = this.emK;
-                    i = supplementSignActivity.emH;
-                    supplementSignActivity.emH = i + jSONObject.optInt("signed", 0);
-                    SupplementSignActivity supplementSignActivity2 = this.emK;
-                    i2 = supplementSignActivity2.emI;
-                    supplementSignActivity2.emI = jSONObject.optInt("bonus", 0) + i2;
+                    this.epZ.epV = jSONObject.optInt("all");
+                    SupplementSignActivity supplementSignActivity = this.epZ;
+                    i = supplementSignActivity.epW;
+                    supplementSignActivity.epW = i + jSONObject.optInt("signed", 0);
+                    SupplementSignActivity supplementSignActivity2 = this.epZ;
+                    i2 = supplementSignActivity2.epX;
+                    supplementSignActivity2.epX = jSONObject.optInt("bonus", 0) + i2;
                 } catch (Throwable th) {
                     BdLog.e(th);
                 }

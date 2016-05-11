@@ -31,6 +31,8 @@ public class PluginSetting implements Serializable, Cloneable {
     public boolean isThird = false;
     public boolean isPatch = false;
     public String replaceMethodClasses = null;
+    public String ext = null;
+    public int rollback = 0;
 
     public boolean isContainCmd(int i) {
         if (this.cmdRangeInt == null) {
@@ -53,11 +55,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bC(str);
+        this.cmdRangeInt = bv(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bC(String str) {
+    private int[] bv(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -100,7 +102,7 @@ public class PluginSetting implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSetting m4clone() {
+    public PluginSetting m6clone() {
         PluginSetting pluginSetting = new PluginSetting();
         pluginSetting.apkPath = this.apkPath;
         pluginSetting.setCmdRange(this.cmdRangeStr);
@@ -126,6 +128,8 @@ public class PluginSetting implements Serializable, Cloneable {
         pluginSetting.isPatch = this.isPatch;
         pluginSetting.load_priority = this.load_priority;
         pluginSetting.replaceMethodClasses = this.replaceMethodClasses;
+        pluginSetting.ext = this.ext;
+        pluginSetting.rollback = this.rollback;
         return pluginSetting;
     }
 

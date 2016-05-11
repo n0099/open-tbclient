@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ SignAllForumAdvertActivity egH;
+    final /* synthetic */ SignAllForumAdvertActivity ejS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(SignAllForumAdvertActivity signAllForumAdvertActivity) {
-        this.egH = signAllForumAdvertActivity;
+        this.ejS = signAllForumAdvertActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.egH.finish();
+        this.ejS.finish();
     }
 }

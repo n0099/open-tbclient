@@ -1,26 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.GraffitiPaintActivityConfig;
+import com.baidu.tbadk.core.atomData.GraffitiTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.util.List;
 /* loaded from: classes.dex */
-class b extends HttpMessageListener {
-    final /* synthetic */ GetLotteryChanceActivity dfT;
+public class b {
+    private final PbActivity dhY;
+    private final cw dih;
+    private final CustomMessageListener bOA = new c(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
+    private final CustomMessageListener dii = new d(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(GetLotteryChanceActivity getLotteryChanceActivity, int i) {
-        super(i);
-        this.dfT = getLotteryChanceActivity;
+    public b(cw cwVar, PbActivity pbActivity) {
+        this.dih = cwVar;
+        this.dhY = pbActivity;
+        this.dhY.registerListener(this.bOA);
+        this.dhY.registerListener(this.dii);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage instanceof AddLotteryCountHttpResponseMessage) {
-            AddLotteryCountHttpResponseMessage addLotteryCountHttpResponseMessage = (AddLotteryCountHttpResponseMessage) httpResponsedMessage;
-            if (addLotteryCountHttpResponseMessage.getError() == 0) {
-                this.dfT.lR(addLotteryCountHttpResponseMessage.getEnableGetChance());
+    /* JADX INFO: Access modifiers changed from: private */
+    public int d(long j, List<com.baidu.tbadk.core.data.u> list) {
+        if (com.baidu.tbadk.core.util.y.s(list)) {
+            return -1;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            com.baidu.tbadk.core.data.u uVar = list.get(i);
+            if (uVar != null && uVar.getType() == 1 && uVar.getGid() > 0 && uVar.getGid() == j) {
+                return i;
             }
+        }
+        return -2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int e(long j, List<com.baidu.tbadk.core.data.u> list) {
+        if (com.baidu.tbadk.core.util.y.s(list)) {
+            return -1;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            com.baidu.tbadk.core.data.u uVar = list.get(i);
+            if (uVar != null && uVar.getType() == 1 && uVar.getGid() > 0 && uVar.getUid() > 0 && uVar.getUid() == j) {
+                return i;
+            }
+        }
+        return -2;
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (i == 25001 && intent != null) {
+            String stringExtra = intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME);
+            int intExtra = intent.getIntExtra("from", -1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new com.baidu.tieba.graffiti.j(stringExtra, intExtra)));
+            if (!TextUtils.isEmpty(stringExtra) && this.dih != null && this.dih.getPbData() != null) {
+                if (intExtra == 3 || intExtra == 2) {
+                    new GraffitiTabActivityConfig(this.dhY.getPageContext().getPageActivity(), this.dih.getPbData().getThreadId(), this.dih.getPbData().getForumId(), stringExtra).start();
+                }
+            }
+        }
+    }
+
+    public void destroy() {
+        com.baidu.tieba.tbadkCore.util.p pVar;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, com.baidu.tieba.tbadkCore.util.p.class);
+        if (runTask != null && (pVar = (com.baidu.tieba.tbadkCore.util.p) runTask.getData()) != null) {
+            pVar.destroy();
         }
     }
 }

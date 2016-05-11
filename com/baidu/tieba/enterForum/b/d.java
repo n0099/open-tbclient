@@ -2,33 +2,33 @@ package com.baidu.tieba.enterForum.b;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.v;
+import com.baidu.tieba.tbadkCore.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class d {
-    private ArrayList<v> baL = new ArrayList<>();
-    private boolean baM;
+    private ArrayList<w> aWO = new ArrayList<>();
+    private boolean aWP;
     private int level;
 
-    public ArrayList<v> NB() {
-        return this.baL;
+    public ArrayList<w> Mk() {
+        return this.aWO;
     }
 
     public void setLevel(int i) {
         this.level = i;
     }
 
-    public void NC() {
-        Iterator<v> it = this.baL.iterator();
+    public void Ml() {
+        Iterator<w> it = this.aWO.iterator();
         while (it.hasNext()) {
-            it.next().pm(0);
+            it.next().pi(0);
         }
     }
 
-    public void M(List<?> list) {
+    public void N(List<?> list) {
         if (list != null) {
             a(list, null);
         }
@@ -40,12 +40,12 @@ public class d {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
                     if (list.get(i) instanceof LikeForum) {
-                        v vVar = new v();
-                        vVar.a((LikeForum) list.get(i));
-                        if (vVar.getLevel() >= this.level) {
-                            this.baM = true;
+                        w wVar = new w();
+                        wVar.a((LikeForum) list.get(i));
+                        if (wVar.getLevel() >= this.level) {
+                            this.aWP = true;
                         }
-                        this.baL.add(vVar);
+                        this.aWO.add(wVar);
                     } else {
                         return;
                     }

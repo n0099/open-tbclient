@@ -1,57 +1,67 @@
 package com.baidu.tieba.person;
 
-import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-class ab implements AdapterView.OnItemClickListener {
-    final /* synthetic */ s dst;
+class ab implements View.OnClickListener {
+    final /* synthetic */ s dvP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(s sVar) {
-        this.dst = sVar;
+        this.dvP = sVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ad adVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        ae aeVar;
         boolean z;
-        ad adVar2;
-        PersonBarActivity aBf;
-        boolean z2;
-        PersonBarActivity aBf2;
-        PersonBarActivity aBf3;
-        PersonBarActivity aBf4;
-        adVar = this.dst.dsd;
-        if (adVar.getItem(i) != null) {
-            z = this.dst.dsi;
-            if (!z) {
-                this.dst.cYb = i;
-                adVar2 = this.dst.dsd;
-                ForumData forumData = (ForumData) adVar2.getItem(i);
-                if (forumData != null) {
-                    aBf = this.dst.aBf();
-                    if (aBf != null) {
-                        z2 = this.dst.dqW;
-                        if (z2) {
-                            Intent intent = new Intent();
-                            intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
-                            intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            aBf3 = this.dst.aBf();
-                            this.dst.aBf();
-                            aBf3.setResult(-1, intent);
-                            aBf4 = this.dst.aBf();
-                            aBf4.finish();
-                            return;
+        ae aeVar2;
+        int i3;
+        ForumData forumData;
+        ForumData forumData2;
+        ForumData forumData3;
+        ForumData forumData4;
+        ForumData forumData5;
+        String str;
+        ForumData forumData6;
+        this.dvP.dar = ((Integer) view.getTag()).intValue();
+        i = this.dvP.dar;
+        if (i >= 0) {
+            i2 = this.dvP.dar;
+            aeVar = this.dvP.dvz;
+            if (i2 < aeVar.getCount()) {
+                z = this.dvP.dvE;
+                if (!z) {
+                    s sVar = this.dvP;
+                    aeVar2 = this.dvP.dvz;
+                    i3 = this.dvP.dar;
+                    sVar.dvD = (ForumData) aeVar2.getItem(i3);
+                    forumData = this.dvP.dvD;
+                    if (forumData != null) {
+                        forumData2 = this.dvP.dvD;
+                        if (forumData2.getId() != null) {
+                            forumData3 = this.dvP.dvD;
+                            if (forumData3.getName() != null) {
+                                s sVar2 = this.dvP;
+                                forumData4 = this.dvP.dvD;
+                                sVar2.dvA = forumData4.getName();
+                                this.dvP.dvE = true;
+                                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
+                                forumData5 = this.dvP.dvD;
+                                httpMessage.addParam("fid", forumData5.getId());
+                                str = this.dvP.dvA;
+                                httpMessage.addParam("kw", str);
+                                forumData6 = this.dvP.dvD;
+                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
+                                httpMessage.addParam("tbs", TbadkCoreApplication.m11getInst().getTbs());
+                                this.dvP.sendMessage(httpMessage);
+                            }
                         }
-                        s sVar = this.dst;
-                        aBf2 = this.dst.aBf();
-                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(aBf2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }

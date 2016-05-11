@@ -13,26 +13,23 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.recommendfrs.control.a.m;
-import com.baidu.tieba.recommendfrs.control.a.q;
 import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.t;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private com.baidu.tbadk.f.f cFK;
-    private ScrollFragmentTabHost dVM;
-    private m dVN;
-    private CustomMessageTask dVO;
-    private boolean dVP = false;
-    private CustomMessageListener dVQ = new b(this, CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB);
-    private CustomMessageListener dVR = new c(this, CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK);
-    private Boolean dVS = null;
-    private com.baidu.tieba.recommendfrs.b dVT = new d(this);
-    private com.baidu.tieba.recommendfrs.c dVU = new e(this);
+    private com.baidu.tbadk.f.f cFC;
+    private ScrollFragmentTabHost dYN;
+    private com.baidu.tieba.recommendfrs.control.a.m dYO;
+    private CustomMessageTask dYP;
+    private boolean dYQ = false;
+    private CustomMessageListener dYR = new b(this, CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB);
+    private CustomMessageListener dYS = new c(this, CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK);
+    private Boolean dYT = null;
+    private com.baidu.tieba.recommendfrs.b dYU = new d(this);
+    private com.baidu.tieba.recommendfrs.c dYV = new e(this);
     private com.baidu.tbadk.f.h refreshView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -45,124 +42,137 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        TbadkCoreApplication.m411getInst().setEnterRecommendFrs(true);
-        q.aMe().dWA = isPrimary();
+        TbadkCoreApplication.m11getInst().setEnterRecommendFrs(true);
+        com.baidu.tieba.recommendfrs.control.a.q.aMp().dZK = isPrimary();
         if (isPrimary()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "c10702", "click");
-            if (this.dVM != null) {
-                if (this.dVM.aoi()) {
-                    this.dVM.aLK();
-                    a(getView(), false, getResources().getDimensionPixelSize(t.e.ds360));
+            if (this.dYN != null) {
+                if (this.dYN.aol()) {
+                    this.dYN.aLO();
+                    n(false, getResources().getDimensionPixelSize(t.e.ds520));
                 } else {
-                    this.dVM.setItemForeGround(this.dVM.getCurrentItem());
+                    this.dYN.setItemForeGround(this.dYN.getCurrentItem());
                 }
             }
-            com.baidu.tieba.recommendfrs.control.a.t.oA(0);
+            com.baidu.tieba.recommendfrs.control.a.t.os(0);
             return;
         }
-        VoiceManager aP = com.baidu.tieba.tbadkCore.voice.b.aP(getActivity());
-        if (aP != null) {
-            aP.stopPlay();
+        VoiceManager aV = com.baidu.tieba.tbadkCore.voice.b.aV(getActivity());
+        if (aV != null) {
+            aV.stopPlay();
         }
-        ib(true);
+        iL(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onUserChanged(boolean z) {
+        if (this.dYN != null) {
+            this.dYN.switchNaviBarStatus(z);
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        ako();
-        this.dVM = (ScrollFragmentTabHost) getView().findViewById(t.g.recommend_frs_tab_host);
-        this.dVM.setPageUniqueId(getUniqueId());
-        this.dVM.a(this.dVT, this.dVU);
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        com.baidu.tieba.recommendfrs.a.aLJ().setCreateTime(System.currentTimeMillis() - com.baidu.tieba.recommendfrs.a.aLJ().ot(1));
+        aku();
+        this.dYN = (ScrollFragmentTabHost) getView().findViewById(t.g.recommend_frs_tab_host);
+        this.dYN.setPageUniqueId(getUniqueId());
+        this.dYN.a(this.dYU, this.dYV);
+        this.dYN.switchNaviBarStatus(this.mIsLogin);
+        onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
+        com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(System.currentTimeMillis() - com.baidu.tieba.recommendfrs.a.aLN().oj(1));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dVP = true;
-        com.baidu.tieba.recommendfrs.a.aLJ().q(System.currentTimeMillis(), 1);
-        registerListener(this.dVQ);
-        registerListener(this.dVR);
-        alu();
-        aMc();
+        this.dYQ = true;
+        com.baidu.tieba.recommendfrs.a.aLN().r(System.currentTimeMillis(), 1);
+        registerListener(this.dYR);
+        registerListener(this.dYS);
+        alC();
+        aMi();
     }
 
-    private void aMc() {
+    private void aMi() {
         com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a(getPageContext());
         aVar.setUniqueId(getUniqueId());
         aVar.a(new f(this));
-        aVar.Fw();
+        aVar.Do();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.dVM.onDestroy();
+        this.dYN.onDestroy();
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED);
-        q.aMe().onDestory();
+        com.baidu.tieba.recommendfrs.control.a.q.aMp().onDestory();
     }
 
-    private void alu() {
-        this.dVO = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new g(this));
-        this.dVO.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.dVO);
+    private void alC() {
+        this.dYP = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new g(this));
+        this.dYP.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.dYP);
     }
 
-    private void ako() {
-        q.aMe().o(getUniqueId());
-        this.dVN = new m(getPageContext(), getUniqueId());
-        this.dVN.a(new h(this));
+    private void aku() {
+        com.baidu.tieba.recommendfrs.control.a.q.aMp().o(getUniqueId());
+        this.dYO = new com.baidu.tieba.recommendfrs.control.a.m(getPageContext(), getUniqueId());
+        this.dYO.a(new h(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bu(List<TagInfo> list) {
-        if (y.p(list) > 0 && this.dVM != null && !this.dVM.cl(list)) {
-            this.dVM.bw(list);
-            if (q.aMe().dWz != 0) {
-                com.baidu.tieba.recommendfrs.control.a.t.oz(q.aMe().dWz);
+        if (com.baidu.tbadk.core.util.y.r(list) > 0 && this.dYN != null && !this.dYN.cn(list)) {
+            this.dYN.bw(list);
+            if (com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ != 0) {
+                com.baidu.tieba.recommendfrs.control.a.t.or(com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ);
             }
-            this.dVM.setCurrentTab(0);
+            this.dYN.setCurrentTab(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(View view, boolean z, int i) {
-        if (this.cFK == null) {
+    public void n(boolean z, int i) {
+        if (this.cFC == null) {
             if (i < 0) {
-                this.cFK = new com.baidu.tbadk.f.f(getActivity());
+                this.cFC = new com.baidu.tbadk.f.f(getActivity());
             } else {
-                this.cFK = new com.baidu.tbadk.f.f(getActivity(), i);
+                this.cFC = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.cFK.uA();
+            this.cFC.sf();
         }
-        this.cFK.c(view, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aD(View view) {
-        if (this.cFK != null) {
-            this.cFK.K(view);
-            this.cFK = null;
+        if (this.dYN != null && this.dYN.getContentContainer() != null) {
+            this.cFC.c(this.dYN.getContentContainer(), z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showNetRefreshView(View view, String str, boolean z) {
+    public void aMj() {
+        if (this.cFC != null && this.dYN != null && this.dYN.getContentContainer() != null) {
+            this.cFC.L(this.dYN.getContentContainer());
+            this.cFC = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void I(String str, boolean z) {
         if (this.refreshView == null) {
             this.refreshView = new com.baidu.tbadk.f.h(getPageContext().getPageActivity(), new i(this));
         }
-        this.refreshView.eV(getResources().getDimensionPixelSize(t.e.ds160));
-        this.refreshView.fU(str);
-        this.refreshView.c(view, z);
-        this.refreshView.Fh();
+        this.refreshView.eB(getResources().getDimensionPixelSize(t.e.ds280));
+        this.refreshView.fR(str);
+        if (this.dYN != null && this.dYN.getContentContainer() != null) {
+            this.refreshView.c(this.dYN.getContentContainer(), z);
+        }
+        this.refreshView.CZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XY() {
-        if (this.refreshView != null) {
-            this.refreshView.K(getView());
+    public void Pe() {
+        if (this.refreshView != null && this.dYN != null && this.dYN.getContentContainer() != null) {
+            this.refreshView.L(this.dYN.getContentContainer());
             this.refreshView = null;
         }
     }
@@ -170,11 +180,11 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dVM != null) {
-            this.dVM.onChangeSkinType(i);
+        if (this.dYN != null) {
+            this.dYN.onChangeSkinType(i);
         }
         if (this.refreshView != null) {
-            this.refreshView.uA();
+            this.refreshView.sf();
         }
     }
 
@@ -199,26 +209,29 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        ib(isPrimary() && !this.dVP);
-        this.dVP = false;
+        iL(isPrimary() && !this.dYQ);
+        this.dYQ = false;
+        if (this.dYN != null) {
+            this.dYN.onPause();
+        }
     }
 
-    private void ib(boolean z) {
-        this.dVM.ib(z);
+    private void iL(boolean z) {
+        this.dYN.iL(z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         boolean z = false;
-        if (this.dVS == null) {
-            this.dVS = Boolean.valueOf(com.baidu.tbadk.core.l.qE().qK());
+        if (this.dYT == null) {
+            this.dYT = Boolean.valueOf(com.baidu.tbadk.core.l.ob().oh());
         } else {
-            z = this.dVS.booleanValue() ^ com.baidu.tbadk.core.l.qE().qK();
-            this.dVS = Boolean.valueOf(com.baidu.tbadk.core.l.qE().qK());
+            z = this.dYT.booleanValue() ^ com.baidu.tbadk.core.l.ob().oh();
+            this.dYT = Boolean.valueOf(com.baidu.tbadk.core.l.ob().oh());
         }
         if (z) {
-            this.dVM.aMx();
+            this.dYN.aMI();
         }
     }
 
@@ -229,16 +242,16 @@ public class a extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.dVM == null || this.dVP) {
+        if (this.dYN == null || this.dYQ) {
             return null;
         }
-        return this.dVM.getCurrentPageKey();
+        return this.dYN.getCurrentPageKey();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public List<String> getNextPageSourceKeyList() {
-        if (this.dVM != null) {
-            return this.dVM.getNextPageSourceKeyList();
+        if (this.dYN != null) {
+            return this.dYN.getNextPageSourceKeyList();
         }
         return null;
     }

@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnKeyListener {
-    final /* synthetic */ WriteShareActivity eJm;
+    final /* synthetic */ WriteShareActivity fad;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.eJm = writeShareActivity;
+        this.fad = writeShareActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -19,27 +19,27 @@ class k implements DialogInterface.OnKeyListener {
         o oVar3;
         o oVar4;
         if (i == 4) {
-            oVar = this.eJm.eIW;
+            oVar = this.fad.eZN;
             if (oVar != null) {
-                oVar2 = this.eJm.eIW;
-                if (oVar2.baa() != null) {
-                    oVar3 = this.eJm.eIW;
-                    if (oVar3.baa().isShowing()) {
-                        oVar4 = this.eJm.eIW;
-                        com.baidu.adp.lib.h.j.a(oVar4.baa(), this.eJm.getPageContext().getPageActivity());
+                oVar2 = this.fad.eZN;
+                if (oVar2.bcm() != null) {
+                    oVar3 = this.fad.eZN;
+                    if (oVar3.bcm().isShowing()) {
+                        oVar4 = this.fad.eZN;
+                        com.baidu.adp.lib.h.j.a(oVar4.bcm(), this.fad.getPageContext().getPageActivity());
                         return true;
                     }
                 }
             }
-            this.eJm.aZP();
-            z = this.eJm.eIZ;
+            this.fad.bcb();
+            z = this.fad.eZQ;
             if (z) {
-                this.eJm.setResult(-1);
+                this.fad.setResult(-1);
             } else {
-                this.eJm.setResult(0);
+                this.fad.setResult(0);
             }
-            com.baidu.tbadk.core.d.b.b(this.eJm.getPageContext().getPageActivity(), 200, false);
-            this.eJm.finish();
+            com.baidu.tbadk.core.e.b.b(this.fad.getPageContext().getPageActivity(), 200, false);
+            this.fad.finish();
             return true;
         }
         return false;

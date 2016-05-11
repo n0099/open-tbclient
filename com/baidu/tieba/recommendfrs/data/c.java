@@ -2,64 +2,67 @@ package com.baidu.tieba.recommendfrs.data;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.a.z;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.card.a.n implements z {
-    private CardForum dWG;
+public class c extends com.baidu.tieba.card.a.i implements com.baidu.tieba.card.a.r {
+    private CardForum dZQ;
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x006a: IGET  (r5v1 java.lang.Long A[REMOVE]) = (r0v9 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0088: IGET  (r6v1 java.lang.Long A[REMOVE]) = (r0v10 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.dWG = cardForum;
-            this.aVn = cardForum.card_title;
-            setYuelaouLocate(String.valueOf(LL()) + cardForum.position.intValue());
-            if (y.p(cardForum.forum_list) > 0) {
+            this.dZQ = cardForum;
+            this.aRs = cardForum.card_title;
+            if (cardForum.position != null) {
+                setYuelaouLocate(String.valueOf(Ku()) + cardForum.position.intValue());
+            } else {
+                setYuelaouLocate(String.valueOf(Ku()) + 0);
+            }
+            if (y.r(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                        com.baidu.tieba.card.a.f fVar = new com.baidu.tieba.card.a.f();
-                        fVar.forumAvatar = personalForum.avatar;
-                        fVar.forumName = personalForum.forum_name;
-                        fVar.forumId = com.baidu.adp.lib.h.b.g(new StringBuilder().append(personalForum.forum_id).toString(), -1);
-                        fVar.isLiked = personalForum.is_like.intValue() == 1;
-                        b(fVar);
+                        com.baidu.tieba.card.a.e eVar = new com.baidu.tieba.card.a.e();
+                        eVar.forumAvatar = personalForum.avatar;
+                        eVar.forumName = personalForum.forum_name;
+                        eVar.forumId = com.baidu.adp.lib.h.b.g(new StringBuilder().append(personalForum.forum_id).toString(), -1);
+                        eVar.isLiked = personalForum.is_like.intValue() == 1;
+                        b(eVar);
                     }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.a.z
+    @Override // com.baidu.tieba.card.a.r
     public int getPosition() {
-        if (this.dWG != null) {
-            return this.dWG.position.intValue();
+        if (this.dZQ != null) {
+            return this.dZQ.position.intValue();
         }
         return 0;
     }
 
-    @Override // com.baidu.tieba.card.a.z
-    public boolean LE() {
+    @Override // com.baidu.tieba.card.a.r
+    public boolean Kn() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.a.z
-    public void cd(boolean z) {
-        this.aVr = z;
+    @Override // com.baidu.tieba.card.a.r
+    public void cj(boolean z) {
+        this.aRw = z;
     }
 
-    public boolean rk() {
-        if (y.p(FZ()) > 0) {
+    public boolean oF() {
+        if (y.r(DR()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean oB(int i) {
+    public static boolean ot(int i) {
         return i == 1;
     }
 
-    public static boolean oC(int i) {
+    public static boolean ou(int i) {
         return i == 2;
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.util.i {
-    final /* synthetic */ l epC;
+    final /* synthetic */ l esM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(l lVar, Context context) {
         super(context);
-        this.epC = lVar;
+        this.esM = lVar;
     }
 
     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
@@ -24,14 +24,14 @@ public class o extends com.baidu.tbadk.util.i {
         String str2;
         String str3;
         String str4 = null;
-        str = this.epC.text;
+        str = this.esM.text;
         if (str != null) {
-            str3 = this.epC.text;
+            str3 = this.esM.text;
             str4 = str3.replace("@", "").replace(" ", "");
         }
         MessageManager messageManager = MessageManager.getInstance();
         Context context = getContext();
-        str2 = this.epC.link;
+        str2 = this.esM.link;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, str2, str4)));
     }
 }

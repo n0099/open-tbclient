@@ -1,31 +1,23 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements View.OnClickListener {
-    private final /* synthetic */ MetaData bnB;
-    private final /* synthetic */ BaseActivity bnD;
-    private final /* synthetic */ com.baidu.tbadk.core.data.as bnE;
+public class ck extends y.a {
+    public TextView adg;
+    public TextView adj;
+    public int aej;
+    public TextView bfK;
+    public TextView bji;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(BaseActivity baseActivity, com.baidu.tbadk.core.data.as asVar, MetaData metaData) {
-        this.bnD = baseActivity;
-        this.bnE = asVar;
-        this.bnB = metaData;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!com.baidu.adp.lib.util.i.jf()) {
-            this.bnD.showToast(t.j.neterror);
-        } else if (com.baidu.tbadk.core.util.bl.ad(this.bnD.getApplicationContext())) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10803").ac("tid", this.bnE.getTid()).r("obj_locate", 2));
-            new com.baidu.tbadk.coreExtra.d.a(null).a(true, this.bnB.getPortrait(), this.bnB.getUserId());
-        }
+    public ck(View view) {
+        super(view);
+        this.aej = 3;
+        this.adg = (TextView) getView().findViewById(t.g.frs_god_lv_reply_time);
+        this.adj = (TextView) getView().findViewById(t.g.frs_god_praise_num);
+        this.bfK = (TextView) getView().findViewById(t.g.frs_god_reply_num);
+        this.bji = (TextView) getView().findViewById(t.g.frs_god_item_location_address);
     }
 }

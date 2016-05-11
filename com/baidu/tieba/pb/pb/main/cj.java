@@ -1,29 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class cj implements a.b {
-    private final /* synthetic */ String cbQ;
-    private final /* synthetic */ long dhF;
-    private final /* synthetic */ String dhG;
-    private final /* synthetic */ String dhH;
-    private final /* synthetic */ String dhI;
-    final /* synthetic */ PbActivity dht;
+public class cj {
+    private BaseActivity bek;
+    private cw dih;
+    private a dkz = null;
+    private final HttpMessageListener dkA = new ck(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.dht = pbActivity;
-        this.dhF = j;
-        this.dhG = str;
-        this.cbQ = str2;
-        this.dhH = str3;
-        this.dhI = str4;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(int i, long j);
+
+        void onError(int i, String str);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.b.a(this.dhF, this.dhG, null, "PB", "BTN_FBCANCEL", "CLICK_FEEDBACK", "tpoint", this.cbQ, this.dhH, this.dhI);
-        aVar.dismiss();
+    public cj(cw cwVar, BaseActivity baseActivity) {
+        this.dih = cwVar;
+        this.bek = baseActivity;
+        axi();
+        this.bek.registerListener(this.dkA);
+    }
+
+    public void a(a aVar) {
+        this.dkz = aVar;
+    }
+
+    public void axi() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public void bE(long j) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+        httpMessage.addParam("template_id", String.valueOf(j));
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

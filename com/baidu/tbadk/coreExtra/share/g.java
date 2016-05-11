@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.share;
 
 import android.util.Pair;
 import android.view.View;
+import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
@@ -28,7 +29,12 @@ class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                 while (it.hasNext()) {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    dVar.a(dVar.z(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), (View.OnClickListener) ((Pair) next.second).second);
+                    TextView z = dVar.z(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                    if (data.isInsertBack) {
+                        dVar.a(z, dVar.zc(), (View.OnClickListener) ((Pair) next.second).second);
+                    } else {
+                        dVar.a(z, (View.OnClickListener) ((Pair) next.second).second);
+                    }
                 }
             }
             dVar.show();

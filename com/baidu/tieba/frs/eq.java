@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import android.text.TextUtils;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-class eq implements TbImageView.a {
-    final /* synthetic */ em bqE;
-    private final /* synthetic */ TbImageView bqF;
+public class eq {
+    private static eq bmf = new eq();
+    private final SparseArray<String> bme = new SparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public eq(em emVar, TbImageView tbImageView) {
-        this.bqE = emVar;
-        this.bqF = tbImageView;
+    private eq() {
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void s(String str, boolean z) {
-        if (!z) {
-            this.bqF.reset();
-            this.bqF.setImageResource(t.f.pic_interview_top);
+    public static eq RD() {
+        return bmf;
+    }
+
+    public void gv(int i) {
+        this.bme.put(i, "1");
+    }
+
+    public boolean gw(int i) {
+        if (i > 100) {
+            i = 100;
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+        return !TextUtils.isEmpty(this.bme.get(i));
     }
 }

@@ -1,14 +1,41 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.as;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class i extends b {
-    public static final BdUniqueId TC = BdUniqueId.gen();
-    public as aVJ;
+public class i extends a {
+    public static final BdUniqueId aRK = BdUniqueId.gen();
+    private String aPp;
+    private List<com.baidu.tieba.horizonalList.widget.l> mList = new ArrayList();
+    private String stType;
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return TC;
+        return aRK;
+    }
+
+    public void b(com.baidu.tieba.horizonalList.widget.l lVar) {
+        this.mList.add(lVar);
+    }
+
+    public List<com.baidu.tieba.horizonalList.widget.l> DR() {
+        return this.mList;
+    }
+
+    public String getStType() {
+        return this.stType;
+    }
+
+    public void setStType(String str) {
+        this.stType = str;
+    }
+
+    public String Ku() {
+        return this.aPp;
+    }
+
+    public void setYuelaouLocate(String str) {
+        this.aPp = str;
     }
 }

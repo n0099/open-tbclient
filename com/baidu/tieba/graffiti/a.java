@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.CommonVcodeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    private q bKq;
-    private String bKr;
-    private final HttpMessageListener bKs;
+    private q bKu;
+    private String bKv;
+    private final HttpMessageListener bKw;
     private String forumId;
     private int height;
     private Context mContext;
@@ -21,19 +21,19 @@ public class a extends com.baidu.adp.base.e {
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.bKs = new b(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
+        this.bKw = new b(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         this.mContext = baseActivity.getActivity();
         registerListener();
     }
 
     private void registerListener() {
-        this.bKs.setTag(getUniqueId());
-        this.bKs.setSelfListener(true);
-        registerListener(this.bKs);
+        this.bKw.setTag(getUniqueId());
+        this.bKw.setSelfListener(true);
+        registerListener(this.bKw);
     }
 
     public void a(q qVar) {
-        this.bKq = qVar;
+        this.bKu = qVar;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String str4, String str5, String str6) {
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.base.e {
         this.picId = str3;
         this.width = i;
         this.height = i2;
-        this.bKr = str4;
+        this.bKv = str4;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         httpMessage.addParam("tid", str);
         httpMessage.addParam("fid", str2);

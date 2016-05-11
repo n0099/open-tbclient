@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.person.EditHeadActivity;
 /* loaded from: classes.dex */
 class p implements a.b {
-    final /* synthetic */ EditHeadActivity.a drJ;
+    final /* synthetic */ EditHeadActivity.a dvf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(EditHeadActivity.a aVar) {
-        this.drJ = aVar;
+        this.dvf = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

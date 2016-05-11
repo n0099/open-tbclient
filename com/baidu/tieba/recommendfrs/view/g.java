@@ -18,41 +18,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
-    private TbPageContext<?> MX;
-    private TextView aXe;
-    private TextView aXf;
-    private TextView aXg;
-    private TextView apE;
-    private int cHk;
-    private p dZf;
-    private View.OnClickListener dZg;
-    private TbImageView dZk;
-    private TbImageView dZl;
-    private TbImageView dZm;
-    private List<TbImageView> dZn;
-    private final int dZo;
+    private TbPageContext<?> Do;
+    private TextView aSY;
+    private TextView aSZ;
+    private TextView aTa;
+    private int cHv;
+    private p ecm;
+    private View.OnClickListener ecn;
+    private TbImageView ecr;
+    private TbImageView ecs;
+    private TbImageView ect;
+    private List<TbImageView> ecu;
+    private final int ecv;
     private int mSkinType;
+    private TextView title;
 
     public g(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mSkinType = 3;
-        this.dZo = 3;
-        this.cHk = 0;
-        this.dZg = new h(this);
-        this.MX = tbPageContext;
-        view.setOnClickListener(this.dZg);
-        this.dZk = (TbImageView) view.findViewById(t.g.img1);
-        this.dZl = (TbImageView) view.findViewById(t.g.img2);
-        this.dZm = (TbImageView) view.findViewById(t.g.img3);
-        this.apE = (TextView) view.findViewById(t.g.title);
+        this.ecv = 3;
+        this.cHv = 0;
+        this.ecn = new h(this);
+        this.Do = tbPageContext;
+        view.setOnClickListener(this.ecn);
+        this.ecr = (TbImageView) view.findViewById(t.g.img1);
+        this.ecs = (TbImageView) view.findViewById(t.g.img2);
+        this.ect = (TbImageView) view.findViewById(t.g.img3);
+        this.title = (TextView) view.findViewById(t.g.title);
         View findViewById = view.findViewById(t.g.hot_thread_comment);
-        this.aXe = (TextView) findViewById.findViewById(t.g.hot_thread_line_tag);
-        this.aXf = (TextView) findViewById.findViewById(t.g.hot_thread_line_praise);
-        this.aXg = (TextView) findViewById.findViewById(t.g.hot_thread_line_comment);
-        this.dZn = new ArrayList();
-        this.dZn.add(this.dZk);
-        this.dZn.add(this.dZl);
-        this.dZn.add(this.dZm);
+        this.aSY = (TextView) findViewById.findViewById(t.g.hot_thread_line_tag);
+        this.aSZ = (TextView) findViewById.findViewById(t.g.hot_thread_line_praise);
+        this.aTa = (TextView) findViewById.findViewById(t.g.hot_thread_line_comment);
+        this.ecu = new ArrayList();
+        this.ecu.add(this.ecr);
+        this.ecu.add(this.ecs);
+        this.ecu.add(this.ect);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,49 +61,49 @@ public class g extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
     public void B(p pVar) {
         super.B(pVar);
         if (pVar != null) {
-            this.dZf = pVar;
-            if (pVar.aMp() != null) {
-                List<String> aMp = pVar.aMp();
-                if (aMp.size() > 3) {
-                    aMp.subList(0, 3);
+            this.ecm = pVar;
+            if (pVar.aMA() != null) {
+                List<String> aMA = pVar.aMA();
+                if (aMA.size() > 3) {
+                    aMA.subList(0, 3);
                 }
                 for (int i = 0; i < 3; i++) {
-                    String str = (String) y.b(aMp, i);
-                    TbImageView tbImageView = this.dZn.get(i);
+                    String str = (String) y.c(aMA, i);
+                    TbImageView tbImageView = this.ecu.get(i);
                     if (StringUtils.isNULL(str)) {
                         tbImageView.setVisibility(4);
                     } else {
                         tbImageView.setVisibility(0);
-                        if (!pVar.aMj()) {
+                        if (!pVar.aMu()) {
                             str = null;
                         }
                         tbImageView.c(str, 10, false);
                     }
                 }
             }
-            this.apE.setText(pVar.getTitle());
-            this.aXf.setVisibility(0);
-            String z = ay.z(pVar.aMm());
-            this.aXf.setText(z);
-            this.aXf.setContentDescription(String.valueOf(this.MX.getString(t.j.zan_num)) + z);
-            com.baidu.tieba.graffiti.d.af(this.aXf);
-            String z2 = ay.z(pVar.aMn());
-            this.aXg.setText(z2);
-            this.aXg.setContentDescription(String.valueOf(this.MX.getString(t.j.reply_num)) + z2);
+            this.title.setText(pVar.getTitle());
+            this.aSZ.setVisibility(0);
+            String A = ay.A(pVar.aMx());
+            this.aSZ.setText(A);
+            this.aSZ.setContentDescription(String.valueOf(this.Do.getString(t.j.zan_num)) + A);
+            com.baidu.tieba.graffiti.d.aj(this.aSZ);
+            String A2 = ay.A(pVar.aMy());
+            this.aTa.setText(A2);
+            this.aTa.setContentDescription(String.valueOf(this.Do.getString(t.j.reply_num)) + A2);
             if (StringUtils.isNull(pVar.getForumName())) {
-                this.aXe.setVisibility(8);
+                this.aSY.setVisibility(8);
             } else {
-                this.aXe.setVisibility(0);
-                this.aXe.setText(getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedText(pVar.getForumName(), 7, false)));
-                this.aXe.setOnClickListener(new i(this, pVar));
+                this.aSY.setVisibility(0);
+                this.aSY.setText(getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedText(pVar.getForumName(), 7, false)));
+                this.aSY.setOnClickListener(new i(this, pVar));
             }
-            s readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.oh(String.valueOf(pVar.getThreadId()))) {
-                this.cHk = t.d.cp_cont_c;
+            s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.od(String.valueOf(pVar.getThreadId()))) {
+                this.cHv = t.d.cp_cont_c;
             } else {
-                this.cHk = t.d.cp_cont_b;
+                this.cHv = t.d.cp_cont_b;
             }
-            at.b(this.apE, this.cHk, 1);
+            at.c(this.title, this.cHv, 1);
         }
     }
 
@@ -111,8 +111,8 @@ public class g extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-            if (this.cHk != 0 && this.apE != null) {
-                at.b(this.apE, this.cHk, 1);
+            if (this.cHv != 0 && this.title != null) {
+                at.c(this.title, this.cHv, 1);
             }
         }
         this.mSkinType = i;

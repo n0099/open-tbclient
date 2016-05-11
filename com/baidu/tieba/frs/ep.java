@@ -1,29 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class ep implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.as bnE;
-    final /* synthetic */ em bqE;
+public class ep extends SparseArray<fg> {
+    public BdUniqueId aOT = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ep(em emVar, com.baidu.tbadk.core.data.as asVar) {
-        this.bqE = emVar;
-        this.bnE = asVar;
+    public void a(fi fiVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fg valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(fiVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.bqE.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bnE.getAuthor().getUserId(), this.bnE.getAuthor().getName_show(), this.bqE.bkq.avu().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fg valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                fg valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.OY();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void a(int i, fg fgVar) {
+        if (i > 100) {
+            i = 100;
+        }
+        put(i, fgVar);
+    }
+
+    public fg gu(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

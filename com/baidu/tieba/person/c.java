@@ -3,21 +3,22 @@ package com.baidu.tieba.person;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
-    final /* synthetic */ BasePersonInfoActivity dra;
+public class c implements View.OnClickListener {
+    final /* synthetic */ BasePersonInfoActivity duv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BasePersonInfoActivity basePersonInfoActivity) {
-        this.dra = basePersonInfoActivity;
+        this.duv = basePersonInfoActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dra.dqW && this.dra.requestCode != 23011) {
+        if (this.duv.dur && this.duv.requestCode != 23011) {
             MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(false));
-            com.baidu.tbadk.core.d.b.b(this.dra.getPageContext().getPageActivity(), 200, false);
+            com.baidu.tbadk.core.e.b.b(this.duv.getPageContext().getPageActivity(), 200, false);
         }
-        this.dra.finish();
+        this.duv.finish();
     }
 }

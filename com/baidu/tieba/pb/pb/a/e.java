@@ -9,13 +9,13 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    private final /* synthetic */ int bzj;
-    final /* synthetic */ d ddH;
+    private final /* synthetic */ int bzn;
+    final /* synthetic */ d dgb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, int i) {
-        this.ddH = dVar;
-        this.bzj = i;
+        this.dgb = dVar;
+        this.bzn = i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0068  */
@@ -41,49 +41,49 @@ public class e implements View.OnClickListener {
         PbActivity pbActivity3;
         PbActivity pbActivity4;
         if (!com.baidu.tbadk.util.d.isFastDoubleClick()) {
-            pbActivity = this.ddH.dfw;
+            pbActivity = this.dgb.dhY;
             if (pbActivity.checkUpIsLogin()) {
-                pbActivity2 = this.ddH.dfw;
-                if (pbActivity2.awi() != null) {
-                    pbActivity3 = this.ddH.dfw;
-                    pbActivity3.awi().amI();
-                    pbActivity4 = this.ddH.dfw;
-                    pbActivity4.awi().ayk();
+                pbActivity2 = this.dgb.dhY;
+                if (pbActivity2.awt() != null) {
+                    pbActivity3 = this.dgb.dhY;
+                    pbActivity3.awt().amQ();
+                    pbActivity4 = this.dgb.dhY;
+                    pbActivity4.awt().ayH();
                 }
-                if (this.bzj == 1) {
-                    eVar5 = this.ddH.ddF;
-                    if (eVar5.avu() != null) {
-                        eVar9 = this.ddH.ddF;
-                        if (eVar9.avu().isLike() == 1) {
-                            this.ddH.lQ(0);
-                            eVar6 = this.ddH.ddF;
+                if (this.bzn == 1) {
+                    eVar5 = this.dgb.dfY;
+                    if (eVar5.avA() != null) {
+                        eVar9 = this.dgb.dfY;
+                        if (eVar9.avA().isLike() == 1) {
+                            this.dgb.lF(0);
+                            eVar6 = this.dgb.dfY;
                             if (eVar6 == null) {
                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                                 aw awVar = new aw("c10396");
-                                eVar7 = this.ddH.ddF;
+                                eVar7 = this.dgb.dfY;
                                 aw ac = awVar.ac("fid", eVar7.getForumId());
-                                eVar8 = this.ddH.ddF;
+                                eVar8 = this.dgb.dfY;
                                 TiebaStatic.log(ac.ac("tid", eVar8.getThreadId()).ac("uid", currentAccount));
                                 return;
                             }
                             return;
                         }
                     }
-                    this.ddH.apb();
-                    eVar6 = this.ddH.ddF;
+                    this.dgb.apg();
+                    eVar6 = this.dgb.dfY;
                     if (eVar6 == null) {
                     }
                 } else {
-                    eVar = this.ddH.ddF;
+                    eVar = this.dgb.dfY;
                     if (eVar != null) {
-                        eVar2 = this.ddH.ddF;
-                        if (eVar2.avv() != null) {
-                            eVar3 = this.ddH.ddF;
-                            if (eVar3.avv().tK() != null) {
-                                context = this.ddH.mContext;
-                                eVar4 = this.ddH.ddF;
-                                com.baidu.tbadk.browser.f.s(context, eVar4.avv().tK());
-                                context2 = this.ddH.mContext;
+                        eVar2 = this.dgb.dfY;
+                        if (eVar2.avB() != null) {
+                            eVar3 = this.dgb.dfY;
+                            if (eVar3.avB().ri() != null) {
+                                context = this.dgb.mContext;
+                                eVar4 = this.dgb.dfY;
+                                com.baidu.tbadk.browser.f.t(context, eVar4.avB().ri());
+                                context2 = this.dgb.mContext;
                                 TiebaStatic.eventStat(context2, "lottery", "click", 1, "page", "pb");
                             }
                         }

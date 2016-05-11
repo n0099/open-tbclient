@@ -26,9 +26,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tQ = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.tB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sI = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.jE = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.jp = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.iz = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -64,9 +64,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.tQ = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.tB = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.sI = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.jE = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.jp = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.iz = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -87,9 +87,9 @@ public class s {
     private static Cursor d(com.baidu.adp.lib.cache.o<?> oVar) {
         if (oVar != null && (oVar instanceof o.c)) {
             o.c cVar = (o.c) oVar;
-            if (cVar.gv() instanceof com.baidu.adp.lib.cache.k) {
-                com.baidu.adp.lib.cache.c gr = ((com.baidu.adp.lib.cache.k) cVar.gv()).gr();
-                return gr.d(gr.gj().dO(), cVar.gu());
+            if (cVar.cJ() instanceof com.baidu.adp.lib.cache.k) {
+                com.baidu.adp.lib.cache.c cF = ((com.baidu.adp.lib.cache.k) cVar.cJ()).cF();
+                return cF.d(cF.cx().ae(), cVar.cI());
             }
             return null;
         }
@@ -109,10 +109,10 @@ public class s {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(o.b<?> bVar, o.b<?> bVar2) {
-            if (bVar.tQ == bVar2.tQ) {
+            if (bVar.jE == bVar2.jE) {
                 return 0;
             }
-            return bVar.tQ > bVar2.tQ ? -1 : 1;
+            return bVar.jE > bVar2.jE ? -1 : 1;
         }
     }
 }

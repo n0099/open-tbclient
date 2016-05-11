@@ -13,33 +13,33 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0075a c0075a = new C0075a(null);
-            c0075a.dqT = str;
-            c0075a.dqU = bVar;
-            c0075a.execute("");
+            C0068a c0068a = new C0068a(null);
+            c0068a.duo = str;
+            c0068a.dup = bVar;
+            c0068a.execute("");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0075a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String dqT;
-        public b dqU;
+    public static class C0068a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String duo;
+        public b dup;
 
-        private C0075a() {
+        private C0068a() {
         }
 
-        /* synthetic */ C0075a(C0075a c0075a) {
+        /* synthetic */ C0068a(C0068a c0068a) {
             this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: o */
+        /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.c("user_pics").r(com.baidu.tbadk.core.util.m.cT(this.dqT), false);
+            return new com.baidu.tbadk.img.c("user_pics").s(com.baidu.tbadk.core.util.m.cR(this.duo), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,14 +48,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.dqU != null) {
+            if (this.dup != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.dqU.a(i, str, imageUploadResult);
+                this.dup.a(i, str, imageUploadResult);
             }
         }
     }

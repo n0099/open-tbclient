@@ -6,7 +6,7 @@ import tbclient.GetSuggestionByAddrName.DataRes;
 import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class b {
-    private ArrayList<a> eIg = new ArrayList<>();
+    private ArrayList<a> mSearchLocationDataList = new ArrayList<>();
 
     /* loaded from: classes.dex */
     public static class a {
@@ -23,7 +23,7 @@ public class b {
             this.name = str;
         }
 
-        public void b(Lbs lbs) {
+        public void parser(Lbs lbs) {
             if (lbs != null) {
                 this.name = lbs.name;
                 this.lat = lbs.lat;
@@ -36,26 +36,26 @@ public class b {
             return this.screatString;
         }
 
-        public void oQ(String str) {
+        public void setScreatString(String str) {
             this.screatString = str;
         }
     }
 
-    public ArrayList<a> aZy() {
-        return this.eIg;
+    public ArrayList<a> getSearchLocationDataList() {
+        return this.mSearchLocationDataList;
     }
 
-    public void ar(ArrayList<a> arrayList) {
-        this.eIg = arrayList;
+    public void setSearchLocationDataList(ArrayList<a> arrayList) {
+        this.mSearchLocationDataList = arrayList;
     }
 
-    public void a(DataRes dataRes) {
+    public void parserProtoBuf(DataRes dataRes) {
         List<Lbs> list = dataRes.poi_info;
         if (list != null && !list.isEmpty()) {
             for (Lbs lbs : list) {
                 a aVar = new a();
-                aVar.b(lbs);
-                this.eIg.add(aVar);
+                aVar.parser(lbs);
+                this.mSearchLocationDataList.add(aVar);
             }
         }
     }

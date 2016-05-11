@@ -3,11 +3,10 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a agy;
+    private a ace;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,44 +22,44 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        xy();
+        vl();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        initialize();
+        vk();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initialize();
+        vk();
     }
 
-    private void initialize() {
-        setOnClickListener(new r(this));
-        xy();
+    private void vk() {
+        setOnClickListener(new s(this));
+        vl();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.agy = aVar;
+        this.ace = aVar;
     }
 
-    public void xy() {
-        if (xz()) {
-            at.c(this, t.f.icon_set_list_ok_s);
+    public void vl() {
+        if (vm()) {
+            com.baidu.tbadk.core.util.at.c(this, t.f.icon_set_list_ok_s);
             setContentDescription(getResources().getString(t.j.check_box_checked));
             return;
         }
-        at.c(this, t.f.icon_set_list_ok_n);
+        com.baidu.tbadk.core.util.at.c(this, t.f.icon_set_list_ok_n);
         setContentDescription(getResources().getString(t.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return xz();
+        return vm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean xz() {
+    public boolean vm() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -73,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        xy();
-        if (this.agy != null) {
-            this.agy.a(this, z, getTag());
+        vl();
+        if (this.ace != null) {
+            this.ace.a(this, z, getTag());
         }
     }
 }

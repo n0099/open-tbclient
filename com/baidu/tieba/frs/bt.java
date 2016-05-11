@@ -1,24 +1,35 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bt implements View.OnClickListener {
-    final /* synthetic */ bs bmN;
-    private final /* synthetic */ com.baidu.tbadk.core.data.c bmu;
+public class bt extends y.a {
+    TextView aOG;
+    public ViewStub bih;
+    public ViewGroup bii;
+    public ViewStub bij;
+    public ViewGroup bik;
+    LinearLayout bin;
+    TextView bio;
+    HeadImageView bip;
+    TextView biq;
+    TextView bir;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bs bsVar, com.baidu.tbadk.core.data.c cVar) {
-        this.bmN = bsVar;
-        this.bmu = cVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10827");
-        awVar.ac("obj_id", new StringBuilder(String.valueOf(this.bmu.getFid())).toString());
-        TiebaStatic.log(awVar);
-        com.baidu.tbadk.browser.f.a(this.bmN.bix.getPageContext().getPageActivity(), true, this.bmu.Sq);
+    public bt(View view) {
+        super(view);
+        this.bin = (LinearLayout) view.findViewById(t.g.app_parent);
+        this.aOG = (TextView) view.findViewById(t.g.app_name);
+        this.biq = (TextView) view.findViewById(t.g.app_desc);
+        this.bip = (HeadImageView) view.findViewById(t.g.app_icon);
+        this.bir = (TextView) view.findViewById(t.g.app_download);
+        this.bio = (TextView) view.findViewById(t.g.recommend_app);
+        this.bih = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
+        this.bij = (ViewStub) view.findViewById(t.g.item_adkiller_close);
     }
 }

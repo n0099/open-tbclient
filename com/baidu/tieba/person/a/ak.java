@@ -1,26 +1,49 @@
 package com.baidu.tieba.person.a;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.personInfo.bp;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ak implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ai dvJ;
-    private final /* synthetic */ af dvL;
+public class ak {
+    private List<com.baidu.adp.widget.ListView.a> bei = new ArrayList();
+    private BaseFragmentActivity cSp;
+    private d dyA;
+    private HTypeListView dyy;
+    private ai dyz;
+    private BdUniqueId mId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ai aiVar, af afVar) {
-        this.dvJ = aiVar;
-        this.dvL = afVar;
+    public ak(BaseFragmentActivity baseFragmentActivity, HTypeListView hTypeListView) {
+        this.cSp = baseFragmentActivity;
+        this.dyy = hTypeListView;
+        this.mId = baseFragmentActivity.getUniqueId();
+        acs();
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bp.a item = this.dvL.getItem(i);
-        if (item == null) {
-            return;
+    private void acs() {
+        this.dyz = new ai(this.cSp, com.baidu.tbadk.data.i.aoj);
+        this.dyA = new d(this.cSp, com.baidu.tieba.person.data.b.dzh);
+        this.bei.add(this.dyz);
+        this.bei.add(this.dyA);
+        this.dyy.g(this.bei);
+    }
+
+    public void setDatas(List<com.baidu.adp.widget.ListView.v> list) {
+        if (this.dyy != null) {
+            this.dyy.setData(list);
         }
-        this.dvJ.mp(item.aCa());
+    }
+
+    public void notifyDataSetChanged() {
+        if (this.dyy != null && (this.dyy.getAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
+            ((com.baidu.adp.widget.ListView.y) this.dyy.getAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.dyz.I(onClickListener);
+        this.dyA.I(onClickListener);
     }
 }

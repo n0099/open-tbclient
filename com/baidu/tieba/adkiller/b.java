@@ -10,62 +10,62 @@ import com.baidu.tbadk.core.util.bg;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class b {
-    public static void gQ(String str) {
-        o<String> O;
-        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillergame?tag=")) {
-            String gV = gV(str);
-            if (!StringUtils.isNull(gV) && (O = com.baidu.tbadk.core.b.a.um().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
-                O.a("ad_killer_tag_key", new c(gV, O));
-            }
-        }
-    }
-
     public static void gR(String str) {
         o<String> O;
-        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillerkill?tag=")) {
-            String gV = gV(str);
-            if (!StringUtils.isNull(gV) && (O = com.baidu.tbadk.core.b.a.um().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
-                O.a("ad_killer_tag_key", new d(gV));
+        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillergame?tag=")) {
+            String gW = gW(str);
+            if (!StringUtils.isNull(gW) && (O = com.baidu.tbadk.core.b.a.rR().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
+                O.a("ad_killer_tag_key", new c(gW, O));
             }
         }
     }
 
     public static void gS(String str) {
         o<String> O;
-        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillerclose?tag=")) {
-            String gV = gV(str);
-            if (!StringUtils.isNull(gV) && (O = com.baidu.tbadk.core.b.a.um().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
-                O.a("ad_killer_tag_key", new f(gV));
+        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillerkill?tag=")) {
+            String gW = gW(str);
+            if (!StringUtils.isNull(gW) && (O = com.baidu.tbadk.core.b.a.rR().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
+                O.a("ad_killer_tag_key", new d(gW));
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void gT(String str) {
         o<String> O;
-        if (!StringUtils.isNull(str) && (O = com.baidu.tbadk.core.b.a.um().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
-            O.a("ad_killer_tag_key", new h(str, O));
+        if (!StringUtils.isNull(str) && str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillerclose?tag=")) {
+            String gW = gW(str);
+            if (!StringUtils.isNull(gW) && (O = com.baidu.tbadk.core.b.a.rR().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
+                O.a("ad_killer_tag_key", new f(gW));
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void gU(String str) {
         o<String> O;
-        if (!StringUtils.isNull(str) && (O = com.baidu.tbadk.core.b.a.um().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
+        if (!StringUtils.isNull(str) && (O = com.baidu.tbadk.core.b.a.rR().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
+            O.a("ad_killer_tag_key", new h(str, O));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void gV(String str) {
+        o<String> O;
+        if (!StringUtils.isNull(str) && (O = com.baidu.tbadk.core.b.a.rR().O("tb.ad_killer_tags", TbadkCoreApplication.getCurrentAccount())) != null) {
             O.a("ad_killer_tag_key", new i(str, O));
         }
     }
 
-    public static void KC() {
+    public static void IT() {
         com.baidu.tieba.tbadkCore.a.a.c(309266, SubmitCloseSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309266, CmdConfigHttp.CMD_SUBMIT_CLOSE_ADKILLER, TbConfig.SUBMIT_CLOSE_ADKILLER, SubmitCloseHttpResponseMessage.class, true, true, true, true);
         MessageManager.getInstance().registerListener(new j(CmdConfigHttp.CMD_SUBMIT_CLOSE_ADKILLER, 309266));
-        bg.wM().a(new k());
-        bg.wM().a(new l());
-        bg.wM().a(new m());
+        bg.us().a(new k());
+        bg.us().a(new l());
+        bg.us().a(new m());
     }
 
-    private static String gV(String str) {
+    private static String gW(String str) {
         String[] split;
         try {
             String query = new URL(str).getQuery();

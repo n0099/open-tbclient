@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int cul;
-    private a cum;
+    private int cvj;
+    private a cvk;
     private int end;
     private final int speed;
     private int start;
 
     /* loaded from: classes.dex */
     public interface a {
-        void fe(int i);
+        void eJ(int i);
     }
 
     public e(int i) {
@@ -18,33 +18,33 @@ public class e implements b {
 
     public void setStart(int i) {
         this.start = i;
-        this.cul = i;
+        this.cvj = i;
     }
 
-    public void kl(int i) {
+    public void jQ(int i) {
         this.end = i;
     }
 
     public void a(a aVar) {
-        this.cum = aVar;
+        this.cvk = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (this.cul != this.end) {
+        if (this.cvj != this.end) {
             if (this.end > this.start) {
-                this.cul += this.speed;
-                if (this.cul > this.end) {
-                    this.cul = this.end;
+                this.cvj += this.speed;
+                if (this.cvj > this.end) {
+                    this.cvj = this.end;
                 }
             } else {
-                this.cul -= this.speed;
-                if (this.cul < this.end) {
-                    this.cul = this.end;
+                this.cvj -= this.speed;
+                if (this.cvj < this.end) {
+                    this.cvj = this.end;
                 }
             }
-            if (this.cum != null) {
-                this.cum.fe(this.cul);
+            if (this.cvk != null) {
+                this.cvk.eJ(this.cvj);
             }
             return false;
         }

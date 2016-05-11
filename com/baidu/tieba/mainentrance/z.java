@@ -8,15 +8,15 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements FragmentTabWidget.a {
-    final /* synthetic */ SquareSearchActivity cLU;
+    final /* synthetic */ SquareSearchActivity cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SquareSearchActivity squareSearchActivity) {
-        this.cLU = squareSearchActivity;
+        this.cMQ = squareSearchActivity;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void c(int i, boolean z) {
+    public void e(int i, boolean z) {
         FragmentTabWidget fragmentTabWidget;
         FragmentTabIndicator fragmentTabIndicator;
         FragmentTabIndicator fragmentTabIndicator2;
@@ -31,46 +31,46 @@ public class z implements FragmentTabWidget.a {
         FragmentTabIndicator fragmentTabIndicator7;
         FragmentTabIndicator fragmentTabIndicator8;
         if (i == 0) {
-            this.cLU.kQ(0);
-            fragmentTabWidget3 = this.cLU.baV;
-            fragmentTabWidget3.d(i, true);
-            fragmentTabIndicator7 = this.cLU.cKO;
+            this.cMQ.ky(0);
+            fragmentTabWidget3 = this.cMQ.aXd;
+            fragmentTabWidget3.f(i, true);
+            fragmentTabIndicator7 = this.cMQ.cLK;
             fragmentTabIndicator7.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down);
-            fragmentTabIndicator8 = this.cLU.cKO;
-            fragmentTabIndicator8.dn(TbadkCoreApplication.m411getInst().getSkinType());
+            fragmentTabIndicator8 = this.cMQ.cLK;
+            fragmentTabIndicator8.cW(TbadkCoreApplication.m11getInst().getSkinType());
         }
         if (i == 1) {
-            if (!z || this.cLU.mMode != 1) {
-                fragmentTabIndicator3 = this.cLU.cKO;
+            if (!z || this.cMQ.mMode != 1) {
+                fragmentTabIndicator3 = this.cMQ.cLK;
                 fragmentTabIndicator3.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down_s);
             } else {
-                view = this.cLU.cKX;
+                view = this.cMQ.cLT;
                 if (view.getVisibility() == 0) {
-                    view2 = this.cLU.cKX;
+                    view2 = this.cMQ.cLT;
                     view2.setVisibility(8);
-                    this.cLU.aoB();
-                    fragmentTabIndicator6 = this.cLU.cKO;
+                    this.cMQ.aoF();
+                    fragmentTabIndicator6 = this.cMQ.cLK;
                     fragmentTabIndicator6.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down_s);
                 } else {
-                    this.cLU.aoP();
-                    fragmentTabIndicator5 = this.cLU.cKO;
+                    this.cMQ.aoT();
+                    fragmentTabIndicator5 = this.cMQ.cLK;
                     fragmentTabIndicator5.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_up_s);
                 }
             }
-            fragmentTabIndicator4 = this.cLU.cKO;
-            fragmentTabIndicator4.dn(TbadkCoreApplication.m411getInst().getSkinType());
-            this.cLU.kQ(1);
-            fragmentTabWidget2 = this.cLU.baV;
-            fragmentTabWidget2.d(i, true);
+            fragmentTabIndicator4 = this.cMQ.cLK;
+            fragmentTabIndicator4.cW(TbadkCoreApplication.m11getInst().getSkinType());
+            this.cMQ.ky(1);
+            fragmentTabWidget2 = this.cMQ.aXd;
+            fragmentTabWidget2.f(i, true);
         }
         if (i == 2) {
-            this.cLU.kQ(3);
-            fragmentTabWidget = this.cLU.baV;
-            fragmentTabWidget.d(i, true);
-            fragmentTabIndicator = this.cLU.cKO;
+            this.cMQ.ky(3);
+            fragmentTabWidget = this.cMQ.aXd;
+            fragmentTabWidget.f(i, true);
+            fragmentTabIndicator = this.cMQ.cLK;
             fragmentTabIndicator.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down);
-            fragmentTabIndicator2 = this.cLU.cKO;
-            fragmentTabIndicator2.dn(TbadkCoreApplication.m411getInst().getSkinType());
+            fragmentTabIndicator2 = this.cMQ.cLK;
+            fragmentTabIndicator2.cW(TbadkCoreApplication.m11getInst().getSkinType());
         }
     }
 }

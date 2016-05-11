@@ -1,4 +1,6 @@
 package com.baidu.sapi2.result;
+
+import com.baidu.sapi2.utils.enums.Switch;
 /* loaded from: classes.dex */
 public class VoiceCheckResult extends SapiResult {
     public static final int ERROR_CODE_EMPTY_ACCOUNT = -101;
@@ -18,6 +20,7 @@ public class VoiceCheckResult extends SapiResult {
     public String displayname;
     public boolean needVerify;
     public boolean signUp;
+    public Switch switchState;
     public String uid;
     public int voiceCode;
 

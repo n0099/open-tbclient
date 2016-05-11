@@ -1,23 +1,23 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tbadk.core.view.s;
+import com.baidu.tbadk.core.view.t;
 /* loaded from: classes.dex */
-class ab implements s.a {
-    final /* synthetic */ v dBQ;
+class ab implements t.b {
+    final /* synthetic */ v dEY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(v vVar) {
-        this.dBQ = vVar;
+        this.dEY = vVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.s.a
-    public void aB(boolean z) {
+    @Override // com.baidu.tbadk.core.view.t.b
+    public void aG(boolean z) {
         q qVar;
         q qVar2;
-        qVar = this.dBQ.dBN;
+        qVar = this.dEY.dEV;
         if (qVar != null) {
-            qVar2 = this.dBQ.dBN;
-            qVar2.gL(true);
+            qVar2 = this.dEY.dEV;
+            qVar2.hr(true);
         }
     }
 }

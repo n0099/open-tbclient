@@ -1,11 +1,13 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
 import java.io.Serializable;
 import java.util.LinkedList;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
@@ -35,10 +37,11 @@ public class WriteData implements Serializable {
     private String mForumId;
     private String mForumName;
     private String mGraffitiFileName;
-    private String mGraffitiId;
+    private String mGraffitiImageId;
     private String mGraffitiWriteCode;
     private boolean mHasLocationData;
     private boolean mHaveDraft;
+    private String mHiContent;
     private boolean mIsAddition;
     private boolean mIsBaobao;
     private boolean mIsFrsReply;
@@ -132,7 +135,7 @@ public class WriteData implements Serializable {
     public boolean hasContentToSave() {
         if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
-                if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
+                if ((this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) && this.mHiContent == null) {
                     return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0 || !TextUtils.isEmpty(this.mGraffitiFileName);
                 }
                 return true;
@@ -159,6 +162,7 @@ public class WriteData implements Serializable {
             if (this.baobaoImagesInfo != null) {
                 jSONObject.put("baobaoImagesInfo", this.baobaoImagesInfo.toJson());
             }
+            jSONObject.put("mHiContent", this.mHiContent);
             if (this.mVideoInfo != null) {
                 jSONObject.put(VideoInfo.DRAFT_JSON_NAME, VideoInfo.jsonWithObject(this.mVideoInfo));
             }
@@ -172,6 +176,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
+        Object obj;
         if (com.baidu.adp.lib.util.j.isEmpty(str)) {
             return null;
         }
@@ -201,6 +206,9 @@ public class WriteData implements Serializable {
                 writeData.baobaoImagesInfo.parseJson(optJSONObject3);
             }
             writeData.mGraffitiFileName = jSONObject.optString("mGraffitiFileName");
+            if (jSONObject.has("mHiContent") && (obj = jSONObject.get("mHiContent")) != null && (obj instanceof String)) {
+                writeData.mHiContent = obj.toString();
+            }
             return writeData;
         } catch (Exception e) {
             return null;
@@ -361,6 +369,21 @@ public class WriteData implements Serializable {
             return false;
         }
         return this.mIsBaobao;
+    }
+
+    public String getHiAlbumId() {
+        if (this.mHiContent == null) {
+            return null;
+        }
+        try {
+            return new JSONObject(this.mHiContent).getString(ThActivityDetailActivityConfig.ALBUM_ID);
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    public String getHiContent() {
+        return this.mHiContent;
     }
 
     public boolean getIsInterviewLive() {
@@ -545,6 +568,10 @@ public class WriteData implements Serializable {
         this.mBaobaoContent = str;
     }
 
+    public void setHiContent(String str) {
+        this.mHiContent = str;
+    }
+
     public String getReturnVoiceMd5() {
         return this.mReturnVoiceMd5;
     }
@@ -713,11 +740,11 @@ public class WriteData implements Serializable {
         return this.mVideoReviewType;
     }
 
-    public void setGraffitiId(String str) {
-        this.mGraffitiId = str;
+    public void setGraffitiImageId(String str) {
+        this.mGraffitiImageId = str;
     }
 
-    public String getGraffitiId() {
-        return this.mGraffitiId;
+    public String getGraffitiImageId() {
+        return this.mGraffitiImageId;
     }
 }

@@ -1,35 +1,33 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tieba.frs.ft;
 import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ WriteActivity eNd;
+public class al implements TabMenuPopView.a {
+    final /* synthetic */ WriteActivity feb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.eNd = writeActivity;
+        this.feb = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tieba.frs.TabMenuPopView.a
+    public void a(View view, ft ftVar) {
         PostCategoryView postCategoryView;
-        InputMethodManager inputMethodManager;
-        EditText bbz;
-        InputMethodManager inputMethodManager2;
-        EditText bby;
-        postCategoryView = this.eNd.eMH;
-        postCategoryView.bay();
-        WriteActivity writeActivity = this.eNd;
-        inputMethodManager = this.eNd.mInputManager;
-        bbz = this.eNd.bbz();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, bbz);
-        WriteActivity writeActivity2 = this.eNd;
-        inputMethodManager2 = this.eNd.mInputManager;
-        bby = this.eNd.bby();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bby);
+        WriteData writeData;
+        PostCategoryView postCategoryView2;
+        if (ftVar != null) {
+            postCategoryView = this.feb.fdx;
+            postCategoryView.setText(ftVar.name);
+            writeData = this.feb.evE;
+            writeData.setCategoryTo(ftVar.blZ);
+            this.feb.fdw = ftVar.blZ;
+            postCategoryView2 = this.feb.fdx;
+            postCategoryView2.bcM();
+        }
     }
 }

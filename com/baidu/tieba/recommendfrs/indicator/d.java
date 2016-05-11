@@ -11,13 +11,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ a dXj;
+    final /* synthetic */ a eas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, int i) {
         super(i);
-        this.dXj = aVar;
+        this.eas = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,11 +27,11 @@ public class d extends CustomMessageListener {
         ArrayList arrayList2;
         com.baidu.tieba.recommendfrs.data.l lVar;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            arrayList = this.dXj.dXf;
-            if (!y.q(arrayList)) {
+            arrayList = this.eas.eao;
+            if (!y.s(arrayList)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().CK && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    arrayList2 = this.dXj.dXf;
+                if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().sZ && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
+                    arrayList2 = this.eas.eao;
                     Iterator it = arrayList2.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -39,18 +39,18 @@ public class d extends CustomMessageListener {
                             break;
                         }
                         lVar = (com.baidu.tieba.recommendfrs.data.l) it.next();
-                        if (lVar != null && lVar.aMf() != null && lVar.aMf().tag_type.intValue() == 3) {
+                        if (lVar != null && lVar.aMq() != null && lVar.aMq().tag_type.intValue() == 3) {
                             break;
                         }
                     }
                     if (lVar != null) {
-                        for (Object obj : lVar.aMg()) {
-                            if (obj instanceof com.baidu.tieba.card.a.j) {
-                                com.baidu.tieba.card.a.j jVar = (com.baidu.tieba.card.a.j) obj;
-                                if (jVar.aVK != null && jVar.aVK.aVJ != null && jVar.aVK.aVJ.getAuthor() != null && jVar.aVK.aVJ.getAuthor().getUserId() != null && jVar.aVK.aVJ.getAuthor().getGodUserData() != null) {
-                                    GodUserData godUserData = jVar.aVK.aVJ.getAuthor().getGodUserData();
-                                    if (jVar.aVK.aVJ.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid)) {
-                                        godUserData.setFollowed(updateAttentionMessage.getData().akM ? 1 : 0);
+                        for (Object obj : lVar.aMr()) {
+                            if (obj instanceof com.baidu.tieba.card.a.g) {
+                                com.baidu.tieba.card.a.g gVar = (com.baidu.tieba.card.a.g) obj;
+                                if (gVar.aRH != null && gVar.aRH.aRG != null && gVar.aRH.aRG.getAuthor() != null && gVar.aRH.aRG.getAuthor().getUserId() != null && gVar.aRH.aRG.getAuthor().getGodUserData() != null) {
+                                    GodUserData godUserData = gVar.aRH.aRG.getAuthor().getGodUserData();
+                                    if (gVar.aRH.aRG.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid)) {
+                                        godUserData.setFollowed(updateAttentionMessage.getData().agz ? 1 : 0);
                                     }
                                 } else {
                                     return;

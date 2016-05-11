@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView dqn;
+    final /* synthetic */ PbGiftListView drZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbGiftListView pbGiftListView) {
-        this.dqn = pbGiftListView;
+        this.drZ = pbGiftListView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,23 +29,23 @@ public class d implements View.OnClickListener {
         String str2;
         long j2;
         long j3;
-        context = this.dqn.mContext;
+        context = this.drZ.mContext;
         TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.s(context);
         if (tbPageContext != null) {
             if (TbadkCoreApplication.isLogin()) {
-                str = this.dqn.toUserName;
+                str = this.drZ.toUserName;
                 if (!StringUtils.isNull(str)) {
                     Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.dqn.toUserId;
-                    str2 = this.dqn.toUserName;
-                    j2 = this.dqn.threadId;
-                    j3 = this.dqn.postId;
+                    j = this.drZ.toUserId;
+                    str2 = this.drZ.toUserName;
+                    j2 = this.drZ.threadId;
+                    j3 = this.drZ.postId;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
                     return;
                 }
                 return;
             }
-            bl.ad(tbPageContext.getPageActivity());
+            bl.ac(tbPageContext.getPageActivity());
         }
     }
 }

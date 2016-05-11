@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aw {
-    private List<Object> acf = new ArrayList();
     private String key;
+    private List<Object> params = new ArrayList();
 
-    public List<Object> wr() {
-        return this.acf;
+    public List<Object> getParams() {
+        return this.params;
     }
 
     public String getKey() {
@@ -23,14 +23,14 @@ public class aw {
     }
 
     public aw ac(String str, String str2) {
-        this.acf.add(str);
-        this.acf.add(str2);
+        this.params.add(str);
+        this.params.add(str2);
         return this;
     }
 
-    public aw r(String str, int i) {
-        this.acf.add(str);
-        this.acf.add(Integer.valueOf(i));
+    public aw s(String str, int i) {
+        this.params.add(str);
+        this.params.add(Integer.valueOf(i));
         return this;
     }
 }

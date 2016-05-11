@@ -1,68 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.t;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class es {
-    private View.OnClickListener OZ;
-    private TbPageContext<?> bfx;
-    private View mView = null;
-    private TextView djz = null;
-    private TextView dkx = null;
-    private ImageView dky = null;
-    private ImageView dkz = null;
-    private boolean dkA = true;
+public class es implements Animation.AnimationListener {
+    final /* synthetic */ el dpu;
 
-    public void gg(boolean z) {
-        this.dkA = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public es(el elVar) {
+        this.dpu = elVar;
     }
 
-    public es(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        this.bfx = null;
-        this.OZ = null;
-        this.bfx = tbPageContext;
-        this.OZ = onClickListener;
-        pU();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public View getView() {
-        return this.mView;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        View view;
+        boolean z2;
+        z = this.dpu.dov;
+        if (!z) {
+            lVar = this.dpu.BV;
+            if (lVar != null) {
+                lVar2 = this.dpu.BV;
+                lVar2.kC();
+                return;
+            }
+            return;
+        }
+        view = this.dpu.doq;
+        if (view != null) {
+            z2 = this.dpu.cDe;
+            if (z2) {
+                this.dpu.fp(false);
+            } else {
+                this.dpu.fq(false);
+            }
+        }
     }
 
-    public void gf(boolean z) {
-        this.dkz.setVisibility(z ? 0 : 8);
-    }
-
-    public TextView axB() {
-        return this.djz;
-    }
-
-    public TextView aye() {
-        return this.dkx;
-    }
-
-    public ImageView ayf() {
-        return this.dky;
-    }
-
-    public ImageView ayg() {
-        return this.dkz;
-    }
-
-    private void pU() {
-        this.mView = LayoutInflater.from(this.bfx.getPageActivity()).inflate(t.h.pb_reply_view, (ViewGroup) null);
-        this.djz = (TextView) this.mView.findViewById(t.g.pb_reply_view_item_mark);
-        this.djz.setOnClickListener(this.OZ);
-        this.dkx = (TextView) this.mView.findViewById(t.g.pb_reply_view_item_reply);
-        this.dkx.setOnClickListener(this.OZ);
-        this.dky = (ImageView) this.mView.findViewById(t.g.pb_reply_view_item_manage);
-        this.dky.setOnClickListener(this.OZ);
-        this.dkz = (ImageView) this.mView.findViewById(t.g.pb_reply_view_item_report);
-        this.dkz.setOnClickListener(this.OZ);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

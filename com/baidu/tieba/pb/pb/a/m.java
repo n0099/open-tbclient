@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ k ddT;
+    final /* synthetic */ k dgn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.ddT = kVar;
+        this.dgn = kVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,43 +32,43 @@ public class m implements View.OnClickListener {
         com.baidu.tieba.pb.data.e eVar9;
         com.baidu.tieba.pb.data.e eVar10;
         com.baidu.tieba.pb.data.e eVar11;
-        pbActivity = this.ddT.dfw;
+        pbActivity = this.dgn.dhY;
         if (pbActivity.checkUpIsLogin()) {
-            eVar = this.ddT.ddq;
+            eVar = this.dgn.dfK;
             if (eVar != null) {
-                eVar6 = this.ddT.ddq;
-                if (eVar6.avv() != null) {
-                    eVar7 = this.ddT.ddq;
-                    if (eVar7.avv().tH() == 1) {
+                eVar6 = this.dgn.dfK;
+                if (eVar6.avB() != null) {
+                    eVar7 = this.dgn.dfK;
+                    if (eVar7.avB().rf() == 1) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         aw awVar = new aw("c10400");
-                        eVar8 = this.ddT.ddq;
+                        eVar8 = this.dgn.dfK;
                         aw ac = awVar.ac("fid", eVar8.getForumId());
-                        eVar9 = this.ddT.ddq;
+                        eVar9 = this.dgn.dfK;
                         TiebaStatic.log(ac.ac("tid", eVar9.getThreadId()).ac("uid", currentAccount));
-                        eVar10 = this.ddT.ddq;
-                        if (eVar10.avu() != null) {
-                            eVar11 = this.ddT.ddq;
-                            if (eVar11.avu().isLike() == 1) {
-                                this.ddT.avQ();
+                        eVar10 = this.dgn.dfK;
+                        if (eVar10.avA() != null) {
+                            eVar11 = this.dgn.dfK;
+                            if (eVar11.avA().isLike() == 1) {
+                                this.dgn.avZ();
                                 return;
                             }
                         }
-                        this.ddT.avR();
+                        this.dgn.awa();
                         return;
                     }
                 }
             }
-            eVar2 = this.ddT.ddq;
+            eVar2 = this.dgn.dfK;
             if (eVar2 != null) {
-                eVar3 = this.ddT.ddq;
-                if (eVar3.avv() != null) {
-                    eVar4 = this.ddT.ddq;
-                    if (eVar4.avv().tK() != null) {
-                        context = this.ddT.mContext;
-                        eVar5 = this.ddT.ddq;
-                        com.baidu.tbadk.browser.f.s(context, eVar5.avv().tK());
-                        context2 = this.ddT.mContext;
+                eVar3 = this.dgn.dfK;
+                if (eVar3.avB() != null) {
+                    eVar4 = this.dgn.dfK;
+                    if (eVar4.avB().ri() != null) {
+                        context = this.dgn.mContext;
+                        eVar5 = this.dgn.dfK;
+                        com.baidu.tbadk.browser.f.t(context, eVar5.avB().ri());
+                        context2 = this.dgn.mContext;
                         TiebaStatic.eventStat(context2, "show_picture", "click", 1, "page", "pb");
                     }
                 }

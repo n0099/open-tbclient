@@ -4,22 +4,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.List;
 /* loaded from: classes.dex */
-public class h implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId enc = BdUniqueId.gen();
-    private List<FeedForumData> bnh;
+public class h implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eqr = BdUniqueId.gen();
+    private List<FeedForumData> biJ;
     private String forumId;
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return enc;
+        return eqr;
     }
 
-    public List<FeedForumData> aRD() {
-        return this.bnh;
+    public List<FeedForumData> aRY() {
+        return this.biJ;
     }
 
-    public void cn(List<FeedForumData> list) {
-        this.bnh = list;
+    public void cp(List<FeedForumData> list) {
+        this.biJ = list;
     }
 
     public String getForumId() {

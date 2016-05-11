@@ -9,30 +9,30 @@ import com.baidu.tieba.t;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static a dUg;
-    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> dUh = new HashMap<>();
+    private static a dWY;
+    private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> dWZ = new HashMap<>();
 
-    public static final a aLw() {
-        if (dUg != null) {
-            return dUg;
+    public static final a aLA() {
+        if (dWY != null) {
+            return dWY;
         }
         synchronized (a.class) {
-            if (dUg == null) {
-                dUg = new a();
+            if (dWY == null) {
+                dWY = new a();
             }
         }
-        return dUg;
+        return dWY;
     }
 
     public void registerHolder(int i, Class<? extends PbRecBaseViewHolder> cls) {
-        if (i >= 0 && cls != null && !this.dUh.containsKey(Integer.valueOf(i))) {
-            this.dUh.put(Integer.valueOf(i), cls);
+        if (i >= 0 && cls != null && !this.dWZ.containsKey(Integer.valueOf(i))) {
+            this.dWZ.put(Integer.valueOf(i), cls);
         }
     }
 
     public PbRecBaseViewHolder m(Context context, int i) {
         View inflate;
-        if (context == null || !this.dUh.containsKey(Integer.valueOf(i))) {
+        if (context == null || !this.dWZ.containsKey(Integer.valueOf(i))) {
             return null;
         }
         switch (i) {
@@ -50,7 +50,7 @@ public class a {
                 break;
         }
         try {
-            return this.dUh.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
+            return this.dWZ.get(Integer.valueOf(i)).getConstructor(View.class).newInstance(inflate);
         } catch (Exception e) {
             BdLog.e(e.toString());
             return null;

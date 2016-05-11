@@ -1,48 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.ae;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class u implements ae.a {
-    final /* synthetic */ PbActivity dht;
+class u implements a.b {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PbActivity pbActivity) {
-        this.dht = pbActivity;
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void gJ(String str) {
-        com.baidu.tieba.tbadkCore.ae aeVar;
-        df dfVar;
-        this.dht.biR = false;
-        aeVar = this.dht.bjd;
-        if (aeVar != null) {
-            dfVar = this.dht.dfV;
-            com.baidu.tieba.pb.data.e pbData = dfVar.getPbData();
-            if (pbData.avv().getPraise().getIsLike() == 1) {
-                this.dht.gB(0);
-            } else {
-                this.dht.gB(1);
-            }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.avv()));
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void q(int i, String str) {
-        com.baidu.tieba.tbadkCore.ae aeVar;
-        this.dht.biR = false;
-        aeVar = this.dht.bjd;
-        if (aeVar != null && str != null) {
-            if (AntiHelper.pB(i)) {
-                AntiHelper.O(this.dht.getPageContext().getPageActivity(), str);
-            } else {
-                this.dht.showToast(str);
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        cw cwVar;
+        el elVar;
+        el elVar2;
+        el elVar3;
+        cw cwVar2;
+        el elVar4;
+        this.djE.PY();
+        cwVar = this.djE.dih;
+        com.baidu.tbadk.core.data.ad abs = cwVar.abs();
+        elVar = this.djE.diR;
+        int pageNum = elVar.getPageNum();
+        if (pageNum <= 0) {
+            this.djE.showToast(t.j.pb_page_error);
+        } else if (abs == null || pageNum <= abs.pF()) {
+            elVar2 = this.djE.diR;
+            elVar2.amQ();
+            this.djE.Pk();
+            elVar3 = this.djE.diR;
+            elVar3.aza();
+            cwVar2 = this.djE.dih;
+            elVar4 = this.djE.diR;
+            cwVar2.lO(elVar4.getPageNum());
+            aVar.dismiss();
+        } else {
+            this.djE.showToast(t.j.pb_page_error);
         }
     }
 }

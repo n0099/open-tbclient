@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private com.baidu.tieba.recommendfrs.data.i dYt;
+    private com.baidu.tieba.recommendfrs.data.i ebA;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dYt == null || this.dYt.dWL == null) {
+        if (this.ebA == null || this.ebA.dZV == null) {
             return 0;
         }
-        return this.dYt.dWL.size();
+        return this.ebA.dZV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oG */
+    /* renamed from: oA */
     public com.baidu.tieba.recommendfrs.data.j getItem(int i) {
-        if (this.dYt == null || this.dYt.dWL == null) {
+        if (this.ebA == null || this.ebA.dZV == null) {
             return null;
         }
-        return this.dYt.dWL.get(i);
+        return this.ebA.dZV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,19 +42,19 @@ public class u extends BaseAdapter {
         if (view instanceof TextView) {
             textView = (TextView) view;
         } else {
-            int dimensionPixelSize = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds10);
+            int dimensionPixelSize = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds10);
             textView = new TextView(viewGroup.getContext());
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             textView.setGravity(17);
-            textView.setTextSize(0, TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.fontsize28));
-            textView.setLayoutParams(new AbsListView.LayoutParams(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds146), TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds60)));
+            textView.setTextSize(0, TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.fontsize28));
+            textView.setLayoutParams(new AbsListView.LayoutParams(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds146), TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds60)));
         }
         com.baidu.tieba.recommendfrs.data.j item = getItem(i);
         if (item != null) {
-            textView.setText(item.dWN);
-            if (item.dWO) {
+            textView.setText(item.dZX);
+            if (item.dZY) {
                 at.j((View) textView, t.d.cp_cont_g);
                 at.k(textView, t.f.shape_semi_circle_all_selected);
             } else {
@@ -66,11 +66,11 @@ public class u extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.recommendfrs.data.i iVar) {
-        this.dYt = iVar;
+        this.ebA = iVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.recommendfrs.data.i aMB() {
-        return this.dYt;
+    public com.baidu.tieba.recommendfrs.data.i aML() {
+        return this.ebA;
     }
 }

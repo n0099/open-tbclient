@@ -10,47 +10,47 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private h qD;
+    private h gr;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.qD = null;
-        this.qD = new h(messageManager);
-        this.qz = com.baidu.adp.framework.c.c.fc();
+        this.gr = null;
+        this.gr = new h(messageManager);
+        this.gn = com.baidu.adp.framework.c.c.bs();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.qD.removeMessage(bdUniqueId);
+        this.gr.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.qD.removeMessage(i, bdUniqueId);
+        this.gr.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
-    /* renamed from: a */
-    public void sendMessage(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.qD.sendMessage(socketMessage, socketMessageTask);
+    public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        this.gr.a(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
-    public SocketMessage c(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.og.getController().b(socketMessage, socketMessageTask);
+    /* renamed from: c */
+    public SocketMessage d(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        return this.eb.getController().b(socketMessage, socketMessageTask);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.qD.a(bdUniqueId);
+        return this.gr.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.qD.findMessage(i, bdUniqueId);
+        return this.gr.findMessage(i, bdUniqueId);
     }
 
     public h getSocketClient() {
-        return this.qD;
+        return this.gr;
     }
 }

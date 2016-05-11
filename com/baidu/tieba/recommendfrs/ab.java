@@ -1,22 +1,23 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ q dVL;
+public class ab implements a.InterfaceC0052a {
+    final /* synthetic */ r dYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(q qVar, int i) {
-        super(i);
-        this.dVL = qVar;
+    public ab(r rVar) {
+        this.dYM = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.dVL.ia(false);
+    @Override // com.baidu.tieba.c.a.InterfaceC0052a
+    public void O(int i, int i2) {
+        this.dYM.bkf = true;
+    }
+
+    @Override // com.baidu.tieba.c.a.InterfaceC0052a
+    public void P(int i, int i2) {
+        this.dYM.bkf = false;
     }
 }

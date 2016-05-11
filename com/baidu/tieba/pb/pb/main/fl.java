@@ -4,16 +4,15 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fl implements a.b {
-    final /* synthetic */ eu dnc;
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fl(eu euVar) {
-        this.dnc = euVar;
+    public fl(el elVar) {
+        this.dpu = elVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.dnc.amI();
         aVar.dismiss();
     }
 }

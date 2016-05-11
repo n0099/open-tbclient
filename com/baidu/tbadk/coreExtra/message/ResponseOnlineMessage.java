@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.location.BDLocationStatusCodes;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
     private MaskInfo maskInfo;
 
     public ResponseOnlineMessage() {
-        super(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        super(1001);
     }
 
     public List<GroupUpdateMessage> getGroupInfos() {

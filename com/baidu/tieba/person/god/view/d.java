@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a dxV;
+    final /* synthetic */ a dBa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.dxV = aVar;
+        this.dBa = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,7 +23,7 @@ public class d implements View.OnClickListener {
         Activity activity;
         TiebaStatic.log(new aw("c10606"));
         MessageManager messageManager = MessageManager.getInstance();
-        activity = this.dxV.mActivity;
+        activity = this.dBa.mActivity;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(activity, 0L)));
     }
 }

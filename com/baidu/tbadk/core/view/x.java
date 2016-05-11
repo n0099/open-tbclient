@@ -1,58 +1,24 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.SurfaceTexture;
-import android.view.TextureView;
-import android.widget.MediaController;
-import com.baidu.tbadk.core.view.TextureVideoView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class x implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ TextureVideoView ahp;
+class x extends CustomMessageListener {
+    final /* synthetic */ w acA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(TextureVideoView textureVideoView) {
-        this.ahp = textureVideoView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(w wVar, int i) {
+        super(i);
+        this.acA = wVar;
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        boolean z;
-        this.ahp.mSurfaceTexture = surfaceTexture;
-        this.ahp.ahh = true;
-        z = this.ahp.ahi;
-        if (z) {
-            this.ahp.ahi = false;
-            this.ahp.xA();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (this.acA.isDone) {
+            this.acA.cS(TbadkCoreApplication.m11getInst().getSkinType());
         }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        TextureVideoView.a aVar;
-        MediaController mediaController;
-        MediaController mediaController2;
-        TextureVideoView.a aVar2;
-        aVar = this.ahp.ahe;
-        if (aVar != null) {
-            aVar2 = this.ahp.ahe;
-            aVar2.xF();
-        }
-        this.ahp.mSurfaceTexture = null;
-        mediaController = this.ahp.agU;
-        if (mediaController != null) {
-            mediaController2 = this.ahp.agU;
-            mediaController2.hide();
-        }
-        this.ahp.aC(true);
-        this.ahp.ahi = false;
-        return false;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 }

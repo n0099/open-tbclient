@@ -9,21 +9,21 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ag {
-    public static boolean Q(Context context) {
+    public static boolean P(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.a.a.pp()) {
+        if (com.baidu.a.a.mL()) {
             if (context == null) {
                 return false;
             }
             try {
-                z = com.baidu.a.a.a.q(context, "android.permission.READ_PHONE_STATE");
+                z = com.baidu.a.a.a.r(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 e = e;
                 z = false;
             }
             try {
-                z2 = R(context);
+                z2 = Q(context);
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
@@ -36,16 +36,16 @@ public class ag {
         return true;
     }
 
-    public static boolean R(Context context) {
-        if (com.baidu.a.a.pp()) {
+    public static boolean Q(Context context) {
+        if (com.baidu.a.a.mL()) {
             if (context == null) {
                 return false;
             }
             try {
-                if (com.baidu.a.a.a.q(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                if (com.baidu.a.a.a.r(context, "android.permission.ACCESS_FINE_LOCATION")) {
                     return true;
                 }
-                return com.baidu.a.a.a.q(context, "android.permission.ACCESS_COARSE_LOCATION");
+                return com.baidu.a.a.a.r(context, "android.permission.ACCESS_COARSE_LOCATION");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -54,13 +54,28 @@ public class ag {
         return true;
     }
 
-    public static boolean S(Context context) {
-        if (!com.baidu.a.a.pp()) {
+    public static boolean R(Context context) {
+        if (!com.baidu.a.a.mL()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.a.a.a.q(context, "android.permission.CAMERA");
+                return com.baidu.a.a.a.r(context, "android.permission.CAMERA");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean S(Context context) {
+        if (!com.baidu.a.a.mL()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.r(context, "android.permission.RECORD_AUDIO");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -70,28 +85,13 @@ public class ag {
     }
 
     public static boolean T(Context context) {
-        if (!com.baidu.a.a.pp()) {
-            return true;
-        }
-        if (context != null) {
-            try {
-                return com.baidu.a.a.a.q(context, "android.permission.RECORD_AUDIO");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static boolean U(Context context) {
-        Context Y = Y(context);
-        if (Y == null) {
+        Context X = X(context);
+        if (X == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.pp() && com.baidu.a.a.a.r(Y, "android.permission.RECORD_AUDIO")) {
-                com.baidu.adp.lib.util.k.showToast(Y, t.j.record_audio_permission_denied_fun_disable);
+            if (com.baidu.a.a.mL() && com.baidu.a.a.a.s(X, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.k.showToast(X, t.j.record_audio_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -100,13 +100,28 @@ public class ag {
         return false;
     }
 
-    public static boolean V(Context context) {
-        if (!com.baidu.a.a.pp()) {
+    public static boolean U(Context context) {
+        if (!com.baidu.a.a.mL()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.a.a.a.q(context, "android.permission.READ_PHONE_STATE");
+                return com.baidu.a.a.a.r(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean V(Context context) {
+        if (!com.baidu.a.a.mL()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.r(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -116,28 +131,13 @@ public class ag {
     }
 
     public static boolean W(Context context) {
-        if (!com.baidu.a.a.pp()) {
-            return true;
-        }
-        if (context != null) {
-            try {
-                return com.baidu.a.a.a.q(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static boolean X(Context context) {
-        Context Y = Y(context);
-        if (Y == null) {
+        Context X = X(context);
+        if (X == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.pp() && com.baidu.a.a.a.r(Y, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                com.baidu.adp.lib.util.k.showToast(Y, t.j.write_external_storage_permission_denied_fun_disable);
+            if (com.baidu.a.a.mL() && com.baidu.a.a.a.s(X, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.k.showToast(X, t.j.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -146,21 +146,13 @@ public class ag {
         return false;
     }
 
-    public static Context Y(Context context) {
-        return context == null ? TbadkCoreApplication.m411getInst().getContext() : context;
+    public static Context X(Context context) {
+        return context == null ? TbadkCoreApplication.m11getInst().getContext() : context;
     }
 
     public static void a(Activity activity, int i) {
         try {
             com.baidu.a.a.a.a(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void b(Activity activity, int i) {
-        try {
-            com.baidu.a.a.a.a(activity, new String[]{"android.permission.CAMERA"}, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -177,12 +169,12 @@ public class ag {
         return arrayMap;
     }
 
-    public static boolean c(Activity activity, int i) {
+    public static boolean b(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
-        if (!W(activity.getApplicationContext())) {
+        if (!V(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        if (!S(activity.getApplicationContext())) {
+        if (!R(activity.getApplicationContext())) {
             arrayList.add("android.permission.CAMERA");
         }
         if (arrayList.size() == 0) {

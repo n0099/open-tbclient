@@ -13,13 +13,13 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private l LE;
-    private CommonTabHorizonScrollView awK;
-    private ImageView awL;
+    private l BV;
+    private CommonTabHorizonScrollView asL;
+    private ImageView asM;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eQ(int i);
+        void ew(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -33,20 +33,20 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(l lVar) {
-        this.LE = lVar;
+        this.BV = lVar;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(t.h.common_tab_widget, (ViewGroup) this, true);
-        this.awK = (CommonTabHorizonScrollView) findViewById(t.g.privilege_tab_scroll_view);
-        this.awL = (ImageView) findViewById(t.g.privilege_tab_delete);
-        this.awL.setOnClickListener(new e(this));
+        this.asL = (CommonTabHorizonScrollView) findViewById(t.g.privilege_tab_scroll_view);
+        this.asM = (ImageView) findViewById(t.g.privilege_tab_delete);
+        this.asM.setOnClickListener(new e(this));
     }
 
     public void setDatas(ArrayList<b> arrayList) {
-        this.awK.setDatas(arrayList);
+        this.asL.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -54,34 +54,34 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void c(b.C0050b c0050b) {
-        this.awK.c(c0050b);
+    public void c(b.C0041b c0041b) {
+        this.asL.c(c0041b);
     }
 
     public void setCurrentTab(int i) {
-        this.awK.setCurrentTab(i);
+        this.asL.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.awK.setOnTabSelectedListener(aVar);
+        this.asL.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.awK.reset();
+        this.asL.reset();
     }
 
     public void onChangeSkinType(int i) {
         at.l(this, t.d.editor_tool_container_bg);
-        this.awK.dn(i);
-        at.c(this.awL, t.f.but_face_close);
-        at.l(this.awL, t.d.emotion_delete_bg);
+        this.asL.cW(i);
+        at.c(this.asM, t.f.but_face_close);
+        at.l(this.asM, t.d.emotion_delete_bg);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.awL.setVisibility(0);
+            this.asM.setVisibility(0);
         } else {
-            this.awL.setVisibility(8);
+            this.asM.setVisibility(8);
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    final /* synthetic */ l dSt;
+    final /* synthetic */ l dVl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(l lVar) {
-        this.dSt = lVar;
+        this.dVl = lVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,10 +17,10 @@ public class p implements a.b {
         PostSearchActivity postSearchActivity;
         BdListView bdListView;
         aVar.dismiss();
-        postSearchActivity = this.dSt.dSg;
-        postSearchActivity.aKA().aKM();
-        bdListView = this.dSt.dSp;
+        postSearchActivity = this.dVl.dUY;
+        postSearchActivity.aKE().aKQ();
+        bdListView = this.dVl.dVh;
         bdListView.setVisibility(8);
-        this.dSt.showNoDataView();
+        this.dVl.showNoDataView();
     }
 }

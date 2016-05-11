@@ -8,13 +8,13 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements o.a<byte[]> {
-    final /* synthetic */ c bbT;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b bbU;
+    final /* synthetic */ c aYc;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aYd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.bbT = cVar;
-        this.bbU = bVar;
+        this.aYc = cVar;
+        this.aYd = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,21 +23,21 @@ public class d implements o.a<byte[]> {
     public void g(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.bbU.as(true);
+            this.aYd.av(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.bbU.a(forumRecommendResIdl.data);
-                    this.bbU.ci(true);
+                    this.aYd.a(forumRecommendResIdl.data);
+                    this.aYd.cp(true);
                 }
             } catch (Exception e) {
-                this.bbU.as(false);
+                this.aYd.av(false);
             }
-            if (this.bbU.isSuccess() && !this.bbU.Ny()) {
-                this.bbU.Nx().NC();
+            if (this.aYd.isSuccess() && !this.aYd.Mh()) {
+                this.aYd.Mg().Ml();
             }
-            handler = this.bbT.mUIHandler;
-            handler.post(new e(this, this.bbU));
+            handler = this.aYc.mUIHandler;
+            handler.post(new e(this, this.aYd));
         }
     }
 }

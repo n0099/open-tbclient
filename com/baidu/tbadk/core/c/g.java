@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a Yf = null;
+    private a Tt = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g Ys = new g();
+        private static final g TG = new g();
     }
 
-    public static g uO() {
-        return c.Ys;
+    public static g st() {
+        return c.TG;
     }
 
     public void a(int i, k kVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.Yf = new a(i, kVar, null);
-                this.Yf.uQ();
+                this.Tt = new a(i, kVar, null);
+                this.Tt.sv();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -34,12 +34,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a Yf;
-        private final List<Long> Yq = new ArrayList(240);
-        private final List<Integer> Yr = new ArrayList(15);
+        private final List<Long> TE = new ArrayList(240);
+        private final List<Integer> TF = new ArrayList(15);
+        protected a Tt;
 
         public b(a aVar) {
-            this.Yf = aVar;
+            this.Tt = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -50,7 +50,7 @@ public class g {
                 switch (parameterTypes.length) {
                     case 1:
                         if (parameterTypes[0] == Long.TYPE) {
-                            t(((Long) objArr[0]).longValue());
+                            v(((Long) objArr[0]).longValue());
                             return null;
                         }
                         return null;
@@ -61,87 +61,87 @@ public class g {
             return null;
         }
 
-        private void t(long j) {
-            this.Yq.add(Long.valueOf(j));
-            this.Yf.uQ();
+        private void v(long j) {
+            this.TE.add(Long.valueOf(j));
+            this.Tt.sv();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.Yf = null;
-            this.Yq.clear();
-            this.Yr.clear();
+            this.Tt = null;
+            this.TE.clear();
+            this.TF.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final Class<?> Yg;
-        private final Object Yh;
-        private final Class<?> Yi;
-        private final Method Yj;
-        private final Object Yk;
-        private final Method Yl;
-        private final b Ym;
-        private final int Yn;
-        private final k Yo;
+        private final b TA;
+        private final int TB;
+        private final k TC;
+        private final Class<?> Tu;
+        private final Object Tv;
+        private final Class<?> Tw;
+        private final Method Tx;
+        private final Object Ty;
+        private final Method Tz;
         private int index;
 
         private a(int i, k kVar) {
             this.index = 0;
-            this.Yi = Class.forName("android.view.Choreographer");
-            this.Yg = Class.forName("android.view.Choreographer$FrameCallback");
-            this.Ym = new b(this);
-            this.Yh = Proxy.newProxyInstance(this.Yg.getClassLoader(), new Class[]{this.Yg}, this.Ym);
-            this.Yj = this.Yi.getMethod("getInstance", new Class[0]);
-            this.Yk = this.Yj.invoke(null, new Object[0]);
-            this.Yl = this.Yi.getMethod("postFrameCallback", this.Yg);
-            this.Yn = i <= 0 ? 16 : i;
-            this.Yo = kVar;
+            this.Tw = Class.forName("android.view.Choreographer");
+            this.Tu = Class.forName("android.view.Choreographer$FrameCallback");
+            this.TA = new b(this);
+            this.Tv = Proxy.newProxyInstance(this.Tu.getClassLoader(), new Class[]{this.Tu}, this.TA);
+            this.Tx = this.Tw.getMethod("getInstance", new Class[0]);
+            this.Ty = this.Tx.invoke(null, new Object[0]);
+            this.Tz = this.Tw.getMethod("postFrameCallback", this.Tu);
+            this.TB = i <= 0 ? 16 : i;
+            this.TC = kVar;
         }
 
         /* synthetic */ a(int i, k kVar, a aVar) {
             this(i, kVar);
         }
 
-        private void uP() {
-            this.Yl.invoke(this.Yk, this.Yh);
+        private void su() {
+            this.Tz.invoke(this.Ty, this.Tv);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void uQ() {
-            if (this.index >= this.Yn) {
-                com.baidu.adp.lib.h.h.hx().post(new h(this));
+        public void sv() {
+            if (this.index >= this.TB) {
+                com.baidu.adp.lib.h.h.dL().post(new h(this));
                 return;
             }
             this.index++;
             try {
-                uP();
+                su();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> uR() {
-            return this.Ym.Yq;
+        private List<Long> sw() {
+            return this.TA.TE;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.Ym.destroy();
+            this.TA.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> uS() {
+        public List<Long> sx() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> uR = uR();
-            int size = uR.size();
+            List<Long> sw = sw();
+            int size = sw.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(uR.get(i2 + 1).longValue() - uR.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(sw.get(i2 + 1).longValue() - sw.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

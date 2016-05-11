@@ -51,6 +51,11 @@ public class BdStatSwitchData implements Serializable {
         bdStatisticsUploadConfigItem4.type = "pfmonitor";
         bdStatisticsUploadConfigItem4.isUpload = true;
         this.uploadConfig.item.put(bdStatisticsUploadConfigItem4.type, bdStatisticsUploadConfigItem4);
+        BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem5 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
+        bdStatisticsUploadConfigItem5.type = "alert";
+        bdStatisticsUploadConfigItem5.isUpload = true;
+        bdStatisticsUploadConfigItem5.isWifi = false;
+        this.uploadConfig.item.put(bdStatisticsUploadConfigItem5.type, bdStatisticsUploadConfigItem5);
     }
 
     public void parserJson(String str) {
@@ -86,6 +91,10 @@ public class BdStatSwitchData implements Serializable {
                     bdStatisticsUploadConfigItem4.type = "pfmonitor";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem4.type, bdStatisticsUploadConfigItem4);
                     a(optJSONObject.optJSONArray("performance"), bdStatisticsWriteConfigItem4, bdStatisticsUploadConfigItem4);
+                    BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem5 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
+                    bdStatisticsUploadConfigItem5.type = "alert";
+                    this.uploadConfig.item.put(bdStatisticsUploadConfigItem5.type, bdStatisticsUploadConfigItem5);
+                    a(optJSONObject.optJSONArray("alert"), null, bdStatisticsUploadConfigItem5);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -98,28 +107,39 @@ public class BdStatSwitchData implements Serializable {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
             ArrayList<String> arrayList = new ArrayList<>();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
-            bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
-            bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
-            bdStatisticsWriteConfigItem.isExac = optJSONObject2.optInt("is_exact", 0) != 0;
+            if (bdStatisticsWriteConfigItem != null) {
+                bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
+                bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
+                bdStatisticsWriteConfigItem.isExac = optJSONObject2.optInt("is_exact", 0) != 0;
+            }
             bdStatisticsUploadConfigItem.isUpload = optJSONObject2.optInt("is_upload", 0) != 0;
             bdStatisticsUploadConfigItem.isWifi = optJSONObject2.optInt("is_only_wifi", 0) != 0;
             JSONArray optJSONArray = optJSONObject.optJSONArray("children");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
-                    bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
-                    bdStatisticsWriteChildItem.isWrite = optJSONObject3.optInt("is_write", 0) != 0;
-                    bdStatisticsWriteConfigItem.childItem.put(bdStatisticsWriteChildItem.subType, bdStatisticsWriteChildItem);
-                    BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
-                    bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
-                    bdStatistisUploadChilidItem.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
-                    bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
-                    bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
-                    bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
-                    arrayList.add(bdStatistisUploadChilidItem.subType);
+                    if (bdStatisticsWriteConfigItem != null) {
+                        BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
+                        bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
+                        bdStatisticsWriteChildItem.isWrite = optJSONObject3.optInt("is_write", 0) != 0;
+                        bdStatisticsWriteConfigItem.childItem.put(bdStatisticsWriteChildItem.subType, bdStatisticsWriteChildItem);
+                        BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
+                        bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
+                        bdStatistisUploadChilidItem.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
+                        bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
+                        bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
+                        bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
+                        arrayList.add(bdStatistisUploadChilidItem.subType);
+                        this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
+                    } else {
+                        BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem2 = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
+                        bdStatistisUploadChilidItem2.subType = optJSONObject3.optString("type");
+                        bdStatistisUploadChilidItem2.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
+                        bdStatistisUploadChilidItem2.maxAlertCount = optJSONObject3.optInt("alert_count");
+                        bdStatistisUploadChilidItem2.uploadCycle = optJSONObject3.optInt("upload_cycle");
+                        bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem2.subType, bdStatistisUploadChilidItem2);
+                    }
                 }
-                this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
             }
         }
     }
@@ -166,6 +186,14 @@ public class BdStatSwitchData implements Serializable {
 
     public boolean isExactWriteFile(String str) {
         return this.writeConfig.isExactWriteFile(str);
+    }
+
+    public int getMaxAlertCount(String str, int i) {
+        return this.uploadConfig.getMaxAlertCount(str, i);
+    }
+
+    public int geUploadCycle(String str, int i) {
+        return this.uploadConfig.geUploadCycle(str, i);
     }
 
     public boolean smallFlowUpload(String str, String str2) {

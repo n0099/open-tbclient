@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.lib.h.b;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
@@ -23,12 +22,12 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     private int width;
 
     public UpdateClientInfoMessage() {
-        super(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        super(1001);
         this.device = new HashMap();
         try {
-            if (TbadkCoreApplication.m411getInst().getLocationShared()) {
-                this.lat = b.a(TbadkCoreApplication.m411getInst().getLocationLat(), 0.0d);
-                this.lng = b.a(TbadkCoreApplication.m411getInst().getLocationLng(), 0.0d);
+            if (TbadkCoreApplication.m11getInst().getLocationShared()) {
+                this.lat = b.a(TbadkCoreApplication.m11getInst().getLocationLat(), 0.0d);
+                this.lng = b.a(TbadkCoreApplication.m11getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

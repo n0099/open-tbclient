@@ -1,41 +1,62 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
-public class n extends a {
-    public static final BdUniqueId aVO = BdUniqueId.gen();
-    private String aSY;
-    private List<com.baidu.tieba.horizonalList.widget.l> mList = new ArrayList();
-    private String stType;
+public class n extends c {
+    public static final BdUniqueId aSe = BdUniqueId.gen();
+    public static final BdUniqueId aSf = BdUniqueId.gen();
+    public static String aSg = "";
+    public static String aSh = "";
+    public static String aSi = "";
+    public static String aSj = "";
+    public static String aSk = "";
+    public ax aRZ;
+    public boolean aRY = false;
+    public boolean aSl = true;
 
-    @Override // com.baidu.adp.widget.ListView.u
+    public n(ax axVar) {
+        this.aRZ = axVar;
+    }
+
+    public static boolean b(ax axVar) {
+        return (axVar == null || axVar.ra() == null) ? false : true;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return aVO;
+        if (this.aRZ == null) {
+            return aSe;
+        }
+        if (this.aRZ.qO()) {
+            return aSf;
+        }
+        return aSe;
     }
 
-    public void b(com.baidu.tieba.horizonalList.widget.l lVar) {
-        this.mList.add(lVar);
+    @Override // com.baidu.tieba.card.a.c
+    public ax Kl() {
+        return this.aRZ;
     }
 
-    public List<com.baidu.tieba.horizonalList.widget.l> FZ() {
-        return this.mList;
+    public aw Kw() {
+        return hh(aSj);
     }
 
-    public String getStType() {
-        return this.stType;
+    public aw Kx() {
+        return hh(aSk);
     }
 
-    public void setStType(String str) {
-        this.stType = str;
+    public aw Ky() {
+        return hh(aSh);
     }
 
-    public String LL() {
-        return this.aSY;
+    public aw Kz() {
+        return hh(aSg);
     }
 
-    public void setYuelaouLocate(String str) {
-        this.aSY = str;
+    public aw KH() {
+        return hh(aSi);
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.sapi2.utils.enums;
 /* loaded from: classes.dex */
 public enum BindType {
     EXPLICIT("explicit", "afterauth", "finishbind"),
-    OPTIONAL("optional", "afterauth", "finishbind"),
-    IMPLICIT("implicit", "afterauth", "afterauth");
+    SMS("sms", "afterauth", "finishbind"),
+    BIND_MOBILE("bind_mobile", "afterauth", "afterauth");
     
     private String a;
     private String b;

@@ -14,13 +14,13 @@ import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel eED;
+    final /* synthetic */ UserMuteAddAndDelModel eVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.eED = userMuteAddAndDelModel;
+        this.eVk = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,46 +36,46 @@ public class a extends HttpMessageListener {
         UserMuteAddAndDelModel.From from2;
         UserMuteAddAndDelModel.a aVar;
         UserMuteAddAndDelModel.a aVar2;
-        bVar = this.eED.bbk;
-        bVar.ay(false);
+        bVar = this.eVk.aXt;
+        bVar.aD(false);
         if (httpResponsedMessage instanceof UserMuteAddResponseMessage) {
             UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) httpResponsedMessage;
             if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_NEED_REFRESH));
-                hVar4 = this.eED.eEz;
-                hVar5 = this.eED.eEv;
+                hVar4 = this.eVk.eVg;
+                hVar5 = this.eVk.eVc;
                 hVar4.c(hVar5.getResources().getString(t.j.mute_success));
-                from = this.eED.eEw;
+                from = this.eVk.eVd;
                 if (from != UserMuteAddAndDelModel.From.PB) {
-                    from2 = this.eED.eEw;
+                    from2 = this.eVk.eVd;
                     if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                         TiebaStatic.log("c10043");
                     }
                 } else {
                     TiebaStatic.log("c10034");
                 }
-                aVar = this.eED.eEx;
+                aVar = this.eVk.eVe;
                 if (aVar != null) {
-                    aVar2 = this.eED.eEx;
+                    aVar2 = this.eVk.eVe;
                     aVar2.a(userMuteAddResponseMessage);
                 }
             } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                 String errorString = userMuteAddResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    hVar3 = this.eED.eEv;
+                    hVar3 = this.eVk.eVc;
                     errorString = hVar3.getResources().getString(t.j.mute_error_beyond_limit);
                 }
-                this.eED.fE(errorString);
+                this.eVk.fB(errorString);
             } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                 String errorString2 = userMuteAddResponseMessage.getErrorString();
                 if (ay.isEmpty(errorString2)) {
-                    hVar2 = this.eED.eEv;
+                    hVar2 = this.eVk.eVc;
                     errorString2 = hVar2.getResources().getString(t.j.mute_fail);
                 }
-                hVar = this.eED.eEz;
+                hVar = this.eVk.eVg;
                 hVar.d(errorString2);
             } else {
-                this.eED.aYp();
+                this.eVk.baG();
             }
         }
     }

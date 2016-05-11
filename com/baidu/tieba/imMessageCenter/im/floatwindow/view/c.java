@@ -6,31 +6,31 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.a {
-    final /* synthetic */ a cuC;
+    final /* synthetic */ a cvz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.cuC = aVar;
+        this.cvz = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
-    public void ajC() {
-        a.InterfaceC0068a interfaceC0068a;
-        a.InterfaceC0068a interfaceC0068a2;
-        this.cuC.cuy = false;
-        this.cuC.setTouchable(true);
-        interfaceC0068a = this.cuC.ctJ;
-        if (interfaceC0068a != null) {
-            interfaceC0068a2 = this.cuC.ctJ;
-            interfaceC0068a2.ajC();
+    public void ajI() {
+        a.InterfaceC0062a interfaceC0062a;
+        a.InterfaceC0062a interfaceC0062a2;
+        this.cvz.cvv = false;
+        this.cvz.setTouchable(true);
+        interfaceC0062a = this.cvz.cuH;
+        if (interfaceC0062a != null) {
+            interfaceC0062a2 = this.cvz.cuH;
+            interfaceC0062a2.ajI();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
     public void a(Point point) {
         int i;
-        a aVar = this.cuC;
-        i = this.cuC.ctR;
-        aVar.aC(i - point.x, point.y);
+        a aVar = this.cvz;
+        i = this.cvz.cuP;
+        aVar.aB(i - point.x, point.y);
     }
 }

@@ -1,48 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.df;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class dl extends HttpMessageListener {
-    final /* synthetic */ df dju;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dl(df dfVar, int i) {
-        super(i);
-        this.dju = dfVar;
+public class dl extends dh {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public dl(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        df.b bVar;
-        df.b bVar2;
-        df.b bVar3;
-        df.b bVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            bVar = this.dju.diY;
-            if (bVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                String errorString = httpResponsedMessage.getErrorString();
-                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    bVar4 = this.dju.diY;
-                    bVar4.onError(error, errorString);
-                    return;
-                }
-                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    bVar2 = this.dju.diY;
-                    bVar2.onError(error, errorString);
-                    return;
-                }
-                hideChudianPostResponseMessage.getResultFlag();
-                bVar3 = this.dju.diY;
-                bVar3.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.dh
+    /* renamed from: aI */
+    public dm aH(ViewGroup viewGroup) {
+        return new dm(LayoutInflater.from(this.mContext).inflate(t.h.pb_newchudian_multi_img_item, viewGroup, false), this.dfJ, this.dfI, this.dfH);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.dh
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.s sVar, dk dkVar) {
+        super.a(i, view, viewGroup, sVar, dkVar);
+        if (sVar == null || sVar.aUc() == null) {
+            return null;
         }
+        ((dm) dkVar).a(this.mContext, sVar.aUc(), this.ddo);
+        return view;
     }
 }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class d {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, f fVar) {
-        if (aVar.iq() != null && aVar.iq().equals("omp")) {
+        if (aVar.eB() != null && (aVar.eB().equals("omp") || aVar.eB().equals("mon"))) {
             return a(fVar);
         }
         return a(true, fVar);
@@ -20,19 +20,19 @@ class d {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", fVar.mAppVersion);
-        a(hashMap, "_phone_imei", fVar.wV);
+        a(hashMap, "_phone_imei", fVar.mS);
         a(hashMap, "_client_id", fVar.mClientId);
-        a(hashMap, "subapp_type", fVar.wW);
-        a(hashMap, "from", fVar.wT);
-        a(hashMap, "net_type", fVar.xb);
+        a(hashMap, "subapp_type", fVar.mT);
+        a(hashMap, "from", fVar.mP);
+        a(hashMap, "net_type", fVar.na);
         a(hashMap, SocialConstants.PARAM_CUID, fVar.mCuid);
-        a(hashMap, "model", fVar.wX);
-        if (TextUtils.isEmpty(fVar.wY)) {
-            fVar.wY = "0";
+        a(hashMap, "model", fVar.mU);
+        if (TextUtils.isEmpty(fVar.mV)) {
+            fVar.mV = "0";
         }
-        a(hashMap, "uid", fVar.wY);
-        a(hashMap, "un", fVar.wZ);
-        a(hashMap, "BDUSS", fVar.xa);
+        a(hashMap, "uid", fVar.mV);
+        a(hashMap, "un", fVar.mW);
+        a(hashMap, "BDUSS", fVar.mZ);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
@@ -55,11 +55,11 @@ class d {
         try {
             sb.append("product");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.wR, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.mN, "utf-8"));
             sb.append("&");
             sb.append("sub_sys");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.wS, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.mO, "utf-8"));
             sb.append("&");
             sb.append("version");
             sb.append("=");
@@ -71,28 +71,28 @@ class d {
             sb.append("&");
             sb.append("os_version");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.xc, "utf-8"));
-            if (!TextUtils.isEmpty(fVar.wT)) {
+            sb.append(URLEncoder.encode(fVar.nb, "utf-8"));
+            if (!TextUtils.isEmpty(fVar.mP)) {
                 sb.append("&");
                 sb.append("from");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.wT, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.mP, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.wU)) {
+            if (!TextUtils.isEmpty(fVar.mQ)) {
                 sb.append("&");
                 sb.append("cfrom");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.wU, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.mQ, "utf-8"));
             }
             sb.append("&");
             sb.append("phone");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.wX, "utf-8"));
-            if (!TextUtils.isEmpty(fVar.wY)) {
+            sb.append(URLEncoder.encode(fVar.mU, "utf-8"));
+            if (!TextUtils.isEmpty(fVar.mV)) {
                 sb.append("&");
                 sb.append("uid");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.wY, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.mV, "utf-8"));
             }
             if (!TextUtils.isEmpty(fVar.mClientId)) {
                 sb.append("&");
@@ -100,17 +100,17 @@ class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(fVar.mClientId, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.wV)) {
+            if (!TextUtils.isEmpty(fVar.mS)) {
                 sb.append("&");
                 sb.append("imei");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.wV, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.mS, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.wZ)) {
+            if (!TextUtils.isEmpty(fVar.mW)) {
                 sb.append("&");
                 sb.append("uname");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.wZ, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.mW, "utf-8"));
             }
             if (!TextUtils.isEmpty(fVar.mCuid)) {
                 sb.append("&");
@@ -171,41 +171,41 @@ class d {
                     BdLog.e(e);
                 }
                 a(sb, "_client_version", str, z);
-                a(sb, "_phone_imei", fVar.wV, z);
+                a(sb, "_phone_imei", fVar.mS, z);
                 a(sb, "_client_id", fVar.mClientId, z);
-                if (!TextUtils.isEmpty(fVar.wW)) {
-                    a(sb, "subapp_type", fVar.wW, z);
+                if (!TextUtils.isEmpty(fVar.mT)) {
+                    a(sb, "subapp_type", fVar.mT, z);
                 }
-                a(sb, "from", fVar.wT, z);
-                a(sb, "cfrom", fVar.wU, z);
-                a(sb, "net_type", fVar.xb, z);
+                a(sb, "from", fVar.mP, z);
+                a(sb, "cfrom", fVar.mQ, z);
+                a(sb, "net_type", fVar.na, z);
                 a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-                a(sb, "model", fVar.wX, z);
-                if (!TextUtils.isEmpty(fVar.wY)) {
+                a(sb, "model", fVar.mU, z);
+                if (!TextUtils.isEmpty(fVar.mV)) {
                     a(sb, "uid", "0", z);
                 } else {
-                    a(sb, "uid", fVar.wY, z);
+                    a(sb, "uid", fVar.mV, z);
                 }
-                a(sb, "un", fVar.wZ, z);
-                a(sb, "BDUSS", fVar.xa, z);
+                a(sb, "un", fVar.mW, z);
+                a(sb, "BDUSS", fVar.mZ, z);
                 return sb.toString();
             }
         }
         str = str2;
         a(sb, "_client_version", str, z);
-        a(sb, "_phone_imei", fVar.wV, z);
+        a(sb, "_phone_imei", fVar.mS, z);
         a(sb, "_client_id", fVar.mClientId, z);
-        if (!TextUtils.isEmpty(fVar.wW)) {
+        if (!TextUtils.isEmpty(fVar.mT)) {
         }
-        a(sb, "from", fVar.wT, z);
-        a(sb, "cfrom", fVar.wU, z);
-        a(sb, "net_type", fVar.xb, z);
+        a(sb, "from", fVar.mP, z);
+        a(sb, "cfrom", fVar.mQ, z);
+        a(sb, "net_type", fVar.na, z);
         a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-        a(sb, "model", fVar.wX, z);
-        if (!TextUtils.isEmpty(fVar.wY)) {
+        a(sb, "model", fVar.mU, z);
+        if (!TextUtils.isEmpty(fVar.mV)) {
         }
-        a(sb, "un", fVar.wZ, z);
-        a(sb, "BDUSS", fVar.xa, z);
+        a(sb, "un", fVar.mW, z);
+        a(sb, "BDUSS", fVar.mZ, z);
         return sb.toString();
     }
 }

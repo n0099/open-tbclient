@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class VideoUploadSwitchStatic extends a {
     static {
-        e.gE().f(VideoUploadSwitchStatic.class);
+        e.cS().f(VideoUploadSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

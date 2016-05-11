@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private static final AtomicLong Yv = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> Yw;
-    final Map<String, Object> Yx;
-    final String Yy;
-    final long Yz;
+    private static final AtomicLong TJ = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> TK;
+    final Map<String, Object> TL;
+    final String TM;
+    final long TO;
     final String cmd;
     final String method;
     final long start;
@@ -20,11 +20,11 @@ public class n {
     private n(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.Yw = map;
-        this.Yx = map2;
+        this.TK = map;
+        this.TL = map2;
         this.type = i;
-        this.Yy = str3;
-        this.Yz = j;
+        this.TM = str3;
+        this.TO = j;
         this.start = System.currentTimeMillis();
     }
 
@@ -33,12 +33,12 @@ public class n {
     }
 
     private static n a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new n(i, str, str2, map, null, z ? uX() : null, j);
+        return new n(i, str, str2, map, null, z ? sC() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static n a(Map<String, Object> map, long j, l lVar) {
-        return new a(1, null, null, map, null, uX(), lVar, j, null);
+        return new a(1, null, null, map, null, sC(), lVar, j, null);
     }
 
     public static n a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -49,14 +49,14 @@ public class n {
         if (lVar == null) {
             throw new IllegalArgumentException("handler can't be null.");
         }
-        return new a(2, str, str2, map, null, uX(), lVar, j, null);
+        return new a(2, str, str2, map, null, sC(), lVar, j, null);
     }
 
     public static n b(String str, Map<String, Object> map) {
         return new n(3, null, null, null, map, str, -1L);
     }
 
-    private String uV() {
+    private String sA() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -69,7 +69,7 @@ public class n {
         }
     }
 
-    public String uW() {
+    public String sB() {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -77,19 +77,19 @@ public class n {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.Yw != null && !this.Yw.isEmpty()) {
+        if (this.TK != null && !this.TK.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            a(this.Yw, jSONObject2);
+            a(this.TK, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.Yx != null && !this.Yx.isEmpty()) {
+        if (this.TL != null && !this.TL.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            a(this.Yx, jSONObject3);
+            a(this.TL, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", uV());
-        if (!TextUtils.isEmpty(this.Yy)) {
-            jSONObject.put("callbackId", this.Yy);
+        jSONObject.put("messageType", sA());
+        if (!TextUtils.isEmpty(this.TM)) {
+            jSONObject.put("callbackId", this.TM);
         }
         return encode(jSONObject.toString());
     }
@@ -98,8 +98,8 @@ public class n {
     public void i(JSONObject jSONObject) {
     }
 
-    private static String uX() {
-        return "TBCWebViewJsBridge_callback_ID_" + Yv.getAndIncrement();
+    private static String sC() {
+        return "TBCWebViewJsBridge_callback_ID_" + TJ.getAndIncrement();
     }
 
     private void a(Map<String, Object> map, JSONObject jSONObject) {
@@ -118,7 +118,7 @@ public class n {
 
     /* loaded from: classes.dex */
     private static final class a extends n {
-        private final l YA;
+        private final l TP;
 
         /* synthetic */ a(int i, String str, String str2, Map map, Map map2, String str3, l lVar, long j, a aVar) {
             this(i, str, str2, map, map2, str3, lVar, j);
@@ -126,17 +126,17 @@ public class n {
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, l lVar, long j) {
             super(i, str, str2, map, map2, str3, j, null);
-            this.YA = lVar;
+            this.TP = lVar;
         }
 
         @Override // com.baidu.tbadk.core.c.n
         protected void i(JSONObject jSONObject) {
-            this.YA.a(this, jSONObject);
+            this.TP.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.c.n
         void a(int i, Throwable th) {
-            this.YA.a(i, th);
+            this.TP.a(i, th);
         }
     }
 }

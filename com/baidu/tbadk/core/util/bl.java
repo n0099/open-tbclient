@@ -16,12 +16,12 @@ import com.baidu.tieba.t;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bl {
-    public static av acT;
-    public static av acU;
-    private static int acP = -1;
-    private static int acQ = -1;
-    private static boolean acR = false;
-    private static com.baidu.adp.lib.f.a<Integer, Integer> acS = new com.baidu.adp.lib.f.a<>(500);
+    public static av Ys;
+    public static av Yt;
+    private static int Yo = -1;
+    private static int Yp = -1;
+    private static boolean Yq = false;
+    private static com.baidu.adp.lib.f.a<Integer, Integer> Yr = new com.baidu.adp.lib.f.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,49 +29,49 @@ public class bl {
         boolean A(View view);
     }
 
-    public static void aa(Context context) {
+    public static void Z(Context context) {
         mAppContext = context;
-        acR = true;
+        Yq = true;
     }
 
-    private static void wN() {
+    private static void ut() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            acQ = mAppContext.getResources().getColor(t.d.more_color);
-            acP = mAppContext.getResources().getColor(t.d.skin_1_common_color);
+            Yp = mAppContext.getResources().getColor(t.d.more_color);
+            Yo = mAppContext.getResources().getColor(t.d.skin_1_common_color);
         }
     }
 
-    private static int cV(int i) {
-        return aw(i == 1);
+    private static int cE(int i) {
+        return aB(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int aw(boolean z) {
-        if (acR) {
-            acR = false;
-            wN();
+    public static int aB(boolean z) {
+        if (Yq) {
+            Yq = false;
+            ut();
         }
-        return z ? acP : acQ;
+        return z ? Yo : Yp;
     }
 
     public static void C(View view) {
         if (view instanceof ViewGroup) {
-            b((ViewGroup) view, TbadkCoreApplication.m411getInst().getSkinType());
+            b((ViewGroup) view, TbadkCoreApplication.m11getInst().getSkinType());
         }
     }
 
     public static void D(View view) {
         if (view != null) {
-            acS.remove(Integer.valueOf(System.identityHashCode(view)));
+            Yr.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = acS.get(Integer.valueOf(identityHashCode));
+        Integer num = Yr.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            acS.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            Yr.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -113,10 +113,10 @@ public class bl {
         }
     }
 
-    public static void ab(Context context) {
+    public static void aa(Context context) {
         if (context != null) {
-            if (acT != null) {
-                acT.Z(context);
+            if (Ys != null) {
+                Ys.Y(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -124,10 +124,10 @@ public class bl {
         }
     }
 
-    public static void ac(Context context) {
+    public static void ab(Context context) {
         if (context != null) {
-            if (acU != null) {
-                acU.Z(context);
+            if (Yt != null) {
+                Yt.Y(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
@@ -135,10 +135,10 @@ public class bl {
         }
     }
 
-    public static boolean ad(Context context) {
+    public static boolean ac(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            ab(context);
+            aa(context);
         }
         return isLogin;
     }
@@ -155,13 +155,13 @@ public class bl {
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cV(i));
+            textView.setTextColor(cE(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cV(i));
+            checkBox.setTextColor(cE(i));
         }
     }
 

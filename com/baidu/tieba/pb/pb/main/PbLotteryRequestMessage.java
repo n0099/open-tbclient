@@ -14,11 +14,12 @@ public class PbLotteryRequestMessage extends NetMessage {
     private long mComponentId;
     private String mForumId;
     private int mFromType;
+    private boolean mIsSenior;
     private String mThreadId;
     private String mUserId;
     private String mUserName;
 
-    public PbLotteryRequestMessage(String str, String str2, String str3, String str4, int i, long j, long j2, long j3) {
+    public PbLotteryRequestMessage(String str, String str2, String str3, String str4, int i, long j, long j2, long j3, boolean z) {
         super(CmdConfigHttp.PB_LOTTERY_HTTP_CMD, 309297);
         this.mUserId = str;
         this.mUserName = str2;
@@ -28,6 +29,7 @@ public class PbLotteryRequestMessage extends NetMessage {
         this.mActivityId = j;
         this.mAwardActId = j2;
         this.mComponentId = j3;
+        this.mIsSenior = z;
         setNetType(NetMessage.NetType.HTTP);
     }
 
@@ -59,6 +61,10 @@ public class PbLotteryRequestMessage extends NetMessage {
         return this.mComponentId;
     }
 
+    public boolean getIsSenior() {
+        return this.mIsSenior;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -73,7 +79,7 @@ public class PbLotteryRequestMessage extends NetMessage {
         builder.award_act_id = Long.valueOf(this.mAwardActId);
         builder.component_id = Long.valueOf(this.mComponentId);
         if (z) {
-            com.baidu.tbadk.util.l.a(builder, true);
+            com.baidu.tbadk.util.o.a(builder, true);
         }
         LotteryReqIdl.Builder builder2 = new LotteryReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -15,7 +15,7 @@ class ae extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
-            TbadkCoreApplication.m411getInst().setWebviewCrashCount(TbadkCoreApplication.m411getInst().getWebviewCrashCount() + 1);
+            TbadkCoreApplication.m11getInst().setWebviewCrashCount(TbadkCoreApplication.m11getInst().getWebviewCrashCount() + 1);
         }
     }
 }

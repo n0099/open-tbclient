@@ -10,9 +10,9 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
-    protected List<Object> cIf;
-    protected List<Object> dWY;
-    protected boolean ddo = true;
+    protected List<Object> cIJ;
+    protected boolean dfI = true;
+    protected List<Object> eah;
     protected boolean mHasMore;
     protected int pn;
 
@@ -21,11 +21,11 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
     }
 
     public boolean isEmpty() {
-        return this.cIf == null || this.cIf.size() <= 0 || this.dWY == null || this.dWY.size() <= 0;
+        return this.cIJ == null || this.cIJ.size() <= 0 || this.eah == null || this.eah.size() <= 0;
     }
 
     public List<Object> getThreadList() {
-        return this.dWY;
+        return this.eah;
     }
 
     public boolean getHasMore() {
@@ -46,16 +46,16 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
         ExcFrsPageResIdl excFrsPageResIdl;
         if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
             if (excFrsPageResIdl.data.thread_list != null) {
-                this.dWY = new ArrayList();
-                this.dWY.addAll(excFrsPageResIdl.data.thread_list);
+                this.eah = new ArrayList();
+                this.eah.addAll(excFrsPageResIdl.data.thread_list);
             }
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cIf = new ArrayList();
+                this.cIJ = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cIf.add(excellentTagInfo);
+                        this.cIJ.add(excellentTagInfo);
                     }
                 }
             }
@@ -63,12 +63,12 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Fn() {
+    public byte[] Df() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean x(byte[] bArr) {
+    public boolean w(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;
@@ -78,7 +78,7 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
         }
     }
 
-    public boolean aMj() {
-        return this.ddo;
+    public boolean aMu() {
+        return this.dfI;
     }
 }

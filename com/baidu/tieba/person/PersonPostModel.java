@@ -19,8 +19,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int duh = 0;
-    private static String dui = "";
+    private static int dxb = 0;
+    private static String dxc = "";
     public int hide_post;
     private int mLastChooseStyle;
     public final List<PostInfoList> post_list;
@@ -58,24 +58,24 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i) {
-        if (z || !str.equals(dui)) {
-            duh = 1;
-            dui = str;
+        if (z || !str.equals(dxc)) {
+            dxb = 1;
+            dxc = str;
         } else {
-            duh++;
+            dxb++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(dui);
-        userPostPageRequestMessage.setPn(duh);
+        userPostPageRequestMessage.setUid(dxc);
+        userPostPageRequestMessage.setPn(dxb);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m411getInst().getApp());
-        int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m411getInst().getApp());
-        float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.az.wz().wB() ? 2 : 1;
+        int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst().getApp());
+        int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getApp());
+        float f = TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density;
+        int i2 = com.baidu.tbadk.core.util.az.uf().uh() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(B);
         userPostPageRequestMessage.set_scr_h(C);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -96,7 +96,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                     postInfoList2.parseProtobuf(postInfoList, random);
                     if (postInfoList2.thread_type != 33) {
                         this.post_list.add(postInfoList2);
-                    } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                    } else if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         this.post_list.add(postInfoList2);
                     }
                 }
@@ -209,7 +209,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                 if (media.big_pic != null) {
                     com.baidu.tbadk.core.util.aj ajVar = new com.baidu.tbadk.core.util.aj();
                     ajVar.imgUrl = media.big_pic;
-                    ajVar.abD = 10;
+                    ajVar.Xc = 10;
                     arrayList.add(ajVar);
                 }
             }
@@ -280,7 +280,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = l(length, i2, i3);
+                        random = k(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -296,7 +296,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         }
     }
 
-    private static int l(int i, int i2, int i3) {
+    private static int k(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

@@ -3,27 +3,19 @@ package com.baidu.tieba.write.write;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity eNd;
+public class ac implements Runnable {
+    final /* synthetic */ WriteActivity feb;
+    private final /* synthetic */ View fec;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(WriteActivity writeActivity) {
-        this.eNd = writeActivity;
+    public ac(WriteActivity writeActivity, View view) {
+        this.feb = writeActivity;
+        this.fec = view;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        com.baidu.tbadk.editortools.l lVar;
-        com.baidu.tbadk.editortools.l lVar2;
-        if (z) {
-            this.eNd.eMV = true;
-            this.eNd.eNa = true;
-            this.eNd.bbj();
-            lVar = this.eNd.atG;
-            if (lVar != null) {
-                lVar2 = this.eNd.atG;
-                lVar2.BD();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.fec.performClick();
+        this.feb.bcj();
     }
 }

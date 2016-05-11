@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message.chat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, u {
+public abstract class ChatMessage extends TbSocketMessage implements a, v {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -131,15 +131,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.awX = false;
-                aVar.awY = optString;
-                aVar.awZ = optString2;
-                aVar.axa = optString3;
+                aVar.asY = false;
+                aVar.asZ = optString;
+                aVar.ata = optString2;
+                aVar.atb = optString3;
                 aVar.mGid = optString4;
-                aVar.axb = optInt;
-                aVar.axc = optInt2;
+                aVar.atc = optInt;
+                aVar.atd = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.Ta = optString6;
+                aVar.NM = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -367,7 +367,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         if (this.msgType == 11) {
             return TYPE_MSG_MID;

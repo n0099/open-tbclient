@@ -22,6 +22,7 @@ import com.baidu.tieba.t;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
@@ -42,7 +43,7 @@ public class BitmapHelper {
         synchronized (BitmapHelper.class) {
             SoftReference<Bitmap> softReference = mBitmapHash.get(i);
             bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m411getInst().getApp(), i, options)) != null) {
+            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m11getInst().getApp(), i, options)) != null) {
                 mBitmapHash.put(i, new SoftReference<>(bitmap));
             }
         }
@@ -66,7 +67,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m411getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m11getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
@@ -93,7 +94,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m411getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m11getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
@@ -155,12 +156,40 @@ public class BitmapHelper {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (OutOfMemoryError e) {
-            TbadkCoreApplication.m411getInst().onAppMemoryLow();
+            TbadkCoreApplication.m11getInst().onAppMemoryLow();
             return null;
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
             return null;
         }
+    }
+
+    public static Bitmap getResBitmapPowerOf2Size(Context context, int i) {
+        int i2;
+        int i3 = 0;
+        Bitmap resBitmap = getResBitmap(context, i);
+        if (resBitmap != null) {
+            i2 = calcNearestSize(resBitmap.getWidth());
+            i3 = calcNearestSize(resBitmap.getHeight());
+        } else {
+            i2 = 0;
+        }
+        return getResizedBitmap(resBitmap, i2, i3);
+    }
+
+    private static int calcNearestSize(int i) {
+        int i2 = 1;
+        for (int i3 = 1; i3 <= i; i3 *= 2) {
+            int i4 = i - i3;
+            if (i4 != 0) {
+                if (i4 > 0) {
+                    i2 = i3;
+                }
+            } else {
+                return i;
+            }
+        }
+        return i2;
     }
 
     public static Bitmap getResBitmap(Context context, int i) {
@@ -196,7 +225,8 @@ public class BitmapHelper {
 
     public static Bitmap getResizedBitmap(Bitmap bitmap, int i, int i2) {
         float f;
-        Bitmap createBitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3 = null;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;
         }
@@ -212,10 +242,16 @@ public class BitmapHelper {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
-                createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
-                new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
+                try {
+                    bitmap3 = Bitmap.createBitmap(i, i2, bitmap.getConfig());
+                    new Canvas(bitmap3).drawBitmap(bitmap, matrix, null);
+                    bitmap2 = bitmap3;
+                } catch (OutOfMemoryError e) {
+                    TbadkCoreApplication.m11getInst().onAppMemoryLow();
+                    bitmap2 = bitmap3;
+                }
             }
-            return createBitmap;
+            return bitmap2;
         }
         return bitmap;
     }
@@ -284,6 +320,10 @@ public class BitmapHelper {
 
     public static Bitmap resizeBitmap(String str, int i) {
         return resizeBitmap(subSampleBitmap(str, i), i);
+    }
+
+    public static Bitmap resizeBitmapAbsolute(String str, int i) {
+        return resizeBitmap(subSampleBitmapAbsolute(str, i), i);
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -461,19 +501,51 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream da = m.da(str);
-                BitmapFactory.decodeStream(da, null, options);
+                InputStream cY = m.cY(str);
+                BitmapFactory.decodeStream(cY, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.c(da);
+                com.baidu.adp.lib.util.o.c(cY);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream da2 = m.da(str);
-                        decodeStream = BitmapFactory.decodeStream(da2, null, options);
-                        com.baidu.adp.lib.util.o.c(da2);
+                        InputStream cY2 = m.cY(str);
+                        decodeStream = BitmapFactory.decodeStream(cY2, null, options);
+                        com.baidu.adp.lib.util.o.c(cY2);
+                    }
+                }
+            }
+            return decodeStream;
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
+    public static Bitmap subSampleBitmapAbsolute(String str, int i) {
+        Bitmap decodeStream;
+        int i2 = 1;
+        if (str == null || str.length() <= 0 || i <= 0) {
+            return null;
+        }
+        try {
+            synchronized (lockForSyncImageDecoder) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                InputStream m = m.m(new File(str));
+                BitmapFactory.decodeStream(m, null, options);
+                options.inPreferredConfig = TbConfig.BitmapConfig;
+                com.baidu.adp.lib.util.o.c(m);
+                while (true) {
+                    if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
+                        i2 *= 2;
+                    } else {
+                        options.inJustDecodeBounds = false;
+                        options.inSampleSize = i2;
+                        InputStream m2 = m.m(new File(str));
+                        decodeStream = BitmapFactory.decodeStream(m2, null, options);
+                        com.baidu.adp.lib.util.o.c(m2);
                     }
                 }
             }
@@ -619,7 +691,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [728=5, 729=5, 730=5, 695=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [790=4, 823=5, 824=5, 825=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -650,7 +722,7 @@ public class BitmapHelper {
                                             bitmap2 = bitmap;
                                             r2 = z;
                                             e = e;
-                                            TbadkCoreApplication.m411getInst().onAppMemoryLow();
+                                            TbadkCoreApplication.m11getInst().onAppMemoryLow();
                                             if (sb != null) {
                                                 sb.append("OOM ");
                                                 if (e != null) {
@@ -716,7 +788,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [775=5, 776=5, 777=5, 779=5, 781=5, 782=5, 783=5, 748=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [843=4, 870=5, 871=5, 872=5, 874=5, 876=5, 877=5, 878=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -726,7 +798,7 @@ public class BitmapHelper {
         if (byteArrayInputStream != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = false;
-            options.inScreenDensity = TbadkCoreApplication.m411getInst().getResources().getDisplayMetrics().densityDpi;
+            options.inScreenDensity = TbadkCoreApplication.m11getInst().getResources().getDisplayMetrics().densityDpi;
             options.inTargetDensity = options.inScreenDensity;
             options.inDensity = options.inScreenDensity;
             try {
@@ -799,7 +871,7 @@ public class BitmapHelper {
                                         bitmap2 = bitmap;
                                         r2 = z;
                                         e = e6;
-                                        TbadkCoreApplication.m411getInst().onAppMemoryLow();
+                                        TbadkCoreApplication.m11getInst().onAppMemoryLow();
                                         e.printStackTrace();
                                         if (e != null && sb != null) {
                                             sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());

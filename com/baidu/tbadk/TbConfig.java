@@ -23,6 +23,8 @@ public class TbConfig {
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
+    public static final int AUTO_PLAY_CLOSED = 1;
+    public static final int AUTO_PLAY_IN_WIFI = 0;
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final int BIG_PHOTO_MAX_SIZE = 110;
@@ -38,7 +40,6 @@ public class TbConfig {
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
-    public static final int BUILD_NUMBER = 155;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -65,10 +66,11 @@ public class TbConfig {
     public static final int EMOTION_WIDTH_LOW = 160;
     public static final String ENTERTAINMENT_ADDRESS = "lego/lego";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
+    public static final String FATAL_ERROR_ALERT_FILE = "fatal_error_alert.log";
     public static final String FATAL_ERROR_DEBUG_FILE = "fatal_error_debug.log";
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
-    public static final String FATAL_ERROR_NATIVE_DIR = "crash_ndk";
+    public static final String FATAL_ERROR_NATIVE_DIR = "native_crash";
     public static final String FEED_BACK_WEB_VIEW_URL = "http://tieba.baidu.com/mo/q/feedback";
     public static final String FINE_PB_PAGE = "c/f/excellent/excpbpage";
     public static final String FINE_PB_PRAISE = "c/f/excellent/exczan";
@@ -77,6 +79,7 @@ public class TbConfig {
     public static final int FONT_SIZE_BIG = 1;
     public static final int FONT_SIZE_MID = 2;
     public static final int FONT_SIZE_SMALL = 3;
+    public static final int FONT_SIZE_XLAGER = 0;
     public static final String FORBID_USER_ADDRESS = "c/c/bawu/commitprison";
     public static final String FORTUNE_ADDRESS = "mo/q/fudaiindex";
     public static final String FORUM_CLASS_LIST = "c/f/forumsquare/getForumClassList";
@@ -98,6 +101,8 @@ public class TbConfig {
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
     public static final String GET_FRS_LIVE = "c/f/frs/getFrsTWLiveList";
+    public static final String GET_FRS_TAB_FOLLOW_POST_NUM = "c/f/frs/getFrsTabFollowPostNum";
+    public static final String GET_FRS_TOGETHERHI = "c/f/frs/highlist";
     public static final String GET_GAME_CATEGORY = "c/u/game/getgamecategory";
     public static final String GET_GAME_GATEGORY_DETAIL = "c/u/game/getgamecategorydetail";
     public static final String GET_GIFT_LIST_BY_CATEGORY = "c/e/present/getGiftListByCategoryId";
@@ -125,6 +130,7 @@ public class TbConfig {
     public static final String GET_SINGLE_GAME = "c/u/game/getsinglegamelist";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
+    public static final String GET_TASK_SCORE = "c/c/encourage/member/addTaskScores";
     public static final String GET_USER_FREE_CHANCE = "c/e/present/getUserFreeChance";
     public static final String GET_USER_INFO = "c/u/user/getuserinfo";
     public static final String GET_USER_LOCATION = "c/u/user/getuserlocation";
@@ -219,6 +225,8 @@ public class TbConfig {
     public static final int NOTIFY_REPLY_ME_ID = 24;
     public static final int NOTIFY_SIGN_ID = 12;
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
+    public static final int NOTIFY_TH_HIACITIVTY_ID = 29;
+    public static final int NOTIFY_TH_MSG_ID = 31;
     public static final long ONE_DAY_TIME = 86400000;
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
@@ -372,6 +380,7 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
+    public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
@@ -412,6 +421,7 @@ public class TbConfig {
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
     public static String GET_HOT_GOD = "c/u/user/getHotGod";
+    public static String GET_BFB_INFO = "c/f/forum/getUserBfbInfo";
 
     /* loaded from: classes.dex */
     public static final class PassConfig {
@@ -551,7 +561,7 @@ public class TbConfig {
     }
 
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m411getInst().getContext()) * 0.28d);
+        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m11getInst().getContext()) * 0.28d);
     }
 
     public static String getFrom() {
@@ -611,7 +621,8 @@ public class TbConfig {
     }
 
     public static int getNameSize() {
-        switch (TbadkCoreApplication.m411getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m11getInst().getFontSize()) {
+            case 0:
             case 1:
                 return 13;
             case 2:
@@ -622,7 +633,9 @@ public class TbConfig {
     }
 
     public static int getContentSize() {
-        switch (TbadkCoreApplication.m411getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m11getInst().getFontSize()) {
+            case 0:
+                return 20;
             case 1:
                 return 18;
             case 2:
@@ -633,7 +646,7 @@ public class TbConfig {
     }
 
     public static int getContentSizeOfPostTitle() {
-        return getContentSize() + 1;
+        return getContentSize() + 3;
     }
 
     public static int getContentSizeOfLzl(Context context) {

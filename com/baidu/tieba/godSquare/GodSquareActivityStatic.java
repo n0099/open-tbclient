@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
 /* loaded from: classes.dex */
 public class GodSquareActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(GodSquareActivityConfig.class, GodSquareActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(GodSquareActivityConfig.class, GodSquareActivity.class);
     }
 }

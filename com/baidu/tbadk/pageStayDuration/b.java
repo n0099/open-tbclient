@@ -3,40 +3,40 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean aAm = com.baidu.tbadk.core.sharedPref.b.vk().getBoolean("page_stay_duration_switch", false);
+    private boolean awp = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean Gl();
+    public abstract boolean Ed();
 
-    public abstract int Gm();
+    public abstract int Ee();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.Gq()) {
+        if (dVar == null || dVar.Ei()) {
             return false;
         }
-        int Gt = Gm() > e.Gr().Gt() ? e.Gr().Gt() : Gm();
-        dVar.A(c.d(dVar.Go(), Gt <= 5 ? Gt : 5));
+        int El = Ee() > e.Ej().El() ? e.Ej().El() : Ee();
+        dVar.C(c.e(dVar.Eg(), El <= 5 ? El : 5));
         return true;
     }
 
-    private void bI(boolean z) {
-        if (this.aAm != z) {
-            com.baidu.tbadk.core.sharedPref.b.vk().putBoolean("page_stay_duration_switch", true);
-            this.aAm = z;
+    private void bO(boolean z) {
+        if (this.awp != z) {
+            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("page_stay_duration_switch", true);
+            this.awp = z;
         }
     }
 
-    public boolean Gn() {
-        if (!TbadkCoreApplication.m411getInst().isMainProcess(true)) {
-            return this.aAm;
+    public boolean Ef() {
+        if (!TbadkCoreApplication.m11getInst().isMainProcess(true)) {
+            return this.awp;
         }
-        if (!TbadkCoreApplication.m411getInst().isPageStayOpen()) {
-            bI(false);
+        if (!TbadkCoreApplication.m11getInst().isPageStayOpen()) {
+            bO(false);
             return false;
-        } else if (!e.Gr().Gs()) {
-            bI(false);
+        } else if (!e.Ej().Ek()) {
+            bO(false);
             return false;
         } else {
-            bI(true);
+            bO(true);
             return true;
         }
     }

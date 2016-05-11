@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ayk = new c();
-    private final HashMap<String, Class<? extends b>> ayl = new HashMap<>();
+    private static c aul = new c();
+    private final HashMap<String, Class<? extends b>> aum = new HashMap<>();
 
-    public static c EW() {
-        return ayk;
+    public static c CO() {
+        return aul;
     }
 
     private c() {
@@ -71,7 +71,7 @@ public class c {
         return bitmap;
     }
 
-    public Bitmap b(String str, List<ImageOperation> list) {
+    public Bitmap c(String str, List<ImageOperation> list) {
         d dVar;
         int i;
         int i2 = 0;
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap fR = dVar != null ? dVar.fR(str) : null;
+        Bitmap fO = dVar != null ? dVar.fO(str) : null;
         if (list == null) {
-            return fR;
+            return fO;
         }
         while (true) {
-            Bitmap bitmap = fR;
+            Bitmap bitmap = fO;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    fR = bitmap;
+                    fO = bitmap;
                 } else if (bitmap == null) {
-                    fR = a.fR(str);
+                    fO = a.fO(str);
                 } else {
-                    fR = a.b(bitmap, true);
+                    fO = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -123,7 +123,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b k;
-        Class<? extends b> cls = this.ayl.get(imageOperation.actionName);
+        Class<? extends b> cls = this.aum.get(imageOperation.actionName);
         if (cls != null && (k = k(cls)) != null) {
             k.setParams(imageOperation.actionParam);
             return k;
@@ -134,7 +134,7 @@ public class c {
     private void j(Class<? extends b> cls) {
         b k = k(cls);
         if (k != null) {
-            this.ayl.put(k.EV(), cls);
+            this.aum.put(k.getActionName(), cls);
         }
     }
 

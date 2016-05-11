@@ -1,34 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bi extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+public class bi implements a.b {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bi(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public bi(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.editortools.d.e eVar;
-        eu euVar;
-        eu euVar2;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        if (customResponsedMessage != null) {
-            eVar = this.dht.dgP;
-            if (eVar != null) {
-                euVar2 = this.dht.dgF;
-                eVar2 = this.dht.dgP;
-                euVar2.eL(eVar2.DT());
-            }
-            euVar = this.dht.dgF;
-            euVar.eM(false);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        if (!com.baidu.tbadk.core.util.m.bF()) {
+            this.djE.showToast(com.baidu.tbadk.core.util.m.sX());
+        } else {
+            FileDownloader.download(this.djE.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.djE.getPageContext().getString(t.j.download_baidu_video));
         }
     }
 }

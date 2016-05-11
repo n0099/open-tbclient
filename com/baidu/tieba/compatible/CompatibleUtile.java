@@ -6,7 +6,6 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.net.TrafficStats;
 import android.os.Build;
-import android.os.StatFs;
 import android.provider.Settings;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
@@ -20,6 +19,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class CompatibleUtile {
@@ -78,10 +78,6 @@ public class CompatibleUtile {
             mObject14 = new Object14(this, null);
         }
         return mObject14;
-    }
-
-    public long getBlockSize(StatFs statFs) {
-        return Build.VERSION.SDK_INT >= 18 ? statFs.getBlockSizeLong() : statFs.getBlockSize();
     }
 
     public int getMemoryClass(Context context) {
@@ -535,6 +531,23 @@ public class CompatibleUtile {
     }
 
     public static void dealWebView(WebSettings webSettings) {
-        throw new Error("Unresolved compilation problems: \n\tThe method disablePlatformNotifications() is undefined for the type WebView\n\tThe method enablePlatformNotifications() is undefined for the type WebView\n\tThe method setPluginsEnabled(boolean) is undefined for the type WebSettings\n");
+        if (Build.VERSION.SDK_INT <= 11) {
+            try {
+                Class<?> cls = Class.forName("android.webkit.WebView");
+                Method method = cls.getMethod("disablePlatformNotifications", new Class[0]);
+                Method method2 = cls.getMethod("enablePlatformNotifications", new Class[0]);
+                method.invoke(null, new Object[0]);
+                method2.invoke(null, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (webSettings != null && Build.VERSION.SDK_INT <= 18) {
+            try {
+                webSettings.getClass().getMethod("setPluginsEnabled", Boolean.class).invoke(webSettings, true);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }

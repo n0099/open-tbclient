@@ -1,55 +1,42 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.os.CountDownTimer;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import java.util.concurrent.TimeUnit;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends Handler {
-    final /* synthetic */ PbVideoControllerView dqL;
+public class i extends CountDownTimer {
+    final /* synthetic */ PbInterviewStatusView dsp;
+    private final /* synthetic */ PbActivity dsq;
+    private final /* synthetic */ TextView dsr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(PbVideoControllerView pbVideoControllerView, Looper looper) {
-        super(looper);
-        this.dqL = pbVideoControllerView;
+    public i(PbInterviewStatusView pbInterviewStatusView, long j, long j2, TextView textView, PbActivity pbActivity) {
+        super(j, j2);
+        this.dsp = pbInterviewStatusView;
+        this.dsr = textView;
+        this.dsq = pbActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        boolean z2;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int aAE;
-        int i;
-        int i2;
-        switch (message.what) {
-            case 1:
-                z = this.dqL.dqF;
-                if (!z) {
-                    z2 = this.dqL.dqG;
-                    if (z2) {
-                        mediaPlayerControl = this.dqL.dqC;
-                        if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.dqL.dqC;
-                            if (!mediaPlayerControl2.isPlaying()) {
-                                return;
-                            }
-                            aAE = this.dqL.aAE();
-                            Message obtainMessage = obtainMessage(1);
-                            i = this.dqL.dqB;
-                            i2 = this.dqL.dqB;
-                            sendMessageDelayed(obtainMessage, i - (aAE % i2));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        this.dsr.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        com.baidu.tbadk.core.dialog.a aVar;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar = this.dsp.dsi;
+        if (aVar != null) {
+            aVar2 = this.dsp.dsi;
+            aVar2.dismiss();
+        }
+        if (this.dsq != null) {
+            this.dsq.awS();
         }
     }
 }

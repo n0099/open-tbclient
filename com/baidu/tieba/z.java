@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.bg;
 class z implements bg.a {
     @Override // com.baidu.tbadk.core.util.bg.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        String gv;
+        String gw;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         String str = strArr[0];
         if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-            gv = TiebaStatic.gv(str);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, gv));
+            gw = TiebaStatic.gw(str);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, gw));
             if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                 ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
             }

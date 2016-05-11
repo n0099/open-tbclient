@@ -1,32 +1,32 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
-import com.baidu.tieba.recommendfrs.indicator.l;
+import com.baidu.tieba.recommendfrs.indicator.m;
 /* loaded from: classes.dex */
-class h implements l.a {
-    final /* synthetic */ ScrollFragmentTabHost dXs;
+class h implements m.a {
+    final /* synthetic */ ScrollFragmentTabHost eaC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.dXs = scrollFragmentTabHost;
+        this.eaC = scrollFragmentTabHost;
     }
 
-    @Override // com.baidu.tieba.recommendfrs.indicator.l.a
-    public void aok() {
-        i iVar;
-        l lVar;
-        l lVar2;
-        i iVar2;
-        iVar = this.dXs.dXk;
-        if (iVar != null) {
-            iVar2 = this.dXs.dXk;
-            iVar2.aom();
+    @Override // com.baidu.tieba.recommendfrs.indicator.m.a
+    public void aon() {
+        j jVar;
+        m mVar;
+        m mVar2;
+        j jVar2;
+        jVar = this.eaC.eat;
+        if (jVar != null) {
+            jVar2 = this.eaC.eat;
+            jVar2.aop();
         }
-        lVar = this.dXs.dXn;
-        if (lVar != null) {
-            lVar2 = this.dXs.dXn;
-            lVar2.a((l.a) null);
-            this.dXs.dXo = true;
-            this.dXs.dXn = null;
+        mVar = this.eaC.eaw;
+        if (mVar != null) {
+            mVar2 = this.eaC.eaw;
+            mVar2.a((m.a) null);
+            this.eaC.eax = true;
+            this.eaC.eaw = null;
         }
     }
 }

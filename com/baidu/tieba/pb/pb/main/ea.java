@@ -1,39 +1,88 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.pb.main.dz;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ea implements View.OnClickListener {
-    private final /* synthetic */ String den;
-    private final /* synthetic */ String deo;
-    private final /* synthetic */ String dep;
-    final /* synthetic */ dz djW;
+public class ea extends CustomMessageListener {
+    final /* synthetic */ dz dmN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ea(dz dzVar, String str, String str2, String str3) {
-        this.djW = dzVar;
-        this.den = str;
-        this.deo = str2;
-        this.dep = str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ea(dz dzVar, int i) {
+        super(i);
+        this.dmN = dzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.den) && !StringUtils.isNull(this.deo)) {
-            if (com.baidu.adp.lib.util.i.jf()) {
-                context = this.djW.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.den) + "," + this.deo, this.dep, this.dep, context.getString(t.j.app_info_for_map));
-                context2 = this.djW.mContext;
-                com.baidu.tbadk.browser.f.s(context2, format);
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.pb.data.e eVar;
+        com.baidu.tieba.pb.data.e eVar2;
+        int i;
+        com.baidu.tieba.pb.data.e eVar3;
+        Object e;
+        dz.a aVar;
+        com.baidu.tieba.pb.data.e eVar4;
+        dz.a aVar2;
+        com.baidu.tieba.pb.data.e eVar5;
+        if (customResponsedMessage != null) {
+            eVar = this.dmN.pbData;
+            if (eVar != null) {
+                this.dmN.dmJ = false;
+                eVar2 = this.dmN.pbData;
+                if (eVar2.avC() != null) {
+                    eVar5 = this.dmN.pbData;
+                    i = eVar5.avC().size();
+                } else {
+                    i = 0;
+                }
+                if (this.dmN.dmC >= i - 3) {
+                    aVar = this.dmN.dmK;
+                    if (aVar != null) {
+                        eVar4 = this.dmN.pbData;
+                        if (eVar4.getPage().pK() != 0) {
+                            aVar2 = this.dmN.dmK;
+                            aVar2.ayv();
+                        }
+                    }
+                }
+                if (this.dmN.dmC >= i - 1) {
+                    this.dmN.dmC = -1;
+                    this.dmN.dmG = 5;
+                    com.baidu.tbadk.core.data.at atVar = new com.baidu.tbadk.core.data.at();
+                    atVar.setData(TbadkCoreApplication.m11getInst().getResources().getString(t.j.read_thread_over));
+                    atVar.bG(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar));
+                    return;
+                } else if (this.dmN.dmC == -1) {
+                    this.dmN.dmG = 5;
+                    this.dmN.dmC = 0;
+                    com.baidu.tbadk.core.data.at atVar2 = new com.baidu.tbadk.core.data.at();
+                    atVar2.bG(15);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar2));
+                    return;
+                } else {
+                    this.dmN.dmC++;
+                    this.dmN.dmG = 1;
+                    dz dzVar = this.dmN;
+                    int i2 = this.dmN.dmC;
+                    eVar3 = this.dmN.pbData;
+                    e = dzVar.e(i2, eVar3.avC());
+                    com.baidu.tbadk.core.data.at atVar3 = new com.baidu.tbadk.core.data.at();
+                    atVar3.bG(1);
+                    atVar3.setData(e);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar3));
+                    return;
+                }
             }
-            this.djW.dfw.showToast(t.j.neterror);
+            this.dmN.dmG = 5;
+            this.dmN.dmC = 0;
         }
     }
 }

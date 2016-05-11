@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 public class AddFriendActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(AddFriendActivityConfig.class, AddFriendActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(AddFriendActivityConfig.class, AddFriendActivity.class);
     }
 }

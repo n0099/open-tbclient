@@ -1,44 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bl;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ aa etY;
+    final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(aa aaVar) {
-        this.etY = aaVar;
+    public ae(ab abVar) {
+        this.exg = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
-        int i;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.etY.etM;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        String str = "";
-        i = this.etY.cXR;
-        switch (i) {
-            case 1:
-                str = "forum";
-                break;
-            case 2:
-                str = "kantie";
-                break;
-            case 3:
-                str = "message";
-                break;
-            case 8:
-                str = "profile";
-                break;
-        }
-        TiebaStatic.log(new aw("c10517").ac("obj_source", str));
-        mainTabActivity2 = this.etY.etM;
-        bl.ab(mainTabActivity2.getPageContext().getPageActivity());
+        mainTabActivity = this.exg.ewR;
+        ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(mainTabActivity.getPageContext().getPageActivity());
+        mainTabActivity2 = this.exg.ewR;
+        mainTabActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
     }
 }

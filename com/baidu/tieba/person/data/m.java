@@ -1,59 +1,39 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.w;
+import tbclient.User;
 /* loaded from: classes.dex */
-public class m implements u {
-    public static final BdUniqueId dwB = BdUniqueId.gen();
-    private boolean bJj;
-    private String mContent;
-    private String mLink;
-    private UserData mUserData;
-    private String mVipIcon;
+public class m implements v {
+    public static final BdUniqueId dzE = BdUniqueId.gen();
+    private w profitData;
+    private User user;
 
-    public UserData getUserData() {
-        return this.mUserData;
+    public User getUser() {
+        return this.user;
     }
 
-    public void f(UserData userData) {
-        this.mUserData = userData;
+    public void setUser(User user) {
+        this.user = user;
+        if (user != null) {
+            w wVar = new w();
+            wVar.a(user.tw_anchor_info);
+            wVar.n(user.profit_list);
+            a(wVar);
+        }
     }
 
-    public boolean getIsSelf() {
-        return this.bJj;
+    public void a(w wVar) {
+        this.profitData = wVar;
     }
 
-    public void setIsSelf(boolean z) {
-        this.bJj = z;
+    public w aCm() {
+        return this.profitData;
     }
 
-    public void setVipIcon(String str) {
-        this.mVipIcon = str;
-    }
-
-    public String getVipIcon() {
-        return this.mVipIcon;
-    }
-
-    public void setVipLink(String str) {
-        this.mLink = str;
-    }
-
-    public String getVipLink() {
-        return this.mLink;
-    }
-
-    public void setVipContent(String str) {
-        this.mContent = str;
-    }
-
-    public String getVipContent() {
-        return this.mContent;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dwB;
+        return dzE;
     }
 }

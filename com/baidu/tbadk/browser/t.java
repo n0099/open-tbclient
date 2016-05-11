@@ -1,24 +1,19 @@
 package com.baidu.tbadk.browser;
-
-import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class t implements Runnable {
-    final /* synthetic */ TbWebViewActivity PH;
+    final /* synthetic */ s Ky;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f Kz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(TbWebViewActivity tbWebViewActivity) {
-        this.PH = tbWebViewActivity;
+    public t(s sVar, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.Ky = sVar;
+        this.Kz = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        try {
-            if (this.PH.mWebView != null) {
-                this.PH.mWebView.destroy();
-                this.PH.mWebView = null;
-            }
-        } catch (Throwable th) {
-            BdLog.e(th);
-        }
+        TbWebViewActivity tbWebViewActivity;
+        tbWebViewActivity = this.Ky.Kx;
+        tbWebViewActivity.mView.a(this.Kz);
     }
 }

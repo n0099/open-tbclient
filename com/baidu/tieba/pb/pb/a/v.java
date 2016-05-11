@@ -3,41 +3,44 @@ package com.baidu.tieba.pb.pb.a;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
+import com.baidu.tbadk.core.view.at;
 import com.baidu.tieba.pb.view.PbVideoControllerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ r dej;
-    private final /* synthetic */ an dek;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s del;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.n dem;
+    final /* synthetic */ r dgC;
+    private final /* synthetic */ an dgD;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dgE;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.o dgF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(r rVar, an anVar, com.baidu.tbadk.widget.richText.n nVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dej = rVar;
-        this.dek = anVar;
-        this.dem = nVar;
-        this.del = sVar;
+    public v(r rVar, an anVar, com.baidu.tbadk.widget.richText.o oVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dgC = rVar;
+        this.dgD = anVar;
+        this.dgF = oVar;
+        this.dgE = sVar;
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
     public void onPrepared(MediaPlayer mediaPlayer) {
         Handler handler;
         Handler handler2;
-        if (this.dek != null && this.dek.deA != null && this.dek.deB != null) {
-            int curProgress = this.dek.deB.getCurProgress();
+        if (this.dgD != null && this.dgD.dgT != null && this.dgD.dgU != null) {
+            int curProgress = this.dgD.dgU.getCurProgress();
             if (curProgress > 0) {
-                float duration = curProgress * 1.0f * this.dek.deA.getDuration();
-                PbVideoControllerView pbVideoControllerView = this.dek.deB;
-                this.dek.deA.seekTo((int) (duration / 10000.0f));
+                float duration = curProgress * 1.0f * this.dgD.dgT.getDuration();
+                PbVideoControllerView pbVideoControllerView = this.dgD.dgU;
+                this.dgD.dgT.seekTo((int) (duration / 10000.0f));
+            } else if (at.vD().vI()) {
+                this.dgD.dgT.seekTo(0);
             }
-            this.dej.avT();
-            this.dej.c(this.dem);
-            this.dej.a(this.dek, this.dem);
-            handler = this.dej.mHandler;
+            this.dgC.awc();
+            this.dgC.c(this.dgF);
+            this.dgC.a(this.dgD, this.dgF);
+            handler = this.dgC.mHandler;
             Message obtainMessage = handler.obtainMessage(1);
-            obtainMessage.obj = this.del;
-            handler2 = this.dej.mHandler;
+            obtainMessage.obj = this.dgE;
+            handler2 = this.dgC.mHandler;
             handler2.sendMessage(obtainMessage);
         }
     }

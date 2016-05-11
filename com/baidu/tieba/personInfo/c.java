@@ -11,73 +11,73 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private boolean bIP;
-    private ViewEventCenter bbj;
-    private bc dCf;
-    private com.baidu.tieba.person.god.view.a dCg;
-    private a dCh;
-    private int dCi;
-    private LinearLayout dCj;
-    private UserIconBox dCk;
-    private HeadImageView dCl;
-    private BdExpandImageView dCm;
-    private f duk;
+    private ViewEventCenter aXs;
+    private boolean bIW;
+    private bd dFn;
+    private com.baidu.tieba.person.god.view.a dFo;
+    private a dFp;
+    private int dFq;
+    private LinearLayout dFr;
+    private UserIconBox dFs;
+    private HeadImageView dFt;
+    private BdExpandImageView dFu;
+    private f dxd;
 
     public c(f fVar, boolean z, ViewEventCenter viewEventCenter) {
         super(fVar.getActivity());
-        this.dCi = -1;
-        this.duk = fVar;
-        this.bIP = z;
-        this.bbj = viewEventCenter;
-        this.dCj = new LinearLayout(this.duk.getActivity());
-        this.dCk = new UserIconBox(this.duk.getActivity());
-        this.dCl = new HeadImageView(this.duk.getActivity());
-        this.dCm = new BdExpandImageView(this.duk.getActivity(), null);
+        this.dFq = -1;
+        this.dxd = fVar;
+        this.bIW = z;
+        this.aXs = viewEventCenter;
+        this.dFr = new LinearLayout(this.dxd.getActivity());
+        this.dFs = new UserIconBox(this.dxd.getActivity());
+        this.dFt = new HeadImageView(this.dxd.getActivity());
+        this.dFu = new BdExpandImageView(this.dxd.getActivity(), null);
     }
 
-    public void mL(int i) {
-        if (this.duk != null) {
+    public void mC(int i) {
+        if (this.dxd != null) {
             if (i == 2) {
-                if (this.dCg == null) {
-                    this.dCg = new com.baidu.tieba.person.god.view.a(this.duk, this.bIP, this.bbj);
+                if (this.dFo == null) {
+                    this.dFo = new com.baidu.tieba.person.god.view.a(this.dxd, this.bIW, this.aXs);
                 }
-                if (this.bIP) {
-                    this.duk.aCW().a(2, this.dCg);
-                    if (this.duk.dCK > 0) {
-                        this.duk.aCW().h(true, 2);
+                if (this.bIW) {
+                    this.dxd.aDr().a(2, this.dFo);
+                    if (this.dxd.dFR > 0) {
+                        this.dxd.aDr().j(true, 2);
                     }
                 }
-                this.dCh = this.dCg;
+                this.dFp = this.dFo;
             } else {
-                if (this.dCf == null) {
-                    this.dCf = new bc(this.duk, this.bIP);
-                    setLayoutParams(new AbsListView.LayoutParams(-1, this.duk.getResources().getDimensionPixelOffset(t.e.ds618)));
+                if (this.dFn == null) {
+                    this.dFn = new bd(this.dxd, this.bIW);
+                    setLayoutParams(new AbsListView.LayoutParams(-1, this.dxd.getResources().getDimensionPixelOffset(t.e.ds618)));
                 }
-                this.dCh = this.dCf;
+                this.dFp = this.dFn;
             }
-            if (this.dCi != i && this.dCh != null) {
+            if (this.dFq != i && this.dFp != null) {
                 removeAllViews();
-                addView(this.dCh.getRootView());
+                addView(this.dFp.getRootView());
             }
-            oH();
-            this.dCi = i;
+            kU();
+            this.dFq = i;
         }
     }
 
     public LinearLayout getMyGiftIcon() {
-        return (this.dCh == null || this.dCh.getMyGiftIcon() == null) ? this.dCj : this.dCh.getMyGiftIcon();
+        return (this.dFp == null || this.dFp.getMyGiftIcon() == null) ? this.dFr : this.dFp.getMyGiftIcon();
     }
 
     public View getAttentionView() {
-        return (this.dCh == null || this.dCh.getAttentionView() == null) ? this.dCj : this.dCh.getAttentionView();
+        return (this.dFp == null || this.dFp.getAttentionView() == null) ? this.dFr : this.dFp.getAttentionView();
     }
 
     public UserIconBox getVipIcon() {
-        return (this.dCh == null || this.dCh.getVipIcon() == null) ? this.dCk : this.dCh.getVipIcon();
+        return (this.dFp == null || this.dFp.getVipIcon() == null) ? this.dFs : this.dFp.getVipIcon();
     }
 
     public LinearLayout getYinjiWraper() {
-        return (this.dCh == null || this.dCh.getYinjiWraper() == null) ? this.dCj : this.dCh.getYinjiWraper();
+        return (this.dFp == null || this.dFp.getYinjiWraper() == null) ? this.dFr : this.dFp.getYinjiWraper();
     }
 
     @Override // android.view.View
@@ -86,73 +86,73 @@ public class c extends LinearLayout {
     }
 
     public HeadImageView getHeadImage() {
-        return (this.dCh == null || this.dCh.getHeadImage() == null) ? this.dCl : this.dCh.getHeadImage();
+        return (this.dFp == null || this.dFp.getHeadImage() == null) ? this.dFt : this.dFp.getHeadImage();
     }
 
     public a getHeadView() {
-        if (this.dCh == null) {
+        if (this.dFp == null) {
             return null;
         }
-        return this.dCh.getHeadView();
+        return this.dFp.getHeadView();
     }
 
-    public bc getNormalHeadView() {
-        return this.dCf;
+    public bd getNormalHeadView() {
+        return this.dFn;
     }
 
-    public void Qo() {
-        if (this.dCh != null) {
-            this.dCh.Qo();
+    public void Pl() {
+        if (this.dFp != null) {
+            this.dFp.Pl();
         }
     }
 
     public UserIconBox getUserIcon() {
-        return (this.dCh == null || this.dCh.getUserIcon() == null) ? this.dCk : this.dCh.getUserIcon();
+        return (this.dFp == null || this.dFp.getUserIcon() == null) ? this.dFs : this.dFp.getUserIcon();
     }
 
-    public void aCr() {
-        if (this.dCh != null) {
-            this.dCh.aCr();
+    public void aCJ() {
+        if (this.dFp != null) {
+            this.dFp.aCJ();
         }
     }
 
-    public void oH() {
-        if (this.dCh != null) {
-            this.dCh.oH();
+    public void kU() {
+        if (this.dFp != null) {
+            this.dFp.kU();
         }
     }
 
-    public void arP() {
-        if (this.dCh != null) {
-            this.dCh.arP();
+    public void aBX() {
+        if (this.dFp != null) {
+            this.dFp.aBX();
         }
     }
 
     public void setBackBitmap(UserData userData) {
-        if (this.dCh != null) {
-            this.dCh.setBackBitmap(userData);
+        if (this.dFp != null) {
+            this.dFp.setBackBitmap(userData);
         }
     }
 
-    public void l(float f) {
-        if (this.dCh != null) {
-            this.dCh.l(f);
+    public void j(float f) {
+        if (this.dFp != null) {
+            this.dFp.j(f);
         }
     }
 
-    public void mW() {
-        if (this.dCh != null) {
-            this.dCh.mW();
+    public void jk() {
+        if (this.dFp != null) {
+            this.dFp.jk();
         }
     }
 
     public void setGiftIcon(boolean z) {
-        if (this.dCh != null) {
-            this.dCh.setGiftIcon(z);
+        if (this.dFp != null) {
+            this.dFp.setGiftIcon(z);
         }
     }
 
     public BdExpandImageView getExpandImg() {
-        return this.dCh == null ? this.dCm : this.dCh.getExpandImg();
+        return this.dFp == null ? this.dFu : this.dFp.getExpandImg();
     }
 }

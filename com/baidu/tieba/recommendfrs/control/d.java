@@ -1,26 +1,25 @@
 package com.baidu.tieba.recommendfrs.control;
 
-import com.baidu.tieba.recommendfrs.control.a.m;
 import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.recommendfrs.b {
-    final /* synthetic */ a dVV;
+    final /* synthetic */ a dYW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.dVV = aVar;
+        this.dYW = aVar;
     }
 
     @Override // com.baidu.tieba.recommendfrs.b
     public void b(int i, long j, long j2) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        m mVar;
+        com.baidu.tieba.recommendfrs.control.a.m mVar;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        scrollFragmentTabHost = this.dVV.dVM;
+        scrollFragmentTabHost = this.dYW.dYN;
         if (scrollFragmentTabHost != null) {
-            mVar = this.dVV.dVN;
-            scrollFragmentTabHost2 = this.dVV.dVM;
+            mVar = this.dYW.dYO;
+            scrollFragmentTabHost2 = this.dYW.dYN;
             mVar.a(i, j, scrollFragmentTabHost2.bX(j), j2);
         }
     }
@@ -28,13 +27,13 @@ public class d implements com.baidu.tieba.recommendfrs.b {
     @Override // com.baidu.tieba.recommendfrs.b
     public void bP(long j) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        m mVar;
+        com.baidu.tieba.recommendfrs.control.a.m mVar;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        scrollFragmentTabHost = this.dVV.dVM;
+        scrollFragmentTabHost = this.dYW.dYN;
         if (scrollFragmentTabHost != null) {
-            mVar = this.dVV.dVN;
-            scrollFragmentTabHost2 = this.dVV.dVM;
-            mVar.v(j, scrollFragmentTabHost2.bX(j));
+            mVar = this.dYW.dYO;
+            scrollFragmentTabHost2 = this.dYW.dYN;
+            mVar.w(j, scrollFragmentTabHost2.bX(j));
         }
     }
 }

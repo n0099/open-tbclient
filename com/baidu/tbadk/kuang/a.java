@@ -16,11 +16,11 @@ class a extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001332 && customResponsedMessage.getData() != null) {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                TbadkCoreApplication.m411getInst().setIsKuangLogin(true);
-                b.bA(true);
+                TbadkCoreApplication.m11getInst().setIsKuangLogin(true);
+                b.bG(true);
                 return;
             }
-            TbadkCoreApplication.m411getInst().setIsKuangLogin(false);
+            TbadkCoreApplication.m11getInst().setIsKuangLogin(false);
             MessageManager.getInstance().dispatchResponsedMessage(new ReLoginFromKuangMessage(false));
         }
     }

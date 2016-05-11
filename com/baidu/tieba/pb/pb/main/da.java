@@ -1,97 +1,130 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.pb.pb.main.cw;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da extends x.a {
-    public TextView aPp;
-    UserIconBox ahN;
-    public UserIconBox bvK;
-    public TbRichTextView ddA;
-    public View deO;
-    public View deP;
-    public View deQ;
-    public View deR;
-    public View deS;
-    public HeadImageView deT;
-    public ImageView deU;
-    public ImageView deW;
-    public TextView deX;
-    public TextView deY;
-    public ImageView deZ;
-    public ImageView dfa;
-    public RelativeLayout dfb;
-    public LinearLayout dfc;
-    public ImageView dfd;
-    public SubPbLayout dfe;
-    public TextView dfu;
-    public ImageView diq;
-    public RelativeLayout dir;
-    public LinearLayout dis;
-    public ImageView dit;
-    public TextView diu;
-    public ImageView div;
+public class da extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ cw dlN;
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [99=5] */
-    public da(View view, boolean z, boolean z2, int i) {
-        super(view);
-        this.deS = view.findViewById(t.g.sub_pb_more);
-        this.deT = (HeadImageView) view.findViewById(t.g.photo);
-        this.aPp = (TextView) view.findViewById(t.g.user_name);
-        this.deU = (ImageView) view.findViewById(t.g.user_rank);
-        this.deW = (ImageView) view.findViewById(t.g.user_gender);
-        this.dfa = (ImageView) view.findViewById(t.g.reply);
-        this.ddA = (TbRichTextView) view.findViewById(t.g.richText);
-        this.deZ = (ImageView) view.findViewById(t.g.floor_owner);
-        this.deX = (TextView) view.findViewById(t.g.floor);
-        this.deY = (TextView) view.findViewById(t.g.time);
-        this.dfb = (RelativeLayout) view.findViewById(t.g.pb_post_header_layout);
-        this.dfe = (SubPbLayout) view.findViewById(t.g.pb_post_footer_layout);
-        this.dfc = (LinearLayout) view.findViewById(t.g.pb_subpb_layout_root);
-        this.dfd = (ImageView) view.findViewById(t.g.pb_post_footer_layout_line_top);
-        this.deO = view;
-        this.deP = view.findViewById(t.g.new_pb_list_item_line_top);
-        this.deQ = view.findViewById(t.g.new_pb_list_item_line_top_full);
-        this.deR = view.findViewById(t.g.new_pb_list_item_blank_top);
-        this.dir = (RelativeLayout) view.findViewById(t.g.chudian_info_container);
-        this.dis = (LinearLayout) view.findViewById(t.g.landmark_container);
-        this.dit = (ImageView) view.findViewById(t.g.landmark_icon);
-        this.diu = (TextView) view.findViewById(t.g.landmark_content);
-        this.div = (ImageView) view.findViewById(t.g.ad_icon);
-        this.ddA.IY();
-        this.ddA.setImageViewStretch(true);
-        int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.ddA.getPaddingLeft()) - this.ddA.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60)), i);
-        this.ddA.setMaxImageWidth(min);
-        this.ddA.setMaxImageHeight((int) (min * 1.618f));
-        this.ddA.setTextSize(TbConfig.getContentSize());
-        if (z) {
-            ViewGroup.LayoutParams layoutParams = this.deT.getLayoutParams();
-            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60);
-            this.deT.setLayoutParams(layoutParams);
-            this.deT.setVisibility(0);
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = this.deT.getLayoutParams();
-            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds30);
-            this.deT.setLayoutParams(layoutParams2);
-            this.deT.setVisibility(4);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public da(cw cwVar, int i, int i2) {
+        super(i, i2);
+        this.dlN = cwVar;
+    }
+
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        int i;
+        int i2;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        cw.a aVar;
+        cw.a aVar2;
+        long j;
+        boolean z5;
+        long j2;
+        BaseActivity baseActivity;
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.dlN.getUniqueId()) {
+            boolean z6 = true;
+            if (responsedMessage.hasError()) {
+                z6 = false;
+                if (responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.fq()) {
+                    baseActivity = this.dlN.bek;
+                    baseActivity.showToast(responsedMessage.getErrorString());
+                }
+            }
+            boolean z7 = z6;
+            if (!(responsedMessage instanceof pbPageSocketResponseMessage)) {
+                i = 0;
+            } else {
+                pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
+                this.dlN.a(pbpagesocketresponsemessage);
+                i = pbpagesocketresponsemessage.getDownSize();
+            }
+            if (!(responsedMessage instanceof pbPageHttpResponseMessage)) {
+                i2 = 0;
+                z = false;
+            } else {
+                pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
+                this.dlN.a(pbpagehttpresponsemessage);
+                i2 = pbpagehttpresponsemessage.getDownSize();
+                z = true;
+            }
+            if (responsedMessage.getError() != 0) {
+                if (z) {
+                    j2 = 0;
+                } else {
+                    j2 = ((pbPageSocketResponseMessage) responsedMessage).sequenceID;
+                }
+                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
+                long clientLogID = responsedMessage.getOrginalMessage().getClientLogID();
+                int cmd = responsedMessage.getOrginalMessage().getCmd();
+                int error = responsedMessage.getError();
+                String errorString = responsedMessage.getErrorString();
+                Object[] objArr = new Object[6];
+                objArr[0] = "updateType";
+                objArr[1] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.getUpdateType()) : null;
+                objArr[2] = "ThreadId";
+                objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
+                objArr[4] = "seq_id";
+                objArr[5] = Long.valueOf(j2);
+                com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
+            }
+            z2 = this.dlN.dlx;
+            if (z2) {
+                z5 = this.dlN.dly;
+                if (z5) {
+                    return;
+                }
+            }
+            z3 = this.dlN.dlx;
+            if (!z3) {
+                this.dlN.dlx = true;
+            } else {
+                this.dlN.dly = true;
+            }
+            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+            vVar.eM(this.dlN.axy());
+            vVar.axK = z;
+            vVar.isSuccess = z7;
+            vVar.axy = responsedMessage.performanceData.gv;
+            vVar.axz = responsedMessage.performanceData.gw;
+            vVar.axA = responsedMessage.performanceData.gx;
+            vVar.eD = responsedMessage.performanceData.gy;
+            vVar.eE = responsedMessage.performanceData.gz;
+            vVar.axB = responsedMessage.performanceData.gA;
+            vVar.axC = responsedMessage.performanceData.gB;
+            vVar.axD = responsedMessage.performanceData.gC;
+            vVar.axD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            vVar.axL = responsedMessage.performanceData.gF;
+            vVar.axM = responsedMessage.performanceData.gG;
+            vVar.axI = i;
+            vVar.axJ = i2;
+            vVar.socketErrNo = responsedMessage.performanceData.gD;
+            vVar.socketCostTime = responsedMessage.performanceData.gE;
+            vVar.errCode = responsedMessage.getError();
+            z4 = this.dlN.dlz;
+            if (z4) {
+                long currentTimeMillis = System.currentTimeMillis();
+                j = this.dlN.bsa;
+                vVar.axF = currentTimeMillis - j;
+                vVar.axN = true;
+            }
+            if (z) {
+                vVar.axO = responsedMessage.getOrginalMessage().getClientLogID();
+            } else {
+                vVar.sequenceID = ((pbPageSocketResponseMessage) responsedMessage).sequenceID;
+            }
+            aVar = this.dlN.dlr;
+            if (aVar != null) {
+                aVar2 = this.dlN.dlr;
+                aVar2.d(vVar);
+            }
         }
-        this.ddA.h(z2, false);
-        this.ddA.setVoiceViewRes(t.h.voice_play_btn);
-        this.bvK = (UserIconBox) view.findViewById(t.g.user_icon_box);
-        this.ahN = (UserIconBox) view.findViewById(t.g.user_tshow_icon_box);
-        this.dfu = (TextView) view.findViewById(t.g.pb_item_tail_content);
-        this.diq = (ImageView) view.findViewById(t.g.replybtn);
     }
 }

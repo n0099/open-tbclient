@@ -1,29 +1,68 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbListTextView;
 /* loaded from: classes.dex */
-public class v implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aJw;
-    private final /* synthetic */ c aJy;
+class v implements com.baidu.adp.lib.f.c<TextView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(TbRichTextView tbRichTextView, c cVar) {
-        this.aJw = tbRichTextView;
-        this.aJy = cVar;
+    public v(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aJy.Is() != null) {
-            if (this.aJw.getContext() instanceof m) {
-                ((m) this.aJw.getContext()).A(this.aJw.getContext(), this.aJy.Is().toString());
-                return;
-            }
-            com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(this.aJw.getContext());
-            if (s != null && (s.getOrignalPage() instanceof m)) {
-                ((m) s.getOrignalPage()).A(this.aJw.getContext(), this.aJy.Is().toString());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Hr */
+    public TextView dE() {
+        return new TbListTextView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public void l(TextView textView) {
+        textView.setText((CharSequence) null);
+        textView.setTag(null);
+        textView.setSingleLine(false);
+        textView.setEllipsize(null);
+        textView.setBackgroundResource(0);
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        textView.setTextColor(0);
+        textView.setGravity(3);
+        textView.setOnClickListener(null);
+        textView.setOnTouchListener(null);
+        if (textView instanceof TbListTextView) {
+            ((TbListTextView) textView).setCheckSelection(true);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public TextView m(TextView textView) {
+        return textView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: f */
+    public TextView n(TextView textView) {
+        textView.setText((CharSequence) null);
+        textView.setTag(null);
+        textView.setSingleLine(false);
+        textView.setEllipsize(null);
+        textView.setBackgroundResource(0);
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        textView.setTextColor(0);
+        textView.setGravity(3);
+        textView.setOnClickListener(null);
+        textView.setOnTouchListener(null);
+        if (textView instanceof TbListTextView) {
+            ((TbListTextView) textView).setCheckSelection(true);
+        }
+        return textView;
     }
 }

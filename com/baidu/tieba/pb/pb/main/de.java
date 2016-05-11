@@ -1,22 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de extends CustomMessageListener {
-    final /* synthetic */ dc diB;
+public class de implements c.b {
+    final /* synthetic */ dd dlZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public de(dc dcVar, int i) {
-        super(i);
-        this.diB = dcVar;
+    public de(dd ddVar) {
+        this.dlZ = ddVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.diB.j(customResponsedMessage);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        View.OnClickListener onClickListener;
+        if (cVar != null && view != null) {
+            cVar.dismiss();
+            onClickListener = this.dlZ.ber;
+            onClickListener.onClick(view);
+        }
     }
 }

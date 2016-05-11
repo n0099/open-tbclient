@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public class a {
-    public InterfaceC0006a wb;
+    public InterfaceC0006a lU;
 
     /* renamed from: com.baidu.adp.lib.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

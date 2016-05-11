@@ -7,33 +7,33 @@ import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class f implements a.b {
-    private final /* synthetic */ long blt;
-    private final /* synthetic */ String blu;
-    private final /* synthetic */ ShareFromGameCenterMsgData cog;
-    private final /* synthetic */ com.baidu.tieba.im.widget.b coh;
-    final /* synthetic */ SelectFriendActivity cwB;
+    private final /* synthetic */ long bhx;
+    private final /* synthetic */ String bhy;
+    private final /* synthetic */ ShareFromGameCenterMsgData cpd;
+    private final /* synthetic */ com.baidu.tieba.im.widget.b cpe;
+    final /* synthetic */ SelectFriendActivity cxy;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SelectFriendActivity selectFriendActivity, long j, ShareFromGameCenterMsgData shareFromGameCenterMsgData, String str, String str2, com.baidu.tieba.im.widget.b bVar) {
-        this.cwB = selectFriendActivity;
-        this.blt = j;
-        this.cog = shareFromGameCenterMsgData;
+        this.cxy = selectFriendActivity;
+        this.bhx = j;
+        this.cpd = shareFromGameCenterMsgData;
         this.val$name = str;
-        this.blu = str2;
-        this.coh = bVar;
+        this.bhy = str2;
+        this.cpe = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        long ab = com.baidu.tieba.im.memorycache.b.agR().ab(String.valueOf(this.blt), 2);
-        MessageUtils.createPersonalChatMessage(ab, 9, this.cog.toChatMessageContent(), this.blt, this.val$name, this.blu);
-        MessageUtils.createPersonalChatMessage(ab + 1, 1, this.coh.getLeaveMsg(), this.blt, this.val$name, this.blu);
+        long af = com.baidu.tieba.im.memorycache.b.agY().af(String.valueOf(this.bhx), 2);
+        MessageUtils.createPersonalChatMessage(af, 9, this.cpd.toChatMessageContent(), this.bhx, this.val$name, this.bhy);
+        MessageUtils.createPersonalChatMessage(af + 1, 1, this.cpe.getLeaveMsg(), this.bhx, this.val$name, this.bhy);
         aVar.dismiss();
-        this.cwB.setResult(-1);
-        if (!i.jf()) {
-            this.cwB.showToast(this.cwB.getPageContext().getString(t.j.no_network_guide));
+        this.cxy.setResult(-1);
+        if (!i.fq()) {
+            this.cxy.showToast(this.cxy.getPageContext().getString(t.j.no_network_guide));
         }
-        this.cwB.finish();
+        this.cxy.finish();
     }
 }

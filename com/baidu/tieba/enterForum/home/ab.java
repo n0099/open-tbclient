@@ -1,22 +1,24 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ i bbw;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ z aXJ;
+    private final /* synthetic */ String aXL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(i iVar, int i) {
-        super(i);
-        this.bbw = iVar;
+    public ab(z zVar, String str) {
+        this.aXJ = zVar;
+        this.aXL = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.bbw.bbm = true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        k kVar;
+        bg us = bg.us();
+        kVar = this.aXJ.aXF;
+        us.a(kVar.aJw.getPageContext(), new String[]{this.aXL}, true);
     }
 }

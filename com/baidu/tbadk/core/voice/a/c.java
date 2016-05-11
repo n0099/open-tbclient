@@ -14,7 +14,7 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.g.e
-    public boolean hu() {
+    public boolean dI() {
         return true;
     }
 
@@ -29,16 +29,16 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.wb = dVar;
+            aVar.lU = dVar;
         }
-        diskFileOperate.ft();
+        diskFileOperate.bH();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String fK = diskFileOperate.fK();
+        String bY = diskFileOperate.bY();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = fK;
+        aVar2.path = bY;
         return aVar2;
     }
 
@@ -55,14 +55,14 @@ public class c implements e<a> {
         a aVar2 = new a();
         k kVar = new k();
         if (aVar != null) {
-            aVar.wb = kVar;
+            aVar.lU = kVar;
         }
-        byte[] dN = kVar.dN(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.wX()) {
+        byte[] dK = kVar.dK(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!kVar.uD()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(t.j.neterror);
             return aVar2;
-        } else if (dN == null || dN.length == 0) {
+        } else if (dK == null || dK.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = l.getString(t.j.voice_cache_error_no_file);
             return aVar2;
@@ -70,23 +70,23 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dN == null || dN.length == 0) {
+            } else if (dK == null || dK.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.n(false);
-                diskFileOperate.setData(dN);
+                diskFileOperate.setData(dK);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.wb = dVar;
+                    aVar.lU = dVar;
                 }
-                diskFileOperate.ft();
-                if (diskFileOperate.isSuccess() && diskFileOperate.fH() != null) {
-                    str5 = diskFileOperate.fH().getAbsolutePath();
+                diskFileOperate.bH();
+                if (diskFileOperate.isSuccess() && diskFileOperate.bV() != null) {
+                    str5 = diskFileOperate.bV().getAbsolutePath();
                     i3 = 0;
-                } else if (m.vu() < dN.length) {
+                } else if (m.ta() < dK.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.dz(i3);
+                aVar2.error_msg = a.df(i3);
             }
             return aVar2;
         }
@@ -108,18 +108,18 @@ public class c implements e<a> {
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public BdAsyncTaskParallel hv() {
+    public BdAsyncTaskParallel dJ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.g.e
-    public int hw() {
+    public int dK() {
         return 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.g.e
-    /* renamed from: d */
+    /* renamed from: e */
     public a b(String str, String str2, Object... objArr) {
         return null;
     }

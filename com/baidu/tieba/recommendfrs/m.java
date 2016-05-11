@@ -1,38 +1,24 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.t;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
-    private static final Class<?>[] dVg = {com.baidu.tieba.recommendfrs.view.c.class, com.baidu.tieba.recommendfrs.view.g.class, com.baidu.tieba.recommendfrs.view.a.class};
-    private static final int[] dIu = {t.h.recommend_frs_item_pic, t.h.recommend_frs_item_pics, t.h.recommend_frs_item_photo_live};
+public class m implements View.OnClickListener {
+    final /* synthetic */ f dXY;
 
-    public m(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, dVg, dIu, viewEventCenter);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(f fVar) {
+        this.dXY = fVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.g.b
-    public int eY(int i) {
-        Object item = getItem(i);
-        if (item instanceof com.baidu.tieba.recommendfrs.data.p) {
-            com.baidu.tieba.recommendfrs.data.p pVar = (com.baidu.tieba.recommendfrs.data.p) item;
-            if (pVar.aMq() == 33) {
-                return 2;
-            }
-            return pVar.getType() == 2 ? 1 : 0;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        r rVar2;
+        rVar = this.dXY.dXT;
+        if (rVar != null) {
+            rVar2 = this.dXY.dXT;
+            rVar2.update();
         }
-        return 0;
-    }
-
-    public com.baidu.tieba.recommendfrs.data.p aLM() {
-        com.baidu.tieba.recommendfrs.data.p pVar;
-        for (int count = getCount() - 1; count >= 0; count--) {
-            Object item = getItem(count);
-            if ((item instanceof com.baidu.tieba.recommendfrs.data.p) && (pVar = (com.baidu.tieba.recommendfrs.data.p) item) != null) {
-                return pVar;
-            }
-        }
-        return null;
     }
 }

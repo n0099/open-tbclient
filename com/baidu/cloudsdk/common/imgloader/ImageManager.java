@@ -49,7 +49,7 @@ public class ImageManager {
         String md5 = Utils.md5(uri.toString());
         Bitmap a = this.a.a(md5);
         if (a == null && Utils.isUrl(uri)) {
-            a = this.b.A(md5);
+            a = this.b.p(md5);
         }
         if (a != null) {
             iAsyncImageLoaderListener.onComplete(a);
@@ -59,7 +59,7 @@ public class ImageManager {
     }
 
     public ImageManager setHitCountRequired(int i) {
-        this.b.r(i);
+        this.b.n(i);
         return this;
     }
 
@@ -70,7 +70,7 @@ public class ImageManager {
 
     public ImageManager setMaxNumOfPixels(int i) {
         this.c = i;
-        this.b.q(i);
+        this.b.m(i);
         return this;
     }
 
@@ -80,7 +80,7 @@ public class ImageManager {
     }
 
     public ImageManager setStorageDir(String str) {
-        this.b.z(str);
+        this.b.o(str);
         return this;
     }
 }

@@ -3,14 +3,13 @@ package com.baidu.tieba.adkiller;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements o.a<String> {
-    private final /* synthetic */ String aPG;
+class d implements o.a<String> {
+    private final /* synthetic */ String aLQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.aPG = str;
+        this.aLQ = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +28,7 @@ public class d implements o.a<String> {
                     }
                     String str3 = split[i];
                     if (str3.startsWith("start*")) {
-                        if (this.aPG.equals(str3.substring("start*".length()))) {
+                        if (this.aLQ.equals(str3.substring("start*".length()))) {
                             z = true;
                             break;
                         }
@@ -38,7 +37,7 @@ public class d implements o.a<String> {
                 }
             }
             if (z) {
-                TbadkCoreApplication.m411getInst().handler.post(new e(this, this.aPG));
+                TbadkCoreApplication.m11getInst().handler.post(new e(this, this.aLQ));
             }
         }
     }

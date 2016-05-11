@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 /* loaded from: classes.dex */
 class g implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ StrangerListActivity cwY;
+    final /* synthetic */ StrangerListActivity cxV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(StrangerListActivity strangerListActivity) {
-        this.cwY = strangerListActivity;
+        this.cxV = strangerListActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -16,20 +16,20 @@ class g implements com.baidu.tieba.im.chat.notify.a {
         StrangerListModel strangerListModel2;
         i iVar3;
         StrangerListModel strangerListModel3;
-        iVar = this.cwY.cwS;
+        iVar = this.cxV.cxP;
         if (iVar != null) {
-            iVar2 = this.cwY.cwS;
-            if (iVar2.akU() != null) {
-                strangerListModel = this.cwY.cwT;
+            iVar2 = this.cxV.cxP;
+            if (iVar2.ala() != null) {
+                strangerListModel = this.cxV.cxQ;
                 if (strangerListModel != null) {
-                    strangerListModel2 = this.cwY.cwT;
+                    strangerListModel2 = this.cxV.cxQ;
                     if (strangerListModel2.getData().size() == 0) {
-                        this.cwY.finish();
+                        this.cxV.finish();
                     }
-                    iVar3 = this.cwY.cwS;
-                    StrangerListAdapter akU = iVar3.akU();
-                    strangerListModel3 = this.cwY.cwT;
-                    akU.setData(strangerListModel3.getData());
+                    iVar3 = this.cxV.cxP;
+                    StrangerListAdapter ala = iVar3.ala();
+                    strangerListModel3 = this.cxV.cxQ;
+                    ala.setData(strangerListModel3.getData());
                 }
             }
         }

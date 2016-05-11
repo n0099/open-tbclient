@@ -7,39 +7,39 @@ import tbclient.GetPoisByLocation.PoiInfo;
 /* loaded from: classes.dex */
 public class a {
     private String formatted_address;
-    private List<C0085a> poi_info;
+    private List<C0077a> poi_info;
     private String sn;
 
-    public String aTZ() {
+    public String getFormatted_address() {
         return this.formatted_address;
     }
 
-    public List<C0085a> aUa() {
+    public List<C0077a> getPoi_info() {
         return this.poi_info;
     }
 
-    public void nX(String str) {
+    public void setFormatted_address(String str) {
         this.formatted_address = str;
     }
 
-    public String aUb() {
+    public String getSn() {
         return this.sn;
     }
 
-    public void nY(String str) {
+    public void setSn(String str) {
         this.sn = str;
     }
 
-    public void a(DataRes dataRes) {
+    public void parserProtoBuf(DataRes dataRes) {
         if (dataRes != null) {
             this.formatted_address = dataRes.formatted_address;
             List<PoiInfo> list = dataRes.poi_info;
             if (list != null) {
                 this.poi_info = new ArrayList();
                 for (PoiInfo poiInfo : list) {
-                    C0085a c0085a = new C0085a();
-                    c0085a.a(poiInfo);
-                    this.poi_info.add(c0085a);
+                    C0077a c0077a = new C0077a();
+                    c0077a.parserProtoBuf(poiInfo);
+                    this.poi_info.add(c0077a);
                 }
             }
         }
@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0085a {
+    public static class C0077a {
         private String addr;
         private String name;
         private String sn;
@@ -60,15 +60,15 @@ public class a {
             this.name = str;
         }
 
-        public String aUc() {
+        public String getAddr() {
             return this.addr;
         }
 
-        public String aUb() {
+        public String getSn() {
             return this.sn;
         }
 
-        public void a(PoiInfo poiInfo) {
+        public void parserProtoBuf(PoiInfo poiInfo) {
             if (poiInfo != null) {
                 this.name = poiInfo.name;
                 this.addr = poiInfo.addr;

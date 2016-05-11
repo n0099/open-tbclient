@@ -1,43 +1,75 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class af extends ImageSpan {
-    private WeakReference<Drawable> Ge;
-    private int offset;
+class af implements View.OnClickListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout adu;
 
-    public af(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        this.adu = threadCommentAndPraiseInfoLayout;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mn = mn();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - mn.getBounds().height()) / 2) + this.offset);
-        mn.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable mn() {
-        WeakReference<Drawable> weakReference = this.Ge;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        ax axVar;
+        ax axVar2;
+        String str;
+        Context context;
+        ax axVar3;
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        String str2;
+        Context context2;
+        ax axVar4;
+        String str3;
+        String str4;
+        axVar = this.adu.aab;
+        if (axVar != null) {
+            axVar2 = this.adu.aab;
+            if (!StringUtils.isNull(axVar2.qP())) {
+                str = this.adu.adl;
+                if (!StringUtils.isNull(str)) {
+                    str2 = this.adu.adm;
+                    if (!StringUtils.isNull(str2)) {
+                        MessageManager messageManager = MessageManager.getInstance();
+                        context2 = this.adu.mContext;
+                        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
+                        axVar4 = this.adu.aab;
+                        String qP = axVar4.qP();
+                        str3 = this.adu.adl;
+                        str4 = this.adu.adm;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(qP, str3, str4)));
+                        onClickListener = this.adu.adn;
+                        if (onClickListener == null) {
+                            onClickListener2 = this.adu.adn;
+                            onClickListener2.onClick(view);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                MessageManager messageManager2 = MessageManager.getInstance();
+                context = this.adu.mContext;
+                FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
+                axVar3 = this.adu.aab;
+                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(axVar3.qP(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.adu.adn;
+                if (onClickListener == null) {
+                }
+            }
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.Ge = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
     }
 }

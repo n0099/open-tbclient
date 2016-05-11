@@ -1,26 +1,43 @@
 package com.baidu.tieba.frs.view;
 
+import android.database.DataSetObserver;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bg;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Adapter;
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext aDl;
-    final /* synthetic */ ForumMemberIconView buZ;
+class a extends DataSetObserver {
+    final /* synthetic */ AdapterLinearLayout buK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ForumMemberIconView forumMemberIconView, TbPageContext tbPageContext) {
-        this.buZ = forumMemberIconView;
-        this.aDl = tbPageContext;
+    public a(AdapterLinearLayout adapterLinearLayout) {
+        this.buK = adapterLinearLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        bg wM = bg.wM();
-        TbPageContext<?> tbPageContext = this.aDl;
-        str = this.buZ.mUrl;
-        wM.c(tbPageContext, new String[]{str});
+    @Override // android.database.DataSetObserver
+    public void onChanged() {
+        Adapter adapter;
+        Adapter adapter2;
+        Adapter adapter3;
+        adapter = this.buK.buJ;
+        if (adapter != null) {
+            adapter2 = this.buK.buJ;
+            int count = adapter2.getCount();
+            int childCount = this.buK.getChildCount() - count;
+            for (int i = 0; i < count; i++) {
+                View childAt = this.buK.getChildAt(i);
+                adapter3 = this.buK.buJ;
+                View view = adapter3.getView(i, childAt, this.buK);
+                if (childAt == null && view != null) {
+                    this.buK.addView(view);
+                }
+            }
+            if (childCount > 0) {
+                this.buK.removeViews(count, childCount);
+            }
+        }
+    }
+
+    @Override // android.database.DataSetObserver
+    public void onInvalidated() {
+        super.onInvalidated();
     }
 }

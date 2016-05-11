@@ -8,9 +8,9 @@ public class k extends Thread {
     public void run() {
         super.run();
         ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
-        abVar.p("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-        abVar.p("os_version", Build.VERSION.RELEASE);
-        abVar.p("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        abVar.vw();
+        abVar.n("st_type", TbConfig.ST_TYPE_ENTER_FORE);
+        abVar.n("os_version", Build.VERSION.RELEASE);
+        abVar.n("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+        abVar.tc();
     }
 }

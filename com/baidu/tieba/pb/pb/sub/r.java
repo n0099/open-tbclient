@@ -1,25 +1,45 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.widget.richText.h;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
-class r extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity doF;
+class r implements a.d {
+    final /* synthetic */ NewSubPbActivity dqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(NewSubPbActivity newSubPbActivity, int i) {
-        super(i);
-        this.doF = newSubPbActivity;
+    public r(NewSubPbActivity newSubPbActivity) {
+        this.dqn = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h.a)) {
-            h.a aVar = (h.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.h.a(this.doF.getPageContext(), aVar.type, aVar.url, aVar.subType);
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
+        y yVar;
+        com.baidu.tbadk.editortools.d.p pVar;
+        com.baidu.tbadk.editortools.d.p pVar2;
+        com.baidu.tbadk.editortools.d.p pVar3;
+        ap apVar;
+        ap apVar2;
+        if (z) {
+            pVar = this.dqn.czd;
+            if (pVar != null) {
+                pVar2 = this.dqn.czd;
+                if (pVar2.Bb() != null) {
+                    pVar3 = this.dqn.czd;
+                    pVar3.Bb().hide();
+                    apVar = this.dqn.dqc;
+                    if (apVar.aAx()) {
+                        aw awVar = new aw("c10367");
+                        apVar2 = this.dqn.dqc;
+                        TiebaStatic.log(awVar.ac("post_id", apVar2.BB()));
+                    }
+                }
+            }
         }
+        yVar = this.dqn.dqe;
+        yVar.azZ();
     }
 }

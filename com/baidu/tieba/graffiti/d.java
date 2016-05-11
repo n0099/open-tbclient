@@ -20,7 +20,7 @@ import com.baidu.tbadk.switchs.GraffitiSwitchStatic;
 import com.baidu.tieba.tbadkCore.util.p;
 /* loaded from: classes.dex */
 public class d {
-    private static final GraffitiSwitchStatic bKv = new GraffitiSwitchStatic();
+    private static final GraffitiSwitchStatic bKz = new GraffitiSwitchStatic();
 
     public static boolean a(Context context, String str, String str2, int i) {
         return a(context, str, str2, null, i);
@@ -30,7 +30,7 @@ public class d {
         p pVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, p.class);
         if (runTask != null && (pVar = (p) runTask.getData()) != null) {
-            if (pVar.Za() <= 0) {
+            if (pVar.YU() <= 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
             } else {
                 new GraffitiTabActivityConfig(context, str, str2, str3).start();
@@ -40,43 +40,43 @@ public class d {
         return false;
     }
 
-    public static void i(Context context, int i) {
+    public static void j(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
     }
 
-    public static boolean Yf() {
-        return bKv.hO() && TbadkCoreApplication.m411getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
+    public static boolean XZ() {
+        return bKz.ec() && TbadkCoreApplication.m11getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
     }
 
-    public static boolean af(View view) {
-        boolean hO = bKv.hO();
+    public static boolean aj(View view) {
+        boolean ec = bKz.ec();
         if (view != null && view.getVisibility() != 8) {
-            view.setVisibility(hO ? 8 : 0);
+            view.setVisibility(ec ? 8 : 0);
         }
-        return !hO;
+        return !ec;
     }
 
-    public static String e(String str, int i, int i2) {
-        return t.aZ(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
+    public static String f(String str, int i, int i2) {
+        return t.aS(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
     }
 
     public static String a(UploadedImageInfo uploadedImageInfo) {
         if (uploadedImageInfo == null || StringUtils.isNull(uploadedImageInfo.getPic_id())) {
             return null;
         }
-        return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), e(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
+        return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), f(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
     }
 
-    public static void l(Intent intent) {
-        if (intent != null || Yf()) {
+    public static void m(Intent intent) {
+        if (intent != null || XZ()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
         }
     }
 
     public static void b(WriteData writeData) {
-        if (writeData == null || StringUtils.isNull(writeData.getGraffitiId())) {
+        if (writeData == null || StringUtils.isNull(writeData.getGraffitiImageId())) {
             return;
         }
-        TiebaStatic.log(new aw("c11001").ac("obj_id", writeData.getGraffitiId()).r("obj_source", writeData.getType() == 0 ? 1 : 2));
+        TiebaStatic.log(new aw("c11001").ac("obj_id", writeData.getGraffitiImageId()).s("obj_source", writeData.getType() == 0 ? 1 : 2));
     }
 }

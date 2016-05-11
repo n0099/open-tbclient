@@ -1,91 +1,84 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.t;
+import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
-public class l {
-    private View aAh;
-    private boolean avm = false;
-    private Animation cIo;
-    private Animation cIp;
-    private ViewGroup cIs;
-    private a dXw;
-    private k dXx;
+public class l extends BaseAdapter {
+    private List<TagInfo> cIJ = new ArrayList();
+    private final int ceE;
+    private Context mContext;
+    private int padding;
+    private int textSize;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void aok();
+    public l(Context context, int i) {
+        this.textSize = 0;
+        this.padding = 0;
+        this.mContext = context;
+        this.textSize = context.getResources().getDimensionPixelSize(t.e.fontsize28);
+        this.padding = context.getResources().getDimensionPixelSize(t.e.ds16);
+        this.ceE = i;
     }
 
-    public l(ViewGroup viewGroup) {
-        this.cIs = viewGroup;
-    }
-
-    public void a(a aVar) {
-        this.dXw = aVar;
-    }
-
-    public boolean isShowing() {
-        return this.avm;
-    }
-
-    public void a(Context context, List<TagInfo> list, int i) {
-        if (!this.avm) {
-            this.avm = true;
-            this.aAh = b(context, list, i);
-            this.cIs.addView(this.aAh);
-            at.l(this.aAh, t.d.recommend_frs_more_background);
-            this.aAh.startAnimation(az(context));
+    public void bx(List<TagInfo> list) {
+        this.cIJ.clear();
+        if (list != null && list.size() > 0) {
+            this.cIJ.addAll(list);
         }
+        notifyDataSetChanged();
     }
 
-    public void ay(Context context) {
-        if (this.aAh != null) {
-            this.aAh.startAnimation(aA(context));
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.cIJ.size();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: ov */
+    public TagInfo getItem(int i) {
+        if (i < 0 || i >= this.cIJ.size()) {
+            return null;
         }
+        return this.cIJ.get(i);
     }
 
-    private View b(Context context, List<TagInfo> list, int i) {
-        View inflate = LayoutInflater.from(context).inflate(t.h.scroll_fragment_more, (ViewGroup) null);
-        GridView gridView = (GridView) inflate.findViewById(t.g.scroll_fragment_more_content);
-        gridView.setSelector(new ColorDrawable(17170445));
-        this.dXx = new k(context, i);
-        this.dXx.bx(list);
-        gridView.setAdapter((ListAdapter) this.dXx);
-        gridView.setOnItemClickListener(new m(this, context));
-        return inflate;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
     }
 
-    private Animation az(Context context) {
-        if (this.cIo == null) {
-            this.cIo = AnimationUtils.loadAnimation(context, t.a.dialog_ani_t2b_enter);
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        TextView textView;
+        if (view instanceof TextView) {
+            textView = (TextView) view;
+        } else {
+            textView = new TextView(this.mContext);
+            textView.setGravity(17);
+            textView.setTextSize(0, this.textSize);
+            textView.setPadding(0, this.padding, 0, this.padding);
         }
-        return this.cIo;
-    }
-
-    private Animation aA(Context context) {
-        if (this.cIp == null) {
-            this.cIp = AnimationUtils.loadAnimation(context, t.a.dialog_ani_t2b_exit);
+        TagInfo tagInfo = (TagInfo) y.c(this.cIJ, i);
+        if (tagInfo == null) {
+            return null;
         }
-        this.cIp.setAnimationListener(new n(this));
-        return this.cIp;
-    }
-
-    public void dn(int i) {
-        at.l(this.aAh, t.d.recommend_frs_more_background);
-        if (this.dXx != null) {
-            this.dXx.notifyDataSetChanged();
+        textView.setText(ay.d(tagInfo.tag_name, 8, null));
+        at.c(textView, t.d.cp_cont_f, 1);
+        if (i == this.ceE) {
+            at.k(textView, t.f.btn_label_white_s);
+            return textView;
         }
+        at.k(textView, t.f.rec_frs_btn_more_item);
+        return textView;
     }
 }

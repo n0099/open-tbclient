@@ -1,6 +1,7 @@
 package com.baidu.tieba.personInfo;
 
 import com.baidu.tbadk.core.atomData.LiveGroupLikeListActivityConfig;
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -26,7 +27,7 @@ public class PersonInfoPostAnchor implements Serializable {
         if (jSONObject != null) {
             this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
             this.name = jSONObject.optString("name");
-            this.start_time = jSONObject.optInt("start_time");
+            this.start_time = jSONObject.optInt(ThActivityDetailActivityConfig.START_TIME);
             this.status = jSONObject.optInt("status");
             this.author_id = jSONObject.optLong("author_id");
             this.author_name = jSONObject.optString("author_name");

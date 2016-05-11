@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.stats;
 
 import android.os.Handler;
+import com.baidu.adp.lib.stats.b.j;
 import com.baidu.adp.lib.stats.switchs.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -13,13 +14,13 @@ public class c implements a.InterfaceC0008a {
     }
 
     @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0008a
-    public void hN() {
+    public void eb() {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.wJ = true;
-        if (this.this$0.wI) {
-            com.baidu.adp.lib.stats.b.i.iF().iM();
+        this.this$0.mF = true;
+        if (this.this$0.mE) {
+            j.eQ().eX();
         }
         handler = a.mHandler;
         handler.removeMessages(2);

@@ -14,28 +14,28 @@ public class i implements com.baidu.adp.lib.f.c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Yh */
-    public View hq() {
+    /* renamed from: Yb */
+    public View dE() {
         return new e(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ag */
+    /* renamed from: ak */
     public void l(View view) {
         ((e) view).reset();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ah */
+    /* renamed from: al */
     public View m(View view) {
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ai */
+    /* renamed from: am */
     public View n(View view) {
         ((e) view).reset();
         return view;

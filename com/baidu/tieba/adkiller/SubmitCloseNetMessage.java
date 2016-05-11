@@ -3,6 +3,7 @@ package com.baidu.tieba.adkiller;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.t;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.util.o;
 import tbclient.KillAd.DataReq;
 import tbclient.KillAd.KillAdReqIdl;
 /* loaded from: classes.dex */
@@ -33,7 +34,7 @@ public class SubmitCloseNetMessage extends NetMessage {
     }
 
     private String createMd5() {
-        return t.aZ("tb_adkiller" + this.type + this.killTag).toLowerCase();
+        return t.aS("tb_adkiller" + this.type + this.killTag).toLowerCase();
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -44,7 +45,7 @@ public class SubmitCloseNetMessage extends NetMessage {
         builder.ak_sign = createMd5();
         KillAdReqIdl.Builder builder2 = new KillAdReqIdl.Builder();
         if (z) {
-            com.baidu.tbadk.util.l.a(builder, true);
+            o.a(builder, true);
         }
         builder2.data = builder.build(false);
         return builder2.build(false);

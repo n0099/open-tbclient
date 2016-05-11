@@ -11,13 +11,13 @@ import com.baidu.tieba.t;
 import java.io.File;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    final /* synthetic */ MultiImgToolView.b auU;
-    private final /* synthetic */ ViewGroup auV;
+    final /* synthetic */ MultiImgToolView.b aqT;
+    private final /* synthetic */ ViewGroup aqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MultiImgToolView.b bVar, ViewGroup viewGroup) {
-        this.auU = bVar;
-        this.auV = viewGroup;
+        this.aqT = bVar;
+        this.aqU = viewGroup;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,23 +26,22 @@ class g implements View.OnClickListener {
         ab abVar;
         ab abVar2;
         Context context;
-        int indexOfChild = this.auV.indexOfChild(view);
+        int indexOfChild = this.aqU.indexOfChild(view);
         if (indexOfChild >= 0) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.auU.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.aqT.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
-                File file = new File(imageFileInfo.getFilePath());
-                z = file.exists() && file.length() != 0;
+                z = new File(imageFileInfo.getFilePath()).exists();
             }
             if (!z) {
-                context = this.auU.mContext;
+                context = this.aqT.mContext;
                 k.b(context, t.j.editor_mutiiamge_image_error);
                 return;
             }
-            abVar = this.auU.auR;
+            abVar = this.aqT.aqQ;
             if (abVar != null) {
-                abVar2 = this.auU.auR;
+                abVar2 = this.aqT.aqQ;
                 abVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

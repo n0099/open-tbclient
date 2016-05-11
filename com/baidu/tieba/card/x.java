@@ -1,39 +1,76 @@
 package com.baidu.tieba.card;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.a.m;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.UserLikeButton;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ w aSO;
+public class x extends com.baidu.tieba.horizonalList.widget.n {
+    public TextView aLz;
+    private com.baidu.tieba.card.a.k aPA;
+    public ClickableHeaderImageView aPx;
+    public TextView aPy;
+    public UserLikeButton aPz;
+    private BdUniqueId atA;
+    private Context mContext;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.aSO = wVar;
+    public x(View view, Context context) {
+        super(view);
+        this.mSkinType = 3;
+        this.mOnClickListener = new y(this);
+        this.mContext = context;
+        this.aPx = (ClickableHeaderImageView) view.findViewById(t.g.rec_god_item_header);
+        this.aPx.setGodIconMargin(t.e.ds6);
+        this.aLz = (TextView) view.findViewById(t.g.rec_god_item_user_name);
+        this.aPy = (TextView) view.findViewById(t.g.rec_god_item_user_describe);
+        this.aPz = (UserLikeButton) view.findViewById(t.g.rec_god_item_user_like_btn);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        Object tag = view.getTag();
-        if (tag instanceof m.a) {
-            m.a aVar = (m.a) tag;
-            if (!TextUtils.isEmpty(aVar.link)) {
-                com.baidu.tbadk.core.util.bg wM = com.baidu.tbadk.core.util.bg.wM();
-                TbPageContext<?> Lb = this.aSO.Lb();
-                String[] strArr = new String[3];
-                strArr[0] = aVar.link;
-                wM.c(Lb, strArr);
-            }
-            str = this.aSO.aSM;
-            if (!TextUtils.isEmpty(str)) {
-                str2 = this.aSO.aSM;
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str2).r("obj_locate", aVar.position));
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.atA = bdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.n
+    public com.baidu.tieba.horizonalList.widget.n S(View view) {
+        x xVar = new x(view, this.mContext);
+        xVar.aPz.i(this.atA);
+        return xVar;
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.n
+    public void a(com.baidu.tieba.horizonalList.widget.l lVar) {
+        if (lVar instanceof com.baidu.tieba.card.a.k) {
+            this.aPA = (com.baidu.tieba.card.a.k) lVar;
+            if (this.aPA.author != null) {
+                getView().setTag(t.g.rec_god_item_root, this.aPA.author.getUserId());
+                this.aPx.setTag(t.g.rec_god_item_root, this.aPA.author.getUserId());
+                this.aPz.setTag(this.aPA.author);
+                this.aPx.setData(this.aPA.author);
+                this.aPx.setAfterClickListener(this.ajv);
+                this.aLz.setText(com.baidu.tbadk.core.util.ay.t(this.aPA.author.getName_show(), 5));
+                getView().setOnClickListener(this.mOnClickListener);
+                if (this.aPA.author.getGodUserData() != null) {
+                    this.aPy.setText(com.baidu.tbadk.core.util.ay.t(this.aPA.author.getGodUserData().getIntro(), 6));
+                }
+                this.aPz.setData(this.aPA.author);
+                this.aPz.setAfterClickListener(this.ajv);
+                onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.n
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            com.baidu.tbadk.core.util.at.j((View) this.aLz, t.d.cp_cont_b);
+            com.baidu.tbadk.core.util.at.j((View) this.aPy, t.d.cp_cont_d);
+        }
+        this.mSkinType = i;
     }
 }

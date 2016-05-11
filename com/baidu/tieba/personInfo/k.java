@@ -20,9 +20,9 @@ public class k extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bf bfVar;
-        bi biVar;
-        bi biVar2;
+        bg bgVar;
+        bj bjVar;
+        bj bjVar2;
         if (socketResponsedMessage instanceof ResponseApplyMessage) {
             ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
             if (responseApplyMessage.getError() != 0) {
@@ -34,12 +34,12 @@ public class k extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            bfVar = this.this$0.dvN;
-            bfVar.aDf().getReplyInfo().add(replyInfo);
-            biVar = this.this$0.dCt;
-            if (biVar != null) {
-                biVar2 = this.this$0.dCt;
-                biVar2.aDM();
+            bgVar = this.this$0.dyP;
+            bgVar.aDA().getReplyInfo().add(replyInfo);
+            bjVar = this.this$0.dFA;
+            if (bjVar != null) {
+                bjVar2 = this.this$0.dFA;
+                bjVar2.aEj();
             }
         }
     }

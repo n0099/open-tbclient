@@ -13,52 +13,55 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
+import com.baidu.tieba.frs.fg;
 import com.baidu.tieba.frs.fo;
-import com.baidu.tieba.frs.fq;
-import com.baidu.tieba.frs.fu;
-import com.baidu.tieba.frs.tab.i;
+import com.baidu.tieba.frs.ft;
+import com.baidu.tieba.frs.tab.j;
 import com.baidu.tieba.t;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class HorizontalTabView extends com.baidu.tbadk.widget.a.h implements g {
-    private List<h> aLU;
-    private final LinearLayout btM;
-    private final i btN;
-    private TabItemView btO;
-    private g btP;
-    private final int btQ;
-    private final int btR;
-    private int btS;
-    private i.b btT;
-    private i.a btU;
-    private fo btV;
-    private a btW;
+public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
+    private List<i> aIe;
+    public int bsG;
+    private final LinearLayout bsH;
+    private final j bsI;
+    private TabItemView bsJ;
+    private g bsK;
+    private final int bsL;
+    private final int bsM;
+    private int bsN;
+    private boolean bsO;
+    private int bsP;
+    private j.b bsQ;
+    private j.a bsR;
+    private fg bsS;
+    private a bsT;
     private View.OnClickListener mOnClickListener;
     private final Paint mPaint;
 
     /* loaded from: classes.dex */
     public interface a {
-        void hf(int i);
+        boolean gA(int i);
 
-        boolean hg(int i);
+        void gz(int i);
     }
 
     public void a(TabItemView tabItemView, boolean z) {
-        fq fqVar;
+        fo foVar;
         int i = 0;
-        if (hd(tabItemView.getTabId())) {
-            if (this.btV != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
-                fq fqVar2 = new fq();
-                fqVar2.brs = tabItemView.getUrl();
-                this.btV.a(tabItemView.getTabId(), -1, fqVar2);
+        if (gM(tabItemView.getTabId())) {
+            if (this.bsS != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
+                fo foVar2 = new fo();
+                foVar2.bmS = tabItemView.getUrl();
+                this.bsS.a(tabItemView.getTabId(), -1, foVar2);
                 return;
             }
             return;
         }
-        this.btO = tabItemView;
+        this.bsJ = tabItemView;
         int[] iArr = new int[2];
-        this.btO.getLocationOnScreen(iArr);
+        this.bsJ.getLocationOnScreen(iArr);
         int B = com.baidu.adp.lib.util.k.B(getContext()) - iArr[0];
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(t.e.ds160);
         if (iArr[0] < 0) {
@@ -66,42 +69,42 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.h implements g {
         } else if (B < dimensionPixelSize) {
             post(new e(this));
         }
-        for (int i2 = 0; i2 < this.btM.getChildCount(); i2++) {
-            View childAt = this.btM.getChildAt(i2);
+        for (int i2 = 0; i2 < this.bsH.getChildCount(); i2++) {
+            View childAt = this.bsH.getChildAt(i2);
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView2 = (TabItemView) childAt;
-                if (tabItemView2.getTabId() != this.btO.getTabId() && !hd(tabItemView2.getTabId())) {
-                    tabItemView2.setState(TabItemView.bub);
+                if (tabItemView2.getTabId() != this.bsJ.getTabId() && !gM(tabItemView2.getTabId())) {
+                    tabItemView2.setState(TabItemView.bsX);
                 }
             }
         }
-        if (this.btO.getState() == TabItemView.bub || this.btO.getState() == TabItemView.bud) {
-            this.btN.Tt();
-            boolean z2 = this.btO.getState() == TabItemView.bub;
-            this.btO.setState(TabItemView.buc);
-            h gZ = gZ(this.btO.getTabId());
-            if (TextUtils.isEmpty(gZ.url)) {
-                fqVar = null;
+        if (this.bsJ.getState() == TabItemView.bsX || this.bsJ.getState() == TabItemView.bsZ) {
+            this.bsI.Tx();
+            boolean z2 = this.bsJ.getState() == TabItemView.bsX;
+            this.bsJ.setState(TabItemView.bsY);
+            i gI = gI(this.bsJ.getTabId());
+            if (TextUtils.isEmpty(gI.url)) {
+                foVar = null;
             } else {
-                fq fqVar3 = new fq();
-                fqVar3.brs = gZ.url;
-                fqVar3.stType = gZ.name;
-                fqVar = fqVar3;
+                fo foVar3 = new fo();
+                foVar3.bmS = gI.url;
+                foVar3.stType = gI.name;
+                foVar = foVar3;
             }
-            if (gZ.bua != null && gZ.bua.bqQ != null && gZ.bua.bqQ.size() > 0) {
-                for (fu fuVar : gZ.bua.bqQ) {
-                    if (fuVar != null && fuVar.isSelected) {
-                        i = fuVar.bqM;
+            if (gI.bsW != null && gI.bsW.bmd != null && gI.bsW.bmd.size() > 0) {
+                for (ft ftVar : gI.bsW.bmd) {
+                    if (ftVar != null && ftVar.isSelected) {
+                        i = ftVar.blZ;
                     }
                 }
             }
-            if (z2 && this.btV != null) {
-                this.btV.a(this.btO.getTabId(), i, fqVar);
+            if (z2 && this.bsS != null) {
+                this.bsS.a(this.bsJ.getTabId(), i, foVar);
             }
-        } else if (ha(this.btO.getTabId()) && !z) {
-            if (this.btW == null || this.btW.hg(this.btO.getTabId())) {
-                this.btO.setState(TabItemView.bud);
-                this.btN.a((Activity) getContext(), this, this.btO, gZ(this.btO.getTabId()).bua);
+        } else if (gJ(this.bsJ.getTabId()) && !z) {
+            if (this.bsT == null || this.bsT.gA(this.bsJ.getTabId())) {
+                this.bsJ.setState(TabItemView.bsZ);
+                this.bsI.a((Activity) getContext(), this, this.bsJ, gI(this.bsJ.getTabId()).bsW);
             } else {
                 return;
             }
@@ -111,139 +114,115 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.h implements g {
 
     public HorizontalTabView(Activity activity) {
         super(activity);
-        this.btO = null;
-        this.btP = null;
+        this.bsG = 0;
+        this.bsJ = null;
+        this.bsK = null;
         this.mPaint = new Paint();
-        this.btQ = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds6);
-        this.btR = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1);
-        this.btS = 0;
-        this.btT = new com.baidu.tieba.frs.tab.a(this);
-        this.btU = new b(this);
+        this.bsL = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds6);
+        this.bsM = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds1);
+        this.bsN = 0;
+        this.bsO = true;
+        this.bsP = t.d.frs_tab_bg;
+        this.bsQ = new com.baidu.tieba.frs.tab.a(this);
+        this.bsR = new b(this);
         this.mOnClickListener = new c(this);
-        this.btM = new LinearLayout(activity);
-        this.btM.setOrientation(0);
-        this.btM.setGravity(16);
+        this.bsH = new LinearLayout(activity);
+        this.bsH.setOrientation(0);
+        this.bsH.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, activity.getResources().getDimensionPixelSize(t.e.ds80));
-        this.btN = new i(activity, this.btT, this.btU);
+        this.bsI = new j(activity, this.bsQ, this.bsR);
         a(layoutParams);
     }
 
     public HorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.btO = null;
-        this.btP = null;
+        this.bsG = 0;
+        this.bsJ = null;
+        this.bsK = null;
         this.mPaint = new Paint();
-        this.btQ = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds6);
-        this.btR = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1);
-        this.btS = 0;
-        this.btT = new com.baidu.tieba.frs.tab.a(this);
-        this.btU = new b(this);
+        this.bsL = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds6);
+        this.bsM = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds1);
+        this.bsN = 0;
+        this.bsO = true;
+        this.bsP = t.d.frs_tab_bg;
+        this.bsQ = new com.baidu.tieba.frs.tab.a(this);
+        this.bsR = new b(this);
         this.mOnClickListener = new c(this);
-        this.btM = new LinearLayout(context);
-        this.btM.setOrientation(0);
-        this.btM.setGravity(16);
+        this.bsH = new LinearLayout(context);
+        this.bsH.setOrientation(0);
+        this.bsH.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(t.e.ds80));
-        this.btN = new i(context, this.btT, this.btU);
+        this.bsI = new j(context, this.bsQ, this.bsR);
         a(layoutParams);
     }
 
     public HorizontalTabView(Activity activity, int i) {
         super(activity);
-        this.btO = null;
-        this.btP = null;
+        this.bsG = 0;
+        this.bsJ = null;
+        this.bsK = null;
         this.mPaint = new Paint();
-        this.btQ = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds6);
-        this.btR = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1);
-        this.btS = 0;
-        this.btT = new com.baidu.tieba.frs.tab.a(this);
-        this.btU = new b(this);
+        this.bsL = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds6);
+        this.bsM = TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds1);
+        this.bsN = 0;
+        this.bsO = true;
+        this.bsP = t.d.frs_tab_bg;
+        this.bsQ = new com.baidu.tieba.frs.tab.a(this);
+        this.bsR = new b(this);
         this.mOnClickListener = new c(this);
-        this.btM = new LinearLayout(activity);
-        this.btM.setOrientation(0);
-        this.btM.setGravity(16);
+        this.bsH = new LinearLayout(activity);
+        this.bsH.setOrientation(0);
+        this.bsH.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, i);
-        this.btN = new i(activity, this.btT, this.btU);
+        this.bsI = new j(activity, this.bsQ, this.bsR);
         a(layoutParams);
     }
 
     private void a(AbsListView.LayoutParams layoutParams) {
-        addView(this.btM, layoutParams);
+        addView(this.bsH, layoutParams);
         setLayoutParams(layoutParams);
         setHorizontalScrollBarEnabled(false);
         at.l(this, t.d.frs_tab_bg);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
     }
 
-    public void c(List<h> list, int i, int i2) {
-        a(list, i, i2, false);
-    }
-
-    public void a(List<h> list, int i, int i2, boolean z) {
-        if (list == null || list.size() == 0) {
-            setVisibility(8);
-        } else if (this.aLU == null || al(list)) {
-            this.aLU = list;
-            this.btM.removeAllViews();
-            boolean z2 = this.btS > 0 && list.size() == this.btS;
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(t.e.ds160);
-            if (z2) {
-                dimensionPixelSize = com.baidu.adp.lib.util.k.B(getContext()) / this.btS;
-            }
-            for (h hVar : list) {
-                if (hVar != null) {
-                    TabItemView tabItemView = new TabItemView(getContext(), hVar, i2);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, -1);
-                    tabItemView.setOnClickListener(this.mOnClickListener);
-                    if (hd(hVar.btZ)) {
-                        at.j((View) tabItemView, t.d.cp_other_b);
-                    }
-                    this.btM.addView(tabItemView, layoutParams);
-                    if (hVar.btZ == i) {
-                        this.btO = tabItemView;
-                        tabItemView.setState(TabItemView.buc);
-                    }
-                }
-            }
-        }
-    }
-
-    private boolean al(List<h> list) {
-        h hVar;
+    private boolean aj(List<i> list) {
+        i iVar;
         if (list == null) {
             return false;
         }
-        h gZ = gZ(1);
-        Iterator<h> it = list.iterator();
+        i gI = gI(1);
+        Iterator<i> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
-                hVar = null;
+                iVar = null;
                 break;
             }
-            h next = it.next();
-            if (next.btZ == 1) {
-                hVar = next;
+            i next = it.next();
+            if (next != null && next.aYo == 1) {
+                iVar = next;
                 break;
             }
         }
-        if (gZ == null || hVar == null) {
+        if (gI == null || iVar == null) {
             return false;
         }
-        if (gZ.bua == null && hVar.bua == null) {
+        if (gI.bsW == null && iVar.bsW == null) {
             return false;
         }
-        if ((gZ.bua != null || hVar.bua == null) && (hVar.bua != null || gZ.bua == null)) {
-            if (gZ.bua.bqQ == null && hVar.bua.bqQ == null) {
+        if ((gI.bsW != null || iVar.bsW == null) && (iVar.bsW != null || gI.bsW == null)) {
+            if (gI.bsW.bmd == null && iVar.bsW.bmd == null) {
                 return false;
             }
-            if ((gZ.bua.bqQ != null || hVar.bua.bqQ == null) && (hVar.bua.bqQ != null || gZ.bua.bqQ == null)) {
-                int size = gZ.bua.bqQ.size();
-                if (size != hVar.bua.bqQ.size()) {
+            if ((gI.bsW.bmd != null || iVar.bsW.bmd == null) && (iVar.bsW.bmd != null || gI.bsW.bmd == null)) {
+                int size = gI.bsW.bmd.size();
+                if (size != iVar.bsW.bmd.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
-                    fu fuVar = hVar.bua.bqQ.get(i);
-                    fu fuVar2 = gZ.bua.bqQ.get(i);
-                    if (fuVar.bqM != fuVar2.bqM || !fuVar.name.equals(fuVar2.name)) {
+                    ft ftVar = iVar.bsW.bmd.get(i);
+                    ft ftVar2 = gI.bsW.bmd.get(i);
+                    if (ftVar.blZ != ftVar2.blZ || !ftVar.name.equals(ftVar2.name)) {
                         return true;
                     }
                 }
@@ -254,53 +233,91 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.h implements g {
         return true;
     }
 
-    public void g(List<h> list, int i) {
-        a(list, i, 4, false);
+    public void setData(List<i> list) {
+        a(list, 1, 4, false);
     }
 
-    private h gZ(int i) {
-        if (i < 0 || this.aLU == null || this.aLU.size() == 0) {
+    public void c(List<i> list, int i, int i2) {
+        a(list, i, i2, false);
+    }
+
+    private void a(List<i> list, int i, int i2, boolean z) {
+        if (list == null || list.size() == 0) {
+            setVisibility(8);
+        } else if (this.aIe == null || aj(list)) {
+            this.aIe = list;
+            this.bsH.removeAllViews();
+            boolean z2 = this.bsN > 0 && list.size() == this.bsN;
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(t.e.ds160);
+            if (z2) {
+                dimensionPixelSize = com.baidu.adp.lib.util.k.B(getContext()) / this.bsN;
+            }
+            for (i iVar : list) {
+                if (iVar != null) {
+                    TabItemView tabItemView = new TabItemView(getContext(), iVar, i2);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, -1);
+                    tabItemView.setOnClickListener(this.mOnClickListener);
+                    if (gM(iVar.aYo)) {
+                        at.j((View) tabItemView, t.d.cp_other_b);
+                    }
+                    this.bsH.addView(tabItemView, layoutParams);
+                    if (iVar.aYo == i) {
+                        this.bsJ = tabItemView;
+                        tabItemView.setState(TabItemView.bsY);
+                    }
+                }
+            }
+        }
+    }
+
+    private i gI(int i) {
+        if (i < 0 || this.aIe == null || this.aIe.size() == 0) {
             return null;
         }
-        for (h hVar : this.aLU) {
-            if (hVar != null && hVar.btZ == i) {
-                return hVar;
+        for (i iVar : this.aIe) {
+            if (iVar != null && iVar.aYo == i) {
+                return iVar;
             }
         }
         return null;
     }
 
-    private boolean ha(int i) {
-        h gZ = gZ(i);
-        return (gZ == null || gZ.bua == null || gZ.bua.bqQ == null || gZ.bua.bqQ.size() <= 0) ? false : true;
-    }
-
-    public boolean Tr() {
-        return (this.aLU == null || this.aLU.size() == 0) ? false : true;
+    private boolean gJ(int i) {
+        i gI = gI(i);
+        return (gI == null || gI.bsW == null || gI.bsW.bmd == null || gI.bsW.bmd.size() <= 0) ? false : true;
     }
 
     public void setFakeTab(g gVar) {
-        this.btP = gVar;
+        this.bsK = gVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.btO != null) {
+        if (this.bsJ != null) {
             this.mPaint.setColor(at.getColor(t.d.cp_bg_line_b));
-            canvas.drawRect(this.btM.getLeft(), getMeasuredHeight() - this.btR, this.btM.getRight() > getRight() ? this.btM.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
+            if (this.bsO) {
+                canvas.drawRect(this.bsH.getLeft(), getMeasuredHeight() - this.bsM, this.bsH.getRight() > getRight() ? this.bsH.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
+            }
             this.mPaint.setColor(at.d((Resources) null, t.d.s_actionbar_text_line_color_s));
-            canvas.drawRect(this.btO.getLeft(), getMeasuredHeight() - this.btQ, this.btO.getRight(), getMeasuredHeight(), this.mPaint);
+            canvas.drawRect(this.bsJ.getLeft() + getBottomLineMargin(), getMeasuredHeight() - this.bsL, (this.bsJ.getRight() - getBottomLineMargin()) - this.bsJ.getDrawableWidth(), getMeasuredHeight(), this.mPaint);
         }
     }
 
+    private int getBottomLineMargin() {
+        if (this.bsJ == null || this.bsG == 0) {
+            return 0;
+        }
+        return ((this.bsJ.getMeasuredWidth() - this.bsG) - this.bsJ.getDrawableWidth()) / 2;
+    }
+
     @Override // com.baidu.tieba.frs.tab.g
-    public void hb(int i) {
+    public void gK(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.btM.getChildCount()) {
-                View childAt = this.btM.getChildAt(i3);
+            if (i3 < this.bsH.getChildCount()) {
+                View childAt = this.bsH.getChildAt(i3);
                 if (childAt instanceof TabItemView) {
                     TabItemView tabItemView = (TabItemView) childAt;
                     if (tabItemView.getTabId() == i) {
@@ -314,52 +331,61 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.h implements g {
         }
     }
 
-    public void setDataLoadInterface(fo foVar) {
-        this.btV = foVar;
+    public void setDataLoadInterface(fg fgVar) {
+        this.bsS = fgVar;
     }
 
     public void setmShowMenuCallBack(a aVar) {
-        this.btW = aVar;
+        this.bsT = aVar;
     }
 
     public a getmShowMenuCallBack() {
-        return this.btW;
+        return this.bsT;
     }
 
-    public void xy() {
-        at.l(this, t.d.frs_tab_bg);
+    public void setTabBackgroudColor(int i) {
+        this.bsP = i;
+    }
+
+    public void vl() {
+        at.l(this, this.bsP);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.btM.getChildCount()) {
-                View childAt = this.btM.getChildAt(i2);
+            if (i2 < this.bsH.getChildCount()) {
+                View childAt = this.bsH.getChildAt(i2);
                 if (childAt instanceof TabItemView) {
-                    if (hd(((TabItemView) childAt).getTabId())) {
+                    if (gM(((TabItemView) childAt).getTabId())) {
                         at.j(childAt, t.d.cp_other_b);
                     } else {
-                        ((TabItemView) childAt).xy();
+                        ((TabItemView) childAt).vl();
                     }
                 }
                 i = i2 + 1;
             } else {
-                this.btN.xy();
+                this.bsI.vl();
                 return;
             }
         }
     }
 
     public void setAutoFillTabCount(int i) {
-        this.btS = i;
+        this.bsN = i;
     }
 
     @Override // com.baidu.tieba.frs.tab.g
-    public void hc(int i) {
-        if (this.btO != null && this.btV != null) {
-            this.btV.a(this.btO.getTabId(), i, null);
+    public void gL(int i) {
+        if (this.bsJ != null && this.bsS != null) {
+            this.bsS.a(this.bsJ.getTabId(), i, null);
         }
     }
 
-    public static boolean hd(int i) {
+    public static boolean gM(int i) {
         return i > 200 && i <= 300;
+    }
+
+    public void setNeedBottomLine(boolean z) {
+        this.bsO = z;
+        invalidate();
     }
 }

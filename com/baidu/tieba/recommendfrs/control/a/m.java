@@ -13,17 +13,17 @@ import com.baidu.tieba.t;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class m {
-    private l dWm;
-    private v dWn;
-    private u dWo;
-    private w dWp;
-    private g dWq;
-    private a dWt;
-    private g.a dWu = new n(this);
-    private SparseBooleanArray dWv = new SparseBooleanArray();
-    private SparseBooleanArray dWw = new SparseBooleanArray();
-    private com.baidu.tieba.recommendfrs.data.o dWr = new com.baidu.tieba.recommendfrs.data.o();
-    private com.baidu.tieba.recommendfrs.data.s dWs = new com.baidu.tieba.recommendfrs.data.s();
+    private g dZA;
+    private a dZD;
+    private l dZw;
+    private v dZx;
+    private u dZy;
+    private w dZz;
+    private g.a dZE = new n(this);
+    private SparseBooleanArray dZF = new SparseBooleanArray();
+    private SparseBooleanArray dZG = new SparseBooleanArray();
+    private com.baidu.tieba.recommendfrs.data.o dZB = new com.baidu.tieba.recommendfrs.data.o();
+    private com.baidu.tieba.recommendfrs.data.s dZC = new com.baidu.tieba.recommendfrs.data.s();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,27 +35,27 @@ public class m {
     }
 
     public m(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dWm = new l(tbPageContext);
-        this.dWm.setUniqueId(bdUniqueId);
-        this.dWn = new v(tbPageContext);
-        this.dWn.setUniqueId(bdUniqueId);
-        this.dWo = new u(tbPageContext, this.dWr);
-        this.dWo.setUniqueId(bdUniqueId);
-        this.dWp = new w(tbPageContext, this.dWs);
-        this.dWp.setUniqueId(bdUniqueId);
-        this.dWq = new g(tbPageContext, bdUniqueId);
-        this.dWq.a(this.dWu);
+        this.dZw = new l(tbPageContext);
+        this.dZw.setUniqueId(bdUniqueId);
+        this.dZx = new v(tbPageContext);
+        this.dZx.setUniqueId(bdUniqueId);
+        this.dZy = new u(tbPageContext, this.dZB);
+        this.dZy.setUniqueId(bdUniqueId);
+        this.dZz = new w(tbPageContext, this.dZC);
+        this.dZz.setUniqueId(bdUniqueId);
+        this.dZA = new g(tbPageContext, bdUniqueId);
+        this.dZA.a(this.dZE);
         o oVar = new o(this);
-        this.dWm.a(oVar);
-        this.dWn.a(oVar);
+        this.dZw.a(oVar);
+        this.dZx.a(oVar);
         p pVar = new p(this);
-        this.dWo.a(pVar);
-        this.dWp.a(pVar);
+        this.dZy.a(pVar);
+        this.dZz.a(pVar);
     }
 
     public void a(int i, boolean z, int i2, int i3, int i4, int i5) {
-        if (this.dWq != null) {
-            this.dWq.a(i, z, i2, i3, i4, i5);
+        if (this.dZA != null) {
+            this.dZA.a(i, z, i2, i3, i4, i5);
         }
     }
 
@@ -85,66 +85,66 @@ public class m {
         return 0;
     }
 
-    public void v(long j, int i) {
+    public void w(long j, int i) {
         if (i == 3) {
-            this.dWn.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.recommendfrs.data.q(j));
+            this.dZx.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.recommendfrs.data.q(j));
         } else if (i == 2) {
-            this.dWm.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.recommendfrs.data.m(j));
-        } else if (this.dWt != null) {
-            this.dWt.a(j, TbadkCoreApplication.m411getInst().getString(t.j.invite_friend_no_data_now), -53);
+            this.dZw.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.recommendfrs.data.m(j));
+        } else if (this.dZD != null) {
+            this.dZD.a(j, TbadkCoreApplication.m11getInst().getString(t.j.invite_friend_no_data_now), -53);
         }
     }
 
     public void a(int i, long j, int i2, long j2) {
-        if (!this.dWo.isLoading() && !this.dWp.isLoading()) {
+        if (!this.dZy.isLoading() && !this.dZz.isLoading()) {
             switch (i2) {
                 case 3:
-                    this.dWs.setPn(i);
-                    this.dWs.setTagCode(j);
-                    this.dWs.setRn(30);
+                    this.dZC.setPn(i);
+                    this.dZC.setTagCode(j);
+                    this.dZC.setRn(30);
                     if (i == 1) {
-                        this.dWs.bU(0L);
+                        this.dZC.bU(0L);
                     } else {
-                        this.dWs.bU(j2);
+                        this.dZC.bU(j2);
                     }
-                    this.dWp.FG();
+                    this.dZz.Dy();
                     return;
                 default:
-                    this.dWr.setPn(i);
-                    this.dWr.setTagCode(j);
-                    this.dWr.bT(j2);
-                    this.dWo.FG();
+                    this.dZB.setPn(i);
+                    this.dZB.setTagCode(j);
+                    this.dZB.bT(j2);
+                    this.dZy.Dy();
                     return;
             }
         }
     }
 
     public void a(a aVar) {
-        this.dWt = aVar;
+        this.dZD = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.n, ?> mvcSocketResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.n> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.dWw.get(b, false)) {
-            this.dWw.put(b, true);
+        if (!this.dZG.get(b, false)) {
+            this.dZG.put(b, true);
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.fh(1005);
+            nVar.eM(1005);
             nVar.pageType = b;
-            nVar.aBH = false;
+            nVar.axK = false;
             nVar.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
-            nVar.aBv = mvcSocketResponsedMessage.performanceData.qH;
-            nVar.aBw = mvcSocketResponsedMessage.performanceData.qI;
-            nVar.aBx = mvcSocketResponsedMessage.performanceData.qJ;
-            nVar.oL = mvcSocketResponsedMessage.performanceData.qK;
-            nVar.oM = mvcSocketResponsedMessage.performanceData.qL;
-            nVar.aBy = mvcSocketResponsedMessage.performanceData.qM;
-            nVar.aBz = mvcSocketResponsedMessage.performanceData.qN;
-            nVar.aBA = mvcSocketResponsedMessage.performanceData.qO;
-            nVar.aBA += mvcSocketResponsedMessage.getProcessTime() - mvcSocketResponsedMessage.getStartTime();
-            nVar.aBF = mvcSocketResponsedMessage.getDownSize();
+            nVar.axy = mvcSocketResponsedMessage.performanceData.gv;
+            nVar.axz = mvcSocketResponsedMessage.performanceData.gw;
+            nVar.axA = mvcSocketResponsedMessage.performanceData.gx;
+            nVar.eD = mvcSocketResponsedMessage.performanceData.gy;
+            nVar.eE = mvcSocketResponsedMessage.performanceData.gz;
+            nVar.axB = mvcSocketResponsedMessage.performanceData.gA;
+            nVar.axC = mvcSocketResponsedMessage.performanceData.gB;
+            nVar.axD = mvcSocketResponsedMessage.performanceData.gC;
+            nVar.axD += mvcSocketResponsedMessage.getProcessTime() - mvcSocketResponsedMessage.getStartTime();
+            nVar.axI = mvcSocketResponsedMessage.getDownSize();
             nVar.errCode = mvcSocketResponsedMessage.getError();
-            nVar.aBG = 0L;
+            nVar.axJ = 0L;
             nVar.sequenceID = mvcSocketResponsedMessage.sequenceID;
             a(nVar, b);
         }
@@ -153,42 +153,42 @@ public class m {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.n> mvcHttpResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.recommendfrs.data.n> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.dWw.get(b, false)) {
-            this.dWw.put(b, true);
+        if (!this.dZG.get(b, false)) {
+            this.dZG.put(b, true);
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.fh(1005);
+            nVar.eM(1005);
             nVar.pageType = b;
-            nVar.aBH = true;
+            nVar.axK = true;
             nVar.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
-            nVar.aBv = mvcHttpResponsedMessage.performanceData.qH;
-            nVar.aBw = mvcHttpResponsedMessage.performanceData.qI;
-            nVar.aBx = mvcHttpResponsedMessage.performanceData.qJ;
-            nVar.oL = mvcHttpResponsedMessage.performanceData.qK;
-            nVar.oM = mvcHttpResponsedMessage.performanceData.qL;
-            nVar.aBy = mvcHttpResponsedMessage.performanceData.qM;
-            nVar.aBz = mvcHttpResponsedMessage.performanceData.qN;
-            nVar.aBA = mvcHttpResponsedMessage.performanceData.qO;
-            nVar.aBA += mvcHttpResponsedMessage.getProcessTime() - mvcHttpResponsedMessage.getStartTime();
-            nVar.aBI = mvcHttpResponsedMessage.performanceData.qR;
-            nVar.aBJ = mvcHttpResponsedMessage.performanceData.qS;
-            nVar.aBF = 0L;
-            nVar.aBG = mvcHttpResponsedMessage.getDownSize();
-            nVar.socketErrNo = mvcHttpResponsedMessage.performanceData.qP;
-            nVar.socketCostTime = mvcHttpResponsedMessage.performanceData.qQ;
+            nVar.axy = mvcHttpResponsedMessage.performanceData.gv;
+            nVar.axz = mvcHttpResponsedMessage.performanceData.gw;
+            nVar.axA = mvcHttpResponsedMessage.performanceData.gx;
+            nVar.eD = mvcHttpResponsedMessage.performanceData.gy;
+            nVar.eE = mvcHttpResponsedMessage.performanceData.gz;
+            nVar.axB = mvcHttpResponsedMessage.performanceData.gA;
+            nVar.axC = mvcHttpResponsedMessage.performanceData.gB;
+            nVar.axD = mvcHttpResponsedMessage.performanceData.gC;
+            nVar.axD += mvcHttpResponsedMessage.getProcessTime() - mvcHttpResponsedMessage.getStartTime();
+            nVar.axL = mvcHttpResponsedMessage.performanceData.gF;
+            nVar.axM = mvcHttpResponsedMessage.performanceData.gG;
+            nVar.axI = 0L;
+            nVar.axJ = mvcHttpResponsedMessage.getDownSize();
+            nVar.socketErrNo = mvcHttpResponsedMessage.performanceData.gD;
+            nVar.socketCostTime = mvcHttpResponsedMessage.performanceData.gE;
             nVar.errCode = mvcHttpResponsedMessage.getError();
-            nVar.aBL = mvcHttpResponsedMessage.getOrginalMessage().getClientLogID();
+            nVar.axO = mvcHttpResponsedMessage.getOrginalMessage().getClientLogID();
             a(nVar, b);
         }
     }
 
     public void a(com.baidu.tbadk.performanceLog.n nVar, int i) {
         if (nVar != null) {
-            long ov = com.baidu.tieba.recommendfrs.a.aLJ().ov(i);
-            nVar.aBu = 0L;
-            com.baidu.tieba.recommendfrs.a.aLJ().setCreateTime(0L);
-            nVar.aBB = com.baidu.tieba.recommendfrs.a.aLJ().ou(i);
-            nVar.aBC = ov;
-            nVar.GP();
+            long ol = com.baidu.tieba.recommendfrs.a.aLN().ol(i);
+            nVar.axx = 0L;
+            com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(0L);
+            nVar.axE = com.baidu.tieba.recommendfrs.a.aLN().ok(i);
+            nVar.axF = ol;
+            nVar.EH();
         }
     }
 }

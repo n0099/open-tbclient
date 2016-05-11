@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a auw;
-    private com.baidu.adp.widget.a.a aux;
-    private int auy;
-    private int rows;
+    private com.baidu.adp.widget.a.a aqv;
+    private com.baidu.adp.widget.a.a aqw;
+    private int aqx;
+    private int cols;
 
-    public abstract boolean DA();
+    public abstract boolean Bu();
 
-    public abstract EmotionGroupType DB();
+    public abstract EmotionGroupType Bv();
 
-    public abstract String eF(int i);
+    public abstract String el(int i);
 
-    public abstract boolean fo(String str);
+    public abstract boolean fl(String str);
 
-    public abstract com.baidu.adp.widget.a.a fp(String str);
+    public abstract com.baidu.adp.widget.a.a fm(String str);
 
-    public abstract com.baidu.adp.widget.a.a fq(String str);
+    public abstract com.baidu.adp.widget.a.a fn(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a DC() {
-        return this.auw;
+    public com.baidu.adp.widget.a.a Bw() {
+        return this.aqv;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mK();
+            aVar.iY();
         }
-        this.auw = aVar;
+        this.aqv = aVar;
     }
 
-    public com.baidu.adp.widget.a.a DD() {
-        return this.aux;
+    public com.baidu.adp.widget.a.a Bx() {
+        return this.aqw;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.mK();
+            aVar.iY();
         }
-        this.aux = aVar;
+        this.aqw = aVar;
     }
 
-    public int DE() {
-        return this.auy;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void eG(int i) {
-        this.auy = i;
-    }
-
-    public int getRows() {
-        return this.rows;
+    public int getCols() {
+        return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void setRows(int i) {
-        this.rows = i;
+    public void setCols(int i) {
+        this.cols = i;
+    }
+
+    public int By() {
+        return this.aqx;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void em(int i) {
+        this.aqx = i;
     }
 }

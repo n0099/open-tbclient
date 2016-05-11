@@ -4,91 +4,91 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class e<T> implements n<T> {
-    protected final boolean tt;
-    protected final f tu;
+    protected final boolean jh;
+    protected final f ji;
 
-    public abstract h<T> T(String str);
+    public abstract h<T> K(String str);
 
-    public abstract void U(String str);
+    public abstract void L(String str);
 
-    protected abstract void V(String str);
+    protected abstract void M(String str);
 
     public abstract void c(h<T> hVar);
 
     public e(f fVar, boolean z) {
-        this.tu = fVar;
-        this.tt = z;
+        this.ji = fVar;
+        this.jh = z;
     }
 
-    protected String k(String str, String str2) {
-        if (this.tt) {
+    protected String h(String str, String str2) {
+        if (this.jh) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
     }
 
-    protected h<T> l(String str, String str2) {
-        String k = k(str, str2);
-        h<T> T = T(k);
-        if (T == null) {
+    protected h<T> j(String str, String str2) {
+        String h = h(str, str2);
+        h<T> K = K(h);
+        if (K == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (T.tB < System.currentTimeMillis()) {
-            V(k);
+        } else if (K.jp < System.currentTimeMillis()) {
+            M(h);
             BdLog.isDebugMode();
             return null;
         } else {
-            if (this.tu.gl()) {
-                T.tA = System.currentTimeMillis();
-                c(T);
+            if (this.ji.cz()) {
+                K.jo = System.currentTimeMillis();
+                c(K);
             }
             BdLog.isDebugMode();
-            return T;
+            return K;
         }
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public T m(String str, String str2) {
-        h<T> l = l(str, str2);
-        if (l == null) {
+    public T k(String str, String str2) {
+        h<T> j = j(str, str2);
+        if (j == null) {
             return null;
         }
-        return l.sI;
+        return j.iz;
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public o.b<T> n(String str, String str2) {
-        h<T> l = l(str, str2);
-        if (l == null) {
+    public o.b<T> l(String str, String str2) {
+        h<T> j = j(str, str2);
+        if (j == null) {
             return null;
         }
         o.b<T> bVar = new o.b<>();
         bVar.key = str2;
-        bVar.sI = l.sI;
-        bVar.tB = l.tB;
-        bVar.tQ = l.tz;
+        bVar.iz = j.iz;
+        bVar.jp = j.jp;
+        bVar.jE = j.jn;
         return bVar;
     }
 
     @Override // com.baidu.adp.lib.cache.n
     public void a(String str, String str2, T t, long j) {
         h<T> hVar = new h<>();
-        hVar.tx = k(str, str2);
-        hVar.ty = str;
-        hVar.tB = j;
-        hVar.sI = t;
-        hVar.tA = System.currentTimeMillis();
-        hVar.tz = System.currentTimeMillis();
+        hVar.jl = h(str, str2);
+        hVar.jm = str;
+        hVar.jp = j;
+        hVar.iz = t;
+        hVar.jo = System.currentTimeMillis();
+        hVar.jn = System.currentTimeMillis();
         c(hVar);
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public void o(String str, String str2) {
-        U(k(str, str2));
+    public void m(String str, String str2) {
+        L(h(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public f gk() {
-        return this.tu;
+    public f cy() {
+        return this.ji;
     }
 }

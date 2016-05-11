@@ -5,27 +5,27 @@ import com.baidu.cloudsdk.DefaultBaiduListener;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
 /* loaded from: classes.dex */
 class z extends DefaultBaiduListener {
-    final /* synthetic */ ShareMediaItem nm;
-    final /* synthetic */ y nn;
+    final /* synthetic */ ShareMediaItem di;
+    final /* synthetic */ y dj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(y yVar, ShareMediaItem shareMediaItem) {
-        this.nn = yVar;
-        this.nm = shareMediaItem;
+        this.dj = yVar;
+        this.di = shareMediaItem;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
-        this.nn.nl.a(this.nm, false);
+        this.dj.dh.a(this.di, false);
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete() {
-        this.nn.nl.a(this.nm, true);
+        this.dj.dh.a(this.di, true);
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onError(BaiduException baiduException) {
-        this.nn.nl.a(this.nm, false);
+        this.dj.dh.a(this.di, false);
     }
 }

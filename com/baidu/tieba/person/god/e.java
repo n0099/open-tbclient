@@ -6,15 +6,15 @@ import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 class e implements BdListView.e {
-    final /* synthetic */ GodThreadListActivity dwU;
+    final /* synthetic */ GodThreadListActivity dzZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(GodThreadListActivity godThreadListActivity) {
-        this.dwU = godThreadListActivity;
+        this.dzZ = godThreadListActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void nm() {
+    public void jA() {
         h hVar;
         g gVar;
         List list;
@@ -27,34 +27,34 @@ class e implements BdListView.e {
         h hVar4;
         long j;
         g gVar4;
-        hVar = this.dwU.dwQ;
+        hVar = this.dzZ.dzV;
         if (hVar != null) {
-            gVar = this.dwU.dwP;
+            gVar = this.dzZ.dzU;
             if (gVar != null) {
-                list = this.dwU.dwR;
+                list = this.dzZ.dzW;
                 if (list != null) {
-                    hVar2 = this.dwU.dwQ;
+                    hVar2 = this.dzZ.dzV;
                     if (!hVar2.isLoading()) {
-                        list2 = this.dwU.dwR;
+                        list2 = this.dzZ.dzW;
                         if (!list2.isEmpty()) {
-                            hVar3 = this.dwU.dwQ;
+                            hVar3 = this.dzZ.dzV;
                             if (hVar3.hasMore()) {
-                                hVar4 = this.dwU.dwQ;
-                                j = this.dwU.mUserId;
+                                hVar4 = this.dzZ.dzV;
+                                j = this.dzZ.mUserId;
                                 hVar4.bG(j);
-                                gVar4 = this.dwU.dwP;
-                                gVar4.PQ();
+                                gVar4 = this.dzZ.dzU;
+                                gVar4.OJ();
                                 return;
                             }
-                            list3 = this.dwU.dwR;
+                            list3 = this.dzZ.dzW;
                             if (!list3.isEmpty()) {
-                                gVar2 = this.dwU.dwP;
-                                gVar2.aCg();
+                                gVar2 = this.dzZ.dzU;
+                                gVar2.aCx();
                                 return;
                             }
-                            String string = TbadkCoreApplication.m411getInst().getString(t.j.no_data_text);
-                            gVar3 = this.dwU.dwP;
-                            gVar3.mf(string);
+                            String string = TbadkCoreApplication.m11getInst().getString(t.j.no_data_text);
+                            gVar3 = this.dzZ.dzU;
+                            gVar3.mj(string);
                         }
                     }
                 }

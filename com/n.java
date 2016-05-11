@@ -27,11 +27,11 @@ public class n implements ISocialShareHandler {
     private static final String a = n.class.getSimpleName();
     private static Map b = new HashMap();
     private static Map c = new HashMap();
+    private Weixin cT;
     private Context d;
     private String e;
     private boolean f;
     private String h;
-    private Weixin mV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -45,13 +45,13 @@ public class n implements ISocialShareHandler {
         @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
         public void onComplete(Bitmap bitmap) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                n.this.a(this.b, n.this.c(bitmap));
+                n.this.a(this.b, n.this.b(bitmap));
                 return;
             }
-            IBaiduListener B = n.B(n.this.h);
-            n.C(n.this.h);
-            if (B != null) {
-                B.onError(new BaiduException("failed to load image uri "));
+            IBaiduListener q = n.q(n.this.h);
+            n.r(n.this.h);
+            if (q != null) {
+                q.onError(new BaiduException("failed to load image uri "));
             }
         }
     }
@@ -60,27 +60,9 @@ public class n implements ISocialShareHandler {
         this.d = context;
         this.e = str;
         this.f = z;
-        this.mV = new Weixin(context, str);
-        this.mV.registerApp();
+        this.cT = new Weixin(context, str);
+        this.cT.registerApp();
         this.h = a();
-    }
-
-    public static IBaiduListener B(String str) {
-        WeakReference weakReference = (WeakReference) b.get(str);
-        if (weakReference != null) {
-            b.remove(str);
-            return (IBaiduListener) weakReference.get();
-        }
-        return null;
-    }
-
-    public static ShareContent C(String str) {
-        WeakReference weakReference = (WeakReference) c.get(str);
-        if (weakReference != null) {
-            c.remove(str);
-            return (ShareContent) weakReference.get();
-        }
-        return null;
     }
 
     private String a() {
@@ -89,20 +71,20 @@ public class n implements ISocialShareHandler {
 
     private void a(Bundle bundle) {
         Weixin.addBaseRequestParams(bundle, this.h, this.f);
-        if (this.mV.sendRequest(bundle)) {
+        if (this.cT.sendRequest(bundle)) {
             return;
         }
         Log.e(a, "sendMessage error");
-        IBaiduListener B = B(this.h);
-        C(this.h);
-        if (B != null) {
-            B.onError(new BaiduException("failed to start weixin app"));
+        IBaiduListener q = q(this.h);
+        r(this.h);
+        if (q != null) {
+            q.onError(new BaiduException("failed to start weixin app"));
         }
     }
 
     private void a(ShareContent shareContent) {
         if (shareContent.getImageData() != null) {
-            a(shareContent, c(shareContent.getImageData()), WXMediaMessage.getCompressedImageData(shareContent.getImageData()), false);
+            a(shareContent, b(shareContent.getImageData()), WXMediaMessage.getCompressedImageData(shareContent.getImageData()), false);
         } else if (shareContent.getImageUri() != null) {
             ImageManager.getInstance().loadImage(this.d, shareContent.getImageUri(), new a(shareContent));
         } else {
@@ -113,12 +95,12 @@ public class n implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
         SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.d);
-        if (!this.mV.isAppInstalled()) {
+        if (!this.cT.isAppInstalled()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_not_installed"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("weixin not installed yet"));
             }
-        } else if (this.f && !this.mV.isTimelineSupported()) {
+        } else if (this.f && !this.cT.isTimelineSupported()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_timeline_not_supported"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("this version of weixin has no support for timeline related api"));
@@ -193,10 +175,10 @@ public class n implements ISocialShareHandler {
         }
         if (wXMediaMessage == null) {
             Log.e(a, "can't new WXMessage");
-            IBaiduListener B = B(this.h);
-            C(this.h);
-            if (B != null) {
-                B.onError(new BaiduException("WXMessage can't new instance"));
+            IBaiduListener q = q(this.h);
+            r(this.h);
+            if (q != null) {
+                q.onError(new BaiduException("WXMessage can't new instance"));
                 return;
             }
             return;
@@ -209,10 +191,10 @@ public class n implements ISocialShareHandler {
             return;
         }
         Log.e(a, "sendMessage error");
-        IBaiduListener B2 = B(this.h);
-        C(this.h);
-        if (B2 != null) {
-            B2.onError(new BaiduException("WXMessage args error pls check args!"));
+        IBaiduListener q2 = q(this.h);
+        r(this.h);
+        if (q2 != null) {
+            q2.onError(new BaiduException("WXMessage args error pls check args!"));
         }
     }
 
@@ -228,12 +210,8 @@ public class n implements ISocialShareHandler {
         return (bitmap.getHeight() * i) / bitmap.getWidth();
     }
 
-    private int c(Bitmap bitmap, int i) {
-        return (bitmap.getWidth() * i) / bitmap.getHeight();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public byte[] c(Bitmap bitmap) {
+    public byte[] b(Bitmap bitmap) {
         int i;
         int i2 = 150;
         if (bitmap != null) {
@@ -250,6 +228,28 @@ public class n implements ISocialShareHandler {
             byte[] compressedImageData = WXMediaMessage.getCompressedImageData(createScaledBitmap);
             createScaledBitmap.recycle();
             return compressedImageData;
+        }
+        return null;
+    }
+
+    private int c(Bitmap bitmap, int i) {
+        return (bitmap.getWidth() * i) / bitmap.getHeight();
+    }
+
+    public static IBaiduListener q(String str) {
+        WeakReference weakReference = (WeakReference) b.get(str);
+        if (weakReference != null) {
+            b.remove(str);
+            return (IBaiduListener) weakReference.get();
+        }
+        return null;
+    }
+
+    public static ShareContent r(String str) {
+        WeakReference weakReference = (WeakReference) c.get(str);
+        if (weakReference != null) {
+            c.remove(str);
+            return (ShareContent) weakReference.get();
         }
         return null;
     }

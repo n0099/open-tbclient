@@ -17,15 +17,15 @@ public class s extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bf bfVar;
-        bf bfVar2;
+        bg bgVar;
+        bg bgVar2;
         if (customResponsedMessage != null) {
             Long l = (Long) customResponsedMessage.getData();
-            bfVar = this.this$0.dvN;
-            long c = com.baidu.adp.lib.h.b.c(bfVar.getId(), 0L);
+            bgVar = this.this$0.dyP;
+            long c = com.baidu.adp.lib.h.b.c(bgVar.getId(), 0L);
             if (l != null && c == l.longValue()) {
-                bfVar2 = this.this$0.dvN;
-                bfVar2.aDk();
+                bgVar2 = this.this$0.dyP;
+                bgVar2.aDF();
             }
         }
     }

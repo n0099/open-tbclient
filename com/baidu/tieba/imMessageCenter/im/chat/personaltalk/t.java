@@ -9,13 +9,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r cth;
+    final /* synthetic */ r cuf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.cth = rVar;
+        this.cuf = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,30 +32,30 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.cth.ctf;
+                personalTalkSettingActivity = this.cuf.cud;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.cth.ctf;
+                    personalTalkSettingActivity2 = this.cuf.cud;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.cth.akM = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.cth.ctf;
+            this.cuf.agz = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.cuf.cud;
             if (personalTalkSettingActivity3 != null) {
-                z = this.cth.akM;
+                z = this.cuf.agz;
                 if (z) {
-                    personalTalkSettingActivity5 = this.cth.ctf;
+                    personalTalkSettingActivity5 = this.cuf.cud;
                     personalTalkSettingActivity5.showToast(t.j.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.cth.ctf;
+                    personalTalkSettingActivity4 = this.cuf.cud;
                     personalTalkSettingActivity4.showToast(t.j.remove_succ);
                 }
             }
-            aVar = this.cth.ctg;
+            aVar = this.cuf.cue;
             if (aVar != null) {
-                aVar2 = this.cth.ctg;
-                aVar2.xo();
+                aVar2 = this.cuf.cue;
+                aVar2.uX();
             }
         }
     }

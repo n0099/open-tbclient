@@ -1,32 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.media.MediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class y implements MediaPlayer.OnVideoSizeChangedListener {
-    final /* synthetic */ TextureVideoView ahp;
+class y extends CustomMessageListener {
+    final /* synthetic */ w acA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(TextureVideoView textureVideoView) {
-        this.ahp = textureVideoView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(w wVar, int i) {
+        super(i);
+        this.acA = wVar;
     }
 
-    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        int i3;
-        int i4;
-        try {
-            this.ahp.agS = mediaPlayer.getVideoWidth();
-            this.ahp.agT = mediaPlayer.getVideoHeight();
-            i3 = this.ahp.agS;
-            if (i3 != 0) {
-                i4 = this.ahp.agT;
-                if (i4 != 0) {
-                    this.ahp.requestLayout();
-                }
-            }
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.acA.ach.setBackgroundColor(com.baidu.tbadk.core.util.al.tN().cv(TbadkCoreApplication.m11getInst().getSkinType()));
     }
 }

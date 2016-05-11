@@ -25,36 +25,36 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements View.OnClickListener, i, Runnable {
-    public static Bitmap axl;
-    private com.baidu.adp.gif.b Hj;
-    private final com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> axA;
-    private final int axd;
-    private int axe;
-    private a axf;
-    private boolean axg;
-    private BitmapDrawable axh;
-    private boolean axi;
-    private Drawable axj;
-    private float axk;
-    private float axm;
-    private boolean axn;
-    private Drawable axo;
-    private int axp;
-    private final Rect axq;
-    private final Rect axr;
-    private boolean axs;
-    private boolean axt;
-    private boolean axu;
-    private boolean axv;
-    private boolean axw;
-    private com.baidu.tbadk.gif.a axx;
-    private boolean axy;
-    private BdUniqueId axz;
+    public static Bitmap atm;
+    private BdUniqueId atA;
+    private final com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> atB;
+    private final int ate;
+    private int atf;
+    private a atg;
+    private boolean ath;
+    private BitmapDrawable ati;
+    private boolean atj;
+    private Drawable atk;
+    private float atl;
+    private float atn;
+    private boolean ato;
+    private Drawable atp;
+    private int atq;
+    private final Rect atr;
+    private final Rect ats;
+    private boolean att;
+    private boolean atu;
+    private boolean atv;
+    private boolean atw;
+    private boolean atx;
+    private com.baidu.tbadk.gif.a aty;
+    private boolean atz;
     private Bitmap mBitmap;
     private final Handler mHandler;
     private boolean mIsLoading;
     private View.OnClickListener mOnClickListener;
     private final int mType;
+    private com.baidu.adp.gif.b xB;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -71,27 +71,27 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
 
     public GifView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.axd = t.f.pic_expression_upload_selector;
-        this.axg = false;
-        this.axq = new Rect();
-        this.axr = new Rect();
-        this.axs = true;
-        this.axt = false;
-        this.axu = false;
-        this.axv = false;
+        this.ate = t.f.pic_expression_upload_selector;
+        this.ath = false;
+        this.atr = new Rect();
+        this.ats = new Rect();
+        this.att = true;
+        this.atu = false;
+        this.atv = false;
+        this.atw = false;
         this.mHandler = new b(this, Looper.getMainLooper());
         this.mType = 20;
-        this.axy = true;
-        this.axA = new c(this);
-        this.axh = (BitmapDrawable) getResources().getDrawable(t.f.icon_content_animation);
-        this.axh.setBounds(0, 0, this.axh.getIntrinsicWidth(), this.axh.getIntrinsicHeight());
-        this.axm = 30.0f;
+        this.atz = true;
+        this.atB = new c(this);
+        this.ati = (BitmapDrawable) getResources().getDrawable(t.f.icon_content_animation);
+        this.ati.setBounds(0, 0, this.ati.getIntrinsicWidth(), this.ati.getIntrinsicHeight());
+        this.atn = 30.0f;
         if (((BitmapDrawable) getResources().getDrawable(t.f.loading)) != null) {
-            axl = a(this);
-            this.axr.set(0, 0, axl.getWidth(), axl.getHeight());
+            atm = a(this);
+            this.ats.set(0, 0, atm.getWidth(), atm.getHeight());
         }
-        this.axj = getResources().getDrawable(t.f.image_group_load_f);
-        c(this.axj);
+        this.atk = getResources().getDrawable(t.f.image_group_load_f);
+        c(this.atk);
     }
 
     private void c(Drawable drawable) {
@@ -116,10 +116,10 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
                 int i6 = i5 / 4;
                 int i7 = ((i5 - i6) / 2) + paddingLeft;
                 int i8 = ((paddingBottom - i6) / 2) + paddingTop;
-                this.axq.set(i7, i8, i7 + i6, i6 + i8);
+                this.atr.set(i7, i8, i7 + i6, i6 + i8);
             }
-            int intrinsicWidth = this.axj.getIntrinsicWidth();
-            int intrinsicHeight = this.axj.getIntrinsicHeight();
+            int intrinsicWidth = this.atk.getIntrinsicWidth();
+            int intrinsicHeight = this.atk.getIntrinsicHeight();
             if (intrinsicWidth > i5) {
                 intrinsicWidth = i5;
             }
@@ -128,10 +128,10 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             }
             int i9 = ((i5 - intrinsicWidth) / 2) + paddingLeft;
             int i10 = ((paddingBottom - intrinsicHeight) / 2) + paddingTop;
-            this.axj.setBounds(i9, i10, intrinsicWidth + i9, intrinsicHeight + i10);
-            if (this.axo != null) {
-                int intrinsicWidth2 = this.axo.getIntrinsicWidth();
-                int intrinsicHeight2 = this.axo.getIntrinsicHeight();
+            this.atk.setBounds(i9, i10, intrinsicWidth + i9, intrinsicHeight + i10);
+            if (this.atp != null) {
+                int intrinsicWidth2 = this.atp.getIntrinsicWidth();
+                int intrinsicHeight2 = this.atp.getIntrinsicHeight();
                 if (intrinsicWidth2 > i5) {
                     intrinsicWidth2 = i5;
                 }
@@ -140,65 +140,65 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
                 }
                 int i11 = ((i5 - intrinsicWidth2) / 2) + paddingLeft;
                 int i12 = ((paddingBottom - intrinsicHeight2) / 2) + paddingTop;
-                this.axo.setBounds(i11, i12, intrinsicWidth2 + i11, intrinsicHeight2 + i12);
+                this.atp.setBounds(i11, i12, intrinsicWidth2 + i11, intrinsicHeight2 + i12);
             }
         }
     }
 
     public void release() {
-        if (this.axu && this.Hj != null && this.Hj != null) {
-            this.Hj.close();
-            this.Hj = null;
+        if (this.atv && this.xB != null && this.xB != null) {
+            this.xB.close();
+            this.xB = null;
         }
     }
 
     public void setGif(com.baidu.adp.widget.a.a aVar) {
-        this.axi = false;
+        this.atj = false;
         this.mIsLoading = false;
-        this.axn = false;
-        if (this.axx != null) {
-            this.axx.awX = false;
+        this.ato = false;
+        if (this.aty != null) {
+            this.aty.asY = false;
         }
         if (aVar == null) {
-            this.axi = true;
-            this.axg = false;
-            if (this.axx != null) {
-                this.axx.awX = true;
+            this.atj = true;
+            this.ath = false;
+            if (this.aty != null) {
+                this.aty.asY = true;
             }
             setImageDrawable(null);
-            if (this.Hj != null) {
-                this.Hj.close();
+            if (this.xB != null) {
+                this.xB.close();
             }
         } else if (aVar.getGif() == null) {
-            if (!aVar.mI()) {
-                this.axg = true;
+            if (!aVar.iW()) {
+                this.ath = true;
                 aVar.a(this);
                 this.mIsLoading = false;
             }
-            if (this.Hj != null) {
-                this.Hj.close();
+            if (this.xB != null) {
+                this.xB.close();
             }
-        } else if (this.Hj == null || !aVar.getGif().equals(this.Hj)) {
-            this.axg = false;
+        } else if (this.xB == null || !aVar.getGif().equals(this.xB)) {
+            this.ath = false;
             try {
                 if (this.mBitmap == null || (this.mBitmap.getWidth() != aVar.getGif().getWidth() && this.mBitmap.getHeight() != aVar.getGif().getHeight())) {
                     this.mBitmap = Bitmap.createBitmap(aVar.getGif().getWidth(), aVar.getGif().getHeight(), Bitmap.Config.ARGB_8888);
                 }
-                this.Hj = aVar.getGif();
-                aVar.getGif().Q(0);
+                this.xB = aVar.getGif();
+                aVar.getGif().E(0);
                 aVar.getGif().a(this.mBitmap, null);
                 setImageBitmap(this.mBitmap);
-                if (this.axs) {
+                if (this.att) {
                     play();
                 }
             } catch (Throwable th) {
                 onStop();
             }
         } else {
-            aVar.getGif().Q(this.axe);
+            aVar.getGif().E(this.atf);
             aVar.getGif().a(this.mBitmap, null);
             setImageBitmap(this.mBitmap);
-            if (this.axs) {
+            if (this.att) {
                 resume();
             }
         }
@@ -261,25 +261,25 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         if (bArr == null || bArr.length < i2) {
             return;
         }
-        com.baidu.adp.widget.a.a d = a.C0004a.fn().d(bArr, 0, i2);
-        this.axu = true;
+        com.baidu.adp.widget.a.a d = a.C0004a.bB().d(bArr, 0, i2);
+        this.atv = true;
         setGif(d);
     }
 
     public boolean getAutoPlay() {
-        return this.axs;
+        return this.att;
     }
 
     public void setAutoPlay(boolean z) {
-        this.axs = z;
+        this.att = z;
     }
 
     public void resume() {
-        this.axv = false;
+        this.atw = false;
         com.baidu.adp.gif.b gif = getGif();
         if (gif != null) {
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, gif.R(this.axe));
+            this.mHandler.sendEmptyMessageDelayed(1, gif.F(this.atf));
         }
     }
 
@@ -287,7 +287,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         com.baidu.adp.gif.b gif = getGif();
         if (gif != null) {
             this.mHandler.removeMessages(1);
-            gif.Q(0);
+            gif.E(0);
             gif.a(this.mBitmap, null);
             invalidate();
             onStop();
@@ -295,45 +295,45 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     }
 
     public void play() {
-        this.axv = false;
+        this.atw = false;
         com.baidu.adp.gif.b gif = getGif();
         if (gif != null) {
-            if (this.axe != 0) {
-                this.axe = 0;
+            if (this.atf != 0) {
+                this.atf = 0;
             }
-            gif.Q(0);
+            gif.E(0);
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, gif.R(this.axe));
+            this.mHandler.sendEmptyMessageDelayed(1, gif.F(this.atf));
         }
     }
 
-    public void EJ() {
-        this.axw = true;
+    public void CC() {
+        this.atx = true;
         play();
     }
 
     public void onDestroy() {
-        this.Hj = null;
+        this.xB = null;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mHandler.removeMessages(1);
-        EL();
+        CE();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.mHandler.removeMessages(1);
-        EL();
+        CE();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (!this.axg) {
+        if (!this.ath) {
             if (i == 4 || i == 8) {
                 stop();
             } else if (i == 0) {
@@ -344,38 +344,38 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (!this.mIsLoading && !this.axi && !this.axn) {
+        if (!this.mIsLoading && !this.atj && !this.ato) {
             super.onDraw(canvas);
         }
         canvas.save();
         try {
-            if (this.Hj != null && !this.mIsLoading && !this.axi && !this.axn) {
-                this.Hj.a(null, canvas);
+            if (this.xB != null && !this.mIsLoading && !this.atj && !this.ato) {
+                this.xB.a(null, canvas);
             }
         } catch (Throwable th) {
             BdLog.e("setGif:" + th.getMessage());
             onStop();
         }
         canvas.restore();
-        if (this.axg) {
+        if (this.ath) {
             canvas.save();
-            this.axh.draw(canvas);
+            this.ati.draw(canvas);
             canvas.restore();
         }
         if (this.mIsLoading && a(this) != null) {
             canvas.save();
             int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
             int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
-            canvas.rotate(this.axk, (width * 0.5f) + getPaddingLeft(), (height * 0.5f) + getPaddingTop());
-            canvas.drawBitmap(a(this), this.axr, this.axq, (Paint) null);
+            canvas.rotate(this.atl, (width * 0.5f) + getPaddingLeft(), (height * 0.5f) + getPaddingTop());
+            canvas.drawBitmap(a(this), this.ats, this.atr, (Paint) null);
             canvas.restore();
-        } else if (this.axi || (this.axx != null && this.axx.awX)) {
+        } else if (this.atj || (this.aty != null && this.aty.asY)) {
             canvas.save();
-            this.axj.draw(canvas);
+            this.atk.draw(canvas);
             canvas.restore();
-        } else if (this.axn) {
+        } else if (this.ato) {
             canvas.save();
-            this.axo.draw(canvas);
+            this.atp.draw(canvas);
             canvas.restore();
         }
     }
@@ -391,20 +391,20 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     public void startLoading() {
         if (!this.mIsLoading) {
             this.mIsLoading = true;
-            EK();
+            CD();
         }
     }
 
     public void c(boolean z, int i) {
-        this.axn = z;
+        this.ato = z;
         if (z) {
             this.mIsLoading = false;
-            this.axi = false;
-            if (this.axo == null || this.axp != i) {
-                this.axp = i;
-                this.axo = at.getDrawable(i);
-                int intrinsicWidth = this.axo.getIntrinsicWidth();
-                int intrinsicHeight = this.axo.getIntrinsicHeight();
+            this.atj = false;
+            if (this.atp == null || this.atq != i) {
+                this.atq = i;
+                this.atp = at.getDrawable(i);
+                int intrinsicWidth = this.atp.getIntrinsicWidth();
+                int intrinsicHeight = this.atp.getIntrinsicHeight();
                 int measuredWidth = getMeasuredWidth();
                 int measuredHeight = getMeasuredHeight();
                 if (intrinsicWidth > measuredWidth) {
@@ -415,7 +415,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
                 }
                 int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
                 int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
-                this.axo.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+                this.atp.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
             }
         }
         invalidate();
@@ -427,30 +427,30 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         invalidate();
     }
 
-    private void EK() {
+    private void CD() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.axk += this.axm;
-        if (this.axk > 360.0f - this.axm) {
-            this.axk = 0.0f;
+        this.atl += this.atn;
+        if (this.atl > 360.0f - this.atn) {
+            this.atl = 0.0f;
         }
         invalidate();
-        EK();
+        CD();
     }
 
     public void setPlayCallback(a aVar) {
-        this.axf = aVar;
+        this.atg = aVar;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.axo != null && this.axo.isStateful()) {
-            this.axo.setState(getDrawableState());
+        if (this.atp != null && this.atp.isStateful()) {
+            this.atp.setState(getDrawableState());
             invalidate();
         }
     }
@@ -459,10 +459,10 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         BdUniqueId bdUniqueId;
         boolean z;
         if (aVar == null) {
-            this.axx = null;
+            this.aty = null;
             return;
         }
-        boolean Ht = h.Ht();
+        boolean Fr = h.Fr();
         k q = l.q(getContext());
         if (q != null) {
             bdUniqueId = q.getUniqueId();
@@ -471,44 +471,44 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             bdUniqueId = null;
             z = false;
         }
-        if (!(aVar == this.axx && this.axz == bdUniqueId)) {
-            EL();
+        if (!(aVar == this.aty && this.atA == bdUniqueId)) {
+            CE();
         }
-        this.axx = aVar;
-        this.axz = bdUniqueId;
-        String str = Ht ? this.axx.axa : this.axx.awZ;
-        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.hr().a(this.axx.awY, 20, this.axx.mGid, this.axx.awY, Boolean.valueOf(Ht), str);
+        this.aty = aVar;
+        this.atA = bdUniqueId;
+        String str = Fr ? this.aty.atb : this.aty.ata;
+        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
         if (aVar2 != null) {
             stopLoading();
             setGif(aVar2);
-        } else if (this.axx.awX) {
+        } else if (this.aty.asY) {
             setGif(null);
-        } else if (!com.baidu.adp.lib.g.c.hr().ah(20) && this.axy) {
-            c(true, this.axd);
+        } else if (!com.baidu.adp.lib.g.c.dF().V(20) && this.atz) {
+            c(true, this.ate);
         } else {
             startLoading();
             if (!z) {
-                com.baidu.adp.lib.g.c.hr().a(this.axx.awY, 20, this.axA, 0, 0, this.axz, this.axx.mGid, this.axx.awY, Boolean.valueOf(Ht), str);
+                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
             }
         }
     }
 
-    public void EL() {
+    public void CE() {
         stopLoading();
-        this.axi = false;
-        this.axn = false;
-        if (this.axx != null) {
-            com.baidu.adp.lib.g.c.hr().a(this.axx.awY, 20, this.axA);
+        this.atj = false;
+        this.ato = false;
+        if (this.aty != null) {
+            com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB);
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.i
     public void refresh() {
-        a(this.axx);
+        a(this.aty);
     }
 
     public void setSupportNoImage(boolean z) {
-        this.axy = z;
+        this.atz = z;
     }
 
     @Override // android.view.View
@@ -519,16 +519,16 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.axx != null) {
-            boolean Ht = h.Ht();
-            String str = Ht ? this.axx.axa : this.axx.awZ;
-            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.hr().a(this.axx.awY, 20, this.axx.mGid, this.axx.awY, Boolean.valueOf(Ht), str);
+        if (this.aty != null) {
+            boolean Fr = h.Fr();
+            String str = Fr ? this.aty.atb : this.aty.ata;
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
             if (aVar != null) {
-                this.axx.awX = false;
+                this.aty.asY = false;
                 setGif(aVar);
             } else {
                 startLoading();
-                com.baidu.adp.lib.g.c.hr().a(this.axx.awY, 20, this.axA, 0, 0, this.axz, this.axx.mGid, this.axx.awY, Boolean.valueOf(Ht), str);
+                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
                 return;
             }
         }
@@ -538,33 +538,33 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     }
 
     public void setIsKeepLastFrame(boolean z) {
-        this.axt = z;
+        this.atu = z;
     }
 
     public static Bitmap a(GifView gifView) {
-        if (axl != null && !axl.isRecycled()) {
-            return axl;
+        if (atm != null && !atm.isRecycled()) {
+            return atm;
         }
         BitmapDrawable bitmapDrawable = (BitmapDrawable) gifView.getResources().getDrawable(t.f.loading);
         if (bitmapDrawable != null) {
-            axl = bitmapDrawable.getBitmap();
+            atm = bitmapDrawable.getBitmap();
         }
-        return axl;
+        return atm;
     }
 
     public com.baidu.adp.gif.b getGif() {
-        if (this.Hj == null) {
+        if (this.xB == null) {
             onStop();
             return null;
         }
-        return this.Hj;
+        return this.xB;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onStop() {
-        if (this.axf != null && !this.axv) {
-            this.axf.onStop();
-            this.axv = true;
+        if (this.atg != null && !this.atw) {
+            this.atg.onStop();
+            this.atw = true;
         }
     }
 }

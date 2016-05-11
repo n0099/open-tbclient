@@ -1,24 +1,30 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ FrsActivity blk;
+public class p implements com.baidu.tbadk.util.e<Boolean> {
+    final /* synthetic */ o bho;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(FrsActivity frsActivity) {
-        this.blk = frsActivity;
+    public p(o oVar) {
+        this.bho = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aF = this.blk.bko.Sb().aF(((Integer) view.getTag()).intValue());
-        if (aF instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aF;
-            if (!cVar.rm()) {
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.e
+    /* renamed from: d */
+    public void C(Boolean bool) {
+        FrsActivity frsActivity;
+        cn cnVar;
+        FrsActivity frsActivity2;
+        cn cnVar2;
+        if (bool != null) {
+            frsActivity = this.bho.bhl;
+            cnVar = frsActivity.bgo;
+            if (cnVar != null) {
+                frsActivity2 = this.bho.bhl;
+                cnVar2 = frsActivity2.bgo;
+                cnVar2.Ro();
             }
-            this.blk.b(cVar);
         }
     }
 }

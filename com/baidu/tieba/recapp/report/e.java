@@ -8,33 +8,33 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.or(com.baidu.adp.lib.h.b.g(cVar.Sf, 0));
-        aVar.nr(str);
-        aVar.ns(cVar.price);
-        aVar.nq(cVar.Sl);
+        aVar.oh(com.baidu.adp.lib.h.b.g(cVar.MT, 0));
+        aVar.nq(str);
+        aVar.nr(cVar.price);
+        aVar.np(cVar.MZ);
         aVar.setPageNumber(i);
         return aVar;
     }
 
-    public static a h(String str, int i, int i2) {
+    public static a i(String str, int i, int i2) {
         a aVar = new a();
-        aVar.nr(str);
-        aVar.or(i);
+        aVar.nq(str);
+        aVar.oh(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
     public static a a(r rVar, String str) {
-        if (rVar == null || rVar.aTh() == null) {
+        if (rVar == null || rVar.aTH() == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.data.e aTh = rVar.aTh();
+        com.baidu.tieba.tbadkCore.data.e aTH = rVar.aTH();
         a aVar = new a();
-        aVar.or(com.baidu.adp.lib.h.b.g(aTh.pos_name, 0));
-        aVar.nq(aTh.ext_info);
+        aVar.oh(com.baidu.adp.lib.h.b.g(aTH.pos_name, 0));
+        aVar.np(aTH.ext_info);
         aVar.setPageNumber(rVar.pageNumber);
-        aVar.nr(str);
-        aVar.ns(aTh.price);
+        aVar.nq(str);
+        aVar.nr(aTH.price);
         return aVar;
     }
 }

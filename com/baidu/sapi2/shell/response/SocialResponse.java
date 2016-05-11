@@ -8,4 +8,6 @@ public class SocialResponse extends SapiAccountResponse {
     public String socialUname = "";
     public String socialPortraitUrl = "";
     public SocialType socialType = SocialType.UNKNOWN;
+    public boolean bindGuide = false;
+    public boolean offlineNotice = false;
 }

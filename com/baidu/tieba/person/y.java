@@ -1,60 +1,87 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.person.s;
 import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements View.OnClickListener {
-    final /* synthetic */ s dst;
+public class y extends HttpMessageListener {
+    final /* synthetic */ s dvP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(s sVar) {
-        this.dst = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(s sVar, int i) {
+        super(i);
+        this.dvP = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ad adVar;
-        ad adVar2;
-        ad adVar3;
-        TextView textView;
-        TextView textView2;
-        ad adVar4;
-        ad adVar5;
-        TextView textView3;
-        TextView textView4;
-        int i;
-        ad adVar6;
-        adVar = this.dst.dsd;
-        if (adVar != null) {
-            adVar2 = this.dst.dsd;
-            if (!adVar2.JH()) {
-                adVar5 = this.dst.dsd;
-                adVar5.setEditState(true);
-                textView3 = this.dst.aLH;
-                textView3.setText(t.j.done);
-                if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    this.dst.dso = t.d.navi_op_text;
-                } else {
-                    this.dst.dso = t.d.cp_link_tip_a;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonBarActivity aBC;
+        String str;
+        PersonBarActivity aBC2;
+        boolean z;
+        String str2;
+        String str3;
+        af afVar;
+        af afVar2;
+        PersonBarActivity aBC3;
+        String str4;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
+            aBC = this.dvP.aBC();
+            if (aBC != null) {
+                if (this.dvP.dvy != null && this.dvP.dvy.getView() != null) {
+                    this.dvP.dvy.getView().setVisibility(0);
                 }
-                textView4 = this.dst.aLH;
-                i = this.dst.dso;
-                com.baidu.tbadk.core.util.at.b(textView4, i, 1);
-                adVar6 = this.dst.dsd;
-                adVar6.notifyDataSetChanged();
+                this.dvP.zu.k(2000L);
+                this.dvP.cMs = false;
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                aBC2 = this.dvP.aBC();
+                if (tag == aBC2.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
+                        PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
+                        if (personBarResponseMessage.getErrCode() == 0) {
+                            r personBarData = personBarResponseMessage.getPersonBarData();
+                            afVar = this.dvP.dvo;
+                            afVar.mp(this.dvP.dvC);
+                            afVar2 = this.dvP.dvo;
+                            afVar2.mr(personBarResponseMessage.getResultString());
+                            this.dvP.a(personBarData, false);
+                            aBC3 = this.dvP.aBC();
+                            if (1 == aBC3.ahL()) {
+                                s.a aVar = this.dvP.dvy;
+                                str4 = this.dvP.dvF;
+                                aVar.mp(str4);
+                                return;
+                            }
+                            return;
+                        }
+                        this.dvP.showToast(httpResponsedMessage.getErrorString());
+                        s.a aVar2 = this.dvP.dvy;
+                        str3 = this.dvP.dvF;
+                        aVar2.mp(str3);
+                        return;
+                    }
+                    this.dvP.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dvP.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
+                    z = this.dvP.dvI;
+                    if (z) {
+                        s.a aVar3 = this.dvP.dvy;
+                        str2 = this.dvP.dvF;
+                        aVar3.mp(str2);
+                        return;
+                    }
+                    this.dvP.dvy.mp("");
+                    return;
+                }
                 return;
             }
-            adVar3 = this.dst.dsd;
-            adVar3.setEditState(false);
-            textView = this.dst.aLH;
-            textView.setText(t.j.edit);
-            this.dst.dso = t.d.navi_op_text;
-            textView2 = this.dst.aLH;
-            com.baidu.tbadk.core.util.at.b(textView2, t.d.navi_op_text, 1);
-            adVar4 = this.dst.dsd;
-            adVar4.notifyDataSetChanged();
+            s.a aVar4 = this.dvP.dvy;
+            str = this.dvP.dvF;
+            aVar4.mp(str);
         }
     }
 }

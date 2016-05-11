@@ -8,8 +8,10 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class SapiResult {
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
+    public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE = "网络连接不可用，请检查网络设置";
+    public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
     public static final String ERROR_MSG_UNKNOWN = "网络连接失败，请检查网络设置";
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
@@ -97,6 +99,7 @@ public class SapiResult {
         this.msgMap.put(110000, RESULT_MSG_SUCCESS);
         this.msgMap.put(ERROR_CODE_NETWORK_UNAVAILABLE, ERROR_MSG_NETWORK_UNAVAILABLE);
         this.msgMap.put(ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);
     }
 
     public int getResultCode() {

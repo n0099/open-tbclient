@@ -1,23 +1,28 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.plugins.XiaoyingUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aJw;
-    private final /* synthetic */ n aJx;
+class u extends CustomMessageListener {
+    final /* synthetic */ TbRichTextView aFD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(TbRichTextView tbRichTextView, n nVar) {
-        this.aJw = tbRichTextView;
-        this.aJx = nVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(TbRichTextView tbRichTextView, int i) {
+        super(i);
+        this.aFD = tbRichTextView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.log("c10643");
-        XiaoyingUtil.startPlayXiaoyingVideo(this.aJw.getContext(), this.aJx.getVideoUrl(), this.aJx.getWidth(), this.aJx.getHeight(), this.aJx.rV());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        z = this.aFD.aFw;
+        if (z) {
+            this.aFD.setTextSize(TbConfig.getContentSizeOfLzl(this.aFD.getContext()));
+        } else {
+            this.aFD.setTextSize(TbConfig.getContentSize());
+        }
     }
 }

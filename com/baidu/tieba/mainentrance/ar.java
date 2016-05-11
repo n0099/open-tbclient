@@ -6,32 +6,34 @@ import com.baidu.tieba.mainentrance.SquareSearchActivity;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ar implements Runnable {
-    final /* synthetic */ SquareSearchActivity cLU;
+    final /* synthetic */ SquareSearchActivity cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SquareSearchActivity squareSearchActivity) {
-        this.cLU = squareSearchActivity;
+        this.cMQ = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SquareSearchActivity.a aVar;
         SquareSearchActivity.a aVar2;
-        try {
-            if (this.cLU.cLn != null && this.cLU.cLn.length() > 0) {
-                StringBuffer stringBuffer = new StringBuffer(30);
-                stringBuffer.append(TbConfig.SERVER_ADDRESS);
-                stringBuffer.append("c/f/forum/search");
-                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.cLU.cLn.trim());
-                this.cLU.aow();
-                this.cLU.cLk = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
-                aVar = this.cLU.cLk;
-                aVar.setPriority(3);
-                aVar2 = this.cLU.cLk;
-                aVar2.execute(stringBuffer.toString(), basicNameValuePair);
+        if (!this.cMQ.aoW()) {
+            try {
+                if (this.cMQ.cMj != null && this.cMQ.cMj.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append(TbConfig.SERVER_ADDRESS);
+                    stringBuffer.append("c/f/forum/search");
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.cMQ.cMj.trim());
+                    this.cMQ.aoA();
+                    this.cMQ.cMg = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
+                    aVar = this.cMQ.cMg;
+                    aVar.setPriority(3);
+                    aVar2 = this.cMQ.cMg;
+                    aVar2.execute(stringBuffer.toString(), basicNameValuePair);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

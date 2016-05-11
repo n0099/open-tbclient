@@ -13,31 +13,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    private C0084a erN;
-    private c erO;
-    private e erP;
+    private C0076a euW;
+    private c euX;
+    private e euY;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.erN = null;
-        this.erO = null;
-        this.erP = null;
+        this.euW = null;
+        this.euX = null;
+        this.euY = null;
     }
 
     public a(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.erN = null;
-        this.erO = null;
-        this.erP = null;
+        this.euW = null;
+        this.euX = null;
+        this.euY = null;
     }
 
     /* loaded from: classes.dex */
     public class b {
-        public boolean AU;
-        public int erQ;
-        public String erS;
+        public int euZ;
+        public String evb;
         public int mErrCode;
         public String mPostId;
+        public boolean rg;
 
         public b() {
         }
@@ -45,8 +45,8 @@ public class a extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public class d {
-        public boolean AU;
-        public String erS;
+        public String evb;
+        public boolean rg;
 
         public d() {
         }
@@ -54,9 +54,9 @@ public class a extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public class f {
-        public boolean AU;
-        public String erS;
-        public ArrayList<t> erU;
+        public String evb;
+        public ArrayList<t> evd;
+        public boolean rg;
 
         public f() {
         }
@@ -69,106 +69,106 @@ public class a extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        aUm();
+        aUH();
         return false;
     }
 
-    public void aUm() {
-        if (this.erN != null) {
-            this.erN.cancel();
-            this.erN = null;
+    public void aUH() {
+        if (this.euW != null) {
+            this.euW.cancel();
+            this.euW = null;
         }
-        if (this.erO != null) {
-            this.erO.cancel();
-            this.erO = null;
+        if (this.euX != null) {
+            this.euX.cancel();
+            this.euX = null;
         }
-        if (this.erP != null) {
-            this.erP.cancel();
-            this.erP = null;
+        if (this.euY != null) {
+            this.euY.cancel();
+            this.euY = null;
         }
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.erN != null) {
-            this.erN.cancel();
-            this.erN = null;
+        if (this.euW != null) {
+            this.euW.cancel();
+            this.euW = null;
         }
         this.mLoadDataMode = 0;
-        this.erN = new C0084a(str, str2, str3, str4, i, i2, z);
-        this.erN.setPriority(2);
-        this.erN.execute(new String[0]);
+        this.euW = new C0076a(str, str2, str3, str4, i, i2, z);
+        this.euW.setPriority(2);
+        this.euW.execute(new String[0]);
     }
 
-    public boolean aUn() {
-        return (this.erN == null && this.erO == null && this.erP == null) ? false : true;
+    public boolean aUI() {
+        return (this.euW == null && this.euX == null && this.euY == null) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.tbadkCore.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0084a extends BdAsyncTask<String, Integer, Boolean> {
-        private ab aiW = null;
-        private boolean bJj;
-        private int dpl;
-        private int erQ;
+    public class C0076a extends BdAsyncTask<String, Integer, Boolean> {
+        private ab aeI = null;
+        private boolean bJq;
+        private int dqS;
+        private int euZ;
         private String mForumId;
         private String mForumName;
         private String mPostId;
         private String mThreadId;
 
-        public C0084a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        public C0076a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mPostId = str4;
-            this.erQ = i;
-            this.dpl = i2;
-            this.bJj = z;
+            this.euZ = i;
+            this.dqS = i2;
+            this.bJq = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             String str;
             String str2 = TbConfig.SERVER_ADDRESS;
-            if (this.erQ == 0) {
+            if (this.euZ == 0) {
                 str = String.valueOf(str2) + TbConfig.DEL_THREAD_ADDRESS;
             } else {
                 str = String.valueOf(str2) + TbConfig.DEL_POST_ADDRESS;
             }
-            this.aiW = new ab(str);
-            this.aiW.p("fid", this.mForumId);
-            this.aiW.p("word", this.mForumName);
-            this.aiW.p("z", this.mThreadId);
-            if (this.erQ == 0) {
-                if (this.dpl == 0) {
-                    this.aiW.p("delete_my_thread", "1");
+            this.aeI = new ab(str);
+            this.aeI.n("fid", this.mForumId);
+            this.aeI.n("word", this.mForumName);
+            this.aeI.n("z", this.mThreadId);
+            if (this.euZ == 0) {
+                if (this.dqS == 0) {
+                    this.aeI.n("delete_my_thread", "1");
                 }
-            } else if (this.erQ == 1) {
-                this.aiW.p(Info.kBaiduPIDKey, this.mPostId);
-                this.aiW.p("isfloor", "0");
-                this.aiW.p("src", "1");
-                if (this.dpl == 0 && this.bJj) {
-                    this.aiW.p("delete_my_post", "1");
+            } else if (this.euZ == 1) {
+                this.aeI.n(Info.kBaiduPIDKey, this.mPostId);
+                this.aeI.n("isfloor", "0");
+                this.aeI.n("src", "1");
+                if (this.dqS == 0 && this.bJq) {
+                    this.aeI.n("delete_my_post", "1");
                 }
-            } else if (this.erQ == 2) {
-                this.aiW.p(Info.kBaiduPIDKey, this.mPostId);
-                this.aiW.p("isfloor", "1");
-                this.aiW.p("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-                if (this.dpl == 0 && this.bJj) {
-                    this.aiW.p("delete_my_post", "1");
+            } else if (this.euZ == 2) {
+                this.aeI.n(Info.kBaiduPIDKey, this.mPostId);
+                this.aeI.n("isfloor", "1");
+                this.aeI.n("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+                if (this.dqS == 0 && this.bJq) {
+                    this.aeI.n("delete_my_post", "1");
                 }
             }
-            if (this.dpl == 0 && !this.bJj) {
-                this.aiW.p("is_vipdel", "1");
+            if (this.dqS == 0 && !this.bJq) {
+                this.aeI.n("is_vipdel", "1");
             } else {
-                this.aiW.p("is_vipdel", "0");
+                this.aeI.n("is_vipdel", "0");
             }
-            this.aiW.vU().wO().mIsNeedTbs = true;
-            this.aiW.vw();
-            if (this.aiW.vU().wP().qC()) {
+            this.aeI.tA().uu().mIsNeedTbs = true;
+            this.aeI.tc();
+            if (this.aeI.tA().uv().nZ()) {
                 return true;
             }
             return false;
@@ -176,10 +176,10 @@ public class a extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.aiW != null) {
-                this.aiW.gX();
+            if (this.aeI != null) {
+                this.aeI.dl();
             }
-            a.this.erN = null;
+            a.this.euW = null;
             super.cancel(true);
             a.this.mLoadDataCallBack.d(null);
         }
@@ -190,20 +190,20 @@ public class a extends com.baidu.adp.base.e {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            a.this.erN = null;
-            if (this.aiW == null || bool == null) {
+            a.this.euW = null;
+            if (this.aeI == null || bool == null) {
                 a.this.mLoadDataCallBack.d(null);
                 return;
             }
             b bVar = new b();
-            bVar.erQ = this.erQ;
+            bVar.euZ = this.euZ;
             bVar.mPostId = this.mPostId;
-            bVar.erS = this.aiW.getErrorString();
-            bVar.mErrCode = this.aiW.vY();
+            bVar.evb = this.aeI.getErrorString();
+            bVar.mErrCode = this.aeI.tE();
             if (bool.booleanValue()) {
-                bVar.AU = true;
+                bVar.rg = true;
             } else {
-                bVar.AU = false;
+                bVar.rg = false;
             }
             a.this.mLoadDataCallBack.d(bVar);
         }
@@ -212,9 +212,9 @@ public class a extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<String, Integer, String> {
-        private ab aiW;
-        private String dbi;
-        final /* synthetic */ a erR;
+        private ab aeI;
+        private String ddE;
+        final /* synthetic */ a eva;
         private String mForumId;
         private String mForumName;
         private String mThreadId;
@@ -223,64 +223,64 @@ public class a extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: h */
+        /* renamed from: i */
         public String doInBackground(String... strArr) {
-            this.aiW = new ab(strArr[0]);
-            this.aiW.p("day", this.dbi);
-            this.aiW.p("un", this.mUserName);
-            this.aiW.p("fid", this.mForumId);
-            this.aiW.p("word", this.mForumName);
-            this.aiW.p("z", this.mThreadId);
-            this.aiW.p("ntn", "banid");
-            this.aiW.vU().wO().mIsNeedTbs = true;
-            this.aiW.vw();
-            if (this.aiW.vU().wP().qC()) {
+            this.aeI = new ab(strArr[0]);
+            this.aeI.n("day", this.ddE);
+            this.aeI.n("un", this.mUserName);
+            this.aeI.n("fid", this.mForumId);
+            this.aeI.n("word", this.mForumName);
+            this.aeI.n("z", this.mThreadId);
+            this.aeI.n("ntn", "banid");
+            this.aeI.tA().uu().mIsNeedTbs = true;
+            this.aeI.tc();
+            if (this.aeI.tA().uv().nZ()) {
                 return null;
             }
-            return this.aiW.getErrorString();
+            return this.aeI.getErrorString();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.aiW != null) {
-                this.aiW.gX();
+            if (this.aeI != null) {
+                this.aeI.dl();
             }
-            this.erR.erO = null;
+            this.eva.euX = null;
             super.cancel(true);
-            this.erR.mLoadDataCallBack.d(null);
+            this.eva.mLoadDataCallBack.d(null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: er */
+        /* renamed from: eo */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            this.erR.erO = null;
-            if (this.aiW == null) {
-                this.erR.mLoadDataCallBack.d(null);
+            this.eva.euX = null;
+            if (this.aeI == null) {
+                this.eva.mLoadDataCallBack.d(null);
                 return;
             }
             d dVar = new d();
             if (str == null) {
-                dVar.AU = true;
+                dVar.rg = true;
             } else {
-                dVar.AU = false;
-                dVar.erS = str;
+                dVar.rg = false;
+                dVar.evb = str;
             }
-            this.erR.mLoadDataCallBack.d(dVar);
+            this.eva.mLoadDataCallBack.d(dVar);
         }
     }
 
     public void a(String str, String str2, String str3, int i, String str4) {
         String str5;
-        if (this.erP != null) {
-            this.erP.cancel();
-            this.erP = null;
+        if (this.euY != null) {
+            this.euY.cancel();
+            this.euY = null;
         }
         this.mLoadDataMode = i;
-        this.erP = new e(str, str2, str3, i, str4);
-        this.erP.setPriority(2);
+        this.euY = new e(str, str2, str3, i, str4);
+        this.euY.setPriority(2);
         String str6 = TbConfig.SERVER_ADDRESS;
         if (i == 6) {
             str5 = String.valueOf(str6) + TbConfig.GOOD_LIST_ADDRESS;
@@ -289,62 +289,62 @@ public class a extends com.baidu.adp.base.e {
         } else {
             str5 = String.valueOf(str6) + TbConfig.COMMIT_TOP_ADDRESS;
         }
-        this.erP.execute(str5);
+        this.euY.execute(str5);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class e extends BdAsyncTask<String, String, Boolean> {
-        private ab aiW = null;
-        String dlP;
-        ArrayList<t> erT;
+        private ab aeI = null;
+        String dok;
+        ArrayList<t> evc;
         private String mForumId;
         private String mForumName;
         private String mThreadId;
         private int mType;
 
         public e(String str, String str2, String str3, int i, String str4) {
-            this.erT = null;
-            this.dlP = null;
+            this.evc = null;
+            this.dok = null;
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mType = i;
-            this.dlP = str4;
-            this.erT = new ArrayList<>();
+            this.dok = str4;
+            this.evc = new ArrayList<>();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            this.aiW = new ab(strArr[0]);
-            this.aiW.p("word", this.mForumName);
+            this.aeI = new ab(strArr[0]);
+            this.aeI.n("word", this.mForumName);
             if (this.mType != 6) {
-                this.aiW.p("fid", this.mForumId);
-                this.aiW.p("z", this.mThreadId);
+                this.aeI.n("fid", this.mForumId);
+                this.aeI.n("z", this.mThreadId);
                 if (this.mType == 4) {
-                    this.aiW.p("ntn", "set");
+                    this.aeI.n("ntn", "set");
                 } else if (this.mType == 5) {
-                    this.aiW.p("ntn", "");
+                    this.aeI.n("ntn", "");
                 } else if (this.mType == 2) {
-                    this.aiW.p("ntn", "set");
-                    this.aiW.p("cid", this.dlP);
+                    this.aeI.n("ntn", "set");
+                    this.aeI.n("cid", this.dok);
                 } else {
-                    this.aiW.p("ntn", "");
+                    this.aeI.n("ntn", "");
                 }
             }
-            this.aiW.vU().wO().mIsNeedTbs = true;
-            String vw = this.aiW.vw();
-            if (this.aiW.vU().wP().qC()) {
+            this.aeI.tA().uu().mIsNeedTbs = true;
+            String tc = this.aeI.tc();
+            if (this.aeI.tA().uv().nZ()) {
                 if (this.mType == 6) {
                     try {
-                        JSONArray optJSONArray = new JSONObject(vw).optJSONArray("cates");
+                        JSONArray optJSONArray = new JSONObject(tc).optJSONArray("cates");
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             t tVar = new t();
                             tVar.parserJson(optJSONArray.optJSONObject(i));
-                            this.erT.add(tVar);
+                            this.evc.add(tVar);
                         }
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
@@ -362,29 +362,29 @@ public class a extends com.baidu.adp.base.e {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            a.this.erP = null;
-            if (this.aiW == null) {
+            a.this.euY = null;
+            if (this.aeI == null) {
                 a.this.mLoadDataCallBack.d(null);
                 return;
             }
             f fVar = new f();
-            fVar.AU = bool.booleanValue();
+            fVar.rg = bool.booleanValue();
             if (bool.booleanValue()) {
                 if (this.mType == 6) {
-                    fVar.erU = this.erT;
+                    fVar.evd = this.evc;
                 }
             } else {
-                fVar.erS = this.aiW.getErrorString();
+                fVar.evb = this.aeI.getErrorString();
             }
             a.this.mLoadDataCallBack.d(fVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.aiW != null) {
-                this.aiW.gX();
+            if (this.aeI != null) {
+                this.aeI.dl();
             }
-            a.this.erP = null;
+            a.this.euY = null;
             super.cancel(true);
             a.this.mLoadDataCallBack.d(null);
         }

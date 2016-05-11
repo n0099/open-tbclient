@@ -47,7 +47,7 @@ public class CustomMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.G(this.mCmd);
+        return FrameHelper.v(this.mCmd);
     }
 
     public TASK_TYPE getType() {

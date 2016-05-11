@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.base.h;
 import com.baidu.adp.base.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.i;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
@@ -26,7 +24,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.ls().bv(PKG_NAME_VIDEO);
+        return PluginPackageManager.hF().bo(PKG_NAME_VIDEO);
     }
 
     public static int getShowTime() {
@@ -38,7 +36,7 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.ls().bp(PKG_NAME_VIDEO) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(MotuVideoConfig.class);
+        return PluginPackageManager.hF().bi(PKG_NAME_VIDEO) && TbadkCoreApplication.m11getInst().appResponseToIntentClass(MotuVideoConfig.class);
     }
 
     public static void startXiaoying(Context context) {
@@ -50,8 +48,8 @@ public class XiaoyingUtil {
     public static void startXiaoying(Context context, boolean z, String str, String str2) {
         boolean z2 = false;
         if (context != null) {
-            com.baidu.tbadk.core.sharedPref.b.vk().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.vk().getBoolean("localvideo_open", false)) ? true : true, str, str2)));
+            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, z);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MotuVideoConfig(context, (z || com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("localvideo_open", false)) ? true : true, str, str2)));
         }
     }
 
@@ -61,12 +59,12 @@ public class XiaoyingUtil {
 
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
-            if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.a(context, context.getString(t.j.plugin_xiaoying_install_fail)).ux();
-            } else if (z && !i.jf()) {
-                BdToast.a(context, context.getString(t.j.neterror)).ux();
+            if (!TbadkCoreApplication.m11getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
+                BdToast.a(context, context.getString(t.j.plugin_xiaoying_install_fail)).sc();
+            } else if (z && !com.baidu.adp.lib.util.i.fq()) {
+                BdToast.a(context, context.getString(t.j.neterror)).sc();
             } else if (z) {
-                if (i.jg()) {
+                if (com.baidu.adp.lib.util.i.fr()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                     return;
                 }
@@ -78,20 +76,20 @@ public class XiaoyingUtil {
     }
 
     private static void showStartPlayVideoDialog(Context context, String str, int i, int i2, String str2) {
-        h<?> s = l.s(context);
+        com.baidu.adp.base.h<?> s = l.s(context);
         if (s != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(s.getPageActivity());
-            aVar.cC(TbadkCoreApplication.m411getInst().getString(t.j.play_video_mobile_tip));
-            aVar.a(t.j.confirm, new c(context, str, i, i2, str2));
-            aVar.b(t.j.cancel, new d());
-            aVar.b(s).up();
+            aVar.cA(TbadkCoreApplication.m11getInst().getString(t.j.play_video_mobile_tip));
+            aVar.a(t.j.confirm, new h(context, str, i, i2, str2));
+            aVar.b(t.j.cancel, new i());
+            aVar.b(s).rU();
         }
     }
 
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         PluginSetting findPluginSetting;
-        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.ls().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().findPluginSetting(PKG_NAME_VIDEO)) == null) {
+        if (!TbadkCoreApplication.m11getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.hF().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().findPluginSetting(PKG_NAME_VIDEO)) == null) {
             return false;
         }
         return pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code;
@@ -101,10 +99,10 @@ public class XiaoyingUtil {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cC(str);
-            aVar.a(str2, new e(pageActivity, tbPageContext));
-            aVar.b(t.j.cancel, new f());
-            aVar.b(tbPageContext).up();
+            aVar.cA(str);
+            aVar.a(str2, new j(pageActivity, tbPageContext));
+            aVar.b(t.j.cancel, new k());
+            aVar.b(tbPageContext).rU();
         }
     }
 }

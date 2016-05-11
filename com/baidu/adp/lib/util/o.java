@@ -31,7 +31,7 @@ public class o {
         }
     }
 
-    public static void b(OutputStream outputStream) {
+    public static void a(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

@@ -22,8 +22,8 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a {
-        public boolean Fz;
         public String mErrMsg;
+        public boolean vR;
     }
 
     public static C0013a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
@@ -52,15 +52,15 @@ public class a {
                 PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
                 DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
                 dexClassLoader.loadClass(str);
-                a(pathClassLoader, PathClassLoader.class, "mPaths", d(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
+                a(pathClassLoader, PathClassLoader.class, "mPaths", c(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
                 if (z) {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", b(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", b(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", b(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
                 } else {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", c(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", c(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", c(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", b(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", b(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", b(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
                 }
                 try {
                     ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
@@ -70,7 +70,7 @@ public class a {
                     Collections.sort(arrayList, new b());
                     c0013a = null;
                 } catch (Exception e) {
-                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", c(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
+                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", b(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     c0013a = null;
                 }
             } catch (IllegalAccessException e2) {
@@ -99,7 +99,7 @@ public class a {
 
     private static C0013a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         C0013a c0013a;
-        Object c;
+        Object b;
         List list;
         if (classLoader == null || classLoader2 == null) {
             return null;
@@ -110,21 +110,21 @@ public class a {
             Object t = t((PathClassLoader) classLoader);
             Object t2 = t(dexClassLoader);
             if (z) {
-                c = c(u(t), u(t2));
+                b = b(u(t), u(t2));
             } else {
-                c = c(u(t2), u(t));
+                b = b(u(t2), u(t));
             }
-            a(t, t.getClass(), "dexElements", c);
-            Object c2 = c(v(t), v(t2));
-            if (c2 instanceof File[]) {
-                Arrays.sort((File[]) c2, mc());
-                list = c2;
+            a(t, t.getClass(), "dexElements", b);
+            Object b2 = b(v(t), v(t2));
+            if (b2 instanceof File[]) {
+                Arrays.sort((File[]) b2, iq());
+                list = b2;
             } else {
-                boolean z2 = c2 instanceof List;
-                list = c2;
+                boolean z2 = b2 instanceof List;
+                list = b2;
                 if (z2) {
-                    List list2 = (List) c2;
-                    Collections.sort(list2, mc());
+                    List list2 = (List) b2;
+                    Collections.sort(list2, iq());
                     list = list2;
                 }
             }
@@ -190,7 +190,7 @@ public class a {
         return declaredField.get(obj);
     }
 
-    private static Object c(Object obj, Object obj2) {
+    private static Object b(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -222,7 +222,7 @@ public class a {
         return obj;
     }
 
-    private static Object d(Object obj, Object obj2) {
+    private static Object c(Object obj, Object obj2) {
         Class<?> componentType = obj.getClass().getComponentType();
         int length = Array.getLength(obj);
         int i = length + 1;
@@ -239,7 +239,7 @@ public class a {
 
     private static C0013a a(boolean z, Throwable th) {
         C0013a c0013a = new C0013a();
-        c0013a.Fz = z;
+        c0013a.vR = z;
         c0013a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0013a;
     }
@@ -276,12 +276,12 @@ public class a {
         }
     }
 
-    private static final Comparator<File> mc() {
+    private static final Comparator<File> iq() {
         return new c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int J(String str, String str2) {
+    public static final int I(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

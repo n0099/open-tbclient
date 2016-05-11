@@ -6,7 +6,7 @@ import com.baidu.tieba.t;
 public class q extends aa {
     public q() {
         super((String) null, 1, 0);
-        this.launcherIcon = t.f.selector_msgsend_btn_softkey;
-        this.name = TbadkCoreApplication.m411getInst().getString(t.j.switch_to_keyboard);
+        this.aql = t.f.selector_msgsend_btn_softkey;
+        this.name = TbadkCoreApplication.m11getInst().getString(t.j.switch_to_keyboard);
     }
 }

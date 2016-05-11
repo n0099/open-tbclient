@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.fo;
-import com.baidu.tieba.frs.tab.i;
+import com.baidu.tieba.frs.fg;
+import com.baidu.tieba.frs.tab.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements i.b {
-    final /* synthetic */ HorizontalTabView btX;
+public class a implements j.b {
+    final /* synthetic */ HorizontalTabView bsU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(HorizontalTabView horizontalTabView) {
-        this.btX = horizontalTabView;
+        this.bsU = horizontalTabView;
     }
 
-    @Override // com.baidu.tieba.frs.tab.i.b
-    public void he(int i) {
+    @Override // com.baidu.tieba.frs.tab.j.b
+    public void gN(int i) {
         TabItemView tabItemView;
         g gVar;
         g gVar2;
-        fo foVar;
-        fo foVar2;
-        fo foVar3;
+        fg fgVar;
+        fg fgVar2;
+        fg fgVar3;
         TabItemView tabItemView2;
-        tabItemView = this.btX.btO;
+        tabItemView = this.bsU.bsJ;
         if (tabItemView != null) {
-            foVar = this.btX.btV;
-            if (foVar != null) {
-                foVar2 = this.btX.btV;
-                if (foVar2 != null) {
-                    foVar3 = this.btX.btV;
-                    tabItemView2 = this.btX.btO;
-                    foVar3.a(tabItemView2.getTabId(), i, null);
+            fgVar = this.bsU.bsS;
+            if (fgVar != null) {
+                fgVar2 = this.bsU.bsS;
+                if (fgVar2 != null) {
+                    fgVar3 = this.bsU.bsS;
+                    tabItemView2 = this.bsU.bsJ;
+                    fgVar3.a(tabItemView2.getTabId(), i, null);
                 }
             }
         }
-        gVar = this.btX.btP;
+        gVar = this.bsU.bsK;
         if (gVar != null) {
-            gVar2 = this.btX.btP;
-            gVar2.hc(i);
+            gVar2 = this.bsU.bsK;
+            gVar2.gL(i);
         }
     }
 }

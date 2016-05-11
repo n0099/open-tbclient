@@ -3,47 +3,47 @@ package com.baidu.adp.lib.a.b.a.d;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class d implements h {
-    private Byte sD;
+    private Byte ir;
 
     public d(byte b) {
-        this.sD = Byte.valueOf(b);
+        this.ir = Byte.valueOf(b);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Class<?> fT = cVar.fT();
-        if (fT == Byte.class || fT == Byte.TYPE) {
-            return Byte.valueOf(this.sD.byteValue());
+        Class<?> ci = cVar.ci();
+        if (ci == Byte.class || ci == Byte.TYPE) {
+            return Byte.valueOf(this.ir.byteValue());
         }
-        if (fT == Short.class || fT == Short.TYPE) {
-            return Short.valueOf(this.sD.shortValue());
+        if (ci == Short.class || ci == Short.TYPE) {
+            return Short.valueOf(this.ir.shortValue());
         }
-        if (fT == Integer.class || fT == Integer.TYPE) {
-            return Integer.valueOf(this.sD.intValue());
+        if (ci == Integer.class || ci == Integer.TYPE) {
+            return Integer.valueOf(this.ir.intValue());
         }
-        if (fT == Long.class || fT == Long.TYPE) {
-            return Long.valueOf(this.sD.longValue());
+        if (ci == Long.class || ci == Long.TYPE) {
+            return Long.valueOf(this.ir.longValue());
         }
-        if (fT == Float.class || fT == Float.TYPE) {
-            return Float.valueOf(this.sD.floatValue());
+        if (ci == Float.class || ci == Float.TYPE) {
+            return Float.valueOf(this.ir.floatValue());
         }
-        if (fT == Double.class || fT == Double.TYPE) {
-            return Double.valueOf(this.sD.doubleValue());
+        if (ci == Double.class || ci == Double.TYPE) {
+            return Double.valueOf(this.ir.doubleValue());
         }
-        if (fT == Character.class || fT == Character.TYPE) {
-            return Character.valueOf((char) this.sD.intValue());
+        if (ci == Character.class || ci == Character.TYPE) {
+            return Character.valueOf((char) this.ir.intValue());
         }
-        if (fT == Boolean.class || fT == Boolean.TYPE) {
-            return Boolean.valueOf(this.sD.byteValue() == 0);
-        } else if (fT == String.class) {
-            return String.valueOf(this.sD);
+        if (ci == Boolean.class || ci == Boolean.TYPE) {
+            return Boolean.valueOf(this.ir.byteValue() == 0);
+        } else if (ci == String.class) {
+            return String.valueOf(this.ir);
         } else {
-            if (fT == char[].class) {
-                return String.valueOf(this.sD).toCharArray();
+            if (ci == char[].class) {
+                return String.valueOf(this.ir).toCharArray();
             }
-            if (fT == byte[].class) {
+            if (ci == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.sD), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.ir), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

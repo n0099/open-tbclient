@@ -1,21 +1,21 @@
 package com.baidu.tbadk.plugins;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(int i) {
-        super(i);
+public class a {
+    public static boolean EZ() {
+        return TbadkCoreApplication.m11getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            PluginCenter.getInstance().startRetryLaunchPlugins();
+    public static boolean f(TbPageContext<?> tbPageContext) {
+        if (EZ()) {
+            return false;
         }
+        BdToast.a(tbPageContext.getPageActivity(), tbPageContext.getResources().getString(t.j.plugin_hottopic_not_install_tip)).sc();
+        return true;
     }
 }

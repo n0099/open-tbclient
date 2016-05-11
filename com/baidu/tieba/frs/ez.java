@@ -1,27 +1,18 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ez {
-    private static ez bqS = new ez();
-    private final SparseArray<String> bqR = new SparseArray<>();
+public class ez extends y.a {
+    TextView aOG;
+    LinearLayout bin;
 
-    private ez() {
-    }
-
-    public static ez Su() {
-        return bqS;
-    }
-
-    public void gT(int i) {
-        this.bqR.put(i, "1");
-    }
-
-    public boolean gU(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return !TextUtils.isEmpty(this.bqR.get(i));
+    public ez(View view) {
+        super(view);
+        this.bin = (LinearLayout) view.findViewById(t.g.frs_top_item);
+        this.aOG = (TextView) view.findViewById(t.g.frs_top_title);
     }
 }

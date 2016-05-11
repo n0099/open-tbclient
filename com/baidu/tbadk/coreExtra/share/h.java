@@ -10,89 +10,89 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h {
-    private static c ane = null;
-    private static boolean anf = false;
-    private a ang;
-    private b anh;
-    private String ani = TbadkCoreApplication.m411getInst().getContext().getString(t.j.share_tail);
-    private String anj = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(t.j.weibo_share_tail)) + this.ani;
+    private static c aiS = null;
+    private static boolean aiT = false;
+    private a aiU;
+    private b aiV;
+    private String aiW = TbadkCoreApplication.m11getInst().getContext().getString(t.j.share_tail);
+    private String aiX = String.valueOf(TbadkCoreApplication.m11getInst().getContext().getString(t.j.weibo_share_tail)) + this.aiW;
     private final Context mContext;
 
     public h(Context context, a aVar) {
-        this.ang = null;
-        this.anh = null;
+        this.aiU = null;
+        this.aiV = null;
         this.mContext = context;
         if (aVar != null) {
-            this.ang = aVar;
+            this.aiU = aVar;
         }
-        ag(this.mContext);
-        if (ane != null) {
-            this.anh = ane.createWorker(this.mContext, this.ang);
+        af(this.mContext);
+        if (aiS != null) {
+            this.aiV = aiS.createWorker(this.mContext, this.aiU);
         }
     }
 
-    public static boolean ag(Context context) {
+    public static boolean af(Context context) {
         if (context == null) {
             return false;
         }
-        if (!anf) {
+        if (!aiT) {
             try {
-                ane = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                aiS = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            anf = true;
+            aiT = true;
         }
-        return ane != null;
+        return aiS != null;
     }
 
     public void c(f fVar) {
-        if (this.anh != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.ana)) {
-                fVar.content = fVar.ana;
+        if (this.aiV != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.aiO)) {
+                fVar.content = fVar.aiO;
             }
-            fVar.content = a(fVar.content, 80, 20, this.ani);
-            this.anh.a(a(fVar, "weixin"), 3, false);
+            fVar.content = a(fVar.content, 80, 20, this.aiW);
+            this.aiV.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.anh != null && fVar != null) {
-            fVar.content = a(fVar.content, 80, 20, this.ani);
-            if (StringUtils.isNull(fVar.anb)) {
+        if (this.aiV != null && fVar != null) {
+            fVar.content = a(fVar.content, 80, 20, this.aiW);
+            if (StringUtils.isNull(fVar.aiP)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.anb;
+                fVar.title = fVar.aiP;
             }
-            this.anh.a(a(fVar, "weixin_timeline"), 2, false);
+            this.aiV.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(f fVar) {
-        if (this.anh != null) {
-            fVar.content = a(fVar.content, 80, 32, this.ani);
-            this.anh.a(a(fVar, "qzone"), 4, true);
+        if (this.aiV != null) {
+            fVar.content = a(fVar.content, 80, 32, this.aiW);
+            this.aiV.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.anh != null) {
-            fVar.content = a(fVar.content, 140, 20, this.ani);
-            this.anh.a(a(fVar, "tencent_weibo"), 5, true);
+        if (this.aiV != null) {
+            fVar.content = a(fVar.content, 140, 20, this.aiW);
+            this.aiV.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.anh != null) {
-            fVar.content = a(fVar.content, 140, 20, this.anj);
-            this.anh.a(a(fVar, "sina_weibo"), 6, true);
+        if (this.aiV != null) {
+            fVar.content = a(fVar.content, 140, 20, this.aiX);
+            this.aiV.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(f fVar) {
-        if (this.anh != null) {
-            fVar.content = a(fVar.content, 140, 20, this.ani);
-            this.anh.a(a(fVar, "renren"), 7, true);
+        if (this.aiV != null) {
+            fVar.content = a(fVar.content, 140, 20, this.aiW);
+            this.aiV.a(a(fVar, "renren"), 7, true);
         }
     }
 
@@ -117,7 +117,7 @@ public class h {
         }
         if (fVar.imageUri != null && !fVar.imageUri.equals("")) {
             String uri = fVar.imageUri.toString();
-            if (!eI(uri)) {
+            if (!eF(uri)) {
                 fVar.imageUri = Uri.parse("http://tb1.bdstatic.com/tb/r/image/2013-10-16/2392e7325ec8c6d2f02c9a39509e4438.png");
             } else {
                 fVar.imageUri = Uri.parse(uri);
@@ -135,9 +135,9 @@ public class h {
         return String.valueOf(str) + "&" + str2;
     }
 
-    private boolean eI(String str) {
+    private boolean eF(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (bg.wM().dJ(str)) {
+        if (bg.us().dG(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

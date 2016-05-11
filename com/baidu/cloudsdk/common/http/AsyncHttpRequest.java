@@ -4,8 +4,9 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.protocol.HttpContext;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class AsyncHttpRequest implements Runnable {
+public class AsyncHttpRequest implements Runnable {
     private AbstractHttpClient mHttpClient;
     private HttpContext mHttpContext;
     private boolean mIsBinaryRequest;
@@ -17,11 +18,7 @@ class AsyncHttpRequest implements Runnable {
         this.mHttpContext = httpContext;
         this.mRequest = httpUriRequest;
         this.mResponseHandler = httpResponseHandler;
-        if (httpResponseHandler instanceof BinaryHttpResponseHandler) {
-            this.mIsBinaryRequest = true;
-        } else {
-            this.mIsBinaryRequest = false;
-        }
+        this.mIsBinaryRequest = httpResponseHandler instanceof BinaryHttpResponseHandler;
     }
 
     @Override // java.lang.Runnable

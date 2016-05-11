@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class ba {
-    private static final char[] zz = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] pM = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(PackageInfo packageInfo) {
         long j = 0;
@@ -32,14 +32,14 @@ public class ba {
             return null;
         }
         try {
-            return com.baidu.adp.lib.util.t.l(packageInfo.signatures[0].toCharsString().getBytes());
+            return com.baidu.adp.lib.util.t.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
         }
     }
 
-    public static String v(byte[] bArr) {
+    public static String u(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -49,9 +49,9 @@ public class ba {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = zz[(b >>> 4) & 15];
+                cArr[i] = pM[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = zz[b & 15];
+                cArr[i3] = pM[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class ba {
         return null;
     }
 
-    public static String dB(String str) {
-        return com.baidu.adp.lib.util.t.aZ(str);
+    public static String dy(String str) {
+        return com.baidu.adp.lib.util.t.aS(str);
     }
 }

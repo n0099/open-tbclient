@@ -17,13 +17,13 @@ public class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.person.a.al alVar;
-        com.baidu.tieba.person.a.al alVar2;
+        com.baidu.tieba.person.a.as asVar;
+        com.baidu.tieba.person.a.as asVar2;
         if (customResponsedMessage != null) {
-            alVar = this.this$0.dCB;
-            if (alVar != null) {
-                alVar2 = this.this$0.dCB;
-                alVar2.aBK();
+            asVar = this.this$0.dFI;
+            if (asVar != null) {
+                asVar2 = this.this$0.dFI;
+                asVar2.aCb();
             }
         }
     }

@@ -1,5 +1,6 @@
 package protobuf;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -23,7 +24,7 @@ public final class GroupInfo extends Message {
     public final String album;
     @ProtoField(tag = 14, type = Message.Datatype.INT64)
     public final Long authorId;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB, type = Message.Datatype.INT32)
+    @ProtoField(tag = 29, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String authorName;
@@ -75,7 +76,7 @@ public final class GroupInfo extends Message {
     public final Integer memberNum;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = 26, type = Message.Datatype.STRING)
+    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.STRING)
     public final String nickName;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String notice;

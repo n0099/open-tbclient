@@ -7,49 +7,49 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    private c arl;
-    private b arm;
-    private a arn;
+    private c amZ;
+    private b ana;
+    private a anb;
 
     /* loaded from: classes.dex */
     public interface b {
-        void bi(boolean z);
+        void bp(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<e> arq;
+        private final WeakReference<e> ane;
 
         c(e eVar) {
-            this.arq = new WeakReference<>(eVar);
+            this.ane = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             e eVar;
             super.handleMessage(message);
-            if (message.what != 0 || (eVar = this.arq.get()) == null) {
+            if (message.what != 0 || (eVar = this.ane.get()) == null) {
                 return;
             }
-            eVar.Cl();
+            eVar.Af();
         }
     }
 
     public e(String str, b bVar) {
-        this.arl = null;
-        this.arm = null;
-        this.arn = null;
-        this.arl = new c(this);
-        this.arm = bVar;
-        this.arl.sendEmptyMessageDelayed(0, 50000L);
-        this.arn = new a(this, null);
-        this.arn.setSelfExecute(true);
-        this.arn.execute(String.valueOf(Ck()) + str);
+        this.amZ = null;
+        this.ana = null;
+        this.anb = null;
+        this.amZ = new c(this);
+        this.ana = bVar;
+        this.amZ.sendEmptyMessageDelayed(0, 50000L);
+        this.anb = new a(this, null);
+        this.anb.setSelfExecute(true);
+        this.anb.execute(String.valueOf(Ae()) + str);
     }
 
-    private String Ck() {
-        switch (com.baidu.adp.lib.util.i.jl()) {
+    private String Ae() {
+        switch (com.baidu.adp.lib.util.i.fw()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
             case 2:
@@ -62,22 +62,22 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cl() {
-        if (this.arn != null) {
-            this.arn.cancel(true);
+    public void Af() {
+        if (this.anb != null) {
+            this.anb.cancel(true);
         }
-        if (this.arl != null) {
-            this.arl.removeMessages(0);
+        if (this.amZ != null) {
+            this.amZ.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process aro;
+        Process anc;
 
         private a() {
-            this.aro = null;
+            this.anc = null;
         }
 
         /* synthetic */ a(e eVar, a aVar) {
@@ -88,25 +88,25 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             boolean z = false;
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.aro = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.aro.waitFor() == 0;
-                        this.aro.destroy();
+                        this.anc = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.anc.waitFor() == 0;
+                        this.anc.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.aro.destroy();
+                        this.anc.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.aro.destroy();
+                        this.anc.destroy();
                     }
                 } catch (Throwable th) {
-                    this.aro.destroy();
+                    this.anc.destroy();
                     throw th;
                 }
             }
@@ -117,18 +117,18 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.aro != null) {
+            if (this.anc != null) {
                 try {
-                    this.aro.destroy();
+                    this.anc.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (e.this.arm != null) {
-                e.this.arm.bi(false);
+            if (e.this.ana != null) {
+                e.this.ana.bp(false);
             }
-            if (e.this.arl != null) {
-                e.this.arl.removeMessages(0);
+            if (e.this.amZ != null) {
+                e.this.amZ.removeMessages(0);
             }
         }
 
@@ -137,11 +137,11 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (e.this.arm != null) {
-                e.this.arm.bi(bool == null ? false : bool.booleanValue());
+            if (e.this.ana != null) {
+                e.this.ana.bp(bool == null ? false : bool.booleanValue());
             }
-            if (e.this.arl != null) {
-                e.this.arl.removeMessages(0);
+            if (e.this.amZ != null) {
+                e.this.amZ.removeMessages(0);
             }
         }
     }

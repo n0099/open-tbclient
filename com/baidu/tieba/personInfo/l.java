@@ -20,17 +20,17 @@ public class l extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bf bfVar;
-        bf bfVar2;
-        bi biVar;
-        bi biVar2;
-        bf bfVar3;
+        bg bgVar;
+        bg bgVar2;
+        bj bjVar;
+        bj bjVar2;
+        bg bgVar3;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            bfVar = this.this$0.dvN;
-            UserData userData = bfVar.getUserData();
+            bgVar = this.this$0.dyP;
+            UserData userData = bgVar.getUserData();
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && userData != null && updateAttentionMessage.getData().toUid.equals(userData.getUserId())) {
-                if (updateAttentionMessage.getData().CK) {
+                if (updateAttentionMessage.getData().sZ) {
                     if (userData.getHave_attention() != 1) {
                         this.this$0.showToast(t.j.like_success);
                         userData.setHave_attention(1);
@@ -40,15 +40,15 @@ public class l extends CustomMessageListener {
                         userData.setFansNum(Math.max(0, userData.getFansNum() - 1));
                         this.this$0.showToast(t.j.unlike_success);
                     }
-                    bfVar2 = this.this$0.dvN;
-                    if (bfVar2 != null) {
-                        bfVar3 = this.this$0.dvN;
-                        bfVar3.aDC();
+                    bgVar2 = this.this$0.dyP;
+                    if (bgVar2 != null) {
+                        bgVar3 = this.this$0.dyP;
+                        bgVar3.aDY();
                     }
-                    biVar = this.this$0.dCt;
-                    if (biVar != null) {
-                        biVar2 = this.this$0.dCt;
-                        biVar2.aDM();
+                    bjVar = this.this$0.dFA;
+                    if (bjVar != null) {
+                        bjVar2 = this.this$0.dFA;
+                        bjVar2.aEj();
                     }
                 } else if (updateAttentionMessage.getData().errorString != null) {
                     this.this$0.showToast(updateAttentionMessage.getData().errorString);

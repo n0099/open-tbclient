@@ -14,6 +14,6 @@ public class q implements UserMuteAddAndDelModel.b {
 
     @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.b
     public void a(UserMuteDelResponseMessage userMuteDelResponseMessage) {
-        this.this$0.dCF = 0;
+        this.this$0.dFM = 0;
     }
 }

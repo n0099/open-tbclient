@@ -1,37 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements TbRichTextView.e {
-    final /* synthetic */ cy dip;
+public class cz extends CustomMessageListener {
+    final /* synthetic */ cw dlN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(cy cyVar) {
-        this.dip = cyVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz(cw cwVar, int i) {
+        super(i);
+        this.dlN = cwVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
-    public void b(View view, String str) {
-        long j;
-        long j2;
-        com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.pb.data.e eVar2;
-        com.baidu.tieba.pb.data.e eVar3;
-        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bg.wM().c(this.dip.dfw.getPageContext(), new String[]{str})) {
-            j = this.dip.dio;
-            if (j != 0) {
-                j2 = this.dip.dio;
-                eVar = this.dip.ddq;
-                String id = eVar.avu().getId();
-                eVar2 = this.dip.ddq;
-                String name = eVar2.avu().getName();
-                eVar3 = this.dip.ddq;
-                com.baidu.tieba.pb.b.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, eVar3.avv().getTid());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (this.dlN.getPbData() != null && this.dlN.getPbData().avA() != null && this.dlN.getPbData().avA().getSignData() != null && signData.getForumId().equals(this.dlN.getPbData().getForumId())) {
+                this.dlN.getPbData().avA().getSignData().setIsSigned(signData.getSigned());
             }
         }
     }

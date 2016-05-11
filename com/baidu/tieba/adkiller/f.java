@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements o.a<String> {
-    private final /* synthetic */ String aPI;
+    private final /* synthetic */ String aLS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(String str) {
-        this.aPI = str;
+        this.aLS = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class f implements o.a<String> {
                     }
                     String str3 = split[i];
                     if (str3.startsWith("submit*")) {
-                        if (this.aPI.equals(str3.substring("submit*".length()))) {
+                        if (this.aLS.equals(str3.substring("submit*".length()))) {
                             z = true;
                             break;
                         }
@@ -38,7 +38,7 @@ public class f implements o.a<String> {
                 }
             }
             if (z) {
-                TbadkCoreApplication.m411getInst().handler.post(new g(this, this.aPI));
+                TbadkCoreApplication.m11getInst().handler.post(new g(this, this.aLS));
             }
         }
     }

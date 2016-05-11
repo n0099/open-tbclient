@@ -15,11 +15,11 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.location.d;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private int avD;
-    private final d.a avJ;
-    private com.baidu.tieba.tbadkCore.location.d avu;
-    private BaseActivity<?> dEE;
-    private final CustomMessageListener erL;
+    private int arC;
+    private final d.a arI;
+    private com.baidu.tieba.tbadkCore.location.d art;
+    private BaseActivity<?> boS;
+    private final CustomMessageListener euU;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -27,76 +27,76 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.avD = 0;
-        this.avJ = new a(this);
-        this.erL = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.arC = 0;
+        this.arI = new a(this);
+        this.euU = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
     }
 
     public void e(BaseActivity<?> baseActivity) {
-        this.dEE = baseActivity;
-        this.dEE.registerListener(this.erL);
-        this.avu = new com.baidu.tieba.tbadkCore.location.d(this.dEE);
-        this.avu.a(this.avJ);
+        this.boS = baseActivity;
+        this.boS.registerListener(this.euU);
+        this.art = new com.baidu.tieba.tbadkCore.location.d(this.boS);
+        this.art.a(this.arI);
         setOnClickListener(new c(this));
-        DS();
+        BL();
     }
 
-    public boolean aUk() {
-        if (this.avu == null) {
+    public boolean aUF() {
+        if (this.art == null) {
             return false;
         }
-        return this.avu.aUk();
+        return this.art.aUF();
     }
 
-    public void DQ() {
-        if (!UtilHelper.isSystemLocationProviderEnabled(this.dEE.getPageContext().getPageActivity())) {
-            this.dEE.showToast(t.j.location_system_permission_prompt);
+    public void BJ() {
+        if (!UtilHelper.isSystemLocationProviderEnabled(this.boS.getPageContext().getPageActivity())) {
+            this.boS.showToast(t.j.location_system_permission_prompt);
             b(0, true, null);
-        } else if (!TbadkCoreApplication.m411getInst().getLocationShared()) {
-            DR();
-        } else if (this.avu.aUi()) {
-            DO();
+        } else if (!TbadkCoreApplication.m11getInst().getLocationShared()) {
+            BK();
+        } else if (this.art.aUD()) {
+            BI();
         } else {
-            this.avu.iL(false);
+            this.art.jA(false);
             b(1, true, null);
-            this.avu.aUg();
+            this.art.aUB();
         }
     }
 
-    private void DS() {
-        if (this.avu.aUk()) {
-            if (this.avu.aUi()) {
-                b(2, true, com.baidu.tieba.tbadkCore.location.c.aUd().getLocationData().aTZ());
+    private void BL() {
+        if (this.art.aUF()) {
+            if (this.art.aUD()) {
+                b(2, true, com.baidu.tieba.tbadkCore.location.c.aUz().getLocationData().getFormatted_address());
                 return;
             }
             b(1, true, null);
-            this.avu.aUg();
+            this.art.aUB();
             return;
         }
         b(0, true, null);
     }
 
-    private void DR() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dEE.getPageContext().getPageActivity());
-        aVar.ca(t.j.location_app_permission_prompt).a(t.j.isopen, new d(this)).b(t.j.cancel, new e(this)).b(this.dEE.getPageContext());
-        aVar.up();
+    private void BK() {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.boS.getPageContext().getPageActivity());
+        aVar.bM(t.j.location_app_permission_prompt).a(t.j.isopen, new d(this)).b(t.j.cancel, new e(this)).b(this.boS.getPageContext());
+        aVar.rU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aZP() {
-        if (this.avu != null) {
-            this.avu.cancelLoadData();
+    public void bcb() {
+        if (this.art != null) {
+            this.art.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DO() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.dEE.getPageContext().getPageActivity())));
+    public void BI() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.boS.getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, boolean z, String str) {
-        this.avD = i;
+        this.arC = i;
         setVisibility(z ? 0 : 8);
         k(i, str);
     }

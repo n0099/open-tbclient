@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ AtListActivity eLC;
+    final /* synthetic */ AtListActivity fcq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(AtListActivity atListActivity) {
-        this.eLC = atListActivity;
+        this.fcq = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,22 +19,22 @@ public class l implements View.OnClickListener {
         View view4;
         TextView textView;
         View view5;
-        view2 = this.eLC.cwj;
+        view2 = this.fcq.cxg;
         if (view2 != null) {
-            view3 = this.eLC.cwj;
+            view3 = this.fcq.cxg;
             if (view3.getVisibility() == 0) {
-                com.baidu.adp.lib.util.k.c(this.eLC.getPageContext().getPageActivity(), this.eLC.cqC);
-                view4 = this.eLC.cwj;
+                com.baidu.adp.lib.util.k.a(this.fcq.getPageContext().getPageActivity(), this.fcq.crz);
+                view4 = this.fcq.cxg;
                 view4.setVisibility(8);
-                textView = this.eLC.eLx;
+                textView = this.fcq.fcl;
                 textView.setVisibility(0);
-                view5 = this.eLC.cwk;
+                view5 = this.fcq.cxh;
                 view5.setVisibility(0);
-                this.eLC.cqC.getText().clear();
+                this.fcq.crz.getText().clear();
                 return;
             }
         }
-        com.baidu.adp.lib.util.k.c(this.eLC.getPageContext().getPageActivity(), this.eLC.cqC);
-        this.eLC.finish();
+        com.baidu.adp.lib.util.k.a(this.fcq.getPageContext().getPageActivity(), this.fcq.crz);
+        this.fcq.finish();
     }
 }

@@ -10,34 +10,34 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AppDownloadView extends LinearLayout {
-    private DownloadData aeq;
-    public ProgressBar aer;
-    public ImageView aes;
-    public TextView aet;
-    private final CustomMessageListener downloadListener;
+    private DownloadData ZO;
+    public ProgressBar ZP;
+    public ImageView ZQ;
+    public TextView ZR;
+    private CustomMessageListener downloadListener;
 
     public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.downloadListener = new a(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.downloadListener = null;
         init(context);
     }
 
     public AppDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.downloadListener = new a(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.downloadListener = null;
         init(context);
     }
 
     public AppDownloadView(Context context) {
         super(context);
-        this.downloadListener = new a(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.downloadListener = null;
         init(context);
     }
 
@@ -45,16 +45,16 @@ public class AppDownloadView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         View inflate = LayoutInflater.from(context).inflate(t.h.app_download_layout, (ViewGroup) this, true);
-        this.aer = (ProgressBar) inflate.findViewById(t.g.frs_app_push_progress);
-        this.aes = (ImageView) inflate.findViewById(t.g.frs_app_push_control);
-        this.aet = (TextView) inflate.findViewById(t.g.frs_app_push_percent);
+        this.ZP = (ProgressBar) inflate.findViewById(t.g.frs_app_push_progress);
+        this.ZQ = (ImageView) inflate.findViewById(t.g.frs_app_push_control);
+        this.ZR = (TextView) inflate.findViewById(t.g.frs_app_push_percent);
     }
 
     public void a(BdUniqueId bdUniqueId, DownloadData downloadData) {
         if (downloadData != null) {
-            this.aeq = (DownloadData) downloadData.clone();
-            if (this.aeq != null) {
-                setTag(this.aeq);
+            this.ZO = (DownloadData) downloadData.clone();
+            if (this.ZO != null) {
+                setTag(this.ZO);
                 a(downloadData);
             }
         }
@@ -65,7 +65,7 @@ public class AppDownloadView extends LinearLayout {
             switch (downloadData.getStatus()) {
                 case 1:
                     setVisibility(0);
-                    at.c(this.aes, t.f.icon_download_play);
+                    com.baidu.tbadk.core.util.at.c(this.ZQ, t.f.icon_download_play);
                     break;
                 case 3:
                     setVisibility(8);
@@ -78,36 +78,36 @@ public class AppDownloadView extends LinearLayout {
                     break;
                 case 7:
                     setVisibility(0);
-                    at.c(this.aes, t.f.icon_download_pause);
+                    com.baidu.tbadk.core.util.at.c(this.ZQ, t.f.icon_download_pause);
                     break;
             }
-            int al = com.baidu.tbadk.download.b.CX().al(downloadData.getId(), downloadData.getName());
+            int al = com.baidu.tbadk.download.b.AQ().al(downloadData.getId(), downloadData.getName());
             if (al >= 0) {
-                cW(al);
+                cF(al);
             } else {
-                cW(0);
+                cF(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cW(int i) {
+    public void cF(int i) {
         int max = Math.max(0, i);
-        this.aer.setProgress(max);
-        this.aet.setText(String.valueOf(max) + "%");
+        this.ZP.setProgress(max);
+        this.ZR.setText(String.valueOf(max) + "%");
     }
 
     public static int b(DownloadData downloadData) {
-        if (com.baidu.tbadk.download.b.CX().fg(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AQ().fd(downloadData.getId())) {
             return 3;
         }
-        if (com.baidu.tbadk.download.b.CX().fe(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AQ().fb(downloadData.getId())) {
             return 5;
         }
-        if (com.baidu.tbadk.download.b.CX().fd(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AQ().fa(downloadData.getId())) {
             return 1;
         }
-        if (!com.baidu.tbadk.download.b.CX().an(downloadData.getId(), downloadData.getName())) {
+        if (!com.baidu.tbadk.download.b.AQ().am(downloadData.getId(), downloadData.getName())) {
             return 6;
         }
         return 7;
@@ -116,5 +116,49 @@ public class AppDownloadView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        uN();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        uM();
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        super.setVisibility(i);
+        if (i == 0) {
+            uM();
+        } else {
+            uN();
+        }
+    }
+
+    private void uM() {
+        if (this.downloadListener != null) {
+            MessageManager.getInstance().registerListener(this.downloadListener);
+        }
+    }
+
+    private void uN() {
+        if (this.downloadListener != null) {
+            MessageManager.getInstance().unRegisterListener(this.downloadListener);
+        }
+    }
+
+    public void uO() {
+        if (this.downloadListener == null) {
+            this.downloadListener = new com.baidu.tbadk.core.view.a(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class a implements View.OnClickListener {
+        protected AppDownloadView ZT;
+
+        public void b(AppDownloadView appDownloadView) {
+            this.ZT = appDownloadView;
+        }
     }
 }

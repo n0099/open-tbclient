@@ -1,35 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
-    final /* synthetic */ FrsActivity blk;
+class t implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(FrsActivity frsActivity, int i) {
-        super(i);
-        this.blk = frsActivity;
+    public t(FrsActivity frsActivity) {
+        this.bhl = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001124) {
-                if (customResponsedMessage.getCmd() != 2001122) {
-                    return;
-                }
-                this.blk.f(customResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cn cnVar;
+        int intValue = ((Integer) view.getTag()).intValue();
+        cnVar = this.bhl.bgo;
+        com.baidu.adp.widget.ListView.v at = cnVar.Ra().at(intValue);
+        if (at instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) at;
+            if (!cVar.oH()) {
                 return;
             }
-            this.blk.e(customResponsedMessage);
+            this.bhl.b(cVar);
         }
     }
 }

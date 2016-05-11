@@ -13,10 +13,10 @@ import com.baidu.adp.lib.util.k;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class CustomScrollView extends ScrollView {
-    private int eFw;
-    private int eFx;
-    protected Field eFy;
-    private a eFz;
+    private int eWk;
+    private int eWl;
+    protected Field eWm;
+    private a eWn;
     private GestureDetector mGestureDetector;
 
     /* loaded from: classes.dex */
@@ -26,8 +26,8 @@ public class CustomScrollView extends ScrollView {
 
     public CustomScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eFw = 0;
-        this.eFx = 0;
+        this.eWk = 0;
+        this.eWl = 0;
         this.mGestureDetector = new GestureDetector(context, new b());
         setFadingEdgeLength(0);
     }
@@ -35,13 +35,13 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            aYD();
+            aZV();
         }
         return super.onInterceptTouchEvent(motionEvent) && this.mGestureDetector.onTouchEvent(motionEvent);
     }
 
     public void setOnScrollListener(a aVar) {
-        this.eFz = aVar;
+        this.eWn = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -58,18 +58,18 @@ public class CustomScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         boolean z = false;
-        if (this.eFz != null) {
-            this.eFz.onScrollChanged(i, i2, i3, i4);
+        if (this.eWn != null) {
+            this.eWn.onScrollChanged(i, i2, i3, i4);
         }
-        if (this.eFw - this.eFx == i2) {
+        if (this.eWk - this.eWl == i2) {
             z = true;
         }
         if (i2 == 0 || z) {
             try {
-                if (this.eFy == null) {
-                    this.eFy = k.d(this, "mScroller");
+                if (this.eWm == null) {
+                    this.eWm = k.d(this, "mScroller");
                 }
-                Object obj = this.eFy.get(this);
+                Object obj = this.eWm.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
@@ -82,12 +82,12 @@ public class CustomScrollView extends ScrollView {
         super.onScrollChanged(i, i2, i3, i4);
     }
 
-    private void aYD() {
+    private void aZV() {
         try {
-            if (this.eFy == null) {
-                this.eFy = k.d(this, "mScroller");
+            if (this.eWm == null) {
+                this.eWm = k.d(this, "mScroller");
             }
-            Object obj = this.eFy.get(this);
+            Object obj = this.eWm.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
@@ -98,15 +98,15 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.widget.ScrollView, android.view.View
     protected int computeVerticalScrollRange() {
-        this.eFw = super.computeVerticalScrollRange();
-        return this.eFw;
+        this.eWk = super.computeVerticalScrollRange();
+        return this.eWk;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.eFx = i4 - i2;
+            this.eWl = i4 - i2;
         }
     }
 

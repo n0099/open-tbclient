@@ -2,59 +2,39 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class am implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout ahU;
+    final /* synthetic */ UserIconLayout adQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(UserIconLayout userIconLayout) {
-        this.ahU = userIconLayout;
+        this.adQ = userIconLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.as asVar;
-        com.baidu.tbadk.core.data.as asVar2;
-        com.baidu.tbadk.core.data.as asVar3;
-        com.baidu.tbadk.core.data.as asVar4;
-        com.baidu.tbadk.core.data.as asVar5;
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
         Context context;
-        com.baidu.tbadk.core.data.as asVar6;
-        com.baidu.tbadk.core.data.as asVar7;
-        com.baidu.tbadk.core.data.as asVar8;
-        View.OnClickListener onClickListener;
-        View.OnClickListener onClickListener2;
-        asVar = this.ahU.aeC;
-        if (asVar != null) {
-            asVar2 = this.ahU.aeC;
-            if (asVar2.getAuthor() != null) {
-                asVar3 = this.ahU.aeC;
-                if (!StringUtils.isNull(asVar3.getAuthor().getName_show())) {
-                    asVar4 = this.ahU.aeC;
-                    if (!StringUtils.isNull(asVar4.getAuthor().getUserId())) {
-                        asVar5 = this.ahU.aeC;
-                        if (asVar5.tr() != null) {
-                            MessageManager messageManager = MessageManager.getInstance();
-                            context = this.ahU.mContext;
-                            asVar6 = this.ahU.aeC;
-                            String userId = asVar6.getAuthor().getUserId();
-                            asVar7 = this.ahU.aeC;
-                            String name_show = asVar7.getAuthor().getName_show();
-                            asVar8 = this.ahU.aeC;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, asVar8.tr(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
-                            onClickListener = this.ahU.ahQ;
-                            if (onClickListener != null) {
-                                onClickListener2 = this.ahU.ahQ;
-                                onClickListener2.onClick(view);
-                            }
-                        }
-                    }
+        int i;
+        axVar = this.adQ.aab;
+        if (axVar != null) {
+            axVar2 = this.adQ.aab;
+            if (axVar2.getAuthor() != null) {
+                axVar3 = this.adQ.aab;
+                String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + axVar3.getAuthor().getUserId();
+                String string = TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title);
+                context = this.adQ.mContext;
+                com.baidu.tbadk.browser.f.a(context.getApplicationContext(), string, str, true, true, false);
+                i = this.adQ.adM;
+                if (i == 1) {
+                    TiebaStatic.log(new aw("c10134").s("obj_type", 3));
                 }
             }
         }

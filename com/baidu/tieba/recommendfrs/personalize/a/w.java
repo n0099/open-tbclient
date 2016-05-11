@@ -10,11 +10,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements AdapterView.OnItemClickListener {
-    final /* synthetic */ v.a dYA;
+    final /* synthetic */ v.a ebH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v.a aVar) {
-        this.dYA = aVar;
+        this.ebH = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,20 +25,20 @@ public class w implements AdapterView.OnItemClickListener {
         u uVar3;
         v vVar2;
         Context context;
-        if (!com.baidu.adp.lib.util.i.jf()) {
+        if (!com.baidu.adp.lib.util.i.fq()) {
             vVar2 = v.this;
             context = vVar2.mContext;
             com.baidu.adp.lib.util.k.showToast(context, t.j.neterror);
             return;
         }
-        uVar = this.dYA.dYx;
+        uVar = this.ebH.ebE;
         com.baidu.tieba.recommendfrs.data.j item = uVar.getItem(i);
-        item.dWO = !item.dWO;
-        uVar2 = this.dYA.dYx;
+        item.dZY = !item.dZY;
+        uVar2 = this.ebH.ebE;
         uVar2.notifyDataSetChanged();
         vVar = v.this;
-        uVar3 = this.dYA.dYx;
-        vVar.b(uVar3.aMB());
-        TiebaStatic.log(new aw("c10986").ac("obj_name", item.dWN));
+        uVar3 = this.ebH.ebE;
+        vVar.b(uVar3.aML());
+        TiebaStatic.log(new aw("c10986").ac("obj_name", item.dZX));
     }
 }

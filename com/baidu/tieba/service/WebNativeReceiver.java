@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
@@ -31,7 +30,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("class", 0);
                 intent2.putExtra("url", intent.getStringExtra("url"));
                 intent2.putExtra("from", stringExtra2);
-                TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra("url"));
+                TiebaStatic.eventStat(TbadkCoreApplication.m11getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra("url"));
             } else if (stringExtra.equals("pb")) {
                 intent2.putExtra("class", 1);
                 intent2.putExtra("id", intent.getStringExtra("id"));
@@ -56,7 +55,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             } else if (stringExtra.equals("officialba_msg")) {
                 intent2.putExtra("class", 22);
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
-                intent2.putExtra(CreateBarActivityConfig.BAR_NAME_STRING, intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING));
+                intent2.putExtra("barname", intent.getStringExtra("barname"));
                 intent2.putExtra(IntentConfig.PORTRAIT, intent.getStringExtra(IntentConfig.PORTRAIT));
             } else if (stringExtra.equals("recommendpb")) {
                 intent2.putExtra("class", 28);

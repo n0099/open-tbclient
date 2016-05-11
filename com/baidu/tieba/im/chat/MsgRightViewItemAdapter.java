@@ -8,24 +8,24 @@ import com.baidu.tieba.im.chat.ap;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends ap<MsgrightView> {
-    private boolean bZs;
+    private boolean bZX;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bZs = false;
+        this.bZX = false;
     }
 
-    public void dE(boolean z) {
-        this.bZs = z;
+    public void ef(boolean z) {
+        this.bZX = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: ah */
     public ap.a<MsgrightView> b(ViewGroup viewGroup) {
-        MsgrightView msgrightView = new MsgrightView(this.ND);
-        return new a(msgrightView.dM(), msgrightView);
+        MsgrightView msgrightView = new MsgrightView(this.DV);
+        return new a(msgrightView.ac(), msgrightView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,18 +33,18 @@ public class MsgRightViewItemAdapter extends ap<MsgrightView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgrightView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
         MsgrightView acq = aVar.acq();
-        acq.jl(this.bZj);
-        acq.dE(this.bZs);
+        acq.iP(this.bZO);
+        acq.ef(this.bZX);
         chatMessage.getCacheData().setIs_left(0);
-        acq.a(this.bZa);
-        acq.setOnItemViewLongClickListener(this.bZb);
+        acq.a(this.bZF);
+        acq.setOnItemViewLongClickListener(this.bZG);
         acq.setPosition(i);
         acq.aW(this.mCurrentTime);
-        acq.aV(chatMessage.getCacheData().getLastMsgTime());
+        acq.setLastTime(chatMessage.getCacheData().getLastMsgTime());
         acq.a(viewGroup, chatMessage);
         acq.b(viewGroup, chatMessage);
-        this.ND.getLayoutMode().ab(false);
-        this.ND.getLayoutMode().x(view);
+        this.DV.getLayoutMode().ae(false);
+        this.DV.getLayoutMode().x(view);
         return view;
     }
 

@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.push;
 /* loaded from: classes.dex */
 public class e {
-    private static e coN = null;
-    private com.baidu.adp.framework.c.e coO;
+    private static e cpK = null;
+    private com.baidu.adp.framework.c.e cpL;
 
     private e() {
-        this.coO = null;
-        this.coO = new com.baidu.adp.framework.c.e(1000, 1000, 1000);
+        this.cpL = null;
+        this.cpL = new com.baidu.adp.framework.c.e(1000, 1000, 1000);
     }
 
-    public static e ahN() {
-        if (coN == null) {
+    public static e ahU() {
+        if (cpK == null) {
             synchronized (e.class) {
-                if (coN == null) {
-                    coN = new e();
+                if (cpK == null) {
+                    cpK = new e();
                 }
             }
         }
-        return coN;
+        return cpK;
     }
 
-    public com.baidu.adp.framework.c.e fe() {
-        return this.coO;
+    public com.baidu.adp.framework.c.e bt() {
+        return this.cpL;
     }
 }

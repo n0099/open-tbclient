@@ -17,7 +17,8 @@ public class MainTabActivityConfig extends IntentConfig {
     public static boolean RECOMMEND_FRS_DELEGATE_AVAIBLE = true;
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static boolean HOME_PAGE_DELEGATE_AVAIBLE = true;
-    public static boolean TOGETHER_HI_TAB_AVAIBLE = true;
+    public static boolean TOGETHER_HI_TAB_AVAIBLE = false;
+    public static boolean MEMBER_CENTER_TAB_AVAILABLE = true;
 
     public MainTabActivityConfig(Context context) {
         super(context);

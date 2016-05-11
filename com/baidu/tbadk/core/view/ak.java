@@ -1,34 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout ahU;
+public class ak implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ UserIconBox adD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(UserIconLayout userIconLayout) {
-        this.ahU = userIconLayout;
+    public ak(UserIconBox userIconBox) {
+        this.adD = userIconBox;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.core.data.as asVar;
-        com.baidu.tbadk.core.data.as asVar2;
-        com.baidu.tbadk.core.data.as asVar3;
-        Context context;
-        asVar = this.ahU.aeC;
-        if (asVar != null) {
-            asVar2 = this.ahU.aeC;
-            if (asVar2.getAuthor() != null) {
-                asVar3 = this.ahU.aeC;
-                String str = String.valueOf(com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + asVar3.getAuthor().getUserId();
-                String string = TbadkCoreApplication.m411getInst().getString(t.j.user_icon_web_view_title);
-                context = this.ahU.mContext;
-                com.baidu.tbadk.browser.f.a(context.getApplicationContext(), string, str, true, true, false);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.f.b bVar;
+        com.baidu.adp.lib.f.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.adD.adv;
+            if (bVar != null) {
+                bVar2 = this.adD.adv;
+                bVar2.k((TbImageView) view2);
             }
         }
+    }
+
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

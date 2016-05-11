@@ -11,15 +11,15 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        c.zl().o(sQLiteDatabase);
-        d.zn().o(sQLiteDatabase);
+        c.xe().o(sQLiteDatabase);
+        d.xg().o(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         switch (i) {
             case 1:
-                d.zn().o(sQLiteDatabase);
+                d.xg().o(sQLiteDatabase);
                 return;
             default:
                 return;

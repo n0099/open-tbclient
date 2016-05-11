@@ -1,13 +1,12 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
 import tbclient.TshowInfo;
 /* loaded from: classes.dex */
-public class IconData extends i implements Serializable {
+public class IconData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     public static String meizhi_icon_name = "meizhi_level";
     public static String redi_icon_name = "is_verify";
     private static final long serialVersionUID = 5554483396003492966L;

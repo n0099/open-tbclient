@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class j {
-    public static final boolean Hu() {
+    public static final boolean Fs() {
         int i = 0;
         Object c = com.baidu.adp.lib.a.a.a.c(Looper.myQueue(), "mMessages");
         if (c == null || !(c instanceof Message)) {
@@ -16,20 +16,20 @@ public class j {
         boolean z = false;
         while (message != null && message.obj != null && !z && i < 10) {
             i++;
-            boolean b = b(message);
+            boolean l = l(message);
             Object c2 = com.baidu.adp.lib.a.a.a.c(message, "next");
             if (c2 != null && (c2 instanceof Message)) {
                 message = (Message) c2;
-                z = b;
+                z = l;
             } else {
                 message = null;
-                z = b;
+                z = l;
             }
         }
         return z;
     }
 
-    private static final boolean b(Message message) {
+    private static final boolean l(Message message) {
         Object c;
         ComponentName component;
         if (message == null) {

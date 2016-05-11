@@ -66,7 +66,7 @@ public final class SocialAPIErrorCodes {
                 return "invalid timestamp";
             case 110:
                 return "missing access token";
-            case 111:
+            case ERROR_EXPIRED_ACCESS_TOKEN /* 111 */:
                 return "access token expired";
             case ERROR_EXPIRED_SESSION_KEY /* 112 */:
                 return "session key expired";

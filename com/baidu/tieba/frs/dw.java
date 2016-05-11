@@ -1,57 +1,45 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dw extends x.a {
-    public int aik;
-    ViewGroup bpX;
-    TextView bpY;
-    View bpZ;
-    PhotoLiveCardView bqa;
-    View bqb;
-    View bqc;
+public class dw implements View.OnClickListener {
+    final /* synthetic */ dv blu;
+    private final /* synthetic */ com.baidu.tbadk.core.data.am blv;
 
-    public dw(View view) {
-        super(view);
-        this.aik = 3;
-        this.bpX = (ViewGroup) view.findViewById(t.g.live_content_layout);
-        this.bpY = (TextView) this.bpX.findViewById(t.g.live_title);
-        this.bpZ = this.bpX.findViewById(t.g.live_title_card_line);
-        this.bqa = (PhotoLiveCardView) this.bpX.findViewById(t.g.item_live_card);
-        this.bqb = this.bpX.findViewById(t.g.live_bottom_card_line);
-        this.bqc = this.bpX.findViewById(t.g.all_live_list);
-        c(this.bqa);
-        xy();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dw(dv dvVar, com.baidu.tbadk.core.data.am amVar) {
+        this.blu = dvVar;
+        this.blv = amVar;
     }
 
-    private void c(PhotoLiveCardView photoLiveCardView) {
-        photoLiveCardView.setShowContent(false);
-        photoLiveCardView.setShowBottom(true);
-        photoLiveCardView.setHeadPaddingTop(t.e.ds24);
-        photoLiveCardView.setShowLiveIcon(true);
-        photoLiveCardView.setShowRefreshTimeInButtom(true);
-        photoLiveCardView.setShowHeadLiveIcon(true);
-        photoLiveCardView.setParentBackground(t.f.addresslist_item_bg);
-        photoLiveCardView.setTitleMaxLines(1);
-    }
-
-    public void xy() {
-        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.aik) {
-            this.aik = skinType;
-            com.baidu.tbadk.core.util.at.k(this.bpX, t.f.frs_item_control_btn_bg);
-            com.baidu.tbadk.core.util.at.j((View) this.bpY, t.d.cp_cont_f);
-            com.baidu.tbadk.core.util.at.l(this.bpZ, t.d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.at.l(this.bqb, t.d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.at.j(this.bqc, t.d.cp_link_tip_c);
-            com.baidu.tbadk.core.util.at.k(this.bqc, t.f.frs_item_control_btn_bg);
-            this.bqa.xy();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.data.am amVar;
+        Context context;
+        Context context2;
+        com.baidu.tbadk.core.data.am amVar2;
+        TiebaStatic.log("cluster_btn_addFd");
+        com.baidu.tbadk.core.data.ao pX = this.blv.pX();
+        amVar = this.blu.blt;
+        if (amVar != null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context2 = this.blu.mContext;
+            String valueOf = String.valueOf(pX.getUserId());
+            String name = pX.getName();
+            String qh = pX.qh();
+            amVar2 = this.blu.blt;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context2, valueOf, name, qh, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, amVar2.qa())));
+            return;
         }
+        MessageManager messageManager2 = MessageManager.getInstance();
+        context = this.blu.mContext;
+        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(pX.getUserId()), pX.getName(), pX.qh(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
     }
 }

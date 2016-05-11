@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity crS;
+    final /* synthetic */ ChatMessageActivity csP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.crS = chatMessageActivity;
+        this.csP = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,17 +35,17 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.crS.mFragmentManager = this.crS.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.crS;
-            fragmentManager = this.crS.mFragmentManager;
-            chatMessageActivity.crR = fragmentManager.beginTransaction();
-            fragmentTransaction = this.crS.crR;
+            this.csP.mFragmentManager = this.csP.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.csP;
+            fragmentManager = this.csP.mFragmentManager;
+            chatMessageActivity.csO = fragmentManager.beginTransaction();
+            fragmentTransaction = this.csP.csO;
             fragmentTransaction.add(t.g.content, fragment);
-            fragmentTransaction2 = this.crS.crR;
+            fragmentTransaction2 = this.csP.csO;
             fragmentTransaction2.commitAllowingStateLoss();
         }
-        if (this.crS.getIntent() != null) {
-            int intExtra = this.crS.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+        if (this.csP.getIntent() != null) {
+            int intExtra = this.csP.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
             Intent intent = new Intent();
             intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
             intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

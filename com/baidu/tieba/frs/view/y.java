@@ -1,22 +1,22 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.MotionEvent;
+import android.view.KeyEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnTouchListener {
-    final /* synthetic */ u bwT;
+public class y implements View.OnKeyListener {
+    final /* synthetic */ x bwN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(u uVar) {
-        this.bwT = uVar;
+    public y(x xVar) {
+        this.bwN = xVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 4) {
-            com.baidu.adp.lib.h.j.a(this.bwT.bvI);
-            this.bwT.blH.bkb = false;
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            this.bwN.Ur();
+            return true;
         }
         return false;
     }

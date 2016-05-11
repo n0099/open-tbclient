@@ -12,46 +12,46 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ImageProblemView extends f {
-    private View MW;
-    private ScrollView biA;
-    ImageProblemActivity cAC;
-    private Button cAD;
-    private LinearLayout cvF;
+    private View Dn;
+    private ScrollView bez;
+    ImageProblemActivity cBC;
+    private Button cBD;
+    private LinearLayout cwC;
     private NavigationBar mNavigationBar;
 
     public ImageProblemView(ImageProblemActivity imageProblemActivity, ImageProblemAssistant imageProblemAssistant) {
         super(imageProblemActivity.getPageContext());
-        this.cAC = imageProblemActivity;
-        this.cAC.setContentView(t.h.image_problem_activity);
-        this.MW = this.cAC.findViewById(t.g.parent);
-        this.mNavigationBar = (NavigationBar) this.cAC.findViewById(t.g.view_navigation_bar);
+        this.cBC = imageProblemActivity;
+        this.cBC.setContentView(t.h.image_problem_activity);
+        this.Dn = this.cBC.findViewById(t.g.parent);
+        this.mNavigationBar = (NavigationBar) this.cBC.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.cAC.getPageContext().getString(t.j.image_problem));
-        this.biA = (ScrollView) this.cAC.findViewById(t.g.scrollView);
-        this.cAD = (Button) this.cAC.findViewById(t.g.check_btn);
-        this.cAD.setOnClickListener(imageProblemActivity);
-        this.cvF = new LinearLayout(this.cAC.getPageContext().getPageActivity());
-        this.cvF.setOrientation(1);
-        this.biA.addView(this.cvF);
-        Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.cAw.iterator();
+        this.mNavigationBar.setTitleText(this.cBC.getPageContext().getString(t.j.image_problem));
+        this.bez = (ScrollView) this.cBC.findViewById(t.g.scrollView);
+        this.cBD = (Button) this.cBC.findViewById(t.g.check_btn);
+        this.cBD.setOnClickListener(imageProblemActivity);
+        this.cwC = new LinearLayout(this.cBC.getPageContext().getPageActivity());
+        this.cwC.setOrientation(1);
+        this.bez.addView(this.cwC);
+        Iterator<ImageProblemAssistant.TestTask> it = imageProblemAssistant.cBw.iterator();
         while (it.hasNext()) {
-            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.cAC.getPageContext().getPageActivity());
+            ImageProblemItemView imageProblemItemView = new ImageProblemItemView(this.cBC.getPageContext().getPageActivity());
             imageProblemItemView.hideArrow();
             imageProblemItemView.setText(it.next().title);
-            this.cvF.addView(imageProblemItemView);
+            this.cwC.addView(imageProblemItemView);
         }
     }
 
     public Button getCheckButton() {
-        return this.cAD;
+        return this.cBD;
     }
 
     public void start() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cvF.getChildCount()) {
-                View childAt = this.cvF.getChildAt(i2);
+            if (i2 < this.cwC.getChildCount()) {
+                View childAt = this.cwC.getChildAt(i2);
                 if (childAt instanceof ImageProblemItemView) {
                     ImageProblemItemView imageProblemItemView = (ImageProblemItemView) childAt;
                     imageProblemItemView.setStatus(3);
@@ -69,8 +69,8 @@ public class ImageProblemView extends f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cvF.getChildCount()) {
-                View childAt = this.cvF.getChildAt(i2);
+            if (i2 < this.cwC.getChildCount()) {
+                View childAt = this.cwC.getChildAt(i2);
                 if (childAt instanceof ImageProblemItemView) {
                     ((ImageProblemItemView) childAt).setStatus(1);
                 }
@@ -84,7 +84,7 @@ public class ImageProblemView extends f {
     public void setValue(int i, ArrayList<ImageProblemAssistant.TestTask> arrayList) {
         int i2 = i - 1;
         if (i2 >= 0) {
-            View childAt = this.cvF.getChildAt(i2);
+            View childAt = this.cwC.getChildAt(i2);
             if (childAt instanceof ImageProblemItemView) {
                 ImageProblemItemView imageProblemItemView = (ImageProblemItemView) childAt;
                 imageProblemItemView.setStatus(1);
@@ -93,13 +93,13 @@ public class ImageProblemView extends f {
                     imageProblemItemView.setHelpText("");
                     imageProblemItemView.setArrowImg(t.f.icon_diagnose_ok);
                 } else {
-                    imageProblemItemView.setHelpText(arrayList.get(i2).cAy);
+                    imageProblemItemView.setHelpText(arrayList.get(i2).cBy);
                     imageProblemItemView.setArrowImg(t.f.icon_error);
                 }
             }
         }
-        if (i < this.cvF.getChildCount()) {
-            View childAt2 = this.cvF.getChildAt(i);
+        if (i < this.cwC.getChildCount()) {
+            View childAt2 = this.cwC.getChildAt(i);
             if (childAt2 instanceof ImageProblemItemView) {
                 ((ImageProblemItemView) childAt2).setStatus(2);
             }
@@ -107,8 +107,8 @@ public class ImageProblemView extends f {
     }
 
     public void onChangeSkinType(int i) {
-        this.cAC.getLayoutMode().ab(i == 1);
-        this.cAC.getLayoutMode().x(this.MW);
+        this.cBC.getLayoutMode().ae(i == 1);
+        this.cBC.getLayoutMode().x(this.Dn);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

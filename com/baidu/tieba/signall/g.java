@@ -9,13 +9,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f efW;
+    final /* synthetic */ f ejh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.efW = fVar;
+        this.ejh = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,34 +32,34 @@ public class g extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 if (error == 110001) {
-                    this.efW.d(httpResponsedMessage);
+                    this.ejh.d(httpResponsedMessage);
                 }
                 String errorString = httpResponsedMessage.getErrorString();
-                aVar5 = this.efW.efQ;
-                aVar5.jk(errorString);
+                aVar5 = this.ejh.ejb;
+                aVar5.jm(errorString);
             } else if (error == 0) {
-                this.efW.efP = ((GetForumResponsed) httpResponsedMessage).listData;
-                aVar2 = this.efW.efQ;
+                this.ejh.eja = ((GetForumResponsed) httpResponsedMessage).listData;
+                aVar2 = this.ejh.ejb;
                 if (aVar2 != null) {
-                    cVar = this.efW.efP;
+                    cVar = this.ejh.eja;
                     if (cVar != null) {
-                        aVar4 = this.efW.efQ;
-                        cVar2 = this.efW.efP;
+                        aVar4 = this.ejh.ejb;
+                        cVar2 = this.ejh.eja;
                         aVar4.a(cVar2);
                     }
                 }
                 String errorString2 = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString2)) {
-                    errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(t.j.neterror);
+                    errorString2 = TbadkCoreApplication.m11getInst().getContext().getString(t.j.neterror);
                 }
-                aVar3 = this.efW.efQ;
-                aVar3.jk(errorString2);
+                aVar3 = this.ejh.ejb;
+                aVar3.jm(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                aVar = this.efW.efQ;
-                aVar.jk(errorString3);
+                aVar = this.ejh.ejb;
+                aVar.jm(errorString3);
             }
-            this.efW.efR = null;
+            this.ejh.ejc = null;
         }
     }
 }

@@ -1,33 +1,29 @@
 package com.baidu.tieba.pb.view;
 
-import android.content.Context;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.pb.b;
+import android.os.CountDownTimer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.b {
-    final /* synthetic */ PbNewChudianCommonView dqw;
-    private final /* synthetic */ String val$url;
+public class e extends CountDownTimer {
+    private final /* synthetic */ com.baidu.tieba.pb.data.e dlQ;
+    final /* synthetic */ PbInterviewStatusView dsp;
+    private final /* synthetic */ PbActivity dsq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(PbNewChudianCommonView pbNewChudianCommonView, String str) {
-        this.dqw = pbNewChudianCommonView;
-        this.val$url = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity, com.baidu.tieba.pb.data.e eVar) {
+        super(j, j2);
+        this.dsp = pbInterviewStatusView;
+        this.dsq = pbActivity;
+        this.dlQ = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        Context context;
-        b.a aVar2;
-        b.a aVar3;
-        aVar.dismiss();
-        context = this.dqw.mContext;
-        UtilHelper.callPhone(context, this.val$url);
-        aVar2 = this.dqw.daU;
-        if (aVar2 != null) {
-            aVar3 = this.dqw.daU;
-            aVar3.y(this.val$url, "BTN_CALL", "CLICK_FEEDBACK");
-        }
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        this.dsp.b(this.dsq, this.dlQ);
     }
 }

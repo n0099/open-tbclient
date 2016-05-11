@@ -1,50 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.f.a;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class aj extends com.baidu.adp.base.g {
-    final /* synthetic */ PbActivity dht;
+class aj implements View.OnLongClickListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity) {
-        this.dht = pbActivity;
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        eu euVar;
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
-        com.baidu.tieba.tbadkCore.f.a aVar3;
-        df dfVar;
-        if (obj != null) {
-            aVar2 = this.dht.dgC;
-            switch (aVar2.getLoadDataMode()) {
-                case 0:
-                    dfVar = this.dht.dfV;
-                    dfVar.axq();
-                    this.dht.a((a.b) obj);
-                    return;
-                case 1:
-                    this.dht.a((a.d) obj);
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    PbActivity pbActivity = this.dht;
-                    aVar3 = this.dht.dgC;
-                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
-                    return;
-                case 6:
-                    this.dht.a((a.f) obj);
-                    return;
-                default:
-                    return;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        boolean z;
+        el elVar;
+        c.b bVar;
+        cw cwVar;
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
+        }
+        if (sparseArray != null) {
+            this.djE.djv = (com.baidu.tieba.tbadkCore.data.s) sparseArray.get(t.g.tag_clip_board);
+            if (this.djE.djv != null) {
+                aVar = this.djE.cPW;
+                if (aVar != null) {
+                    aVar2 = this.djE.cPW;
+                    if (aVar2.mP() && this.djE.djv.getId() != null) {
+                        String id = this.djE.djv.getId();
+                        cwVar = this.djE.dih;
+                        if (id.equals(cwVar.qT())) {
+                            z = true;
+                            boolean booleanValue = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
+                            elVar = this.djE.diR;
+                            bVar = this.djE.djw;
+                            elVar.a(bVar, z, booleanValue);
+                        }
+                    }
+                    z = false;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
+                    elVar = this.djE.diR;
+                    bVar = this.djE.djw;
+                    elVar.a(bVar, z, booleanValue2);
+                }
             }
         }
-        euVar = this.dht.dgF;
-        aVar = this.dht.dgC;
-        euVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        return true;
     }
 }

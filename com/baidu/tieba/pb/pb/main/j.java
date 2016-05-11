@@ -1,31 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.pb.pb.main.cj;
+import com.baidu.tieba.t;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ GetLotteryChanceActivity dfT;
+class j implements cj.a {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(GetLotteryChanceActivity getLotteryChanceActivity) {
-        this.dfT = getLotteryChanceActivity;
+    public j(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        long j;
-        Intent intent = new Intent();
-        intent.putExtra("key_action", 2);
-        this.dfT.setResult(-1, intent);
-        this.dfT.closeActivity();
-        com.baidu.tbadk.core.util.aw ac = new com.baidu.tbadk.core.util.aw("c10838").ac("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-        str = this.dfT.forumId;
-        com.baidu.tbadk.core.util.aw ac2 = ac.ac("fid", str);
-        j = this.dfT.threadId;
-        TiebaStatic.log(ac2.ac("tid", String.valueOf(j)));
+    @Override // com.baidu.tieba.pb.pb.main.cj.a
+    public void i(int i, long j) {
+        cw cwVar;
+        cw cwVar2;
+        el elVar;
+        cw cwVar3;
+        if (i == 0) {
+            ee.ayA().reset();
+            cwVar = this.djE.dih;
+            cwVar.axQ();
+            cwVar2 = this.djE.dih;
+            ArrayList<com.baidu.tieba.tbadkCore.data.s> avC = cwVar2.getPbData().avC();
+            if (avC != null) {
+                Iterator<com.baidu.tieba.tbadkCore.data.s> it = avC.iterator();
+                boolean z = false;
+                while (it.hasNext()) {
+                    com.baidu.tieba.tbadkCore.data.s next = it.next();
+                    if (ek.g(next) && next.aUc().getTemplateId() == j) {
+                        it.remove();
+                        z = true;
+                    }
+                }
+                if (z) {
+                    elVar = this.djE.diR;
+                    cwVar3 = this.djE.dih;
+                    elVar.j(cwVar3.getPbData());
+                }
+                this.djE.showToast(t.j.operation_success);
+                return;
+            }
+            return;
+        }
+        this.djE.showToast(t.j.operation_failed);
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.cj.a
+    public void onError(int i, String str) {
+        this.djE.showToast(t.j.operation_failed);
     }
 }

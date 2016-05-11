@@ -8,23 +8,23 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.adp.lib.f.c<TbImageView> {
-    final /* synthetic */ f dYc;
+    final /* synthetic */ f ebj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.dYc = fVar;
+        this.ebj = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: xG */
-    public TbImageView hq() {
+    /* renamed from: vw */
+    public TbImageView dE() {
         TbPageContext tbPageContext;
-        tbPageContext = this.dYc.ND;
+        tbPageContext = this.ebj.DV;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
         tbImageView.setBorderColor(at.getColor(t.d.black_alpha10));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds1));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds1));
         return tbImageView;
     }
 

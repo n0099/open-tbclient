@@ -1,8 +1,7 @@
 package com.baidu.tieba.recommendfrs.control.a;
 
-import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.ax;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.a.z;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -12,15 +11,15 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final d dVZ = new d();
-    private final int dWa = com.baidu.tbadk.core.sharedPref.b.vk().getInt("home_page_max_thread_count", 300);
+    private final d dZj = new d();
+    private final int dZk = com.baidu.tbadk.core.sharedPref.b.sQ().getInt("home_page_max_thread_count", 300);
 
-    public int aMd() {
-        return this.dWa;
+    public int aMo() {
+        return this.dZk;
     }
 
     public d a(DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        return a(builder, builder2, i, this.dWa);
+        return a(builder, builder2, i, this.dZk);
     }
 
     public d a(DataRes.Builder builder, DataRes.Builder builder2, int i, int i2) {
@@ -39,13 +38,13 @@ public class a {
         a(builder, i, i2);
         e.d(builder);
         e.d(builder2);
-        List<z> b = e.b(builder);
-        ch(b);
-        List<com.baidu.adp.widget.ListView.u> j = j(builder.thread_list, b);
+        List<com.baidu.tieba.card.a.r> b = e.b(builder);
+        cj(b);
+        List<com.baidu.adp.widget.ListView.v> j = j(builder.thread_list, b);
         a(j, builder);
         c.a(builder, j);
-        this.dVZ.bjU = j;
-        return this.dVZ;
+        this.dZj.bfT = j;
+        return this.dZj;
     }
 
     private void b(DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -71,7 +70,7 @@ public class a {
 
     private void b(List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
         if (list != null && list2 != null) {
-            int p = y.p(list);
+            int r = y.r(list);
             HashSet hashSet = new HashSet();
             for (ThreadInfo threadInfo : list) {
                 if (threadInfo != null && threadInfo.tid != null) {
@@ -85,42 +84,42 @@ public class a {
                     }
                 }
             } else {
-                for (int p2 = y.p(list2) - 1; p2 >= 0; p2--) {
-                    ThreadInfo threadInfo3 = (ThreadInfo) y.b(list2, p2);
+                for (int r2 = y.r(list2) - 1; r2 >= 0; r2--) {
+                    ThreadInfo threadInfo3 = (ThreadInfo) y.c(list2, r2);
                     if (threadInfo3 != null && threadInfo3.tid != null && !hashSet.contains(threadInfo3.tid)) {
                         list.add(0, threadInfo3);
                     }
                 }
             }
-            this.dVZ.dWc = y.p(list) - p;
+            this.dZj.dZm = y.r(list) - r;
         }
     }
 
-    private void ch(List<z> list) {
+    private void cj(List<com.baidu.tieba.card.a.r> list) {
         if (list != null) {
             Collections.sort(list, new b(this));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.u> j(List<ThreadInfo> list, List<z> list2) {
+    private List<com.baidu.adp.widget.ListView.v> j(List<ThreadInfo> list, List<com.baidu.tieba.card.a.r> list2) {
         if (list == null) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                as asVar = new as();
-                asVar.a(threadInfo);
-                com.baidu.tieba.card.a.c i = e.i(asVar);
-                if (i != null && i.isValid()) {
-                    linkedList.add(i);
+                ax axVar = new ax();
+                axVar.a(threadInfo);
+                com.baidu.tieba.card.a.c n = e.n(axVar);
+                if (n != null && n.isValid()) {
+                    linkedList.add(n);
                 }
             }
         }
-        for (int p = y.p(list2) - 1; p >= 0; p--) {
-            z zVar = (z) y.b(list2, p);
-            if (zVar != null && linkedList.size() >= zVar.getPosition() && zVar.getPosition() > 0) {
-                linkedList.add(zVar.getPosition() - 1, zVar);
+        for (int r = y.r(list2) - 1; r >= 0; r--) {
+            com.baidu.tieba.card.a.r rVar = (com.baidu.tieba.card.a.r) y.c(list2, r);
+            if (rVar != null && linkedList.size() >= rVar.getPosition() && rVar.getPosition() > 0) {
+                linkedList.add(rVar.getPosition() - 1, rVar);
             }
         }
         return linkedList;
@@ -130,29 +129,29 @@ public class a {
         if (builder != null && builder.thread_list != null) {
             List<ThreadInfo> list = builder.thread_list;
             if (i == 1) {
-                int p = (y.p(list) - i2) + 30;
+                int r = (y.r(list) - i2) + 30;
                 while (true) {
-                    p--;
-                    if (p >= 30) {
-                        if (list.size() > p) {
-                            list.remove(p);
+                    r--;
+                    if (r >= 30) {
+                        if (list.size() > r) {
+                            list.remove(r);
                         }
                     } else {
                         return;
                     }
                 }
             } else {
-                for (int p2 = y.p(list) - 1; p2 >= i2; p2--) {
-                    list.remove(p2);
+                for (int r2 = y.r(list) - 1; r2 >= i2; r2--) {
+                    list.remove(r2);
                 }
             }
         }
     }
 
-    private void a(List<com.baidu.adp.widget.ListView.u> list, DataRes.Builder builder) {
+    private void a(List<com.baidu.adp.widget.ListView.v> list, DataRes.Builder builder) {
         com.baidu.tieba.recommendfrs.data.i e;
         if (builder != null && list != null) {
-            if (!com.baidu.tbadk.core.sharedPref.b.vk().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
+            if (!com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
                 com.baidu.tieba.recommendfrs.data.k f = com.baidu.tieba.recommendfrs.data.k.f(builder);
                 if (f != null) {
                     list.add(0, f);

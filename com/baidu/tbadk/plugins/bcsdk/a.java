@@ -3,13 +3,13 @@ package com.baidu.tbadk.plugins.bcsdk;
 import android.app.Service;
 /* loaded from: classes.dex */
 public class a {
-    private static Service aDm;
+    private static Service azp;
 
-    public static Service Hh() {
-        return aDm;
+    public static Service Fe() {
+        return azp;
     }
 
     public static void a(Service service) {
-        aDm = service;
+        azp = service;
     }
 }

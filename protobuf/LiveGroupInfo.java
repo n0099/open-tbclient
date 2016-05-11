@@ -1,6 +1,6 @@
 package protobuf;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.TbConfig;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
@@ -33,7 +33,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer createTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
     public final Integer deviceId;
-    @ProtoField(tag = 26, type = Message.Datatype.INT32)
+    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.INT32)
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;
@@ -53,7 +53,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer isLiving;
     @ProtoField(tag = 28, type = Message.Datatype.INT32)
     public final Integer isVip;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB)
+    @ProtoField(tag = 29)
     public final LiveGroupLabel label;
     @ProtoField(tag = 24, type = Message.Datatype.INT64)
     public final Long lastMsgId;

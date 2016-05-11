@@ -9,11 +9,11 @@ import com.baidu.tbadk.img.a;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class j implements a.c {
-    final /* synthetic */ i drE;
+    final /* synthetic */ i dva;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.drE = iVar;
+        this.dva = iVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -26,13 +26,13 @@ class j implements a.c {
         String str2;
         EditHeadActivity editHeadActivity6;
         EditHeadActivity editHeadActivity7;
-        editHeadActivity = this.drE.this$0;
+        editHeadActivity = this.dva.this$0;
         editHeadActivity.closeLoadingDialog();
-        editHeadActivity2 = this.drE.this$0;
+        editHeadActivity2 = this.dva.this$0;
         Intent intent = editHeadActivity2.getIntent();
         if (imageUploadResult != null) {
             if (imageUploadResult.error_code != 0) {
-                editHeadActivity7 = this.drE.this$0;
+                editHeadActivity7 = this.dva.this$0;
                 editHeadActivity7.showToast(t.j.upload_pic_error, false);
             } else {
                 PhotoUrlData photoUrlData = new PhotoUrlData();
@@ -48,19 +48,19 @@ class j implements a.c {
                         photoUrlData.setToServerPhotoInfo(imageUploadResult.getUploadedPicInfo().toPostString());
                     }
                 }
-                editHeadActivity5 = this.drE.this$0;
-                str2 = editHeadActivity5.drf;
+                editHeadActivity5 = this.dva.this$0;
+                str2 = editHeadActivity5.duA;
                 if (EditHeadActivityConfig.FROM_MISSON_SET_COVER.equals(str2)) {
-                    editHeadActivity6 = this.drE.this$0;
+                    editHeadActivity6 = this.dva.this$0;
                     editHeadActivity6.c(photoUrlData);
                 }
                 intent.putExtra(EditHeadActivity.PHOTO_RESOURCE, String.valueOf(imageUploadResult.picId));
                 intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
             }
         }
-        editHeadActivity3 = this.drE.this$0;
+        editHeadActivity3 = this.dva.this$0;
         editHeadActivity3.setResult(-1, intent);
-        editHeadActivity4 = this.drE.this$0;
+        editHeadActivity4 = this.dva.this$0;
         editHeadActivity4.finish();
     }
 }

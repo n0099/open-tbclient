@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.ad;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +15,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    public List<a> dvh = new ArrayList();
-    public ac dSm = new ac();
+    public List<a> dyd = new ArrayList();
+    public ad dVe = new ad();
 
     /* loaded from: classes.dex */
     public static class a {
         public String content;
-        public int dSn;
+        public int dVf;
         public String fname;
         public int is_floor;
         public String name;
@@ -33,17 +33,17 @@ public class k {
         public String title;
     }
 
-    public boolean aia() {
-        return (this.dvh == null || this.dvh.size() == 0) ? false : true;
+    public boolean aih() {
+        return (this.dyd == null || this.dyd.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.dSm != null && this.dSm.sq() == 1;
+        return this.dVe != null && this.dVe.pK() == 1;
     }
 
-    public int oX() {
-        if (this.dSm != null) {
-            return this.dSm.so();
+    public int lk() {
+        if (this.dVe != null) {
+            return this.dVe.pI();
         }
         return 0;
     }
@@ -60,10 +60,10 @@ public class k {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dSm.parserJson(jSONObject.getJSONObject("page"));
+                this.dVe.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.dvh.clear();
+                    this.dyd.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -79,7 +79,7 @@ public class k {
                             int optInt = jSONObject2.optInt("is_floor", 0);
                             int optInt2 = jSONObject2.optInt("is_replay", 0);
                             int optInt3 = jSONObject2.optInt("thread_type", 0);
-                            if (optInt3 != 33 || TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                            if (optInt3 != 33 || TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                 a aVar = new a();
                                 aVar.pid = optLong;
                                 aVar.title = optString3;
@@ -88,11 +88,11 @@ public class k {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.dSn = optInt2;
+                                aVar.dVf = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.dvh.add(aVar);
+                                this.dyd.add(aVar);
                             }
                         }
                     }

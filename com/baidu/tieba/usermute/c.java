@@ -12,13 +12,13 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel eED;
+    final /* synthetic */ UserMuteAddAndDelModel eVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.eED = userMuteAddAndDelModel;
+        this.eVk = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,20 +32,20 @@ public class c extends HttpMessageListener {
         String str;
         UserMuteAddAndDelModel.b bVar2;
         UserMuteAddAndDelModel.b bVar3;
-        bVar = this.eED.bbk;
-        bVar.ay(false);
+        bVar = this.eVk.aXt;
+        bVar.aD(false);
         if (httpResponsedMessage instanceof UserMuteDelResponseMessage) {
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) httpResponsedMessage;
             if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                hVar3 = this.eED.eEy;
-                hVar4 = this.eED.eEv;
+                hVar3 = this.eVk.eVf;
+                hVar4 = this.eVk.eVc;
                 hVar3.c(hVar4.getResources().getString(t.j.un_mute_success));
                 MessageManager messageManager = MessageManager.getInstance();
-                str = this.eED.mUserId;
+                str = this.eVk.mUserId;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_REMOVE_ITEM, str));
-                bVar2 = this.eED.dCX;
+                bVar2 = this.eVk.dGf;
                 if (bVar2 != null) {
-                    bVar3 = this.eED.dCX;
+                    bVar3 = this.eVk.dGf;
                     bVar3.a(userMuteDelResponseMessage);
                     return;
                 }
@@ -53,10 +53,10 @@ public class c extends HttpMessageListener {
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
             if (ay.isEmpty(muteMessage)) {
-                hVar2 = this.eED.eEv;
+                hVar2 = this.eVk.eVc;
                 muteMessage = hVar2.getResources().getString(t.j.un_mute_fail);
             }
-            hVar = this.eED.eEy;
+            hVar = this.eVk.eVf;
             hVar.d(muteMessage);
         }
     }

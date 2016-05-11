@@ -12,6 +12,7 @@ public class PluginSettings implements Serializable, Cloneable {
     private String mContainerVersion;
     private String mForbiddenFeatures;
     private Map<String, PluginSetting> mPlugins = new ConcurrentHashMap();
+    private boolean mHasPatch = false;
     private List<String> mForbiddenFeaturesList = new ArrayList();
 
     public Map<String, PluginSetting> getPlugins() {
@@ -24,6 +25,14 @@ public class PluginSettings implements Serializable, Cloneable {
 
     public String getContainerVersion() {
         return this.mContainerVersion;
+    }
+
+    public boolean hasPatch() {
+        return this.mHasPatch;
+    }
+
+    public void setPatch(boolean z) {
+        this.mHasPatch = z;
     }
 
     public void setContainerSetting(String str) {
@@ -104,14 +113,14 @@ public class PluginSettings implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSettings m5clone() {
+    public PluginSettings m7clone() {
         PluginSettings pluginSettings = new PluginSettings();
         pluginSettings.mContainerVersion = this.mContainerVersion;
         pluginSettings.setForbiddenFeatures(this.mForbiddenFeatures);
         for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (value != null) {
-                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m4clone());
+                pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m6clone());
             }
         }
         return pluginSettings;

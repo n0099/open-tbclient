@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l {
-    public static ArrayList<String> t(Intent intent) {
+    public static ArrayList<String> v(Intent intent) {
         if (intent == null) {
             return null;
         }

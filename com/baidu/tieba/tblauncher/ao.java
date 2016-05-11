@@ -1,47 +1,66 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ao implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqR;
-    final /* synthetic */ aa etY;
-    private final /* synthetic */ int val$type;
+class ao implements com.baidu.adp.lib.guide.b {
+    private final /* synthetic */ String dkV;
+    final /* synthetic */ an exh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(aa aaVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.etY = aaVar;
-        this.aqR = aVar;
-        this.val$type = i;
+    public ao(an anVar, String str) {
+        this.exh = anVar;
+        this.dkV = str;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        ab abVar;
         MainTabActivity mainTabActivity;
+        ab abVar2;
         MainTabActivity mainTabActivity2;
+        ab abVar3;
         MainTabActivity mainTabActivity3;
-        this.aqR.dismiss();
-        String str = null;
-        if (this.val$type == 0) {
-            str = "4006001000";
-            mainTabActivity3 = this.etY.etM;
-            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.val$type == 1) {
-            str = "4005001000";
-            mainTabActivity = this.etY.etM;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
-        }
-        mainTabActivity2 = this.etY.etM;
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(mainTabActivity2.getPageContext().getPageActivity(), 2);
-        if (!StringUtils.isNULL(str)) {
-            memberPayActivityConfig.setSceneId(str);
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
+        ab abVar4;
+        MainTabActivity mainTabActivity4;
+        abVar = this.exh.exg;
+        mainTabActivity = abVar.ewR;
+        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
+        textView.setText(this.dkV);
+        textView.setGravity(17);
+        com.baidu.tbadk.core.util.at.j((View) textView, t.d.cp_cont_i);
+        abVar2 = this.exh.exg;
+        mainTabActivity2 = abVar2.ewR;
+        textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(t.e.fontsize28));
+        abVar3 = this.exh.exg;
+        mainTabActivity3 = abVar3.ewR;
+        textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(t.e.ds300));
+        abVar4 = this.exh.exg;
+        mainTabActivity4 = abVar4.ewR;
+        textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(t.e.ds76));
+        com.baidu.tbadk.core.util.at.k(textView, t.f.pic_sign_tip);
+        return textView;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int cT() {
+        return 4;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int cU() {
+        return 48;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.adp.framework.client.socket.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements d.a {
-    final /* synthetic */ h oY;
+    final /* synthetic */ h eR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.oY = hVar;
+        this.eR = hVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.d.a
     public void a(d.b bVar) {
-        this.oY.b(bVar);
+        this.eR.b(bVar);
     }
 }

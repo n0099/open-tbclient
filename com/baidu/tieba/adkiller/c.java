@@ -4,13 +4,13 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class c implements o.a<String> {
-    private final /* synthetic */ String aPE;
-    private final /* synthetic */ o aPF;
+    private final /* synthetic */ String aLO;
+    private final /* synthetic */ o aLP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str, o oVar) {
-        this.aPE = str;
-        this.aPF = oVar;
+        this.aLO = str;
+        this.aLP = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,9 +18,9 @@ class c implements o.a<String> {
     /* renamed from: aw */
     public void g(String str, String str2) {
         if (StringUtils.isNull(str2)) {
-            str2 = "start*" + this.aPE;
-        } else if (!str2.contains(this.aPE)) {
-            str2 = String.valueOf(str2) + ",start*" + this.aPE;
+            str2 = "start*" + this.aLO;
+        } else if (!str2.contains(this.aLO)) {
+            str2 = String.valueOf(str2) + ",start*" + this.aLO;
         } else {
             String[] split = str2.split(",");
             if (split != null) {
@@ -31,16 +31,16 @@ class c implements o.a<String> {
                         break;
                     }
                     String str3 = split[i];
-                    if (!str3.endsWith(this.aPE)) {
+                    if (!str3.endsWith(this.aLO)) {
                         i++;
                     } else if (!str3.startsWith("start*")) {
-                        String str4 = "start*" + this.aPE;
+                        String str4 = "start*" + this.aLO;
                     } else {
                         return;
                     }
                 }
             }
         }
-        this.aPF.e(str, str2);
+        this.aLP.e(str, str2);
     }
 }

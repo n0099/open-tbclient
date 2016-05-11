@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.t;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h cqk = new h();
+    private static h crh = new h();
 
     private h() {
     }
 
-    public static h aim() {
-        return cqk;
+    public static h ait() {
+        return crh;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: be */
-    public OfficialSettingItemData bb(String str, String str2) {
+    /* renamed from: bi */
+    public OfficialSettingItemData bf(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.cqc) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.cqc.get(str3);
+        synchronized (this.cqZ) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.cqZ.get(str3);
             officialSettingItemData = (aVar == null || !(aVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) aVar;
         }
         if (officialSettingItemData == null) {
@@ -34,7 +34,7 @@ public class h extends a {
             officialSettingItemData2.setMyUid(str);
             officialSettingItemData2.setToUid(str2);
             officialSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.k.jv()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 a(officialSettingItemData2, null);
                 return officialSettingItemData2;
             }
@@ -49,18 +49,18 @@ public class h extends a {
     }
 
     public void b(String str, String str2, UserData userData) {
-        OfficialSettingItemData bb;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bb = bb(str, str2)) != null) {
-            bb.setToPortrait(userData.getPortrait());
-            bb.setToName(userData.getUserName());
-            a(bb);
+        OfficialSettingItemData bf;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bf = bf(str, str2)) != null) {
+            bf.setToPortrait(userData.getPortrait());
+            bf.setToName(userData.getUserName());
+            a(bf);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> aij() {
-        return com.baidu.tbadk.core.b.a.um().cz("tb.im_official_chat_setting");
+    public o<String> aiq() {
+        return com.baidu.tbadk.core.b.a.rR().cx("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +75,13 @@ public class h extends a {
                 }
                 return;
             }
-            o<String> aij = aij();
+            o<String> aiq = aiq();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.cqc) {
-                this.cqc.put(str, officialSettingItemData);
+            synchronized (this.cqZ) {
+                this.cqZ.put(str, officialSettingItemData);
             }
-            aij.e(str, jsonStrWithObject);
+            aiq.e(str, jsonStrWithObject);
         }
     }
 
@@ -98,10 +98,10 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.cqc) {
-                this.cqc.put(str, officialSettingItemData);
+            synchronized (this.cqZ) {
+                this.cqZ.put(str, officialSettingItemData);
             }
-            q.b(new i(this, officialSettingItemData, str), gVar);
+            t.b(new i(this, officialSettingItemData, str), gVar);
         }
     }
 }

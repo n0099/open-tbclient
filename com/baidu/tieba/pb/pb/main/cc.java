@@ -1,28 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class cc implements View.OnClickListener {
-    final /* synthetic */ PbActivity dht;
+class cc implements Comparator<Integer> {
+    final /* synthetic */ bz dkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(PbActivity pbActivity) {
-        this.dht = pbActivity;
+    public cc(bz bzVar) {
+        this.dkp = bzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        df dfVar;
-        this.dht.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.dht.getPageContext().getPageActivity(), 23007)));
-        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10125");
-        dfVar = this.dht.dfV;
-        TiebaStatic.log(awVar.ac("tid", dfVar.getThreadID()).r("obj_type", 1));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(Integer num, Integer num2) {
+        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
     }
 }

@@ -1,12 +1,11 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.MyGroupInfo;
 /* loaded from: classes.dex */
-public class MyGroup extends i implements Serializable {
+public class MyGroup extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 3454151897639902332L;
     private long mGroupId;
     private Integer mGroupMemberNum;

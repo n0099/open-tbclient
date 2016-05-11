@@ -22,7 +22,7 @@ public class a {
         return 0;
     }
 
-    public static void aD(String str) {
+    public static void aw(String str) {
         if (str == null) {
             str = "";
         }

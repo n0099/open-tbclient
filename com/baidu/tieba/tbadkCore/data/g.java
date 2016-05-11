@@ -1,18 +1,18 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class g {
-    private String epl;
+    private String esv;
     private int status;
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public String aSQ() {
-        return this.epl;
+    public String aTr() {
+        return this.esv;
     }
 
-    public void nV(String str) {
-        this.epl = str;
+    public void nU(String str) {
+        this.esv = str;
     }
 }

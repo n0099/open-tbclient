@@ -5,22 +5,22 @@ import com.baidu.tieba.recommendfrs.personalize.a.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ y.a dYK;
+    final /* synthetic */ y.a ebR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(y.a aVar) {
-        this.dYK = aVar;
+        this.ebR = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.recommendfrs.data.k kVar;
         com.baidu.tieba.recommendfrs.data.k kVar2;
-        kVar = this.dYK.dYF;
+        kVar = this.ebR.ebM;
         if (kVar != null) {
-            y.a aVar = this.dYK;
-            kVar2 = this.dYK.dYF;
-            aVar.a(kVar2.dWQ, view, 1);
+            y.a aVar = this.ebR;
+            kVar2 = this.ebR.ebM;
+            aVar.a(kVar2.eaa, view, 1);
         }
     }
 }

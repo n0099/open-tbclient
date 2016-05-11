@@ -1,6 +1,5 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -16,7 +15,7 @@ import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class MetaData extends i implements Serializable {
+public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
     private String fansNickName;
     private int gender;
@@ -144,10 +143,6 @@ public class MetaData extends i implements Serializable {
         return this.mTShowIconInfoNew;
     }
 
-    public void setTShowInfoNew(ArrayList<IconData> arrayList) {
-        this.mTShowIconInfoNew = arrayList;
-    }
-
     public int getLevel_id() {
         return this.level_id;
     }
@@ -160,24 +155,12 @@ public class MetaData extends i implements Serializable {
         return this.is_bawu;
     }
 
-    public void setIsBawu(int i) {
-        this.is_bawu = i;
-    }
-
     public String getBawu_type() {
         return this.bawu_type;
     }
 
-    public void setBawuType(String str) {
-        this.bawu_type = str;
-    }
-
     public int getIsMyFriend() {
         return this.is_myfriend;
-    }
-
-    public void setIsMyFriend(int i) {
-        this.is_myfriend = i;
     }
 
     public int getGender() {
@@ -190,10 +173,6 @@ public class MetaData extends i implements Serializable {
 
     public int getConcernNum() {
         return this.concernNum;
-    }
-
-    public void setConcernNum(int i) {
-        this.concernNum = i;
     }
 
     public int getConcern_num() {
@@ -381,9 +360,5 @@ public class MetaData extends i implements Serializable {
 
     public ThemeCardInUserData getThemeCard() {
         return this.themeCard;
-    }
-
-    public void setThemeCard(ThemeCardInUserData themeCardInUserData) {
-        this.themeCard = themeCardInUserData;
     }
 }

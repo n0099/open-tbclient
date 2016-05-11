@@ -1,6 +1,5 @@
 package com.baidu.sapi2.utils;
 
-import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
@@ -29,16 +28,22 @@ public final class StatService {
     public static void onEvent(StatEvent statEvent) {
         if (statEvent != null && !TextUtils.isEmpty(statEvent.a)) {
             HashMap hashMap = new HashMap();
-            hashMap.put("di", e.b(statEvent.b));
+            hashMap.put("di", d.b(statEvent.b));
             a(statEvent.a, hashMap);
         }
     }
 
     public static void a(String str, Map<String, String> map) {
+        a(str, map, true);
+    }
+
+    public static void a(final String str, Map<String, String> map, boolean z) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-                com.baidu.sapi2.d.a(sapiConfiguration.context).a(str, map);
+                final SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+                if (z) {
+                    com.baidu.sapi2.c.a(sapiConfiguration.context).a(str, map);
+                }
                 if (SapiUtils.hasActiveNetwork(sapiConfiguration.context)) {
                     HashMap hashMap = new HashMap();
                     hashMap.putAll(b);
@@ -58,7 +63,13 @@ public final class StatService {
                             }
                         }
                     }
-                    new Handler(Looper.getMainLooper()).post(new a(sapiConfiguration, hashMap, str));
+                    new AsyncHttpClient().get(sapiConfiguration.context, a, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.StatService.1
+                        /* JADX INFO: Access modifiers changed from: protected */
+                        @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+                        public void onSuccess(int i, String str2) {
+                            com.baidu.sapi2.c.a(sapiConfiguration.context).f(str);
+                        }
+                    });
                 }
             } catch (Throwable th) {
                 L.e(th);
@@ -66,41 +77,9 @@ public final class StatService {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public final class a implements Runnable {
-        final /* synthetic */ SapiConfiguration a;
-        final /* synthetic */ Map b;
-        final /* synthetic */ String c;
-
-        a(SapiConfiguration sapiConfiguration, Map map, String str) {
-            this.a = sapiConfiguration;
-            this.b = map;
-            this.c = str;
-        }
-
-        /* renamed from: com.baidu.sapi2.utils.StatService$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        class HandlerC0038a extends HttpResponseHandler {
-            HandlerC0038a() {
-            }
-
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onSuccess(int i, String str) {
-                com.baidu.sapi2.d.a(a.this.a.context).e(a.this.c);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            new AsyncHttpClient().get(this.a.context, StatService.a, new RequestParams(this.b), new HandlerC0038a());
-        }
-    }
-
     public static void a() {
         try {
-            for (Map.Entry<String, Map<String, String>> entry : com.baidu.sapi2.d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).p().entrySet()) {
+            for (Map.Entry<String, Map<String, String>> entry : com.baidu.sapi2.c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).t().entrySet()) {
                 a(entry.getKey(), entry.getValue());
             }
         } catch (Throwable th) {

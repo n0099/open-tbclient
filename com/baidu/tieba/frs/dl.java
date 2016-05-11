@@ -1,30 +1,23 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dl implements View.OnClickListener {
-    final /* synthetic */ dk bpw;
+public class dl extends y.a {
+    View biH;
+    View blc;
+    TextView bld;
+    View ble;
+    TextView blf;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dl(dk dkVar) {
-        this.bpw = dkVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aF;
-        BaseActivity baseActivity;
-        if (this.bpw.aF(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.as) {
-            String str = String.valueOf(com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.as) aF).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m411getInst().getString(t.j.user_icon_web_view_title);
-            baseActivity = this.bpw.bix;
-            com.baidu.tbadk.browser.f.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10134").r("obj_type", 3));
-        }
+    public dl(View view) {
+        super(view);
+        this.bld = (TextView) view.findViewById(t.g.frs_fortune_bag_content);
+        this.blc = view.findViewById(t.g.frs_fortune_bag_item);
+        this.ble = view.findViewById(t.g.frs_my_service_item);
+        this.blf = (TextView) view.findViewById(t.g.frs_my_service_content);
+        this.biH = view.findViewById(t.g.frs_list_item_official_buttom_line);
     }
 }

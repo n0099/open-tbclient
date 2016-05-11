@@ -1,24 +1,21 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity doF;
+class t implements TbRichTextView.c {
+    final /* synthetic */ NewSubPbActivity dqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(NewSubPbActivity newSubPbActivity) {
-        this.doF = newSubPbActivity;
+        this.dqn = newSubPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ap apVar;
-        ap apVar2;
-        apVar = this.doF.dou;
-        if (apVar != null) {
-            apVar2 = this.doF.dou;
-            apVar2.FG();
-        }
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.c
+    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
+        this.dqn.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(this.dqn.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
     }
 }

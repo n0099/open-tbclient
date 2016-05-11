@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity cvS;
+    final /* synthetic */ InviteFriendListActivity cwP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.cvS = inviteFriendListActivity;
+        this.cwP = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ class j extends CustomMessageListener {
         p pVar;
         p pVar2;
         if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            this.cvS.isLoaded = true;
-            atomicBoolean = this.cvS.cvQ;
+            this.cwP.isLoaded = true;
+            atomicBoolean = this.cwP.cwN;
             atomicBoolean.set(false);
-            InviteFriendListActivity inviteFriendListActivity = this.cvS;
-            pVar = this.cvS.cvL;
+            InviteFriendListActivity inviteFriendListActivity = this.cwP;
+            pVar = this.cwP.cwI;
             inviteFriendListActivity.hideLoadingView(pVar.getRootView());
             List<com.baidu.tbadk.coreExtra.relationship.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
             if (contacts == null) {
                 contacts = new LinkedList<>();
             }
-            this.cvS.cvN = contacts;
-            pVar2 = this.cvS.cvL;
+            this.cwP.cwK = contacts;
+            pVar2 = this.cwP.cwI;
             if (pVar2 != null) {
-                this.cvS.aky();
+                this.cwP.akE();
             }
         }
     }

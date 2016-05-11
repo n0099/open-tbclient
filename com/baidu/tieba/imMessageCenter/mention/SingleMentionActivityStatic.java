@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 /* loaded from: classes.dex */
 public class SingleMentionActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(SingleMentionActivityConfig.class, be.class);
-        SingleMentionActivityConfig.setMentionActivityClass(be.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(SingleMentionActivityConfig.class, bf.class);
+        SingleMentionActivityConfig.setMentionActivityClass(bf.class);
     }
 }

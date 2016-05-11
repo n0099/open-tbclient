@@ -3,45 +3,38 @@ package com.baidu.adp.widget.ListView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView IZ;
+public class o implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ BdListView zp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.IZ = bdListView;
+        this.zp = bdListView;
     }
 
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        eVar = this.IZ.Ix;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        AdapterView.OnItemLongClickListener onItemLongClickListener2;
+        eVar = this.zp.yQ;
         int headersCount = eVar.getHeadersCount();
-        if (i >= headersCount) {
-            int i2 = i - headersCount;
-            eVar2 = this.IZ.Ix;
-            ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
-            if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.IZ.IA;
-                if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.IZ.IA;
-                    onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
-                }
-            }
+        if (i < headersCount) {
+            return true;
         }
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.IZ.IA;
-        if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.IZ.IA;
-            onItemSelectedListener2.onNothingSelected(adapterView);
+        int i2 = i - headersCount;
+        eVar2 = this.zp.yQ;
+        ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
+        if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
+            return true;
         }
+        onItemLongClickListener = this.zp.yS;
+        if (onItemLongClickListener != null) {
+            onItemLongClickListener2 = this.zp.yS;
+            return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
+        }
+        return false;
     }
 }

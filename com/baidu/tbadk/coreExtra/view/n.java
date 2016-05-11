@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class n {
-    private ViewTreeObserver.OnGlobalLayoutListener aoP;
+    private ViewTreeObserver.OnGlobalLayoutListener akD;
     private String labelName = "";
-    private int aoL = 0;
-    private boolean aoM = false;
+    private int akz = 0;
+    private boolean akA = false;
     private String labelId = "";
-    private int aoN = 0;
-    private boolean aoO = false;
-    private int aoQ = at.getColor(t.d.cp_cont_i);
-    private int aoR = at.getColor(t.d.cp_link_tip_d);
+    private int akB = 0;
+    private boolean akC = false;
+    private int akE = at.getColor(t.d.cp_cont_i);
+    private int akF = at.getColor(t.d.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -26,58 +26,58 @@ public class n {
         return this.labelName;
     }
 
-    public void ek(int i) {
-        this.aoL = i;
+    public void dQ(int i) {
+        this.akz = i;
     }
 
-    public int Bx() {
-        return this.aoL;
+    public int zr() {
+        return this.akz;
     }
 
-    public void ba(boolean z) {
-        this.aoM = z;
+    public void bg(boolean z) {
+        this.akA = z;
     }
 
-    public boolean By() {
-        return this.aoM;
+    public boolean zs() {
+        return this.akA;
     }
 
     public void setLabelId(String str) {
         this.labelId = str;
     }
 
-    public String Bz() {
+    public String zt() {
         return this.labelId;
     }
 
-    public void bb(boolean z) {
-        this.aoO = z;
+    public void bh(boolean z) {
+        this.akC = z;
     }
 
-    public boolean BA() {
-        return this.aoO;
+    public boolean zu() {
+        return this.akC;
     }
 
     public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
-        this.aoP = onGlobalLayoutListener;
+        this.akD = onGlobalLayoutListener;
     }
 
-    public ViewTreeObserver.OnGlobalLayoutListener BB() {
-        return this.aoP;
+    public ViewTreeObserver.OnGlobalLayoutListener zv() {
+        return this.akD;
     }
 
     public SpannableStringBuilder ak(String str, String str2) {
-        String str3 = String.valueOf(str) + "(" + ay.A(com.baidu.adp.lib.h.b.c(str2, 0L)) + ")";
+        String str3 = String.valueOf(str) + "(" + ay.B(com.baidu.adp.lib.h.b.c(str2, 0L)) + ")";
         if (com.baidu.adp.lib.h.b.c(str2, 0L) > 0) {
             str = str3;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (com.baidu.adp.lib.h.b.c(str2, 0L) <= 0) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.aoQ), 0, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.akE), 0, str.length(), 33);
         } else {
             int indexOf = str.indexOf("(");
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.aoQ), 0, indexOf, 33);
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.aoR), indexOf, str.length(), 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.akE), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(this.akF), indexOf, str.length(), 33);
         }
         return spannableStringBuilder;
     }

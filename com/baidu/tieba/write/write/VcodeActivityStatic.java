@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 /* loaded from: classes.dex */
 public class VcodeActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(VcodeActivityConfig.class, VcodeActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(VcodeActivityConfig.class, VcodeActivity.class);
     }
 }

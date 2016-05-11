@@ -1,28 +1,38 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ be cyt;
+public class bh extends CustomMessageListener {
+    final /* synthetic */ bf czs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(be beVar) {
-        this.cyt = beVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bh(bf bfVar, int i) {
+        super(i);
+        this.czs = bfVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-        ay ayVar;
-        ay ayVar2;
-        ayVar = this.cyt.cym;
-        if (ayVar != null) {
-            ayVar2 = this.cyt.cym;
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(ayVar2.onBackPressed()));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean kf;
+        z zVar;
+        z zVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
+            Intent intent = (Intent) customResponsedMessage.getData();
+            kf = this.czs.kf(intent.getIntExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1));
+            if (kf) {
+                MentionActivityConfig.newJumpIn = true;
+                zVar = this.czs.czk;
+                if (zVar != null) {
+                    zVar2 = this.czs.czk;
+                    zVar2.onNewIntent(intent);
+                }
+            }
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

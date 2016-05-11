@@ -1,50 +1,40 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ax;
 /* loaded from: classes.dex */
-public class aa implements View.OnTouchListener {
-    private a eol;
-    private int count = 0;
-    private long ddg = 0;
-    private long ddh = 0;
-    private long ddj = 500;
-    private Handler mHandler = new ab(this);
+public class aa extends ax {
+    public static final BdUniqueId erz = BdUniqueId.gen();
+    private boolean erA;
+    private p erB;
+    private String fortune_desc;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void Sl();
-
-        void Sm();
+    public boolean aSY() {
+        return this.erA;
     }
 
-    public aa(a aVar) {
-        this.eol = aVar;
+    public void jx(boolean z) {
+        this.erA = z;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.eol == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.ddg = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.ddj);
-                return true;
-            } else if (this.count == 2) {
-                this.ddh = System.currentTimeMillis();
-                if (this.ddh - this.ddg < this.ddj) {
-                    this.eol.Sm();
-                }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return true;
+    public String aSZ() {
+        return this.fortune_desc;
+    }
+
+    public void nQ(String str) {
+        this.fortune_desc = str;
+    }
+
+    public p aTa() {
+        return this.erB;
+    }
+
+    public void b(p pVar) {
+        this.erB = pVar;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return erz;
     }
 }

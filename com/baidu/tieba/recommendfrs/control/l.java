@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsDelegateStatic dVY;
+    final /* synthetic */ RecommendFrsDelegateStatic dYZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(RecommendFrsDelegateStatic recommendFrsDelegateStatic, int i) {
         super(i);
-        this.dVY = recommendFrsDelegateStatic;
+        this.dYZ = recommendFrsDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,17 +24,17 @@ class l extends CustomMessageListener {
         ImageView imageView2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            fragmentTabIndicator = this.dVY.ayI;
-            FragmentTabIndicator.a fW = fragmentTabIndicator.fW("godFeed");
-            if (fW != null) {
+            fragmentTabIndicator = this.dYZ.auJ;
+            FragmentTabIndicator.a fT = fragmentTabIndicator.fT("godFeed");
+            if (fT != null) {
                 if (intValue <= 0) {
-                    imageView2 = this.dVY.dVW;
+                    imageView2 = this.dYZ.dYX;
                     imageView2.setVisibility(8);
                     return;
                 }
-                imageView = this.dVY.dVW;
+                imageView = this.dYZ.dYX;
                 imageView.setVisibility(0);
-                fW.dn(TbadkCoreApplication.m411getInst().getSkinType());
+                fT.cW(TbadkCoreApplication.m11getInst().getSkinType());
             }
         }
     }

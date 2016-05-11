@@ -1,39 +1,71 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
-import com.baidu.tbadk.core.data.w;
-import tbclient.User;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.data.MyGroup;
+import com.baidu.tieba.personInfo.PersonTainInfo;
+import java.util.List;
 /* loaded from: classes.dex */
-public class l implements u {
-    public static final BdUniqueId dwA = BdUniqueId.gen();
-    private w profitData;
-    private User user;
+public class l extends a {
+    public static final BdUniqueId dzC = BdUniqueId.gen();
+    private boolean bJq = true;
+    private PersonTainInfo dzD;
+    private UserData mUserData;
 
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-        if (user != null) {
-            w wVar = new w();
-            wVar.a(user.tw_anchor_info);
-            wVar.l(user.profit_list);
-            a(wVar);
-        }
-    }
-
-    public void a(w wVar) {
-        this.profitData = wVar;
-    }
-
-    public w aBU() {
-        return this.profitData;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dwA;
+        return dzC;
+    }
+
+    public List<MyGroup> aCj() {
+        if (this.mUserData != null) {
+            return this.mUserData.getGroup();
+        }
+        return null;
+    }
+
+    public void f(UserData userData) {
+        this.mUserData = userData;
+    }
+
+    public UserData getUserData() {
+        return this.mUserData;
+    }
+
+    public void setIsSelf(boolean z) {
+        this.bJq = z;
+    }
+
+    public boolean getIsSelf() {
+        return this.bJq;
+    }
+
+    public int getSex() {
+        if (this.mUserData != null) {
+            return this.mUserData.getSex();
+        }
+        return 0;
+    }
+
+    public void a(PersonTainInfo personTainInfo) {
+        this.dzD = personTainInfo;
+    }
+
+    public PersonTainInfo aCk() {
+        return this.dzD;
+    }
+
+    public com.baidu.tbadk.data.h aCl() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPersonPrivate();
+        }
+        return null;
+    }
+
+    public String getUserId() {
+        if (this.mUserData != null) {
+            return this.mUserData.getUserId();
+        }
+        return null;
     }
 }

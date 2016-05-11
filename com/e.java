@@ -30,16 +30,16 @@ public class e extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
-        private Uri mM;
+        private Uri cL;
 
         public a(Uri uri) {
-            this.mM = uri;
+            this.cL = uri;
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
         public void onComplete(Bitmap bitmap) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                e.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.mM)));
+                e.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.cL)));
             }
             e.this.c();
         }
@@ -49,6 +49,14 @@ public class e extends c {
         super(context, iBaiduListener, i, MediaType.QQFRIEND.toString());
         this.a = str;
         this.b = str2;
+    }
+
+    public static IBaiduListener W() {
+        int latestRequestCode = RequestCodeManager.getLatestRequestCode(MediaType.QQFRIEND.toString());
+        if (latestRequestCode != 0) {
+            return a(latestRequestCode);
+        }
+        return null;
     }
 
     private void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
@@ -172,14 +180,6 @@ public class e extends c {
         } catch (Exception e) {
             b(this.mShareContent, this.mListener);
         }
-    }
-
-    public static IBaiduListener dG() {
-        int latestRequestCode = RequestCodeManager.getLatestRequestCode(MediaType.QQFRIEND.toString());
-        if (latestRequestCode != 0) {
-            return a(latestRequestCode);
-        }
-        return null;
     }
 
     @Override // com.c

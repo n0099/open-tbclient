@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aDX) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aAh) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();
@@ -34,7 +34,7 @@ public class PageDialogHelper {
             payForm = PayForm.NOT_SET;
         }
         if (payForm == PayForm.NOT_SET) {
-            com.baidu.tbadk.coreExtra.data.g consumePathData = TbadkCoreApplication.m411getInst().getConsumePathData();
+            com.baidu.tbadk.coreExtra.data.g consumePathData = TbadkCoreApplication.m11getInst().getConsumePathData();
             int intExtra = intent.getIntExtra("pay_type", i);
             if (consumePathData != null) {
                 z = consumePathData.i(intExtra, str);

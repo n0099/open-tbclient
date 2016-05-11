@@ -1,111 +1,63 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class ag extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+class ag implements BdListView.e {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public ag(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void jA() {
         boolean z;
-        df dfVar;
-        int i;
-        eu euVar;
-        df dfVar2;
-        df dfVar3;
-        df dfVar4;
         boolean z2;
-        eu euVar2;
-        eu euVar3;
-        eu euVar4;
-        df dfVar5;
-        String awC;
-        boolean z3;
-        df dfVar6;
-        eu euVar5;
-        df dfVar7;
-        eu euVar6;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
-            com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
-            if (aVar.tag == this.dht.getUniqueId()) {
-                switch (aVar.dpQ) {
-                    case 0:
-                        z3 = this.dht.mIsLogin;
-                        if (z3) {
-                            dfVar6 = this.dht.dfV;
-                            if (dfVar6.gb(false)) {
-                                euVar6 = this.dht.dgF;
-                                euVar6.ayF();
-                                return;
+        cw cwVar;
+        el elVar;
+        cw cwVar2;
+        cw cwVar3;
+        el elVar2;
+        cw cwVar4;
+        cw cwVar5;
+        el elVar3;
+        cw cwVar6;
+        el elVar4;
+        z = this.djE.djr;
+        if (z && this.djE.awM()) {
+            this.djE.awO();
+        }
+        z2 = this.djE.mIsLogin;
+        if (z2) {
+            cwVar = this.djE.dih;
+            if (cwVar.gE(false)) {
+                elVar4 = this.djE.diR;
+                elVar4.azb();
+                TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+            } else {
+                elVar = this.djE.diR;
+                cwVar2 = this.djE.dih;
+                elVar.n(cwVar2.getPbData());
+                cwVar3 = this.djE.dih;
+                if (cwVar3 != null) {
+                    elVar2 = this.djE.diR;
+                    if (elVar2 != null) {
+                        cwVar4 = this.djE.dih;
+                        if (cwVar4.axV() != null) {
+                            cwVar5 = this.djE.dih;
+                            if (cwVar5.axV().axj()) {
+                                elVar3 = this.djE.diR;
+                                elVar3.axu();
+                                cwVar6 = this.djE.dih;
+                                cwVar6.axV().axl();
                             }
-                            euVar5 = this.dht.dgF;
-                            dfVar7 = this.dht.dfV;
-                            euVar5.l(dfVar7.getPbData());
-                            return;
                         }
-                        return;
-                    case 1:
-                        z2 = this.dht.mIsLoading;
-                        if (!z2) {
-                            this.dht.mIsLoading = true;
-                            euVar2 = this.dht.dgF;
-                            euVar2.dkF.dnG.setEnabled(false);
-                            euVar3 = this.dht.dgF;
-                            euVar3.agh();
-                            this.dht.Qn();
-                            euVar4 = this.dht.dgF;
-                            euVar4.ayE();
-                            dfVar5 = this.dht.dfV;
-                            awC = this.dht.awC();
-                            dfVar5.lX(awC);
-                            return;
-                        }
-                        return;
-                    case 2:
-                        z = this.dht.dgn;
-                        if (z) {
-                            dfVar2 = this.dht.dfV;
-                            boolean hostMode = dfVar2.getHostMode();
-                            dfVar3 = this.dht.dfV;
-                            boolean axe = dfVar3.axe();
-                            dfVar4 = this.dht.dfV;
-                            String threadID = dfVar4.getThreadID();
-                            String str = aVar.postId;
-                            int i2 = aVar.dpR;
-                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.dht.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, axe, null);
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                            this.dht.dgK = false;
-                            this.dht.finish();
-                            return;
-                        }
-                        int i3 = aVar.dpR;
-                        dfVar = this.dht.dfV;
-                        if (dfVar.getHostMode()) {
-                            i = i3 + 3;
-                        } else {
-                            i = i3 + 2;
-                        }
-                        euVar = this.dht.dgF;
-                        euVar.Mg().setSelection(i);
-                        return;
-                    default:
-                        return;
+                    }
                 }
             }
+            this.djE.djr = true;
         }
     }
 }

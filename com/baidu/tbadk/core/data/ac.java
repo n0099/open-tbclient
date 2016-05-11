@@ -1,106 +1,53 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Page;
 /* loaded from: classes.dex */
 public class ac {
-    private int TY = 0;
-    private int total_num = 0;
-    private int current_page = 0;
-    private int Ua = 0;
-    private int has_more = 0;
-    private int Ub = 0;
-    private int total_count = 0;
-    private int TZ = 0;
+    private long OM;
+    private String OO;
+    private String content;
+    private String link;
+    private String stat;
+    private long taskId;
 
-    public int sl() {
-        return this.TY;
+    public ac() {
+        this.OM = -1L;
+        this.link = null;
+        this.content = null;
+        this.OO = null;
+        this.stat = "";
+        this.taskId = -1L;
     }
 
-    public void bM(int i) {
-        this.TY = i;
+    public ac(long j, long j2, String str, String str2, String str3) {
+        this.OM = -1L;
+        this.link = null;
+        this.content = null;
+        this.OO = null;
+        this.stat = "";
+        this.taskId = -1L;
+        this.OM = j;
+        this.taskId = j2;
+        this.link = str;
+        this.content = str2;
+        this.stat = str3;
     }
 
-    public int qX() {
-        return this.total_num;
+    public String getStat() {
+        return this.stat;
     }
 
-    public void bN(int i) {
-        this.total_num = i;
+    public long pE() {
+        return this.OM;
     }
 
-    public int sm() {
-        return this.total_count;
+    public long getTaskId() {
+        return this.taskId;
     }
 
-    public int sn() {
-        return this.TZ;
+    public String getLink() {
+        return this.link;
     }
 
-    public void bO(int i) {
-        this.TZ = i;
-    }
-
-    public int so() {
-        return this.current_page;
-    }
-
-    public void bP(int i) {
-        this.current_page = i;
-    }
-
-    public int sp() {
-        return this.Ua;
-    }
-
-    public void bQ(int i) {
-        this.Ua = i;
-    }
-
-    public void bR(int i) {
-        this.has_more = i;
-    }
-
-    public int sq() {
-        return this.has_more;
-    }
-
-    public void bS(int i) {
-        this.Ub = i;
-    }
-
-    public int sr() {
-        return this.Ub;
-    }
-
-    public void a(Page page) {
-        if (page != null) {
-            this.TY = page.total_page.intValue();
-            this.total_num = page.total_num.intValue();
-            this.total_count = page.total_count.intValue();
-            this.current_page = page.current_page.intValue();
-            this.Ua = page.page_size.intValue();
-            this.has_more = page.has_more.intValue();
-            this.Ub = page.has_prev.intValue();
-            this.TZ = page.lz_total_floor.intValue();
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.TY = jSONObject.optInt("total_page", 0);
-                this.total_num = jSONObject.optInt("total_num", 0);
-                this.total_count = jSONObject.optInt("total_count", 0);
-                this.current_page = jSONObject.optInt("current_page", 0);
-                this.Ua = jSONObject.optInt("page_size", 0);
-                this.has_more = jSONObject.optInt("has_more", 0);
-                this.Ub = jSONObject.optInt("has_prev", 0);
-                this.TZ = jSONObject.optInt("lz_total_floor", 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public String getContent() {
+        return this.content;
     }
 }

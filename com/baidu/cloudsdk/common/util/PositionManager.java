@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.am;
 import com.an;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 /* loaded from: classes.dex */
 public class PositionManager {
     private LocationManager a;
@@ -83,7 +84,7 @@ public class PositionManager {
 
     public PositionManager(Context context) {
         Validator.notNull(context, "context");
-        this.a = (LocationManager) context.getApplicationContext().getSystemService("location");
+        this.a = (LocationManager) context.getApplicationContext().getSystemService(ThActivityDetailActivityConfig.LOCATION);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

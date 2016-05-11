@@ -9,36 +9,36 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView ctp;
+    private SettingTextSwitchView cun;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        pU();
+        nq();
     }
 
     public PersonalTalkSettingViewSettingView(Context context) {
         super(context);
-        pU();
+        nq();
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        if (this.ctp != null) {
-            this.ctp.setSwitchStateChangeListener(aVar);
+        if (this.cun != null) {
+            this.cun.setSwitchStateChangeListener(aVar);
         }
     }
 
-    private void pU() {
+    private void nq() {
         setOrientation(1);
         inflate(getContext(), t.h.p2ptalk_setting_detail_view, this);
-        this.ctp = (SettingTextSwitchView) findViewById(t.g.sv_person_msg_notify);
-        at.l(this.ctp.getView(), t.d.square_list_middle_bg_n);
+        this.cun = (SettingTextSwitchView) findViewById(t.g.sv_person_msg_notify);
+        at.l(this.cun.getView(), t.d.square_list_middle_bg_n);
     }
 
-    public void eA(boolean z) {
+    public void fc(boolean z) {
         if (z) {
-            this.ctp.K(false);
+            this.cun.K(false);
         } else {
-            this.ctp.L(false);
+            this.cun.L(false);
         }
     }
 }

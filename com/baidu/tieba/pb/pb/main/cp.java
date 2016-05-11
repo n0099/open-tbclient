@@ -1,129 +1,84 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tieba.t;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class cp implements bg.a {
-    Pattern dhO = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+public class cp {
+    private BaseActivity bek;
+    private cw dih;
+    private boolean dkM = false;
+    private final CustomMessageListener dkN = new cq(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
+    private final CustomMessageListener dkO = new cr(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
 
-    @Override // com.baidu.tbadk.core.util.bg.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        String ar;
-        boolean z;
-        String str;
-        boolean z2;
-        String str2;
-        boolean z3 = false;
-        if (strArr == null || strArr.length == 0 || strArr[0] == null) {
-            return 3;
+    public cp(cw cwVar, BaseActivity baseActivity) {
+        this.dih = cwVar;
+        this.bek = baseActivity;
+        this.bek.registerListener(this.dkN);
+        this.bek.registerListener(this.dkO);
+    }
+
+    public boolean axj() {
+        return (this.dih == null || this.dih.getPbData() == null || this.dih.getPbData().avy() == null || this.dih.getPbData().getPage() == null || !this.dih.axB() || this.dih.getPbData().avy().pt() || !axo() || com.baidu.tbadk.core.util.y.r(this.dih.getPbData().avy().getItems()) == 0 || this.dih.getPbData().getPage().pK() != 0 || this.dih.getPbData().getPage().pF() < 4 || this.dih.getPbData().avy().pv()) ? false : true;
+    }
+
+    public boolean axk() {
+        return (this.dih == null || this.dih.getPbData() == null || this.dih.getPbData().avy() == null || this.dih.getPbData().getPage() == null || !this.dih.axB() || this.dih.getPbData().avy().pt() || !axo() || com.baidu.tbadk.core.util.y.r(this.dih.getPbData().avy().getItems()) == 0 || this.dih.getPbData().getPage().pI() != 2 || this.dih.getPbData().avy().pu()) ? false : true;
+    }
+
+    public void axl() {
+        if (this.dih != null && this.dih.getPbData() != null && this.dih.getPbData().avy() != null) {
+            this.dih.getPbData().avy().am(true);
         }
-        String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.dhO.matcher(lowerCase);
-        String str3 = "";
-        if (matcher.find()) {
-            String group = matcher.group(1);
-            str = "allthread";
-            if (lowerCase != null) {
-                String[] split = lowerCase.split("&");
-                for (int i = 0; i < split.length; i++) {
-                    if (split[i] != null && split[i].startsWith("thread_type=")) {
-                        str2 = split[i].substring("thread_type=".length());
-                        break;
-                    }
-                }
-            }
-            str2 = "";
-            str3 = str2;
-            z2 = false;
-            ar = group;
-            z = true;
-        } else if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
-            String substring = lowerCase.substring("http://tieba.baidu.com/f?".length());
-            if (substring != null) {
-                String[] split2 = substring.split("&");
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= split2.length) {
-                        ar = null;
-                        z = false;
-                        break;
-                    } else if (split2[i2] == null || !split2[i2].startsWith("kz=")) {
-                        i2++;
-                    } else {
-                        ar = split2[i2].substring(3);
-                        z = true;
-                        break;
-                    }
-                }
-                if (!TextUtils.isEmpty(ar) && ar.contains("&")) {
-                    ar = ar.split("&")[0];
-                }
-                if (TextUtils.isEmpty(ar)) {
-                    ar = null;
-                }
-            } else {
-                z = false;
-                ar = null;
-            }
-            str = "allthread";
-            z2 = false;
-        } else if (!lowerCase.startsWith("pb:")) {
-            if (lowerCase.startsWith("com.baidu.tieba://?kz=")) {
-                ar = lowerCase.substring("com.baidu.tieba://?kz=".length());
-                z = false;
-                str = null;
-                z2 = true;
-            } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
-                return 3;
-            } else {
-                ar = com.baidu.tbadk.util.t.ar(lowerCase, "kz=");
-                z = false;
-                str = null;
-                z2 = false;
-            }
-        } else {
-            ar = lowerCase.substring(3);
-            if (strArr.length > 1) {
-                str = strArr[1];
-                z2 = false;
-                z = true;
-            } else {
-                z = true;
-                str = null;
-                z2 = false;
-            }
+    }
+
+    public void axm() {
+        if (this.dih != null && this.dih.getPbData() != null && this.dih.getPbData().avy() != null) {
+            this.dih.getPbData().avy().al(true);
         }
-        if (!StringUtils.isNull(ar, true) && tbPageContext != null) {
-            if (!StringUtils.isNull(str3) && com.baidu.adp.lib.h.b.g(str3, 0) == 33 && TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                z3 = true;
+    }
+
+    public com.baidu.tbadk.core.data.v axn() {
+        if (!axo() || this.dih == null || this.dih.getPbData() == null) {
+            return null;
+        }
+        return this.dih.getPbData().avy();
+    }
+
+    public boolean axo() {
+        return com.baidu.tieba.graffiti.d.XZ() && axp();
+    }
+
+    private boolean axp() {
+        if (this.dih == null || this.dih.getPbData() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.s sVar = (com.baidu.tieba.tbadkCore.data.s) com.baidu.tbadk.core.util.y.c(this.dih.getPbData().avC(), 0);
+        return sVar != null && (sVar.getType() == com.baidu.tieba.tbadkCore.data.s.esQ || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.PV || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.esT);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean axq() {
+        if (com.baidu.tieba.graffiti.d.XZ() && !this.dkM) {
+            this.dkM = true;
+            int i = com.baidu.tbadk.core.sharedPref.b.sQ().getInt("graffiti_tips_show_config", 0);
+            if (i < 3) {
+                com.baidu.tbadk.core.sharedPref.b.sQ().putInt("graffiti_tips_show_config", i + 1);
+                return true;
             }
-            if (z3) {
-                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), ar).qT()));
-                return 1;
+            return false;
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void j(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (this.dih != null && this.dih.getPbData() != null && this.dih.getPbData().avy() != null && str.equals(this.dih.getThreadID())) {
+                this.dih.getPbData().avy().ak(true);
             }
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(ar, null, str)));
-            return 1;
-        } else if (z2 && !TextUtils.isEmpty(ar)) {
-            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m411getInst(), et.I(TbadkCoreApplication.m411getInst(), ar));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10320").r("obj_locate", 3).r("obj_type", 2));
-            return 1;
-        } else if (z) {
-            tbPageContext.showToast(t.j.page_not_found);
-            return 1;
-        } else {
-            return 3;
         }
     }
 }

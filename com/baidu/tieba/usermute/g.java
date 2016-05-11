@@ -3,11 +3,11 @@ package com.baidu.tieba.usermute;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class g implements a.b {
-    final /* synthetic */ UserMuteAddAndDelModel eED;
+    final /* synthetic */ UserMuteAddAndDelModel eVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.eED = userMuteAddAndDelModel;
+        this.eVk = userMuteAddAndDelModel;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

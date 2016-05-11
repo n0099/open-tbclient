@@ -1,33 +1,31 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import com.baidu.tieba.recommendfrs.indicator.l;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ l dXy;
+public class n implements AdapterView.OnItemClickListener {
+    final /* synthetic */ m eaI;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.dXy = lVar;
+    public n(m mVar, Context context) {
+        this.eaI = mVar;
+        this.val$context = context;
     }
 
-    @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        l.a aVar;
-        ViewGroup viewGroup;
-        View view;
-        l.a aVar2;
-        this.dXy.avm = false;
-        aVar = this.dXy.dXw;
-        if (aVar != null) {
-            aVar2 = this.dXy.dXw;
-            aVar2.aok();
-        }
-        viewGroup = this.dXy.cIs;
-        view = this.dXy.aAh;
-        viewGroup.removeView(view);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        l lVar;
+        lVar = this.eaI.eaH;
+        TagInfo item = lVar.getItem(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB_FROM_POP_WINDOW));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB, item));
+        this.eaI.aE(this.val$context);
     }
 }

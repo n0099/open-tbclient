@@ -30,7 +30,7 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        at.b(multiImgToolView.getMutiImageTips(), t.d.cp_cont_c, 1);
+        at.c(multiImgToolView.getMutiImageTips(), t.d.cp_cont_c, 1);
         return multiImgToolView;
     }
 

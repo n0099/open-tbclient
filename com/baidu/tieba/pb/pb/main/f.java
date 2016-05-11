@@ -1,21 +1,57 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
-    final /* synthetic */ GetLotteryChanceActivity dfT;
+public class f extends ft {
+    private TextView dik;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(GetLotteryChanceActivity getLotteryChanceActivity) {
-        this.dfT = getLotteryChanceActivity;
+    public f(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.dik = null;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Intent intent = new Intent();
-        intent.putExtra("key_action", 0);
-        this.dfT.setResult(-1, intent);
-        this.dfT.closeActivity();
+    @Override // com.baidu.tieba.pb.pb.main.ft
+    protected void a(e eVar) {
+        this.dik = (TextView) this.mRootView.findViewById(t.g.icon_push);
+        this.dik.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.ft
+    protected void onChangeSkinType(int i) {
+    }
+
+    public void gt(boolean z) {
+        if (this.dik != null) {
+            if (z) {
+                this.dik.setText(t.j.push);
+                com.baidu.tbadk.core.util.at.j((View) this.dik, t.f.push_text_selector);
+                com.baidu.tbadk.core.util.at.k(this.dik, t.f.push_bg_selector);
+                this.dik.setClickable(true);
+            } else {
+                this.dik.setText(t.j.already_push);
+                com.baidu.tbadk.core.util.at.k(this.dik, t.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.at.j((View) this.dik, t.d.cp_cont_d);
+                this.dik.setClickable(false);
+            }
+            this.dik.setVisibility(0);
+        }
+    }
+
+    public void m(com.baidu.tbadk.core.data.ax axVar) {
+        if (axVar != null && axVar.rc() != null) {
+            int status = axVar.rc().getStatus();
+            if (status == 1) {
+                gt(true);
+            } else if (status == 2) {
+                gt(false);
+            }
+        }
+    }
+
+    public TextView awq() {
+        return this.dik;
     }
 }

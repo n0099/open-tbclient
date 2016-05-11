@@ -9,9 +9,9 @@ public interface ab extends b {
 
     void init();
 
-    void onChangeSkinType(int i);
+    void kC();
 
-    void op();
+    void onChangeSkinType(int i);
 
     void setEditorTools(l lVar);
 

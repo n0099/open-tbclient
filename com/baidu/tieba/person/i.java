@@ -24,28 +24,28 @@ public class i implements View.OnClickListener {
         int i3;
         boolean z2;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.cqz;
+        i = this.this$0.crw;
         if (i == 0) {
-            z = this.this$0.aDC;
+            z = this.this$0.azG;
             if (!z) {
                 str = TbConfig.PERSON_USER_PIC_TEMP_FILE;
             }
         } else {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.drg;
-        i2 = this.this$0.cqz;
-        Bitmap gD = editHeadsImageView.gD(i2 == 0);
-        if (gD == null) {
+        EditHeadsImageView editHeadsImageView = this.this$0.duB;
+        i2 = this.this$0.crw;
+        Bitmap hj = editHeadsImageView.hj(i2 == 0);
+        if (hj == null) {
             return;
         }
-        b = this.this$0.b(str, gD);
+        b = this.this$0.b(str, hj);
         if (b) {
-            i3 = this.this$0.cqz;
+            i3 = this.this$0.crw;
             if (i3 == 0) {
-                z2 = this.this$0.aDC;
+                z2 = this.this$0.azG;
                 if (z2) {
-                    this.this$0.aAU();
+                    this.this$0.aBr();
                     return;
                 }
                 Intent intent = this.this$0.getIntent();
@@ -54,10 +54,10 @@ public class i implements View.OnClickListener {
                 this.this$0.closeActivity();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.m.cT(str), "head");
-            aVar.ER();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.m.cR(str), "head");
+            aVar.CK();
             aVar.a(new j(this));
-            aVar.by(false);
+            aVar.bE(false);
             this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(t.j.uploading));
         }
     }

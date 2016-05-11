@@ -30,7 +30,7 @@ public class MissonDetailsActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_id", j);
         getIntent().putExtra("floor_num", i3);
         getIntent().putExtra(IS_MEMBER, i4);
-        getIntent().putExtra(ANTI_DATA, antiData);
+        getIntent().putExtra("anti_data", antiData);
         getIntent().putExtra(FANS_NAME, str7);
     }
 

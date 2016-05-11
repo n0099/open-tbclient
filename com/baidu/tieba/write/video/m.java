@@ -14,54 +14,54 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class m {
-    private static int eJO = 31;
-    private static int eJP = -100;
-    private View aDt;
-    private TbImageView aTv;
-    private ImageView aTw;
-    private View aUw;
-    private WriteVideoActivity eJQ;
-    private TextView eJR;
-    private EditText eJS;
-    private TextView eJT;
-    private WriteLocationView eJU;
+    private static int faF = 31;
+    private static int faG = -100;
+    private TbImageView aPJ;
+    private ImageView aPK;
+    private View aQQ;
+    private View azx;
+    private WriteVideoActivity faH;
+    private TextView faI;
+    private EditText faJ;
+    private TextView faK;
+    private WriteLocationView faL;
     private NavigationBar mNavigationBar;
 
     public m(WriteVideoActivity writeVideoActivity) {
-        this.eJQ = writeVideoActivity;
-        this.eJQ.setContentView(t.h.write_video_activity);
-        bal();
+        this.faH = writeVideoActivity;
+        this.faH.setContentView(t.h.write_video_activity);
+        bcx();
         initView();
     }
 
-    private void bal() {
-        this.aUw = this.eJQ.findViewById(t.g.layout_root);
-        this.mNavigationBar = (NavigationBar) this.eJQ.findViewById(t.g.navigation_bar);
-        this.eJS = (EditText) this.eJQ.findViewById(t.g.edit_content);
-        this.eJT = (TextView) this.eJQ.findViewById(t.g.text_content_size);
-        this.aTv = (TbImageView) this.eJQ.findViewById(t.g.image_video);
-        this.aTw = (ImageView) this.eJQ.findViewById(t.g.image_video_play);
-        this.eJU = (WriteLocationView) this.eJQ.findViewById(t.g.location);
+    private void bcx() {
+        this.aQQ = this.faH.findViewById(t.g.layout_root);
+        this.mNavigationBar = (NavigationBar) this.faH.findViewById(t.g.navigation_bar);
+        this.faJ = (EditText) this.faH.findViewById(t.g.edit_content);
+        this.faK = (TextView) this.faH.findViewById(t.g.text_content_size);
+        this.aPJ = (TbImageView) this.faH.findViewById(t.g.image_video);
+        this.aPK = (ImageView) this.faH.findViewById(t.g.image_video_play);
+        this.faL = (WriteLocationView) this.faH.findViewById(t.g.location);
     }
 
     private void initView() {
-        this.aTv.setOnClickListener(this.eJQ);
-        this.aDt = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.eJQ);
-        this.mNavigationBar.setTitleText(this.eJQ.getPageContext().getString(t.j.new_video_post));
-        this.eJR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.eJQ.getResources().getString(t.j.publish), this.eJQ, true);
-        this.eJT.setText(String.valueOf(eJO));
-        this.eJS.addTextChangedListener(new n(this));
-        this.eJS.setOnKeyListener(new o(this));
+        this.aPJ.setOnClickListener(this.faH);
+        this.azx = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.faH);
+        this.mNavigationBar.setTitleText(this.faH.getPageContext().getString(t.j.new_video_post));
+        this.faI = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.faH.getResources().getString(t.j.publish), this.faH, true);
+        this.faK.setText(String.valueOf(faF));
+        this.faJ.addTextChangedListener(new n(this));
+        this.faJ.setOnKeyListener(new o(this));
     }
 
-    public void oS(String str) {
-        Bitmap oT = oT(str);
-        if (oT != null) {
-            this.aTv.setImageBitmap(oT);
+    public void pg(String str) {
+        Bitmap ph = ph(str);
+        if (ph != null) {
+            this.aPJ.setImageBitmap(ph);
         }
     }
 
-    private Bitmap oT(String str) {
+    private Bitmap ph(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -77,35 +77,36 @@ public class m {
     }
 
     public void onChangeSkinType(int i) {
-        this.eJQ.getLayoutMode().ab(i == 1);
-        this.eJQ.getLayoutMode().x(this.aUw);
-        this.mNavigationBar.onChangeSkinType(this.eJQ.getPageContext(), i);
-        at.k(this.eJR, t.f.s_navbar_button_bg);
-        this.eJU.xy();
+        this.faH.getLayoutMode().ae(i == 1);
+        this.faH.getLayoutMode().x(this.aQQ);
+        this.mNavigationBar.onChangeSkinType(this.faH.getPageContext(), i);
+        at.k(this.faI, t.f.s_navbar_button_bg);
+        at.j((View) this.faI, t.d.navbar_btn_color);
+        this.faL.vl();
     }
 
     public String getContent() {
-        if (this.eJS.getText() == null) {
+        if (this.faJ.getText() == null) {
             return null;
         }
-        return this.eJS.getText().toString();
+        return this.faJ.getText().toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bam() {
-        if (eJO - ban() < 0) {
-            this.eJR.setEnabled(false);
+    public void bcy() {
+        if (faF - bcz() < 0) {
+            this.faI.setEnabled(false);
         } else {
-            this.eJR.setEnabled(true);
+            this.faI.setEnabled(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long ban() {
-        if (this.eJS.getText() == null || this.eJS.getText().toString() == null) {
+    public long bcz() {
+        if (this.faJ.getText() == null || this.faJ.getText().toString() == null) {
             return 0L;
         }
-        return g(this.eJS.getText().toString().trim());
+        return g(this.faJ.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -121,29 +122,29 @@ public class m {
         return Math.round(d);
     }
 
-    public WriteLocationView bao() {
-        return this.eJU;
+    public WriteLocationView bcA() {
+        return this.faL;
     }
 
-    public View bap() {
-        return this.aTv;
+    public View bcB() {
+        return this.aPJ;
     }
 
-    public View baq() {
-        return this.eJR;
+    public View bcC() {
+        return this.faI;
     }
 
     public View adU() {
-        return this.aDt;
+        return this.azx;
     }
 
-    public View bar() {
-        return this.eJS;
+    public View bcD() {
+        return this.faJ;
     }
 
-    public void ch(long j) {
-        if (this.aTv != null) {
-            this.aTv.setContentDescription(String.valueOf(this.eJQ.getResources().getString(t.j.video)) + ay.y(j));
+    public void ci(long j) {
+        if (this.aPJ != null) {
+            this.aPJ.setContentDescription(String.valueOf(this.faH.getResources().getString(t.j.video)) + ay.z(j));
         }
     }
 }

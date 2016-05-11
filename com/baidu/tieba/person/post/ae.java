@@ -6,15 +6,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ae {
-    BdListView NL;
-    com.baidu.tbadk.core.view.p mNoDataView = null;
+    BdListView Ed;
+    com.baidu.tbadk.core.view.q mNoDataView = null;
 
-    public BdListView QF() {
-        return this.NL;
+    public BdListView PC() {
+        return this.Ed;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(Context context, View view) {
-        this.NL = (BdListView) view.findViewById(t.g.list);
+        this.Ed = (BdListView) view.findViewById(t.g.list);
     }
 }

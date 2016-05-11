@@ -1,36 +1,37 @@
 package com.baidu.tbadk.browser;
 
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.core.c.k {
-    final /* synthetic */ TbWebViewActivity PH;
+class u extends com.baidu.tbadk.core.c.o {
+    final /* synthetic */ TbWebViewActivity Kx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(TbWebViewActivity tbWebViewActivity) {
-        this.PH = tbWebViewActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.m mVar) {
+        super(mVar);
+        this.Kx = tbWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.core.c.k
-    public void k(List<Long> list) {
-        if (list != null && list.size() != 0) {
-            String str = "";
-            StringBuilder sb = new StringBuilder();
-            Iterator<Long> it = list.iterator();
-            while (true) {
-                String str2 = str;
-                if (it.hasNext()) {
-                    sb.append(str2);
-                    sb.append(it.next());
-                    str = "_";
-                } else {
-                    com.baidu.adp.lib.stats.d hs = com.baidu.tbadk.performanceLog.z.hs();
-                    hs.b("frame_delta", sb.toString());
-                    com.baidu.adp.lib.stats.a.hz().a("webview", hs);
-                    return;
-                }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.c.o
+    public String nj() {
+        return "TBHY_COMMON_UISwitch";
+    }
+
+    @com.baidu.tbadk.core.c.p(sD = "viewHideSwitch", sE = false)
+    private void viewHideSwitch(JSONObject jSONObject) {
+        boolean z;
+        if (jSONObject != null) {
+            String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString("value");
+            if ("1".equals(optString)) {
+                this.Kx.mShowShareItem = true;
+            } else if ("0".equals(optString)) {
+                this.Kx.mShowShareItem = false;
             }
+            x xVar = this.Kx.mView;
+            z = this.Kx.mShowShareItem;
+            xVar.ac(z);
         }
     }
 }

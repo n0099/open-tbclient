@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnTouchListener {
-    final /* synthetic */ CommonVcodeActivity aEz;
+    final /* synthetic */ CommonVcodeActivity aAJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(CommonVcodeActivity commonVcodeActivity) {
-        this.aEz = commonVcodeActivity;
+        this.aAJ = commonVcodeActivity;
     }
 
     @Override // android.view.View.OnTouchListener

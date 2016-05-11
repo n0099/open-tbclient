@@ -1,50 +1,46 @@
 package com.baidu.tieba.frs;
-
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.ae;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class n implements ae.a {
-    final /* synthetic */ FrsActivity blk;
+class n implements fg {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.blk = frsActivity;
+        this.bhl = frsActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void gJ(String str) {
-        boolean z;
-        com.baidu.tbadk.core.data.as asVar;
-        com.baidu.tbadk.core.data.as asVar2;
-        int i = 1;
-        z = this.blk.biT;
-        if (z) {
-            asVar = this.blk.bjZ;
-            if (asVar != null) {
-                asVar2 = this.blk.bjZ;
-                if (asVar2.getPraise().getIsLike() == 1) {
-                    i = 0;
-                }
-            }
-            this.blk.gB(i);
-        }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
+    @Override // com.baidu.tieba.frs.fg
+    public void a(fi fiVar) {
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void q(int i, String str) {
-        boolean z;
-        z = this.blk.biT;
-        if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.pB(i)) {
-                AntiHelper.O(this.blk.getPageContext().getPageActivity(), str);
-            } else {
-                this.blk.showToast(str);
-            }
+    @Override // com.baidu.tieba.frs.fg
+    public void a(int i, int i2, fo foVar) {
+        cn cnVar;
+        cn cnVar2;
+        cn cnVar3;
+        cn cnVar4;
+        cn cnVar5;
+        cnVar = this.bhl.bgo;
+        cnVar.Rj();
+        if (i == 1 || i == 2) {
+            cnVar2 = this.bhl.bgo;
+            cnVar2.cS(true);
+            cnVar3 = this.bhl.bgo;
+            cnVar3.cP(false);
+        } else {
+            cnVar4 = this.bhl.bgo;
+            cnVar4.cT(true);
+            cnVar5 = this.bhl.bgo;
+            cnVar5.cP(true);
         }
+        this.bhl.Pk();
+        this.bhl.bgC.a(i, i2, foVar);
+    }
+
+    @Override // com.baidu.tieba.frs.fg
+    public void init() {
+    }
+
+    @Override // com.baidu.tieba.frs.fg
+    public void OY() {
     }
 }

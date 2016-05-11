@@ -1,76 +1,35 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.ac;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tieba.personInfo.PersonUserGodInfo;
+import java.util.List;
+import tbclient.Profile.ForumGodDetailInfo;
+import tbclient.Profile.GodDetailInfo;
 /* loaded from: classes.dex */
-public class r {
-    private ArrayList<UserData> dwL = new ArrayList<>();
-    private ArrayList<UserData> dwM = new ArrayList<>();
-    private ac mPage = new ac();
-    private int friendNum = 0;
-    private int dwN = 0;
+public class r implements v {
+    public static final BdUniqueId dzK = BdUniqueId.gen();
+    private PersonUserGodInfo dzL;
+    private List<ForumGodDetailInfo> forumGodList;
+    private GodDetailInfo godDetailInfo;
 
-    public void b(ac acVar) {
-        this.mPage = acVar;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return dzK;
     }
 
-    public ac getPage() {
-        return this.mPage;
-    }
-
-    public ArrayList<UserData> aCc() {
-        return this.dwL;
-    }
-
-    public ArrayList<UserData> aCd() {
-        return this.dwM;
-    }
-
-    public int getFriendNum() {
-        return this.friendNum;
-    }
-
-    public int aCe() {
-        return this.dwN;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public int aCp() {
+        if (this.dzL == null) {
+            return -1;
         }
+        return this.dzL.getGodType();
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.dwL.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.dwM.add(userData2);
-                    }
-                }
-                this.mPage.parserJson(jSONObject.optJSONObject("page"));
-                this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.dwN = jSONObject.optInt("commonfriendnum", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public GodDetailInfo aCq() {
+        return this.godDetailInfo;
+    }
+
+    public List<ForumGodDetailInfo> getForumGodList() {
+        return this.forumGodList;
     }
 }

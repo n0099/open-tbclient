@@ -1,73 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
-public class bn extends com.baidu.adp.base.f {
-    TextView dtG;
-    TextView dtH;
-    TextView dtI;
-    View dtJ;
-    BaseFragment dtK;
-    View mView;
-
-    public bn(BaseFragment baseFragment) {
-        super(baseFragment.getPageContext());
-        this.dtK = baseFragment;
-        a(baseFragment);
-    }
-
-    private void a(BaseFragment baseFragment) {
-        this.mView = LayoutInflater.from(baseFragment.getPageContext().getPageActivity()).inflate(t.h.person_info_more_view, (ViewGroup) null);
-        this.dtG = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_friend);
-        this.dtG.setOnClickListener(baseFragment);
-        this.dtH = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_black);
-        this.dtH.setOnClickListener(baseFragment);
-        this.dtI = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_mute);
-        this.dtJ = this.mView.findViewById(t.g.person_info_more_view_item_line_mute);
-        this.dtI.setOnClickListener(baseFragment);
-    }
-
-    public void s(boolean z, boolean z2) {
-        if (z) {
-            this.dtG.setVisibility(0);
-        } else {
-            this.dtG.setVisibility(8);
+class bn implements bg.a {
+    @Override // com.baidu.tbadk.core.util.bg.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        if (z2) {
-            this.dtH.setText(t.j.remove_block_chat);
-        } else {
-            this.dtH.setText(t.j.block_chat_message);
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), com.baidu.tbadk.util.w.as(str, "userid="), com.baidu.tbadk.util.w.as(str, "un="))));
+            return 1;
         }
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public View aBy() {
-        return this.dtG;
-    }
-
-    public View aBz() {
-        return this.dtH;
-    }
-
-    public View aBA() {
-        return this.dtI;
-    }
-
-    public void mB(int i) {
-        this.dtI.setVisibility(0);
-        this.dtJ.setVisibility(0);
-        if (i == 0) {
-            this.dtI.setText(this.dtK.getPageContext().getResources().getString(t.j.mute));
-        } else if (i == 1) {
-            this.dtI.setText(this.dtK.getPageContext().getResources().getString(t.j.un_mute));
-        }
+        return 3;
     }
 }

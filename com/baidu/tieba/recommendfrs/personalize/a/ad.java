@@ -8,128 +8,128 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad {
-    private TbPageContext<?> ND;
-    private BdTypeListView dUY;
-    private List<com.baidu.adp.widget.ListView.a> dYN = new ArrayList();
-    private c dYO;
-    private b dYP;
-    private t dYQ;
-    private ac dYR;
-    private a dYS;
-    private l dYT;
-    private r dYU;
-    private f dYV;
-    private j dYW;
-    private p dYX;
-    private d dYY;
-    private com.baidu.tieba.recommendfrs.a.a.b dYZ;
-    private com.baidu.tieba.recommendfrs.a.a.d dZa;
+    private TbPageContext<?> DV;
+    private BdTypeListView dXQ;
+    private List<com.baidu.adp.widget.ListView.a> ebU = new ArrayList();
+    private c ebV;
+    private b ebW;
+    private t ebX;
+    private ac ebY;
+    private a ebZ;
+    private l eca;
+    private r ecb;
+    private f ecc;
+    private j ecd;
+    private p ece;
+    private d ecf;
+    private com.baidu.tieba.recommendfrs.a.a.b ecg;
+    private com.baidu.tieba.recommendfrs.a.a.d ech;
 
     public ad(Context context, BdTypeListView bdTypeListView) {
-        this.dUY = bdTypeListView;
-        this.ND = (TbPageContext) com.baidu.adp.base.l.s(context);
-        aI(context);
-        bdTypeListView.g(this.dYN);
+        this.dXQ = bdTypeListView;
+        this.DV = (TbPageContext) com.baidu.adp.base.l.s(context);
+        aO(context);
+        bdTypeListView.g(this.ebU);
     }
 
-    private void aI(Context context) {
-        this.dYO = new c(this.ND);
-        this.dYP = new b(this.ND);
-        this.dYQ = new t(this.ND);
-        this.dYR = new ac(this.ND);
-        this.dYS = new a(this.ND);
-        this.dYT = new l(this.ND, com.baidu.tieba.card.a.t.TC);
-        this.dYU = new r(this.ND, com.baidu.tieba.card.a.v.aWk);
-        this.dYY = new d(this.ND, com.baidu.tieba.card.a.u.TC);
-        this.dYV = new f(this.ND, com.baidu.tieba.card.a.t.aWc);
-        this.dYW = new j(this.ND, com.baidu.tieba.card.a.v.aWl);
-        this.dYZ = new com.baidu.tieba.recommendfrs.a.a.b(this.ND, com.baidu.tieba.card.a.i.TC);
-        this.dZa = new com.baidu.tieba.recommendfrs.a.a.d(this.ND, com.baidu.tieba.card.a.j.TC);
-        this.dYX = new p(this.ND);
-        this.dYN.add(this.dYO);
-        this.dYN.add(this.dYP);
-        this.dYN.add(this.dYQ);
-        this.dYN.add(this.dYR);
-        this.dYN.add(this.dYS);
-        this.dYN.add(this.dYU);
-        this.dYN.add(this.dYT);
-        this.dYN.add(this.dYY);
-        this.dYN.add(new com.baidu.tieba.recommendfrs.a.a.a(this.ND.getPageActivity(), com.baidu.tieba.recommendfrs.data.g.dWI));
-        this.dYN.add(this.dYZ);
-        this.dYN.add(this.dZa);
-        this.dYN.add(this.dYV);
-        this.dYN.add(this.dYW);
-        this.dYN.add(new y(this.ND.getPageActivity()));
-        this.dYN.add(new v(this.ND.getPageActivity()));
-        this.dYN.add(this.dYX);
+    private void aO(Context context) {
+        this.ebV = new c(this.DV);
+        this.ebW = new b(this.DV);
+        this.ebX = new t(this.DV);
+        this.ebY = new ac(this.DV);
+        this.ebZ = new a(this.DV);
+        this.eca = new l(this.DV, com.baidu.tieba.card.a.l.Oq);
+        this.ecb = new r(this.DV, com.baidu.tieba.card.a.n.aSe);
+        this.ecf = new d(this.DV, com.baidu.tieba.card.a.m.Oq);
+        this.ecc = new f(this.DV, com.baidu.tieba.card.a.l.aRW);
+        this.ecd = new j(this.DV, com.baidu.tieba.card.a.n.aSf);
+        this.ecg = new com.baidu.tieba.recommendfrs.a.a.b(this.DV, com.baidu.tieba.card.a.f.Oq);
+        this.ech = new com.baidu.tieba.recommendfrs.a.a.d(this.DV, com.baidu.tieba.card.a.g.Oq);
+        this.ece = new p(this.DV);
+        this.ebU.add(this.ebV);
+        this.ebU.add(this.ebW);
+        this.ebU.add(this.ebX);
+        this.ebU.add(this.ebY);
+        this.ebU.add(this.ebZ);
+        this.ebU.add(this.ecb);
+        this.ebU.add(this.eca);
+        this.ebU.add(this.ecf);
+        this.ebU.add(new com.baidu.tieba.recommendfrs.a.a.a(this.DV.getPageActivity(), com.baidu.tieba.recommendfrs.data.g.dZS));
+        this.ebU.add(this.ecg);
+        this.ebU.add(this.ech);
+        this.ebU.add(this.ecc);
+        this.ebU.add(this.ecd);
+        this.ebU.add(new y(this.DV.getPageActivity()));
+        this.ebU.add(new v(this.DV.getPageActivity()));
+        this.ebU.add(this.ece);
     }
 
     public void b(com.baidu.tieba.recommendfrs.control.a.f fVar) {
-        this.dYT.a(fVar);
-        this.dYU.a(fVar);
-        this.dYV.a(fVar);
-        this.dYW.a(fVar);
+        this.eca.a(fVar);
+        this.ecb.a(fVar);
+        this.ecc.a(fVar);
+        this.ecd.a(fVar);
     }
 
-    public void cm(List<com.baidu.adp.widget.ListView.u> list) {
-        this.dUY.setData(list);
+    public void co(List<com.baidu.adp.widget.ListView.v> list) {
+        this.dXQ.setData(list);
     }
 
     public void onChangeSkinType(int i) {
         notifyDataSetChanged();
-        this.dYO.onChangeSkinType(i);
-        this.dYP.onChangeSkinType(i);
-        this.dYX.oF(i);
+        this.ebV.onChangeSkinType(i);
+        this.ebW.onChangeSkinType(i);
+        this.ece.oz(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dUY != null && (this.dUY.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            ((com.baidu.adp.widget.ListView.e) this.dUY.getAdapter()).notifyDataSetChanged();
+        if (this.dXQ != null && (this.dXQ.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            ((com.baidu.adp.widget.ListView.e) this.dXQ.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setFromCDN(boolean z) {
-        if (this.dYT != null) {
-            this.dYT.setFromCDN(z);
+        if (this.eca != null) {
+            this.eca.setFromCDN(z);
         }
-        if (this.dYV != null) {
-            this.dYV.setFromCDN(z);
+        if (this.ecc != null) {
+            this.ecc.setFromCDN(z);
         }
-        if (this.dYS != null) {
-            this.dYS.setFromCDN(z);
+        if (this.ebZ != null) {
+            this.ebZ.setFromCDN(z);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.dYZ != null) {
-            this.dYZ.setPageUniqueId(bdUniqueId);
+        if (this.ecg != null) {
+            this.ecg.setPageUniqueId(bdUniqueId);
         }
-        if (this.dZa != null) {
-            this.dZa.setPageUniqueId(bdUniqueId);
+        if (this.ech != null) {
+            this.ech.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYT != null) {
-            this.dYT.setPageUniqueId(bdUniqueId);
+        if (this.eca != null) {
+            this.eca.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYU != null) {
-            this.dYU.setPageUniqueId(bdUniqueId);
+        if (this.ecb != null) {
+            this.ecb.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYY != null) {
-            this.dYY.setPageUniqueId(bdUniqueId);
+        if (this.ecf != null) {
+            this.ecf.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYO != null) {
-            this.dYO.setPageUniqueId(bdUniqueId);
+        if (this.ebV != null) {
+            this.ebV.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYP != null) {
-            this.dYP.setPageUniqueId(bdUniqueId);
+        if (this.ebW != null) {
+            this.ebW.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYV != null) {
-            this.dYV.setPageUniqueId(bdUniqueId);
+        if (this.ecc != null) {
+            this.ecc.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYW != null) {
-            this.dYW.setPageUniqueId(bdUniqueId);
+        if (this.ecd != null) {
+            this.ecd.setPageUniqueId(bdUniqueId);
         }
-        if (this.dYX != null) {
-            this.dYX.setPageUniqueId(bdUniqueId);
+        if (this.ece != null) {
+            this.ece.setPageUniqueId(bdUniqueId);
         }
     }
 }

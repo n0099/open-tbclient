@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public abstract class k extends f<SocketMessage, SocketMessageTask> {
     public k(int i) {
         super(i);
-        if (i != 0 && FrameHelper.D(i) != FrameHelper.TYPE.SOCKET) {
+        if (i != 0 && FrameHelper.s(i) != FrameHelper.TYPE.SOCKET) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

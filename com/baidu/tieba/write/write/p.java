@@ -9,23 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.base.e<WriteActivity> {
-    private a eLK;
-    private ArrayList<com.baidu.tbadk.core.data.as> eLL;
-    private WriteActivity eLM;
+    private WriteActivity fcA;
+    private a fcy;
+    private ArrayList<com.baidu.tbadk.core.data.ax> fcz;
     private int mErrCode;
 
     public p(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.eLK = null;
-        this.eLL = null;
+        this.fcy = null;
+        this.fcz = null;
         this.mErrCode = 0;
-        this.eLM = writeActivity;
-        this.eLL = new ArrayList<>();
+        this.fcA = writeActivity;
+        this.fcz = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.as> bba() {
-        return this.eLL;
+    public ArrayList<com.baidu.tbadk.core.data.ax> bdn() {
+        return this.fcz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,18 +34,18 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void oZ(String str) {
-        if (this.eLK == null) {
-            this.eLK = new a(this, null);
-            this.eLK.setPriority(3);
-            this.eLK.execute(str);
+    public void pn(String str) {
+        if (this.fcy == null) {
+            this.fcy = new a(this, null);
+            this.fcy.setPriority(3);
+            this.fcy.execute(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, p, p> {
-        private com.baidu.tbadk.core.util.ab QV;
+        private com.baidu.tbadk.core.util.ab LL;
 
         private a() {
         }
@@ -57,17 +57,17 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: E */
         public p doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.QV = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-            this.QV.p("kw", obj);
-            String vw = this.QV.vw();
-            if (!this.QV.vU().wP().qC()) {
+            this.LL = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+            this.LL.n("kw", obj);
+            String tc = this.LL.tc();
+            if (!this.LL.tA().uv().nZ()) {
                 return null;
             }
-            p pVar = new p(p.this.eLM);
-            pVar.parserJson(vw);
+            p pVar = new p(p.this.fcA);
+            pVar.parserJson(tc);
             return pVar;
         }
 
@@ -77,16 +77,16 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(p pVar) {
             super.onPostExecute(pVar);
-            p.this.eLK = null;
+            p.this.fcy = null;
             p.this.mLoadDataCallBack.d(pVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            p.this.eLK = null;
-            if (this.QV != null) {
-                this.QV.gX();
+            p.this.fcy = null;
+            if (this.LL != null) {
+                this.LL.dl();
             }
         }
     }
@@ -108,9 +108,9 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.as asVar = new com.baidu.tbadk.core.data.as();
-                            asVar.parserJson(jSONObject2);
-                            this.eLL.add(asVar);
+                            com.baidu.tbadk.core.data.ax axVar = new com.baidu.tbadk.core.data.ax();
+                            axVar.parserJson(jSONObject2);
+                            this.fcz.add(axVar);
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.eLK != null) {
-            this.eLK.cancel();
+        if (this.fcy != null) {
+            this.fcy.cancel();
             return true;
         }
         return true;

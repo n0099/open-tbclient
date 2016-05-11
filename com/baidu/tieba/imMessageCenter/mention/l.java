@@ -6,13 +6,13 @@ import com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ k cxu;
+    final /* synthetic */ k cys;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(k kVar, int i) {
         super(i);
-        this.cxu = kVar;
+        this.cys = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class l extends CustomMessageListener {
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterListAdapter imMessageCenterListAdapter2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            imMessageCenterListAdapter = this.cxu.csG;
+            imMessageCenterListAdapter = this.cys.ctE;
             if (imMessageCenterListAdapter != null) {
-                imMessageCenterListAdapter2 = this.cxu.csG;
+                imMessageCenterListAdapter2 = this.cys.ctE;
                 imMessageCenterListAdapter2.notifyDataSetChanged();
             }
         }

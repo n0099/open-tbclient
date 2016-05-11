@@ -1,31 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tieba.tbadkCore.ab;
+import com.baidu.tieba.view.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements BannerView.a {
-    final /* synthetic */ cs bpe;
+public class ct implements ab.a {
+    final /* synthetic */ cn bkx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cs csVar) {
-        this.bpe = csVar;
+    public ct(cn cnVar) {
+        this.bkx = cnVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void Bp() {
-        com.baidu.tbadk.core.data.p pVar;
-        com.baidu.tbadk.core.data.p pVar2;
-        pVar = this.bpe.boT;
-        if (pVar != null) {
-            pVar2 = this.bpe.boT;
-            if (pVar2.getType() == 2) {
-                this.bpe.RF();
-            }
+    @Override // com.baidu.tieba.tbadkCore.ab.a
+    public void Rr() {
+        FrsActivity frsActivity;
+        frsActivity = this.bkx.bjB;
+        frsActivity.PY();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ab.a
+    public void Rs() {
+        BdExpandListView bdExpandListView;
+        BdExpandListView bdExpandListView2;
+        bdExpandListView = this.bkx.bjM;
+        if (bdExpandListView != null) {
+            bdExpandListView2 = this.bkx.bjM;
+            bdExpandListView2.setSelection(0);
         }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void Bq() {
-        this.bpe.RT();
     }
 }

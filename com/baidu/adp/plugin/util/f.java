@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> FA = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> vS = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class f {
     }
 
     static {
-        FA.put(Boolean.class, Boolean.TYPE);
-        FA.put(Byte.class, Byte.TYPE);
-        FA.put(Character.class, Character.TYPE);
-        FA.put(Short.class, Short.TYPE);
-        FA.put(Integer.class, Integer.TYPE);
-        FA.put(Float.class, Float.TYPE);
-        FA.put(Long.class, Long.TYPE);
-        FA.put(Double.class, Double.TYPE);
-        FA.put(Boolean.TYPE, Boolean.TYPE);
-        FA.put(Byte.TYPE, Byte.TYPE);
-        FA.put(Character.TYPE, Character.TYPE);
-        FA.put(Short.TYPE, Short.TYPE);
-        FA.put(Integer.TYPE, Integer.TYPE);
-        FA.put(Float.TYPE, Float.TYPE);
-        FA.put(Long.TYPE, Long.TYPE);
-        FA.put(Double.TYPE, Double.TYPE);
+        vS.put(Boolean.class, Boolean.TYPE);
+        vS.put(Byte.class, Byte.TYPE);
+        vS.put(Character.class, Character.TYPE);
+        vS.put(Short.class, Short.TYPE);
+        vS.put(Integer.class, Integer.TYPE);
+        vS.put(Float.class, Float.TYPE);
+        vS.put(Long.class, Long.TYPE);
+        vS.put(Double.class, Double.TYPE);
+        vS.put(Boolean.TYPE, Boolean.TYPE);
+        vS.put(Byte.TYPE, Byte.TYPE);
+        vS.put(Character.TYPE, Character.TYPE);
+        vS.put(Short.TYPE, Short.TYPE);
+        vS.put(Integer.TYPE, Integer.TYPE);
+        vS.put(Float.TYPE, Float.TYPE);
+        vS.put(Long.TYPE, Long.TYPE);
+        vS.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) {
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (FA.containsKey(clsArr[i]) && FA.get(clsArr[i]).equals(FA.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (vS.containsKey(clsArr[i]) && vS.get(clsArr[i]).equals(vS.get(clsArr2[i])))) {
                     return true;
                 }
             }
@@ -89,7 +89,7 @@ public class f {
         }
     }
 
-    public static Object c(Object obj, Object obj2) {
+    public static Object b(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }

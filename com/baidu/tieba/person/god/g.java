@@ -10,134 +10,134 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.p;
-import com.baidu.tbadk.core.view.s;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.t;
+import com.baidu.tbadk.core.view.w;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g {
-    private NoNetworkView NZ;
-    private BdTypeListView bcd;
-    private PbListView bcf;
-    private int bcg;
-    private final BaseActivity<?> bix;
-    private int dwV = t.d.cp_bg_line_d;
+    private NoNetworkView Ep;
+    private BdTypeListView bej;
+    private final BaseActivity<?> bek;
+    private PbListView bkd;
+    private int dAa;
+    private int dAb = t.d.cp_bg_line_d;
     private NavigationBar mNavigationBar;
-    private p mNoDataView;
-    private u mPullView;
+    private q mNoDataView;
+    private w mPullView;
     private View mRootView;
 
-    public BdTypeListView aCf() {
-        return this.bcd;
+    public BdTypeListView aCw() {
+        return this.bej;
     }
 
     public g(BaseActivity<?> baseActivity) {
-        this.bcd = null;
+        this.bej = null;
         this.mPullView = null;
-        this.bix = baseActivity;
+        this.bek = baseActivity;
         baseActivity.setContentView(t.h.activity_god_thread_list);
         this.mRootView = baseActivity.findViewById(t.g.root_layout);
-        this.NZ = (NoNetworkView) this.mRootView.findViewById(t.g.view_no_network);
+        this.Ep = (NoNetworkView) this.mRootView.findViewById(t.g.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(t.g.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(baseActivity.getPageContext().getString(t.j.title_god_thread_list));
-        this.bcd = (BdTypeListView) this.mRootView.findViewById(t.g.listview);
-        this.bcd.setDividerHeight(0);
-        this.mPullView = new u(baseActivity.getPageContext());
-        this.mPullView.setTag(this.bix.getUniqueId());
-        this.bcd.setPullRefresh(this.mPullView);
-        this.bcf = new PbListView(baseActivity.getActivity());
-        this.bcf.mZ();
-        this.bcf.di(t.d.cp_bg_line_c);
-        this.bcf.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bcf.dj(TbadkCoreApplication.m411getInst().getSkinType());
-        this.bcd.setNextPage(this.bcf);
-        this.bcg = this.bix.getResources().getDimensionPixelOffset(t.e.ds120);
-        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        this.bej = (BdTypeListView) this.mRootView.findViewById(t.g.listview);
+        this.bej.setDividerHeight(0);
+        this.mPullView = new w(baseActivity.getPageContext());
+        this.mPullView.setTag(this.bek.getUniqueId());
+        this.bej.setPullRefresh(this.mPullView);
+        this.bkd = new PbListView(baseActivity.getActivity());
+        this.bkd.jn();
+        this.bkd.cR(t.d.cp_bg_line_c);
+        this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
+        this.bkd.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        this.bej.setNextPage(this.bkd);
+        this.dAa = this.bek.getResources().getDimensionPixelOffset(t.e.ds120);
+        onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
-        at.l(this.mRootView, this.dwV);
+        at.l(this.mRootView, this.dAb);
         if (this.mPullView != null) {
-            this.mPullView.dj(i);
+            this.mPullView.cS(i);
         }
-        if (this.bcf != null) {
-            this.bcf.dj(i);
+        if (this.bkd != null) {
+            this.bkd.cS(i);
         }
-        if (this.NZ != null) {
-            this.NZ.onChangeSkinType(this.bix.getPageContext(), i);
+        if (this.Ep != null) {
+            this.Ep.onChangeSkinType(this.bek.getPageContext(), i);
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.bix.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.bek.getPageContext(), i);
         }
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.bix.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.bek.getPageContext(), i);
         }
     }
 
     public void a(NoNetworkView.a aVar) {
-        this.NZ.a(aVar);
+        this.Ep.a(aVar);
     }
 
-    public void a(s.a aVar) {
-        this.mPullView.a(aVar);
+    public void a(t.b bVar) {
+        this.mPullView.a(bVar);
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.bcd.setOnSrollToBottomListener(eVar);
+        this.bej.setOnSrollToBottomListener(eVar);
     }
 
-    public void nk() {
-        this.bcd.nk();
+    public void jy() {
+        this.bej.jy();
     }
 
-    public void Op() {
-        this.bcd.nj();
+    public void Nn() {
+        this.bej.k(2000L);
     }
 
     public void hideNoDataView() {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
-            this.bcd.removeHeaderView(this.mNoDataView);
+            this.bej.removeHeaderView(this.mNoDataView);
         }
     }
 
-    public void mf(String str) {
+    public void mj(String str) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.bix.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.bcg), NoDataViewFactory.d.dS(str), null);
+            this.mNoDataView = NoDataViewFactory.a(this.bek.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.dAa), NoDataViewFactory.d.dP(str), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dS(str));
-        this.mNoDataView.onChangeSkinType(this.bix.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dP(str));
+        this.mNoDataView.onChangeSkinType(this.bek.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.bcd.removeHeaderView(this.mNoDataView);
-        this.bcd.addHeaderView(this.mNoDataView);
-        aCh();
-        this.dwV = t.d.cp_bg_line_d;
-        at.l(this.mRootView, this.dwV);
+        this.bej.removeHeaderView(this.mNoDataView);
+        this.bej.addHeaderView(this.mNoDataView);
+        aCy();
+        this.dAb = t.d.cp_bg_line_d;
+        at.l(this.mRootView, this.dAb);
     }
 
-    public void PQ() {
-        if (this.bcf != null && this.bcf.getView() != null) {
-            this.bcf.getView().setVisibility(0);
-            this.bcf.xu();
-            this.dwV = t.d.cp_bg_line_c;
-            at.l(this.mRootView, this.dwV);
+    public void OJ() {
+        if (this.bkd != null && this.bkd.getView() != null) {
+            this.bkd.getView().setVisibility(0);
+            this.bkd.vg();
+            this.dAb = t.d.cp_bg_line_c;
+            at.l(this.mRootView, this.dAb);
         }
     }
 
-    public void aCg() {
-        if (this.bcf != null && this.bcf.getView() != null) {
-            this.bcf.getView().setVisibility(0);
-            this.bcf.setText(this.bix.getResources().getString(t.j.list_no_more_god_threads));
-            this.bcf.xv();
-            this.dwV = t.d.cp_bg_line_c;
-            at.l(this.mRootView, this.dwV);
+    public void aCx() {
+        if (this.bkd != null && this.bkd.getView() != null) {
+            this.bkd.getView().setVisibility(0);
+            this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more_god_threads));
+            this.bkd.vh();
+            this.dAb = t.d.cp_bg_line_c;
+            at.l(this.mRootView, this.dAb);
         }
     }
 
-    public void aCh() {
-        if (this.bcf != null && this.bcf.getView() != null) {
-            this.bcf.getView().setVisibility(8);
+    public void aCy() {
+        if (this.bkd != null && this.bkd.getView() != null) {
+            this.bkd.getView().setVisibility(8);
         }
     }
 }

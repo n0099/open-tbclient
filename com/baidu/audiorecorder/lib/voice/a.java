@@ -3,27 +3,27 @@ package com.baidu.audiorecorder.lib.voice;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class a {
-    private static c KR;
-    private static String KS;
-    private static com.baidu.adp.lib.voice.k KT;
-    private static int KQ = 0;
-    private static long KU = 0;
+    private static c Bi;
+    private static String Bj;
+    private static com.baidu.adp.lib.voice.k Bk;
+    private static int Bh = 0;
+    private static long Bl = 0;
     private static Handler mHandler = new Handler(new b());
 
     public static boolean a(String str, int i, com.baidu.adp.lib.voice.k kVar) {
-        if (System.currentTimeMillis() - KU < 1000) {
+        if (System.currentTimeMillis() - Bl < 1000) {
             return false;
         }
-        KU = System.currentTimeMillis();
-        if (KQ == 0) {
-            if (KR == null) {
-                KR = new c(mHandler);
+        Bl = System.currentTimeMillis();
+        if (Bh == 0) {
+            if (Bi == null) {
+                Bi = new c(mHandler);
             }
-            KS = str;
-            KT = kVar;
-            if (KR.n(str, i)) {
-                KQ = 3;
-                new Thread(KR).start();
+            Bj = str;
+            Bk = kVar;
+            if (Bi.o(str, i)) {
+                Bh = 3;
+                new Thread(Bi).start();
                 return true;
             }
             return false;
@@ -32,16 +32,16 @@ public class a {
     }
 
     public static void stop() {
-        if (KR != null) {
-            KR.stop();
+        if (Bi != null) {
+            Bi.stop();
         }
-        KQ = 0;
+        Bh = 0;
     }
 
     public static void cancel() {
-        if (KR != null) {
-            KR.cancel();
+        if (Bi != null) {
+            Bi.cancel();
         }
-        KQ = 0;
+        Bh = 0;
     }
 }

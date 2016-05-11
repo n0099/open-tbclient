@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class GiftSwitchStatic extends a {
     static {
-        e.gE().f(GiftSwitchStatic.class);
+        e.cS().f(GiftSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

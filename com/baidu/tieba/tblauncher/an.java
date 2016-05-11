@@ -1,32 +1,50 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqR;
-    final /* synthetic */ aa etY;
-    private final /* synthetic */ int val$type;
+public class an implements Runnable {
+    final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(aa aaVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.etY = aaVar;
-        this.aqR = aVar;
-        this.val$type = i;
+    public an(ab abVar) {
+        this.exg = abVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
         MainTabActivity mainTabActivity;
+        ImageView imageView;
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
         MainTabActivity mainTabActivity2;
-        this.aqR.dismiss();
-        if (this.val$type == 0) {
-            mainTabActivity2 = this.etY.etM;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.val$type == 1) {
-            mainTabActivity = this.etY.etM;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+        Handler handler;
+        Runnable runnable;
+        dVar = this.exg.Ey;
+        if (dVar == null) {
+            mainTabActivity = this.exg.ewR;
+            String string = mainTabActivity.getPageContext().getPageActivity().getResources().getString(t.j.messge_tab_change_tip);
+            if (!StringUtils.isNull(string)) {
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                imageView = this.exg.ewW;
+                gVar.o(imageView).N(0).u(true).v(true);
+                gVar.a(new ao(this, string));
+                this.exg.Ey = gVar.cV();
+                dVar2 = this.exg.Ey;
+                dVar2.s(false);
+                dVar3 = this.exg.Ey;
+                mainTabActivity2 = this.exg.ewR;
+                dVar3.d(mainTabActivity2.getPageContext().getPageActivity());
+                this.exg.ewZ = true;
+                this.exg.aVG();
+                handler = this.exg.mHandler;
+                runnable = this.exg.exf;
+                handler.postDelayed(runnable, 3000L);
+            }
         }
     }
 }

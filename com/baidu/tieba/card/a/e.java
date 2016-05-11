@@ -1,47 +1,31 @@
 package com.baidu.tieba.card.a;
-
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class e extends b {
-    public static final BdUniqueId TC = BdUniqueId.gen();
-    private List<com.baidu.adp.widget.ListView.u> aTc = new ArrayList();
-    private long aVi;
+public class e implements com.baidu.tieba.horizonalList.widget.l {
+    public String forumAvatar;
+    public long forumId;
+    public String forumName;
+    public boolean isLiked;
+    public int rank;
 
-    public long LK() {
-        return this.aVi;
-    }
-
-    public void au(long j) {
-        this.aVi = j;
-    }
-
-    public List<com.baidu.adp.widget.ListView.u> FZ() {
-        return this.aTc;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return TC;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends com.baidu.tbadk.core.view.viewpager.a.a {
-        public String link;
-        public String tag;
-        public String title;
-        public int type;
-        public String url;
-
-        @Override // com.baidu.tbadk.core.view.viewpager.a.a
-        public String getImageUrl() {
-            return this.url;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-
-        @Override // com.baidu.tbadk.core.view.viewpager.a.a
-        public Object xX() {
-            return this.link;
+        if (obj instanceof com.baidu.tbadk.widget.a.a) {
+            com.baidu.tbadk.widget.a.a aVar = (com.baidu.tbadk.widget.a.a) obj;
+            return aVar.forumId == this.forumId && aVar.forumName.equals(this.forumName) && aVar.forumAvatar.equals(this.forumAvatar) && aVar.isLiked == this.isLiked && aVar.rank == this.rank;
         }
+        return false;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[HotForumInfoData:");
+        sb.append("rank=").append(this.rank).append(",");
+        sb.append("forumAvatar=").append(this.forumAvatar).append(",");
+        sb.append("forumName=").append(this.forumName).append(",");
+        sb.append("forumId=").append(this.forumId).append(",");
+        sb.append("isLiked=").append(this.isLiked).append(",");
+        sb.append("]");
+        return sb.toString();
     }
 }

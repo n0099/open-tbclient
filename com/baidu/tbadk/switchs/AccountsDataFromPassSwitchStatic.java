@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class AccountsDataFromPassSwitchStatic extends a {
     static {
-        e.gE().f(AccountsDataFromPassSwitchStatic.class);
+        e.cS().f(AccountsDataFromPassSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

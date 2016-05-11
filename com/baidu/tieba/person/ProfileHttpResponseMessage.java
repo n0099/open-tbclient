@@ -5,6 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
+import tbclient.Highlist;
 import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
@@ -17,6 +18,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     private Anti anti_stat;
     private boolean error_hint;
     private boolean from_db;
+    private Highlist highlist;
     private boolean isSelf;
     private int pageNum;
     private List<PostInfoList> post_list;
@@ -27,6 +29,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
 
     public ProfileHttpResponseMessage(int i) {
         super(i);
+    }
+
+    public Highlist getHighlist() {
+        return this.highlist;
+    }
+
+    public void setHighlist(Highlist highlist) {
+        this.highlist = highlist;
     }
 
     public int getPageNum() {
@@ -94,13 +104,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             this.ucCard = profileResIdl.data.uc_card;
+            this.highlist = profileResIdl.data.highs;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> N = com.baidu.tbadk.core.b.a.um().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> N = com.baidu.tbadk.core.b.a.rR().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             N.e(PROFILE_CACHE_KEY, bArr);
         }

@@ -5,11 +5,11 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.write.write.VcodeActivity;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity eMh;
+    final /* synthetic */ VcodeActivity fcV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(VcodeActivity vcodeActivity) {
-        this.eMh = vcodeActivity;
+        this.fcV = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,19 +19,19 @@ class w implements View.OnClickListener {
         VcodeActivity.b bVar2;
         VcodeActivity.b bVar3;
         VcodeActivity.b bVar4;
-        VcodeActivity vcodeActivity = this.eMh;
-        inputMethodManager = this.eMh.mInputManager;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.eMh.dsS);
-        this.eMh.Hl();
-        bVar = this.eMh.eMd;
+        VcodeActivity vcodeActivity = this.fcV;
+        inputMethodManager = this.fcV.mInputManager;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.fcV.dwo);
+        this.fcV.Fi();
+        bVar = this.fcV.fcR;
         if (bVar != null) {
-            bVar4 = this.eMh.eMd;
+            bVar4 = this.fcV.fcR;
             bVar4.cancel();
         }
-        this.eMh.eMd = new VcodeActivity.b(this.eMh.eMc);
-        bVar2 = this.eMh.eMd;
+        this.fcV.fcR = new VcodeActivity.b(this.fcV.fcQ);
+        bVar2 = this.fcV.fcR;
         bVar2.setPriority(3);
-        bVar3 = this.eMh.eMd;
+        bVar3 = this.fcV.fcR;
         bVar3.execute(0);
     }
 }

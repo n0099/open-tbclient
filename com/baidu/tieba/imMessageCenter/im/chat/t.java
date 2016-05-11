@@ -7,17 +7,17 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String bZe;
-    final /* synthetic */ PersonalChatView csx;
-    private final /* synthetic */ Animation csy;
-    private final /* synthetic */ String val$message;
+    private final /* synthetic */ String bZJ;
+    final /* synthetic */ PersonalChatView ctu;
+    private final /* synthetic */ Animation ctv;
+    private final /* synthetic */ String ctw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.csx = personalChatView;
-        this.bZe = str;
-        this.val$message = str2;
-        this.csy = animation;
+        this.ctu = personalChatView;
+        this.bZJ = str;
+        this.ctw = str2;
+        this.ctv = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.csx.csq;
+        linearLayout = this.ctu.ctn;
         linearLayout.clearAnimation();
-        textView = this.csx.csr;
-        personalChatActivity = this.csx.cso;
-        textView.setText(personalChatActivity.getResources().getString(t.j.add_friend_agree_title, this.bZe));
-        textView2 = this.csx.css;
-        textView2.setText(this.val$message);
-        linearLayout2 = this.csx.csq;
-        linearLayout2.setAnimation(this.csy);
+        textView = this.ctu.cto;
+        personalChatActivity = this.ctu.ctl;
+        textView.setText(personalChatActivity.getResources().getString(t.j.add_friend_agree_title, this.bZJ));
+        textView2 = this.ctu.ctp;
+        textView2.setText(this.ctw);
+        linearLayout2 = this.ctu.ctn;
+        linearLayout2.setAnimation(this.ctv);
     }
 }

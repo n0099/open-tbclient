@@ -27,23 +27,23 @@ public class g implements View.OnClickListener {
         RadioButton radioButton5;
         HorizontalScrollView horizontalScrollView;
         RadioButton radioButton6;
-        linearLayout = this.this$0.drr;
+        linearLayout = this.this$0.duM;
         linearLayout.setVisibility(0);
-        button = this.this$0.drk;
+        button = this.this$0.duF;
         button.setVisibility(8);
-        if (Build.VERSION.SDK_INT < 7 || !this.this$0.drx) {
-            radioButton = this.this$0.drp;
-            radioButton2 = this.this$0.drp;
+        if (Build.VERSION.SDK_INT < 7 || !this.this$0.duS) {
+            radioButton = this.this$0.duK;
+            radioButton2 = this.this$0.duK;
             int paddingTop = radioButton2.getPaddingTop();
-            radioButton3 = this.this$0.drp;
+            radioButton3 = this.this$0.duK;
             int paddingRight = radioButton3.getPaddingRight();
-            radioButton4 = this.this$0.drp;
+            radioButton4 = this.this$0.duK;
             radioButton.setPadding(0, paddingTop, paddingRight, radioButton4.getPaddingBottom());
-            radioButton5 = this.this$0.drp;
+            radioButton5 = this.this$0.duK;
             radioButton5.setChecked(true);
-            horizontalScrollView = this.this$0.drl;
+            horizontalScrollView = this.this$0.duG;
             horizontalScrollView.setVisibility(8);
-            radioButton6 = this.this$0.dro;
+            radioButton6 = this.this$0.duJ;
             radioButton6.setVisibility(8);
         }
     }

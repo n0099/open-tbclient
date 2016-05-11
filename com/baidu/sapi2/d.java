@@ -1,486 +1,384 @@
 package com.baidu.sapi2;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.share.e;
-import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sapi2.utils.f;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class d {
-    private static final int a = 5;
-    private static final String b = "app_version_code";
-    private static final String c = "sapi_version";
-    private static final String d = "login_share_strategy";
-    private static final String e = "current_account";
-    private static final String f = "share_accounts";
-    private static final String g = "login_accounts";
-    private static final String h = "first_install";
-    private static final String i = "login_status_changed";
-    private static final String j = "sapi_options";
-    private static final String k = "relogin_credentials";
-    private static final String l = "cuidtoken";
-    private static final String m = "device_token";
-    private static final String n = "device_login_available";
-    private static final String o = "hosts_hijacked";
-    private static final String p = "stat_items";
-    private static final String q = "sync_token";
-    private static final String r = "sync_token_expired";
-    private static final String s = "time_offset_seconds";
-    private static final String t = "device_info_read_times";
-    private static d w;
-    private SharedPreferences u;
-    private Context v;
-
-    public static d a(Context context) {
-        synchronized (d.class) {
-            if (w == null) {
-                w = new d(context.getApplicationContext());
-            }
-        }
-        return w;
-    }
-
-    private d(Context context) {
-        this.v = context;
-        this.u = context.getSharedPreferences("sapi_system", 0);
-    }
-
-    private void a(String str, String str2) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.u.edit().putString(str, str2).apply();
-        } else {
-            this.u.edit().putString(str, str2).commit();
-        }
-    }
-
-    private void a(String str, int i2) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.u.edit().putInt(str, i2).apply();
-        } else {
-            this.u.edit().putInt(str, i2).commit();
-        }
-    }
-
-    private void a(String str, long j2) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.u.edit().putLong(str, j2).apply();
-        } else {
-            this.u.edit().putLong(str, j2).commit();
-        }
-    }
-
-    private void a(String str, boolean z) {
-        if (Build.VERSION.SDK_INT > 8) {
-            this.u.edit().putBoolean(str, z).apply();
-        } else {
-            this.u.edit().putBoolean(str, z).commit();
-        }
-    }
-
-    private String g(String str) {
-        return this.u.getString(str, "");
-    }
-
-    private boolean b(String str, boolean z) {
-        return this.u.getBoolean(str, z);
-    }
-
-    private int b(String str, int i2) {
-        return this.u.getInt(str, i2);
-    }
-
-    private long b(String str, long j2) {
-        return this.u.getLong(str, j2);
-    }
+    private static final String a = "fast_reg_sms_num";
+    private static final String b = "global_share_strategy";
+    private static final String c = "specific_share_strategy";
+    private static final String d = "default_https_enabled";
+    private static final String e = "authorized_packages";
+    private static final String f = "authorized_domains";
+    private static final String g = "cache";
+    private static final String h = "enabled";
+    private static final String i = "modules";
+    private static final String j = "id";
+    private static final String k = "download_url";
+    private static final String l = "hash";
+    private static final String m = "login_cookie_di_keys";
+    private static final String n = "pre_fetch_tpl_list";
+    private LoginShareStrategy q;
+    private boolean r;
+    private Map<String, LoginShareStrategy> s = new HashMap();
+    private Map<String, String> t = new HashMap();
+    private List<String> u = new ArrayList();
+    private List<String> v = new ArrayList();
+    private List<String> w = new ArrayList();
+    private a o = new a();
+    private String p = f.u;
 
     public String a() {
-        return g(m);
+        return this.p;
     }
 
-    public void a(String str) {
-        a(m, str);
-    }
-
-    public boolean b() {
-        return b(n, false);
-    }
-
-    public void a(boolean z) {
-        a(n, z);
+    public LoginShareStrategy b() {
+        return this.q;
     }
 
     public boolean c() {
-        return b(o, false);
+        return this.r;
     }
 
-    public void b(boolean z) {
-        a(o, z);
+    public Map<String, LoginShareStrategy> d() {
+        return this.s;
     }
 
-    public void b(String str) {
-        a(c, str);
+    public Map<String, String> e() {
+        return !this.t.isEmpty() ? this.t : k();
     }
 
-    public void a(LoginShareStrategy loginShareStrategy) {
-        if (loginShareStrategy != null) {
-            a(d, loginShareStrategy.getStrValue());
-        }
+    public List<String> f() {
+        return !this.u.isEmpty() ? this.u : o();
     }
 
-    public void a(SapiAccount sapiAccount) {
-        if (sapiAccount == null) {
-            a(e, "");
-            return;
-        }
-        JSONObject jSONObject = sapiAccount.toJSONObject();
-        if (jSONObject != null) {
-            a(e, jSONObject.toString());
-            if (!h()) {
-                z();
-            }
-        }
+    public List<String> g() {
+        return this.v;
     }
 
-    public SapiAccount d() {
-        if (TextUtils.isEmpty(g(e))) {
-            return null;
-        }
+    public List<String> h() {
+        return this.w;
+    }
+
+    public a i() {
+        return this.o;
+    }
+
+    public String j() {
+        JSONObject jSONObject = new JSONObject();
         try {
-            return SapiAccount.fromJSONObject(new JSONObject(g(e)));
-        } catch (JSONException e2) {
+            jSONObject.put(g, this.o.c());
+            jSONObject.put(a, this.p);
+            if (this.q != null) {
+                jSONObject.put(b, this.q.getStrValue());
+            }
+            jSONObject.put(d, this.r);
+            JSONObject jSONObject2 = new JSONObject();
+            for (Map.Entry<String, LoginShareStrategy> entry : this.s.entrySet()) {
+                jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
+            }
+            jSONObject.put(c, jSONObject2);
+            JSONObject jSONObject3 = new JSONObject();
+            for (Map.Entry<String, String> entry2 : this.t.entrySet()) {
+                jSONObject3.put(entry2.getKey(), entry2.getValue());
+            }
+            jSONObject.put(e, jSONObject3);
+            JSONArray jSONArray = new JSONArray();
+            for (String str : this.u) {
+                jSONArray.put(str);
+            }
+            jSONObject.put(f, jSONArray);
+            JSONArray jSONArray2 = new JSONArray();
+            for (String str2 : this.v) {
+                jSONArray2.put(str2);
+            }
+            jSONObject.put(m, jSONArray2);
+            JSONArray jSONArray3 = new JSONArray();
+            for (String str3 : this.w) {
+                jSONArray3.put(str3);
+            }
+            jSONObject.put(n, jSONArray3);
+            return jSONObject.toString();
+        } catch (Throwable th) {
             return null;
         }
     }
 
-    public void b(SapiAccount sapiAccount) {
-        if (sapiAccount != null) {
-            List<SapiAccount> e2 = e();
-            if (!e2.contains(sapiAccount)) {
-                e2.add(sapiAccount);
-            } else {
-                e2.remove(e2.indexOf(sapiAccount));
-                e2.add(sapiAccount);
-            }
-            a(a(e2, 5));
+    public static d a(JSONObject jSONObject) {
+        d dVar = new d();
+        dVar.o = a.a(jSONObject.optJSONObject(g));
+        dVar.p = jSONObject.optString(a, f.u);
+        dVar.r = jSONObject.optBoolean(d);
+        String optString = jSONObject.optString(b);
+        if (!TextUtils.isEmpty(optString)) {
+            dVar.q = LoginShareStrategy.mapStrToValue(optString);
         }
-    }
-
-    public void c(SapiAccount sapiAccount) {
-        if (sapiAccount != null) {
-            List<SapiAccount> f2 = f();
-            if (!f2.contains(sapiAccount)) {
-                f2.add(sapiAccount);
-            } else {
-                f2.set(f2.indexOf(sapiAccount), sapiAccount);
-            }
-            b(f2);
-        }
-    }
-
-    public void d(SapiAccount sapiAccount) {
-        if (sapiAccount != null) {
-            List<SapiAccount> e2 = e();
-            if (e2.contains(sapiAccount)) {
-                e2.remove(sapiAccount);
-                a(e2);
+        JSONObject optJSONObject = jSONObject.optJSONObject(c);
+        if (optJSONObject != null) {
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                dVar.s.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
-    }
-
-    public void e(SapiAccount sapiAccount) {
-        if (sapiAccount != null) {
-            if (d() != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(d().uid)) {
-                a((SapiAccount) null);
-                com.baidu.sapi2.share.b.a().b(sapiAccount);
-            }
-            List<SapiAccount> f2 = f();
-            if (f2.contains(sapiAccount)) {
-                f2.remove(sapiAccount);
-                b(f2);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(e);
+        if (optJSONObject2 != null) {
+            Iterator<String> keys2 = optJSONObject2.keys();
+            while (keys2.hasNext()) {
+                String next2 = keys2.next();
+                String optString2 = optJSONObject2.optString(next2);
+                if (!TextUtils.isEmpty(next2) && !TextUtils.isEmpty(optString2)) {
+                    dVar.t.put(next2, optString2);
+                }
             }
         }
-    }
-
-    public List<SapiAccount> e() {
-        if (!TextUtils.isEmpty(g(f))) {
-            try {
-                return a(SapiAccount.fromJSONArray(new JSONArray(g(f))), 5);
-            } catch (Throwable th) {
-                return new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray(f);
+        if (optJSONArray != null) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
+                    dVar.u.add(optJSONArray.optString(i2));
+                }
             }
         }
-        return new ArrayList();
-    }
-
-    public List<SapiAccount> f() {
-        if (!TextUtils.isEmpty(g(g))) {
-            try {
-                return SapiAccount.fromJSONArray(new JSONArray(g(g)));
-            } catch (Exception e2) {
-                return new ArrayList();
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(m);
+        if (optJSONArray2 != null) {
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                if (!TextUtils.isEmpty(optJSONArray2.optString(i3))) {
+                    dVar.v.add(optJSONArray2.optString(i3));
+                }
             }
         }
-        return new ArrayList();
-    }
-
-    public boolean g() {
-        if (b(h, true)) {
-            a(h, false);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean h() {
-        return b(i, false);
-    }
-
-    private void z() {
-        a(i, true);
-    }
-
-    public void i() {
-        a(i, false);
-    }
-
-    private void a(List<SapiAccount> list) {
-        JSONArray jSONArray = SapiAccount.toJSONArray(list);
-        if (jSONArray != null) {
-            a(f, jSONArray.toString());
-        }
-    }
-
-    private void b(List<SapiAccount> list) {
-        JSONArray jSONArray = SapiAccount.toJSONArray(list);
-        if (jSONArray != null) {
-            a(g, jSONArray.toString());
-        }
-    }
-
-    public c j() {
-        String g2 = g(j);
-        if (!TextUtils.isEmpty(g2)) {
-            try {
-                return c.a(new JSONObject(g2));
-            } catch (JSONException e2) {
+        JSONArray optJSONArray3 = jSONObject.optJSONArray(n);
+        if (optJSONArray3 != null) {
+            for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                if (!TextUtils.isEmpty(optJSONArray3.optString(i4))) {
+                    dVar.w.add(optJSONArray3.optString(i4));
+                }
             }
         }
-        return new c();
+        return dVar;
     }
 
-    public void a(c cVar) {
-        if (cVar != null) {
-            a(j, cVar.h());
+    /* loaded from: classes.dex */
+    public static class a {
+        private static final String a = ".BD_SAPI_CACHE";
+        private List<C0026a> c = new ArrayList();
+        private boolean b = true;
+
+        public boolean a() {
+            return this.b;
         }
-    }
 
-    public Map<String, String> k() {
-        return j().e();
-    }
-
-    public List<String> l() {
-        return j().f();
-    }
-
-    public String m() {
-        return j().a();
-    }
-
-    public void a(String str, SapiAccount.ReloginCredentials reloginCredentials) {
-        if (!TextUtils.isEmpty(str) && reloginCredentials != null && !TextUtils.isEmpty(reloginCredentials.account) && !TextUtils.isEmpty(reloginCredentials.password) && !TextUtils.isEmpty(reloginCredentials.ubi) && !TextUtils.isEmpty(reloginCredentials.accountType)) {
-            d(reloginCredentials.ubi);
-            JSONObject n2 = n();
-            if (n2 == null) {
-                n2 = new JSONObject();
-            }
-            try {
-                n2.put(str, reloginCredentials.toJSONObject());
-                a(k, n2.toString());
-            } catch (JSONException e2) {
-                L.e(e2);
-            }
+        public List<C0026a> b() {
+            return this.c;
         }
-    }
 
-    public SapiAccount.ReloginCredentials c(String str) {
-        JSONObject optJSONObject;
-        JSONObject n2 = n();
-        if (n2 == null || (optJSONObject = n2.optJSONObject(str)) == null) {
-            return new SapiAccount.ReloginCredentials();
-        }
-        SapiAccount.ReloginCredentials fromJSONObject = SapiAccount.ReloginCredentials.fromJSONObject(optJSONObject);
-        fromJSONObject.ubi = o();
-        return fromJSONObject;
-    }
+        /* renamed from: com.baidu.sapi2.d$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        public static class C0026a {
+            public String a;
+            public String b;
+            public String c;
 
-    public JSONObject n() {
-        String g2 = g(k);
-        if (!TextUtils.isEmpty(g2)) {
-            try {
-                return new JSONObject(g2);
-            } catch (JSONException e2) {
-            }
-        }
-        return null;
-    }
-
-    void d(String str) {
-        a(l, str);
-    }
-
-    String o() {
-        return g(l);
-    }
-
-    public void a(String str, Map<String, String> map) {
-        if (!TextUtils.isEmpty(str)) {
-            if (map == null) {
-                map = Collections.emptyMap();
-            }
-            try {
-                Map<String, Map<String, String>> p2 = p();
-                p2.put(str, map);
+            JSONObject a() {
                 JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, Map<String, String>> entry : p2.entrySet()) {
-                    jSONObject.put(entry.getKey(), new JSONObject(entry.getValue()));
+                try {
+                    jSONObject.put("id", this.a);
+                    jSONObject.put(d.k, this.b);
+                    jSONObject.put(d.l, this.c);
+                    return jSONObject;
+                } catch (Throwable th) {
+                    return null;
                 }
-                a(p, jSONObject.toString());
-            } catch (Throwable th) {
-                L.e(th);
+            }
+
+            static C0026a a(JSONObject jSONObject) {
+                C0026a c0026a = new C0026a();
+                c0026a.a = jSONObject.optString("id");
+                c0026a.b = jSONObject.optString(d.k);
+                c0026a.c = jSONObject.optString(d.l);
+                return c0026a;
+            }
+
+            public static String a(String str) {
+                return b(str).replace('/', '-');
+            }
+
+            public static String b(String str) {
+                return str.replace(':', '/');
+            }
+
+            public static String c(String str) {
+                return ".BD_SAPI_CACHE/" + b(str);
+            }
+
+            public boolean equals(Object obj) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || getClass() != obj.getClass()) {
+                    return false;
+                }
+                return this.a.equals(((C0026a) obj).a);
+            }
+
+            public int hashCode() {
+                return this.a.hashCode();
             }
         }
-    }
 
-    public void e(String str) {
-        if (!TextUtils.isEmpty(str)) {
+        JSONObject c() {
+            JSONObject jSONObject = new JSONObject();
             try {
-                Map<String, Map<String, String>> p2 = p();
-                if (p2.containsKey(str)) {
-                    p2.remove(str);
+                jSONObject.put(d.h, this.b);
+                JSONArray jSONArray = new JSONArray();
+                for (C0026a c0026a : b()) {
+                    jSONArray.put(c0026a.a());
                 }
-                a(p, new JSONObject(p2).toString());
+                jSONObject.put(d.i, jSONArray);
+                return jSONObject;
             } catch (Throwable th) {
-                L.e(th);
+                return null;
             }
         }
-    }
 
-    public Map<String, Map<String, String>> p() {
-        HashMap hashMap = new HashMap();
-        String g2 = g(p);
-        if (!TextUtils.isEmpty(g2)) {
-            try {
-                JSONObject jSONObject = new JSONObject(g2);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    HashMap hashMap2 = new HashMap();
-                    JSONObject optJSONObject = jSONObject.optJSONObject(next);
-                    if (optJSONObject != null) {
-                        Iterator<String> keys2 = optJSONObject.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            String optString = optJSONObject.optString(next2);
-                            if (!TextUtils.isEmpty(next2) && !TextUtils.isEmpty(optString)) {
-                                hashMap2.put(next2, optString);
-                            }
-                        }
+        static a a(JSONObject jSONObject) {
+            a aVar = new a();
+            if (jSONObject != null) {
+                try {
+                    aVar.b = jSONObject.optBoolean(d.h, true);
+                    JSONArray optJSONArray = jSONObject.optJSONArray(d.i);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        aVar.b().add(C0026a.a(optJSONArray.getJSONObject(i)));
                     }
-                    hashMap.put(next, hashMap2);
+                } catch (Throwable th) {
                 }
-            } catch (Throwable th) {
-                L.e(th);
             }
+            return aVar;
         }
+    }
+
+    static Map<String, String> k() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.sapi2.(.*)", "de308d7973b5171883333a97253327e4");
+        hashMap.put("com.baidu.tieba(.*)", "673004cf2f6efdec2385c8116c1e8c14");
+        hashMap.put("com.baidu.searchbox(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.appsearch", "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.(.*)input(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.BaiduMap(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.browser.(.+)", "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.iknow", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.yuedu", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.homework", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.wenku", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.mbaby", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.navi", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.travel", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.baidulife", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.ting.mp3.android", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.news(.*)", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.video", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.hao123(.*)", "7fd3727852d29eb6f4283988dc0d6150");
+        hashMap.put("com.baidu.netdisk(.*)", "ae5821440fab5e1a61a025f014bd8972");
+        hashMap.put("com.baidu.music.lebo", "b1d67a31136599143c5c38879728dcfd");
+        hashMap.put("com.hiapk.marketpho", "d46053ef4381d35cb774eb632d8e8aec");
+        hashMap.put("com.baidu.gamecenter(.*)", "bddf74f2473eb1802fe13fe3e1aab81a");
+        hashMap.put("com.baidu.notes", "989d3c446cadade24c8c57a10fe6370d");
+        hashMap.put("com.baidu.lifenote", "c1a65e392e3892db0935d22f6c20b9cc");
+        hashMap.put("com.baidu.passport.securitycenter", "db97d206640d7aca6d75975b3c1f6e87");
+        hashMap.put("com.nuomi", "59215ee95c063ff2c56226581a62130a");
+        hashMap.put("com.baidu.shucheng91", "2090b2ef3011c12d851ed125c2360954");
+        hashMap.put("com.duoku.gamesearch", "153a76549eb514258b5806f95da02bb3");
+        hashMap.put("com.baidu.qingpai", "80344917d9e7cf0fd8a8914cc918e0ef");
+        hashMap.put("cn.jingling.motu.photowonder", "6930f0bd9fa461c2cd65e216acee0118");
+        hashMap.put("com.baidu.account", "fe3c74f0431ea0dc303a10b6af6470fc");
+        hashMap.put("com.duoku.game.helper", "6231a79a3f43cdd01797eb5febbc6350");
+        hashMap.put("com.dragon.android.pandaspace", "5b120e96b20f5b4ec695d79b20d18753");
+        hashMap.put("com.baidu.addressugc", "9e2a7cde67d36c1e6a01bb070fc8ef7b");
+        hashMap.put("cn.opda.a.phonoalbumshoushou", "310a4f78e839b86df7731c2f48fcadae");
+        hashMap.put("com.baidu.fb", "a4622402640f20dfda894cbe2edf8823");
+        hashMap.put("com.baidu.baidutranslate", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.lbs.waimai", "77ad7ac419a031af0252422152c62e67");
+        hashMap.put("com.baidu.lottery", "6e45686dd05db2374b0a600c7f28c0c4");
+        hashMap.put("com.baidu.doctor", "49c95b74699e358ffe67f5daacab3d48");
+        hashMap.put("com.baidu.patient", "49c95b74699e358ffe67f5daacab3d48");
+        hashMap.put("com.baidu.baidumovie", "645c143e25f34e076bcee9600b30e4c2");
+        hashMap.put("com.baidu.bdg.skyeye", "544f0f4a82864fbf7b9663fbc80437bb");
+        hashMap.put("com.zongheng.reader(.*)", "b9c43ba43f1e150d4f1670ae09a89a7f");
+        hashMap.put("com.baidu.doctor.doctorask", "13a0a8019be4015ed20e075d824f1696");
+        hashMap.put("com.baidu.k12edu", "610d60c69d2adf4b57fc6c2ec83fecbf");
+        hashMap.put("com.baidu.zuowen", "fa6b26072965ee3f372da85ca69b7b99");
+        hashMap.put("com.baidu.wallet", "de74282b18c0847e64b2b3f0ebbfe0a0");
+        hashMap.put("com.baidu.clouda.mobile.crm", "561e009b4a1f97012bf90dfed6c054d5");
+        hashMap.put("com.baidu.wear.app", "73a9573a74d219b8cf3066316d0b330c");
+        hashMap.put("com.dianxinos.optimizer.channel", "bd3df198d50f0dafa3c5804d342d3698");
+        hashMap.put("com.baidu.lbs.bus", "3d96c8b0be8fd5b1db754b8dbb73f23e");
+        hashMap.put("com.baidu.hui", "3102ce07daa9cb7c8d62c82fdc61c0ba");
+        hashMap.put("com.baidu.image", "ff934173c55f54a81d9c5da216263479");
+        hashMap.put("com.baidu.vip", "a00a833bf8afe07172262db3ccb3a5c5");
+        hashMap.put("com.baidu.mami", "86743dc804add1dd5f3a81a5818ead58");
+        hashMap.put("com.baidu.faceu", "a140a3b0775361c459fc751c50e98d77");
+        hashMap.put("com.baidu.movie", "0586742e88a2e6a19e996598ec336b61");
+        hashMap.put("com.baidu.panocam", "c6186fde16482ce83196441e7fbed1b3");
+        hashMap.put("com.baidu.dsocial", "49c95b74699e358ffe67f5daacab3d48");
+        hashMap.put("com.duwear.fb", "a4622402640f20dfda894cbe2edf8823");
+        hashMap.put("com.qiyi.video", "846b46b26f2d9572124e4cfd778e8774");
+        hashMap.put("tv.pps.mobile", "79a4816c58b11ba96e85524a7d5cf697");
+        hashMap.put("com.baidu.cloudenterprise", "ae5821440fab5e1a61a025f014bd8972");
+        hashMap.put("com.baidu.haokan", "7fd3727852d29eb6f4283988dc0d6150");
+        hashMap.put("com.baidu.fangmi", "08e0e60c3b3a37ac88a2a06e86d0f8fa");
+        hashMap.put("com.chuanke.ikk", "b12d5bcf96654b0a8da91256638695ab");
         return hashMap;
     }
 
-    public void f(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            a(q, e.a(this.v, str));
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Map<String, Integer> l() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.wallet", 1);
+        hashMap.put("com.nuomi", 2);
+        hashMap.put("com.baidu.lbs.waimai", 3);
+        hashMap.put("com.baidu.searchbox(.*)", 4);
+        hashMap.put("com.baidu.BaiduMap(.*)", 5);
+        hashMap.put("com.baidu.tieba(.*)", 6);
+        hashMap.put("com.baidu.netdisk(.*)", 7);
+        hashMap.put("com.baidu.appsearch", 8);
+        return hashMap;
     }
 
-    public JSONObject q() {
-        String g2 = g(q);
-        if (!TextUtils.isEmpty(g2)) {
-            try {
-                return new JSONObject(e.b(this.v, g2));
-            } catch (Throwable th) {
-                L.e(th);
-            }
-        }
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<String> m() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("com.baidu.searchbox(.*)");
+        arrayList.add("com.baidu.browser.(.+)");
+        return arrayList;
     }
 
-    public String r() {
-        if (q() != null) {
-            return q().optString("sn");
-        }
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<String> n() {
+        ArrayList arrayList = new ArrayList();
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        String replaceAll = sapiConfiguration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        String replaceAll2 = sapiConfiguration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        arrayList.add(replaceAll);
+        arrayList.add(replaceAll2);
+        return arrayList;
     }
 
-    public String s() {
-        if (q() != null) {
-            return q().optString("seed");
-        }
-        return null;
-    }
-
-    public String t() {
-        if (q() != null) {
-            return q().optString("pubkey");
-        }
-        return null;
-    }
-
-    public void c(boolean z) {
-        a(r, z);
-    }
-
-    public boolean u() {
-        return b(r, false);
-    }
-
-    public void a(int i2) {
-        a(s, i2);
-    }
-
-    public int v() {
-        return b(s, 0);
-    }
-
-    public long w() {
-        return (System.currentTimeMillis() / 1000) + v();
-    }
-
-    public int x() {
-        return b(b, 0);
-    }
-
-    public void b(int i2) {
-        a(b, i2);
-    }
-
-    public long y() {
-        long b2 = b(t, 0L) + 1;
-        a(t, b2);
-        return b2;
-    }
-
-    <T> List<T> a(List<T> list, int i2) {
-        return (list == null || i2 < 0 || i2 >= list.size()) ? list : list.subList(list.size() - i2, list.size());
+    static List<String> o() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("baidu.com");
+        arrayList.add("hao123.com");
+        arrayList.add("nuomi.com");
+        arrayList.add("baifubao.com");
+        return arrayList;
     }
 }

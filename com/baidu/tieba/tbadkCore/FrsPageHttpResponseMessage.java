@@ -9,6 +9,8 @@ import tbclient.FrsPage.FrsPageResIdl;
 public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
+    private int mIsGood;
+    private int mSortType;
     private boolean needCache;
     private m responseData;
     private int updateType;
@@ -19,6 +21,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
 
     public FrsPageHttpResponseMessage() {
         super(CmdConfigHttp.FRS_HTTP_CMD);
+        this.mSortType = 0;
+        this.mIsGood = 0;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
@@ -38,6 +42,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = lVar.isNeedCache();
                 this.mCategoryId = lVar.getCategoryId();
                 this.hasNetworkError = hasError();
+                this.mSortType = lVar.aRZ();
+                this.mIsGood = lVar.getIsGood();
             }
         }
     }
@@ -45,20 +51,20 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         this.responseData = new m();
-        FrsPageResIdl B = this.responseData.B(bArr);
-        if (B != null && B.error != null) {
-            if (B.error.errorno != null) {
-                setError(B.error.errorno.intValue());
+        FrsPageResIdl A = this.responseData.A(bArr);
+        if (A != null && A.error != null) {
+            if (A.error.errorno != null) {
+                setError(A.error.errorno.intValue());
             }
-            setErrorString(B.error.usermsg);
+            setErrorString(A.error.usermsg);
         }
         setData(this.responseData);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.avu() != null) {
-            c.aRC().a(c.aRC().at(this.responseData.avu().getName(), this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.avA() != null) {
+            c.aRW().a(c.aRW().d(this.responseData.avA().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
         }
     }
 

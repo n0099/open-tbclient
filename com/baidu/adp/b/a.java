@@ -6,28 +6,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class a extends i {
-    private static volatile a FK = null;
-    private static ArrayList<C0001a> FL = new ArrayList<>();
+    private static volatile a wc = null;
+    private static ArrayList<C0001a> wd = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static a mg() {
-        if (FK == null) {
+    public static a iu() {
+        if (wc == null) {
             BdLog.e("trafficStatsManaer");
-            FK = new b();
+            wc = new b();
         }
-        return FK;
+        return wc;
     }
 
     public static void a(a aVar) {
-        FK = aVar;
-        if (FK != null) {
-            Iterator<C0001a> it = FL.iterator();
+        wc = aVar;
+        if (wc != null) {
+            Iterator<C0001a> it = wd.iterator();
             while (it.hasNext()) {
                 C0001a next = it.next();
-                FK.a(next.contentType, next.FM, next.FN, next.url);
+                wc.a(next.contentType, next.we, next.wf, next.url);
             }
-            FL.clear();
+            wd.clear();
         }
     }
 
@@ -39,15 +39,15 @@ public abstract class a extends i {
     /* renamed from: com.baidu.adp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0001a {
-        public long FM;
-        public long FN;
         public String contentType;
         public String url;
+        public long we;
+        public long wf;
 
         public C0001a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.FM = j;
-            this.FN = j2;
+            this.we = j;
+            this.wf = j2;
             this.url = str2;
         }
     }

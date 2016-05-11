@@ -4,16 +4,15 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
 import com.baidu.tieba.person.UserPostPageRequestMessage;
 import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ v dBQ;
+class w extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ v dEY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i) {
         super(i);
-        this.dBQ = vVar;
+        this.dEY = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +22,7 @@ public class w extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
             UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
             if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
-                this.dBQ.b(null, false);
+                this.dEY.b(null, false);
                 return;
             }
             UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();

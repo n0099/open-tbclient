@@ -21,6 +21,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import com.baidu.location.BDLocation;
 import com.baidu.tbadk.TbConfig;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
@@ -689,7 +690,7 @@ public class CustomViewAbove extends ViewGroup {
                 return arrowScroll(17);
             case 22:
                 return arrowScroll(66);
-            case 61:
+            case BDLocation.TypeGpsLocation /* 61 */:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

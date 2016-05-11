@@ -1,68 +1,53 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.graphics.drawable.BitmapDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class ey extends SparseArray<fo> {
-    public void a(fp fpVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                fo valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(fpVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+public class ey extends bw<com.baidu.tbadk.core.data.ax, ez> {
+    public ey(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                fo valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: A */
+    public ez b(ViewGroup viewGroup) {
+        return new ez(LayoutInflater.from(this.mContext).inflate(t.h.frs_top_item, (ViewGroup) null));
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                fo valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.Qe();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bw, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ax axVar, ez ezVar) {
+        BitmapDrawable bitmapDrawable;
+        super.a(i, view, viewGroup, (ViewGroup) axVar, (com.baidu.tbadk.core.data.ax) ezVar);
+        this.bek.getLayoutMode().ae(this.mSkinType == 1);
+        this.bek.getLayoutMode().x(view);
+        if (axVar == null) {
+            return null;
         }
-    }
-
-    public void a(int i, fo foVar) {
-        if (i > 100) {
-            i = 100;
+        ezVar.aOG.setText(axVar.getTitle());
+        com.baidu.tieba.tbadkCore.util.s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.od(axVar.getId())) {
+            com.baidu.tbadk.core.util.at.c(ezVar.aOG, t.d.cp_cont_c, 1);
         }
-        put(i, foVar);
-    }
-
-    public fo gS(int i) {
-        if (i > 100) {
-            i = 100;
+        if (axVar.getIs_top() == 1) {
+            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_top);
+        } else {
+            bitmapDrawable = axVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_notice) : null;
         }
-        return get(i);
+        com.baidu.tbadk.core.util.at.k(ezVar.bin, t.f.frs_top_item_bg);
+        if (bitmapDrawable != null) {
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+        }
+        ezVar.aOG.setCompoundDrawables(bitmapDrawable, null, null, null);
+        return view;
     }
 }

@@ -19,68 +19,68 @@ import java.util.List;
 import tbclient.Profile.ForumGodDetailInfo;
 /* loaded from: classes.dex */
 public class PersonInfoGodBarListView extends LinearLayout {
-    private int duJ;
-    private final List<a> dxt;
+    private final List<a> dAz;
+    private int dxF;
     private Context mContext;
 
     public PersonInfoGodBarListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dxt = new ArrayList();
-        this.duJ = k.c(TbadkCoreApplication.m411getInst(), t.e.ds20);
+        this.dAz = new ArrayList();
+        this.dxF = k.c(TbadkCoreApplication.m11getInst(), t.e.ds20);
         this.mContext = context;
         setOrientation(1);
     }
 
     public PersonInfoGodBarListView(Context context) {
         super(context);
-        this.dxt = new ArrayList();
-        this.duJ = k.c(TbadkCoreApplication.m411getInst(), t.e.ds20);
+        this.dAz = new ArrayList();
+        this.dxF = k.c(TbadkCoreApplication.m11getInst(), t.e.ds20);
         this.mContext = context;
         setOrientation(1);
     }
 
     public void setData(List<ForumGodDetailInfo> list) {
-        if (y.p(list) > 0) {
-            this.dxt.clear();
+        if (y.r(list) > 0) {
+            this.dAz.clear();
             removeAllViews();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                a aCm = aCm();
+                a aCD = aCD();
                 ForumGodDetailInfo forumGodDetailInfo = list.get(i);
                 if (forumGodDetailInfo != null) {
-                    aCm.aNL.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
-                    at.b(aCm.aKg, t.d.cp_cont_f, 1);
-                    at.b(aCm.bhA, t.d.cp_cont_c, 1);
-                    aCm.aKg.setText(forumGodDetailInfo.forum_name);
-                    aCm.bhA.setText(forumGodDetailInfo.intro);
+                    aCD.aJV.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
+                    at.c(aCD.aGp, t.d.cp_cont_f, 1);
+                    at.c(aCD.bdq, t.d.cp_cont_c, 1);
+                    aCD.aGp.setText(forumGodDetailInfo.forum_name);
+                    aCD.bdq.setText(forumGodDetailInfo.intro);
                     if (i < size - 1) {
-                        aCm.view.setPadding(0, 0, 0, this.duJ);
+                        aCD.view.setPadding(0, 0, 0, this.dxF);
                     } else {
-                        aCm.view.setPadding(0, 0, 0, 0);
+                        aCD.view.setPadding(0, 0, 0, 0);
                     }
-                    addView(aCm.view);
-                    this.dxt.add(aCm);
+                    addView(aCD.view);
+                    this.dAz.add(aCD);
                 }
             }
         }
     }
 
-    private a aCm() {
+    private a aCD() {
         View inflate = LayoutInflater.from(this.mContext).inflate(t.h.god_bar_list_item, (ViewGroup) null);
         a aVar = new a(null);
-        aVar.aNL = (ImageView) inflate.findViewById(t.g.iv_icon);
-        aVar.aKg = (TextView) inflate.findViewById(t.g.tv_name);
-        aVar.bhA = (TextView) inflate.findViewById(t.g.tv_intro);
+        aVar.aJV = (ImageView) inflate.findViewById(t.g.iv_icon);
+        aVar.aGp = (TextView) inflate.findViewById(t.g.tv_name);
+        aVar.bdq = (TextView) inflate.findViewById(t.g.tv_intro);
         aVar.view = inflate;
         return aVar;
     }
 
-    public void f(TbPageContext<?> tbPageContext) {
-        for (a aVar : this.dxt) {
+    public void g(TbPageContext<?> tbPageContext) {
+        for (a aVar : this.dAz) {
             if (aVar != null) {
-                at.b(aVar.aKg, t.d.cp_cont_f, 1);
-                at.b(aVar.bhA, t.d.cp_cont_c, 1);
-                aVar.aNL.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
+                at.c(aVar.aGp, t.d.cp_cont_f, 1);
+                at.c(aVar.bdq, t.d.cp_cont_c, 1);
+                aVar.aJV.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
             }
         }
     }
@@ -88,9 +88,9 @@ public class PersonInfoGodBarListView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public TextView aKg;
-        public ImageView aNL;
-        public TextView bhA;
+        public TextView aGp;
+        public ImageView aJV;
+        public TextView bdq;
         public View view;
 
         private a() {

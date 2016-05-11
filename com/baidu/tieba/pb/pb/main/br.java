@@ -1,30 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements a.b {
-    private final /* synthetic */ MarkData dhD;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a dhE;
-    final /* synthetic */ PbActivity dht;
+    private final /* synthetic */ String ccv;
+    final /* synthetic */ PbActivity djE;
+    private final /* synthetic */ long djO;
+    private final /* synthetic */ String djP;
+    private final /* synthetic */ String djQ;
+    private final /* synthetic */ String djR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.dht = pbActivity;
-        this.dhD = markData;
-        this.dhE = aVar;
+    public br(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
+        this.djE = pbActivity;
+        this.djO = j;
+        this.djP = str;
+        this.ccv = str2;
+        this.djQ = str3;
+        this.djR = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        cw cwVar;
+        cw cwVar2;
+        com.baidu.tieba.pb.b.a(this.djO, this.djP, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", this.ccv, this.djQ, this.djR);
         aVar.dismiss();
-        Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.dhD);
-        this.dht.setResult(-1, intent);
-        this.dhE.dismiss();
-        this.dht.awr();
+        if (this.djE.checkUpIsLogin()) {
+            cwVar = this.djE.dih;
+            if (cwVar.axW() != null) {
+                cwVar2 = this.djE.dih;
+                cwVar2.axW().bE(this.djO);
+            }
+        }
     }
 }

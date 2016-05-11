@@ -8,17 +8,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    final /* synthetic */ ag eIc;
-    private final /* synthetic */ String eId;
+    final /* synthetic */ ag eYV;
+    private final /* synthetic */ String eYW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.eIc = agVar;
-        this.eId = str;
+        this.eYV = agVar;
+        this.eYW = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
-    public void nh() {
+    public void jv() {
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -31,20 +31,20 @@ public class am implements ap {
         o oVar2;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list2);
-        if (!this.eId.equals("-1")) {
-            textView = this.eIc.MR;
+        if (!this.eYW.equals("-1")) {
+            textView = this.eYV.Di;
             textView.setText(str);
-            this.eIc.aZv();
+            this.eYV.bbK();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
             arrayList2.addAll(list);
             d dVar = new d();
-            dVar.oA("-1");
-            albumActivity = this.eIc.eGS;
+            dVar.setAlbumId("-1");
+            albumActivity = this.eYV.eXM;
             String string = albumActivity.getPageContext().getString(t.j.write_album_all);
             dVar.setName(string);
-            dVar.oL(String.valueOf(arrayList.size()));
+            dVar.pa(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.f((ImageFileInfo) arrayList.get(0));
             }
@@ -52,14 +52,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.eIc.MR;
+            textView2 = this.eYV.Di;
             textView2.setText(string);
-            oVar = this.eIc.eGD;
-            oVar.cF(arrayList2);
-            oVar2 = this.eIc.eGD;
-            oVar2.cG(arrayList);
+            oVar = this.eYV.eXx;
+            oVar.cN(arrayList2);
+            oVar2 = this.eYV.eXx;
+            oVar2.cO(arrayList);
             z = true;
         }
-        this.eIc.setData(arrayList, z);
+        this.eYV.setData(arrayList, z);
     }
 }

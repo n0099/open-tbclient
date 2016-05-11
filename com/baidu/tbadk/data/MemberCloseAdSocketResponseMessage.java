@@ -5,13 +5,13 @@ import com.squareup.wire.Wire;
 import tbclient.CloseAd.CloseAdResIdl;
 /* loaded from: classes.dex */
 public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage {
-    private b mData;
+    private c mData;
 
     public MemberCloseAdSocketResponseMessage(int i) {
         super(i);
     }
 
-    public b getData() {
+    public c getData() {
         return this.mData;
     }
 
@@ -24,7 +24,7 @@ public class MemberCloseAdSocketResponseMessage extends TbSocketReponsedMessage 
                 setError(closeAdResIdl.error.errorno.intValue());
                 setErrorString(closeAdResIdl.error.usermsg);
                 if (getError() == 0 && closeAdResIdl.data != null) {
-                    this.mData = new b();
+                    this.mData = new c();
                     this.mData.a(closeAdResIdl.data.vip_close_ad);
                 }
             }

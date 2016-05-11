@@ -257,6 +257,10 @@ public class SlidingMenu extends RelativeLayout {
         setSlidingEnabled(true);
     }
 
+    public void showMenu() {
+        showMenu(true);
+    }
+
     public void showMenu(boolean z) {
         this.mViewAbove.setCurrentItem(0, z);
     }

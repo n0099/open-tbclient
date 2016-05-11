@@ -4,58 +4,57 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    private static d arg = new d();
-    private boolean arb;
-    private int arc;
-    private long ard;
-    private final SparseArray<a> are;
-    private final HashSet<Integer> arf;
-    private int arh;
+    private static d amU = new d();
+    private boolean amP;
+    private int amQ;
+    private long amR;
+    private final SparseArray<a> amS;
+    private final HashSet<Integer> amT;
+    private int amV;
 
-    public static d Ci() {
-        return arg;
+    public static d Ac() {
+        return amU;
     }
 
     private d() {
-        super(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        this.arc = 3;
-        this.ard = 300000L;
-        this.are = new SparseArray<>();
-        this.arf = new HashSet<>();
-        this.arh = 0;
+        super(1001);
+        this.amQ = 3;
+        this.amR = 300000L;
+        this.amS = new SparseArray<>();
+        this.amT = new HashSet<>();
+        this.amV = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean eo(int i) {
-        this.arh = 0;
-        if (this.arb) {
-            this.arh = 3;
+    public boolean dU(int i) {
+        this.amV = 0;
+        if (this.amP) {
+            this.amV = 3;
             return false;
-        } else if (this.arf.contains(Integer.valueOf(i))) {
-            this.arh = 6;
+        } else if (this.amT.contains(Integer.valueOf(i))) {
+            this.amV = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.arh = 1;
+            this.amV = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().eB() > PingManager.Cm().Co() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().aR() > PingManager.Ag().Ai() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.arh = 2;
+            this.amV = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.are.get(i);
-            if (aVar != null && aVar.arj) {
-                if (Math.abs(System.currentTimeMillis() - aVar.ark) > this.ard) {
+            a aVar = this.amS.get(i);
+            if (aVar != null && aVar.amX) {
+                if (Math.abs(System.currentTimeMillis() - aVar.amY) > this.amR) {
                     aVar.reset();
                 } else {
-                    this.arh = 4;
+                    this.amV = 4;
                     return false;
                 }
             }
@@ -67,8 +66,8 @@ public class d extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.are.size()) {
-                this.are.valueAt(i2).reset();
+            if (i2 < this.amS.size()) {
+                this.amS.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -76,41 +75,41 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public void ep(int i) {
-        a aVar = this.are.get(i);
+    public void dV(int i) {
+        a aVar = this.amS.get(i);
         if (aVar == null) {
             aVar = new a(null);
-            this.are.append(i, aVar);
+            this.amS.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.arc);
+            aVar.onError(this.amQ);
         }
-        this.arh = 5;
+        this.amV = 5;
     }
 
-    public void eq(int i) {
-        this.are.remove(i);
+    public void dW(int i) {
+        this.amS.remove(i);
     }
 
-    public void bh(boolean z) {
-        this.arb = z;
+    public void bo(boolean z) {
+        this.amP = z;
     }
 
-    public void d(int[] iArr) {
+    public void c(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.arf.clear();
+            this.amT.clear();
             for (int i : iArr) {
-                this.arf.add(Integer.valueOf(i));
+                this.amT.add(Integer.valueOf(i));
             }
         }
     }
 
-    public void er(int i) {
-        this.arc = i;
+    public void dX(int i) {
+        this.amQ = i;
     }
 
-    public void M(long j) {
-        this.ard = j;
+    public void N(long j) {
+        this.amR = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,9 +123,9 @@ public class d extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int ari;
-        public boolean arj;
-        public long ark;
+        public int amW;
+        public boolean amX;
+        public long amY;
 
         private a() {
         }
@@ -136,23 +135,23 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
 
         public void reset() {
-            this.ari = 0;
-            if (this.arj) {
-                this.arj = false;
-                this.ark = 0L;
+            this.amW = 0;
+            if (this.amX) {
+                this.amX = false;
+                this.amY = 0L;
             }
         }
 
         public void onError(int i) {
-            this.ari++;
-            if (!this.arj && this.ari >= i) {
-                this.arj = true;
-                this.ark = System.currentTimeMillis();
+            this.amW++;
+            if (!this.amX && this.amW >= i) {
+                this.amX = true;
+                this.amY = System.currentTimeMillis();
             }
         }
     }
 
-    public int Cj() {
-        return this.arh;
+    public int Ad() {
+        return this.amV;
     }
 }

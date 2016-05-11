@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.t;
 import java.net.URL;
@@ -24,14 +25,19 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String XIUBA_PACKAGE = "com.xiu8.baidu.activity";
     private static final int XIUBA_VERSION_FIRST = 3;
     private static final int XIUBA_VERSION_SECOND = 2;
+    private BaseWebView mBaseWebView;
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new z(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
-    private final CustomMessageListener downloadListener = new aa(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+    private final CustomMessageListener installListener = new ab(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
+    private final CustomMessageListener downloadListener = new ac(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
 
     public XiubaTbJsBridge(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mTbPageContext.registerListener(this.downloadListener);
         this.mTbPageContext.registerListener(this.installListener);
+    }
+
+    public void setBaseWebView(BaseWebView baseWebView) {
+        this.mBaseWebView = baseWebView;
     }
 
     private JSONObject checkAPKInstall(String str, long j, String str2) {
@@ -48,7 +54,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         jSResultData.setErrorMsg("");
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
-        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m411getInst(), str);
+        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m11getInst(), str);
         if (installApkVersionName != null) {
             if (isInstall(installApkVersionName)) {
                 result.setIsInstall(1);
@@ -111,34 +117,40 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.CX().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.AQ().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m11getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callDownloadListener(int i) {
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        JSResultData.Result result = new JSResultData.Result();
+        jSResultData.setResult(result);
+        result.setDownload(i);
+        JSONObject jsonWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
-            JSResultData jSResultData = new JSResultData();
-            jSResultData.setStatus(1);
-            jSResultData.setErrorCode("0");
-            jSResultData.setErrorMsg("");
-            JSResultData.Result result = new JSResultData.Result();
-            jSResultData.setResult(result);
-            result.setDownload(i);
-            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
+            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.mBaseWebView != null) {
+            this.mBaseWebView.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callInstallListener() {
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        JSResultData.Result result = new JSResultData.Result();
+        jSResultData.setResult(result);
+        result.setInstall(1);
+        JSONObject jsonWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
-            JSResultData jSResultData = new JSResultData();
-            jSResultData.setStatus(1);
-            jSResultData.setErrorCode("0");
-            jSResultData.setErrorMsg("");
-            JSResultData.Result result = new JSResultData.Result();
-            jSResultData.setResult(result);
-            result.setInstall(1);
-            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
+            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.mBaseWebView != null) {
+            this.mBaseWebView.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 

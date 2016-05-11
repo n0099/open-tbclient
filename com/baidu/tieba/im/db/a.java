@@ -18,23 +18,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    private Class<? extends ChatMessage> ceA;
-    List<String> ceB = null;
-    private String cez;
+    private String cff;
+    private Class<? extends ChatMessage> cfg;
+    List<String> cfh = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
-        this.cez = str;
-        this.ceA = cls;
+        this.cff = str;
+        this.cfg = cls;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=5] */
-    public int iX(String str) {
+    public int iZ(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = g.aet().rawQuery("select count(*) from " + (String.valueOf(this.cez) + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = g.aet().rawQuery("select count(*) from " + (String.valueOf(this.cff) + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.o.a(cursor);
                 } else {
@@ -54,12 +54,12 @@ public abstract class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=5] */
-    public long iY(String str) {
+    public long ja(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
             try {
-                cursor = g.aet().rawQuery("select max(mid) from " + (String.valueOf(this.cez) + str), null);
+                cursor = g.aet().rawQuery("select max(mid) from " + (String.valueOf(this.cff) + str), null);
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.o.a(cursor);
                 } else {
@@ -68,7 +68,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                jd(str);
+                jf(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -94,12 +94,12 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v5, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v9 */
-    public CommonMsgPojo iZ(String str) {
+    public CommonMsgPojo jb(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(this.cez);
+            ?? valueOf = String.valueOf(this.cff);
             try {
                 try {
                     cursor = g.aet().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -132,7 +132,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        jd(str);
+                        jf(str);
                         com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;
@@ -185,7 +185,7 @@ public abstract class a {
             i2 = 20;
         }
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-        ?? r2 = String.valueOf(this.cez) + str;
+        ?? r2 = String.valueOf(this.cff) + str;
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
@@ -201,7 +201,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            jd(str);
+                            jf(str);
                             com.baidu.adp.lib.util.o.a(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -255,7 +255,7 @@ public abstract class a {
             i = 20;
         }
         LinkedList<ChatMessage> linkedList = new LinkedList<>();
-        ?? valueOf2 = String.valueOf(this.cez);
+        ?? valueOf2 = String.valueOf(this.cff);
         String str3 = ((String) valueOf2) + valueOf;
         try {
             try {
@@ -269,8 +269,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.ceA.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.c.a.cpB));
+                            ChatMessage newInstance = this.cfg.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.c.a.cqy));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT)));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -293,7 +293,7 @@ public abstract class a {
                             try {
                                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                                 e2.printStackTrace();
-                                jd(valueOf);
+                                jf(valueOf);
                                 com.baidu.adp.lib.util.o.a(cursor2);
                                 return linkedList;
                             } catch (Throwable th2) {
@@ -341,7 +341,7 @@ public abstract class a {
         if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
             valueOf = String.valueOf(j2);
         }
-        String str3 = String.valueOf(this.cez) + valueOf;
+        String str3 = String.valueOf(this.cff) + valueOf;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str2);
@@ -359,8 +359,8 @@ public abstract class a {
         return bool.booleanValue();
     }
 
-    public void e(long j, boolean z) {
-        String str = String.valueOf(this.cez) + j;
+    public void d(long j, boolean z) {
+        String str = String.valueOf(this.cff) + j;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -376,13 +376,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str = String.valueOf(this.cez) + valueOf;
-        if (this.ceB == null) {
-            this.ceB = ael();
+        String str = String.valueOf(this.cff) + valueOf;
+        if (this.cfh == null) {
+            this.cfh = ael();
         }
-        if (!this.ceB.contains(valueOf)) {
-            jd(valueOf);
-            this.ceB.add(valueOf);
+        if (!this.cfh.contains(valueOf)) {
+            jf(valueOf);
+            this.cfh.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -441,7 +441,7 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Void l(LinkedList<String> linkedList) {
+    public Void k(LinkedList<String> linkedList) {
         Cursor cursor;
         Iterator<String> it;
         if (linkedList != null && linkedList.size() != 0) {
@@ -485,21 +485,21 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    jd(next);
+                    jf(next);
                 }
             }
         }
         return null;
     }
 
-    public boolean aW(String str, String str2) {
+    public boolean ba(String str, String str2) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", (Integer) 1);
-            g.aet().update(String.valueOf(this.cez) + str, contentValues, "mid=?", new String[]{str2});
+            g.aet().update(String.valueOf(this.cff) + str, contentValues, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -507,12 +507,12 @@ public abstract class a {
         }
     }
 
-    public boolean aX(String str, String str2) {
+    public boolean bb(String str, String str2) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            g.aet().a(String.valueOf(this.cez) + str, "mid=?", new String[]{str2});
+            g.aet().a(String.valueOf(this.cff) + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -520,55 +520,55 @@ public abstract class a {
         }
     }
 
-    public boolean ja(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (this.ceB == null) {
-            this.ceB = ael();
-        }
-        if (this.ceB != null && this.ceB.contains(str)) {
-            Iterator<String> it = this.ceB.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                String next = it.next();
-                if (next.equals(str)) {
-                    this.ceB.remove(next);
-                    break;
-                }
-            }
-        }
-        return g.aet().jj("DROP TABLE IF EXISTS " + (String.valueOf(this.cez) + str));
-    }
-
-    public boolean jb(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (this.ceB == null) {
-            this.ceB = ael();
-        }
-        if (this.ceB != null && this.ceB.contains(str)) {
-            Iterator<String> it = this.ceB.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                String next = it.next();
-                if (next.equals(str)) {
-                    this.ceB.remove(next);
-                    break;
-                }
-            }
-        }
-        return g.aet().jj("delete from " + (String.valueOf(this.cez) + str));
-    }
-
     public boolean jc(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.cfh == null) {
+            this.cfh = ael();
+        }
+        if (this.cfh != null && this.cfh.contains(str)) {
+            Iterator<String> it = this.cfh.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                if (next.equals(str)) {
+                    this.cfh.remove(next);
+                    break;
+                }
+            }
+        }
+        return g.aet().jl("DROP TABLE IF EXISTS " + (String.valueOf(this.cff) + str));
+    }
+
+    public boolean jd(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.cfh == null) {
+            this.cfh = ael();
+        }
+        if (this.cfh != null && this.cfh.contains(str)) {
+            Iterator<String> it = this.cfh.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                if (next.equals(str)) {
+                    this.cfh.remove(next);
+                    break;
+                }
+            }
+        }
+        return g.aet().jl("delete from " + (String.valueOf(this.cff) + str));
+    }
+
+    public boolean je(String str) {
         try {
-            e(Long.parseLong(str), true);
+            d(Long.parseLong(str), true);
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgTable", new Object[0]);
@@ -577,9 +577,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void jd(String str) {
+    public synchronized void jf(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.aet().jj("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.cez) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            g.aet().jl("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.cff) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 
@@ -592,8 +592,8 @@ public abstract class a {
                 cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    if (string.startsWith(this.cez)) {
-                        linkedList.add(string.subSequence(this.cez.length(), string.length()).toString());
+                    if (string.startsWith(this.cff)) {
+                        linkedList.add(string.subSequence(this.cff.length(), string.length()).toString());
                     }
                 }
             }
@@ -607,15 +607,15 @@ public abstract class a {
     }
 
     public void aem() {
-        this.ceB = null;
+        this.cfh = null;
     }
 
-    public boolean O(String str, int i) {
+    public boolean S(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
             try {
-                String str2 = String.valueOf(this.cez) + str;
+                String str2 = String.valueOf(this.cff) + str;
                 if (i < 1000) {
                     i = 1000;
                 }

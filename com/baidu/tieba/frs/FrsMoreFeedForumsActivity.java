@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsActivity> {
-    private List<FeedForumData> bnh;
-    private View bow;
-    private dd bpf;
-    private ListView bpg;
+    private List<FeedForumData> biJ;
+    private View bjF;
+    private cz bky;
+    private ListView bkz;
     private NavigationBar mNavigationBar;
-    private View.OnClickListener mOnClickListener = new db(this);
-    private CustomMessageListener bhF = new dc(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
+    private View.OnClickListener mOnClickListener = new cx(this);
+    private CustomMessageListener bdA = new cy(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,19 +33,19 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         setContentView(t.h.frs_more_feed_forums_activity);
         Intent intent = getIntent();
         if (intent != null) {
-            this.bnh = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
+            this.biJ = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
         }
         this.mNavigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(t.g.view_navigation_bar);
-        this.bow = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bow.setOnClickListener(this.mOnClickListener);
+        this.bjF = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bjF.setOnClickListener(this.mOnClickListener);
         this.mNavigationBar.setTitleText(getPageContext().getString(t.j.maybe_your_intrested_forums));
-        this.bpg = (ListView) getPageContext().getPageActivity().findViewById(t.g.listView_feed_forum);
-        registerListener(this.bhF);
-        this.bpf = new dd(getPageContext());
-        this.bpf.setData(this.bnh);
-        this.bpg.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(t.h.frs_more_feed_forums_header, (ViewGroup) null));
-        this.bpg.setAdapter((ListAdapter) this.bpf);
-        this.bpf.notifyDataSetChanged();
+        this.bkz = (ListView) getPageContext().getPageActivity().findViewById(t.g.listView_feed_forum);
+        registerListener(this.bdA);
+        this.bky = new cz(getPageContext());
+        this.bky.setData(this.biJ);
+        this.bkz.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(t.h.frs_more_feed_forums_header, (ViewGroup) null));
+        this.bkz.setAdapter((ListAdapter) this.bky);
+        this.bky.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,6 +59,6 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bpf.notifyDataSetChanged();
+        this.bky.notifyDataSetChanged();
     }
 }

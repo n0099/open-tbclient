@@ -4,69 +4,69 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.a.i;
-import com.baidu.tieba.card.cj;
-import com.baidu.tieba.card.o;
+import com.baidu.tieba.card.a.f;
+import com.baidu.tieba.card.by;
+import com.baidu.tieba.card.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements cj<i> {
-    final /* synthetic */ d dXO;
+public class e implements by<f> {
+    final /* synthetic */ d eaX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.dXO = dVar;
+        this.eaX = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cj
-    public void a(View view, i iVar) {
-        o oVar;
-        o oVar2;
-        o oVar3;
-        o oVar4;
-        o oVar5;
-        o oVar6;
-        o oVar7;
-        o oVar8;
-        o oVar9;
-        oVar = this.dXO.dXN;
-        if (oVar != null) {
-            oVar2 = this.dXO.dXN;
-            if (oVar2.aSc != null && iVar != null && iVar.aVJ != null && iVar.aVJ.getId() != null) {
+    @Override // com.baidu.tieba.card.by
+    public void a(View view, f fVar) {
+        j jVar;
+        j jVar2;
+        j jVar3;
+        j jVar4;
+        j jVar5;
+        j jVar6;
+        j jVar7;
+        j jVar8;
+        j jVar9;
+        jVar = this.eaX.eaW;
+        if (jVar != null) {
+            jVar2 = this.eaX.eaW;
+            if (jVar2.aOB != null && fVar != null && fVar.aRG != null && fVar.aRG.getId() != null) {
                 int id = view.getId();
-                oVar3 = this.dXO.dXN;
-                if (id == oVar3.aSc.getView().getId()) {
-                    TiebaStatic.log(new aw("c10806").r("obj_locate", 2).ac("tid", iVar.aVJ.getId()));
+                jVar3 = this.eaX.eaW;
+                if (id == jVar3.aOB.getView().getId()) {
+                    TiebaStatic.log(new aw("c10806").s("obj_locate", 2).ac("tid", fVar.aRG.getId()));
                     return;
                 }
                 int id2 = view.getId();
-                oVar4 = this.dXO.dXN;
-                if (id2 == oVar4.aSc.aSi.getId()) {
-                    TiebaStatic.log(new aw("c10803").ac("tid", iVar.aVJ.getTid()).r("obj_locate", 1));
+                jVar4 = this.eaX.eaW;
+                if (id2 == jVar4.aOB.aOH.getId()) {
+                    TiebaStatic.log(new aw("c10803").ac("tid", fVar.aRG.getTid()).s("obj_locate", 1));
                     return;
                 }
                 int id3 = view.getId();
-                oVar5 = this.dXO.dXN;
-                if (id3 != oVar5.aSc.ahM.getId()) {
+                jVar5 = this.eaX.eaW;
+                if (id3 != jVar5.aOB.adG.getId()) {
                     int id4 = view.getId();
-                    oVar6 = this.dXO.dXN;
-                    if (id4 != oVar6.aSc.aSg.getId()) {
+                    jVar6 = this.eaX.eaW;
+                    if (id4 != jVar6.aOB.aOF.getId()) {
                         int id5 = view.getId();
-                        oVar7 = this.dXO.dXN;
-                        if (id5 != oVar7.aSc.aSf.getId()) {
+                        jVar7 = this.eaX.eaW;
+                        if (id5 != jVar7.aOB.aOE.getId()) {
                             int id6 = view.getId();
-                            oVar8 = this.dXO.dXN;
-                            if (id6 == oVar8.aSc.aSm.getId()) {
-                                TiebaStatic.log(new aw("c11008").r("obj_locate", 4));
+                            jVar8 = this.eaX.eaW;
+                            if (id6 == jVar8.aOB.aOL.getId()) {
+                                TiebaStatic.log(new aw("c11008").s("obj_locate", 4));
                                 return;
                             } else if (view instanceof TbImageView) {
-                                TiebaStatic.log(new aw("c11008").r("obj_locate", 2));
+                                TiebaStatic.log(new aw("c11008").s("obj_locate", 2));
                                 return;
                             } else {
                                 int id7 = view.getId();
-                                oVar9 = this.dXO.dXN;
-                                if (id7 == oVar9.aSc.aSp.getBarNameTv().getId()) {
-                                    TiebaStatic.log(new aw("c11008").r("obj_locate", 3));
+                                jVar9 = this.eaX.eaW;
+                                if (id7 == jVar9.aOB.aOO.getBarNameTv().getId()) {
+                                    TiebaStatic.log(new aw("c11008").s("obj_locate", 3));
                                     return;
                                 }
                                 return;
@@ -74,7 +74,7 @@ public class e implements cj<i> {
                         }
                     }
                 }
-                TiebaStatic.log(new aw("c11008").r("obj_locate", 1));
+                TiebaStatic.log(new aw("c11008").s("obj_locate", 1));
             }
         }
     }

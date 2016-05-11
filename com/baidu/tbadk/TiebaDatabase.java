@@ -26,7 +26,7 @@ public class TiebaDatabase {
             if (this.mainDB != null) {
                 bVar = this.mainDB;
             } else {
-                this.mainDB = new b(new bb(TbadkCoreApplication.m411getInst().getContext()));
+                this.mainDB = new b(new bb(TbadkCoreApplication.m11getInst().getContext()));
                 bVar = this.mainDB;
             }
         }

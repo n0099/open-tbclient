@@ -2,15 +2,14 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean arz = false;
-    private int arA = 0;
+    private boolean ann = false;
+    private int ano = 0;
 
-    public void eV(String str) {
+    public void eS(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -18,8 +17,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.arz = false;
-        this.arA = 0;
+        this.ann = false;
+        this.ano = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -48,7 +47,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.arz = true;
+                                this.ann = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,25 +81,25 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.arz && i3 > 0) {
-                    this.arA = i5 / i3;
+                if (this.ann && i3 > 0) {
+                    this.ano = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.arz;
+        return this.ann;
     }
 
-    public int Cp() {
-        return this.arA;
+    public int Aj() {
+        return this.ano;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.jl()) {
+        switch (com.baidu.adp.lib.util.i.fw()) {
             case 1:
-                return LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+                return 3000;
             case 2:
                 return 10000;
             case 3:

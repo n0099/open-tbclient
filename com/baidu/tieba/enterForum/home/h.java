@@ -1,26 +1,22 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.CustomViewPager;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements FragmentTabWidget.a {
-    final /* synthetic */ e baY;
+public class h implements NoNetworkView.a {
+    final /* synthetic */ e aXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.baY = eVar;
+        this.aXh = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void c(int i, boolean z) {
-        CustomViewPager customViewPager;
-        customViewPager = this.baY.Zy;
-        customViewPager.setCurrentItem(i);
-        this.baY.gg(i);
-        if (i == 1) {
-            TiebaStatic.log("c10584");
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aF(boolean z) {
+        if (this.aXh.aXf == 0 && this.aXh.aWX != null) {
+            this.aXh.aWX.cr(z);
+        } else if (this.aXh.aWY != null && this.aXh.aXf == this.aXh.aWY.aYo) {
+            this.aXh.aWY.aYq.cr(z);
         }
     }
 }

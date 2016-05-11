@@ -6,53 +6,54 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.b.a.a.i {
-    private SpannableStringBuilder aIa;
-    private g aIb;
-    private ArrayList<e> aIc;
-    private x aId;
-    private a aIe;
-    private d aIf;
-    private n aIg;
-    private l aIh;
-    private k aIi;
-    private f aIj;
-    private int aIk;
+    private SpannableStringBuilder aDZ;
+    private g aEa;
+    private ArrayList<e> aEb;
+    private z aEc;
+    private a aEd;
+    private d aEe;
+    private o aEf;
+    private l aEg;
+    private k aEh;
+    private f aEi;
+    private n aEj;
+    private int aEk;
     private int mType;
 
     public c() {
         this.mType = 0;
-        this.aIa = null;
-        this.aIb = null;
-        this.aIc = null;
-        this.aId = null;
-        this.aIe = null;
+        this.aDZ = null;
+        this.aEa = null;
+        this.aEb = null;
+        this.aEc = null;
+        this.aEd = null;
     }
 
     public c(int i) {
         this.mType = 0;
-        this.aIa = null;
-        this.aIb = null;
-        this.aIc = null;
-        this.aId = null;
-        this.aIe = null;
+        this.aDZ = null;
+        this.aEa = null;
+        this.aEb = null;
+        this.aEc = null;
+        this.aEd = null;
         this.mType = i;
-        this.aIe = new a();
+        this.aEd = new a();
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public ArrayList<e> Iq() {
-        if (this.aIc == null) {
-            this.aIc = new ArrayList<>();
+    public ArrayList<e> GG() {
+        if (this.aEb == null) {
+            this.aEb = new ArrayList<>();
         }
-        return this.aIc;
+        return this.aEb;
     }
 
     public void G(int i, int i2) {
-        if (this.aIc != null) {
-            Iterator<e> it = this.aIc.iterator();
+        if (this.aEb != null) {
+            Iterator<e> it = this.aEb.iterator();
             while (it.hasNext()) {
                 e next = it.next();
                 Rect bounds = next.getBounds();
@@ -64,8 +65,8 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public void H(int i, int i2) {
-        if (this.aIc != null) {
-            Iterator<e> it = this.aIc.iterator();
+        if (this.aEb != null) {
+            Iterator<e> it = this.aEb.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -74,147 +75,157 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.aIa == null) {
-                this.aIa = new SpannableStringBuilder("");
+            if (this.aDZ == null) {
+                this.aDZ = new SpannableStringBuilder("");
             }
-            this.aIa.append(charSequence);
-            this.aIe.aIl = this.aIa.length();
+            this.aDZ.append(charSequence);
+            this.aEd.aEl = this.aDZ.length();
         }
     }
 
     public void setVideoUrl(String str) {
         if (this.mType == 32 && str != null) {
-            this.aIa = new SpannableStringBuilder(str);
+            this.aDZ = new SpannableStringBuilder(str);
         }
     }
 
-    public g Ir() {
+    public g GH() {
         if (this.mType != 8) {
             return null;
         }
-        return this.aIb;
+        return this.aEa;
     }
 
     public void a(g gVar) {
         if (this.mType == 8) {
-            this.aIb = gVar;
+            this.aEa = gVar;
         }
     }
 
-    public SpannableStringBuilder Is() {
-        return this.aIa;
+    public SpannableStringBuilder GI() {
+        return this.aDZ;
     }
 
     public void b(SpannableStringBuilder spannableStringBuilder) {
-        if (this.aIa != null) {
-            this.aIa.clear();
-            this.aIa.append((CharSequence) spannableStringBuilder);
+        if (this.aDZ != null) {
+            this.aDZ.clear();
+            this.aDZ.append((CharSequence) spannableStringBuilder);
         }
     }
 
-    public x It() {
+    public z GJ() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aId;
+            return this.aEc;
         }
         return null;
     }
 
-    public void a(x xVar) {
+    public void a(z zVar) {
         if (this.mType == 512 || this.mType == 768) {
-            this.aId = xVar;
+            this.aEc = zVar;
         }
     }
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.aIa != null) {
-                return this.aIa.toString();
+            if (this.aDZ != null) {
+                return this.aDZ.toString();
             }
         } else if (this.mType == 8) {
-            if (this.aIb != null) {
-                return this.aIb.IE();
+            if (this.aEa != null) {
+                return this.aEa.GU();
             }
-        } else if (this.mType == 17 && this.aIf != null) {
-            return this.aIf.axx.awY;
+        } else if (this.mType == 17 && this.aEe != null) {
+            return this.aEe.aty.asZ;
         }
         return "";
     }
 
     /* loaded from: classes.dex */
     public class a extends com.baidu.adp.lib.a.b.a.a.i {
-        public int aIl = 0;
-        public int aIm = 0;
-        public int aIn = 0;
-        public boolean aIo;
+        public int aEl = 0;
+        public int aEm = 0;
+        public int aEn = 0;
+        public boolean aEo;
 
         public a() {
         }
     }
 
-    public a Iu() {
+    public a GK() {
         if (this.mType != 1) {
             return null;
         }
-        return this.aIe;
+        return this.aEd;
     }
 
-    public void a(n nVar) {
+    public void a(o oVar) {
         if (this.mType == 32) {
-            this.aIg = nVar;
+            this.aEf = oVar;
         }
     }
 
-    public n Iv() {
+    public o GL() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aIg;
+        return this.aEf;
     }
 
     public void a(d dVar) {
         if (this.mType == 17) {
-            this.aIf = dVar;
+            this.aEe = dVar;
         }
     }
 
-    public d Iw() {
-        return this.aIf;
+    public d GM() {
+        return this.aEe;
     }
 
-    public int Ix() {
-        return this.aIk;
+    public int GN() {
+        return this.aEk;
     }
 
-    public void fw(int i) {
-        this.aIk = i;
+    public void fb(int i) {
+        this.aEk = i;
     }
 
-    public l Iy() {
+    public l GO() {
         if (this.mType != 1280) {
             return null;
         }
-        return this.aIh;
+        return this.aEg;
     }
 
     public void a(l lVar) {
-        this.aIh = lVar;
+        this.aEg = lVar;
     }
 
-    public k Iz() {
-        return this.aIi;
+    public k GP() {
+        return this.aEh;
     }
 
     public void a(k kVar) {
-        this.aIi = kVar;
+        this.aEh = kVar;
     }
 
-    public f IA() {
-        return this.aIj;
+    public f GQ() {
+        return this.aEi;
     }
 
     public void a(f fVar) {
         if (this.mType == 1536) {
-            this.aIj = fVar;
+            this.aEi = fVar;
+        }
+    }
+
+    public n GR() {
+        return this.aEj;
+    }
+
+    public void a(n nVar) {
+        if (this.mType == 1792) {
+            this.aEj = nVar;
         }
     }
 }

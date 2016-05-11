@@ -6,10 +6,10 @@ import org.json.JSONObject;
 import tbclient.GraffitiRankItem;
 /* loaded from: classes.dex */
 public class u {
-    private String TA;
-    private int TB;
-    private long Ty;
-    private int Tz;
+    private long Om;
+    private int On;
+    private String Oo;
+    private int Op;
     private long gid;
     private String picId;
     private int type = 1;
@@ -24,20 +24,20 @@ public class u {
         this.gid = j;
     }
 
-    public long rS() {
-        return this.Ty;
+    public long pl() {
+        return this.Om;
     }
 
-    public void r(long j) {
-        this.Ty = j;
+    public void t(long j) {
+        this.Om = j;
     }
 
-    public int rT() {
-        return this.Tz;
+    public int pm() {
+        return this.On;
     }
 
-    public void bJ(int i) {
-        this.Tz = i;
+    public void bv(int i) {
+        this.On = i;
     }
 
     public String getUrl() {
@@ -64,12 +64,12 @@ public class u {
         this.picId = str;
     }
 
-    public int rU() {
-        return this.TB;
+    public int pn() {
+        return this.Op;
     }
 
-    public void bK(int i) {
-        this.TB = i;
+    public void bw(int i) {
+        this.Op = i;
     }
 
     public int getType() {
@@ -80,25 +80,25 @@ public class u {
         this.type = i;
     }
 
-    public String rV() {
-        return this.TA;
+    public String po() {
+        return this.Oo;
     }
 
-    public void cp(String str) {
-        this.TA = str;
+    public void cm(String str) {
+        this.Oo = str;
     }
 
     public void a(GraffitiRankItem graffitiRankItem) {
         if (graffitiRankItem != null) {
             this.type = 1;
             this.gid = graffitiRankItem.gid.longValue();
-            this.Ty = graffitiRankItem.vote_count.longValue();
-            this.Tz = graffitiRankItem.is_vote.intValue();
+            this.Om = graffitiRankItem.vote_count.longValue();
+            this.On = graffitiRankItem.is_vote.intValue();
             this.url = graffitiRankItem.url;
-            this.TA = graffitiRankItem.thumb_url;
+            this.Oo = graffitiRankItem.thumb_url;
             this.uid = graffitiRankItem.uid.longValue();
             this.picId = graffitiRankItem.pic_id;
-            this.TB = graffitiRankItem.g_type.intValue();
+            this.Op = graffitiRankItem.g_type.intValue();
         }
     }
 
@@ -107,23 +107,23 @@ public class u {
             try {
                 this.type = 1;
                 this.gid = jSONObject.optLong("gid");
-                this.Ty = jSONObject.optLong("vote_count");
-                this.Tz = jSONObject.optInt("is_vote");
+                this.Om = jSONObject.optLong("vote_count");
+                this.On = jSONObject.optInt("is_vote");
                 this.url = jSONObject.optString("url");
-                this.TA = jSONObject.optString("thumb_url");
+                this.Oo = jSONObject.optString("thumb_url");
                 this.uid = jSONObject.optLong("uid");
                 this.picId = jSONObject.optString(CommonVcodeActivityConfig.PIC_ID);
-                this.TB = jSONObject.optInt("g_type");
+                this.Op = jSONObject.optInt("g_type");
             } catch (Exception e) {
             }
         }
     }
 
-    public boolean rW() {
-        return this.TB == 2 || this.TB == 3;
+    public boolean pp() {
+        return this.Op == 2 || this.Op == 3;
     }
 
-    public boolean rX() {
-        return getType() == 1 && getGid() > 0 && !TextUtils.isEmpty(rV()) && !TextUtils.isEmpty(getUrl());
+    public boolean pq() {
+        return getType() == 1 && getGid() > 0 && !TextUtils.isEmpty(po()) && !TextUtils.isEmpty(getUrl());
     }
 }

@@ -6,167 +6,170 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.h.j;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.share.h;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.dp;
+import com.baidu.tieba.pb.pb.main.df;
+import com.baidu.tieba.pb.view.j;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e {
-    public final View aDt;
-    private PbActivity dfw;
-    public final TextView dnF;
-    public final ImageView dnG;
-    public final ImageView dnH;
-    public final ImageView dnI;
+    public final View azx;
+    private PbActivity dhY;
+    public final TextView dpU;
+    public final ImageView dpV;
+    public final ImageView dpW;
+    public final ImageView dpX;
+    private j dpY = null;
+    private df dpZ = null;
     public final NavigationBar mNavigationBar;
-    private MorePopupWindow PS = null;
-    private dp dnJ = null;
+    private Runnable zT;
 
     public e(PbActivity pbActivity) {
-        this.dfw = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.dfw.findViewById(t.g.view_navigation_bar);
+        this.dhY = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.dhY.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new f(this));
-        this.aDt = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.boQ);
-        this.dnF = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, t.h.pb_title_textview, (View.OnClickListener) null);
-        this.dnI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_add_floor, pbActivity.boQ);
-        this.dnG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.nb_item_floor_host, pbActivity.boQ);
+        this.azx = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.bjV);
+        this.dpU = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, t.h.pb_title_textview, (View.OnClickListener) null);
+        this.dpX = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_add_floor, pbActivity.bjV);
+        this.dpV = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.nb_item_floor_host, pbActivity.bjV);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(k.c(this.dfw.getPageContext().getPageActivity(), t.e.ds30), 0, k.c(this.dfw.getPageContext().getPageActivity(), t.e.ds26), 0);
-        this.dnG.setLayoutParams(layoutParams);
-        this.dnH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.nb_item_floor_more, pbActivity.boQ);
+        layoutParams.setMargins(k.c(this.dhY.getPageContext().getPageActivity(), t.e.ds30), 0, k.c(this.dhY.getPageContext().getPageActivity(), t.e.ds26), 0);
+        this.dpV.setLayoutParams(layoutParams);
+        this.dpW = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.nb_item_floor_more, pbActivity.bjV);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams2.setMargins(0, 0, k.c(this.dfw.getPageContext().getPageActivity(), t.e.ds16), 0);
-        this.dnH.setLayoutParams(layoutParams2);
-        at.a(this.dnH, t.f.btn_more_selector_s, t.f.btn_more_selector);
-        at.a(this.dnI, t.f.icon_floor_addition_selector_s, t.f.icon_floor_addition_selector);
-        this.dnF.setOnClickListener(pbActivity.boQ);
+        layoutParams2.setMargins(0, 0, k.c(this.dhY.getPageContext().getPageActivity(), t.e.ds16), 0);
+        this.dpW.setLayoutParams(layoutParams2);
+        at.a(this.dpW, t.f.btn_more_selector_s, t.f.btn_more_selector);
+        at.a(this.dpX, t.f.icon_floor_addition_selector_s, t.f.icon_floor_addition_selector);
+        this.dpU.setOnClickListener(pbActivity.bjV);
     }
 
-    public void gm(boolean z) {
-        this.dnH.setVisibility(z ? 0 : 8);
+    public void gP(boolean z) {
+        this.dpW.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar azu() {
+    public NavigationBar azL() {
         return this.mNavigationBar;
     }
 
     public void setTitleVisibility(boolean z) {
         if (z) {
-            this.dnF.setVisibility(0);
-            this.aDt.setVisibility(0);
+            this.dpU.setVisibility(0);
+            this.azx.setVisibility(0);
             return;
         }
-        this.dnF.setVisibility(8);
-        this.aDt.setVisibility(8);
+        this.dpU.setVisibility(8);
+        this.azx.setVisibility(8);
     }
 
-    public void kt(String str) {
+    public void kx(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.dnF.setVisibility(0);
-            this.dnF.setText(String.valueOf(str) + this.dfw.getPageContext().getString(t.j.bar));
-            l.qE().ce(str);
+            this.dpU.setVisibility(0);
+            this.dpU.setText(String.valueOf(str) + this.dhY.getPageContext().getString(t.j.bar));
+            l.ob().cc(str);
         }
     }
 
-    public void azv() {
-        this.dnG.setVisibility(4);
-        this.dnG.setEnabled(false);
+    public void azM() {
+        this.dpV.setVisibility(4);
+        this.dpV.setEnabled(false);
     }
 
-    public void gu(boolean z) {
+    public void gX(boolean z) {
         if (z) {
-            at.c(this.dnG, t.f.s_only_host_button_bg);
-            this.dnG.setContentDescription(this.dfw.getResources().getString(t.j.view_host_selected));
+            at.c(this.dpV, t.f.s_only_host_button_bg);
+            this.dpV.setContentDescription(this.dhY.getResources().getString(t.j.view_host_selected));
             return;
         }
-        at.a(this.dnG, t.f.s_icon_floor_host_bg, t.f.icon_floor_host_bg);
-        this.dnG.setContentDescription(this.dfw.getResources().getString(t.j.view_host));
+        at.a(this.dpV, t.f.s_icon_floor_host_bg_s, t.f.icon_floor_host_bg);
+        this.dpV.setContentDescription(this.dhY.getResources().getString(t.j.view_host));
     }
 
-    public void gz(boolean z) {
+    public void hd(boolean z) {
         if (z) {
-            this.dnI.setVisibility(0);
+            this.dpX.setVisibility(0);
         } else {
-            this.dnI.setVisibility(8);
+            this.dpX.setVisibility(8);
         }
     }
 
-    public void a(boolean z, boolean z2, boolean z3, boolean z4) {
-        if (!this.dfw.isProgressBarShown()) {
-            if (this.PS == null) {
-                this.dnJ = new dp((PbActivity) this.dfw.getPageContext().getOrignalPage(), this.dfw.boQ);
-                int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-                this.PS = new MorePopupWindow(this.dfw.getPageContext().getPageActivity(), this.dnJ.getView(), this.mNavigationBar, at.getDrawable(t.f.bg_pull_down_right_n), new g(this));
-                this.PS.onChangeSkinType(this.dfw, skinType, at.getDrawable(t.f.bg_pull_down_right_n));
+    public void b(boolean z, boolean z2, boolean z3, boolean z4) {
+        if (!this.dhY.isProgressBarShown()) {
+            if (this.dpY == null) {
+                this.dpZ = new df((PbActivity) this.dhY.getPageContext().getOrignalPage(), this.dhY.bjV);
+                this.dpY = new j(this.dhY.getPageContext().getPageActivity(), this.dpZ.getView(), at.getDrawable(t.f.bg_pull_down_right_n), new g(this));
             }
+            this.dpZ.ayo();
+            this.dpY.showAtLocation(this.dhY.findViewById(t.g.pb_layout), 17, 0, 0);
             if (z4) {
-                this.dnJ.gi(false);
+                this.dpZ.gL(false);
             } else {
-                this.dnJ.gi(true);
+                this.dpZ.gL(true);
             }
             if (z3) {
-                this.dnJ.gh(false);
+                this.dpZ.gK(false);
             } else {
-                this.dnJ.gh(true);
+                this.dpZ.gK(true);
             }
-            if (h.ag(this.dfw.getPageContext().getPageActivity())) {
-                this.dnJ.axK().setVisibility(0);
-                this.dnJ.axL().setVisibility(0);
+            if (com.baidu.tbadk.coreExtra.share.h.af(this.dhY.getPageContext().getPageActivity())) {
+                this.dpZ.ayh().setVisibility(0);
             } else {
-                this.dnJ.axK().setVisibility(8);
-                this.dnJ.axL().setVisibility(8);
-            }
-            if (this.PS != null) {
-                this.PS.refresh();
+                this.dpZ.ayh().setVisibility(8);
             }
             r(z, z2);
-            this.PS.showWindowInRightBottomOfHost();
         }
     }
 
     private void r(boolean z, boolean z2) {
-        if (this.dnJ != null) {
+        if (this.dpZ != null) {
+            this.dpZ.ayq();
             if (!z) {
-                this.dnJ.axN().setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.dpZ.ayj().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_down_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.ayj().setText(this.dhY.getResources().getString(t.j.view_positive_sequence));
             } else {
-                this.dnJ.axN().setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.dpZ.ayj().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.ayj().setText(this.dhY.getResources().getString(t.j.view_reverse));
             }
             if (z2) {
-                this.dnJ.axB().setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.dpZ.axY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.dnJ.axB().setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.dpZ.axY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void pZ() {
-        if (this.PS != null) {
-            j.a(this.PS, this.dfw.getPageContext().getPageActivity());
+    public void nv() {
+        if (this.dpZ != null) {
+            this.dpZ.ayp();
         }
+        if (this.zT == null) {
+            this.zT = new h(this);
+        }
+        com.baidu.adp.lib.h.h.dL().postDelayed(this.zT, 100L);
     }
 
-    public dp azw() {
-        return this.dnJ;
+    public df azN() {
+        return this.dpZ;
     }
 
-    public boolean azx() {
-        return this.PS != null && this.PS.isShowing();
+    public boolean azO() {
+        return this.dpY != null && this.dpY.isShowing();
     }
 
-    public void anl() {
-        this.PS = null;
-        this.dnJ = null;
+    public void anh() {
+        if (this.dpZ != null) {
+            this.dpZ.release();
+        }
+        this.dpY = null;
+        this.dpZ = null;
+        com.baidu.adp.lib.h.h.dL().removeCallbacks(this.zT);
     }
 
-    public void azy() {
-        this.dnG.setVisibility(8);
-        this.dnH.setVisibility(8);
+    public void azP() {
+        this.dpV.setVisibility(8);
+        this.dpW.setVisibility(8);
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.adp.lib.cache;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements Runnable {
-    final /* synthetic */ p tT;
-    private final /* synthetic */ String tU;
-    private final /* synthetic */ Object tW;
-    private final /* synthetic */ long tX;
+class r implements Runnable {
+    final /* synthetic */ p jH;
+    private final /* synthetic */ String jI;
+    private final /* synthetic */ Object jK;
+    private final /* synthetic */ long jL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar, String str, Object obj, long j) {
-        this.tT = pVar;
-        this.tU = str;
-        this.tW = obj;
-        this.tX = j;
+        this.jH = pVar;
+        this.jI = str;
+        this.jK = obj;
+        this.jL = j;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.tT.a(this.tU, this.tW, this.tX);
+        this.jH.a(this.jI, this.jK, this.jL);
     }
 }

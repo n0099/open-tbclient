@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 /* loaded from: classes.dex */
 public class AlbumActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(AlbumActivityConfig.class, AlbumActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(AlbumActivityConfig.class, AlbumActivity.class);
     }
 }

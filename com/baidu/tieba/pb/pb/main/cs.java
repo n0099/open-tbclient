@@ -1,82 +1,86 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class cs extends CustomMessageListener {
-    final /* synthetic */ cq dig;
+public class cs extends ft {
+    private com.baidu.adp.lib.guide.d dkQ;
+    private View dkR;
+    private com.baidu.tieba.pb.a dkS;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cs(cq cqVar, int i) {
-        super(i);
-        this.dig = cqVar;
+    public cs(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.dkR = null;
+        this.dkS = null;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    @Override // com.baidu.tieba.pb.pb.main.ft
+    protected void a(e eVar) {
+        this.dkR = this.mRootView.findViewById(t.g.pb_editor_tool_comment_graffiti_icon);
+        axr();
     }
 
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        com.baidu.tieba.pb.data.e eVar;
-        PbActivity pbActivity;
-        List<DownloadData> data;
-        com.baidu.tieba.pb.data.e eVar2;
-        PbActivity pbActivity2;
-        if (customResponsedMessage != null) {
-            eVar = this.dig.ddq;
-            if (eVar != null) {
-                pbActivity = this.dig.dfw;
-                if (!com.baidu.adp.base.l.q(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                    eVar2 = this.dig.ddq;
-                    ArrayList<com.baidu.tieba.tbadkCore.data.r> avF = eVar2.avF();
-                    if (avF != null && avF.size() != 0) {
-                        Iterator<com.baidu.tieba.tbadkCore.data.r> it = avF.iterator();
-                        boolean z = false;
-                        while (it.hasNext()) {
-                            com.baidu.tieba.tbadkCore.data.r next = it.next();
-                            if (next != null && next.aTh() != null && !TextUtils.isEmpty(next.aTh().apk_name)) {
-                                com.baidu.tieba.tbadkCore.data.e aTh = next.aTh();
-                                Iterator<DownloadData> it2 = data.iterator();
-                                while (true) {
-                                    if (!it2.hasNext()) {
-                                        break;
-                                    }
-                                    DownloadData next2 = it2.next();
-                                    if (next2 != null && aTh.apk_name.equals(next2.getId())) {
-                                        int status = next2.getStatus();
-                                        if (status == 3 || status == 0) {
-                                            next.pq(2);
-                                        } else if (status == 2 || status == 4) {
-                                            if (!com.baidu.tbadk.core.util.ay.isEmpty(next2.getStatusMsg())) {
-                                                pbActivity2 = this.dig.dfw;
-                                                com.baidu.adp.lib.util.k.showToast(pbActivity2.getPageContext().getContext(), next2.getStatusMsg());
-                                            }
-                                            next.pq(0);
-                                        } else if (status == 1) {
-                                            next.pq(1);
-                                        }
-                                        z = true;
-                                    }
-                                }
-                            }
-                        }
-                        if (z) {
-                            this.dig.notifyDataSetChanged();
-                        }
-                    }
-                }
+    @Override // com.baidu.tieba.pb.pb.main.ft
+    protected void onChangeSkinType(int i) {
+        if (this.dkS != null) {
+            this.dkS.changeSkinType(i);
+        }
+    }
+
+    private void axr() {
+        CustomResponsedMessage runTask;
+        if (this.bek != null && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_QUICK_VOTE_VIEW, this.bek.getPageContext().getPageActivity()), com.baidu.tieba.pb.a.class)) != null && runTask.getData() != null) {
+            this.dkS = (com.baidu.tieba.pb.a) runTask.getData();
+            ViewGroup viewGroup = (ViewGroup) this.bek.findViewById(t.g.pb_comment_container);
+            if (this.dkS != null && viewGroup != null) {
+                viewGroup.addView(this.dkS, 0, new LinearLayout.LayoutParams(-1, -2));
             }
         }
+    }
+
+    public void axs() {
+        com.baidu.adp.lib.h.h.dL().postDelayed(new ct(this), 50L);
+    }
+
+    public void Bn() {
+        if (this.dkQ != null) {
+            this.dkQ.dismiss();
+            this.dkQ = null;
+        }
+    }
+
+    public void b(com.baidu.tbadk.core.data.v vVar) {
+        if (this.dkS != null) {
+            this.dkS.a(vVar);
+        }
+    }
+
+    public boolean axt() {
+        return this.dkS != null && this.dkS.getVisibility() == 0;
+    }
+
+    public void axu() {
+        if (this.dkS != null && this.dkR != null) {
+            this.dkS.Uq();
+            this.dkR.setSelected(true);
+        }
+    }
+
+    public void axv() {
+        if (this.dkS != null && this.dkR != null) {
+            this.dkS.YZ();
+            this.dkR.setSelected(false);
+        }
+    }
+
+    public View axw() {
+        return this.dkR;
     }
 }

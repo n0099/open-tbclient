@@ -8,13 +8,13 @@ import tbclient.TPointPost;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class i {
-    public String epm;
-    public boolean epn;
-    private int epo;
-    private ArrayList<h> epp;
-    private ArrayList<k> epq;
-    private j epr;
-    private int eps;
+    private ArrayList<k> esA;
+    private j esB;
+    private int esC;
+    public String esw;
+    public boolean esx;
+    private int esy;
+    private ArrayList<h> esz;
     public String position;
     public long templateId;
 
@@ -23,27 +23,27 @@ public class i {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.epn = tPointPost.is_tuiguang.intValue() != 0;
-                this.epo = tPointPost.template_type.intValue();
+                this.esx = tPointPost.is_tuiguang.intValue() != 0;
+                this.esy = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.epp = new ArrayList<>();
+                    this.esz = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.epp.add(new h(list.get(i)));
+                        this.esz.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.epq = new ArrayList<>();
+                    this.esA = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.epq.add(new k(list2.get(i2)));
+                        this.esA.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.epr = new j(tPointPost.detail_info);
+                    this.esB = new j(tPointPost.detail_info);
                 }
-                this.epm = tPointPost.monitor_id;
-                this.eps = tPointPost.hidden_day.intValue();
+                this.esw = tPointPost.monitor_id;
+                this.esC = tPointPost.hidden_day.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -58,27 +58,27 @@ public class i {
         return this.templateId;
     }
 
-    public ArrayList<h> aSR() {
-        return this.epp;
+    public ArrayList<h> aTs() {
+        return this.esz;
     }
 
-    public ArrayList<k> aSS() {
-        return this.epq;
+    public ArrayList<k> aTt() {
+        return this.esA;
     }
 
-    public j aST() {
-        return this.epr;
+    public j aTu() {
+        return this.esB;
     }
 
-    public int aSU() {
-        return this.epo;
+    public int aTv() {
+        return this.esy;
     }
 
-    public String aSV() {
-        return this.epm;
+    public String aTw() {
+        return this.esw;
     }
 
-    public int aSW() {
-        return this.eps;
+    public int aTx() {
+        return this.esC;
     }
 }

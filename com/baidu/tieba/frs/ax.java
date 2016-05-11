@@ -1,27 +1,22 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-class ax extends CustomMessageListener {
+class ax implements Runnable {
+    final /* synthetic */ FrsActivity.b bhD;
+    private final /* synthetic */ String bhE;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(int i) {
-        super(i);
+    public ax(FrsActivity.b bVar, String str) {
+        this.bhD = bVar;
+        this.bhE = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.blD = true;
-                FrsActivityStatic.blC = true;
-                return;
-            }
-            FrsActivityStatic.blD = false;
-            FrsActivityStatic.blC = false;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.util.ab abVar = new com.baidu.tbadk.core.util.ab(this.bhE);
+        abVar.tA().uu().mIsNeedAddCommenParam = false;
+        abVar.tA().uu().mIsUseCurrentBDUSS = false;
+        abVar.td();
     }
 }

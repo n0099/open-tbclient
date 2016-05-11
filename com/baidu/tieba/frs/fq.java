@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class fq {
-    public Object brs;
-    public String forumId;
-    public String forumName;
-    public int pn;
-    public String stType;
+public class fq extends fo {
+    public int errCode;
+    public String errMsg;
+    public boolean isLocal = true;
+    public boolean hasMore = true;
+    public boolean bmU = true;
+    public boolean bmV = true;
 }

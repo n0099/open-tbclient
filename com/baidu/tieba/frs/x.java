@@ -1,79 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class x implements com.baidu.adp.widget.ListView.w {
-    final /* synthetic */ FrsActivity blk;
+class x extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(FrsActivity frsActivity) {
-        this.blk = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bhl = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.w
-    public boolean b(View view, com.baidu.adp.widget.ListView.u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        com.baidu.tbadk.core.data.as asVar;
-        com.baidu.tbadk.core.data.as asVar2;
-        com.baidu.tbadk.core.data.as asVar3;
-        com.baidu.tbadk.core.data.as asVar4;
-        com.baidu.tbadk.core.data.as asVar5;
-        com.baidu.tbadk.core.data.as asVar6;
-        com.baidu.tbadk.core.data.as asVar7;
-        if (bdUniqueId == null) {
-            return false;
-        }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RS.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RT.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RU.getId()) {
-            this.blk.bks = (com.baidu.tbadk.core.data.as) uVar;
-            asVar = this.blk.bks;
-            if (asVar instanceof com.baidu.tbadk.core.data.c) {
-                asVar2 = this.blk.bks;
-                com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) asVar2;
-                if (cVar.rm()) {
-                    return false;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
                 }
-                if (cVar.RY == 0) {
-                    this.blk.a(cVar, i, true);
-                }
-                TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                this.bhl.e(customResponsedMessage);
+                return;
             }
-        } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.z.eoi.getId()) {
-            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RV.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RW.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.RX.getId()) {
-                if (uVar instanceof com.baidu.tbadk.core.data.c) {
-                    com.baidu.tbadk.core.data.c cVar2 = (com.baidu.tbadk.core.data.c) uVar;
-                    if (cVar2.rl()) {
-                        if (cVar2.RY == 0) {
-                            this.blk.a(cVar2, i, true);
-                        }
-                        TiebaStatic.eventStat(this.blk.getPageContext().getPageActivity(), "frs_tb_arc", "");
-                    }
-                }
-            } else if (uVar instanceof com.baidu.tbadk.core.data.as) {
-                this.blk.bks = (com.baidu.tbadk.core.data.as) uVar;
-                asVar3 = this.blk.bks;
-                if (!asVar3.isPhotoLiveThread()) {
-                    asVar4 = this.blk.bks;
-                    if (!(asVar4 instanceof com.baidu.tbadk.core.data.af)) {
-                        FrsActivity frsActivity = this.blk;
-                        asVar5 = this.blk.bks;
-                        frsActivity.mThreadId = asVar5.getId();
-                        asVar6 = this.blk.bks;
-                        String tt = asVar6.tt();
-                        if (tt == null || tt.equals("")) {
-                            this.blk.bkm = false;
-                        } else {
-                            this.blk.bkm = true;
-                        }
-                        FrsActivity frsActivity2 = this.blk;
-                        asVar7 = this.blk.bks;
-                        frsActivity2.c(asVar7);
-                        this.blk.bko.RN();
-                    }
-                }
-            }
+            this.bhl.d(customResponsedMessage);
         }
-        return true;
     }
 }

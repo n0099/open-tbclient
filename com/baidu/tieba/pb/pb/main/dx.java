@@ -1,45 +1,165 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class dx extends db<com.baidu.tbadk.core.data.aw, dw> {
-    private View.OnClickListener bKS;
+public class dx extends y.a {
+    public TextView aLz;
+    UserIconBox adH;
+    public TbImageView bkY;
+    public UserIconBox bvy;
+    public TbRichTextView dfT;
+    public PbGiftListView dfV;
+    public FrsPraiseView dfW;
+    public ImageView dfX;
+    public RelativeLayout dhA;
+    public LinearLayout dhB;
+    public TextView dhC;
+    public LinearLayout dhD;
+    public Button dhE;
+    public LinearLayout dhF;
+    public TextView dhG;
+    public View dhH;
+    public View dhI;
+    public LinearLayout dhJ;
+    public ImageView dhK;
+    public TextView dhL;
+    public LinearLayout dhM;
+    public ImageView dhN;
+    public TextView dhO;
+    public TextView dhP;
+    public View dhh;
+    public View dhi;
+    public View dhj;
+    public View dhk;
+    public View dhl;
+    public HeadImageView dhm;
+    public ImageView dhn;
+    public ImageView dho;
+    public ImageView dhp;
+    public TextView dhq;
+    public TextView dhr;
+    public ImageView dhs;
+    public ImageView dht;
+    public RelativeLayout dhu;
+    public LinearLayout dhv;
+    public ImageView dhw;
+    public SubPbLayout dhx;
+    public BaobaoTailView dhy;
+    public RelativeLayout dhz;
+    public ImageView dkC;
+    public TbImageView dmA;
+    public View dmv;
+    public RelativeLayout dmw;
+    public ClickableHeaderImageView dmx;
+    public TextView dmy;
+    public TbImageView dmz;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dx(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ay */
-    public dw b(ViewGroup viewGroup) {
-        return new dw(LayoutInflater.from(this.mContext).inflate(t.h.pb_u9_news_layout, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.db, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aw awVar, dw dwVar) {
-        super.a(i, view, viewGroup, (ViewGroup) awVar, (com.baidu.tbadk.core.data.aw) dwVar);
-        if (awVar != null) {
-            dwVar.djU.setOnClickListener(this.bKS);
-            dwVar.djU.setText(awVar.getSummary());
-            dwVar.djU.setTag(awVar);
-            com.baidu.tbadk.core.util.at.l(dwVar.djV, t.d.cp_bg_line_b);
-            com.baidu.tbadk.core.util.at.b(dwVar.djU, t.d.cp_cont_b, 1);
-            dwVar.djU.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [153=5] */
+    public dx(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.mSkinType = 3;
+        this.dhl = view.findViewById(t.g.sub_pb_more);
+        this.dhz = (RelativeLayout) view.findViewById(t.g.user_head_layout);
+        this.dhm = (HeadImageView) view.findViewById(t.g.photo);
+        this.dhm.setRadius(com.baidu.adp.lib.util.k.c(view.getContext(), t.e.ds40));
+        this.aLz = (TextView) view.findViewById(t.g.user_name);
+        this.dhn = (ImageView) view.findViewById(t.g.user_rank);
+        this.dho = (ImageView) view.findViewById(t.g.user_bawu);
+        this.dhp = (ImageView) view.findViewById(t.g.user_gender);
+        this.dht = (ImageView) view.findViewById(t.g.reply);
+        this.dfT = (TbRichTextView) view.findViewById(t.g.richText);
+        this.dmv = view.findViewById(t.g.new_pb_list_item_line_full);
+        this.dfV = (PbGiftListView) view.findViewById(t.g.gift_list_view);
+        this.dfW = (FrsPraiseView) view.findViewById(t.g.pb_item_praise_view);
+        this.dfX = (ImageView) view.findViewById(t.g.pb_item_praise_bottomline);
+        this.dhJ = (LinearLayout) view.findViewById(t.g.pb_item_location_container);
+        this.dhL = (TextView) view.findViewById(t.g.pb_item_location_address);
+        this.dhK = (ImageView) view.findViewById(t.g.pb_item_location_img);
+        this.dhM = (LinearLayout) view.findViewById(t.g.pb_reply_location_container);
+        this.dhO = (TextView) view.findViewById(t.g.pb_reply_location_address);
+        this.dhN = (ImageView) view.findViewById(t.g.pb_reply_location_img);
+        this.dhA = (RelativeLayout) view.findViewById(t.g.pb_item_floor_layout);
+        this.dhs = (ImageView) view.findViewById(t.g.floor_owner);
+        this.dhq = (TextView) view.findViewById(t.g.floor);
+        this.dhr = (TextView) view.findViewById(t.g.time);
+        this.dhu = (RelativeLayout) view.findViewById(t.g.pb_post_header_layout);
+        this.dhx = (SubPbLayout) view.findViewById(t.g.pb_post_footer_layout);
+        this.dhv = (LinearLayout) view.findViewById(t.g.pb_subpb_layout_root);
+        this.dhw = (ImageView) view.findViewById(t.g.pb_post_footer_layout_line_top);
+        this.dhh = view;
+        this.dhi = view.findViewById(t.g.new_pb_list_item_line_top);
+        this.dhj = view.findViewById(t.g.new_pb_list_item_line_top_full);
+        this.dhk = view.findViewById(t.g.new_pb_list_item_blank_top);
+        this.dfT.Ho();
+        this.dfT.setImageViewStretch(true);
+        this.bkY = (TbImageView) view.findViewById(t.g.game_activity_banner);
+        this.dmy = (TextView) view.findViewById(t.g.action_button);
+        this.dmz = (TbImageView) view.findViewById(t.g.game_activity_banner);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
+        this.dfT.setMaxImageWidth(min);
+        this.dfT.setMaxImageHeight((int) (min * 1.618f));
+        this.dfT.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.dhm.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds80);
+            this.dhm.setLayoutParams(layoutParams);
+            this.dhm.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.dhm.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds40);
+            this.dhm.setLayoutParams(layoutParams2);
+            this.dhm.setVisibility(4);
         }
-        return view;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        this.bKS = onClickListener;
+        this.dfT.h(z2, false);
+        this.dfT.setVoiceViewRes(t.h.voice_play_btn);
+        this.bvy = (UserIconBox) view.findViewById(t.g.user_icon_box);
+        this.adH = (UserIconBox) view.findViewById(t.g.user_tshow_icon_box);
+        this.dhB = (LinearLayout) view.findViewById(t.g.add_post_footer_layout);
+        if (z3) {
+            this.dhu.setVisibility(8);
+            this.dht.setVisibility(8);
+            this.dfT.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.dfT.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.dfT.setLayoutParams(layoutParams3);
+            view.findViewById(t.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.dhD = (LinearLayout) view.findViewById(t.g.add_time_container);
+            this.dhC = (TextView) view.findViewById(t.g.add_time);
+            this.dhE = (Button) view.findViewById(t.g.manage_btn);
+            this.dhD.setVisibility(0);
+        }
+        this.dhF = (LinearLayout) view.findViewById(t.g.addition_more_container);
+        this.dhG = (TextView) this.dhF.findViewById(t.g.addition_more);
+        this.dhH = this.dhF.findViewById(t.g.addition_divider1);
+        this.dhI = this.dhF.findViewById(t.g.addition_divider2);
+        this.dhy = (BaobaoTailView) view.findViewById(t.g.baobao_tail);
+        this.dhP = (TextView) view.findViewById(t.g.pb_item_tail_content);
+        this.dkC = (ImageView) view.findViewById(t.g.replybtn);
+        this.dmx = (ClickableHeaderImageView) view.findViewById(t.g.god_user_photo);
+        this.dmx.setGodIconMargin(0);
+        this.dmA = (TbImageView) view.findViewById(t.g.lottery_tail);
     }
 }

@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        es(str2);
+                        ep(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        es(str2);
+                        ep(str2);
                     }
                 }
             }
@@ -68,64 +68,64 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ai() {
+    public void yb() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String Aj() {
+    public String yc() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void es(String str) {
-        String Aj = Aj();
-        if (!TextUtils.equals(Aj, str) || !et(Aj)) {
-            ai(str, Aj);
+    public void ep(String str) {
+        String yc = yc();
+        if (!TextUtils.equals(yc, str) || !eq(yc)) {
+            ai(str, yc);
         }
     }
 
-    private boolean et(String str) {
-        File cU = m.cU(ba.dB(str));
-        return cU != null && cU.exists() && cU.isFile();
+    private boolean eq(String str) {
+        File cS = m.cS(ba.dy(str));
+        return cS != null && cS.exists() && cS.isFile();
     }
 
     private void ai(String str, String str2) {
-        if (i.jg()) {
-            new a(str, ba.dB(str), str2).execute(new String[0]);
+        if (i.fr()) {
+            new a(str, ba.dy(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private ab QV = null;
-        private final String Zn;
-        private final String alu;
-        private final String alv;
+        private ab LL = null;
+        private final String UE;
+        private final String ahh;
+        private final String ahi;
 
         public a(String str, String str2, String str3) {
-            this.alu = str;
-            this.Zn = str2;
-            this.alv = str3;
+            this.ahh = str;
+            this.UE = str2;
+            this.ahi = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.QV = new ab(this.alu);
-                bool = Boolean.valueOf(this.QV.a(String.valueOf(this.Zn) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.LL = new ab(this.ahh);
+                bool = Boolean.valueOf(this.LL.a(String.valueOf(this.UE) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.h(null, String.valueOf(this.Zn) + ".tmp", null, this.Zn)) && !TextUtils.isEmpty(this.alu) && !this.alu.equals(this.alv)) {
-                        m.dc(ba.dB(this.alv));
+                    if (!StringUtils.isNull(m.h(null, String.valueOf(this.UE) + ".tmp", null, this.UE)) && !TextUtils.isEmpty(this.ahh) && !this.ahh.equals(this.ahi)) {
+                        m.da(ba.dy(this.ahi));
                     }
                 } else {
-                    m.dc(String.valueOf(this.Zn) + ".tmp");
+                    m.da(String.valueOf(this.UE) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -139,7 +139,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().Ai();
+                new b().yb();
             }
         }
     }

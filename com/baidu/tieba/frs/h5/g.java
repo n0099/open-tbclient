@@ -1,19 +1,20 @@
 package com.baidu.tieba.frs.h5;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
+import android.webkit.WebView;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements u {
-    public static final BdUniqueId bsQ = BdUniqueId.gen();
-    public String stType;
-    public String url;
+public class g implements BaseWebView.e {
+    final /* synthetic */ d brD;
 
-    public g(String str) {
-        this.url = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(d dVar) {
+        this.brD = dVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return bsQ;
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        this.brD.Th();
+        this.brD.isError = true;
     }
 }

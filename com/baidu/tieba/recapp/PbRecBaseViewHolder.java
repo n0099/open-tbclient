@@ -1,12 +1,12 @@
 package com.baidu.tieba.recapp;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.tbadkCore.data.r;
 /* loaded from: classes.dex */
-public abstract class PbRecBaseViewHolder extends x.a {
-    protected View aAh;
-    protected r dUi;
+public abstract class PbRecBaseViewHolder extends y.a {
+    protected View awk;
+    protected r dXa;
     protected boolean mIsFromCDN;
     private int position;
 
@@ -15,22 +15,22 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public View getRootView() {
-        return this.aAh;
+        return this.awk;
     }
 
     public void update(r rVar, int i, boolean z) {
-        if (!rVar.epE) {
-            com.baidu.tbadk.distribute.a.CR().a(this.aAh.getContext(), rVar.aTm(), "show", "pb", rVar.epF, rVar.threadId);
-            com.baidu.tbadk.distribute.a.CR().a(rVar.aTm(), rVar.epF, rVar.threadId, "PB", "show", rVar.pageNumber);
-            rVar.epE = true;
+        if (!rVar.esO) {
+            com.baidu.tbadk.distribute.a.AK().a(this.awk.getContext(), rVar.aTM(), "show", "pb", rVar.esP, rVar.threadId);
+            com.baidu.tbadk.distribute.a.AK().a(rVar.aTM(), rVar.esP, rVar.threadId, "PB", "show", rVar.pageNumber);
+            rVar.esO = true;
         }
         if (rVar != null) {
-            com.baidu.tbadk.distribute.a.asE = rVar.bsz;
+            com.baidu.tbadk.distribute.a.aov = rVar.brg;
         }
-        this.dUi = rVar;
+        this.dXa = rVar;
         this.position = i;
         this.mIsFromCDN = z;
-        this.aAh.setTag(this);
+        this.awk.setTag(this);
     }
 
     public int getPosition() {
@@ -38,15 +38,21 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        if (this.dUi != null) {
-            if (!this.dUi.epE) {
-                com.baidu.tbadk.distribute.a.CR().a(this.aAh.getContext(), this.dUi.aTm(), "show", "pb", this.dUi.epF, this.dUi.threadId);
-                com.baidu.tbadk.distribute.a.CR().a(this.dUi.aTm(), this.dUi.epF, this.dUi.threadId, "PB", "show", this.dUi.pageNumber);
-                this.dUi.epE = true;
+        if (this.dXa != null) {
+            if (!this.dXa.esO) {
+                com.baidu.tbadk.distribute.a.AK().a(this.awk.getContext(), this.dXa.aTM(), "show", "pb", this.dXa.esP, this.dXa.threadId);
+                com.baidu.tbadk.distribute.a.AK().a(this.dXa.aTM(), this.dXa.esP, this.dXa.threadId, "PB", "show", this.dXa.pageNumber);
+                this.dXa.esO = true;
             }
-            if (this.dUi != null) {
-                com.baidu.tbadk.distribute.a.asE = this.dUi.bsz;
+            if (this.dXa != null) {
+                com.baidu.tbadk.distribute.a.aov = this.dXa.brg;
             }
         }
+    }
+
+    public void setTheme(int i) {
+    }
+
+    public void updateFontSize() {
     }
 }

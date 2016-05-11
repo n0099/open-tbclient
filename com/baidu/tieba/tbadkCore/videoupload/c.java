@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 /* loaded from: classes.dex */
 public class c {
-    public String esg;
-    public int esh;
+    public String evp;
+    public int evq;
 }

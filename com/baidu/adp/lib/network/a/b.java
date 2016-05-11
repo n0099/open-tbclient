@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean an(String str) {
+    public static boolean ae(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
@@ -16,14 +16,14 @@ public class b {
     }
 
     public static int copy(InputStream inputStream, OutputStream outputStream) {
-        long b = b(inputStream, outputStream);
-        if (b > 2147483647L) {
+        long a = a(inputStream, outputStream);
+        if (a > 2147483647L) {
             return -1;
         }
-        return (int) b;
+        return (int) a;
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) {
+    public static long a(InputStream inputStream, OutputStream outputStream) {
         if (inputStream == null) {
             return -1L;
         }

@@ -2,51 +2,84 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class az {
-    private long Wg;
-    private String activity_banner;
-    private String activity_button;
-    private String activity_desc;
-    private String activity_url;
-    private long start_time;
+    private String Re;
+    private String Rf;
+    private int Rg;
+    private String Rh;
+    private long Ri;
+    private String Rj;
+    private String imgUrl;
+    private String subTitle;
+    private String summary;
 
-    public String uk() {
-        return this.activity_banner;
+    public String qv() {
+        return this.imgUrl;
     }
 
-    public String getActivityUrl() {
-        return this.activity_url;
+    public String rB() {
+        return this.summary;
     }
 
-    public String ul() {
-        return this.activity_button;
+    public String rC() {
+        return this.Rf;
     }
 
-    public void a(YulePostActivity yulePostActivity) {
-        if (yulePostActivity != null) {
-            this.start_time = yulePostActivity.start_time != null ? yulePostActivity.start_time.longValue() : -1L;
-            this.Wg = yulePostActivity.end_time != null ? yulePostActivity.end_time.longValue() : -1L;
-            this.activity_banner = yulePostActivity.activity_banner;
-            this.activity_url = yulePostActivity.activity_url;
-            this.activity_desc = yulePostActivity.activity_desc;
-            this.activity_button = yulePostActivity.activity_button;
+    public int rD() {
+        return this.Rg;
+    }
+
+    public String rE() {
+        return this.Rh;
+    }
+
+    public long rF() {
+        return this.Ri;
+    }
+
+    public void a(TopCode topCode) {
+        if (topCode != null) {
+            this.imgUrl = topCode.img_url;
+            this.Re = topCode.game_link;
+            this.summary = topCode.summary;
+            this.Rf = topCode.code_link;
+            this.Rg = topCode.get_type.intValue();
+            this.Rh = topCode.surplusgift;
+            if (topCode.giftworth.longValue() < 0) {
+                this.Ri = 0L;
+            } else {
+                this.Ri = topCode.giftworth.longValue();
+            }
+            this.Rj = topCode.type_text;
+            this.subTitle = topCode.subtitle;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.start_time = jSONObject.optLong("start_time");
-                this.Wg = jSONObject.optLong("end_time");
-                this.activity_banner = jSONObject.optString("activity_banner");
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_desc = jSONObject.optString("activity_desc");
-                this.activity_button = jSONObject.optString("activity_button");
+                this.imgUrl = jSONObject.optString("img_url");
+                this.Re = jSONObject.optString("game_link");
+                this.summary = jSONObject.optString("summary");
+                this.Rf = jSONObject.optString("code_link");
+                this.Rg = jSONObject.optInt("get_type", 1);
+                this.Rh = jSONObject.optString("surplusgift");
+                this.Ri = jSONObject.optLong("giftworth", 0L);
+                this.Rj = jSONObject.optString("type_text");
+                this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    public String rG() {
+        return this.Rj;
+    }
+
+    public String getSubTitle() {
+        return this.subTitle;
     }
 }

@@ -8,39 +8,39 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.base.g {
-    final /* synthetic */ k ddT;
+    final /* synthetic */ k dgn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.ddT = kVar;
+        this.dgn = kVar;
     }
 
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.w wVar;
-        com.baidu.tieba.tbadkCore.w wVar2;
         com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.x xVar2;
+        com.baidu.tieba.tbadkCore.y yVar;
         com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.tbadkCore.w wVar3;
+        com.baidu.tieba.tbadkCore.x xVar3;
         com.baidu.tieba.pb.data.e eVar2;
-        if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.x) && (xVar = (com.baidu.tieba.tbadkCore.x) obj) != null) {
-            eVar = this.ddT.ddq;
-            if (eVar.avu() != null) {
-                wVar3 = this.ddT.MY;
-                if (wVar3.getErrorCode() == 0) {
-                    eVar2 = this.ddT.ddq;
-                    eVar2.avu().setLike(1);
-                    xVar.setLike(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));
+        if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.y) && (yVar = (com.baidu.tieba.tbadkCore.y) obj) != null) {
+            eVar = this.dgn.dfK;
+            if (eVar.avA() != null) {
+                xVar3 = this.dgn.Dp;
+                if (xVar3.getErrorCode() == 0) {
+                    eVar2 = this.dgn.dfK;
+                    eVar2.avA().setLike(1);
+                    yVar.setLike(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
                     return;
                 }
             }
         }
-        wVar = this.ddT.MY;
-        if (!StringUtils.isNull(wVar.getErrorString())) {
-            TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-            wVar2 = this.ddT.MY;
-            com.baidu.adp.lib.util.k.showToast(m411getInst, wVar2.getErrorString());
+        xVar = this.dgn.Dp;
+        if (!StringUtils.isNull(xVar.getErrorString())) {
+            TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
+            xVar2 = this.dgn.Dp;
+            com.baidu.adp.lib.util.k.showToast(m11getInst, xVar2.getErrorString());
         }
     }
 }

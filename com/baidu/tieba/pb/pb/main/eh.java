@@ -1,21 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class eh {
-    public boolean dde;
-    public boolean dkd;
-    public int dke;
-    public boolean dkf;
-    public boolean isAlive;
-    public boolean isSquence;
-    public int loadType;
-    public com.baidu.tieba.pb.data.e pbData;
-    public String postId;
-    public BdUniqueId tag;
-    public String threadId;
+class eh extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public eh(int i) {
+        super(i);
+    }
 
-    public eh(BdUniqueId bdUniqueId) {
-        this.tag = bdUniqueId;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ee.ayA().a(1, customResponsedMessage);
     }
 }

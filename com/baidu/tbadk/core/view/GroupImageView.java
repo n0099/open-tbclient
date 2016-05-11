@@ -6,8 +6,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class GroupImageView extends TbClipImageView {
-    private int aev;
-    private int aew;
+    private int ZU;
+    private int ZV;
 
     public GroupImageView(Context context) {
         this(context, null, 0);
@@ -19,8 +19,8 @@ public class GroupImageView extends TbClipImageView {
 
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aev = t.f.transparent_bg;
-        this.aew = t.d.cp_bg_line_e;
+        this.ZU = t.f.transparent_bg;
+        this.ZV = t.d.cp_bg_line_e;
         init();
     }
 
@@ -28,8 +28,8 @@ public class GroupImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.aev);
+        setDefaultResource(this.ZU);
         setDefaultErrorResource(t.f.icon_default_group_120);
-        setDefaultBgResource(this.aew);
+        setDefaultBgResource(this.ZV);
     }
 }

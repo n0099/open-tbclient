@@ -1,158 +1,89 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
+import java.io.File;
 /* loaded from: classes.dex */
-public class ah extends com.baidu.adp.base.e {
-    private a eot;
-    private String mForumId;
-    private String mForumName;
-
-    public ah(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.mForumName = null;
-        this.mForumId = null;
-        this.eot = null;
+public class ah {
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i) {
+        if (context == null || cVar == null) {
+            return false;
+        }
+        String str = cVar.MO;
+        if (StringUtils.isNull(str) && cVar.Nb != null) {
+            str = cVar.Nb.userName;
+        }
+        if (StringUtils.isNull(str)) {
+            str = "";
+        }
+        return a(context, cVar, i, str);
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void aQp() {
-        if (this.eot != null) {
-            this.eot.cancel();
-            this.eot = null;
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i, String str) {
+        if (context == null || cVar == null) {
+            return false;
         }
-    }
-
-    public void bB(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.eot == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.eot = new a(this, null);
-            this.eot.setPriority(2);
-            this.eot.execute(new Object[0]);
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, SignData> {
-        private volatile com.baidu.tbadk.core.util.ab aiW;
-
-        private a() {
-            this.aiW = null;
-        }
-
-        /* synthetic */ a(ah ahVar, a aVar) {
-            this();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-        }
-
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00d7 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x00a6 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:? */
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v17 */
-        /* JADX WARN: Type inference failed for: r0v18 */
-        /* JADX WARN: Type inference failed for: r0v19 */
-        /* JADX WARN: Type inference failed for: r0v23, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r0v30 */
-        /* JADX WARN: Type inference failed for: r0v31 */
-        /* JADX WARN: Type inference failed for: r0v4 */
-        /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.core.data.SignData] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: w */
-        public SignData doInBackground(Object... objArr) {
-            Object obj;
-            Exception e;
-            String vw;
-            JSONObject jSONObject;
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            Object obj2 = null;
-            try {
-                TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-                this.aiW = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-                this.aiW.p("kw", ah.this.mForumName);
-                this.aiW.p("fid", ah.this.mForumId);
-                this.aiW.vU().wO().mIsNeedTbs = true;
-                vw = this.aiW.vw();
-            } catch (Exception e2) {
-                obj = obj2;
-                e = e2;
+        if (!(!TextUtils.isEmpty(cVar.MS))) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.pb_app_error);
+            return false;
+        } else if (!com.baidu.adp.lib.util.i.fq()) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.neterror);
+            return false;
+        } else {
+            com.baidu.tbadk.distribute.a.AK().a(cVar);
+            String str2 = cVar.MO;
+            if (StringUtils.isNull(str2)) {
+                str2 = str;
             }
-            if (this.aiW.vX()) {
-                obj = this.aiW.vU().wP().qC();
-                try {
-                    if (obj != 0) {
-                        SignData signData = new SignData();
-                        signData.parserJson(vw);
-                        obj = signData;
-                    } else if (!ay.isEmpty(vw) && (jSONObject = new JSONObject(vw)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
-                        SignData signData2 = new SignData();
-                        signData2.parserJson(vw);
-                        signData2.setIsSigned(1);
-                        signData2.setCountSignNum(1);
-                        obj2 = null;
-                        signData2.setBonusPoint(0);
-                        obj = signData2;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(e.getMessage());
-                    return obj;
-                }
-                return obj;
-            }
-            obj = 0;
-            return obj;
+            com.baidu.tbadk.download.b.AQ().a(cVar.MS, cVar.MR, str2, i, com.baidu.adp.lib.h.b.g(cVar.MN, 0));
+            return true;
         }
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            if (this.aiW != null) {
-                this.aiW.gX();
-            }
-            ah.this.eot = null;
-            super.cancel(true);
-            ah.this.mLoadDataCallBack.d(null);
-        }
+    public static final void e(com.baidu.tbadk.core.data.c cVar) {
+        com.baidu.tbadk.download.b.AQ().e(cVar.MR, cVar.MS, true);
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(SignData signData) {
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            ah.this.eot = null;
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            if (signData == null && this.aiW != null) {
-                ah.this.mErrorCode = this.aiW.vY();
-                ah.this.mErrorString = this.aiW.getErrorString();
-            }
-            ah.this.mLoadDataCallBack.d(signData);
+    public static final void a(Context context, q qVar) {
+        if (context != null && qVar != null) {
+            F(context, qVar.getPkgName());
         }
+    }
+
+    public static final void F(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.adp.lib.util.k.showToast(context, t.j.pb_app_error);
+            return;
+        }
+        File cS = com.baidu.tbadk.core.util.m.cS(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cS != null) {
+            Intent intent = new Intent();
+            intent.addFlags(268435456);
+            intent.setAction("android.intent.action.VIEW");
+            intent.setDataAndType(Uri.fromFile(cS), "application/vnd.android.package-archive");
+            context.startActivity(intent);
+        }
+    }
+
+    public static boolean isInstalledPackage(Context context, String str) {
+        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    }
+
+    public static boolean q(Activity activity) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return true;
+        }
+        boolean V = com.baidu.tbadk.core.util.ag.V(activity);
+        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+            return false;
+        }
+        return V;
     }
 }

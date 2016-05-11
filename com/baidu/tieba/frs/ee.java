@@ -1,199 +1,141 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.frs.co;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PhotoLiveCardData;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.i.a;
 import com.baidu.tieba.t;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ee extends bx<com.baidu.tbadk.core.data.ai, co> {
-    private int aND;
-    private Drawable aNE;
-    private com.baidu.tbadk.core.data.ai bqr;
-    private int size;
+public class ee extends bw<com.baidu.tbadk.core.data.ar, eg> implements View.OnClickListener, PhotoLiveCardView.b {
+    private int bkF;
+    private int bkG;
+    private int blL;
+    private int blM;
+    private boolean blN;
+    private boolean blO;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ee(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+    public ee(BaseActivity baseActivity, BdUniqueId bdUniqueId, boolean z, boolean z2) {
         super(baseActivity, bdUniqueId);
-        this.aND = t.d.cp_cont_d;
-        this.size = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds24);
+        this.bkF = 0;
+        this.bkG = 0;
+        this.blL = 0;
+        this.blM = 0;
+        this.blN = true;
+        this.blO = false;
+        this.bkG = com.baidu.adp.lib.util.k.c(this.bek.getPageContext().getPageActivity(), t.e.ds38);
+        this.bkF = com.baidu.adp.lib.util.k.c(this.bek.getPageContext().getPageActivity(), t.e.ds24);
+        this.blL = com.baidu.adp.lib.util.k.c(this.bek.getPageContext().getPageActivity(), t.e.ds1);
+        this.blM = com.baidu.adp.lib.util.k.c(this.bek.getPageContext().getPageActivity(), t.e.ds16);
+        this.blN = z;
+        this.blO = z2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: C */
-    public co b(ViewGroup viewGroup) {
-        return new co(LayoutInflater.from(this.mContext).inflate(t.h.frs_recommend_friend_item, (ViewGroup) null));
+    /* renamed from: w */
+    public eg b(ViewGroup viewGroup) {
+        return new eg(LayoutInflater.from(this.mContext).inflate(t.h.frs_item_single_photolivecard, viewGroup, false));
+    }
+
+    private void a(int i, View view, com.baidu.tbadk.core.data.ar arVar, eg egVar) {
+        MetaData author;
+        if (arVar != null && egVar != null && (author = arVar.getAuthor()) != null) {
+            ThemeCardInUserData themeCard = author.getThemeCard();
+            if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
+                egVar.bkR.setVisibility(8);
+                egVar.blR.setHeadPaddingTop(t.e.ds24);
+            } else {
+                egVar.bkR.setVisibility(0);
+                egVar.bkR.setImageBitmap(null);
+                egVar.bkR.c(themeCard.getCardImageUrlAndroid(), 10, false);
+                egVar.blR.setHeadPaddingTop(t.e.ds38);
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) egVar.blR.getLayoutParams();
+            if (layoutParams != null) {
+                if (this.blN) {
+                    layoutParams.setMargins(0, this.blM, 0, 0);
+                } else {
+                    layoutParams.setMargins(0, this.blL, 0, 0);
+                }
+            }
+            egVar.bkR.setOnClickListener(new ef(this, themeCard));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bx, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ai aiVar, co coVar) {
-        super.a(i, view, viewGroup, (ViewGroup) aiVar, (com.baidu.tbadk.core.data.ai) coVar);
-        this.bqr = aiVar;
-        boolean z = this.mSkinType == 1;
-        com.baidu.tbadk.core.util.at.k(coVar.bnQ, t.f.frs_item_control_btn_bg);
-        coVar.bnP.setBackgroundColor(this.mContext.getResources().getColor(t.d.transparent));
-        coVar.bnP.setPadding(0, this.bjo, 0, 0);
-        coVar.bnR.aPt.setOnClickListener(new ef(this, aiVar));
-        view.setOnClickListener(new eg(this, aiVar));
-        this.bix.getLayoutMode().ab(z);
-        this.bix.getLayoutMode().x(view);
-        a(coVar, aiVar, z);
+    @Override // com.baidu.tieba.frs.bw, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ar arVar, eg egVar) {
+        super.a(i, view, viewGroup, (ViewGroup) arVar, (com.baidu.tbadk.core.data.ar) egVar);
+        a(i, view, arVar, egVar);
+        if (egVar.aej != this.mSkinType) {
+            a.a(this.bek.getPageContext(), view);
+            egVar.aej = this.mSkinType;
+        }
+        PhotoLiveCardData qs = arVar.qs();
+        if (2 == a(qs)) {
+            egVar.blR.setShowContent(true);
+            egVar.blR.setShowCover(false);
+            egVar.blR.setShowExpression(false);
+        } else {
+            egVar.blR.setShowContent(false);
+            egVar.blR.setShowCover(true);
+            egVar.blR.setShowExpression(true);
+        }
+        egVar.blR.setChooseStyle(qs.getShowStyle());
+        egVar.blR.setShowLiveIcon(true);
+        egVar.blR.setPortraitClicklistener(this);
+        egVar.blR.setShowImage(com.baidu.tbadk.core.l.ob().oh());
+        if (qs.isShowDiffViewInSameAdapter()) {
+            egVar.blR.setShowBottom(true);
+            egVar.blR.setShowRefreshTimeInButtom(true);
+            egVar.blR.setShowHeadLiveIcon(true);
+            egVar.blR.setShowRefreshTimeInHead(false);
+            egVar.blR.setContentPaddingBottom(0);
+        } else {
+            egVar.blR.setShowBottom(false);
+            egVar.blR.setShowRefreshTimeInHead(true);
+            egVar.blR.setShowHeadLiveIcon(false);
+            egVar.blR.setShowRefreshTimeInButtom(false);
+            egVar.blR.setContentPaddingBottom(t.e.ds36);
+        }
+        egVar.blR.bj(this.blO);
+        egVar.blR.setData(qs);
         return view;
     }
 
-    private void a(co coVar, com.baidu.tbadk.core.data.ai aiVar, boolean z) {
-        if (coVar != null && aiVar != null && aiVar.sz() != null) {
-            a(coVar.bnR, aiVar.sz(), z);
-            if (aiVar.sw() > 0) {
-                if (!TextUtils.isEmpty(aiVar.sx())) {
-                    coVar.aPe.setText(aiVar.sx());
-                }
-                if (aiVar.sw() < 3) {
-                    coVar.aPf.setVisibility(8);
-                } else {
-                    coVar.aPf.setVisibility(0);
-                    coVar.aPf.setText(t.j.add_friend_forum_count);
-                }
-            } else {
-                coVar.aPm.setVisibility(8);
-                coVar.bnS.setVisibility(8);
-            }
-            if (com.baidu.tbadk.core.l.qE().qK() && aiVar.sA() != null && aiVar.sA().size() > 0) {
-                coVar.aPl.setVisibility(0);
-                if (aiVar.sz().sK()) {
-                    coVar.aPg.setText(t.j.add_friend_her_posts);
-                } else {
-                    coVar.aPg.setText(t.j.add_friend_his_posts);
-                }
-                switch (aiVar.sA().size()) {
-                    case 1:
-                        coVar.aPi.setVisibility(0);
-                        coVar.aPj.setVisibility(4);
-                        coVar.aPk.setVisibility(4);
-                        coVar.aPi.c(aiVar.sA().get(0), 10, false);
-                        break;
-                    case 2:
-                        coVar.aPi.setVisibility(0);
-                        coVar.aPj.setVisibility(0);
-                        coVar.aPk.setVisibility(4);
-                        coVar.aPi.c(aiVar.sA().get(0), 10, false);
-                        coVar.aPj.c(aiVar.sA().get(1), 10, false);
-                        break;
-                    default:
-                        coVar.aPi.setVisibility(0);
-                        coVar.aPj.setVisibility(0);
-                        coVar.aPk.setVisibility(0);
-                        coVar.aPi.c(aiVar.sA().get(0), 10, false);
-                        coVar.aPj.c(aiVar.sA().get(1), 10, false);
-                        coVar.aPk.c(aiVar.sA().get(2), 10, false);
-                        break;
-                }
-            } else {
-                coVar.aPl.setVisibility(8);
-                coVar.bnS.setVisibility(8);
-            }
-            eh ehVar = new eh(this, aiVar);
-            coVar.aPi.setTag(t.g.tag_first, aiVar);
-            coVar.aPj.setTag(t.g.tag_first, aiVar);
-            coVar.aPk.setTag(t.g.tag_first, aiVar);
-            coVar.aPi.setTag(t.g.tag_second, 0);
-            coVar.aPj.setTag(t.g.tag_second, 1);
-            coVar.aPk.setTag(t.g.tag_second, 2);
-            coVar.aPi.setOnClickListener(ehVar);
-            coVar.aPj.setOnClickListener(ehVar);
-            coVar.aPk.setOnClickListener(ehVar);
+    private int a(PhotoLiveCardData photoLiveCardData) {
+        return (photoLiveCardData == null || StringUtils.isNull(photoLiveCardData.getPhotoLiveCover())) ? 2 : 1;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view.getId() != t.g.live_card_layout || !this.bek.checkUpIsLogin()) {
         }
     }
 
-    private void a(co.a aVar, com.baidu.tbadk.core.data.ak akVar, boolean z) {
-        if (akVar != null && aVar != null) {
-            if (com.baidu.tbadk.core.l.qE().qG()) {
-                aVar.aPn.setVisibility(0);
-                if (!TextUtils.isEmpty(akVar.sJ())) {
-                    aVar.aPn.setUserId(String.valueOf(akVar.getUserId()));
-                    aVar.aPn.setImageDrawable(null);
-                    aVar.aPn.c(akVar.sJ(), 12, false);
-                }
-            } else {
-                aVar.aPn.setVisibility(8);
-            }
-            if (akVar.sM() != null && !TextUtils.isEmpty(akVar.sM().getUrl())) {
-                aVar.aPo.setVisibility(0);
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(akVar.sM());
-                aVar.aPo.a(arrayList, 1, this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_width), this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_height), this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_margin));
-            } else {
-                aVar.aPo.setVisibility(8);
-            }
-            aVar.aPp.setText(akVar.getName());
-            aVar.aPq.setText(akVar.sL());
-            if (akVar.sK()) {
-                com.baidu.tbadk.core.util.at.c(aVar.aPu, t.f.icon_pop_qz_girl);
-            } else {
-                com.baidu.tbadk.core.util.at.c(aVar.aPu, t.f.icon_pop_qz_boy);
-            }
-            a(aVar, this.bqr, z);
-            if (akVar.sI()) {
-                aVar.aPt.setClickable(false);
-                aVar.aPt.setBackgroundResource(t.d.transparent);
-                aVar.aPt.setText(t.j.waiting);
-                aVar.aPt.setTextColor(z ? this.mContext.getResources().getColor(t.d.cp_cont_d) : this.mContext.getResources().getColor(t.d.cp_cont_d_1));
-                return;
-            }
-            aVar.aPt.setClickable(true);
-            aVar.aPt.setText(t.j.frs_recommend_friend_item_add);
-        }
-    }
-
-    public void av(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.bqr != null && this.bqr.sz() != null && TextUtils.equals(this.bqr.sz().getName(), str2) && TextUtils.equals(str, String.valueOf(this.bqr.sz().getUserId()))) {
-            this.bqr.sz().sH();
-            notifyDataSetChanged();
-        }
-    }
-
-    public void a(co.a aVar, com.baidu.tbadk.core.data.ai aiVar, boolean z) {
-        if (aiVar != null && aVar != null) {
-            if (aiVar.getLbsInfo() != null) {
-                if (aiVar.getLbsInfo().Bd() == 1) {
-                    aVar.aNH.setVisibility(0);
-                    com.baidu.tbadk.core.util.at.b(aVar.aNH, this.aND, 1);
-                    aVar.aNH.setText(this.mContext.getResources().getString(t.j.contact_yinshen));
-                    aVar.aNH.setCompoundDrawables(null, null, null, null);
-                    aVar.aPq.setVisibility(8);
-                } else if (aiVar.getLbsInfo().Bd() == 0) {
-                    if (StringUtils.isNull(aiVar.getLbsInfo().getDistance())) {
-                        aVar.aNH.setVisibility(8);
-                        aVar.aPq.setVisibility(0);
-                    } else {
-                        aVar.aPq.setVisibility(8);
-                        aVar.aNH.setVisibility(0);
-                        aVar.aNH.setText(String.valueOf(this.mContext.getString(t.j.distance_of_you)) + aiVar.getLbsInfo().getDistance());
-                        com.baidu.tbadk.core.util.at.b(aVar.aNH, this.aND, 1);
-                        this.aNE = com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_friend_pin);
-                        this.aNE.setBounds(0, 0, this.size, this.size);
-                        aVar.aNH.setCompoundDrawables(this.aNE, null, null, null);
-                    }
-                } else {
-                    aVar.aNH.setVisibility(8);
-                    aVar.aPq.setVisibility(0);
-                }
-            } else {
-                aVar.aNH.setVisibility(8);
-                aVar.aPq.setVisibility(0);
-            }
-            if (aiVar.sz() != null && StringUtils.isNull(aiVar.sz().sL())) {
-                aVar.aPq.setVisibility(8);
+    @Override // com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.b
+    public void onPortraitClick(View view) {
+        Object tag = view.getTag();
+        if (tag instanceof PhotoLiveCardData) {
+            PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
+            if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10246").ac("fid", String.valueOf(photoLiveCardData.getForumId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
             }
         }
     }

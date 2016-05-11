@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ String cnf;
+    private final /* synthetic */ String coc;
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, String str) {
         this.this$0 = imMemoryCacheRegisterStatic;
-        this.cnf = str;
+        this.coc = str;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -21,8 +21,8 @@ public class bo implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
             try {
                 com.baidu.tieba.im.db.g.aet().aeu();
-                com.baidu.tieba.im.db.i.aey().R(this.cnf, 1);
-                com.baidu.tieba.im.db.c.aep().ja(this.cnf);
+                com.baidu.tieba.im.db.i.aex().V(this.coc, 1);
+                com.baidu.tieba.im.db.c.aep().jc(this.coc);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {

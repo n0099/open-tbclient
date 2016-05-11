@@ -11,13 +11,13 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity crY;
+    final /* synthetic */ AddFriendActivity csV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.crY = addFriendActivity;
+        this.csV = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,20 +31,20 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.crY.userId;
-                str2 = this.crY.name;
+                str = this.csV.userId;
+                str2 = this.csV.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new k(str, str2)));
-                z = this.crY.crX;
+                z = this.csV.csU;
                 if (z) {
-                    this.crY.showToast(this.crY.getPageContext().getPageActivity().getString(t.j.add_ok_but_level_is_lower), false);
+                    this.csV.showToast(this.csV.getPageContext().getPageActivity().getString(t.j.add_ok_but_level_is_lower), false);
                 } else {
-                    this.crY.showToast(this.crY.getPageContext().getPageActivity().getString(t.j.group_apply_succ), false);
+                    this.csV.showToast(this.csV.getPageContext().getPageActivity().getString(t.j.group_apply_succ), false);
                 }
-                this.crY.finish();
-            } else if (AntiHelper.pB(error)) {
-                AntiHelper.O(this.crY.getPageContext().getPageActivity(), errorString);
+                this.csV.finish();
+            } else if (AntiHelper.pw(error)) {
+                AntiHelper.O(this.csV.getPageContext().getPageActivity(), errorString);
             } else {
-                com.baidu.adp.lib.util.k.showToast(this.crY.getPageContext().getPageActivity(), errorString);
+                com.baidu.adp.lib.util.k.showToast(this.csV.getPageContext().getPageActivity(), errorString);
             }
         }
     }

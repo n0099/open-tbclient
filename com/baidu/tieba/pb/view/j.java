@@ -1,53 +1,39 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.Handler;
-import android.widget.MediaController;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.core.view.j;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class j implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ PbVideoControllerView dqL;
+public class j extends PopupWindow {
+    private com.baidu.tbadk.core.view.j mContainer;
+    private View mContentView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(PbVideoControllerView pbVideoControllerView) {
-        this.dqL = pbVideoControllerView;
+    public j(Activity activity, View view, Drawable drawable, j.a aVar) {
+        super(activity);
+        this.mContainer = null;
+        this.mContentView = null;
+        init(activity, view, drawable, aVar);
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        this.dqL.dqF = true;
-        handler = this.dqL.mHandler;
-        handler.removeMessages(1);
+    private void init(Activity activity, View view, Drawable drawable, j.a aVar) {
+        this.mContentView = view;
+        this.mContainer = new com.baidu.tbadk.core.view.j(activity, this.mContentView, aVar);
+        setContentView(this.mContainer);
+        setOutsideTouchable(true);
+        setFocusable(true);
+        setBackgroundDrawable(drawable);
+        setHeight(-2);
+        setWidth(-1);
+        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(t.d.transparent)));
+        setAnimationStyle(t.k.pb_more_pop_anim);
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        TextView textView;
-        TextView textView2;
-        String mt;
-        if (z) {
-            mediaPlayerControl = this.dqL.dqC;
-            long duration = (mediaPlayerControl.getDuration() * i) / 10000;
-            mediaPlayerControl2 = this.dqL.dqC;
-            mediaPlayerControl2.seekTo((int) duration);
-            textView = this.dqL.dqD;
-            if (textView != null) {
-                textView2 = this.dqL.dqD;
-                mt = this.dqL.mt((int) duration);
-                textView2.setText(mt);
-            }
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        this.dqL.dqF = false;
-        this.dqL.aAE();
-        handler = this.dqL.mHandler;
-        handler.sendEmptyMessage(1);
+    @Override // android.widget.PopupWindow
+    public View getContentView() {
+        return this.mContentView;
     }
 }

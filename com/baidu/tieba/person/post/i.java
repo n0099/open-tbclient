@@ -5,11 +5,11 @@ import com.baidu.tieba.person.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements PersonPostModel.a {
-    final /* synthetic */ h dBn;
+    final /* synthetic */ h dEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.dBn = hVar;
+        this.dEv = hVar;
     }
 
     @Override // com.baidu.tieba.person.PersonPostModel.a
@@ -21,22 +21,22 @@ public class i implements PersonPostModel.a {
         PersonPostModel.a aVar;
         PersonPostModel.a aVar2;
         if (z) {
-            this.dBn.dBj = personPostModel;
+            this.dEv.dEs = personPostModel;
         } else {
-            personPostModel2 = this.dBn.dBj;
+            personPostModel2 = this.dEv.dEs;
             if (personPostModel2 != null) {
-                personPostModel3 = this.dBn.dBj;
-                bdUniqueId = this.dBn.dBk;
+                personPostModel3 = this.dEv.dEs;
+                bdUniqueId = this.dEv.aoj;
                 personPostModel3.setUniqueId(bdUniqueId);
-                personPostModel4 = this.dBn.dBj;
+                personPostModel4 = this.dEv.dEs;
                 personPostModel4.post_list.addAll(personPostModel.post_list);
             }
         }
-        aVar = this.dBn.dBi;
+        aVar = this.dEv.dEr;
         if (aVar != null) {
-            aVar2 = this.dBn.dBi;
+            aVar2 = this.dEv.dEr;
             aVar2.a(personPostModel, z);
         }
-        this.dBn.notifyDataSetChanged();
+        this.dEv.notifyDataSetChanged();
     }
 }

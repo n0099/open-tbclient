@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity eMh;
+    final /* synthetic */ VcodeActivity fcV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(VcodeActivity vcodeActivity) {
-        this.eMh = vcodeActivity;
+        this.fcV = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.eMh.pb(null);
+        this.fcV.pp(null);
     }
 }

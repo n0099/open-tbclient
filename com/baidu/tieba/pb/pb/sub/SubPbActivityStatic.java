@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 /* loaded from: classes.dex */
 public class SubPbActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
     }
 }

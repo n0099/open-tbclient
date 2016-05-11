@@ -1,36 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class bp implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+public class bp {
+    private com.baidu.tbadk.editortools.l apy;
+    private BaseActivity<?> bek;
+    private com.baidu.tbadk.editortools.j fei;
+    private boolean fej = false;
+    private boolean fek = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bp(BaseActivity<?> baseActivity, com.baidu.tbadk.editortools.l lVar) {
+        this.bek = baseActivity;
+        this.apy = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.this$0.mNavigationBar;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.this$0.mNavigationBar;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.drr;
-            linearLayout2.setVisibility(8);
-            return;
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.fej) {
+            if (this.fei != null) {
+                this.fei.Bh();
+                this.fei = null;
+            }
+        } else if (!this.fek && z) {
+            this.fek = true;
+            this.fei = new com.baidu.tbadk.editortools.j(this.bek.getResources().getString(t.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
+            this.bek.getSafeHandler().postDelayed(new bq(this), 500L);
         }
-        navigationBar2 = this.this$0.mNavigationBar;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.drr;
-        linearLayout.setVisibility(0);
     }
 }

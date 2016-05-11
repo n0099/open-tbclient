@@ -1,32 +1,22 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class cx implements AbsListView.RecyclerListener {
-    final /* synthetic */ cs bpe;
+class cx implements View.OnClickListener {
+    final /* synthetic */ FrsMoreFeedForumsActivity bkA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cs csVar) {
-        this.bpe = csVar;
+    public cx(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
+        this.bkA = frsMoreFeedForumsActivity;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.reset();
-        }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.reset();
-        }
-        if (view != null && (view instanceof UserPhotoLayout)) {
-            ((UserPhotoLayout) view).reset();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        int id = view.getId();
+        view2 = this.bkA.bjF;
+        if (id == view2.getId()) {
+            this.bkA.finish();
         }
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.editortools.d {
-    private boolean avQ = false;
+    private boolean arP = false;
 
     @Override // com.baidu.tbadk.editortools.d
-    protected com.baidu.tbadk.editortools.f ai(Context context) {
+    protected com.baidu.tbadk.editortools.f ah(Context context) {
         com.baidu.tbadk.editortools.l lVar = new com.baidu.tbadk.editortools.l(context);
         lVar.setBackgroundColorId(0);
         lVar.setBarBackgroundColorId(t.d.pb_editor_tool_view_bg_alpha);
@@ -29,14 +29,14 @@ public class t extends com.baidu.tbadk.editortools.d {
     @Override // com.baidu.tbadk.editortools.d
     protected void b(com.baidu.tbadk.editortools.f fVar) {
         if (fVar != null) {
-            com.baidu.tbadk.editortools.l Dh = fVar.Dh();
-            u uVar = new u(this, (p) fVar, Dh);
-            Dh.a(4, uVar);
-            Dh.a(7, uVar);
-            Dh.a(16, uVar);
-            Dh.a(8, uVar);
-            Dh.a(10, uVar);
-            Dh.a(11, uVar);
+            com.baidu.tbadk.editortools.l Bb = fVar.Bb();
+            u uVar = new u(this, (p) fVar, Bb);
+            Bb.a(4, uVar);
+            Bb.a(7, uVar);
+            Bb.a(16, uVar);
+            Bb.a(8, uVar);
+            Bb.a(10, uVar);
+            Bb.a(11, uVar);
         }
     }
 
@@ -44,31 +44,31 @@ public class t extends com.baidu.tbadk.editortools.d {
     protected void a(com.baidu.tbadk.editortools.f fVar) {
         CustomResponsedMessage runTask;
         aa aaVar;
-        com.baidu.tbadk.editortools.l Dh = fVar.Dh();
+        com.baidu.tbadk.editortools.l Bb = fVar.Bb();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        Dh.v(arrayList);
-        if (com.baidu.tieba.tbadkCore.voice.c.aUE() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Dh.getContext()), aa.class)) != null && (aaVar = (aa) runTask.getData()) != null) {
-            aaVar.launcherPriority = 2;
-            Dh.b(aaVar);
+        Bb.x(arrayList);
+        if (com.baidu.tieba.tbadkCore.voice.c.aUZ() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Bb.getContext()), aa.class)) != null && (aaVar = (aa) runTask.getData()) != null) {
+            aaVar.aqn = 2;
+            Bb.b(aaVar);
         }
-        Dh.b(new com.baidu.tbadk.editortools.a.a(Dh.getContext(), 4));
-        com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Dh.getContext(), true);
-        if (aVar.toolView instanceof EditText) {
-            ((EditText) aVar.toolView).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        Bb.b(new com.baidu.tbadk.editortools.a.a(Bb.getContext(), 4));
+        com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Bb.getContext(), true);
+        if (aVar.aps instanceof EditText) {
+            ((EditText) aVar.aps).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
-        Dh.b(aVar);
-        Dh.b(new com.baidu.tbadk.editortools.sendtool.a(Dh.getContext()));
-        Dh.Di();
-        Dh.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        Dh.BD();
+        Bb.b(aVar);
+        Bb.b(new com.baidu.tbadk.editortools.sendtool.a(Bb.getContext()));
+        Bb.Bc();
+        Bb.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        Bb.zx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(t.j.login_to_use), true, i)));
+            TbadkCoreApplication.m11getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(t.j.login_to_use), true, i)));
             return false;
         }
         return true;

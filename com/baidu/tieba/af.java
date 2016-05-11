@@ -14,17 +14,17 @@ public class af {
             return false;
         }
         try {
-            PublicKey n = com.baidu.adp.lib.util.v.n(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (n == null) {
+            PublicKey m = com.baidu.adp.lib.util.v.m(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (m == null) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new aw("c10836").ac("obj_type", "publicKeyCode is null").ac("obj_source", file.getName()));
                 return false;
             }
-            byte[] gx = gx(str);
-            if (gx == null || gx.length <= 0) {
+            byte[] gy = gy(str);
+            if (gy == null || gy.length <= 0) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new aw("c10836").ac("obj_type", "server_data is null").ac("obj_source", file.getName()));
                 return false;
             }
-            byte[] b = com.baidu.adp.lib.util.v.b(n, gx);
+            byte[] b = com.baidu.adp.lib.util.v.b(m, gy);
             if (b == null || b.length <= 0) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new aw("c10836").ac("obj_type", "des is null").ac("obj_source", file.getName()));
                 return false;
@@ -51,7 +51,7 @@ public class af {
         }
     }
 
-    private static int f(char c) {
+    private static int g(char c) {
         int digit = Character.digit(c, 16);
         if (digit == -1) {
             throw new RuntimeException("Illegal hexadecimal character " + c);
@@ -59,7 +59,7 @@ public class af {
         return digit;
     }
 
-    public static byte[] gx(String str) {
+    public static byte[] gy(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");
@@ -71,9 +71,9 @@ public class af {
         }
         for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
             int i3 = i + 1;
-            int f = f(charArray[i]) << 4;
+            int g = g(charArray[i]) << 4;
             i = i3 + 1;
-            bArr[i2] = (byte) (f(charArray[i3]) | f);
+            bArr[i2] = (byte) (g(charArray[i3]) | g);
         }
         return bArr;
     }

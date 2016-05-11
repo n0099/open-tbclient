@@ -1,94 +1,114 @@
 package com.baidu.sapi2.share;
 
 import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StatFs;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.enums.SocialType;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.sapi2.utils.SapiDataEncryptor;
+import com.baidu.sapi2.utils.f;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c {
-    static final String a = "isValid";
-    static final String b = "username";
-    static final String c = "displayname";
-    static final String d = "email";
-    static final String e = "phoneNumber";
-    static final String f = "bduss";
-    static final String g = "ptoken";
-    static final String h = "json";
-    static final String i = "socialAccounts";
+public final class c {
+    private static String a = null;
 
     c() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static SapiAccount a(Context context) {
-        g gVar = new g(context);
-        if ("1".equals(gVar.a(a))) {
-            SapiAccount sapiAccount = new SapiAccount();
-            sapiAccount.displayname = gVar.a("displayname");
-            sapiAccount.username = gVar.a(b);
-            sapiAccount.email = gVar.a(d);
-            sapiAccount.phone = gVar.a(e);
-            sapiAccount.bduss = gVar.a("bduss");
-            sapiAccount.ptoken = gVar.a("ptoken");
-            sapiAccount.extra = gVar.a(h);
-            a(sapiAccount, gVar.a(i));
-            if (!TextUtils.isEmpty(sapiAccount.extra)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(sapiAccount.extra);
-                    String optString = jSONObject.optString("uid");
-                    if (!TextUtils.isEmpty(optString)) {
-                        sapiAccount.uid = optString;
-                    }
-                    String optString2 = jSONObject.optString("bduss");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        sapiAccount.bduss = optString2;
-                    }
-                    if (!TextUtils.isEmpty(jSONObject.optString("ptoken"))) {
-                        sapiAccount.ptoken = jSONObject.optString("ptoken");
-                    }
-                    if (!TextUtils.isEmpty(jSONObject.optString(SapiAccountManager.SESSION_STOKEN))) {
-                        sapiAccount.stoken = jSONObject.optString(SapiAccountManager.SESSION_STOKEN);
-                    }
-                    String optString3 = jSONObject.optString("uname");
-                    if (!TextUtils.isEmpty(optString3)) {
-                        sapiAccount.username = optString3;
-                    }
-                    String optString4 = jSONObject.optString("displayname");
-                    if (!TextUtils.isEmpty(optString4)) {
-                        sapiAccount.displayname = optString4;
-                    }
-                } catch (JSONException e2) {
-                    L.e(e2);
-                }
-            }
-            if (!SapiUtils.isValidAccount(sapiAccount)) {
-                sapiAccount = null;
-            }
-            return sapiAccount;
+    public static String a(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return null;
         }
-        return null;
+        try {
+            return SapiDataEncryptor.a(new com.baidu.sapi2.utils.a(f.x, f.w).a(str, f.y, a(context)));
+        } catch (Exception e) {
+            L.e(e);
+            return null;
+        }
     }
 
-    static void a(SapiAccount sapiAccount, String str) {
-        if (sapiAccount != null && !TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() != 0) {
-                    try {
-                        JSONObject jSONObject = jSONArray.getJSONObject(0);
-                        com.baidu.sapi2.utils.c.a(sapiAccount, SocialType.getSocialType(jSONObject.optInt("type")), jSONObject.optString("headURL"));
-                    } catch (JSONException e2) {
-                        L.e(e2);
-                    }
-                }
-            } catch (JSONException e3) {
-            }
+    public static String b(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return null;
         }
+        try {
+            return new String(new com.baidu.sapi2.utils.a(f.x, f.w).a(SapiDataEncryptor.b(str), f.y, a(context))).trim();
+        } catch (Exception e) {
+            L.e(e);
+            return null;
+        }
+    }
+
+    private static String a(Context context) {
+        String str;
+        String format;
+        String str2 = null;
+        if (a != null) {
+            return a;
+        }
+        String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
+        String str3 = Build.MODEL;
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            str = statFs.getBlockSize() + "";
+            str2 = statFs.getBlockCount() + "";
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(deviceId)) {
+            format = String.format("%1$s-%2$s-%3$s-%4$s", str3, deviceId, str, str2);
+        } else {
+            format = String.format("%1$s-%2$s-%3$s", str3, str, str2);
+        }
+        String substring = format.substring(0, 16);
+        if (TextUtils.isEmpty(substring)) {
+            substring = "----------------";
+        }
+        if (substring.length() < 16) {
+            substring = (substring + "----------------").substring(0, 16);
+        }
+        a = substring;
+        return a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static SapiAccount a(Context context, SapiAccount sapiAccount) {
+        if (context == null || sapiAccount == null) {
+            return null;
+        }
+        SapiAccount sapiAccount2 = new SapiAccount();
+        sapiAccount2.displayname = a(context, sapiAccount.displayname);
+        sapiAccount2.uid = a(context, sapiAccount.uid);
+        sapiAccount2.username = a(context, sapiAccount.username);
+        sapiAccount2.app = a(context, sapiAccount.app);
+        sapiAccount2.bduss = a(context, sapiAccount.bduss);
+        b.a().a(sapiAccount2, a(context, b.a().a(sapiAccount)));
+        b.a().b(sapiAccount2, a(context, b.a().b(sapiAccount)));
+        b.a().c(sapiAccount2, a(context, b.a().c(sapiAccount)));
+        sapiAccount2.email = a(context, sapiAccount.email);
+        sapiAccount2.phone = a(context, sapiAccount.phone);
+        return sapiAccount2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static SapiAccount b(Context context, SapiAccount sapiAccount) {
+        if (context == null || sapiAccount == null) {
+            return null;
+        }
+        SapiAccount sapiAccount2 = new SapiAccount();
+        sapiAccount2.displayname = b(context, sapiAccount.displayname);
+        sapiAccount2.uid = b(context, sapiAccount.uid);
+        sapiAccount2.username = b(context, sapiAccount.username);
+        sapiAccount2.app = b(context, sapiAccount.app);
+        sapiAccount2.bduss = b(context, sapiAccount.bduss);
+        b.a().a(sapiAccount2, b(context, b.a().a(sapiAccount)));
+        b.a().b(sapiAccount2, b(context, b.a().b(sapiAccount)));
+        b.a().c(sapiAccount2, b(context, b.a().c(sapiAccount)));
+        sapiAccount2.email = b(context, sapiAccount.email);
+        sapiAccount2.phone = b(context, sapiAccount.phone);
+        return sapiAccount2;
     }
 }

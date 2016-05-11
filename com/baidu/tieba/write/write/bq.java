@@ -1,53 +1,37 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
 import android.view.View;
-import java.util.Date;
+import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+public class bq implements Runnable {
+    final /* synthetic */ bp fel;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bq(bp bpVar) {
+        this.fel = bpVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean pd;
-        z = this.this$0.diQ;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.aQj.getVisibility() != 0) {
-                    z2 = this.this$0.drA;
-                    if (z2 && this.this$0.drt != null && !this.this$0.drt.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        pd = this.this$0.pd(str);
-                        if (pd) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        com.baidu.tbadk.editortools.j jVar2;
+        BaseActivity baseActivity;
+        jVar = this.fel.fei;
+        if (jVar != null) {
+            lVar = this.fel.apy;
+            if (lVar != null) {
+                lVar2 = this.fel.apy;
+                com.baidu.tbadk.editortools.s eg = lVar2.eg(24);
+                if (eg instanceof View) {
+                    jVar2 = this.fel.fei;
+                    baseActivity = this.fel.bek;
+                    jVar2.c(baseActivity.getPageContext().getPageActivity(), (View) eg);
                 }
-            } else {
-                this.this$0.setResult(0, new Intent());
+                this.fel.fej = true;
             }
-        } else {
-            this.this$0.setResult(0, new Intent());
         }
-        this.this$0.finish();
     }
 }

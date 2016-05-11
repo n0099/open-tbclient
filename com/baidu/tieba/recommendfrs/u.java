@@ -1,31 +1,65 @@
 package com.baidu.tieba.recommendfrs;
 
-import android.view.animation.Animation;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.ax;
+import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
+import tbclient.Zan;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements Animation.AnimationListener {
-    final /* synthetic */ q dVL;
+public class u extends CustomMessageListener {
+    final /* synthetic */ r dYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(q qVar) {
-        this.dVL = qVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(r rVar, int i) {
+        super(i);
+        this.dYM = rVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        Runnable runnable;
-        int i;
-        com.baidu.adp.lib.h.h hx = com.baidu.adp.lib.h.h.hx();
-        runnable = this.dVL.dnb;
-        i = this.dVL.dVy;
-        hx.postDelayed(runnable, i);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DataRes.Builder builder;
+        DataRes.Builder builder2;
+        ax axVar;
+        DataRes.Builder builder3;
+        DataRes.Builder builder4;
+        DataRes.Builder builder5;
+        DataRes.Builder builder6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ax)) {
+            builder = this.dYM.dYn;
+            if (builder != null) {
+                builder2 = this.dYM.dYn;
+                if (com.baidu.tbadk.core.util.y.r(builder2.thread_list) != 0 && (axVar = (ax) customResponsedMessage.getData()) != null && axVar.getPraise() != null && axVar.getId() != null) {
+                    builder3 = this.dYM.dYn;
+                    if (com.baidu.tbadk.core.util.y.r(builder3.thread_list) != 0) {
+                        int i = 0;
+                        while (true) {
+                            int i2 = i;
+                            builder4 = this.dYM.dYn;
+                            if (i2 < builder4.thread_list.size()) {
+                                builder5 = this.dYM.dYn;
+                                ThreadInfo threadInfo = builder5.thread_list.get(i2);
+                                if (threadInfo == null || threadInfo.id.longValue() != com.baidu.adp.lib.h.b.c(axVar.getId(), -1L)) {
+                                    i = i2 + 1;
+                                } else {
+                                    ThreadInfo.Builder builder7 = new ThreadInfo.Builder(threadInfo);
+                                    Zan.Builder builder8 = new Zan.Builder(builder7.zan);
+                                    builder8.num = Integer.valueOf((int) axVar.getPraise().getNum());
+                                    builder7.zan = builder8.build(true);
+                                    builder6 = this.dYM.dYn;
+                                    builder6.thread_list.set(i2, builder7.build(true));
+                                    return;
+                                }
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ r dej;
-    private final /* synthetic */ an dek;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s del;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.n dem;
+    final /* synthetic */ r dgC;
+    private final /* synthetic */ an dgD;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dgE;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.o dgF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar, com.baidu.tbadk.widget.richText.n nVar) {
-        this.dej = rVar;
-        this.dek = anVar;
-        this.del = sVar;
-        this.dem = nVar;
+    public u(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar, com.baidu.tbadk.widget.richText.o oVar) {
+        this.dgC = rVar;
+        this.dgD = anVar;
+        this.dgE = sVar;
+        this.dgF = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,18 +27,18 @@ public class u implements View.OnClickListener {
         com.baidu.tieba.pb.data.e eVar;
         com.baidu.tieba.pb.data.e eVar2;
         com.baidu.tieba.pb.data.e eVar3;
-        this.dek.deD.setVisibility(8);
-        this.dek.deA.start();
-        this.dej.b(this.del, this.dek);
-        this.dej.avT();
-        this.dej.c(this.dem);
-        this.dej.a(this.dek, this.dem);
-        eVar = this.dej.ddq;
+        this.dgD.dgW.setVisibility(8);
+        this.dgD.dgT.start();
+        this.dgC.b(this.dgE, this.dgD);
+        this.dgC.awc();
+        this.dgC.c(this.dgF);
+        this.dgC.a(this.dgD, this.dgF);
+        eVar = this.dgC.dfK;
         if (eVar != null) {
             aw awVar = new aw("c10795");
-            eVar2 = this.dej.ddq;
+            eVar2 = this.dgC.dfK;
             awVar.ac("fid", eVar2.getForumId());
-            eVar3 = this.dej.ddq;
+            eVar3 = this.dgC.dfK;
             awVar.ac("tid", eVar3.getThreadId());
             TiebaStatic.log(awVar);
         }

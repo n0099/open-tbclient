@@ -3,59 +3,58 @@ package com.baidu.tbadk.performanceLog;
 import android.os.Debug;
 import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.BDLocationStatusCodes;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aCa = "tb_perfor_samllflow_time";
-    private static volatile aa aCd;
-    private long aCc;
-    private boolean aBY = false;
-    private long aCb = 86400;
-    private long aBZ = com.baidu.tbadk.core.sharedPref.b.vk().getLong(aCa, 0);
+    private static String ayd = "tb_perfor_samllflow_time";
+    private static volatile aa ayg;
+    private long ayf;
+    private boolean ayb = false;
+    private long aye = 86400;
+    private long ayc = com.baidu.tbadk.core.sharedPref.b.sQ().getLong(ayd, 0);
 
-    public static aa GU() {
-        if (aCd == null) {
+    public static aa EM() {
+        if (ayg == null) {
             synchronized (aa.class) {
-                if (aCd == null) {
-                    aCd = new aa();
+                if (ayg == null) {
+                    ayg = new aa();
                 }
             }
         }
-        return aCd;
+        return ayg;
     }
 
     private aa() {
-        this.aCc = 0L;
-        this.aCc = this.aCb;
+        this.ayf = 0L;
+        this.ayf = this.aye;
     }
 
-    public boolean GV() {
-        if (!this.aBY || (System.currentTimeMillis() - this.aBZ) / 1000 <= this.aCc) {
-            return this.aBY;
+    public boolean EN() {
+        if (!this.ayb || (System.currentTimeMillis() - this.ayc) / 1000 <= this.ayf) {
+            return this.ayb;
         }
         return false;
     }
 
-    public void bK(boolean z) {
+    public void bQ(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aBZ || currentTimeMillis - this.aBZ >= this.aCc) {
-                this.aBZ = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.vk().putLong(aCa, this.aBZ);
+            if (0 == this.ayc || currentTimeMillis - this.ayc >= this.ayf) {
+                this.ayc = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.sQ().putLong(ayd, this.ayc);
             }
         } else {
-            this.aBZ = 0L;
-            com.baidu.tbadk.core.sharedPref.b.vk().putLong(aCa, this.aBZ);
+            this.ayc = 0L;
+            com.baidu.tbadk.core.sharedPref.b.sQ().putLong(ayd, this.ayc);
         }
-        this.aBY = z;
-        if (com.baidu.adp.lib.stats.a.hz().hG()) {
-            ab.Ha().Hb();
+        this.ayb = z;
+        if (com.baidu.adp.lib.stats.a.dN().dU()) {
+            ab.ES().ET();
         }
     }
 
-    public String GW() {
+    public String EO() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -69,7 +68,7 @@ public class aa {
         }
     }
 
-    public final String GX() {
+    public final String EP() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -85,25 +84,25 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.jf()) {
+        if (!com.baidu.adp.lib.util.i.fq()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.jg()) {
+        if (com.baidu.adp.lib.util.i.fr()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.ji()) {
+        if (com.baidu.adp.lib.util.i.ft()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.jj()) {
+        if (com.baidu.adp.lib.util.i.fu()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.jk()) {
+        if (!com.baidu.adp.lib.util.i.fv()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fi(int i) {
+    public static String eN(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -116,18 +115,18 @@ public class aa {
         return "WIFI";
     }
 
-    public z fj(int i) {
-        if (GV()) {
+    public z eO(int i) {
+        if (EN()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
                     acVar.subType = "frs";
                     return acVar;
-                case BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES /* 1001 */:
+                case 1001:
                     ac acVar2 = new ac();
                     acVar2.subType = "pb";
                     return acVar2;
-                case BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE /* 1002 */:
+                case 1002:
                     w wVar = new w();
                     wVar.subType = "im";
                     return wVar;
@@ -150,9 +149,9 @@ public class aa {
         return null;
     }
 
-    public void P(long j) {
+    public void Q(long j) {
         if (j > 0) {
-            this.aCc = j;
+            this.ayf = j;
         }
     }
 
@@ -171,7 +170,7 @@ public class aa {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GY() {
+    public int EQ() {
         BufferedReader bufferedReader;
         Process process;
         String str;

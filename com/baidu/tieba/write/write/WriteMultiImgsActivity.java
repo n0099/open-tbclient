@@ -27,28 +27,29 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class WriteMultiImgsActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, r.a {
-    private com.baidu.tbadk.core.dialog.a eNJ;
-    private WriteImagesInfo eNv = null;
-    private View aAh = null;
-    private ViewPager eNw = null;
-    private r eNx = null;
-    private LinearLayout eNy = null;
-    private RadioGroup Ok = null;
-    private RadioButton eNz = null;
-    private RadioButton eNA = null;
-    private LinearLayout eNB = null;
-    private View eNC = null;
-    private NavigationBar aOK = null;
-    private TextView aUx = null;
-    private TextView eND = null;
-    private String eNE = "";
-    private String eNF = "";
-    private String eNG = "";
-    private String eNH = "(1/1)";
-    private boolean eNI = true;
-    private HashMap<String, String> eNK = new HashMap<>();
-    private int eNL = 0;
-    private int eNM = 0;
+    private com.baidu.tbadk.core.dialog.a feI;
+    private View feL;
+    private WriteImagesInfo fev = null;
+    private View awk = null;
+    private ViewPager eHi = null;
+    private r few = null;
+    private LinearLayout fex = null;
+    private RadioGroup EA = null;
+    private RadioButton fey = null;
+    private RadioButton fez = null;
+    private LinearLayout feA = null;
+    private View feB = null;
+    private NavigationBar aKU = null;
+    private TextView KC = null;
+    private TextView feC = null;
+    private String feD = "";
+    private String feE = "";
+    private String feF = "";
+    private String feG = "(1/1)";
+    private boolean feH = true;
+    private HashMap<String, String> feJ = new HashMap<>();
+    private int feK = 0;
+    private int feM = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -57,48 +58,48 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         int i2 = 1;
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        int ai = com.baidu.adp.lib.c.e.gE().ai("motu_sdk");
-        if (Build.VERSION.SDK_INT < 7 || ai == 1 || PluginPackageManager.ls().bz(PluginCenter.NAME_MOTUSDK) == PluginPackageManager.PluginStatus.DISABLE) {
-            this.eNI = false;
+        int Z = com.baidu.adp.lib.c.e.cS().Z("motu_sdk");
+        if (Build.VERSION.SDK_INT < 7 || Z == 1 || PluginPackageManager.hF().bs(PluginCenter.NAME_MOTUSDK) == PluginPackageManager.PluginStatus.DISABLE) {
+            this.feH = false;
         } else {
-            this.eNI = true;
+            this.feH = true;
         }
         setContentView(t.h.write_multi_imgs_activity);
-        pU();
+        nq();
         initData(bundle);
-        if (this.eNI) {
-            if (this.eNv != null) {
-                i = this.eNv.size();
-                i2 = this.eNv.size();
+        if (this.feH) {
+            if (this.fev != null) {
+                i = this.fev.size();
+                i2 = this.fev.size();
             } else {
                 i = 1;
             }
-            TbadkCoreApplication.m411getInst().sendImagePv(i, i2, "motu_pic");
+            TbadkCoreApplication.m11getInst().sendImagePv(i, i2, "motu_pic");
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("OutState_Current_Index", this.eNx.getCurrentIndex());
-        this.eNx.bbc();
-        bundle.putString("OutState_Write_Img_Info", this.eNv.toJsonString());
+        bundle.putInt("OutState_Current_Index", this.few.getCurrentIndex());
+        this.few.bdp();
+        bundle.putString("OutState_Write_Img_Info", this.fev.toJsonString());
         super.onSaveInstanceState(bundle);
     }
 
-    private void pU() {
-        this.eNE = getResources().getString(t.j.beautify);
-        this.eNF = getResources().getString(t.j.rotate);
-        this.eNG = this.eNE;
-        this.aAh = findViewById(t.g.write_multi_imgs_rootlayout);
-        this.eNw = (ViewPager) findViewById(t.g.write_multi_imgs_viewpager);
-        this.eNy = (LinearLayout) findViewById(t.g.write_multi_imgs_beautify);
-        this.Ok = (RadioGroup) findViewById(t.g.beautify_tabs);
-        this.eNz = (RadioButton) findViewById(t.g.beautify_btn);
-        this.eNA = (RadioButton) findViewById(t.g.rotate_btn);
-        this.eNz.setOnCheckedChangeListener(this);
-        this.eNA.setOnCheckedChangeListener(this);
-        this.eNB = (LinearLayout) findViewById(t.g.filters_layout);
-        this.eNC = findViewById(t.g.rotate);
+    private void nq() {
+        this.feD = getResources().getString(t.j.beautify);
+        this.feE = getResources().getString(t.j.rotate);
+        this.feF = this.feD;
+        this.awk = findViewById(t.g.write_multi_imgs_rootlayout);
+        this.eHi = (ViewPager) findViewById(t.g.write_multi_imgs_viewpager);
+        this.fex = (LinearLayout) findViewById(t.g.write_multi_imgs_beautify);
+        this.EA = (RadioGroup) findViewById(t.g.beautify_tabs);
+        this.fey = (RadioButton) findViewById(t.g.beautify_btn);
+        this.fez = (RadioButton) findViewById(t.g.rotate_btn);
+        this.fey.setOnCheckedChangeListener(this);
+        this.fez.setOnCheckedChangeListener(this);
+        this.feA = (LinearLayout) findViewById(t.g.filters_layout);
+        this.feB = findViewById(t.g.rotate);
         Button button = (Button) findViewById(t.g.rotate_left);
         Button button2 = (Button) findViewById(t.g.rotate_right);
         Button button3 = (Button) findViewById(t.g.rotate_left_right);
@@ -107,22 +108,22 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         button2.setTag(1);
         button3.setTag(2);
         button4.setTag(3);
-        cb cbVar = new cb(this);
-        button.setOnClickListener(cbVar);
-        button2.setOnClickListener(cbVar);
-        button3.setOnClickListener(cbVar);
-        button4.setOnClickListener(cbVar);
-        this.aOK = (NavigationBar) findViewById(t.g.write_multi_imgs_navibar);
-        this.aOK.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new cc(this));
-        this.eND = this.aOK.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(t.j.done), new cd(this));
-        this.aUx = this.aOK.setTitleText(getPageContext().getString(t.j.beautify));
-        this.eNz.setChecked(true);
-        if (!this.eNI) {
-            this.eNA.setChecked(true);
-            this.eNA.setPadding(0, this.eNA.getPaddingTop(), this.eNA.getPaddingRight(), this.eNA.getPaddingBottom());
-            this.eNB.setVisibility(8);
-            this.eNz.setVisibility(8);
-            this.Ok.setVisibility(8);
+        ce ceVar = new ce(this);
+        button.setOnClickListener(ceVar);
+        button2.setOnClickListener(ceVar);
+        button3.setOnClickListener(ceVar);
+        button4.setOnClickListener(ceVar);
+        this.aKU = (NavigationBar) findViewById(t.g.write_multi_imgs_navibar);
+        this.feL = this.aKU.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new cf(this));
+        this.feC = this.aKU.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(t.j.done), new cg(this));
+        this.KC = this.aKU.setTitleText(getPageContext().getString(t.j.beautify));
+        this.fey.setChecked(true);
+        if (!this.feH) {
+            this.fez.setChecked(true);
+            this.fez.setPadding(0, this.fez.getPaddingTop(), this.fez.getPaddingRight(), this.fez.getPaddingBottom());
+            this.feA.setVisibility(8);
+            this.fey.setVisibility(8);
+            this.EA.setVisibility(8);
         }
     }
 
@@ -142,40 +143,40 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
             }
         }
         if (str != null && i != -1) {
-            this.eNv = new WriteImagesInfo();
-            this.eNv.parseJson(str);
-            bbK();
-            this.eNx = new r(this, this.eNw, this.eNv.getChosedFiles(), i, this);
-            this.eNw.setAdapter(this.eNx);
-            this.eNw.setCurrentItem(i, true);
+            this.fev = new WriteImagesInfo();
+            this.fev.parseJson(str);
+            bec();
+            this.few = new r(this, this.eHi, this.fev.getChosedFiles(), i, this);
+            this.eHi.setAdapter(this.few);
+            this.eHi.setCurrentItem(i, true);
             if (i == 0) {
-                this.eNx.onPageSelected(0);
+                this.few.onPageSelected(0);
             }
-            this.eNy.setVisibility(0);
+            this.fex.setVisibility(0);
         }
     }
 
-    private void bbK() {
-        if (this.eNv != null && this.eNv.isOriginalImg() && this.eNv.getChosedFiles() != null && this.eNv.getChosedFiles().size() != 0) {
-            Iterator<ImageFileInfo> it = this.eNv.getChosedFiles().iterator();
+    private void bec() {
+        if (this.fev != null && this.fev.isOriginalImg() && this.fev.getChosedFiles() != null && this.fev.getChosedFiles().size() != 0) {
+            Iterator<ImageFileInfo> it = this.fev.getChosedFiles().iterator();
             while (it.hasNext()) {
                 ImageFileInfo next = it.next();
                 if (next != null && next.hasActionsWithoutResize()) {
-                    this.eNK.put(next.getFilePath(), "1");
+                    this.feJ.put(next.getFilePath(), "1");
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bbL() {
-        if (this.eNv == null || !this.eNv.isOriginalImg() || this.eNv.getChosedFiles() == null || this.eNv.getChosedFiles().size() == 0) {
+    public boolean bed() {
+        if (this.fev == null || !this.fev.isOriginalImg() || this.fev.getChosedFiles() == null || this.fev.getChosedFiles().size() == 0) {
             return false;
         }
-        Iterator<ImageFileInfo> it = this.eNv.getChosedFiles().iterator();
+        Iterator<ImageFileInfo> it = this.fev.getChosedFiles().iterator();
         while (it.hasNext()) {
             ImageFileInfo next = it.next();
-            if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.eNK.get(next.getFilePath()))) {
+            if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.feJ.get(next.getFilePath()))) {
                 return true;
             }
         }
@@ -183,48 +184,48 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     }
 
     @Override // com.baidu.tieba.write.write.r.a
-    public void bbd() {
-        if (this.aOK.getVisibility() == 0) {
-            this.aOK.setVisibility(8);
-            this.eNy.setVisibility(8);
+    public void bdq() {
+        if (this.aKU.getVisibility() == 0) {
+            this.aKU.setVisibility(8);
+            this.fex.setVisibility(8);
             return;
         }
-        this.aOK.setVisibility(0);
-        this.eNy.setVisibility(0);
+        this.aKU.setVisibility(0);
+        this.fex.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.write.write.r.a
     public void a(com.baidu.tbadk.coreExtra.view.c cVar, int i) {
-        this.eNB.removeAllViews();
-        this.eNB.addView(cVar);
-        this.eNH = "（" + (i + 1) + "/" + this.eNv.size() + "）";
-        this.aUx.setText(String.valueOf(this.eNG) + this.eNH);
+        this.feA.removeAllViews();
+        this.feA.addView(cVar);
+        this.feG = "（" + (i + 1) + "/" + this.fev.size() + "）";
+        this.KC.setText(String.valueOf(this.feF) + this.feG);
     }
 
     @Override // com.baidu.tieba.write.write.r.a
-    public void bbf() {
-        this.eNM--;
+    public void bds() {
+        this.feM--;
     }
 
     @Override // com.baidu.tieba.write.write.r.a
-    public void bbe() {
-        this.eNM++;
+    public void bdr() {
+        this.feM++;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bbM() {
-        this.eNL++;
+    public void bee() {
+        this.feK++;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bbN() {
-        this.eNL--;
+    public void bef() {
+        this.feK--;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbO() {
+    public void beg() {
         Intent intent = new Intent();
-        intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.eNv.toJsonString());
+        intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.fev.toJsonString());
         setResult(-1, intent);
         finish();
     }
@@ -239,32 +240,32 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
-            if (compoundButton == this.eNz) {
-                this.eNB.setVisibility(0);
-                this.eNC.setVisibility(8);
-                this.eNG = this.eNE;
-                this.aUx.setText(String.valueOf(this.eNG) + this.eNH);
+            if (compoundButton == this.fey) {
+                this.feA.setVisibility(0);
+                this.feB.setVisibility(8);
+                this.feF = this.feD;
+                this.KC.setText(String.valueOf(this.feF) + this.feG);
                 return;
             }
-            this.eNB.setVisibility(8);
-            this.eNC.setVisibility(0);
-            this.eNG = this.eNF;
-            this.aUx.setText(String.valueOf(this.eNG) + this.eNH);
+            this.feA.setVisibility(8);
+            this.feB.setVisibility(0);
+            this.feF = this.feE;
+            this.KC.setText(String.valueOf(this.feF) + this.feG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        getLayoutMode().ab(i == 1);
-        getLayoutMode().x(this.aAh);
-        this.aOK.onChangeSkinType(getPageContext(), i);
-        if (this.eND.isEnabled()) {
-            com.baidu.tbadk.core.util.at.k(this.eND, t.f.navi_done_text_bg);
-            com.baidu.tbadk.core.util.at.b(this.eND, t.d.navi_done_text, 1);
-            return;
-        }
-        com.baidu.tbadk.core.util.at.k(this.eND, t.f.btn_titlebar_finish_d);
-        com.baidu.tbadk.core.util.at.b(this.eND, t.d.navi_done_text_d, 1);
+        getLayoutMode().ae(i == 1);
+        getLayoutMode().x(this.awk);
+        amb();
+    }
+
+    private void amb() {
+        com.baidu.tbadk.core.util.at.l(this.aKU, t.d.alpha80_black);
+        com.baidu.tbadk.core.util.at.c(this.KC, t.d.cp_cont_g, 1);
+        com.baidu.tbadk.core.util.at.a(this.aKU.getBackImageView(), t.f.icon_return_s, t.f.icon_return_s_w, 0);
+        com.baidu.tbadk.core.util.at.c(this.feC, t.d.cp_cont_g, 1);
     }
 }

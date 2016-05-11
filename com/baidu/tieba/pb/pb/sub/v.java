@@ -2,68 +2,74 @@ package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
-import java.text.MessageFormat;
+import com.baidu.tieba.pb.pb.sub.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements a.InterfaceC0041a {
-    final /* synthetic */ NewSubPbActivity doF;
+public class v implements ap.a {
+    final /* synthetic */ NewSubPbActivity dqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.doF = newSubPbActivity;
+        this.dqn = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
-    public void a(boolean z, boolean z2, String str) {
-        com.baidu.tbadk.baseEditMark.a aVar;
-        com.baidu.tbadk.baseEditMark.a aVar2;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
+        if (r0 != null) goto L26;
+     */
+    @Override // com.baidu.tieba.pb.pb.sub.ap.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.h hVar) {
+        y yVar;
+        y yVar2;
         ap apVar;
+        y yVar3;
+        com.baidu.tbadk.editortools.d.p pVar;
+        com.baidu.tbadk.editortools.d.p pVar2;
+        y yVar4;
         ap apVar2;
-        com.baidu.tbadk.baseEditMark.a aVar3;
         ap apVar3;
         ap apVar4;
-        ap apVar5;
-        com.baidu.tbadk.baseEditMark.a aVar4;
+        y yVar5;
+        yVar = this.dqn.dqe;
+        if (yVar != null) {
+            yVar5 = this.dqn.dqe;
+            yVar5.azZ();
+        }
         if (z) {
-            aVar = this.doF.cOZ;
-            if (aVar != null) {
-                aVar4 = this.doF.cOZ;
-                aVar4.X(z2);
-            }
-            aVar2 = this.doF.cOZ;
-            MarkData px = aVar2.px();
-            com.baidu.tieba.pb.f fVar = new com.baidu.tieba.pb.f();
-            fVar.setType(2);
-            if (z2) {
-                fVar.setData(px);
-                aVar3 = this.doF.cOZ;
-                if (aVar3 != null) {
-                    if (px != null) {
-                        apVar3 = this.doF.dou;
-                        apVar3.gk(true);
-                        apVar4 = this.doF.dou;
-                        apVar5 = this.doF.dou;
-                        apVar4.mj(apVar5.DH());
-                        this.doF.showToast(MessageFormat.format(this.doF.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(px.getFloor())));
-                    } else {
-                        this.doF.showToast(this.doF.getPageContext().getString(t.j.add_mark));
-                    }
+            yVar2 = this.dqn.dqe;
+            yVar2.hideNoDataView();
+            if (hVar != null) {
+                if (hVar.avO() == null) {
+                    apVar4 = this.dqn.dqc;
                 }
-            } else {
-                fVar.setData(null);
-                apVar = this.doF.dou;
-                apVar.gk(false);
-                apVar2 = this.doF.dou;
-                apVar2.mj(null);
-                this.doF.showToast(this.doF.getPageContext().getString(t.j.remove_mark));
+                com.baidu.tieba.tbadkCore.data.s avO = hVar.avO();
+                apVar = this.dqn.dqc;
+                avO.a(apVar.aAC());
+                yVar3 = this.dqn.dqe;
+                if (yVar3 != null) {
+                    yVar4 = this.dqn.dqe;
+                    apVar2 = this.dqn.dqc;
+                    int avH = apVar2.avH();
+                    apVar3 = this.dqn.dqc;
+                    yVar4.a(hVar, avH, apVar3.aAE() != null);
+                }
+                com.baidu.tieba.pb.f fVar = new com.baidu.tieba.pb.f();
+                fVar.setData(hVar);
+                pVar = this.dqn.czd;
+                if (pVar != null) {
+                    pVar2 = this.dqn.czd;
+                    pVar2.a(hVar.getAntiData());
+                }
+                fVar.setType(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, fVar));
+                return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, fVar));
             return;
         }
-        this.doF.showToast(this.doF.getPageContext().getString(t.j.update_mark_failed));
+        this.dqn.showToast(str);
+        this.dqn.I(i, str);
     }
 }

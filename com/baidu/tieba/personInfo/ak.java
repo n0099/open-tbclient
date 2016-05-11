@@ -1,38 +1,56 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.person.god.h;
 import java.util.List;
+import tbclient.ThreadInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements c.b {
-    private final /* synthetic */ int cXD;
-    private final /* synthetic */ com.baidu.tbadk.data.h dDh;
-    private final /* synthetic */ List dDi;
+public class ak implements h.a {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(f fVar, com.baidu.tbadk.data.h hVar, List list, int i) {
+    public ak(f fVar) {
         this.this$0 = fVar;
-        this.dDh = hVar;
-        this.dDi = list;
-        this.cXD = i;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.this$0.dCE = true;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    this.this$0.aCN();
-                }
-            } else {
-                this.this$0.aCM();
+    @Override // com.baidu.tieba.person.god.h.a
+    public void d(int i, List<ThreadInfo> list) {
+        bj bjVar;
+        bg bgVar;
+        bg bgVar2;
+        bj bjVar2;
+        bjVar = this.this$0.dFA;
+        if (bjVar != null) {
+            bgVar = this.this$0.dyP;
+            if (bgVar != null) {
+                bgVar2 = this.this$0.dyP;
+                bgVar2.bR(list);
+                bjVar2 = this.this$0.dFA;
+                bjVar2.aEj();
             }
-        } else {
-            this.this$0.d(this.dDh, this.dDi, this.cXD);
         }
-        cVar.dismiss();
+    }
+
+    @Override // com.baidu.tieba.person.god.h.a
+    public void fz(String str) {
+        com.baidu.tieba.person.god.h hVar;
+        bj bjVar;
+        bg bgVar;
+        bj bjVar2;
+        bj bjVar3;
+        hVar = this.this$0.dzV;
+        if (hVar != null) {
+            bjVar = this.this$0.dFA;
+            if (bjVar != null) {
+                bgVar = this.this$0.dyP;
+                if (com.baidu.tbadk.core.util.y.s(bgVar.aDz())) {
+                    bjVar3 = this.this$0.dFA;
+                    bjVar3.aEg();
+                    return;
+                }
+                bjVar2 = this.this$0.dFA;
+                bjVar2.aCx();
+            }
+        }
     }
 }
