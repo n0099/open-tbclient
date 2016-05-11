@@ -6,9 +6,9 @@ public class r {
     public static s a(Context context, aa aaVar, int i) {
         switch (i) {
             case 1:
-                return new c(context, aaVar.launcherIcon, aaVar.id);
+                return new c(context, aaVar.aql, aaVar.id);
             default:
-                return new e(context, aaVar.launcherIcon, aaVar.name, aaVar.id);
+                return new e(context, aaVar.aql, aaVar.name, aaVar.id);
         }
     }
 }

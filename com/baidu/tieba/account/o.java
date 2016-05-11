@@ -6,11 +6,11 @@ import com.baidu.tieba.account.ActivationActivity;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class o implements Runnable {
-    final /* synthetic */ ActivationActivity aMw;
+    final /* synthetic */ ActivationActivity aIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ActivationActivity activationActivity) {
-        this.aMw = activationActivity;
+        this.aIG = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,28 +23,28 @@ class o implements Runnable {
         Runnable runnable;
         TextView textView2;
         ActivationActivity.a aVar;
-        ActivationActivity activationActivity = this.aMw;
-        i = activationActivity.FI;
-        activationActivity.FI = i - 1;
-        i2 = this.aMw.FI;
+        ActivationActivity activationActivity = this.aIG;
+        i = activationActivity.wa;
+        activationActivity.wa = i - 1;
+        i2 = this.aIG.wa;
         if (i2 <= 0) {
-            this.aMw.aMm = true;
-            textView2 = this.aMw.aMg;
-            textView2.setText(this.aMw.getPageContext().getString(t.j.resend_code));
-            aVar = this.aMw.aMl;
+            this.aIG.aIw = true;
+            textView2 = this.aIG.aIq;
+            textView2.setText(this.aIG.getPageContext().getString(t.j.resend_code));
+            aVar = this.aIG.aIv;
             if (aVar == null) {
-                this.aMw.aMj.setEnabled(true);
+                this.aIG.aIt.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.aMw.getPageContext().getString(t.j.resend_code_second);
-        i3 = this.aMw.FI;
+        String string = this.aIG.getPageContext().getString(t.j.resend_code_second);
+        i3 = this.aIG.wa;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.aMw.aMg;
+        textView = this.aIG.aIq;
         textView.setText(format);
-        handler = this.aMw.mHandler;
-        runnable = this.aMw.mRunnable;
+        handler = this.aIG.mHandler;
+        runnable = this.aIG.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

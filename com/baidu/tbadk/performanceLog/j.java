@@ -4,27 +4,27 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String aBa = "dalvikvm";
-    private String[] aBb = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d aBc = null;
-    private int aAT = 0;
-    private final int aBd = 10000;
-    private a aBe = null;
-    private final Handler aBf = new k(this);
+    private String axd = "dalvikvm";
+    private String[] axe = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d axf = null;
+    private int awW = 0;
+    private final int axg = 10000;
+    private a axh = null;
+    private final Handler axi = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void fe(int i);
+        void eJ(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
-        if (!dR()) {
+        if (!ah()) {
             super.start();
-            this.aBf.sendEmptyMessageDelayed(0, 10000L);
-            GJ();
+            this.axi.sendEmptyMessageDelayed(0, 10000L);
+            EB();
             try {
-                d.a(this.aBa, new l(this));
+                d.a(this.axd, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -34,27 +34,27 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        GK();
+        EC();
     }
 
-    private void GJ() {
-        if (this.aBc == null) {
-            this.aBc = new d();
+    private void EB() {
+        if (this.axf == null) {
+            this.axf = new d();
         }
-        if (!this.aBc.dR()) {
-            new Thread(this.aBc).start();
+        if (!this.axf.ah()) {
+            new Thread(this.axf).start();
         }
     }
 
-    private void GK() {
-        if (this.aBc != null && this.aBc.dR()) {
-            this.aBc.stop();
+    private void EC() {
+        if (this.axf != null && this.axf.ah()) {
+            this.axf.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.aBe == null) {
-            this.aBe = aVar;
+        if (this.axh == null) {
+            this.axh = aVar;
         }
     }
 }

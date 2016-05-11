@@ -10,32 +10,32 @@ import com.baidu.tieba.t;
 public class a extends aa {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.toolNeedAction = false;
-        this.toolPosition = 2;
-        this.toolLaunchAction = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 39, 9, 40};
-        this.toolView = new SendView(context);
+        this.aqp = false;
+        this.aqo = 2;
+        this.aqq = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 39, 9, 40};
+        this.aps = new SendView(context);
         y.a aVar = new y.a(context.getResources().getDimensionPixelSize(t.e.ds100), context.getResources().getDimensionPixelSize(t.e.ds78));
         aVar.gravity = 16;
         aVar.leftMargin = context.getResources().getDimensionPixelSize(t.e.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(t.e.ds10);
-        ((View) this.toolView).setLayoutParams(aVar);
+        ((View) this.aps).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.toolView != null && (this.toolView instanceof TextView)) {
-            ((TextView) this.toolView).setText(i);
+        if (this.aps != null && (this.aps instanceof TextView)) {
+            ((TextView) this.aps).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.toolView != null) {
-            ((SendView) this.toolView).setType(i);
+        if (this.aps != null) {
+            ((SendView) this.aps).setType(i);
         }
     }
 
-    public void eM(int i) {
-        if (this.toolView != null) {
-            ((SendView) this.toolView).eM(i);
+    public void es(int i) {
+        if (this.aps != null) {
+            ((SendView) this.aps).es(i);
         }
     }
 }

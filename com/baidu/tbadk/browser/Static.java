@@ -24,27 +24,27 @@ import java.net.URLEncoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static boolean Py = true;
+    public static boolean Kp = true;
 
     static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new h(0));
-        bg.wM().a(new i());
-        com.baidu.adp.lib.c.e.gE().a(new com.baidu.adp.lib.c.c("switch_mbaidu_startup", 1, null));
-        pN();
-        pQ();
-        pR();
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new i(0));
+        bg.us().a(new j());
+        com.baidu.adp.lib.c.e.cS().a(new com.baidu.adp.lib.c.c("switch_mbaidu_startup", 1, null));
+        nk();
+        nn();
+        no();
     }
 
-    private static void pN() {
-        bg.wM().a(new j());
+    private static void nk() {
+        bg.us().a(new k());
     }
 
-    private static String bS(String str) {
+    private static String bQ(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        String checkUrl = TbadkCoreApplication.m411getInst().getCheckUrl();
+        String checkUrl = TbadkCoreApplication.m11getInst().getCheckUrl();
         boolean z = !TextUtils.isEmpty(checkUrl) && str.startsWith(checkUrl);
         boolean startsWith = str.startsWith("http://tieba.baidu.com/mo/q/checkurl?url=");
         if (z || startsWith) {
@@ -68,23 +68,23 @@ public class Static {
         return str;
     }
 
-    private static String bT(String str) {
+    private static String bR(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        String checkUrl = TbadkCoreApplication.m411getInst().getCheckUrl();
+        String checkUrl = TbadkCoreApplication.m11getInst().getCheckUrl();
         if (checkUrl == null) {
             checkUrl = "http://tieba.baidu.com/mo/q/checkurl?url=";
         } else if (checkUrl.trim().length() == 0) {
             return str;
         }
         if (!str.startsWith(checkUrl)) {
-            return String.valueOf(checkUrl) + bU(str);
+            return String.valueOf(checkUrl) + bS(str);
         }
         return str;
     }
 
-    public static String bU(String str) {
+    public static String bS(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -103,8 +103,8 @@ public class Static {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
-        String bS = bS(str);
-        if (!bV(bS) && pO() && bX("com.baidu.searchbox") && bW(bS) && Py) {
+        String bQ = bQ(str);
+        if (!bT(bQ) && nl() && bV("com.baidu.searchbox") && bU(bQ) && Kp) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -112,21 +112,21 @@ public class Static {
         c(tbPageContext, str, str2, z, z2, z3, z4);
     }
 
-    private static boolean bV(String str) {
+    private static boolean bT(String str) {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean pO() {
-        return com.baidu.adp.lib.c.e.gE().ai("switch_mbaidu_startup") == 1;
+    private static boolean nl() {
+        return com.baidu.adp.lib.c.e.cS().Z("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean bW(String str) {
+    private static boolean bU(String str) {
         return str.startsWith("http://") || str.startsWith("https://") || !str.contains("://");
     }
 
-    private static boolean bX(String str) {
+    private static boolean bV(String str) {
         try {
-            PackageInfo packageInfo = TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(str, 1);
+            PackageInfo packageInfo = TbadkCoreApplication.m11getInst().getPackageManager().getPackageInfo(str, 1);
             if (packageInfo == null) {
                 return false;
             }
@@ -137,7 +137,7 @@ public class Static {
     }
 
     private static void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        k kVar = new k(tbPageContext, str, str2, z, z2, z3, z4);
+        l lVar = new l(tbPageContext, str, str2, z, z2, z3, z4);
         String M = f.M(str, null);
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.VIEW");
@@ -147,24 +147,24 @@ public class Static {
         intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
         try {
             try {
-                TbadkCoreApplication.m411getInst().startActivity(intent);
-                kVar.sendEmptyMessageDelayed(1, 2000L);
+                TbadkCoreApplication.m11getInst().startActivity(intent);
+                lVar.sendEmptyMessageDelayed(1, 2000L);
             } catch (ActivityNotFoundException e) {
                 BdLog.e(e);
-                kVar.sendEmptyMessageDelayed(1, 2000L);
+                lVar.sendEmptyMessageDelayed(1, 2000L);
             }
         } catch (Throwable th) {
-            kVar.sendEmptyMessageDelayed(1, 2000L);
+            lVar.sendEmptyMessageDelayed(1, 2000L);
             throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean pP() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningAppProcesses();
+    public static boolean nm() {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m11getInst().getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null && runningAppProcesses.size() > 0) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && !StringUtils.isNull(runningAppProcessInfo.processName) && runningAppProcessInfo.processName.equals(TbadkCoreApplication.m411getInst().getPackageName()) && runningAppProcessInfo.importance == 100) {
+                if (runningAppProcessInfo != null && !StringUtils.isNull(runningAppProcessInfo.processName) && runningAppProcessInfo.processName.equals(TbadkCoreApplication.m11getInst().getPackageName()) && runningAppProcessInfo.importance == 100) {
                     return true;
                 }
             }
@@ -174,20 +174,20 @@ public class Static {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        String bT = bT(str);
+        String bR = bR(str);
         if (z) {
-            com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, new l(tbPageContext, str2, bT), new m(), bT);
+            com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, new m(tbPageContext, str2, bR), new n(), bR);
         } else {
-            f.c(tbPageContext.getPageActivity(), str2, bT);
+            f.c(tbPageContext.getPageActivity(), str2, bR);
         }
     }
 
-    private static void pQ() {
-        bg.wM().a(new n());
+    private static void nn() {
+        bg.us().a(new o());
     }
 
-    private static void pR() {
-        bg.wM().a(new o());
+    private static void no() {
+        bg.us().a(new p());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -225,7 +225,7 @@ public class Static {
         }
     }
 
-    public static boolean bY(String str) {
+    public static boolean bW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

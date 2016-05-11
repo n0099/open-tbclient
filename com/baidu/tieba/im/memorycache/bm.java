@@ -18,13 +18,13 @@ public class bm implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.agR().g(imMessageCenterPojo);
+        b.agY().g(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void d(String str, List<CommonMsgPojo> list) {
+    public void e(String str, List<CommonMsgPojo> list) {
     }
 }

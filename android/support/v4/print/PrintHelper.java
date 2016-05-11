@@ -12,7 +12,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    c lX;
+    c bY;
 
     /* loaded from: classes.dex */
     interface c {
@@ -39,14 +39,14 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class b implements c {
-        int lZ;
+        int ca;
+        int cc;
         int mScaleMode;
-        int ma;
 
         private b() {
             this.mScaleMode = 2;
-            this.lZ = 2;
-            this.ma = 1;
+            this.ca = 2;
+            this.cc = 1;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -56,22 +56,22 @@ public final class PrintHelper {
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.lZ;
+            return this.ca;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.lZ = i;
+            this.ca = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.ma = i;
+            this.cc = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.ma;
+            return this.cc;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -90,90 +90,90 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class a implements c {
-        private final android.support.v4.print.a lY;
+        private final android.support.v4.print.a bZ;
 
         a(Context context) {
-            this.lY = new android.support.v4.print.a(context);
+            this.bZ = new android.support.v4.print.a(context);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setScaleMode(int i) {
-            this.lY.setScaleMode(i);
+            this.bZ.setScaleMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getScaleMode() {
-            return this.lY.getScaleMode();
+            return this.bZ.getScaleMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.lY.setColorMode(i);
+            this.bZ.setColorMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.lY.getColorMode();
+            return this.bZ.getColorMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.lY.setOrientation(i);
+            this.bZ.setOrientation(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.lY.getOrientation();
+            return this.bZ.getOrientation();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Bitmap bitmap) {
-            this.lY.printBitmap(str, bitmap);
+            this.bZ.printBitmap(str, bitmap);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Uri uri) {
-            this.lY.printBitmap(str, uri);
+            this.bZ.printBitmap(str, uri);
         }
     }
 
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
-            this.lX = new a(context);
+            this.bY = new a(context);
         } else {
-            this.lX = new b();
+            this.bY = new b();
         }
     }
 
     public void setScaleMode(int i) {
-        this.lX.setScaleMode(i);
+        this.bY.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.lX.getScaleMode();
+        return this.bY.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.lX.setColorMode(i);
+        this.bY.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.lX.getColorMode();
+        return this.bY.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.lX.setOrientation(i);
+        this.bY.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.lX.getOrientation();
+        return this.bY.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.lX.printBitmap(str, bitmap);
+        this.bY.printBitmap(str, bitmap);
     }
 
     public void printBitmap(String str, Uri uri) {
-        this.lX.printBitmap(str, uri);
+        this.bY.printBitmap(str, uri);
     }
 }

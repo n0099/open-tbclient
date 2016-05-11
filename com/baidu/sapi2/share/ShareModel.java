@@ -11,7 +11,21 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ShareModel implements Parcelable {
-    public static final Parcelable.Creator<ShareModel> CREATOR = new d();
+    public static final Parcelable.Creator<ShareModel> CREATOR = new Parcelable.Creator<ShareModel>() { // from class: com.baidu.sapi2.share.ShareModel.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public ShareModel createFromParcel(Parcel parcel) {
+            return new ShareModel(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public ShareModel[] newArray(int i) {
+            return new ShareModel[i];
+        }
+    };
     private SapiAccount a;
     private List<SapiAccount> b;
     private ShareEvent c;
@@ -22,8 +36,7 @@ public class ShareModel implements Parcelable {
         this.b = new ArrayList();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ShareModel(Parcel parcel) {
+    ShareModel(Parcel parcel) {
         this.b = new ArrayList();
         a(parcel);
     }
@@ -111,14 +124,14 @@ public class ShareModel implements Parcelable {
     public void a(Context context) {
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : a()) {
-            arrayList.add(e.a(context, sapiAccount));
+            arrayList.add(c.a(context, sapiAccount));
         }
         a(arrayList);
         if (this.a != null) {
-            this.a = e.a(context, this.a);
+            this.a = c.a(context, this.a);
         }
         if (!TextUtils.isEmpty(this.d)) {
-            this.d = e.a(context, this.d);
+            this.d = c.a(context, this.d);
         }
     }
 
@@ -126,14 +139,14 @@ public class ShareModel implements Parcelable {
     public void b(Context context) {
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : a()) {
-            arrayList.add(e.b(context, sapiAccount));
+            arrayList.add(c.b(context, sapiAccount));
         }
         a(arrayList);
         if (this.a != null) {
-            this.a = e.b(context, this.a);
+            this.a = c.b(context, this.a);
         }
         if (!TextUtils.isEmpty(this.d)) {
-            this.d = e.b(context, this.d);
+            this.d = c.b(context, this.d);
         }
     }
 

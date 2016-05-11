@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n {
-    private int AX;
-    private int AY;
-    private boolean AZ;
-    private String Ak;
-    private boolean Ba;
-    private int Bb;
-    private int Bc;
-    private boolean Bd;
-    private boolean Be;
+    private String qw;
+    private int rj;
+    private int rk;
+    private boolean rl;
+    private boolean rm;
+    private int ro;
+    private int rp;
+    private boolean rq;
+    private boolean rr;
 
     public n() {
-        this.Ak = null;
-        this.AX = 32768;
-        this.AY = 131072;
-        this.AZ = false;
-        this.Ba = true;
-        this.Bb = 30000;
-        this.Bc = 30000;
-        this.Bd = true;
-        this.Be = true;
-        this.Ak = null;
+        this.qw = null;
+        this.rj = 32768;
+        this.rk = 131072;
+        this.rl = false;
+        this.rm = true;
+        this.ro = 30000;
+        this.rp = 30000;
+        this.rq = true;
+        this.rr = true;
+        this.qw = null;
     }
 
     public n(n nVar) {
-        this.Ak = null;
-        this.AX = nVar.AX;
-        this.AY = nVar.AY;
-        this.AZ = nVar.AZ;
-        this.Ba = nVar.Ba;
-        this.Bb = nVar.Bb;
-        this.Bc = nVar.Bc;
-        this.Bd = nVar.Bd;
-        this.Be = nVar.Be;
-        this.Ak = nVar.Ak;
+        this.qw = null;
+        this.rj = nVar.rj;
+        this.rk = nVar.rk;
+        this.rl = nVar.rl;
+        this.rm = nVar.rm;
+        this.ro = nVar.ro;
+        this.rp = nVar.rp;
+        this.rq = nVar.rq;
+        this.rr = nVar.rr;
+        this.qw = nVar.qw;
     }
 
-    public boolean kh() {
-        return this.AZ;
+    public boolean gu() {
+        return this.rl;
     }
 
-    public int ki() {
-        return this.AX;
+    public int gv() {
+        return this.rj;
     }
 
-    public int kj() {
-        return this.AY;
+    public int gw() {
+        return this.rk;
     }
 
     public boolean getTcpNoDelay() {
-        return this.Ba;
+        return this.rm;
     }
 
-    public int kk() {
-        return this.Bb;
+    public int gx() {
+        return this.ro;
     }
 
-    public int kl() {
-        return this.Bc;
+    public int gy() {
+        return this.rp;
     }
 
-    public boolean km() {
-        return this.Bd;
+    public boolean gz() {
+        return this.rq;
     }
 
-    public boolean kn() {
-        return this.Be;
+    public boolean gA() {
+        return this.rr;
     }
 
-    public String ko() {
-        return this.Ak;
+    public String gB() {
+        return this.qw;
     }
 
-    public void bc(String str) {
-        this.Ak = str;
+    public void aV(String str) {
+        this.qw = str;
     }
 }

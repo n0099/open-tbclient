@@ -1,15 +1,23 @@
 package com.baidu.tieba.frs.h5;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.frs.ep;
 /* loaded from: classes.dex */
-public class k extends x.a {
-    public View Xu;
-    public c bsR;
+class k extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(int i) {
+        super(i);
+    }
 
-    public k(View view, c cVar, View view2) {
-        super(view);
-        this.bsR = cVar;
-        this.Xu = view2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ep)) {
+            ep epVar = (ep) customResponsedMessage.getData();
+            i iVar = new i();
+            iVar.setTag(epVar.aOT);
+            epVar.a(100, iVar);
+        }
     }
 }

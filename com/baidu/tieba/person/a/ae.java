@@ -1,27 +1,31 @@
 package com.baidu.tieba.person.a;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ThMainActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId dvz = BdUniqueId.gen();
-    private boolean isSelf;
-    private List<com.baidu.tbadk.data.h> mPhotoAlbum;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ ad dyh;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return dvz;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(ad adVar) {
+        this.dyh = adVar;
     }
 
-    public List<com.baidu.tbadk.data.h> getPhotoAlbum() {
-        return this.mPhotoAlbum;
-    }
-
-    public void setPhotoAlbum(List<com.baidu.tbadk.data.h> list) {
-        this.mPhotoAlbum = list;
-    }
-
-    public void setSelf(boolean z) {
-        this.isSelf = z;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        context = this.dyh.mContext;
+        if (bl.ac(context)) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context2 = this.dyh.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThMainActivityConfig(context2)));
+        }
     }
 }

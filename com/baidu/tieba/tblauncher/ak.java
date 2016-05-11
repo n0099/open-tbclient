@@ -1,21 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-class ak implements DialogInterface.OnCancelListener {
-    final /* synthetic */ aj etZ;
+class ak implements Runnable {
+    private final /* synthetic */ AccountData Mb;
+    final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.etZ = ajVar;
+    public ak(ab abVar, AccountData accountData) {
+        this.exg = abVar;
+        this.Mb = accountData;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        aa aaVar;
-        MainTabActivity mainTabActivity;
-        aaVar = this.etZ.etY;
-        mainTabActivity = aaVar.etM;
-        mainTabActivity.closeLoadingDialog();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.a.b.b(this.Mb);
     }
 }

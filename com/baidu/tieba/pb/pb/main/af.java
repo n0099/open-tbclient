@@ -1,28 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.t;
 /* loaded from: classes.dex */
-class af extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+class af implements t.b {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public af(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int awo;
-        if ((customResponsedMessage instanceof CustomResponsedMessage) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            awo = this.dht.awo();
-            if (awo != 1) {
-                return;
-            }
-            this.dht.aws();
+    @Override // com.baidu.tbadk.core.view.t.b
+    public void aG(boolean z) {
+        cw cwVar;
+        el elVar;
+        if (this.djE.awM()) {
+            this.djE.finish();
         }
+        cwVar = this.djE.dih;
+        if (!cwVar.gF(true)) {
+            elVar = this.djE.diR;
+            elVar.aze();
+            return;
+        }
+        TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

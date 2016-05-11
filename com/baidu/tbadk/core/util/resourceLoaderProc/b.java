@@ -3,29 +3,29 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private int abD;
-    private boolean adX;
-    private boolean adY;
-    private boolean adZ;
+    private int Xc;
+    private boolean Zv;
+    private boolean Zw;
+    private boolean Zx;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3, int i) {
         this.width = 0;
-        this.adX = true;
-        this.adY = false;
-        this.adZ = false;
-        this.abD = 0;
-        this.adX = z;
-        this.adY = z2;
-        this.adZ = z3;
-        this.abD = i;
-        this.width = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m411getInst().getApp());
+        this.Zv = true;
+        this.Zw = false;
+        this.Zx = false;
+        this.Xc = 0;
+        this.Zv = z;
+        this.Zw = z2;
+        this.Zx = z3;
+        this.Xc = i;
+        this.width = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
             this.width = 644;
         }
-        if (this.width > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 430.0f)) {
-            this.width = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 430.0f);
+        if (this.width > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m11getInst().getApp(), 430.0f)) {
+            this.width = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m11getInst().getApp(), 430.0f);
         }
     }
 
@@ -41,21 +41,21 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.adX;
+        return this.Zv;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xb() {
-        return this.adZ;
+    public boolean uH() {
+        return this.Zx;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xc() {
-        return this.adY;
+    public boolean uI() {
+        return this.Zw;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int xd() {
-        return this.abD;
+    public int uJ() {
+        return this.Xc;
     }
 }

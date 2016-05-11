@@ -11,17 +11,17 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ u cmJ;
-    private final /* synthetic */ ImMessageCenterPojo cmK;
-    private final /* synthetic */ ChatMessage cmL;
-    private final /* synthetic */ SocketResponsedMessage cmM;
+    final /* synthetic */ u cnG;
+    private final /* synthetic */ ImMessageCenterPojo cnH;
+    private final /* synthetic */ ChatMessage cnI;
+    private final /* synthetic */ SocketResponsedMessage cnJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.cmJ = uVar;
-        this.cmK = imMessageCenterPojo;
-        this.cmL = chatMessage;
-        this.cmM = socketResponsedMessage;
+        this.cnG = uVar;
+        this.cnH = imMessageCenterPojo;
+        this.cnI = chatMessage;
+        this.cnJ = socketResponsedMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -31,13 +31,13 @@ public class v implements CustomMessageTask.CustomRunnable<String> {
         }
         try {
             com.baidu.tieba.im.db.g.aet().aeu();
-            com.baidu.tieba.im.db.i.aey().a(this.cmK, 3);
-            com.baidu.tieba.im.db.c.aep().c(this.cmL.getGroupId(), String.valueOf(this.cmL.getRecordId()), String.valueOf(this.cmL.getMsgId()), this.cmL.getLocalData().getStatus().shortValue());
+            com.baidu.tieba.im.db.i.aex().a(this.cnH, 3);
+            com.baidu.tieba.im.db.c.aep().b(this.cnI.getGroupId(), String.valueOf(this.cnI.getRecordId()), String.valueOf(this.cnI.getMsgId()), this.cnI.getLocalData().getStatus().shortValue());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
             com.baidu.tieba.im.db.g.aet().endTransaction();
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cmM);
+        return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cnJ);
     }
 }

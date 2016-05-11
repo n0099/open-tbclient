@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class k extends a {
-    private int abD;
+    private int Xc;
 
     public k(int i) {
-        this.abD = 0;
-        this.abD = i;
+        this.Xc = 0;
+        this.Xc = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xb() {
+    public boolean uH() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xc() {
+    public boolean uI() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dO(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dL(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -56,7 +56,7 @@ public class k extends a {
         cVar.h(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.getRect());
+            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.cc());
         }
         return null;
     }
@@ -68,7 +68,7 @@ public class k extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean e(Bitmap bitmap) {
+    public boolean d(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int xd() {
-        return this.abD;
+    public int uJ() {
+        return this.Xc;
     }
 }

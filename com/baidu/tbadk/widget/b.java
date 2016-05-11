@@ -5,29 +5,29 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Handler.Callback {
-    final /* synthetic */ a aFj;
+    final /* synthetic */ a aBt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aFj = aVar;
+        this.aBt = aVar;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.aFj.HN();
+                this.aBt.FY();
                 break;
             case 1:
-                if (this.aFj.aFi) {
-                    this.aFj.HN();
+                if (this.aBt.aBs) {
+                    this.aBt.FY();
                     break;
                 }
                 break;
             case 2:
-                this.aFj.invalidate();
-                this.aFj.aFh = System.currentTimeMillis();
-                this.aFj.mHandler.sendEmptyMessage(0);
+                this.aBt.invalidate();
+                this.aBt.aBr = System.currentTimeMillis();
+                this.aBt.mHandler.sendEmptyMessage(0);
                 break;
         }
         return false;

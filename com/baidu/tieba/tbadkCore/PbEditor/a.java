@@ -6,31 +6,31 @@ import com.baidu.tbadk.core.util.bf;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static String aSC() {
+    private static String aTb() {
         return "key_baobao_count" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String aSD() {
+    private static String aTc() {
         return "key_baobao_last_time" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public static boolean aSE() {
-        return !bf.c(new Date(System.currentTimeMillis()), new Date(b.vk().getLong(aSD(), 0L))) || b.vk().getInt(aSC(), 0) < 3;
+    public static boolean aTd() {
+        return !bf.c(new Date(System.currentTimeMillis()), new Date(b.sQ().getLong(aTc(), 0L))) || b.sQ().getInt(aTb(), 0) < 3;
     }
 
-    public static void aSF() {
-        b.vk().putBoolean("key_baobao_tip_pb", true);
+    public static void aTe() {
+        b.sQ().putBoolean("key_baobao_tip_pb", true);
     }
 
-    public static void aSG() {
+    public static void aTf() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = b.vk().getLong(aSD(), 0L);
-        b.vk().putLong(aSD(), currentTimeMillis);
-        int i = b.vk().getInt(aSC(), 0);
+        long j = b.sQ().getLong(aTc(), 0L);
+        b.sQ().putLong(aTc(), currentTimeMillis);
+        int i = b.sQ().getInt(aTb(), 0);
         if (bf.c(new Date(currentTimeMillis), new Date(j))) {
-            b.vk().putInt(aSC(), i + 1);
+            b.sQ().putInt(aTb(), i + 1);
         } else {
-            b.vk().putInt(aSC(), 1);
+            b.sQ().putInt(aTb(), 1);
         }
     }
 }

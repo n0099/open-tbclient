@@ -16,25 +16,25 @@ class k extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case CmdConfigCustom.METHOD_START_SYNC /* 2005009 */:
-                    TbadkCoreApplication.m411getInst().startSyncService();
+                    TbadkCoreApplication.m11getInst().startSyncService();
                     return;
                 case CmdConfigCustom.METHOD_STOP_SYNC /* 2005010 */:
-                    TbadkCoreApplication.m411getInst().stopSyncService();
+                    TbadkCoreApplication.m11getInst().stopSyncService();
                     return;
                 case CmdConfigCustom.METHOD_START_ACTIVE /* 2005011 */:
-                    TbadkCoreApplication.m411getInst().startActiveService();
+                    TbadkCoreApplication.m11getInst().startActiveService();
                     return;
                 case CmdConfigCustom.METHOD_STOP_ACTIVE /* 2005012 */:
-                    TbadkCoreApplication.m411getInst().stopActiveServide();
+                    TbadkCoreApplication.m11getInst().stopActiveServide();
                     return;
                 case CmdConfigCustom.METHOD_START_CLEARTEMP /* 2005013 */:
-                    TbadkCoreApplication.m411getInst().startClearTempService();
+                    TbadkCoreApplication.m11getInst().startClearTempService();
                     return;
                 case CmdConfigCustom.METHOD_IM_MESSAGE_CACHE_INITED /* 2005014 */:
                 default:
                     return;
                 case CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED /* 2005015 */:
-                    TbadkCoreApplication.m411getInst().startSyncLoginService();
+                    TbadkCoreApplication.m11getInst().startSyncLoginService();
                     return;
             }
         }

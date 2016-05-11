@@ -8,11 +8,13 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class SubPbActivityConfig extends IntentConfig {
+    public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
     public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
@@ -66,6 +68,23 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_USER_IDENTITY, i);
         intent.putExtra(KEY_TAIL, smallTailInfo);
         intent.putExtra("anti", antiData);
+        intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
+        return this;
+    }
+
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, String str4, boolean z2, String str5, int i, SmallTailInfo smallTailInfo, AntiData antiData, boolean z3, ArrayList<IconData> arrayList) {
+        Intent intent = getIntent();
+        intent.putExtra("thread_id", str);
+        intent.putExtra("post_id", str2);
+        intent.putExtra("st_type", str3);
+        intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
+        intent.putExtra(KEY_SHOW_KEYBOARD, z2);
+        intent.putExtra(KEY_REPLAY_NAME, str4);
+        intent.putExtra(KEY_REPLAY_POST_ID, str5);
+        intent.putExtra(KEY_USER_IDENTITY, i);
+        intent.putExtra(KEY_TAIL, smallTailInfo);
+        intent.putExtra("anti", antiData);
+        intent.putExtra(ICON_LIST, arrayList);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
         return this;
     }

@@ -1,54 +1,37 @@
 package com.baidu.tieba.person;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements c.b {
-    final /* synthetic */ PersonChangeActivity dth;
-    private final /* synthetic */ String dti;
-    private final /* synthetic */ String dtj;
+    final /* synthetic */ PersonChangeActivity dwD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.dth = personChangeActivity;
-        this.dti = str;
-        this.dtj = str2;
+    public am(PersonChangeActivity personChangeActivity) {
+        this.dwD = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        TextView textView;
-        int i2;
-        View view2;
-        TextView textView2;
-        TextView textView3;
-        TextView textView4;
-        cVar.dismiss();
+        WriteImagesInfo writeImagesInfo;
         if (i == 0) {
-            this.dth.mSex = 1;
-            textView4 = this.dth.dsQ;
-            textView4.setText(this.dti);
+            Activity pageActivity = this.dwD.getPageContext().getPageActivity();
+            writeImagesInfo = this.dwD.dwh;
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) pageActivity, writeImagesInfo.toJsonString(), true);
+            albumActivityConfig.setRequestCode(12002);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
         } else if (i == 1) {
-            this.dth.mSex = 2;
-            textView = this.dth.dsQ;
-            textView.setText(this.dtj);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.dwD.getPageContext().getPageActivity(), 12014)));
         }
-        this.dth.aBm();
-        i2 = this.dth.mSex;
-        if (i2 != this.dth.dsY.aBt().getSex()) {
-            view2 = this.dth.dsM;
-            view2.setEnabled(true);
-            if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView3 = this.dth.cjl;
-                com.baidu.tbadk.core.util.at.b(textView3, t.d.navi_op_text, 1);
-                return;
-            }
-            textView2 = this.dth.cjl;
-            com.baidu.tbadk.core.util.at.b(textView2, t.d.cp_link_tip_a, 1);
-        }
+        cVar.dismiss();
     }
 }

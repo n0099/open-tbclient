@@ -1,42 +1,75 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.c.c;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class am extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+class am implements c.InterfaceC0053c {
+    final int bhm;
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public am(PbActivity pbActivity) {
+        this.djE = pbActivity;
+        this.bhm = (int) pbActivity.getResources().getDimension(t.e.ds98);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        df dfVar;
-        com.baidu.tbadk.editortools.d.e eVar;
-        eu euVar;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        eu euVar2;
-        eu euVar3;
-        com.baidu.tbadk.editortools.d.e eVar3;
-        dfVar = this.dht.dfV;
-        if (dfVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            eVar = this.dht.dgP;
-            if (eVar != null) {
-                euVar3 = this.dht.dgF;
-                eVar3 = this.dht.dgP;
-                euVar3.eL(eVar3.DT());
+    @Override // com.baidu.tieba.c.c.InterfaceC0053c
+    public void O(int i, int i2) {
+        el elVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        el elVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (v(i2)) {
+            elVar = this.djE.diR;
+            if (elVar != null) {
+                fVar = this.djE.diy;
+                if (fVar != null) {
+                    elVar2 = this.djE.diR;
+                    elVar2.azA();
+                    fVar2 = this.djE.diy;
+                    fVar2.cX(false);
+                    fVar3 = this.djE.diy;
+                    fVar3.RS();
+                }
             }
-            euVar = this.dht.dgF;
-            euVar.ayk();
-            eVar2 = this.dht.dgP;
-            eVar2.DW();
-            euVar2 = this.dht.dgF;
-            euVar2.amI();
         }
+    }
+
+    @Override // com.baidu.tieba.c.c.InterfaceC0053c
+    public void P(int i, int i2) {
+        el elVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        el elVar2;
+        el elVar3;
+        el elVar4;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (v(i2)) {
+            elVar = this.djE.diR;
+            if (elVar != null) {
+                fVar = this.djE.diy;
+                if (fVar != null) {
+                    fVar2 = this.djE.diy;
+                    fVar2.cX(true);
+                    if (Math.abs(i2) > this.bhm) {
+                        elVar4 = this.djE.diR;
+                        elVar4.azz();
+                        fVar3 = this.djE.diy;
+                        fVar3.RR();
+                    }
+                    if (this.djE.awM()) {
+                        elVar2 = this.djE.diR;
+                        elVar2.ayN();
+                        elVar3 = this.djE.diR;
+                        elVar3.ayO();
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean v(float f) {
+        return Math.abs(f) >= 1.0f;
     }
 }

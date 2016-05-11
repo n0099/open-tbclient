@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class r extends n {
-    private long dWV;
-    private int dXe = -1;
+    private long eae;
+    private int ean = -1;
 
     @Override // com.baidu.tieba.recommendfrs.data.n, com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -15,17 +15,17 @@ public class r extends n {
         if ((message instanceof GodFeedResIdl) && (godFeedResIdl = (GodFeedResIdl) message) != null && godFeedResIdl.error != null && godFeedResIdl.error.errorno.intValue() == 0 && godFeedResIdl.data != null) {
             this.mHasMore = godFeedResIdl.data.has_more.intValue() == 1;
             this.pn = godFeedResIdl.data.pn.intValue();
-            this.dWV = godFeedResIdl.data.timeline.longValue();
+            this.eae = godFeedResIdl.data.timeline.longValue();
             if (godFeedResIdl.data.thread_list != null) {
-                this.dWY = new ArrayList();
-                this.dWY.addAll(godFeedResIdl.data.thread_list);
+                this.eah = new ArrayList();
+                this.eah.addAll(godFeedResIdl.data.thread_list);
             }
-            this.dXe = godFeedResIdl.data.has_attention_god.intValue();
+            this.ean = godFeedResIdl.data.has_attention_god.intValue();
         }
     }
 
     @Override // com.baidu.tieba.recommendfrs.data.n, com.baidu.tbadk.mvc.b.b
-    public boolean x(byte[] bArr) {
+    public boolean w(byte[] bArr) {
         try {
             a((GodFeedResIdl) new Wire(new Class[0]).parseFrom(bArr, GodFeedResIdl.class));
         } catch (Exception e) {
@@ -34,11 +34,11 @@ public class r extends n {
         return false;
     }
 
-    public long aMh() {
-        return this.dWV;
+    public long aMs() {
+        return this.eae;
     }
 
-    public int aMt() {
-        return this.dXe;
+    public int aME() {
+        return this.ean;
     }
 }

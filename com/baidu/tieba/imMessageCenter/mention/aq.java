@@ -1,27 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class aq implements View.OnClickListener {
-    final /* synthetic */ am cxS;
+    final /* synthetic */ an cyR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(am amVar) {
-        this.cxS = amVar;
+    public aq(an anVar) {
+        this.cyR = anVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int i;
-        ViewEventCenter oy;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.cxS.getData(), null, null);
-        bVar.setView(this.cxS.getRootView());
-        i = this.cxS.position;
-        bVar.eW(i);
-        oy = this.cxS.oy();
-        oy.dispatchMvcEvent(bVar);
-        TiebaStatic.log("c10096");
+        com.baidu.tbadk.mvc.c.b bVar;
+        ViewEventCenter kL;
+        FeedData data = this.cyR.getData();
+        if (data != null && FeedData.TYPE_GRAFFITI.equals(data.getPraiseItemType())) {
+            bVar = new com.baidu.tbadk.mvc.c.b(9487, data, null, null);
+        } else {
+            bVar = new com.baidu.tbadk.mvc.c.b(9484, data, null, null);
+        }
+        kL = this.cyR.kL();
+        kL.dispatchMvcEvent(bVar);
     }
 }

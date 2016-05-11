@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
-    public static int jS(int i) {
+    public static int jx(int i) {
         switch (i) {
             case 1:
                 return -2;
@@ -24,10 +24,10 @@ public class a {
             case 23:
             case 24:
             case 25:
-            case 26:
+            case TbConfig.NOTIFY_FANS_NEW_ID /* 26 */:
             case 27:
             case 28:
-            case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
+            case 29:
             default:
                 return 1;
             case 6:

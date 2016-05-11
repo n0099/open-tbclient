@@ -10,7 +10,7 @@ public class CreateBarActivityConfig extends IntentConfig {
 
     public CreateBarActivityConfig(Context context, String str, boolean z) {
         super(context);
-        getIntent().putExtra(BAR_NAME_STRING, str);
-        getIntent().putExtra(BAR_NAME_ISVALID, z);
+        getIntent().putExtra("barname", str);
+        getIntent().putExtra("isvalid", z);
     }
 }

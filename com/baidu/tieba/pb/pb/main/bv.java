@@ -1,40 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.gif.GifView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bv implements com.baidu.adp.lib.f.c<GifView> {
-    final /* synthetic */ PbActivity dht;
+class bv extends CustomMessageListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(PbActivity pbActivity) {
-        this.dht = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bv(PbActivity pbActivity, int i) {
+        super(i);
+        this.djE = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: awL */
-    public GifView hq() {
-        return new GifView(this.dht.getPageContext().getPageActivity());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: g */
-    public void l(GifView gifView) {
-        gifView.onDestroy();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: h */
-    public GifView m(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: i */
-    public GifView n(GifView gifView) {
-        return gifView;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        el elVar;
+        el elVar2;
+        elVar = this.djE.diR;
+        if (elVar != null) {
+            elVar2 = this.djE.diR;
+            elVar2.awf();
+        }
     }
 }

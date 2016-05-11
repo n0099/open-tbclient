@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String nF = null;
-    private static volatile SQLiteDatabase nB = null;
-    public static HashMap<String, SQLiteDatabase> ceF = new HashMap<>();
+    private static String dB = null;
+    private static volatile SQLiteDatabase dx = null;
+    public static HashMap<String, SQLiteDatabase> cfl = new HashMap<>();
 
     public static synchronized SQLiteDatabase aer() {
         SQLiteDatabase sQLiteDatabase;
@@ -26,18 +26,18 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (ceF.containsKey(str)) {
-                    sQLiteDatabase = ceF.get(str);
-                } else if (nB != null && str.equals(nF) && nB.isOpen()) {
-                    sQLiteDatabase = nB;
+                if (cfl.containsKey(str)) {
+                    sQLiteDatabase = cfl.get(str);
+                } else if (dx != null && str.equals(dB) && dx.isOpen()) {
+                    sQLiteDatabase = dx;
                 } else {
-                    if (nB != null) {
-                        com.baidu.adp.lib.util.o.h(nB);
+                    if (dx != null) {
+                        com.baidu.adp.lib.util.o.h(dx);
                     }
-                    e eVar = new e(TbadkCoreApplication.m411getInst().getApp(), str);
-                    nF = str;
-                    nB = eVar.getWritableDatabase();
-                    sQLiteDatabase = nB;
+                    e eVar = new e(TbadkCoreApplication.m11getInst().getApp(), str);
+                    dB = str;
+                    dx = eVar.getWritableDatabase();
+                    sQLiteDatabase = dx;
                 }
             }
         }
@@ -92,7 +92,7 @@ public class f {
         return linkedList;
     }
 
-    public static void ji(String str) {
+    public static void jk(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 g.aet().aeu();

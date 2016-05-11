@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class u {
-    private static boolean nO(String str) {
-        String[] stringArray = TbadkCoreApplication.m411getInst().getApp().getResources().getStringArray(t.b.voice_black_frs_list);
-        String string = TbadkCoreApplication.m411getInst().getApp().getResources().getString(t.j.forum);
+    private static boolean nN(String str) {
+        String[] stringArray = TbadkCoreApplication.m11getInst().getApp().getResources().getStringArray(t.b.voice_black_frs_list);
+        String string = TbadkCoreApplication.m11getInst().getApp().getResources().getString(t.j.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
             if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
@@ -17,8 +17,8 @@ public class u {
     }
 
     public static boolean a(String str, Boolean bool) {
-        if (com.baidu.adp.lib.c.e.gE().ai("voice") == 0) {
-            if ((str == null || !nO(str)) && bool != null) {
+        if (com.baidu.adp.lib.c.e.cS().Z("voice") == 0) {
+            if ((str == null || !nN(str)) && bool != null) {
                 return bool.booleanValue();
             }
             return false;

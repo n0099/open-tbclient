@@ -1,36 +1,27 @@
 package com.baidu.tieba.person.b;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.person.god.view.PersonInfoBaseGodView;
-import com.baidu.tieba.person.god.view.PersonInfoGodEnterView;
-import com.baidu.tieba.person.view.PersonInfoEnterItemView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class d extends x.a {
-    public int aik;
-    public PersonInfoBaseGodView dyj;
-    public PersonInfoGodEnterView dyk;
-    public LinearLayout dyl;
-    public PersonInfoEnterItemView dym;
-    public PersonInfoEnterItemView dyn;
-    public PersonInfoEnterItemView dyo;
-    public PersonInfoEnterItemView dyp;
-    public PersonInfoEnterItemView dyq;
-    public PersonInfoEnterItemView dyr;
+public class d extends y.a {
+    public int aej;
+    public RelativeLayout dBm;
+    public TextView dBn;
+    public TextView dBo;
+    public TextView dBp;
+    public ImageView dBq;
 
     public d(View view) {
         super(view);
-        this.aik = 3;
-        this.dyl = (LinearLayout) view.findViewById(t.g.normal_root_layout);
-        this.dym = (PersonInfoEnterItemView) view.findViewById(t.g.enter_histroy);
-        this.dyn = (PersonInfoEnterItemView) view.findViewById(t.g.enter_collect);
-        this.dyo = (PersonInfoEnterItemView) view.findViewById(t.g.enter_attention);
-        this.dyp = (PersonInfoEnterItemView) view.findViewById(t.g.enter_fans);
-        this.dyq = (PersonInfoEnterItemView) view.findViewById(t.g.enter_friends);
-        this.dyr = (PersonInfoEnterItemView) view.findViewById(t.g.enter_feeds);
-        this.dyj = (PersonInfoBaseGodView) view.findViewById(t.g.base_god_info);
-        this.dyk = (PersonInfoGodEnterView) view.findViewById(t.g.menbership_view);
+        this.aej = 3;
+        this.dBm = (RelativeLayout) view;
+        this.dBn = (TextView) view.findViewById(t.g.attention_title);
+        this.dBo = (TextView) view.findViewById(t.g.attention_num);
+        this.dBp = (TextView) view.findViewById(t.g.attention_none_msg);
+        this.dBq = (ImageView) view.findViewById(t.g.bar_head_arrow);
     }
 }

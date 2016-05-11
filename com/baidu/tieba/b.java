@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ LogoActivity aKF;
+    final /* synthetic */ LogoActivity aGQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(LogoActivity logoActivity, int i) {
         super(i);
-        this.aKF = logoActivity;
+        this.aGQ = logoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,10 +28,10 @@ class b extends CustomMessageListener {
                 intent.putExtra("jump_url", (String) data);
                 intent.putExtra("is_ad", true);
                 TbadkCoreApplication.setIntent(intent);
-                com.baidu.adp.lib.h.h hx = com.baidu.adp.lib.h.h.hx();
-                aVar = this.aKF.aKy;
-                hx.removeCallbacks(aVar);
-                this.aKF.Jr();
+                com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
+                aVar = this.aGQ.aGJ;
+                dL.removeCallbacks(aVar);
+                this.aGQ.HI();
             }
         }
     }

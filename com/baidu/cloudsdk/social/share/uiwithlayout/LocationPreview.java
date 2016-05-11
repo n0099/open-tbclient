@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.p;
 import com.q;
 import com.s;
@@ -43,7 +44,7 @@ public class LocationPreview extends RelativeLayout {
     public void a(Location location) {
         RequestParams requestParams = new RequestParams();
         requestParams.put("ak", "DCd116338281e46e7ea5586305033afd");
-        requestParams.put("location", String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude()));
+        requestParams.put(ThActivityDetailActivityConfig.LOCATION, String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude()));
         requestParams.put("output", "json");
         requestParams.put("pois", "1");
         new AsyncHttpClient().get(getContext(), "http://api.map.baidu.com/geocoder/v2/", requestParams, new s(this, requestParams));

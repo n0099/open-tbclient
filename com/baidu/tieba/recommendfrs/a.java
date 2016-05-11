@@ -3,42 +3,30 @@ package com.baidu.tieba.recommendfrs;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a dUQ = new a();
-    private long dUR = 0;
-    private SparseArray<Long> dUS = new SparseArray<>();
-    private SparseArray<Long> dUT = new SparseArray<>();
-    private SparseArray<Long> dUU = new SparseArray<>();
-    private SparseArray<Long> dUV = new SparseArray<>();
+    private static a dXI = new a();
+    private long dXJ = 0;
+    private SparseArray<Long> dXK = new SparseArray<>();
+    private SparseArray<Long> dXL = new SparseArray<>();
+    private SparseArray<Long> dXM = new SparseArray<>();
+    private SparseArray<Long> dXN = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aLJ() {
-        return dUQ;
+    public static a aLN() {
+        return dXI;
     }
 
     public long getCreateTime() {
-        return this.dUR;
+        return this.dXJ;
     }
 
     public void setCreateTime(long j) {
-        this.dUR = j;
+        this.dXJ = j;
     }
 
-    public long ot(int i) {
-        Long l = this.dUT.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void q(long j, int i) {
-        this.dUT.put(i, Long.valueOf(j));
-    }
-
-    public long ou(int i) {
-        Long l = this.dUS.get(i);
+    public long oj(int i) {
+        Long l = this.dXL.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +34,11 @@ public class a {
     }
 
     public void r(long j, int i) {
-        this.dUS.put(i, Long.valueOf(j));
+        this.dXL.put(i, Long.valueOf(j));
     }
 
-    public long ov(int i) {
-        Long l = this.dUU.get(i);
+    public long ok(int i) {
+        Long l = this.dXK.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +46,11 @@ public class a {
     }
 
     public void s(long j, int i) {
-        this.dUU.put(i, Long.valueOf(j));
+        this.dXK.put(i, Long.valueOf(j));
     }
 
-    public long ow(int i) {
-        Long l = this.dUV.get(i);
+    public long ol(int i) {
+        Long l = this.dXM.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +58,18 @@ public class a {
     }
 
     public void t(long j, int i) {
-        this.dUV.put(i, Long.valueOf(j));
+        this.dXM.put(i, Long.valueOf(j));
+    }
+
+    public long om(int i) {
+        Long l = this.dXN.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void u(long j, int i) {
+        this.dXN.put(i, Long.valueOf(j));
     }
 }

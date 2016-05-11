@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class PluginNative {
+    public static final String PLUGIN_NATIVE_HOOK_LIB = "pluginhook";
     public static boolean bLoadLibrary;
 
     public static native int hookdvmResolveClass();
@@ -16,6 +17,6 @@ public class PluginNative {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.iR().i("pluginhook", 2);
+        bLoadLibrary = com.baidu.adp.lib.util.g.fc().i(PLUGIN_NATIVE_HOOK_LIB, 2);
     }
 }

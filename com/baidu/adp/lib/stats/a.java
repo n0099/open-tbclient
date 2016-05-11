@@ -5,86 +5,92 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.Address;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.b.j;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.stats.switchs.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.t;
 import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
+import com.baidu.tieba.compatible.EditorHelper;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    private String mA;
     private String mAppVersion;
+    private String mB;
     private Context mContext;
-    private String wF;
-    private String wG;
-    private String wH;
-    private boolean wI;
-    private e wK;
-    private C0007a wL;
-    private static a wE = null;
+    private String mD;
+    private boolean mE;
+    private e mG;
+    private C0007a mH;
+    private static a mz = null;
     private static final Handler mHandler = new b();
-    private boolean wJ = false;
-    private a.InterfaceC0008a wM = new c(this);
+    private boolean mF = false;
+    private a.InterfaceC0008a mI = new c(this);
 
-    public static a hz() {
-        if (wE == null) {
+    public static a dN() {
+        if (mz == null) {
             synchronized (a.class) {
-                if (wE == null) {
-                    wE = new a();
+                if (mz == null) {
+                    mz = new a();
                 }
             }
         }
-        return wE;
+        return mz;
     }
 
-    public e hA() {
-        return this.wK;
+    public e dO() {
+        return this.mG;
     }
 
     public void a(Context context, boolean z, String str, String str2, String str3, String str4, f fVar, e eVar) {
         this.mContext = context;
-        this.wG = str3;
-        this.wH = String.valueOf(this.wG) + "/notUpload";
-        this.wI = z;
-        this.wK = eVar;
-        com.baidu.adp.lib.Disk.d.fs().L(str2);
-        com.baidu.adp.lib.stats.switchs.a.ix().a(z, str, this.mContext, this.wM);
-        com.baidu.adp.lib.stats.upload.b.iD().a(fVar, str4);
-        com.baidu.adp.lib.stats.b.i.iF().init();
+        this.mB = str3;
+        this.mD = String.valueOf(this.mB) + "/notUpload";
+        this.mE = z;
+        this.mG = eVar;
+        com.baidu.adp.lib.Disk.d.bG().C(str2);
+        com.baidu.adp.lib.stats.switchs.a.eI().a(z, str, this.mContext, this.mI);
+        com.baidu.adp.lib.stats.upload.b.eO().a(fVar, str4);
+        j.eQ().init();
         if (fVar != null) {
             this.mAppVersion = fVar.mAppVersion;
         }
-        if (TextUtils.isEmpty(this.wF)) {
-            this.wF = hC();
-            if (z && this.wF == null) {
-                this.wF = "44f94582";
+        if (TextUtils.isEmpty(this.mA)) {
+            this.mA = dQ();
+            if (z && this.mA == null) {
+                this.mA = "44f94582";
             }
         }
         try {
-            if (this.wL == null && this.mContext != null) {
-                this.wL = new C0007a(this, null);
+            if (this.mH == null && this.mContext != null) {
+                this.mH = new C0007a(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.multiproceess.uploadallfile");
-                this.mContext.registerReceiver(this.wL, intentFilter);
+                intentFilter.addAction("com.baidu.adp.stats.upload.alertlog");
+                this.mContext.registerReceiver(this.mH, intentFilter);
             }
         } catch (Exception e) {
             BdLog.e(e);
         }
-        hK();
+        dY();
     }
 
-    public long hB() {
-        return com.baidu.adp.lib.stats.a.a.iw().hB();
+    public long dP() {
+        return com.baidu.adp.lib.stats.a.a.eH().dP();
     }
 
-    private String hC() {
+    private String dQ() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;
@@ -102,11 +108,11 @@ public class a {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String l = t.l(str.getBytes("UTF-8"));
-                            if (!TextUtils.isEmpty(l) && l.length() > 8) {
-                                return l.substring(l.length() - 8);
+                            String md5 = t.toMd5(str.getBytes("UTF-8"));
+                            if (!TextUtils.isEmpty(md5) && md5.length() > 8) {
+                                return md5.substring(md5.length() - 8);
                             }
-                            return l;
+                            return md5;
                         } catch (UnsupportedEncodingException e) {
                             BdLog.e(e.getMessage());
                             return str;
@@ -119,34 +125,34 @@ public class a {
         return null;
     }
 
-    public String hD() {
-        return this.wG;
+    public String dR() {
+        return this.mB;
     }
 
-    public String hE() {
-        return this.wH;
+    public String dS() {
+        return this.mD;
     }
 
-    public String hF() {
-        return this.wF;
+    public String dT() {
+        return this.mA;
     }
 
     public void f(String str, String str2, String str3) {
-        com.baidu.adp.lib.stats.upload.b.iD().f(str, str2, str3);
+        com.baidu.adp.lib.stats.upload.b.eO().f(str, str2, str3);
     }
 
     public void save() {
-        com.baidu.adp.lib.stats.b.i.iF().iG();
+        j.eQ().eR();
     }
 
-    public boolean hG() {
-        return this.wI;
+    public boolean dU() {
+        return this.mE;
     }
 
     public void a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
         if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null) {
-            hI();
-            com.baidu.adp.lib.stats.switchs.a.ix().b(str, str2, bdUploadStatMsgData);
+            dW();
+            com.baidu.adp.lib.stats.switchs.a.eI().b(str, str2, bdUploadStatMsgData);
         }
     }
 
@@ -162,23 +168,34 @@ public class a {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && "com.baidu.adp.stats.uploadallfile".equals(intent.getAction()) && !a.this.wI) {
-                com.baidu.adp.lib.stats.b.i.iF().iJ();
+            if (intent != null) {
+                String action = intent.getAction();
+                if ("com.baidu.adp.stats.uploadallfile".equals(action) && !a.this.mE) {
+                    j.eQ().eU();
+                }
+                if ("com.baidu.adp.stats.upload.alertlog".equals(action) && a.this.mE) {
+                    Bundle extras = intent.getExtras();
+                    String string = extras.getString("alert_type");
+                    String string2 = extras.getString("alert_log");
+                    if (!TextUtils.isEmpty(string)) {
+                        a.this.p(string, string2);
+                    }
+                }
             }
         }
     }
 
-    public void aq(String str) {
-        com.baidu.adp.lib.stats.b.i.iF().d(com.baidu.adp.lib.stats.b.i.iF().s(str, null));
+    public void ah(String str) {
+        j.eQ().d(j.eQ().r(str, null));
     }
 
-    public void hH() {
-        com.baidu.adp.lib.stats.b.i.iF().iH();
+    public void dV() {
+        j.eQ().eS();
     }
 
-    public void hI() {
-        com.baidu.adp.lib.stats.b.i.iF().iJ();
-        if (this.wI) {
+    public void dW() {
+        j.eQ().eU();
+        if (this.mE) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
             this.mContext.sendBroadcast(intent);
@@ -186,17 +203,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hJ() {
-        com.baidu.adp.lib.stats.b.i.iF().iL();
+    public void dX() {
+        j.eQ().eW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hK() {
+    public void dY() {
         mHandler.removeMessages(1);
         mHandler.sendMessageDelayed(mHandler.obtainMessage(1), 3600000L);
     }
 
-    public void ar(String str) {
+    public void ai(String str) {
         if (!TextUtils.isEmpty(str)) {
             new BdStatSwitchData().parserJson(str);
         }
@@ -204,9 +221,9 @@ public class a {
 
     public void a(String str, d dVar) {
         if (dVar != null) {
-            Address b = com.baidu.adp.lib.e.a.gL().b(false, false);
+            Address b = com.baidu.adp.lib.e.a.cZ().b(false, false);
             if (b != null) {
-                dVar.r("location", b.getLocality());
+                dVar.q(ThActivityDetailActivityConfig.LOCATION, b.getLocality());
             }
             a("pfmonitor", str, -1L, (String) null, dVar, new Object[0]);
         }
@@ -238,42 +255,104 @@ public class a {
         a("error", str, j, str2, (d) null, objArr);
     }
 
+    public void p(String str, String str2) {
+        BdLog.i("type = " + str + "; log = " + str2);
+        if (!TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str2) && str2.getBytes().length > 524288) {
+                str2 = str2.substring(0, 1024);
+            }
+            if (dU()) {
+                c(str, str2, null);
+                return;
+            }
+            Intent intent = new Intent("com.baidu.adp.stats.upload.alertlog");
+            intent.setPackage(BdBaseApplication.getInst().getPackageName());
+            intent.putExtra("alert_type", str);
+            intent.putExtra("alert_log", str2);
+            if (this.mContext != null) {
+                this.mContext.sendBroadcast(intent);
+                BdLog.i("not MainProcess");
+                return;
+            }
+            BdLog.e("mContext == null");
+        }
+    }
+
+    private void c(String str, String str2, Object[] objArr) {
+        if (com.baidu.adp.lib.stats.switchs.a.eI().isUpload("alert", str) && !aj(str)) {
+            ak(str);
+            com.baidu.adp.lib.stats.base.a r = j.eQ().r("alert", null);
+            d dVar = new d("alert");
+            dVar.q("module", "alert");
+            if (!TextUtils.isEmpty(str)) {
+                dVar.q("st", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                dVar.q("alert_log", str2);
+            }
+            dVar.q(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+            if (objArr != null && objArr.length > 0) {
+                dVar.b(objArr);
+            }
+            r.a(dVar);
+            BdLog.i("alert item = " + dVar.toString());
+            com.baidu.adp.lib.stats.upload.b.eO().a(r, dVar.toString());
+        }
+    }
+
+    private boolean aj(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return System.currentTimeMillis() - cO().getLong(str, 0L) < ((long) (((com.baidu.adp.lib.stats.switchs.a.eI().geUploadCycle(str, 24) * 60) * 60) * 1000));
+    }
+
+    private void ak(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            EditorHelper.putLong(cO(), str, System.currentTimeMillis());
+        }
+    }
+
+    private SharedPreferences cO() {
+        return BdBaseApplication.getInst().getSharedPreferences("alert", 0);
+    }
+
     public void eventStat(Context context, String str, String str2, int i, Object... objArr) {
         d dVar = new d("stat");
-        dVar.r("module", "stat");
+        dVar.q("module", "stat");
         if (!TextUtils.isEmpty(str)) {
-            dVar.r("op_key", str);
+            dVar.q("op_key", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            dVar.r("pt", str2);
+            dVar.q("pt", str2);
         }
-        dVar.r("co", String.valueOf(i));
-        dVar.r(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+        dVar.q("co", String.valueOf(i));
+        dVar.q(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             dVar.b(objArr);
-            dVar.b("mi", 0);
+            dVar.a("mi", 0);
         }
         a("stat", (String) null, -1L, (String) null, dVar, new Object[0]);
     }
 
     private void a(String str, String str2, long j, String str3, d dVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !h.hR().av(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !h.ef().ao(str)) {
             if (j == -1) {
-                com.baidu.adp.lib.stats.b.i.iF().a(str, str2, null, str3, dVar, objArr);
+                j.eQ().a(str, str2, null, str3, dVar, objArr);
             } else {
-                com.baidu.adp.lib.stats.b.i.iF().a(str, str2, String.valueOf(j), str3, dVar, objArr);
+                j.eQ().a(str, str2, String.valueOf(j), str3, dVar, objArr);
             }
         }
     }
 
-    public void log(String str, Object... objArr) {
-        com.baidu.adp.lib.stats.base.a s = com.baidu.adp.lib.stats.b.i.iF().s(str, null);
-        if (s != null && com.baidu.adp.lib.stats.switchs.a.ix().isWrite(str, null)) {
+    public void f(String str, Object... objArr) {
+        com.baidu.adp.lib.stats.base.a r = j.eQ().r(str, null);
+        if (r != null && com.baidu.adp.lib.stats.switchs.a.eI().isWrite(str, null)) {
             d dVar = new d(str);
             if (objArr != null && objArr.length > 0) {
                 dVar.b(objArr);
             }
-            s.a(dVar);
+            r.a(dVar);
         }
     }
 
@@ -302,59 +381,59 @@ public class a {
     }
 
     public void a(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.hR().av("file")) {
+        if (!h.ef().ao("file")) {
             a(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void b(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.hR().av("db")) {
+        if (!h.ef().ao("db")) {
             a(true, "db", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void c(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.hR().av("voice")) {
+        if (!h.ef().ao("voice")) {
             a(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void d(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.hR().av("live")) {
+        if (!h.ef().ao("live")) {
             a(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void e(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.hR().av("aladin_port_error")) {
+        if (!h.ef().ao("aladin_port_error")) {
             a(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void a(String str, String str2, String str3, Object... objArr) {
         d dVar = new d("crash");
-        dVar.r("module", "crash");
+        dVar.q("module", "crash");
         if (!TextUtils.isEmpty(str)) {
-            dVar.r("crash_type", str);
+            dVar.q("crash_type", str);
         }
         if (!TextUtils.isEmpty(str2)) {
-            dVar.r("ci", str2);
+            dVar.q("ci", str2);
         }
         if (!TextUtils.isEmpty(str3)) {
-            dVar.r("f", str3);
+            dVar.q("f", str3);
         }
-        dVar.r(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
+        dVar.q(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis()));
         if (objArr != null && objArr.length > 0) {
             dVar.b(objArr);
         }
         a("crash", "crash", -1L, (String) null, dVar, new Object[0]);
     }
 
-    public d as(String str) {
+    public d al(String str) {
         return new d(str);
     }
 
-    public String hL() {
+    public String dZ() {
         return g.w(BdBaseApplication.getInst());
     }
 }

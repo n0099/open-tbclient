@@ -7,7 +7,6 @@ import android.os.Build;
 import android.support.v4.view.KeyEventCompat;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.location.a0;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TransportMediator extends TransportController {
@@ -22,13 +21,13 @@ public class TransportMediator extends TransportController {
     public static final int KEYCODE_MEDIA_PAUSE = 127;
     public static final int KEYCODE_MEDIA_PLAY = 126;
     public static final int KEYCODE_MEDIA_RECORD = 130;
-    final TransportPerformer lC;
-    final AudioManager lD;
-    final Object lE;
-    final d lF;
-    final ArrayList<TransportStateListener> lG;
-    final c lH;
-    final KeyEvent.Callback lI;
+    final TransportPerformer bD;
+    final AudioManager bE;
+    final Object bF;
+    final d bG;
+    final ArrayList<TransportStateListener> bH;
+    final c bI;
+    final KeyEvent.Callback bJ;
     final Context mContext;
     final View mView;
 
@@ -42,7 +41,7 @@ public class TransportMediator extends TransportController {
             case 88:
             case 89:
             case 90:
-            case a0.v /* 91 */:
+            case 91:
             case KEYCODE_MEDIA_PLAY /* 126 */:
             case KEYCODE_MEDIA_PAUSE /* 127 */:
             case KEYCODE_MEDIA_RECORD /* 130 */:
@@ -61,142 +60,142 @@ public class TransportMediator extends TransportController {
     }
 
     private TransportMediator(Activity activity, View view, TransportPerformer transportPerformer) {
-        this.lG = new ArrayList<>();
-        this.lH = new a(this);
-        this.lI = new b(this);
+        this.bH = new ArrayList<>();
+        this.bI = new a(this);
+        this.bJ = new b(this);
         this.mContext = activity != null ? activity : view.getContext();
-        this.lC = transportPerformer;
-        this.lD = (AudioManager) this.mContext.getSystemService("audio");
+        this.bD = transportPerformer;
+        this.bE = (AudioManager) this.mContext.getSystemService("audio");
         this.mView = activity != null ? activity.getWindow().getDecorView() : view;
-        this.lE = KeyEventCompat.getKeyDispatcherState(this.mView);
+        this.bF = KeyEventCompat.getKeyDispatcherState(this.mView);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.lF = new d(this.mContext, this.lD, this.mView, this.lH);
+            this.bG = new d(this.mContext, this.bE, this.mView, this.bI);
         } else {
-            this.lF = null;
+            this.bG = null;
         }
     }
 
     public Object getRemoteControlClient() {
-        if (this.lF != null) {
-            return this.lF.getRemoteControlClient();
+        if (this.bG != null) {
+            return this.bG.getRemoteControlClient();
         }
         return null;
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return KeyEventCompat.dispatch(keyEvent, this.lI, this.lE, this);
+        return KeyEventCompat.dispatch(keyEvent, this.bJ, this.bF, this);
     }
 
     @Override // android.support.v4.media.TransportController
     public void registerStateListener(TransportStateListener transportStateListener) {
-        this.lG.add(transportStateListener);
+        this.bH.add(transportStateListener);
     }
 
     @Override // android.support.v4.media.TransportController
     public void unregisterStateListener(TransportStateListener transportStateListener) {
-        this.lG.remove(transportStateListener);
+        this.bH.remove(transportStateListener);
     }
 
-    private TransportStateListener[] dj() {
-        if (this.lG.size() <= 0) {
+    private TransportStateListener[] C() {
+        if (this.bH.size() <= 0) {
             return null;
         }
-        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.lG.size()];
-        this.lG.toArray(transportStateListenerArr);
+        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.bH.size()];
+        this.bH.toArray(transportStateListenerArr);
         return transportStateListenerArr;
     }
 
-    private void dk() {
-        TransportStateListener[] dj = dj();
-        if (dj != null) {
-            for (TransportStateListener transportStateListener : dj) {
+    private void D() {
+        TransportStateListener[] C = C();
+        if (C != null) {
+            for (TransportStateListener transportStateListener : C) {
                 transportStateListener.onPlayingChanged(this);
             }
         }
     }
 
-    private void dl() {
-        TransportStateListener[] dj = dj();
-        if (dj != null) {
-            for (TransportStateListener transportStateListener : dj) {
+    private void E() {
+        TransportStateListener[] C = C();
+        if (C != null) {
+            for (TransportStateListener transportStateListener : C) {
                 transportStateListener.onTransportControlsChanged(this);
             }
         }
     }
 
-    private void dm() {
-        if (this.lF != null) {
-            this.lF.a(this.lC.onIsPlaying(), this.lC.onGetCurrentPosition(), this.lC.onGetTransportControlFlags());
+    private void F() {
+        if (this.bG != null) {
+            this.bG.a(this.bD.onIsPlaying(), this.bD.onGetCurrentPosition(), this.bD.onGetTransportControlFlags());
         }
     }
 
     public void refreshState() {
-        dm();
-        dk();
-        dl();
+        F();
+        D();
+        E();
     }
 
     @Override // android.support.v4.media.TransportController
     public void startPlaying() {
-        if (this.lF != null) {
-            this.lF.startPlaying();
+        if (this.bG != null) {
+            this.bG.startPlaying();
         }
-        this.lC.onStart();
-        dm();
-        dk();
+        this.bD.onStart();
+        F();
+        D();
     }
 
     @Override // android.support.v4.media.TransportController
     public void pausePlaying() {
-        if (this.lF != null) {
-            this.lF.pausePlaying();
+        if (this.bG != null) {
+            this.bG.pausePlaying();
         }
-        this.lC.onPause();
-        dm();
-        dk();
+        this.bD.onPause();
+        F();
+        D();
     }
 
     @Override // android.support.v4.media.TransportController
     public void stopPlaying() {
-        if (this.lF != null) {
-            this.lF.stopPlaying();
+        if (this.bG != null) {
+            this.bG.stopPlaying();
         }
-        this.lC.onStop();
-        dm();
-        dk();
+        this.bD.onStop();
+        F();
+        D();
     }
 
     @Override // android.support.v4.media.TransportController
     public long getDuration() {
-        return this.lC.onGetDuration();
+        return this.bD.onGetDuration();
     }
 
     @Override // android.support.v4.media.TransportController
     public long getCurrentPosition() {
-        return this.lC.onGetCurrentPosition();
+        return this.bD.onGetCurrentPosition();
     }
 
     @Override // android.support.v4.media.TransportController
     public void seekTo(long j) {
-        this.lC.onSeekTo(j);
+        this.bD.onSeekTo(j);
     }
 
     @Override // android.support.v4.media.TransportController
     public boolean isPlaying() {
-        return this.lC.onIsPlaying();
+        return this.bD.onIsPlaying();
     }
 
     @Override // android.support.v4.media.TransportController
     public int getBufferPercentage() {
-        return this.lC.onGetBufferPercentage();
+        return this.bD.onGetBufferPercentage();
     }
 
     @Override // android.support.v4.media.TransportController
     public int getTransportControlFlags() {
-        return this.lC.onGetTransportControlFlags();
+        return this.bD.onGetTransportControlFlags();
     }
 
     public void destroy() {
-        this.lF.destroy();
+        this.bG.destroy();
     }
 }

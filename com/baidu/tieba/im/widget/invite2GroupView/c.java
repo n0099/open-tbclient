@@ -10,11 +10,11 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ Invite2GroupView crO;
+    final /* synthetic */ Invite2GroupView csL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Invite2GroupView invite2GroupView) {
-        this.crO = invite2GroupView;
+        this.csL = invite2GroupView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,13 +22,13 @@ public class c implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        if (this.crO.getContext() instanceof Activity) {
-            inviteMsgData = this.crO.crN;
+        if (this.csL.getContext() instanceof Activity) {
+            inviteMsgData = this.csL.csK;
             int groupId = inviteMsgData.getGroupId();
-            inviteMsgData2 = this.crO.crN;
+            inviteMsgData2 = this.csL.csK;
             String groupName = inviteMsgData2.getGroupName();
-            inviteMsgData3 = this.crO.crN;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig((Activity) this.crO.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
+            inviteMsgData3 = this.csL.csK;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig((Activity) this.csL.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
         }
     }
 }

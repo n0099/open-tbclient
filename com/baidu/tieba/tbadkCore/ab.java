@@ -1,39 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.tbadkCore.aa;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ab extends Handler {
-    final /* synthetic */ aa eom;
+public class ab implements View.OnTouchListener {
+    private a erC;
+    private int count = 0;
+    private long dfA = 0;
+    private long dfB = 0;
+    private long dfD = 500;
+    private Handler mHandler = new ac(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.eom = aaVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void Rr();
+
+        void Rs();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        aa.a aVar;
-        aa.a aVar2;
-        if (message.what == 2) {
-            this.eom.count = 0;
-            this.eom.ddg = 0L;
-            this.eom.ddh = 0L;
-        } else if (message.what == 1) {
-            i = this.eom.count;
-            if (i == 1) {
-                aVar = this.eom.eol;
-                if (aVar != null) {
-                    aVar2 = this.eom.eol;
-                    aVar2.Sl();
+    public ab(a aVar) {
+        this.erC = aVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.erC == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.dfA = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.dfD);
+                return true;
+            } else if (this.count == 2) {
+                this.dfB = System.currentTimeMillis();
+                if (this.dfB - this.dfA < this.dfD) {
+                    this.erC.Rs();
                 }
-                this.eom.count = 0;
-                this.eom.ddg = 0L;
-                this.eom.ddh = 0L;
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
             }
         }
+        return true;
     }
 }

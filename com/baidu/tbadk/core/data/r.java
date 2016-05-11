@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.ThreadInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class r extends as {
-    public static final BdUniqueId Tk = BdUniqueId.gen();
-    private PhotoLiveCardData Tl = null;
+public class r extends ax {
+    public static final BdUniqueId NY = BdUniqueId.gen();
+    private PhotoLiveCardData NZ = null;
 
-    public PhotoLiveCardData rJ() {
-        return this.Tl;
+    public PhotoLiveCardData pc() {
+        return this.NZ;
     }
 
-    @Override // com.baidu.tbadk.core.data.as
+    @Override // com.baidu.tbadk.core.data.ax
     public void a(ThreadInfo threadInfo) {
         super.a(threadInfo);
         if (threadInfo.twzhibo_info != null) {
@@ -23,23 +23,23 @@ public class r extends as {
 
     private void a(ZhiBoInfoTW zhiBoInfoTW) {
         if (zhiBoInfoTW != null) {
-            if (this.Tl == null) {
-                this.Tl = new PhotoLiveCardData();
+            if (this.NZ == null) {
+                this.NZ = new PhotoLiveCardData();
             }
-            this.Tl.parserProtobuf(zhiBoInfoTW);
-            this.Tl.setShowExpressionViewIndexList(this.Tl.getExpressionDatas());
+            this.NZ.parserProtobuf(zhiBoInfoTW);
+            this.NZ.setShowExpressionViewIndexList(this.NZ.getExpressionDatas());
             if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
-                setId(String.valueOf(this.Tl.getThreadId()));
-                cu(String.valueOf(this.Tl.getThreadId()));
+                setId(String.valueOf(this.NZ.getThreadId()));
+                cr(String.valueOf(this.NZ.getThreadId()));
             }
-            if (StringUtils.isNull(tr())) {
-                cv(this.Tl.getForumName());
+            if (StringUtils.isNull(qP())) {
+                cs(this.NZ.getForumName());
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.as, com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Tk;
+        return NY;
     }
 }

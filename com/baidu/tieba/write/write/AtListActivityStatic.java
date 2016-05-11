@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.AtListActivityConfig;
 /* loaded from: classes.dex */
 public class AtListActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(AtListActivityConfig.class, AtListActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(AtListActivityConfig.class, AtListActivity.class);
     }
 }

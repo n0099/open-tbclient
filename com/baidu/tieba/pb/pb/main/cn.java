@@ -1,20 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-class cn implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-            } else {
-                customMessage.getData().startActivity(PbActivity.class);
-            }
+public class cn {
+    private BaseActivity bek;
+    private cw dih;
+    private a djz = null;
+    protected final HttpMessageListener dkK = new co(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void h(int i, String str, String str2);
+    }
+
+    public cn(cw cwVar, BaseActivity baseActivity) {
+        this.dih = cwVar;
+        this.bek = baseActivity;
+        this.bek.registerListener(this.dkK);
+    }
+
+    public void a(a aVar) {
+        this.djz = aVar;
+    }
+
+    public void lM(int i) {
+        if (this.dih != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.dih.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return null;
     }
 }

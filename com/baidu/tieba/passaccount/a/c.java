@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<Void, Void, AccountData> {
-    final /* synthetic */ b cZP;
-    private final /* synthetic */ String cZQ;
+    final /* synthetic */ b dck;
+    private final /* synthetic */ String dcl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, String str) {
-        this.cZP = bVar;
-        this.cZQ = str;
+        this.dck = bVar;
+        this.dcl = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
+    /* renamed from: d */
     public AccountData doInBackground(Void... voidArr) {
-        return com.baidu.tbadk.core.a.b.ci(this.cZQ);
+        return com.baidu.tbadk.core.a.b.cg(this.dcl);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,8 +34,8 @@ class c extends BdAsyncTask<Void, Void, AccountData> {
         if (accountData != null && !ay.isEmpty(accountData.getPassword())) {
             String account = accountData.getAccount();
             String password = accountData.getPassword();
-            aVar = this.cZP.cZO;
-            aVar2 = aVar.cZN;
+            aVar = this.dck.dcj;
+            aVar2 = aVar.dci;
             f.a(account, password, aVar2);
         }
     }

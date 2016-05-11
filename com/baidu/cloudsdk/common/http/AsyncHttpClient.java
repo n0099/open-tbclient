@@ -2,9 +2,10 @@ package com.baidu.cloudsdk.common.http;
 
 import android.content.Context;
 import com.baidu.android.common.net.ConnectManager;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
-import java.security.KeyStore;
+import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -75,15 +76,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
         HttpClientParams.setCookiePolicy(params, "compatibility");
         params.setParameter("http.connection-manager.factory-object", new ClientConnectionManagerFactory() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.1
             public ClientConnectionManager newInstance(HttpParams httpParams, SchemeRegistry schemeRegistry) {
-                SSLSocketFactory socketFactory;
-                try {
-                    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                    keyStore.load(null, null);
-                    socketFactory = new SSLSocketFactoryEx(keyStore);
-                    socketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-                } catch (Exception e) {
-                    socketFactory = SSLSocketFactory.getSocketFactory();
-                }
+                SSLSocketFactory socketFactory = SSLSocketFactory.getSocketFactory();
                 schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
                 schemeRegistry.register(new Scheme("https", socketFactory, 443));
                 return new ThreadSafeClientConnManager(httpParams, schemeRegistry);
@@ -243,9 +236,18 @@ public class AsyncHttpClient extends DefaultHttpClient {
         return str;
     }
 
+    public static void silentCloseInputStream(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+            }
+        }
+    }
+
     protected void sendRequest(HttpUriRequest httpUriRequest, HttpResponseHandler httpResponseHandler, Context context) {
-        checkNetworkStateAndAdjust(context);
         try {
+            checkNetworkStateAndAdjust(context);
             Future<?> submit = sThreadPool.submit(new AsyncHttpRequest(this, new SyncBasicHttpContext(new BasicHttpContext()), httpUriRequest, httpResponseHandler));
             if (context != null) {
                 List<WeakReference<Future<?>>> list = this.mRequestMap.get(context);
@@ -255,7 +257,8 @@ public class AsyncHttpClient extends DefaultHttpClient {
                 }
                 list.add(new WeakReference<>(submit));
             }
-        } catch (RejectedExecutionException e) {
+        } catch (NullPointerException e) {
+        } catch (RejectedExecutionException e2) {
         }
     }
 
@@ -278,18 +281,59 @@ public class AsyncHttpClient extends DefaultHttpClient {
         }
     }
 
+    public static void endEntityViaReflection(HttpEntity httpEntity) {
+        Field field;
+        if (httpEntity instanceof HttpEntityWrapper) {
+            try {
+                Field[] declaredFields = HttpEntityWrapper.class.getDeclaredFields();
+                int length = declaredFields.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        field = null;
+                        break;
+                    }
+                    field = declaredFields[i];
+                    if (field.getName().equals("wrappedEntity")) {
+                        break;
+                    }
+                    i++;
+                }
+                if (field != null) {
+                    field.setAccessible(true);
+                    HttpEntity httpEntity2 = (HttpEntity) field.get(httpEntity);
+                    if (httpEntity2 != null) {
+                        httpEntity2.consumeContent();
+                    }
+                }
+            } catch (Throwable th) {
+            }
+        }
+    }
+
     /* loaded from: classes.dex */
     private static class InflatingEntity extends HttpEntityWrapper {
+        GZIPInputStream gzipStream;
+        InputStream wrappedStream;
+
         public InflatingEntity(HttpEntity httpEntity) {
             super(httpEntity);
         }
 
         public InputStream getContent() {
-            return new GZIPInputStream(this.wrappedEntity.getContent());
+            this.wrappedStream = this.wrappedEntity.getContent();
+            this.gzipStream = new GZIPInputStream(this.wrappedStream);
+            return this.gzipStream;
         }
 
         public long getContentLength() {
             return -1L;
+        }
+
+        public void consumeContent() {
+            AsyncHttpClient.silentCloseInputStream(this.wrappedStream);
+            AsyncHttpClient.silentCloseInputStream(this.gzipStream);
+            super.consumeContent();
         }
     }
 }

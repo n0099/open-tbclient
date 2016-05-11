@@ -1,5 +1,6 @@
 package com.baidu.cloudsdk.common.http;
 
+import android.os.Looper;
 import android.os.Message;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,6 +9,13 @@ import org.json.JSONTokener;
 /* loaded from: classes.dex */
 public class JsonHttpResponseHandler extends HttpResponseHandler {
     protected static final int SUCCESS_JSON_MESSAGE = 100;
+
+    public JsonHttpResponseHandler() {
+    }
+
+    public JsonHttpResponseHandler(Looper looper) {
+        super(looper);
+    }
 
     protected void onFailure(Throwable th, JSONArray jSONArray) {
     }

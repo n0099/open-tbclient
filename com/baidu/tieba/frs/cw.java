@@ -1,27 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.widget.FrameLayout;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements Runnable {
-    final /* synthetic */ cs bpe;
+public class cw implements c.b {
+    final /* synthetic */ cn bkx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cs csVar) {
-        this.bpe = csVar;
+    public cw(cn cnVar) {
+        this.bkx = cnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FrameLayout frameLayout;
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        frameLayout = this.bpe.boy;
-        frameLayout.setVisibility(0);
-        tbImageView = this.bpe.boA;
-        tbImageView.setVisibility(0);
-        tbImageView2 = this.bpe.boz;
-        tbImageView2.setVisibility(8);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        cVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.bkx.bjB;
+            frsActivity2.Qj();
+        } else if (i == 1) {
+            frsActivity = this.bkx.bjB;
+            com.baidu.tbadk.core.util.as.j(frsActivity.getPageContext().getPageActivity());
+        }
     }
 }

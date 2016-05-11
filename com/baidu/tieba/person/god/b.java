@@ -2,30 +2,30 @@ package com.baidu.tieba.person.god;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tieba.card.a.t;
-import com.baidu.tieba.card.a.u;
-import com.baidu.tieba.card.a.v;
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tieba.card.a.l;
+import com.baidu.tieba.card.a.m;
+import com.baidu.tieba.card.a.n;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    public static com.baidu.tieba.card.a.c b(as asVar, boolean z) {
-        if (u.b(asVar)) {
+    public static com.baidu.tieba.card.a.c b(ax axVar, boolean z) {
+        if (m.b(axVar)) {
             return null;
         }
-        if (v.b(asVar)) {
-            v vVar = new v(asVar);
-            vVar.aWe = true;
-            vVar.aWr = z;
-            return vVar;
-        } else if (t.b(asVar)) {
-            t tVar = new t();
-            tVar.aVJ = asVar;
-            tVar.aWe = true;
-            tVar.auT = z;
-            return tVar;
+        if (n.b(axVar)) {
+            n nVar = new n(axVar);
+            nVar.aRY = true;
+            nVar.aSl = z;
+            return nVar;
+        } else if (l.b(axVar)) {
+            l lVar = new l();
+            lVar.aRG = axVar;
+            lVar.aRY = true;
+            lVar.aqS = z;
+            return lVar;
         } else {
             return null;
         }
@@ -35,12 +35,12 @@ public class b {
         ArrayList arrayList = new ArrayList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                as asVar = new as();
-                asVar.a(threadInfo);
-                if (metaData != null && (asVar.getAuthor() == null || TextUtils.isEmpty(asVar.getAuthor().getUserId()))) {
-                    asVar.setAuthor(metaData);
+                ax axVar = new ax();
+                axVar.a(threadInfo);
+                if (metaData != null && (axVar.getAuthor() == null || TextUtils.isEmpty(axVar.getAuthor().getUserId()))) {
+                    axVar.setAuthor(metaData);
                 }
-                com.baidu.tieba.card.a.c b = b(asVar, z);
+                com.baidu.tieba.card.a.c b = b(axVar, z);
                 if (b != null && b.isValid()) {
                     arrayList.add(b);
                 }

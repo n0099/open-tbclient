@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.FrsMoreFeedForumsConfig;
 /* loaded from: classes.dex */
 public class FrsMoreFeedForumsActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
     }
 }

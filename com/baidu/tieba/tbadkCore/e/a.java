@@ -9,25 +9,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<b> erC = new ArrayList<>();
+    private ArrayList<b> euM = new ArrayList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.erC.add(bVar);
+            this.euM.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.erC.remove(bVar);
+            this.euM.remove(bVar);
         }
     }
 
-    public void aTY() {
-        this.erC.clear();
+    public void aUy() {
+        this.euM.clear();
     }
 
-    public boolean a(String str, JsPromptResult jsPromptResult) {
+    public boolean b(String str, JsPromptResult jsPromptResult) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -46,8 +46,8 @@ public class a {
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (y.p(this.erC) > 0) {
-            Iterator<b> it = this.erC.iterator();
+        if (y.r(this.euM) > 0) {
+            Iterator<b> it = this.euM.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

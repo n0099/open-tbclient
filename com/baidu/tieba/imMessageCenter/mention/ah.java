@@ -1,69 +1,42 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.os.Handler;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private static ah cxH = null;
-    private final HttpMessageListener cxI = new ai(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long cxJ = 0;
-    private final Handler mHandler = new aj(this);
+    private int cyE = 0;
+    private int cyF = 0;
+    private int fans = 0;
+    private int chat = 0;
+    private int bookmark = 0;
 
-    static {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
-        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+    public int alk() {
+        return this.cyE;
     }
 
-    public static synchronized ah ali() {
-        ah ahVar;
-        synchronized (ah.class) {
-            if (cxH == null) {
-                cxH = new ah();
+    public int all() {
+        return this.cyF;
+    }
+
+    public int alm() {
+        return this.fans;
+    }
+
+    public int aln() {
+        return this.bookmark;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.cyE = jSONObject.optInt("replyme", 0);
+                this.cyF = jSONObject.optInt("atme", 0);
+                this.fans = jSONObject.optInt("fans", 0);
+                this.chat = jSONObject.optInt("pletter", 0);
+                this.bookmark = jSONObject.optInt("bookmark", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            ahVar = cxH;
         }
-        return ahVar;
-    }
-
-    public ah() {
-        MessageManager.getInstance().registerListener(this.cxI);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void alj() {
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean jf() {
-        return com.baidu.adp.lib.util.i.jf();
-    }
-
-    public void restart() {
-        this.cxJ = 0L;
-        destroy();
-        start();
-    }
-
-    public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.cxJ;
-        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
-        if (j >= 600000) {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
-        } else {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
-        }
-        this.cxJ = System.currentTimeMillis();
-    }
-
-    public void destroy() {
-        this.mHandler.removeMessages(1);
     }
 }

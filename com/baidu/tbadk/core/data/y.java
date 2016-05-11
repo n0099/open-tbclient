@@ -1,27 +1,55 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String TS;
-    private List<Integer> TT;
+    private ArrayList<String> OG;
+    private int smsCodeTime = 0;
+    private UserData OE = new UserData();
+    private AntiData OF = new AntiData();
 
-    public String sg() {
-        return this.TS;
+    public y() {
+        this.OG = null;
+        this.OG = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public List<Integer> sh() {
-        return this.TT;
+    public UserData getUser() {
+        return this.OE;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.TS = lotteryRegular.regular;
-        this.TT = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.TT.add(lotteryRegular.chance.get(i));
+    public AntiData pz() {
+        return this.OF;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.OE.parserJson(jSONObject.optJSONObject("user"));
+            this.OF.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.OG.add(optJSONArray.optString(i, null));
+                }
+            }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

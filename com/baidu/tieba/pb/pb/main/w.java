@@ -1,24 +1,103 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+class w implements a.d {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public w(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.dht.getUniqueId().getId()) {
-            this.dht.dgK = false;
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
+        el elVar;
+        el elVar2;
+        com.baidu.tbadk.editortools.d.e eVar;
+        el elVar3;
+        el elVar4;
+        cw cwVar;
+        cw cwVar2;
+        cw cwVar3;
+        el elVar5;
+        cw cwVar4;
+        String userId;
+        cw cwVar5;
+        el elVar6;
+        cw cwVar6;
+        cw cwVar7;
+        cw cwVar8;
+        el elVar7;
+        el elVar8;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        this.djE.Pk();
+        elVar = this.djE.diR;
+        elVar.gU(z);
+        String str = "";
+        int i = -1;
+        if (postWriteCallBackData != null) {
+            i = postWriteCallBackData.getErrorCode();
+            str = postWriteCallBackData.getErrorString();
+        }
+        if (z) {
+            elVar2 = this.djE.diR;
+            elVar2.amQ();
+            eVar = this.djE.dja;
+            if (eVar != null) {
+                elVar8 = this.djE.diR;
+                eVar2 = this.djE.dja;
+                elVar8.fn(eVar2.BM());
+            }
+            elVar3 = this.djE.diR;
+            elVar3.ayG();
+            elVar4 = this.djE.diR;
+            elVar4.fo(true);
+            cwVar = this.djE.dih;
+            cwVar.axN();
+            this.djE.a(antiData, postWriteCallBackData);
+            if (writeData != null) {
+                String floor = writeData.getFloor();
+                if (writeData == null || writeData.getType() != 2) {
+                    cwVar2 = this.djE.dih;
+                    if (cwVar2.getHostMode()) {
+                        cwVar4 = this.djE.dih;
+                        com.baidu.tieba.pb.data.e pbData = cwVar4.getPbData();
+                        if (pbData != null && pbData.avB() != null && pbData.avB().getAuthor() != null && (userId = pbData.avB().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            cwVar5 = this.djE.dih;
+                            if (cwVar5.axH()) {
+                                elVar6 = this.djE.diR;
+                                elVar6.aza();
+                            }
+                        }
+                    } else {
+                        cwVar3 = this.djE.dih;
+                        if (cwVar3.axH()) {
+                            elVar5 = this.djE.diR;
+                            elVar5.aza();
+                        }
+                    }
+                } else if (floor != null) {
+                    cwVar8 = this.djE.dih;
+                    com.baidu.tieba.pb.data.e pbData2 = cwVar8.getPbData();
+                    elVar7 = this.djE.diR;
+                    elVar7.j(pbData2);
+                }
+                cwVar6 = this.djE.dih;
+                if (cwVar6.axD()) {
+                    com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10369");
+                    cwVar7 = this.djE.dih;
+                    TiebaStatic.log(awVar.ac("tid", cwVar7.getThreadID()));
+                }
+            }
+        } else if (oVar != null) {
+        } else {
+            this.djE.a(i, antiData, str);
         }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -218,7 +217,7 @@ public class MarkData implements Serializable {
             this.mAuthorName = jSONObject.optJSONObject("author").optString(IntentConfig.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
+            this.mNewCounts = jSONObject.optInt("count");
             this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
             int optInt = jSONObject.optInt("mark_status");
             JSONObject optJSONObject = jSONObject.optJSONObject("cartoon_info");

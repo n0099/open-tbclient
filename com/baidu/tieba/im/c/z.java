@@ -10,18 +10,18 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> {
-    final /* synthetic */ a cpJ;
-    private final /* synthetic */ ad cpU;
+    final /* synthetic */ a cqG;
+    private final /* synthetic */ ad cqR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(a aVar, ad adVar) {
-        this.cpJ = aVar;
-        this.cpU = adVar;
+        this.cqG = aVar;
+        this.cqR = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.g
-    /* renamed from: a */
+    /* renamed from: b */
     public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
         LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
         HashMap<String, ImageUrlData> hashMap = new HashMap<>();
@@ -35,19 +35,19 @@ public class z implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> 
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 String str3 = linkedHashMap.get(str2);
-                String z = com.baidu.tieba.im.util.h.z(str3, true);
-                if (z != null) {
-                    linkedHashMap2.put(str2, z);
+                String A = com.baidu.tieba.im.util.h.A(str3, true);
+                if (A != null) {
+                    linkedHashMap2.put(str2, A);
                 }
-                String z2 = com.baidu.tieba.im.util.h.z(str3, false);
-                if (!TextUtils.isEmpty(z2) && !TextUtils.isEmpty(z)) {
+                String A2 = com.baidu.tieba.im.util.h.A(str3, false);
+                if (!TextUtils.isEmpty(A2) && !TextUtils.isEmpty(A)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = z2;
+                    imageUrlData.imageUrl = A2;
                     imageUrlData.urlType = 10;
-                    hashMap.put(z, imageUrlData);
+                    hashMap.put(A, imageUrlData);
                 }
             }
         }
-        this.cpU.a(linkedHashMap2, hashMap);
+        this.cqR.a(linkedHashMap2, hashMap);
     }
 }

@@ -1,21 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import protobuf.GetOnlineInfo.Game;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements CustomMessageTask.CustomRunnable<Game> {
+class x implements CustomMessageTask.CustomRunnable<Void> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Game> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
         if (customMessage == null) {
             return null;
         }
-        if (customMessage.getData() != null) {
-            MainTabActivityStatic.etK = customMessage.getData();
-        }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_SHOW_GAME_ICON);
+        TbadkCoreApplication.m11getInst().setFriendFeedNew(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.DISCOVER_FRIEND_FEED_NEW));
+        return new CustomResponsedMessage<>(CmdConfigCustom.FRIEND_FEED_NEW);
     }
 }

@@ -16,32 +16,32 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.util.s;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView aXd;
-    private TextView aXe;
-    private TextView aXf;
-    private TextView aXg;
-    private LineCountNotifyTextView cHe;
-    private TextView cHf;
-    private int cHk;
-    private int cHl;
-    private p dZf;
-    private View.OnClickListener dZg;
+    private TbImageView aSX;
+    private TextView aSY;
+    private TextView aSZ;
+    private TextView aTa;
+    private LineCountNotifyTextView cHp;
+    private TextView cHq;
+    private int cHv;
+    private int cHw;
+    private p ecm;
+    private View.OnClickListener ecn;
     private int mSkinType;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mSkinType = 3;
-        this.cHl = -1;
-        this.cHk = 0;
-        this.dZg = new d(this);
-        view.setOnClickListener(this.dZg);
-        this.aXd = (TbImageView) view.findViewById(t.g.img);
-        this.cHe = (LineCountNotifyTextView) view.findViewById(t.g.title);
-        this.cHf = (TextView) view.findViewById(t.g.discription);
+        this.cHw = -1;
+        this.cHv = 0;
+        this.ecn = new d(this);
+        view.setOnClickListener(this.ecn);
+        this.aSX = (TbImageView) view.findViewById(t.g.img);
+        this.cHp = (LineCountNotifyTextView) view.findViewById(t.g.title);
+        this.cHq = (TextView) view.findViewById(t.g.discription);
         View findViewById = view.findViewById(t.g.hot_thread_comment);
-        this.aXe = (TextView) findViewById.findViewById(t.g.hot_thread_line_tag);
-        this.aXf = (TextView) findViewById.findViewById(t.g.hot_thread_line_praise);
-        this.aXg = (TextView) findViewById.findViewById(t.g.hot_thread_line_comment);
+        this.aSY = (TextView) findViewById.findViewById(t.g.hot_thread_line_tag);
+        this.aSZ = (TextView) findViewById.findViewById(t.g.hot_thread_line_praise);
+        this.aTa = (TextView) findViewById.findViewById(t.g.hot_thread_line_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,35 +50,35 @@ public class c extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
     public void B(p pVar) {
         super.B(pVar);
         if (pVar != null) {
-            this.dZf = pVar;
-            String str = (pVar.aMp() == null || pVar.aMp().size() <= 0) ? null : pVar.aMp().get(0);
-            TbImageView tbImageView = this.aXd;
-            if (!pVar.aMj()) {
+            this.ecm = pVar;
+            String str = (pVar.aMA() == null || pVar.aMA().size() <= 0) ? null : pVar.aMA().get(0);
+            TbImageView tbImageView = this.aSX;
+            if (!pVar.aMu()) {
                 str = null;
             }
             tbImageView.c(str, 10, false);
             if (!StringUtils.isNull(pVar.getTitle())) {
-                this.cHe.setText(pVar.getTitle());
-                this.cHe.setGetLineCountCallback(new e(this, pVar));
+                this.cHp.setText(pVar.getTitle());
+                this.cHp.setGetLineCountCallback(new e(this, pVar));
             }
             if (StringUtils.isNull(pVar.getForumName())) {
-                this.aXe.setVisibility(8);
+                this.aSY.setVisibility(8);
             } else {
-                this.aXe.setVisibility(0);
-                this.aXe.setText(getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedText(pVar.getForumName(), 7, false)));
-                this.aXe.setOnClickListener(new f(this, pVar));
+                this.aSY.setVisibility(0);
+                this.aSY.setText(getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedText(pVar.getForumName(), 7, false)));
+                this.aSY.setOnClickListener(new f(this, pVar));
             }
-            this.aXf.setVisibility(0);
-            this.aXf.setText(ay.z(pVar.aMm()));
-            com.baidu.tieba.graffiti.d.af(this.aXf);
-            this.aXg.setText(ay.z(pVar.aMn()));
-            s readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.oh(String.valueOf(pVar.getThreadId()))) {
-                this.cHk = t.d.cp_cont_c;
+            this.aSZ.setVisibility(0);
+            this.aSZ.setText(ay.A(pVar.aMx()));
+            com.baidu.tieba.graffiti.d.aj(this.aSZ);
+            this.aTa.setText(ay.A(pVar.aMy()));
+            s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.od(String.valueOf(pVar.getThreadId()))) {
+                this.cHv = t.d.cp_cont_c;
             } else {
-                this.cHk = t.d.cp_cont_b;
+                this.cHv = t.d.cp_cont_b;
             }
-            at.b(this.cHe, this.cHk, 1);
+            at.c(this.cHp, this.cHv, 1);
         }
     }
 
@@ -86,8 +86,8 @@ public class c extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-            if (this.cHk != 0 && this.cHe != null) {
-                at.b(this.cHe, this.cHk, 1);
+            if (this.cHv != 0 && this.cHp != null) {
+                at.c(this.cHp, this.cHv, 1);
             }
         }
         this.mSkinType = i;

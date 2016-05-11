@@ -14,30 +14,30 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class g implements a.d {
-    final /* synthetic */ WriteVideoActivity eJN;
+    final /* synthetic */ WriteVideoActivity faE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.eJN = writeVideoActivity;
+        this.faE = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.n nVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.eJN.closeLoadingDialog();
+        this.faE.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.eJN.esv;
+            writeData2 = this.faE.evE;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.vk().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.eJN.esv;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.faE.evE;
                 if (writeData3 != null) {
-                    writeData4 = this.eJN.esv;
+                    writeData4 = this.faE.evE;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.eJN.esv;
+                            writeData5 = this.faE.evE;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -46,34 +46,34 @@ class g implements a.d {
                     }
                 }
                 if (!z) {
-                    if (nVar != null && writeData != null && nVar.getVcode_pic_url() != null) {
-                        if (!AntiHelper.h(antiData)) {
-                            writeData.setVcodeMD5(nVar.getVcode_md5());
-                            writeData.setVcodeUrl(nVar.getVcode_pic_url());
-                            if ("4".equals(nVar.yM())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.eJN.getPageContext().getPageActivity(), 12006, writeData, false)));
+                    if (oVar != null && writeData != null && oVar.getVcode_pic_url() != null) {
+                        if (!AntiHelper.g(antiData)) {
+                            writeData.setVcodeMD5(oVar.getVcode_md5());
+                            writeData.setVcodeUrl(oVar.getVcode_pic_url());
+                            if ("4".equals(oVar.wF())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.faE.getPageContext().getPageActivity(), 12006, writeData, false)));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.eJN.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.faE.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         }
-                        this.eJN.a(false, postWriteCallBackData);
+                        this.faE.a(false, postWriteCallBackData);
                         return;
                     }
-                    this.eJN.a(false, postWriteCallBackData);
+                    this.faE.a(false, postWriteCallBackData);
                     return;
                 }
-                this.eJN.bah();
+                this.faE.bct();
                 if (writeData != null) {
                     if (writeData.getVideoReviewType() == 1) {
-                        postWriteCallBackData.setErrorString(this.eJN.getPageContext().getPageActivity().getString(t.j.video_send_success_under_review));
+                        postWriteCallBackData.setErrorString(this.faE.getPageContext().getPageActivity().getString(t.j.video_send_success_under_review));
                     } else {
-                        postWriteCallBackData.setErrorString(this.eJN.getPageContext().getPageActivity().getString(t.j.video_send_success));
+                        postWriteCallBackData.setErrorString(this.faE.getPageContext().getPageActivity().getString(t.j.video_send_success));
                     }
                 }
-                this.eJN.a(true, postWriteCallBackData);
-                this.eJN.b(postWriteCallBackData);
+                this.faE.a(true, postWriteCallBackData);
+                this.faE.b(postWriteCallBackData);
             }
         }
     }

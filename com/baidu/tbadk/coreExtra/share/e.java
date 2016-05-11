@@ -6,28 +6,28 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a {
-    final /* synthetic */ d amT;
+    final /* synthetic */ d aiG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.amT = dVar;
+        this.aiG = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void Be() {
-        k.showToast(TbadkCoreApplication.m411getInst().getContext(), t.j.auth_account_success);
+    public void yX() {
+        k.showToast(TbadkCoreApplication.m11getInst().getContext(), t.j.auth_account_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void Bf() {
+    public void yY() {
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void Bg() {
-        k.showToast(TbadkCoreApplication.m411getInst().getContext(), t.j.share_success);
+    public void yZ() {
+        k.showToast(TbadkCoreApplication.m11getInst().getContext(), t.j.share_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void Bh() {
+    public void za() {
     }
 }

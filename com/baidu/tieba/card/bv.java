@@ -1,23 +1,24 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements View.OnClickListener {
-    final /* synthetic */ bt aUm;
+    final /* synthetic */ bu aRg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bt btVar) {
-        this.aUm = btVar;
+    public bv(bu buVar) {
+        this.aRg = buVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.card.a.u uVar;
-        if (this.aUm.Ld() != null) {
-            cj<com.baidu.tieba.card.a.u> Ld = this.aUm.Ld();
-            uVar = this.aUm.aUi;
-            Ld.a(view, uVar);
+        if (!com.baidu.tbadk.plugins.a.f(this.aRg.getTbPageContext())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(this.aRg.getTbPageContext().getPageActivity()).createNormalConfig("homepage", "all")));
         }
     }
 }

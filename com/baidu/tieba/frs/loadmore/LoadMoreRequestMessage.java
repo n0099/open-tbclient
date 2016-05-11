@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.util.l;
+import com.baidu.tbadk.util.o;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
 /* loaded from: classes.dex */
@@ -53,16 +53,16 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.need_abstract = Integer.valueOf(this.need_abstract);
         builder.user_id = Long.valueOf(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
-        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density);
-        int B = k.B(TbadkCoreApplication.m411getInst());
-        int C = k.C(TbadkCoreApplication.m411getInst());
+        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density);
+        int B = k.B(TbadkCoreApplication.m11getInst());
+        int C = k.C(TbadkCoreApplication.m11getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(C);
         builder.scr_w = Integer.valueOf(B);
-        builder.q_type = Integer.valueOf(az.wz().wB() ? 2 : 1);
+        builder.q_type = Integer.valueOf(az.uf().uh() ? 2 : 1);
         if (z) {
-            l.a(builder, true);
+            o.a(builder, true);
         }
         ThreadListReqIdl.Builder builder2 = new ThreadListReqIdl.Builder();
         builder2.data = builder.build(false);

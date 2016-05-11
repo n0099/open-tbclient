@@ -6,21 +6,21 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ r dej;
+    final /* synthetic */ r dgC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(r rVar) {
-        this.dej = rVar;
+        this.dgC = rVar;
     }
 
     @Override // android.media.MediaPlayer.OnErrorListener
     public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
         boolean z;
-        z = this.dej.ddZ;
+        z = this.dgC.dgt;
         if (!z) {
-            BdToast.b(this.dej.dfw.getPageContext().getPageActivity(), this.dej.dfw.getPageContext().getResources().getString(t.j.pb_play_error), t.f.icon_toast_game_error).ux();
+            BdToast.b(this.dgC.dhY.getPageContext().getPageActivity(), this.dgC.dhY.getPageContext().getResources().getString(t.j.pb_play_error), t.f.icon_toast_game_error).sc();
         }
-        this.dej.avS();
+        this.dgC.awb();
         return true;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.a;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class ab implements a.b {
-    final /* synthetic */ r dej;
+    final /* synthetic */ r dgC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(r rVar) {
-        this.dej = rVar;
+        this.dgC = rVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

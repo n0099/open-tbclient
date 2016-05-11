@@ -1,224 +1,224 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class ab extends z {
-    private static ab aCE = null;
-    private boolean aCe = false;
-    private boolean aCf = false;
-    private boolean aCg = false;
-    private boolean aCh = false;
-    private long aCi = -1;
-    private long aCj = -1;
-    private long aCk = -1;
-    private long aCl = -1;
-    private long aCm = -1;
-    private long aCn = -1;
-    private long aCo = -1;
-    private long aCp = -1;
-    private long aCq = -1;
-    private long aCr = -1;
-    private long aCs = -1;
-    private long aCt = -1;
-    private long aCu = -1;
-    private long aCv = -1;
-    private long aCw = -1;
-    private long aCx = -1;
-    private long aCy = -1;
-    private long aCz = -1;
-    private long aCA = -1;
-    private long aCB = -1;
-    private long aCC = -1;
-    private long aCD = -1;
+    private static ab ayH = null;
+    private boolean ayh = false;
+    private boolean ayi = false;
+    private boolean ayj = false;
+    private boolean ayk = false;
+    private long ayl = -1;
+    private long aym = -1;
+    private long ayn = -1;
+    private long ayo = -1;
+    private long ayp = -1;
+    private long ayq = -1;
+    private long ayr = -1;
+    private long ays = -1;
+    private long ayt = -1;
+    private long ayu = -1;
+    private long ayv = -1;
+    private long ayw = -1;
+    private long ayx = -1;
+    private long ayy = -1;
+    private long ayz = -1;
+    private long ayA = -1;
+    private long ayB = -1;
+    private long ayC = -1;
+    private long ayD = -1;
+    private long ayE = -1;
+    private long ayF = -1;
+    private long ayG = -1;
 
-    public boolean GZ() {
-        return this.aCf;
+    public boolean ER() {
+        return this.ayi;
     }
 
-    public void bL(boolean z) {
-        this.aCe = z;
-    }
-
-    public void Q(long j) {
-        this.aCi = j;
-    }
-
-    public void bM(boolean z) {
-        this.aCh = z;
+    public void bR(boolean z) {
+        this.ayh = z;
     }
 
     public void R(long j) {
-        this.aCj = j;
+        this.ayl = j;
+    }
+
+    public void bS(boolean z) {
+        this.ayk = z;
     }
 
     public void S(long j) {
-        this.aCk = j;
+        this.aym = j;
     }
 
     public void T(long j) {
-        this.aCl = j;
+        this.ayn = j;
     }
 
     public void U(long j) {
-        this.aCp = j;
+        this.ayo = j;
     }
 
     public void V(long j) {
-        this.aCo = j;
+        this.ays = j;
     }
 
     public void W(long j) {
-        this.aCm = j;
+        this.ayr = j;
     }
 
     public void X(long j) {
-        this.aCn = j;
+        this.ayp = j;
     }
 
     public void Y(long j) {
-        this.aCB = j;
+        this.ayq = j;
     }
 
     public void Z(long j) {
-        this.aCy = j;
+        this.ayE = j;
     }
 
     public void aa(long j) {
-        this.aCz = j;
+        this.ayB = j;
     }
 
     public void ab(long j) {
-        this.aCA = j;
+        this.ayC = j;
     }
 
     public void ac(long j) {
-        this.aCC = j;
+        this.ayD = j;
     }
 
     public void ad(long j) {
-        this.aCD = j;
-        this.aCf = true;
+        this.ayF = j;
     }
 
     public void ae(long j) {
-        this.aCq = j;
+        this.ayG = j;
+        this.ayi = true;
     }
 
     public void af(long j) {
-        this.aCr = j;
+        this.ayt = j;
     }
 
     public void ag(long j) {
-        this.aCt = j;
+        this.ayu = j;
     }
 
     public void ah(long j) {
-        this.aCs = j;
+        this.ayw = j;
     }
 
     public void ai(long j) {
-        this.aCu = j;
+        this.ayv = j;
     }
 
     public void aj(long j) {
-        this.aCv = j;
+        this.ayx = j;
     }
 
     public void ak(long j) {
-        this.aCw = j;
+        this.ayy = j;
     }
 
     public void al(long j) {
-        this.aCx = j;
-    }
-
-    public static ab Ha() {
-        if (aCE == null) {
-            synchronized (ab.class) {
-                if (aCE == null) {
-                    aCE = new ab();
-                }
-            }
-        }
-        return aCE;
-    }
-
-    public void Hb() {
-        long j = this.aCD - this.aCi;
-        if (j > 0 && !this.aCg && aa.GU().GV()) {
-            this.aCg = true;
-            long j2 = this.aCj - this.aCi;
-            long j3 = this.aCB - this.aCi;
-            long j4 = -1;
-            if (this.aCz > 0) {
-                j4 = this.aCA - this.aCz;
-            }
-            long j5 = this.aCD - this.aCC;
-            com.baidu.adp.lib.stats.d hs = hs();
-            hs.r("procname", "main");
-            hs.r("appc", String.valueOf(j2));
-            hs.r("loadclass", String.valueOf(this.aCk));
-            hs.r("sapiinit", String.valueOf(this.aCl));
-            hs.r("acctinit", String.valueOf(this.aCm));
-            hs.r("iminit", String.valueOf(this.aCn));
-            hs.r("plugininit", String.valueOf(this.aCo));
-            hs.r("patchloaded", String.valueOf(this.aCp));
-            hs.r("naslibinit", String.valueOf(this.aCq));
-            hs.r("websocketinit", String.valueOf(this.aCr));
-            hs.r("settinginit", String.valueOf(this.aCs));
-            hs.r("toastinit", String.valueOf(this.aCt));
-            hs.r("tiebastaticinit", String.valueOf(this.aCu));
-            hs.r("locationinit", String.valueOf(this.aCv));
-            hs.r("cdninit", String.valueOf(this.aCw));
-            hs.r("messagesetinit", String.valueOf(this.aCx));
-            hs.r("logores", String.valueOf(j3));
-            if (this.aCy > 0 && this.aCz > 0 && j4 > 0) {
-                hs.r("adc", String.valueOf(this.aCy));
-                hs.r("adshow", String.valueOf(j4));
-                hs.r("hasad", "1");
-            } else {
-                hs.r("hasad", "0");
-            }
-            hs.r("tabc", String.valueOf(j5));
-            hs.r("costt", String.valueOf(j));
-            hs.r("newinst", this.aCe ? "1" : "0");
-            hs.b("pluginloadsync", Boolean.valueOf(this.aCh));
-            com.baidu.adp.lib.stats.a.hz().a("startt", hs);
-            resetValues();
-        }
+        this.ayz = j;
     }
 
     public void am(long j) {
-        if (aa.GU().GV() && j > 0) {
-            com.baidu.adp.lib.stats.d hs = hs();
-            hs.r("procname", "remote");
-            hs.r("costt", String.valueOf(j));
-            com.baidu.adp.lib.stats.a.hz().a("startt", hs);
+        this.ayA = j;
+    }
+
+    public static ab ES() {
+        if (ayH == null) {
+            synchronized (ab.class) {
+                if (ayH == null) {
+                    ayH = new ab();
+                }
+            }
+        }
+        return ayH;
+    }
+
+    public void ET() {
+        long j = this.ayG - this.ayl;
+        if (j > 0 && !this.ayj && aa.EM().EN()) {
+            this.ayj = true;
+            long j2 = this.aym - this.ayl;
+            long j3 = this.ayE - this.ayl;
+            long j4 = -1;
+            if (this.ayC > 0) {
+                j4 = this.ayD - this.ayC;
+            }
+            long j5 = this.ayG - this.ayF;
+            com.baidu.adp.lib.stats.d dG = dG();
+            dG.q("procname", "main");
+            dG.q("appc", String.valueOf(j2));
+            dG.q("loadclass", String.valueOf(this.ayn));
+            dG.q("sapiinit", String.valueOf(this.ayo));
+            dG.q("acctinit", String.valueOf(this.ayp));
+            dG.q("iminit", String.valueOf(this.ayq));
+            dG.q("plugininit", String.valueOf(this.ayr));
+            dG.q("patchloaded", String.valueOf(this.ays));
+            dG.q("naslibinit", String.valueOf(this.ayt));
+            dG.q("websocketinit", String.valueOf(this.ayu));
+            dG.q("settinginit", String.valueOf(this.ayv));
+            dG.q("toastinit", String.valueOf(this.ayw));
+            dG.q("tiebastaticinit", String.valueOf(this.ayx));
+            dG.q("locationinit", String.valueOf(this.ayy));
+            dG.q("cdninit", String.valueOf(this.ayz));
+            dG.q("messagesetinit", String.valueOf(this.ayA));
+            dG.q("logores", String.valueOf(j3));
+            if (this.ayB > 0 && this.ayC > 0 && j4 > 0) {
+                dG.q("adc", String.valueOf(this.ayB));
+                dG.q("adshow", String.valueOf(j4));
+                dG.q("hasad", "1");
+            } else {
+                dG.q("hasad", "0");
+            }
+            dG.q("tabc", String.valueOf(j5));
+            dG.q("costt", String.valueOf(j));
+            dG.q("newinst", this.ayh ? "1" : "0");
+            dG.b("pluginloadsync", Boolean.valueOf(this.ayk));
+            com.baidu.adp.lib.stats.a.dN().a("startt", dG);
+            ng();
         }
     }
 
-    private void resetValues() {
-        this.aCe = false;
-        this.aCf = false;
-        this.aCi = -1L;
-        this.aCj = -1L;
-        this.aCk = -1L;
-        this.aCl = -1L;
-        this.aCm = -1L;
-        this.aCn = -1L;
-        this.aCo = -1L;
-        this.aCp = -1L;
-        this.aCB = -1L;
-        this.aCz = -1L;
-        this.aCA = -1L;
-        this.aCy = -1L;
-        this.aCC = -1L;
-        this.aCD = -1L;
-        this.aCq = -1L;
-        this.aCr = -1L;
-        this.aCs = -1L;
-        this.aCt = -1L;
-        this.aCu = -1L;
-        this.aCv = -1L;
-        this.aCw = -1L;
-        this.aCx = -1L;
+    public void an(long j) {
+        if (aa.EM().EN() && j > 0) {
+            com.baidu.adp.lib.stats.d dG = dG();
+            dG.q("procname", "remote");
+            dG.q("costt", String.valueOf(j));
+            com.baidu.adp.lib.stats.a.dN().a("startt", dG);
+        }
+    }
+
+    private void ng() {
+        this.ayh = false;
+        this.ayi = false;
+        this.ayl = -1L;
+        this.aym = -1L;
+        this.ayn = -1L;
+        this.ayo = -1L;
+        this.ayp = -1L;
+        this.ayq = -1L;
+        this.ayr = -1L;
+        this.ays = -1L;
+        this.ayE = -1L;
+        this.ayC = -1L;
+        this.ayD = -1L;
+        this.ayB = -1L;
+        this.ayF = -1L;
+        this.ayG = -1L;
+        this.ayt = -1L;
+        this.ayu = -1L;
+        this.ayv = -1L;
+        this.ayw = -1L;
+        this.ayx = -1L;
+        this.ayy = -1L;
+        this.ayz = -1L;
+        this.ayA = -1L;
     }
 }

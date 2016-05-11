@@ -1,17 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class eq extends CustomMessageListener {
+public class eq implements Animation.AnimationListener {
+    final /* synthetic */ el dpu;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eq(int i) {
-        super(i);
+    public eq(el elVar) {
+        this.dpu = elVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        en.aya().a(1, customResponsedMessage);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.dpu.dmZ.setTitleVisibility(false);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ObservedChangeLinearLayout observedChangeLinearLayout;
+        boolean z;
+        PbActivity pbActivity;
+        observedChangeLinearLayout = this.dpu.dnI;
+        observedChangeLinearLayout.setVisibility(0);
+        this.dpu.dmZ.setTitleVisibility(true);
+        this.dpu.gS(false);
+        z = this.dpu.doV;
+        if (z) {
+            this.dpu.azA();
+        }
+        pbActivity = this.dpu.dhY;
+        pbActivity.gz(true);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

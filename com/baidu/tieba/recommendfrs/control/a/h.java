@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ g dWl;
+    final /* synthetic */ g dZv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(g gVar, int i, int i2) {
         super(i, i2);
-        this.dWl = gVar;
+        this.dZv = gVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,7 +27,7 @@ public class h extends com.baidu.adp.framework.listener.a {
         if (responsedMessage == null) {
             return;
         }
-        aVar = this.dWl.dWd;
+        aVar = this.dZv.dZn;
         if (aVar != null) {
             long j = 0;
             if (responsedMessage.getOrginalMessage() != null) {
@@ -45,20 +45,20 @@ public class h extends com.baidu.adp.framework.listener.a {
                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                 }
-                aVar2 = this.dWl.dWd;
+                aVar2 = this.dZv.dZn;
                 aVar2.b(j, dataRes, z);
             } else {
-                aVar3 = this.dWl.dWd;
+                aVar3 = this.dZv.dZn;
                 aVar3.e(j, responsedMessage.getError(), responsedMessage.getErrorString());
             }
             if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
                 if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                     return;
                 }
-                this.dWl.k(responsedMessage);
+                this.dZv.k(responsedMessage);
                 return;
             }
-            this.dWl.j(responsedMessage);
+            this.dZv.j(responsedMessage);
         }
     }
 }

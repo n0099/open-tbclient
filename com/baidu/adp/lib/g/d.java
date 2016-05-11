@@ -1,31 +1,31 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public class d {
-    private static int wp = 0;
-    private static int wq = 0;
-    private static int wr = 0;
-    private static int ws = 0;
-    private static int wt = 0;
-    private static int wu = 0;
-    private static Object wv = new Object();
+    private static int mj = 0;
+    private static int mk = 0;
+    private static int ml = 0;
+    private static int mm = 0;
+    private static int mn = 0;
+    private static int mo = 0;
+    private static Object mp = new Object();
 
-    public static com.baidu.adp.lib.stats.d hs() {
-        return com.baidu.adp.lib.stats.a.hz().as("dbg");
+    public static com.baidu.adp.lib.stats.d dG() {
+        return com.baidu.adp.lib.stats.a.dN().al("dbg");
     }
 
     public static void a(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
         if (dVar != null || dVar2 != null) {
-            synchronized (wv) {
+            synchronized (mp) {
                 if (dVar != null) {
-                    wr = (int) (wr + dVar.hQ());
+                    ml = (int) (ml + dVar.ee());
                 }
                 if (dVar2 != null) {
-                    wq = (int) (wq + dVar2.hQ());
+                    mk = (int) (mk + dVar2.ee());
                 }
-                int i = wp + 1;
-                wp = i;
-                if (i + ws > 100) {
-                    ht();
+                int i = mj + 1;
+                mj = i;
+                if (i + mm > 100) {
+                    dH();
                 }
             }
         }
@@ -33,40 +33,40 @@ public class d {
 
     public static void b(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
         if (dVar != null || dVar2 != null) {
-            synchronized (wv) {
+            synchronized (mp) {
                 if (dVar != null) {
-                    wu = (int) (wu + dVar.hQ());
+                    mo = (int) (mo + dVar.ee());
                 }
                 if (dVar2 != null) {
-                    wt = (int) (wt + dVar2.hQ());
+                    mn = (int) (mn + dVar2.ee());
                 }
-                int i = ws + 1;
-                ws = i;
-                if (i + wp > 100) {
-                    ht();
+                int i = mm + 1;
+                mm = i;
+                if (i + mj > 100) {
+                    dH();
                 }
             }
         }
     }
 
-    public static void ht() {
-        if (wp + ws > 10) {
-            com.baidu.adp.lib.stats.d hs = hs();
-            hs.r("act", "allStat");
-            hs.r("diskTaskCostTime", String.valueOf(wr));
-            hs.r("diskCostTime", String.valueOf(wq));
-            hs.r("diskNum", String.valueOf(wp));
-            hs.r("netTaskCostTime", String.valueOf(wu));
-            hs.r("netCostTime", String.valueOf(wt));
-            hs.r("netNum", String.valueOf(ws));
-            hs.r("isWifi", "1");
-            com.baidu.adp.lib.stats.a.hz().b("img", hs);
-            wq = 0;
-            wp = 0;
-            wt = 0;
-            ws = 0;
-            wr = 0;
-            wu = 0;
+    public static void dH() {
+        if (mj + mm > 10) {
+            com.baidu.adp.lib.stats.d dG = dG();
+            dG.q("act", "allStat");
+            dG.q("diskTaskCostTime", String.valueOf(ml));
+            dG.q("diskCostTime", String.valueOf(mk));
+            dG.q("diskNum", String.valueOf(mj));
+            dG.q("netTaskCostTime", String.valueOf(mo));
+            dG.q("netCostTime", String.valueOf(mn));
+            dG.q("netNum", String.valueOf(mm));
+            dG.q("isWifi", "1");
+            com.baidu.adp.lib.stats.a.dN().b("img", dG);
+            mk = 0;
+            mj = 0;
+            mn = 0;
+            mm = 0;
+            ml = 0;
+            mo = 0;
         }
     }
 }

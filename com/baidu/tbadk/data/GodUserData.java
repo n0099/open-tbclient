@@ -1,11 +1,10 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
 /* loaded from: classes.dex */
-public class GodUserData extends i implements Serializable {
+public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
     private long fid;
     private int followed;

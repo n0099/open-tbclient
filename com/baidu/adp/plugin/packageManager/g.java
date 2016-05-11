@@ -69,11 +69,11 @@ public class g extends BroadcastReceiver {
             bundle.putString("package_name", str);
             bundle.putString("current_path", str2);
             setResultExtras(bundle);
-            z = this.this$0.Es;
+            z = this.this$0.uK;
             if (!z) {
                 return;
             }
-            this.this$0.H(str, str2);
+            this.this$0.G(str, str2);
         }
     }
 }

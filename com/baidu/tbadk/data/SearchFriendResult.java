@@ -1,11 +1,10 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class SearchFriendResult extends i implements Serializable {
+public class SearchFriendResult extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 14010660746769448L;
     private String errmsg;
     private int errorno;
@@ -48,7 +47,7 @@ public class SearchFriendResult extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public static class UserInfo extends i implements Serializable {
+    public static class UserInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = -4475845825063348182L;
         private String portrait;
         private long user_id;

@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.data.v;
 import com.baidu.tieba.graffiti.HorizontalScrollLayout;
 /* loaded from: classes.dex */
 public abstract class a extends HorizontalScrollLayout {
-    public abstract void Us();
+    public abstract void Uq();
 
-    public abstract void Zf();
+    public abstract void YZ();
 
     public abstract void a(v vVar);
 

@@ -196,7 +196,7 @@ public class WriteImagesInfo implements Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(d.D(az.wz().wF(), az.wz().wF()));
+                    imageFileInfo.addPersistAction(d.D(az.uf().ul(), az.uf().ul()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

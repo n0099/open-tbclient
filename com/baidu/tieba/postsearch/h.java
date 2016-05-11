@@ -5,20 +5,20 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ a dSj;
+    final /* synthetic */ a dVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.dSj = aVar;
+        this.dVb = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         PostSearchActivity postSearchActivity;
         EditText editText;
-        postSearchActivity = this.dSj.dSg;
+        postSearchActivity = this.dVb.dUY;
         Activity pageActivity = postSearchActivity.getPageContext().getPageActivity();
-        editText = this.dSj.cKS;
-        com.baidu.adp.lib.util.k.d(pageActivity, editText);
+        editText = this.dVb.cLO;
+        com.baidu.adp.lib.util.k.b(pageActivity, editText);
     }
 }

@@ -1,36 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import android.view.View;
+import com.baidu.adp.lib.util.a;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements a.b {
-    final /* synthetic */ FrsActivity blk;
-    private final /* synthetic */ com.baidu.tieba.frs.view.t bls;
-    private final /* synthetic */ long blt;
-    private final /* synthetic */ String blu;
-    private final /* synthetic */ ShareFromFrsMsgData blv;
-    private final /* synthetic */ String val$name;
+public class an implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bhl;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bhv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsActivity frsActivity, com.baidu.tieba.frs.view.t tVar, long j, String str, String str2, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.blk = frsActivity;
-        this.bls = tVar;
-        this.blt = j;
-        this.val$name = str;
-        this.blu = str2;
-        this.blv = shareFromFrsMsgData;
+    public an(FrsActivity frsActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.bhl = frsActivity;
+        this.bhv = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.blk.HidenSoftKeyPad((InputMethodManager) this.blk.getSystemService("input_method"), this.bls.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.blk.getPageContext().getPageActivity(), this.blt, this.val$name, this.blu, 0, this.bls.getLeaveMsg(), this.blv.toChatMessageContent())));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        a.aw(this.bhv.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.bhl.getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
     }
 }

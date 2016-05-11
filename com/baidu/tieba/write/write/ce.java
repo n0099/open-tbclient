@@ -1,30 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ce implements a.b {
-    final /* synthetic */ cd eNO;
+public class ce implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity feN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(cd cdVar) {
-        this.eNO = cdVar;
+    public ce(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.feN = writeMultiImgsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteMultiImgsActivity writeMultiImgsActivity;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        WriteMultiImgsActivity writeMultiImgsActivity2;
-        WriteMultiImgsActivity writeMultiImgsActivity3;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.eNO.eNN;
-        aVar2 = writeMultiImgsActivity.eNJ;
-        if (aVar2 != null) {
-            writeMultiImgsActivity3 = this.eNO.eNN;
-            aVar3 = writeMultiImgsActivity3.eNJ;
-            aVar3.dismiss();
-        }
-        writeMultiImgsActivity2 = this.eNO.eNN;
-        writeMultiImgsActivity2.bbO();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        rVar = this.feN.few;
+        rVar.rl(Integer.parseInt(view.getTag().toString()));
     }
 }

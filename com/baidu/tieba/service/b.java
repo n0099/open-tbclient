@@ -4,17 +4,17 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class b extends Handler {
-    final /* synthetic */ ClearTempService eaq;
+    final /* synthetic */ ClearTempService edw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClearTempService clearTempService) {
-        this.eaq = clearTempService;
+        this.edw = clearTempService;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        this.eaq.stopSelf();
-        this.eaq.thread = null;
+        this.edw.stopSelf();
+        this.edw.thread = null;
     }
 }

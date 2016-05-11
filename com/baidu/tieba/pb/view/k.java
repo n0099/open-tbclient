@@ -1,50 +1,33 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.content.Context;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.pb.b;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends Handler {
-    final /* synthetic */ PbVideoProgressView dqN;
+public class k implements a.b {
+    final /* synthetic */ PbNewChudianCommonView dsA;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(PbVideoProgressView pbVideoProgressView, Looper looper) {
-        super(looper);
-        this.dqN = pbVideoProgressView;
+    public k(PbNewChudianCommonView pbNewChudianCommonView, String str) {
+        this.dsA = pbNewChudianCommonView;
+        this.val$url = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int aAE;
-        int i;
-        int i2;
-        switch (message.what) {
-            case 1:
-                z = this.dqN.dqG;
-                if (z) {
-                    mediaPlayerControl = this.dqN.dqC;
-                    if (mediaPlayerControl != null) {
-                        mediaPlayerControl2 = this.dqN.dqC;
-                        if (!mediaPlayerControl2.isPlaying()) {
-                            return;
-                        }
-                        aAE = this.dqN.aAE();
-                        Message obtainMessage = obtainMessage(1);
-                        i = this.dqN.dqB;
-                        i2 = this.dqN.dqB;
-                        sendMessageDelayed(obtainMessage, i - (aAE % i2));
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        Context context;
+        b.a aVar2;
+        b.a aVar3;
+        aVar.dismiss();
+        context = this.dsA.mContext;
+        UtilHelper.callPhone(context, this.val$url);
+        aVar2 = this.dsA.ddo;
+        if (aVar2 != null) {
+            aVar3 = this.dsA.ddo;
+            aVar3.z(this.val$url, "BTN_CALL", "CLICK_FEEDBACK");
         }
     }
 }

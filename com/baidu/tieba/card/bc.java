@@ -1,38 +1,34 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc {
-    public static void ha(String str) {
-        com.baidu.tieba.tbadkCore.util.s readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory()) != null && !readThreadHistory.oh(str)) {
-            readThreadHistory.og(str);
+public class bc implements com.baidu.tbadk.widget.layout.g {
+    final /* synthetic */ av aQv;
+    private final /* synthetic */ LinkedList aQw;
+    private final /* synthetic */ com.baidu.tbadk.core.data.ax aQx;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(av avVar, LinkedList linkedList, com.baidu.tbadk.core.data.ax axVar) {
+        this.aQv = avVar;
+        this.aQw = linkedList;
+        this.aQx = axVar;
+    }
+
+    @Override // com.baidu.tbadk.widget.layout.g
+    public void c(View view, int i, boolean z) {
+        com.baidu.tieba.card.a.l lVar;
+        by<com.baidu.tieba.card.a.l> JM = this.aQv.JM();
+        if (JM != null) {
+            view.setTag("1");
+            lVar = this.aQv.aQq;
+            JM.a(view, lVar);
         }
-    }
-
-    public static boolean hb(String str) {
-        com.baidu.tieba.tbadkCore.util.s readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory()) == null || !readThreadHistory.oh(str)) ? false : true;
-    }
-
-    public static String Lr() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
-    }
-
-    public static String Ls() {
-        return "personalize_page";
-    }
-
-    public static void a(TextView textView, String str, int i, int i2) {
-        if (textView instanceof TextView) {
-            if (hb(str)) {
-                com.baidu.tbadk.core.util.at.j((View) textView, i2);
-            } else {
-                com.baidu.tbadk.core.util.at.j((View) textView, i);
-            }
+        if (!z) {
+            this.aQv.a(this.aQw, i, this.aQx);
+        } else {
+            this.aQv.Kd();
         }
     }
 }

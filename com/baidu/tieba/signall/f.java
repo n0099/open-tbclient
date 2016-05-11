@@ -16,60 +16,60 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private static final String efS = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
-    private c efP;
-    private a efQ;
-    private HttpMessage efR;
-    private boolean efT;
-    private final BdUniqueId efU;
-    private final HttpMessageListener efV;
+    private static final String ejd = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
+    private c eja;
+    private a ejb;
+    private HttpMessage ejc;
+    private boolean eje;
+    private final BdUniqueId ejf;
+    private final HttpMessageListener ejg;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(c cVar);
 
-        void jk(String str);
+        void jm(String str);
     }
 
     public f(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.efP = null;
-        this.efQ = null;
-        this.efU = BdUniqueId.gen();
-        this.efV = new g(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
-        this.efT = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.eja = null;
+        this.ejb = null;
+        this.ejf = BdUniqueId.gen();
+        this.ejg = new g(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.eje = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.efP = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, efS);
+        this.eja = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, ejd);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.efV);
+        registerListener(this.ejg);
     }
 
-    public boolean aPS() {
-        return this.efT;
+    public boolean aQi() {
+        return this.eje;
     }
 
     public void a(a aVar) {
-        this.efQ = aVar;
+        this.ejb = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.efR != null) {
+        if (this.ejc != null) {
             return false;
         }
-        this.efR = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.ejc = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.efR.addParam("user_id", str);
-        this.efR.setTag(this.efU);
-        MessageManager.getInstance().sendMessage(this.efR);
+        this.ejc.addParam("user_id", str);
+        this.ejc.setTag(this.ejf);
+        MessageManager.getInstance().sendMessage(this.ejc);
         return true;
     }
 
@@ -98,9 +98,9 @@ public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.efR != null) {
-            MessageManager.getInstance().removeHttpMessage(this.efU);
-            this.efR = null;
+        if (this.ejc != null) {
+            MessageManager.getInstance().removeHttpMessage(this.ejf);
+            this.ejc = null;
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
         return true;

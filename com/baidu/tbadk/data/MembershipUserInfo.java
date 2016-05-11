@@ -1,12 +1,11 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.VipShowInfo;
 /* loaded from: classes.dex */
-public class MembershipUserInfo extends i implements Serializable {
+public class MembershipUserInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
     private String mContent;
     private String mLink;

@@ -6,13 +6,13 @@ import com.baidu.tbadk.widget.richText.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends CustomMessageListener {
-    final /* synthetic */ TalkableActivity cap;
+    final /* synthetic */ TalkableActivity caU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br(TalkableActivity talkableActivity, int i) {
         super(i);
-        this.cap = talkableActivity;
+        this.caU = talkableActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class br extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h.a)) {
             h.a aVar = (h.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.h.a(this.cap.getPageContext(), aVar.type, aVar.url, aVar.subType);
+            com.baidu.tbadk.widget.richText.h.a(this.caU.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
     }
 }

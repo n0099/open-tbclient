@@ -2,7 +2,7 @@ package com.baidu.tieba.vote;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.tbadkCore.data.s;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.PollInfo;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class VoteDataInfo implements u, Serializable {
+public class VoteDataInfo implements v, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
     private int mEndtime;
     private int mIsMulti;
@@ -131,7 +131,7 @@ public class VoteDataInfo implements u, Serializable {
                     if (pollOption2 != null) {
                         f fVar = new f(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            fVar.ci((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            fVar.setPercent((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (a(strArr, String.valueOf(pollOption2.id))) {
                             fVar.setSelected(true);
@@ -155,8 +155,8 @@ public class VoteDataInfo implements u, Serializable {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return s.epJ;
+        return s.esT;
     }
 }

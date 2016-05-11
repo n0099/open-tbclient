@@ -1,20 +1,19 @@
 package com.baidu.tieba.recommendfrs.data;
 
-import com.baidu.tieba.card.a.y;
 import tbclient.Personalized.Resource;
 /* loaded from: classes.dex */
-public class e extends y {
+public class e extends com.baidu.tieba.card.a.q {
     public void a(Resource resource) {
         if (resource != null) {
-            this.aWy = resource.res_id.longValue();
+            this.aSs = resource.res_id.longValue();
             this.userName = resource.user_name;
-            this.aWz = resource.user_image;
-            this.aWA = resource.user_link;
-            this.aWB = resource.res_title;
-            this.aWC = resource.res_image;
-            this.aWD = resource.res_link;
-            this.aWE = resource.position.longValue();
-            this.aWF = resource.icon_text;
+            this.aSt = resource.user_image;
+            this.aSu = resource.user_link;
+            this.aSv = resource.res_title;
+            this.aSw = resource.res_image;
+            this.aSx = resource.res_link;
+            this.aSy = resource.position.longValue();
+            this.aSz = resource.icon_text;
         }
     }
 }

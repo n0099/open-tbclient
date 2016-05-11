@@ -17,9 +17,9 @@ class c extends CustomMessageListener {
         MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
             for (com.baidu.tbadk.editortools.emotiontool.a aVar : (List) customResponsedMessage.getData()) {
-                x.Nn().b(aVar);
+                x.LW().b(aVar);
             }
-            x.Nn().No();
+            x.LW().LX();
             MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
         }
     }

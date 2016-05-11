@@ -1,21 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-class bj implements a.InterfaceC0081a {
-    final /* synthetic */ WriteActivity eNd;
+class bj implements View.OnClickListener {
+    final /* synthetic */ WriteActivity feb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.eNd = writeActivity;
+        this.feb = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0081a
-    public void mY() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         com.baidu.tbadk.editortools.l lVar;
-        this.eNd.cRp = null;
-        this.eNd.jw(false);
-        lVar = this.eNd.atG;
-        lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
+        int bdv;
+        EditText editText;
+        EditText editText2;
+        lVar = this.feb.apy;
+        lVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        bdv = this.feb.bdv();
+        if (bdv >= 0) {
+            editText = this.feb.fai;
+            if (bdv < editText.getText().length()) {
+                editText2 = this.feb.fai;
+                editText2.setSelection(bdv);
+            }
+        }
     }
 }

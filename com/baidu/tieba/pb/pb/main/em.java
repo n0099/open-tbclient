@@ -1,37 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ el dkr;
+public class em implements a.InterfaceC0073a {
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em(el elVar, int i, int i2) {
-        super(i, i2);
-        this.dkr = elVar;
+    public em(el elVar) {
+        this.dpu = elVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        BdUniqueId bdUniqueId;
-        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
-            z = this.dkr.dkp;
-            if (!z) {
-                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
-                bdUniqueId = this.dkr.mTag;
-                if (tag == bdUniqueId && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                        this.dkr.a((pbPageSocketResponseMessage) responsedMessage);
-                    }
-                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                        this.dkr.a((pbPageHttpResponseMessage) responsedMessage);
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0073a
+    public void jm() {
     }
 }

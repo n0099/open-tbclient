@@ -1,77 +1,53 @@
 package com.baidu.sapi2.utils;
-
-import java.security.NoSuchAlgorithmException;
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes.dex */
-public class f {
-    private static final String a = "UTF-8";
-    private static final String b = "AES/CBC/NoPadding";
-    private static final String c = "AES";
-    private String d;
-    private String e;
-    private String f;
-
-    public f() {
-        this("AES", "AES/CBC/NoPadding", a);
-    }
-
-    public f(String str, String str2) {
-        this(str, str2, a);
-    }
-
-    public f(String str, String str2, String str3) {
-        this.d = a;
-        this.e = "AES/CBC/NoPadding";
-        this.f = "AES";
-        this.f = str;
-        this.e = str2;
-        this.d = str3;
-    }
-
-    public byte[] a(String str, String str2, String str3) {
-        if (str == null || str.length() == 0) {
-            throw new Exception("Empty string");
-        }
-        try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.d));
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f);
-            Cipher cipher = Cipher.getInstance(this.e);
-            cipher.init(1, secretKeySpec, ivParameterSpec);
-            return cipher.doFinal(a(str).getBytes());
-        } catch (NoSuchAlgorithmException e) {
-            L.e(e);
-            return null;
-        } catch (NoSuchPaddingException e2) {
-            L.e(e2);
-            return null;
-        }
-    }
-
-    public byte[] a(byte[] bArr, String str, String str2) {
-        if (bArr == null || bArr.length == 0) {
-            throw new Exception("Empty string");
-        }
-        byte[] bArr2 = new byte[0];
-        try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
-            Cipher cipher = Cipher.getInstance(this.e);
-            cipher.init(2, secretKeySpec, ivParameterSpec);
-            return cipher.doFinal(bArr);
-        } catch (Throwable th) {
-            L.e(th);
-            return bArr2;
-        }
-    }
-
-    private static String a(String str) {
-        int length = 16 - (str.length() % 16);
-        for (int i = 0; i < length; i++) {
-            str = str + ' ';
-        }
-        return str;
-    }
+public interface f {
+    public static final String A = "AES/CBC/NoPadding";
+    public static final String B = "/static/appsapi/conf/config.txt";
+    public static final String C = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/conf/config.txt";
+    public static final String D = "/yunid/device/service/status";
+    public static final String E = "/yunid/device/reg";
+    public static final String F = "/yunid/device/login";
+    public static final String G = "/yunid/device/forcereg";
+    public static final String H = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String I = "/v3/login/api/auth/";
+    public static final String J = "/v2/security/sapibindwidgetsend";
+    public static final String K = "/v2/security/sapibindwidgetbind";
+    public static final String L = "/v2/sapi/getvoiceid";
+    public static final String M = "/v2/sapi/regvoice";
+    public static final String N = "/v2/sapi/voicelogin";
+    public static final String O = "/v2/sapi/updatevoicepassword";
+    public static final String P = "/v2/sapi/updatevoiceloginswitch";
+    public static final String Q = "/v2/sapi/verifyvoice";
+    public static final String R = "/v2/sapi/regface";
+    public static final String S = "/v2/sapi/facelogin";
+    public static final String T = "/v2/sapi/getfaceid";
+    public static final String U = "/v2/sapi/updateface";
+    public static final String V = "/v2/sapi/delface";
+    public static final String W = "/v2/sapi/setssochannelinfo";
+    public static final String a = "/v2/sapi/login";
+    public static final String b = "/v5/login/sapi/relogin";
+    public static final String c = "/wp/login/proxy";
+    public static final String d = "http://119.75.220.29";
+    public static final String e = "http://220.181.111.48";
+    public static final String f = "http://123.125.115.81";
+    public static final String g = "/cgi-bin/genimage?";
+    public static final String h = "/v2/sapi/applyregcode";
+    public static final String i = "/v2/sapi/phoneregverify";
+    public static final String j = "/v2/sapi/reg/quick";
+    public static final String k = "/v2/sapi/center/getuinfo";
+    public static final String l = "2512457640";
+    public static final String m = "/phoenix/account/ssologin";
+    public static final String n = "/phoenix/account/ssologin";
+    public static final String o = "/phoenix/account/startlogin";
+    public static final String p = "/phoenix/account/afterauth";
+    public static final String q = "/phoenix/account/finishbind";
+    public static final String r = "/v2/sapi/qrlogin?lp=pc";
+    public static final String s = "/v2/sapi/qrlogin?lp=app";
+    public static final String t = "/v2/sapi/smsgetlogin";
+    public static final String u = "10698000036592";
+    public static final String v = "/v2/sapi/getdpass";
+    public static final String w = "AES/CBC/PKCS5Padding";
+    public static final String x = "AES";
+    public static final String y = "8070605040302010";
+    public static final String z = "js52je)927!hsm^%3m";
 }

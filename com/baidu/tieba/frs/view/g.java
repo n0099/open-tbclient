@@ -1,38 +1,40 @@
 package com.baidu.tieba.frs.view;
 
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MangaCoverActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Animation.AnimationListener {
-    final /* synthetic */ b bwr;
-    private final /* synthetic */ TbPageContextSupport bws;
-    private final /* synthetic */ float bwt;
-    private final /* synthetic */ View zn;
+public class g implements View.OnClickListener {
+    final /* synthetic */ c bwe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(b bVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
-        this.bwr = bVar;
-        this.bws = tbPageContextSupport;
-        this.zn = view;
-        this.bwt = f;
+    public g(c cVar) {
+        this.bwe = cVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
-        scaleAnimation.setFillAfter(true);
-        scaleAnimation.setDuration(300L);
-        com.baidu.tieba.tbadkCore.a.a(this.bws, this.zn, scaleAnimation, new h(this, this.bwt, this.zn));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int pb;
+        if (this.bwe.bpp != null && this.bwe.bpp.aSv() != null && (pb = this.bwe.bpp.aSv().pb()) != 0 && pb == 1) {
+            if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
+                if (this.bwe.bjB != null) {
+                    long c = com.baidu.adp.lib.h.b.c(this.bwe.bjB.getForumId(), 0L);
+                    TiebaStatic.log(new aw("c11200").ac("obj_param1", String.valueOf(c)));
+                    MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.bwe.Do.getPageActivity(), c);
+                    mangaCoverActivityConfig.setFrom(4);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, mangaCoverActivityConfig));
+                    return;
+                }
+                return;
+            }
+            com.baidu.adp.lib.util.k.showToast(this.bwe.bjB.getPageContext().getPageActivity(), t.j.manga_plugin_not_install_tip);
+        }
     }
 }

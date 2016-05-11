@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 /* loaded from: classes.dex */
 public class NotLoginGuideActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
     }
 }

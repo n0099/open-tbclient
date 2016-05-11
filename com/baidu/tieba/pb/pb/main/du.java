@@ -1,33 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.t;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du extends dq {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public du(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class du implements View.OnClickListener {
+    final /* synthetic */ dq dmt;
+    private final /* synthetic */ String dmu;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public du(dq dqVar, String str) {
+        this.dmt = dqVar;
+        this.dmu = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.dq
-    /* renamed from: ax */
-    public dv aw(ViewGroup viewGroup) {
-        return new dv(LayoutInflater.from(this.mContext).inflate(t.h.pb_newchudian_multi_img_item, viewGroup, false), this.ddp, this.ddo, this.ddn);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.dq
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.s sVar, dt dtVar) {
-        super.a(i, view, viewGroup, sVar, dtVar);
-        if (sVar == null || sVar.aTC() == null) {
-            return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!StringUtils.isNull(this.dmu) && com.baidu.adp.lib.util.k.fH()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.u(this.dmt.dhY.getActivity(), this.dmu);
         }
-        ((dv) dtVar).a(this.mContext, sVar.aTC(), this.daU);
-        return view;
     }
 }

@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 /* loaded from: classes.dex */
 public class SupplementSignStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
     }
 }

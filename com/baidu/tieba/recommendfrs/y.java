@@ -1,33 +1,34 @@
 package com.baidu.tieba.recommendfrs;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.BdLog;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ q dVL;
+public class y extends com.baidu.tbadk.util.s<DataRes> {
+    private final /* synthetic */ com.baidu.adp.lib.cache.o cFw;
+    final /* synthetic */ r dYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(q qVar) {
-        this.dVL = qVar;
+    public y(r rVar, com.baidu.adp.lib.cache.o oVar) {
+        this.dYM = rVar;
+        this.cFw = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        this.dVL.hideTip();
-        i = this.dVL.dVu;
-        if (i == 1) {
-            bdTypeListView = this.dVL.bcd;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.dVL.bcd;
-                bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.dVL.bcd;
-                bdTypeListView3.nk();
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.s
+    /* renamed from: aMh */
+    public DataRes doInBackground() {
+        byte[] bArr = (byte[]) this.cFw.get("0");
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+        } catch (IOException e) {
+            BdLog.e(e);
+            return null;
         }
     }
 }

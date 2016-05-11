@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ SignAllForumAdvertActivity egH;
+    final /* synthetic */ SignAllForumAdvertActivity ejS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SignAllForumAdvertActivity signAllForumAdvertActivity) {
-        this.egH = signAllForumAdvertActivity;
+        this.ejS = signAllForumAdvertActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.signall.SignAllForumAdvertActivity */
@@ -18,9 +18,9 @@ public class s implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        bg wM = bg.wM();
-        TbPageContext<?> pageContext = this.egH.getPageContext();
-        str = this.egH.egE;
-        wM.c(pageContext, new String[]{str});
+        bg us = bg.us();
+        TbPageContext<?> pageContext = this.ejS.getPageContext();
+        str = this.ejS.ejP;
+        us.c(pageContext, new String[]{str});
     }
 }

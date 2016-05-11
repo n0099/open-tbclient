@@ -20,39 +20,39 @@ import java.util.concurrent.ConcurrentHashMap;
 import protobuf.NewpushGroupRepair;
 /* loaded from: classes.dex */
 public class a {
-    private static a coC = null;
-    private final CustomMessageListener cnP = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private Handler coD;
-    private ConcurrentHashMap<Long, GroupMsgData> coE;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> coF;
-    private ConcurrentHashMap<Long, Runnable> coG;
-    private Vector<Long> coH;
+    private static a cpz = null;
+    private final CustomMessageListener coM = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private Handler cpA;
+    private ConcurrentHashMap<Long, GroupMsgData> cpB;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> cpC;
+    private ConcurrentHashMap<Long, Runnable> cpD;
+    private Vector<Long> cpE;
     private Handler mHandler;
 
-    public static a ahM() {
-        if (coC == null) {
+    public static a ahT() {
+        if (cpz == null) {
             synchronized (a.class) {
-                if (coC == null) {
-                    coC = new a();
+                if (cpz == null) {
+                    cpz = new a();
                 }
             }
         }
-        return coC;
+        return cpz;
     }
 
     private a() {
         this.mHandler = null;
-        this.coD = null;
-        this.coE = null;
-        this.coF = null;
-        this.coG = null;
-        this.coH = null;
+        this.cpA = null;
+        this.cpB = null;
+        this.cpC = null;
+        this.cpD = null;
+        this.cpE = null;
         this.mHandler = new c(this, Looper.getMainLooper());
-        this.coD = new Handler(Looper.myLooper());
-        this.coE = new ConcurrentHashMap<>();
-        this.coF = new ConcurrentHashMap<>();
-        this.coG = new ConcurrentHashMap<>();
-        this.coH = new Vector<>();
+        this.cpA = new Handler(Looper.myLooper());
+        this.cpB = new ConcurrentHashMap<>();
+        this.cpC = new ConcurrentHashMap<>();
+        this.cpD = new ConcurrentHashMap<>();
+        this.cpE = new Vector<>();
         this.mHandler.sendEmptyMessage(10002);
     }
 
@@ -68,20 +68,20 @@ public class a {
         long j;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo S = i.aey().S(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
-            if (!(S != null)) {
-                if (!this.coH.contains(Long.valueOf(groupId))) {
+            ImMessageCenterPojo W = i.aex().W(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (!(W != null)) {
+                if (!this.cpE.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
                 return;
             }
-            long sid = S.getSid();
-            long bl = com.baidu.tieba.im.util.g.bl(S.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.coE.get(Long.valueOf(groupId));
+            long sid = W.getSid();
+            long bl = com.baidu.tieba.im.util.g.bl(W.getPulled_msgId());
+            GroupMsgData groupMsgData3 = this.cpB.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.coE.put(Long.valueOf(groupId), groupMsgData4);
+                this.cpB.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -101,9 +101,9 @@ public class a {
                     j = listMessage.get(listMessage.size() - 1).getSid();
                     bl = listMessage.get(listMessage.size() - 1).getMsgId();
                     if (z) {
-                        this.coH.remove(Long.valueOf(groupId));
+                        this.cpE.remove(Long.valueOf(groupId));
                     }
-                    if (this.coH.contains(Long.valueOf(groupId))) {
+                    if (this.cpE.contains(Long.valueOf(groupId))) {
                         a(j, groupId, groupMsgData.getGroupInfo().getUserType(), bl);
                         return;
                     }
@@ -114,7 +114,7 @@ public class a {
             j = sid;
             if (z) {
             }
-            if (this.coH.contains(Long.valueOf(groupId))) {
+            if (this.cpE.contains(Long.valueOf(groupId))) {
             }
         }
     }
@@ -125,7 +125,7 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.coF.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.cpC.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -133,13 +133,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.coH.add(Long.valueOf(j));
+            this.cpE.add(Long.valueOf(j));
             be(j);
         }
     }
 
     private List<ChatMessage> bd(long j) {
-        GroupMsgData groupMsgData = this.coE.get(Long.valueOf(j));
+        GroupMsgData groupMsgData = this.cpB.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -167,12 +167,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.coE.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.cpB.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
                 bg(j2);
-            } else if (!this.coG.containsKey(Long.valueOf(j2))) {
+            } else if (!this.cpD.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -180,8 +180,8 @@ public class a {
 
     private void b(long j, long j2, int i, long j3) {
         d dVar = new d(this, j2, j, i, j3);
-        this.coD.postDelayed(dVar, e.ahN().fe().ff());
-        this.coG.put(Long.valueOf(j2), dVar);
+        this.cpA.postDelayed(dVar, e.ahU().bt().bu());
+        this.cpD.put(Long.valueOf(j2), dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -195,17 +195,17 @@ public class a {
     }
 
     public NewpushGroupRepair bf(long j) {
-        if (this.coF.containsKey(Long.valueOf(j))) {
-            return this.coF.remove(Long.valueOf(j));
+        if (this.cpC.containsKey(Long.valueOf(j))) {
+            return this.cpC.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bg(long j) {
-        Runnable remove = this.coG.remove(Long.valueOf(j));
+        Runnable remove = this.cpD.remove(Long.valueOf(j));
         if (remove != null) {
-            this.coD.removeCallbacks(remove);
+            this.cpA.removeCallbacks(remove);
         }
     }
 
@@ -239,20 +239,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.coD != null) {
-            this.coD.removeCallbacksAndMessages(null);
+        if (this.cpA != null) {
+            this.cpA.removeCallbacksAndMessages(null);
         }
-        if (this.coG != null) {
-            for (Map.Entry<Long, Runnable> entry : this.coG.entrySet()) {
+        if (this.cpD != null) {
+            for (Map.Entry<Long, Runnable> entry : this.cpD.entrySet()) {
                 bg(entry.getKey().longValue());
             }
-            this.coG.clear();
+            this.cpD.clear();
         }
-        if (this.coE != null) {
-            this.coE.clear();
+        if (this.cpB != null) {
+            this.cpB.clear();
         }
-        if (this.coH != null) {
-            this.coH.clear();
+        if (this.cpE != null) {
+            this.cpE.clear();
         }
     }
 }

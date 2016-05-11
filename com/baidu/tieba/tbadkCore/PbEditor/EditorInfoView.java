@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int aik;
-    private GradientDrawable eon;
-    protected int eoo;
-    protected int eop;
+    private int aej;
+    private GradientDrawable erE;
+    protected int erF;
+    protected int erG;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aik = 3;
-        this.eoo = (int) context.getResources().getDimension(t.e.ds18);
-        this.eop = (int) context.getResources().getDimension(t.e.ds6);
-        setPadding(this.eoo, this.eop, this.eoo, this.eop);
+        this.aej = 3;
+        this.erF = (int) context.getResources().getDimension(t.e.ds18);
+        this.erG = (int) context.getResources().getDimension(t.e.ds6);
+        setPadding(this.erF, this.erG, this.erF, this.erG);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(t.e.ds24));
@@ -39,22 +39,22 @@ public class EditorInfoView extends TextView {
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(t.e.ds48));
     }
 
-    public void xy() {
-        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (skinType != this.aik) {
-            this.aik = skinType;
-            uA();
+    public void vl() {
+        int skinType = TbadkCoreApplication.m11getInst().getSkinType();
+        if (skinType != this.aej) {
+            this.aej = skinType;
+            sf();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uA() {
-        if (this.eon == null) {
-            this.eon = new GradientDrawable();
-            this.eon.setCornerRadius(getContext().getResources().getDimension(t.e.ds24));
+    public void sf() {
+        if (this.erE == null) {
+            this.erE = new GradientDrawable();
+            this.erE.setCornerRadius(getContext().getResources().getDimension(t.e.ds24));
         }
-        at.b(this, t.d.cp_cont_c, 1);
-        this.eon.setColor(at.getColor(t.d.cp_bg_line_e));
-        setBackgroundDrawable(this.eon);
+        at.c(this, t.d.cp_cont_c, 1);
+        this.erE.setColor(at.getColor(t.d.cp_bg_line_e));
+        setBackgroundDrawable(this.erE);
     }
 }

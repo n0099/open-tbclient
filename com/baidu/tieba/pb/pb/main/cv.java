@@ -1,17 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-public class cv extends cw {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cv(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class cv implements Runnable {
+    final /* synthetic */ ct dkU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cv(ct ctVar) {
+        this.dkU = ctVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cw
-    protected PbRecBaseViewHolder au(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aLw().m(this.mContext, 3);
+    @Override // java.lang.Runnable
+    public void run() {
+        cs csVar;
+        com.baidu.adp.lib.guide.d dVar;
+        cs csVar2;
+        com.baidu.adp.lib.guide.d dVar2;
+        csVar = this.dkU.dkT;
+        dVar = csVar.dkQ;
+        if (dVar != null) {
+            csVar2 = this.dkU.dkT;
+            dVar2 = csVar2.dkQ;
+            dVar2.dismiss();
+        }
     }
 }

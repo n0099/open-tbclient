@@ -1,27 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity eNd;
+public class be implements Runnable {
+    final /* synthetic */ WriteActivity feb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.eNd = writeActivity;
+        this.feb = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.eNd.avt;
-        com.baidu.tbadk.core.util.m.p(new File(append.append(str).toString()));
-        return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
+        GridView gridView;
+        aVar = this.feb.fdz;
+        aVar.notifyDataSetChanged();
+        gridView = this.feb.fdy;
+        gridView.invalidateViews();
     }
 }

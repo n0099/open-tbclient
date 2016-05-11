@@ -5,56 +5,55 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.card.af;
-import com.baidu.tieba.card.cj;
+import com.baidu.tieba.card.by;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements cj<com.baidu.tieba.card.a.q> {
-    final /* synthetic */ p dYn;
+public class q implements by<com.baidu.tieba.card.a.j> {
+    final /* synthetic */ p ebu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.dYn = pVar;
+        this.ebu = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cj
-    public void a(View view, com.baidu.tieba.card.a.q qVar) {
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        af afVar5;
-        af afVar6;
-        af afVar7;
-        af afVar8;
+    @Override // com.baidu.tieba.card.by
+    public void a(View view, com.baidu.tieba.card.a.j jVar) {
+        com.baidu.tieba.card.u uVar;
+        com.baidu.tieba.card.u uVar2;
+        com.baidu.tieba.card.u uVar3;
+        com.baidu.tieba.card.u uVar4;
+        com.baidu.tieba.card.u uVar5;
+        com.baidu.tieba.card.u uVar6;
+        com.baidu.tieba.card.u uVar7;
+        com.baidu.tieba.card.u uVar8;
         if (view != null) {
-            afVar = this.dYn.dYl;
-            if (afVar != null) {
-                afVar2 = this.dYn.dYl;
-                if (afVar2.aTg != null) {
-                    afVar3 = this.dYn.dYl;
-                    if (afVar3.aTg.aTl != null) {
-                        afVar4 = this.dYn.dYl;
-                        if (afVar4.aTg.aTj != null) {
-                            afVar5 = this.dYn.dYl;
-                            if (afVar5.aTg.getView() != null) {
+            uVar = this.ebu.ebs;
+            if (uVar != null) {
+                uVar2 = this.ebu.ebs;
+                if (uVar2.aPu != null) {
+                    uVar3 = this.ebu.ebs;
+                    if (uVar3.aPu.aPz != null) {
+                        uVar4 = this.ebu.ebs;
+                        if (uVar4.aPu.aPx != null) {
+                            uVar5 = this.ebu.ebs;
+                            if (uVar5.aPu.getView() != null) {
                                 int id = view.getId();
-                                afVar6 = this.dYn.dYl;
-                                if (id == afVar6.aTg.aTl.getId() && (view.getTag() instanceof MetaData)) {
+                                uVar6 = this.ebu.ebs;
+                                if (id == uVar6.aPu.aPz.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
-                                        TiebaStatic.log(new aw("c10803").r("obj_locate", 6));
+                                        TiebaStatic.log(new aw("c10803").s("obj_locate", 6));
                                         return;
                                     }
                                     return;
                                 }
                                 int id2 = view.getId();
-                                afVar7 = this.dYn.dYl;
-                                if (id2 != afVar7.aTg.getView().getId()) {
+                                uVar7 = this.ebu.ebs;
+                                if (id2 != uVar7.aPu.getView().getId()) {
                                     int id3 = view.getId();
-                                    afVar8 = this.dYn.dYl;
-                                    if (id3 != afVar8.aTg.aTj.getId()) {
+                                    uVar8 = this.ebu.ebs;
+                                    if (id3 != uVar8.aPu.aPx.getId()) {
                                         return;
                                     }
                                 }

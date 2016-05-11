@@ -1,33 +1,21 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.fu;
-import com.baidu.tieba.write.view.PostCategoryView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements TabMenuPopView.a {
-    final /* synthetic */ WriteActivity eNd;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ WriteActivity feb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.eNd = writeActivity;
+        this.feb = writeActivity;
     }
 
-    @Override // com.baidu.tieba.frs.TabMenuPopView.a
-    public void a(View view, fu fuVar) {
-        PostCategoryView postCategoryView;
-        WriteData writeData;
-        PostCategoryView postCategoryView2;
-        if (fuVar != null) {
-            postCategoryView = this.eNd.eMH;
-            postCategoryView.setText(fuVar.name);
-            writeData = this.eNd.esv;
-            writeData.setCategoryTo(fuVar.bqM);
-            this.eNd.eMG = fuVar.bqM;
-            postCategoryView2 = this.eNd.eMH;
-            postCategoryView2.baz();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.feb.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.feb.getPageContext().getPageActivity())));
     }
 }

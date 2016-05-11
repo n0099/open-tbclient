@@ -23,8 +23,8 @@ public class UpdateDialogConfig extends IntentConfig {
         intent.setFlags(268435456);
         intent.putExtra(KEY_TIEBA_APK_DATA, versionData);
         intent.putExtra(KEY_OTHER_APK_DATA, combineDownload);
-        TbadkCoreApplication.m411getInst().setHasNewVersion(true);
-        TbadkCoreApplication.m411getInst().setCombineDownload(combineDownload);
+        TbadkCoreApplication.m11getInst().setHasNewVersion(true);
+        TbadkCoreApplication.m11getInst().setCombineDownload(combineDownload);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig

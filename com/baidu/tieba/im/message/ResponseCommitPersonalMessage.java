@@ -39,7 +39,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (getError() == 0) {
             if (commitPersonalMsgResIdl.data == null) {
-                a.hz().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+                a.dN().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
             }
             long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());

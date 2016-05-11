@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public interface i {
-    void au(int i);
+    void ai(int i);
 
     void f(int i, String str);
 

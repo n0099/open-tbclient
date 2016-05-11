@@ -14,13 +14,13 @@ public class p {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Jv();
+        void HM();
     }
 
     public static void a(TbPageContext<?> tbPageContext, a aVar, RelativeLayout relativeLayout) {
-        if (com.baidu.tbadk.core.sharedPref.b.vk().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
+        if (com.baidu.tbadk.core.sharedPref.b.sQ().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
             if (aVar != null) {
-                aVar.Jv();
+                aVar.HM();
                 return;
             }
             return;

@@ -1,29 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.s;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class al implements s.a {
-    final /* synthetic */ PbActivity dht;
+class al implements View.OnTouchListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PbActivity pbActivity) {
-        this.dht = pbActivity;
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.s.a
-    public void aB(boolean z) {
-        df dfVar;
-        eu euVar;
-        if (this.dht.awE()) {
-            this.dht.finish();
-        }
-        dfVar = this.dht.dfV;
-        if (!dfVar.gc(true)) {
-            euVar = this.dht.dgF;
-            euVar.ayI();
-            return;
-        }
-        TiebaStatic.eventStat(this.dht.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        com.baidu.tieba.c.c cVar;
+        cVar = this.djE.bgJ;
+        cVar.onTouchEvent(motionEvent);
+        return false;
     }
 }

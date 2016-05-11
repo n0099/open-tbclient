@@ -1,39 +1,115 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.frs.entelechy.b.b;
+import com.baidu.tieba.tbadkCore.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    final /* synthetic */ FrsActivity blk;
+class c implements fi {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(FrsActivity frsActivity, int i) {
-        super(i);
-        this.blk = frsActivity;
+    public c(FrsActivity frsActivity) {
+        this.bhl = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Integer num;
-        com.baidu.tieba.tbadkCore.o oVar;
-        com.baidu.tieba.tbadkCore.o oVar2;
-        com.baidu.tieba.frs.c.a aVar;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            oVar = this.blk.bkq;
-            if (oVar != null) {
-                oVar2 = this.blk.bkq;
-                UserData userData = oVar2.getUserData();
-                if (userData != null) {
-                    userData.setIsMem(num.intValue());
-                    if (num.intValue() != 0) {
-                        aVar = this.blk.bkD;
-                        aVar.a(num);
-                    }
+    @Override // com.baidu.tieba.frs.fi
+    public void a(int i, int i2, fq fqVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+        cn cnVar;
+        b bVar;
+        cn cnVar2;
+        int i3;
+        int i4;
+        cn cnVar3;
+        cn cnVar4;
+        cn cnVar5;
+        com.baidu.tieba.frs.h.aa aaVar;
+        com.baidu.tieba.frs.h.aa aaVar2;
+        cn cnVar6;
+        cn cnVar7;
+        cn cnVar8;
+        int i5;
+        int i6;
+        cn cnVar9;
+        cn cnVar10;
+        com.baidu.tieba.frs.h.m mVar;
+        b bVar2;
+        cn cnVar11;
+        cnVar = this.bhl.bgo;
+        if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
+            cnVar11 = this.bhl.bgo;
+            ((com.baidu.tieba.frs.tab.h) cnVar11.QC()).Pl();
+        }
+        bVar = this.bhl.bgN;
+        if (bVar != null) {
+            mVar = this.bhl.bgE;
+            bVar2 = this.bhl.bgN;
+            mVar.dl(bVar2.gy(i));
+        }
+        d.a aVar = new d.a();
+        if (fqVar != null) {
+            aVar.isSuccess = fqVar.errCode == 0;
+            aVar.errorCode = fqVar.errCode;
+            aVar.errorMsg = fqVar.errMsg;
+            if (aVar.isSuccess) {
+                if (arrayList == null || arrayList.size() == 0) {
+                    cnVar6 = this.bhl.bgo;
+                    cnVar6.Ri();
+                } else if (fqVar.hasMore) {
+                    cnVar10 = this.bhl.bgo;
+                    cnVar10.Rg();
+                } else if (fqVar.bmV) {
+                    cnVar8 = this.bhl.bgo;
+                    i5 = FrsActivity.bfW;
+                    int size = arrayList.size();
+                    i6 = FrsActivity.bfX;
+                    cnVar8.gr(i5 - (size * i6));
+                    cnVar9 = this.bhl.bgo;
+                    cnVar9.Rh();
+                } else {
+                    cnVar7 = this.bhl.bgo;
+                    cnVar7.Ri();
                 }
             }
+        } else {
+            fqVar = new fq();
+            fqVar.pn = 1;
+            fqVar.hasMore = false;
+            fqVar.bmV = false;
+            if (arrayList != null) {
+                cnVar2 = this.bhl.bgo;
+                i3 = FrsActivity.bfW;
+                int size2 = arrayList.size();
+                i4 = FrsActivity.bfX;
+                cnVar2.gr(i3 - (size2 * i4));
+            }
+        }
+        if (i == 1) {
+            this.bhl.bgB = true;
+            this.bhl.bgU.a(this.bhl.bgC.getType(), false, aVar);
+        } else {
+            if (fqVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
+                if (340001 == aVar.errorCode) {
+                    FrsActivity frsActivity = this.bhl;
+                    cnVar4 = this.bhl.bgo;
+                    frsActivity.showNetRefreshViewNoClick(cnVar4.getRootView(), aVar.errorMsg, true);
+                } else {
+                    FrsActivity frsActivity2 = this.bhl;
+                    cnVar3 = this.bhl.bgo;
+                    frsActivity2.showNetRefreshView(cnVar3.getRootView(), aVar.errorMsg, true);
+                }
+                this.bhl.setNetRefreshViewEmotionDefMarginTop();
+            }
+            this.bhl.PN();
+            if (this.bhl.Qd().Tb() != null) {
+                this.bhl.bgq = this.bhl.Qd().Tb();
+            }
+            cnVar5 = this.bhl.bgo;
+            cnVar5.cQ(false);
+        }
+        aaVar = this.bhl.bgD;
+        if (aaVar.Ua() != null) {
+            aaVar2 = this.bhl.bgD;
+            aaVar2.Ua().a(i, i2, fqVar, arrayList);
         }
     }
 }

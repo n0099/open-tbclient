@@ -1,21 +1,26 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox agz;
+public class r implements Animation.AnimationListener {
+    final /* synthetic */ NoNetworkView abO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(TbCheckBox tbCheckBox) {
-        this.agz = tbCheckBox;
+    public r(NoNetworkView noNetworkView) {
+        this.abO = noNetworkView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean xz;
-        TbCheckBox tbCheckBox = this.agz;
-        xz = this.agz.xz();
-        tbCheckBox.setChecked(!xz);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.abO.setVisibility(8);
     }
 }

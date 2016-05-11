@@ -7,8 +7,9 @@ public class c {
     private String mName;
     private a mSwitchListener;
     private int mMaxCrashTimes = 0;
-    private String[] ue = null;
+    private String[] jS = null;
     private int mOffType = 0;
+    private String[] jT = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,8 +30,16 @@ public class c {
 
     public void a(int i, String[] strArr, int i2) {
         this.mMaxCrashTimes = i;
-        this.ue = strArr;
+        this.jS = strArr;
         this.mOffType = i2;
+    }
+
+    public void g(String[] strArr) {
+        this.jT = strArr;
+    }
+
+    public String[] getSwitchLibs() {
+        return this.jT;
     }
 
     public String getName() {
@@ -41,8 +50,8 @@ public class c {
         return this.mMaxCrashTimes;
     }
 
-    public String[] gB() {
-        return this.ue;
+    public String[] cP() {
+        return this.jS;
     }
 
     public int getOffType() {

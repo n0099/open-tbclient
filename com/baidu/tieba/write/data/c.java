@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private final ArrayList<MetaData> eIh = new ArrayList<>();
+    private final ArrayList<MetaData> eYZ = new ArrayList<>();
 
     public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
@@ -25,7 +25,7 @@ public class c {
                     if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.eIh.add(metaData);
+                    this.eYZ.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -36,7 +36,7 @@ public class c {
         }
     }
 
-    public void a(String str, HashMap<String, String> hashMap) {
+    public void b(String str, HashMap<String, String> hashMap) {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
@@ -44,13 +44,13 @@ public class c {
         }
     }
 
-    public void i(HashMap<String, String> hashMap) {
+    public void j(HashMap<String, String> hashMap) {
         if (hashMap != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.eIh.size()) {
-                    MetaData metaData = this.eIh.get(i2);
+                if (i2 < this.eYZ.size()) {
+                    MetaData metaData = this.eYZ.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> aZz() {
-        return this.eIh;
+    public ArrayList<MetaData> bbN() {
+        return this.eYZ;
     }
 }

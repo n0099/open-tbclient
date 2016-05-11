@@ -4,46 +4,46 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.card.a.k;
-import com.baidu.tieba.card.cj;
-import com.baidu.tieba.card.t;
+import com.baidu.tieba.card.a.h;
+import com.baidu.tieba.card.by;
+import com.baidu.tieba.card.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements cj {
-    final /* synthetic */ d bKi;
+public class e implements by {
+    final /* synthetic */ d bKn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bKi = dVar;
+        this.bKn = dVar;
     }
 
-    @Override // com.baidu.tieba.card.cj
+    @Override // com.baidu.tieba.card.by
     public void a(View view, com.baidu.tieba.card.a.b bVar) {
-        t tVar;
-        t tVar2;
-        t tVar3;
-        t tVar4;
+        o oVar;
+        o oVar2;
+        o oVar3;
+        o oVar4;
         if (view != null) {
-            tVar = this.bKi.bKh;
-            if (tVar != null && (bVar instanceof k)) {
-                k kVar = (k) bVar;
-                if (kVar.author != null && !StringUtils.isNull(kVar.author.getUserId())) {
+            oVar = this.bKn.bKm;
+            if (oVar != null && (bVar instanceof h)) {
+                h hVar = (h) bVar;
+                if (hVar.author != null && !StringUtils.isNull(hVar.author.getUserId())) {
                     int id = view.getId();
-                    tVar2 = this.bKi.bKh;
-                    if (id == tVar2.aSy.getId()) {
-                        TiebaStatic.log(new aw("c10803").r("obj_locate", 4).ac("obj_id", kVar.author.getUserId()));
+                    oVar2 = this.bKn.bKm;
+                    if (id == oVar2.aOX.getId()) {
+                        TiebaStatic.log(new aw("c10803").s("obj_locate", 4).ac("obj_id", hVar.author.getUserId()));
                         return;
                     }
                     int id2 = view.getId();
-                    tVar3 = this.bKi.bKh;
-                    if (id2 != tVar3.getView().getId()) {
+                    oVar3 = this.bKn.bKm;
+                    if (id2 != oVar3.getView().getId()) {
                         int id3 = view.getId();
-                        tVar4 = this.bKi.bKh;
-                        if (id3 != tVar4.aSz.getId()) {
+                        oVar4 = this.bKn.bKm;
+                        if (id3 != oVar4.aOY.getId()) {
                             return;
                         }
                     }
-                    TiebaStatic.log(new aw("c10951").ac("obj_id", kVar.author.getUserId()));
+                    TiebaStatic.log(new aw("c10951").ac("obj_id", hVar.author.getUserId()));
                 }
             }
         }

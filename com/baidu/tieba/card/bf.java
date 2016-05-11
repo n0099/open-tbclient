@@ -7,50 +7,50 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf extends CustomMessageListener {
-    final /* synthetic */ bd aUb;
+    final /* synthetic */ bd aQB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bf(bd bdVar, int i) {
         super(i);
-        this.aUb = bdVar;
+        this.aQB = bdVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.card.a.t tVar;
-        com.baidu.tieba.card.a.t tVar2;
-        com.baidu.tieba.card.a.t tVar3;
+        com.baidu.tieba.card.a.l lVar;
+        com.baidu.tieba.card.a.l lVar2;
+        com.baidu.tieba.card.a.l lVar3;
         TextView textView;
         TextView textView2;
-        com.baidu.tieba.card.a.t tVar4;
-        boolean Lm;
+        com.baidu.tieba.card.a.l lVar4;
+        boolean JT;
         TextView textView3;
-        com.baidu.tieba.card.a.t tVar5;
+        com.baidu.tieba.card.a.l lVar5;
         TextView textView4;
-        com.baidu.tieba.card.a.t tVar6;
+        com.baidu.tieba.card.a.l lVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            tVar = this.aUb.aTW;
-            if (tVar != null) {
-                tVar2 = this.aUb.aTW;
-                if (tVar2.aVJ != null) {
-                    tVar3 = this.aUb.aTW;
-                    if (tVar3.aVJ.getTid() != null) {
-                        textView = this.aUb.aSh;
+            lVar = this.aQB.aQq;
+            if (lVar != null) {
+                lVar2 = this.aQB.aQq;
+                if (lVar2.aRG != null) {
+                    lVar3 = this.aQB.aQq;
+                    if (lVar3.aRG.getTid() != null) {
+                        textView = this.aQB.aOG;
                         if (textView != null) {
-                            textView2 = this.aUb.aSn;
+                            textView2 = this.aQB.aOM;
                             if (textView2 != null) {
-                                tVar4 = this.aUb.aTW;
-                                if (((String) customResponsedMessage.getData()).equals(tVar4.aVJ.getTid())) {
-                                    Lm = this.aUb.Lm();
-                                    if (!Lm) {
-                                        textView3 = this.aUb.aSh;
-                                        tVar5 = this.aUb.aTW;
-                                        bc.a(textView3, tVar5.LC().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
-                                        textView4 = this.aUb.aSn;
-                                        tVar6 = this.aUb.aTW;
-                                        bc.a(textView4, tVar6.aVJ.getId(), t.d.cp_cont_j, t.d.cp_cont_d);
+                                lVar4 = this.aQB.aQq;
+                                if (((String) customResponsedMessage.getData()).equals(lVar4.aRG.getTid())) {
+                                    JT = this.aQB.JT();
+                                    if (!JT) {
+                                        textView3 = this.aQB.aOG;
+                                        lVar5 = this.aQB.aQq;
+                                        au.a(textView3, lVar5.Kl().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
+                                        textView4 = this.aQB.aOM;
+                                        lVar6 = this.aQB.aQq;
+                                        au.a(textView4, lVar6.aRG.getId(), t.d.cp_cont_j, t.d.cp_cont_d);
                                     }
                                 }
                             }

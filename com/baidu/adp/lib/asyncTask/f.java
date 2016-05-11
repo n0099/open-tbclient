@@ -6,13 +6,13 @@ import com.baidu.adp.lib.asyncTask.c;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class f extends c.a {
-    final /* synthetic */ c tc;
+    final /* synthetic */ c iS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c cVar, g gVar) {
         super(gVar);
-        this.tc = cVar;
+        this.iS = cVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [166=4] */
@@ -34,11 +34,11 @@ class f extends c.a {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            fX();
+            cm();
         } finally {
             if (!isSelfExecute()) {
-                handler = this.tc.mHandler;
-                handler2 = this.tc.mHandler;
+                handler = this.iS.mHandler;
+                handler2 = this.iS.mHandler;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

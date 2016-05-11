@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.x;
+import com.baidu.tbadk.core.data.y;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.ab;
 /* loaded from: classes.dex */
@@ -26,22 +26,22 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<Object, Object, AccountData> {
-        private final a cZT;
+        private final a dco;
         private final String mAccount;
         private final String mPassword;
 
         public b(String str, String str2, a aVar) {
             this.mAccount = str;
             this.mPassword = str2;
-            this.cZT = aVar;
+            this.dco = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
+        /* renamed from: j */
         public AccountData doInBackground(Object... objArr) {
-            return f.bo(this.mAccount, this.mPassword);
+            return f.bt(this.mAccount, this.mPassword);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,67 +50,67 @@ public class f {
         /* renamed from: n */
         public void onPostExecute(AccountData accountData) {
             super.onPostExecute(accountData);
-            if (this.cZT != null) {
+            if (this.dco != null) {
                 if (accountData != null) {
-                    this.cZT.a(accountData);
+                    this.dco.a(accountData);
                 } else {
-                    this.cZT.onFailure(this.mAccount);
+                    this.dco.onFailure(this.mAccount);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData bo(String str, String str2) {
+    public static AccountData bt(String str, String str2) {
         ab abVar;
-        String vw;
+        String tc;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
             abVar = new ab(sb.toString());
-            abVar.p("un", str);
-            abVar.p("passwd", str2);
-            abVar.p("isphone", "0");
-            abVar.p("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
-            abVar.p("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            abVar.vU().wO().wR().adD = true;
-            abVar.vU().wO().mIsNeedAddCommenParam = false;
-            abVar.vU().wO().mIsUseCurrentBDUSS = false;
-            vw = abVar.vw();
+            abVar.n("un", str);
+            abVar.n("passwd", str2);
+            abVar.n("isphone", "0");
+            abVar.n("channel_id", TbadkCoreApplication.m11getInst().getPushChannelId());
+            abVar.n("channel_uid", TbadkCoreApplication.m11getInst().getPushChannelUserId());
+            abVar.tA().uu().ux().Zb = true;
+            abVar.tA().uu().mIsNeedAddCommenParam = false;
+            abVar.tA().uu().mIsUseCurrentBDUSS = false;
+            tc = abVar.tc();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (abVar.vU().wP().qC() && vw != null) {
-            x xVar = new x();
-            xVar.parserJson(vw);
-            String userId = xVar.getUser().getUserId();
+        if (abVar.tA().uv().nZ() && tc != null) {
+            y yVar = new y();
+            yVar.parserJson(tc);
+            String userId = yVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
             }
             AccountData accountData = new AccountData();
-            accountData.setAccount(xVar.getUser().getUserName());
-            if (xVar.getUser().getPassword() != null) {
-                accountData.setPassword(xVar.getUser().getPassword());
+            accountData.setAccount(yVar.getUser().getUserName());
+            if (yVar.getUser().getPassword() != null) {
+                accountData.setPassword(yVar.getUser().getPassword());
             } else {
                 accountData.setPassword(str2);
             }
-            accountData.setID(xVar.getUser().getUserId());
-            accountData.setBDUSS(xVar.getUser().getBDUSS());
-            accountData.setPortrait(xVar.getUser().getPortrait());
+            accountData.setID(yVar.getUser().getUserId());
+            accountData.setBDUSS(yVar.getUser().getBDUSS());
+            accountData.setPortrait(yVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (xVar.sf() != null) {
-                accountData.setTbs(xVar.sf().getTbs());
+            if (yVar.pz() != null) {
+                accountData.setTbs(yVar.pz().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (abVar.vX()) {
-            switch (abVar.vY()) {
+        if (abVar.tD()) {
+            switch (abVar.tE()) {
                 case 1:
                 case 2:
                 case 5:
-                    abVar.gX();
-                    ReloginManager.vf().e(null);
+                    abVar.dl();
+                    ReloginManager.sL().e(null);
                     break;
             }
             return null;

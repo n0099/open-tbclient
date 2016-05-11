@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 public class Static {
     static {
         a aVar = new a(0);
-        if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
+        if (TbadkCoreApplication.m11getInst().isMainProcess(true)) {
             MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_STAT, aVar);
         }
     }

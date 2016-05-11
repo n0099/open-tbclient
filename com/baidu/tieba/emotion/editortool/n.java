@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView aZM;
+    final /* synthetic */ EmotionTabHorizonScrollView aVQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.aZM = emotionTabHorizonScrollView;
+        this.aVQ = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ public class n implements View.OnClickListener {
         String str;
         com.baidu.tbadk.editortools.l lVar2;
         h hVar;
-        textView = this.aZM.awD;
+        textView = this.aVQ.asE;
         if (textView != null) {
-            hVar = this.aZM.aZE;
+            hVar = this.aVQ.aVI;
             hVar.setNewViewVisible(false);
         }
-        TbadkCoreApplication.m411getInst().setFaceShopVersion(TbadkCoreApplication.m411getInst().getTempFaceShopVersion());
-        TbadkCoreApplication.m411getInst().setFaceShopNew(false);
-        lVar = this.aZM.LE;
+        TbadkCoreApplication.m11getInst().setFaceShopVersion(TbadkCoreApplication.m11getInst().getTempFaceShopVersion());
+        TbadkCoreApplication.m11getInst().setFaceShopNew(false);
+        lVar = this.aVQ.BV;
         if (lVar != null) {
-            lVar2 = this.aZM.LE;
+            lVar2 = this.aVQ.BV;
             lVar2.b(new com.baidu.tbadk.editortools.a(2, 5, null));
         }
-        switch (this.aZM.from) {
+        switch (this.aVQ.from) {
             case 1:
                 str = "faceshop_from_write_shop";
                 break;
@@ -50,6 +50,6 @@ public class n implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP, new FaceShopActivityConfig(this.aZM.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP, new FaceShopActivityConfig(this.aVQ.getContext(), str)));
     }
 }

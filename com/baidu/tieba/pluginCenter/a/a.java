@@ -14,24 +14,24 @@ import com.baidu.tieba.pluginCenter.PluginConfigWrapper;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView NV;
-    private TextView apE;
-    private BdSwitchView dRY;
-    private TextView dRZ;
-    private View dSa;
-    private ImageView dSb;
-    private int dSc;
+    private TbImageView El;
+    private BdSwitchView dUQ;
+    private TextView dUR;
+    private View dUS;
+    private ImageView dUT;
+    private int dUU;
+    private TextView title;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.NV = (TbImageView) view.findViewById(t.g.icon);
-        this.apE = (TextView) view.findViewById(t.g.title);
-        this.dRY = (BdSwitchView) view.findViewById(t.g.switchview);
-        this.dSb = (ImageView) view.findViewById(t.g.downloading_forground);
-        this.dSa = view.findViewById(t.g.downloading_layout);
-        this.dRZ = (TextView) view.findViewById(t.g.download_text);
-        this.dRY.setOnSwitchStateChangeListener(new b(this));
-        this.dRZ.setOnClickListener(new c(this));
+        this.El = (TbImageView) view.findViewById(t.g.icon);
+        this.title = (TextView) view.findViewById(t.g.title);
+        this.dUQ = (BdSwitchView) view.findViewById(t.g.switchview);
+        this.dUT = (ImageView) view.findViewById(t.g.downloading_forground);
+        this.dUS = view.findViewById(t.g.downloading_layout);
+        this.dUR = (TextView) view.findViewById(t.g.download_text);
+        this.dUQ.setOnSwitchStateChangeListener(new b(this));
+        this.dUR.setOnClickListener(new c(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,9 +41,9 @@ public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tb
         super.B(pluginConfigWrapper);
         if (pluginConfigWrapper != null) {
             if (!StringUtils.isNull(pluginConfigWrapper.icon)) {
-                this.NV.c(pluginConfigWrapper.icon, 10, false);
+                this.El.c(pluginConfigWrapper.icon, 10, false);
             }
-            this.apE.setText(pluginConfigWrapper.display_name);
+            this.title.setText(pluginConfigWrapper.display_name);
             d(pluginConfigWrapper.getDownLoadStatus(), pluginConfigWrapper.getDownLoadPercent());
         }
     }
@@ -51,56 +51,56 @@ public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tb
     private void d(int i, float f) {
         switch (i) {
             case 1:
-                this.dRZ.setVisibility(8);
-                this.dSa.setVisibility(8);
-                this.dRY.setVisibility(0);
-                this.dRY.ml();
+                this.dUR.setVisibility(8);
+                this.dUS.setVisibility(8);
+                this.dUQ.setVisibility(0);
+                this.dUQ.iz();
                 return;
             case 2:
-                this.dRZ.setVisibility(8);
-                this.dSa.setVisibility(8);
-                this.dRY.setVisibility(0);
-                this.dRY.mk();
+                this.dUR.setVisibility(8);
+                this.dUS.setVisibility(8);
+                this.dUQ.setVisibility(0);
+                this.dUQ.iy();
                 return;
             case 3:
-                this.dRZ.setVisibility(8);
-                this.dSa.setVisibility(0);
-                this.dRY.setVisibility(8);
-                J(f);
+                this.dUR.setVisibility(8);
+                this.dUS.setVisibility(0);
+                this.dUQ.setVisibility(8);
+                E(f);
                 return;
             case 4:
-                this.dRZ.setVisibility(0);
-                this.dSa.setVisibility(8);
-                this.dRY.setVisibility(8);
-                this.dRZ.setText(t.j.plugin_update);
+                this.dUR.setVisibility(0);
+                this.dUS.setVisibility(8);
+                this.dUQ.setVisibility(8);
+                this.dUR.setText(t.j.plugin_update);
                 return;
             default:
-                this.dRZ.setVisibility(0);
-                this.dSa.setVisibility(8);
-                this.dRY.setVisibility(8);
-                this.dRZ.setText(t.j.download);
+                this.dUR.setVisibility(0);
+                this.dUS.setVisibility(8);
+                this.dUQ.setVisibility(8);
+                this.dUR.setText(t.j.download);
                 return;
         }
     }
 
-    private void J(float f) {
-        if (this.dSc == 0) {
-            this.dSc = this.dSa.getWidth();
+    private void E(float f) {
+        if (this.dUU == 0) {
+            this.dUU = this.dUS.getWidth();
         }
-        int i = (int) (this.dSc * f);
+        int i = (int) (this.dUU * f);
         if (i < 0) {
             i = 0;
         }
-        int i2 = i > this.dSc ? this.dSc : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dSb.getLayoutParams();
+        int i2 = i > this.dUU ? this.dUU : i;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.dUT.getLayoutParams();
         layoutParams.width = i2;
-        this.dSb.setLayoutParams(layoutParams);
+        this.dUT.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        this.dRY.a(at.cR(t.f.bg_switch_open), at.cR(t.f.bg_switch_close), at.cR(t.f.btn_handle));
+        this.dUQ.a(at.cA(t.f.bg_switch_open), at.cA(t.f.bg_switch_close), at.cA(t.f.btn_handle));
         return true;
     }
 }

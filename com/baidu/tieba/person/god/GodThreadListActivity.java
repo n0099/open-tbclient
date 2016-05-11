@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.VoiceData;
@@ -16,68 +16,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> implements VoiceManager.c, FrsCommonImageLayout.c {
-    protected VoiceManager bja;
-    private a dwO;
-    private g dwP;
-    private h dwQ;
-    private List<u> dwR;
-    private MetaData dwS;
-    private com.baidu.adp.lib.f.b<TbImageView> dwT;
+    protected VoiceManager beZ;
+    private a dzT;
+    private g dzU;
+    private h dzV;
+    private List<v> dzW;
+    private MetaData dzX;
+    private com.baidu.adp.lib.f.b<TbImageView> dzY;
     private long mUserId = 0;
-    private int ddc = 0;
+    private int dfw = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onCreate(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onCreate(getPageContext());
         }
         if (getIntent() != null) {
             this.mUserId = getIntent().getLongExtra("key_uid", 0L);
-            this.ddc = getIntent().getIntExtra(GodThreadListActivityConfig.KEY_PAGE, 0);
-            this.dwS = (MetaData) getIntent().getSerializableExtra(GodThreadListActivityConfig.KEY_AUTHOR);
+            this.dfw = getIntent().getIntExtra(GodThreadListActivityConfig.KEY_PAGE, 0);
+            this.dzX = (MetaData) getIntent().getSerializableExtra(GodThreadListActivityConfig.KEY_AUTHOR);
         }
-        this.dwR = new ArrayList();
-        this.dwP = new g(this);
-        this.dwO = new a(getPageContext(), this.dwP.aCf());
-        this.dwQ = new h(getPageContext());
-        this.dwQ.mG(this.ddc);
-        this.dwP.a(new c(this));
-        this.dwP.a(new d(this));
-        this.dwP.setOnSrollToBottomListener(new e(this));
-        this.dwQ.a(new f(this));
-        this.dwP.nk();
-        this.dwP.aCh();
+        this.dzW = new ArrayList();
+        this.dzU = new g(this);
+        this.dzT = new a(getPageContext(), this.dzU.aCw());
+        this.dzV = new h(getPageContext());
+        this.dzV.my(this.dfw);
+        this.dzU.a(new c(this));
+        this.dzU.a(new d(this));
+        this.dzU.setOnSrollToBottomListener(new e(this));
+        this.dzV.a(new f(this));
+        this.dzU.jy();
+        this.dzU.aCy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dwP != null) {
-            this.dwP.onChangeSkinType(i);
+        if (this.dzU != null) {
+            this.dzU.onChangeSkinType(i);
         }
-        if (this.dwO != null) {
-            this.dwO.notifyDataSetChanged();
+        if (this.dzT != null) {
+            this.dzT.notifyDataSetChanged();
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onSaveInstanceState(getPageContext().getPageActivity());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.bja == null) {
-            this.bja = VoiceManager.instance();
+        if (this.beZ == null) {
+            this.beZ = VoiceManager.instance();
         }
-        return this.bja;
+        return this.beZ;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -89,9 +89,9 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onPause(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onPause(getPageContext());
         }
     }
 
@@ -99,18 +99,18 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onResume(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onResume(getPageContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onDestory(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onDestory(getPageContext());
         }
         super.onDestroy();
     }
@@ -119,9 +119,9 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onStart(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onStart(getPageContext());
         }
     }
 
@@ -129,18 +129,18 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.bja = getVoiceManager();
-        if (this.bja != null) {
-            this.bja.onStop(getPageContext());
+        this.beZ = getVoiceManager();
+        if (this.beZ != null) {
+            this.beZ.onStop(getPageContext());
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> Qr() {
-        if (this.dwT == null) {
-            this.dwT = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.f.b<TbImageView> Po() {
+        if (this.dzY == null) {
+            this.dzY = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
         }
-        return this.dwT;
+        return this.dzY;
     }
 
     @Override // android.app.Activity

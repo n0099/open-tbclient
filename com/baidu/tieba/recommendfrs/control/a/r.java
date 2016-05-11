@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class r extends CustomMessageListener {
-    final /* synthetic */ q dWE;
+    final /* synthetic */ q dZO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(q qVar, int i) {
         super(i);
-        this.dWE = qVar;
+        this.dZO = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,10 +18,10 @@ class r extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016324 && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            q.aMe().dWz = intValue;
-            t.oz(intValue);
-            if (!this.dWE.dWA) {
-                t.oA(intValue);
+            q.aMp().dZJ = intValue;
+            t.or(intValue);
+            if (!this.dZO.dZK) {
+                t.os(intValue);
             }
         }
     }

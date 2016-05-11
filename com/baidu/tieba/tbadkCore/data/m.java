@@ -5,19 +5,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.util.i {
-    final /* synthetic */ l epC;
+    final /* synthetic */ l esM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Context context) {
         super(context);
-        this.epC = lVar;
+        this.esM = lVar;
     }
 
     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
-        str = this.epC.text;
-        gm(str);
+        str = this.esM.text;
+        gj(str);
     }
 }

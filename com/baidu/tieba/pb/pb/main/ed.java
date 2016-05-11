@@ -1,25 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ed implements View.OnClickListener {
-    final /* synthetic */ dz djW;
-    private final /* synthetic */ String djX;
+public class ed extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ ec dmQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ed(dz dzVar, String str) {
-        this.djW = dzVar;
-        this.djX = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ed(ec ecVar, int i, int i2) {
+        super(i, i2);
+        this.dmQ = ecVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.djX) && com.baidu.adp.lib.util.k.jw()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.t(this.djW.dfw.getActivity(), this.djX);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        BdUniqueId bdUniqueId;
+        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
+            z = this.dmQ.dmO;
+            if (!z) {
+                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
+                bdUniqueId = this.dmQ.mTag;
+                if (tag == bdUniqueId && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                        this.dmQ.a((pbPageSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                        this.dmQ.a((pbPageHttpResponseMessage) responsedMessage);
+                    }
+                }
+            }
         }
     }
 }

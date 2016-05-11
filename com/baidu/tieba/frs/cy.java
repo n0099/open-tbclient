@@ -1,32 +1,29 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.tbadkCore.aa;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class cy implements aa.a {
-    final /* synthetic */ cs bpe;
+class cy extends CustomMessageListener {
+    final /* synthetic */ FrsMoreFeedForumsActivity bkA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cs csVar) {
-        this.bpe = csVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cy(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
+        super(i);
+        this.bkA = frsMoreFeedForumsActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Sl() {
-        FrsActivity frsActivity;
-        frsActivity = this.bpe.blH;
-        frsActivity.QY();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Sm() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.bpe.boD;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.bpe.boD;
-            bdTypeListView2.setSelection(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cz czVar;
+        List<FeedForumData> list;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
+            czVar = this.bkA.bky;
+            list = this.bkA.biJ;
+            czVar.a(list, (com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
         }
     }
 }

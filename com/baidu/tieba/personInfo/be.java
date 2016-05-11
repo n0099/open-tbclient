@@ -1,28 +1,36 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ bc dDI;
+public class be extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ bd dGT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bc bcVar) {
-        this.dDI = bcVar;
+    public be(bd bdVar) {
+        this.dGT = bdVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10606"));
-        MessageManager messageManager = MessageManager.getInstance();
-        baseFragmentActivity = this.dDI.duj;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), 0L)));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        BdExpandImageView bdExpandImageView;
+        if (aVar != null) {
+            bdExpandImageView = this.dGT.dGt;
+            aVar.a(bdExpandImageView);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void af(String str) {
+        super.af(str);
     }
 }

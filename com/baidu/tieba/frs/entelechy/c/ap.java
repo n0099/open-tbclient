@@ -1,0 +1,20 @@
+package com.baidu.tieba.frs.entelechy.c;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class ap implements View.OnClickListener {
+    final /* synthetic */ am bpY;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(am amVar) {
+        this.bpY = amVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.bpY.JM() != null) {
+            this.bpY.JM().a(view, this.bpY.aab);
+        }
+    }
+}

@@ -1,19 +1,26 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import com.baidu.tbadk.core.view.TextureVideoView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements View.OnClickListener {
-    final /* synthetic */ af aTi;
+public class ag implements Runnable {
+    final /* synthetic */ z aQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.aTi = afVar;
+    public ag(z zVar) {
+        this.aQe = zVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aTi.Ld() != null) {
-            this.aTi.Ld().a(view, null);
+    @Override // java.lang.Runnable
+    public void run() {
+        TextureVideoView textureVideoView;
+        TextureVideoView textureVideoView2;
+        textureVideoView = this.aQe.aPL;
+        if (textureVideoView != null) {
+            textureVideoView2 = this.aQe.aPL;
+            if (!textureVideoView2.isPlaying()) {
+                this.aQe.e(true, 1);
+            }
         }
     }
 }

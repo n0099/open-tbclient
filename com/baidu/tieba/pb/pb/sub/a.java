@@ -6,20 +6,20 @@ import com.baidu.tieba.usermute.k;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class a implements k.a {
-    final /* synthetic */ NewSubPbActivity doF;
+    final /* synthetic */ NewSubPbActivity dqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NewSubPbActivity newSubPbActivity) {
-        this.doF = newSubPbActivity;
+        this.dqn = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.usermute.k.a
     public void a(DataRes dataRes, int i, String str, Object obj) {
-        x xVar;
+        y yVar;
         boolean z;
-        x xVar2;
-        xVar = this.doF.dow;
-        xVar.azf();
+        y yVar2;
+        yVar = this.dqn.dqe;
+        yVar.azx();
         SparseArray<Object> sparseArray = (SparseArray) obj;
         if (i == 0 && dataRes != null) {
             boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
@@ -33,12 +33,12 @@ class a implements k.a {
         int intValue = sparseArray.get(t.g.tag_from) instanceof Integer ? ((Integer) sparseArray.get(t.g.tag_from)).intValue() : 0;
         if (intValue != 0) {
             if (intValue == 1) {
-                xVar2 = this.doF.dow;
-                xVar2.a(sparseArray, z);
+                yVar2 = this.dqn.dqe;
+                yVar2.a(sparseArray, z);
                 return;
             }
             return;
         }
-        this.doF.a(z, sparseArray);
+        this.dqn.a(z, sparseArray);
     }
 }

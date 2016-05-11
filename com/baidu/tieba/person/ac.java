@@ -1,39 +1,37 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.s;
-import com.baidu.tieba.im.message.RequestGetLivableForumList;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class ac implements s.a {
-    final /* synthetic */ s dst;
+class ac implements View.OnClickListener {
+    final /* synthetic */ s dvP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(s sVar) {
-        this.dst = sVar;
+        this.dvP = sVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.s.a
-    public void aB(boolean z) {
-        PersonBarActivity aBf;
-        PersonBarActivity aBf2;
-        PersonBarActivity aBf3;
-        aBf = this.dst.aBf();
-        if (aBf != null) {
-            this.dst.dsg = 1;
-            aBf2 = this.dst.aBf();
-            if (aBf2 != null) {
-                aBf3 = this.dst.aBf();
-                if (aBf3.getRequestCode() == 23011) {
-                    RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
-                    requestGetLivableForumList.setGetLikeForum(1);
-                    requestGetLivableForumList.setPageNo(this.dst.dsg);
-                    requestGetLivableForumList.setPageSize(this.dst.pageSize);
-                    requestGetLivableForumList.setUserId(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                    this.dst.sendMessage(requestGetLivableForumList);
-                    return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ae aeVar;
+        ae aeVar2;
+        PersonBarActivity aBC;
+        PersonBarActivity aBC2;
+        int intValue = ((Integer) view.getTag()).intValue();
+        if (intValue >= 0) {
+            aeVar = this.dvP.dvz;
+            if (intValue < aeVar.getCount()) {
+                aeVar2 = this.dvP.dvz;
+                ForumData forumData = (ForumData) aeVar2.getItem(intValue);
+                aBC = this.dvP.aBC();
+                if (aBC != null) {
+                    aBC2 = this.dvP.aBC();
+                    this.dvP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aBC2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
-            this.dst.PW();
         }
     }
 }

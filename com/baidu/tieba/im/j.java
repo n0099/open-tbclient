@@ -23,7 +23,7 @@ class j extends com.baidu.adp.framework.listener.e {
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.jS(requestAddGroupMessage.getGroupType()));
+            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.jx(requestAddGroupMessage.getGroupType()));
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo != null) {
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());

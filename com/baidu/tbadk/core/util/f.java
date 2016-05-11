@@ -5,12 +5,12 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static Toast zk;
-    private boolean aac;
+    private static Toast pv;
+    private boolean VB;
     private static Handler mHandler = new Handler();
-    private static Runnable aab = new g();
+    private static Runnable VA = new g();
 
-    public static f vp() {
+    public static f sW() {
         return new f();
     }
 
@@ -18,18 +18,18 @@ public class f {
     }
 
     public void b(String str, int i, int i2) {
-        if (!this.aac && str != null) {
+        if (!this.VB && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(aab);
-                if (zk != null) {
-                    zk.setText(trim);
+                mHandler.removeCallbacks(VA);
+                if (pv != null) {
+                    pv.setText(trim);
                 } else {
-                    zk = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    zk.setGravity(17, 0, i2);
+                    pv = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    pv.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(aab, i);
-                zk.show();
+                mHandler.postDelayed(VA, i);
+                pv.show();
             }
         }
     }
@@ -46,24 +46,24 @@ public class f {
         showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
     }
 
-    public void n(int i, int i2, int i3) {
+    public void m(int i, int i2, int i3) {
         b(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {
-        this.aac = true;
+        this.VB = true;
         cancel();
     }
 
     public void onResume() {
-        this.aac = false;
+        this.VB = false;
     }
 
     public static void cancel() {
-        if (zk != null) {
-            mHandler.removeCallbacks(aab);
-            zk.cancel();
-            zk = null;
+        if (pv != null) {
+            mHandler.removeCallbacks(VA);
+            pv.cancel();
+            pv = null;
         }
     }
 }

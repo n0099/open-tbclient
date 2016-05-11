@@ -7,13 +7,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ g dWl;
+    final /* synthetic */ g dZv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(g gVar, int i) {
         super(i);
-        this.dWl = gVar;
+        this.dZv = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +25,23 @@ public class k extends CustomMessageListener {
         int i = 0;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof ArrayList)) {
-                this.dWl.dWh = 0;
-                this.dWl.dWg = null;
+                this.dZv.dZr = 0;
+                this.dZv.dZq = null;
                 return;
             }
             ArrayList arrayList4 = (ArrayList) customResponsedMessage.getData();
-            arrayList = this.dWl.dWg;
+            arrayList = this.dZv.dZq;
             if (arrayList == null) {
                 if (arrayList4.size() > 0) {
-                    this.dWl.dWh = 1;
+                    this.dZv.dZr = 1;
                 } else {
-                    this.dWl.dWh = 2;
+                    this.dZv.dZr = 2;
                 }
             } else {
                 int size = arrayList4.size();
-                arrayList2 = this.dWl.dWg;
+                arrayList2 = this.dZv.dZq;
                 if (size != arrayList2.size()) {
-                    this.dWl.dWh = 1;
+                    this.dZv.dZr = 1;
                 } else {
                     while (true) {
                         int i2 = i;
@@ -49,21 +49,21 @@ public class k extends CustomMessageListener {
                             break;
                         }
                         if (i2 == arrayList4.size()) {
-                            this.dWl.dWh = 2;
+                            this.dZv.dZr = 2;
                         } else if (StringUtils.isNull((String) arrayList4.get(i2))) {
                             break;
                         } else {
-                            arrayList3 = this.dWl.dWg;
+                            arrayList3 = this.dZv.dZq;
                             if (!((String) arrayList4.get(i2)).equals(arrayList3.get(i2))) {
                                 break;
                             }
                         }
                         i = i2 + 1;
                     }
-                    this.dWl.dWh = 1;
+                    this.dZv.dZr = 1;
                 }
             }
-            this.dWl.dWg = arrayList4;
+            this.dZv.dZq = arrayList4;
         }
     }
 }

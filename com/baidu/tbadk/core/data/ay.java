@@ -1,36 +1,81 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import java.util.List;
+import tbclient.TogetherHi;
 /* loaded from: classes.dex */
 public class ay {
-    private int We = 0;
-    private ax Wf = new ax();
+    private String QX;
+    private long QY;
+    private int QZ;
+    private int Ra;
+    private int Rb;
+    private List<String> Rc;
+    private int Rd;
+    private String location;
+    private List<String> photoList;
+    private int startTime;
 
-    public boolean ui() {
-        return this.We != 0;
+    public List<String> rv() {
+        return this.photoList;
     }
 
-    public ax uj() {
-        return this.Wf;
+    public String getActivityName() {
+        return this.QX;
     }
 
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.We = yule.activity_show.intValue();
-            this.Wf.a(yule.yule_activity);
-        }
+    public long getActivityId() {
+        return this.QY;
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.We = jSONObject.optInt("activity_show");
-                this.Wf.parserJson(jSONObject.optJSONObject("yule_activity"));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public int getStartTime() {
+        return this.startTime;
+    }
+
+    public int rw() {
+        return this.QZ;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public int rx() {
+        return this.Ra;
+    }
+
+    public int ry() {
+        return this.Rb;
+    }
+
+    public List<String> rz() {
+        return this.Rc;
+    }
+
+    public int rA() {
+        return this.Rd;
+    }
+
+    public void a(TogetherHi togetherHi) {
+        if (togetherHi != null) {
+            this.QX = togetherHi.album_name;
+            this.QY = togetherHi.album_id.longValue();
+            this.startTime = togetherHi.start_time.intValue();
+            this.QZ = togetherHi.end_time.intValue();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (this.startTime == 0) {
+                this.Rd = 8;
+            } else if (this.startTime > currentTimeMillis) {
+                this.Rd = 1;
+            } else if (this.QZ < currentTimeMillis) {
+                this.Rd = 4;
+            } else {
+                this.Rd = 2;
             }
+            this.location = togetherHi.location;
+            this.Ra = togetherHi.num_join.intValue();
+            this.Rb = togetherHi.num_signup.intValue();
+            this.Rc = togetherHi.potraits;
+            this.photoList = togetherHi.pic_urls;
         }
     }
 }

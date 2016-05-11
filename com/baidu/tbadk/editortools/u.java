@@ -4,11 +4,11 @@ import android.content.Context;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class u extends com.baidu.tbadk.editortools.view.b {
-    LinkedList<s> atB;
+    LinkedList<s> apt;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void i(LinkedList<s> linkedList) {
-        this.atB = linkedList;
+    public void h(LinkedList<s> linkedList) {
+        this.apt = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -16,35 +16,35 @@ public class u extends com.baidu.tbadk.editortools.view.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e eD(int i) {
+    public e ej(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.atB.get(i);
+        return (e) this.apt.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
     public int getCount() {
-        if (this.atB != null) {
-            return this.atB.size();
+        if (this.apt != null) {
+            return this.apt.size();
         }
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
     public void init(Context context) {
-        eN(4);
-        eO(2);
+        et(4);
+        eu(2);
         a(new v(this));
-        Ex().c(this);
+        Cq().c(this);
         a(new w(this));
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
-    public void Dv() {
-        if (this.atB != null) {
-            this.atB.clear();
+    public void Bp() {
+        if (this.apt != null) {
+            this.apt.clear();
         }
-        this.atB = null;
+        this.apt = null;
     }
 }

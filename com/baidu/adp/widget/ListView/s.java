@@ -1,20 +1,19 @@
 package com.baidu.adp.widget.ListView;
-
-import android.view.View;
-import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdTypeListView Js;
+public class s implements Runnable {
+    final /* synthetic */ r zF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(BdTypeListView bdTypeListView) {
-        this.Js = bdTypeListView;
+    public s(r rVar) {
+        this.zF = rVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.Js.Jr != null) {
-            this.Js.Jr.onItemClick(adapterView, view, i, j);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.zF.zC == null) {
+            return;
         }
+        this.zF.zC.jG();
     }
 }

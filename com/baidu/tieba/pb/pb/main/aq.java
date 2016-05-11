@@ -1,26 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.t;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements c.b {
-    final /* synthetic */ PbActivity dht;
+public class aq implements c.b {
+    final /* synthetic */ PbActivity djE;
+    private final /* synthetic */ SparseArray djF;
+    private final /* synthetic */ boolean djG;
+    private final /* synthetic */ String djH;
+    private final /* synthetic */ String djI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(PbActivity pbActivity) {
-        this.dht = pbActivity;
+    public aq(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
+        this.djE = pbActivity;
+        this.djF = sparseArray;
+        this.djG = z;
+        this.djH = str;
+        this.djI = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (this.dht.dhl != null) {
-            if (i == 0) {
-                this.dht.dhl.aN(this.dht.getPageContext().getPageActivity());
-                this.dht.dhl = null;
-            } else if (i == 1 && this.dht.checkUpIsLogin()) {
-                this.dht.d(this.dht.dhl);
-            }
+        UserMuteAddAndDelModel userMuteAddAndDelModel;
+        el elVar;
+        switch (i) {
+            case 0:
+                elVar = this.djE.diR;
+                elVar.a(((Integer) this.djF.get(t.g.tag_del_post_type)).intValue(), (String) this.djF.get(t.g.tag_del_post_id), ((Integer) this.djF.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) this.djF.get(t.g.tag_del_post_is_self)).booleanValue());
+                break;
+            case 1:
+                userMuteAddAndDelModel = this.djE.diP;
+                userMuteAddAndDelModel.a(this.djG, this.djH, (String) this.djF.get(t.g.tag_user_mute_mute_username), (String) this.djF.get(t.g.tag_user_mute_thread_id), (String) this.djF.get(t.g.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB, this.djI);
+                break;
         }
+        cVar.dismiss();
     }
 }

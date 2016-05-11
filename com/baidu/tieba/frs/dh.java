@@ -1,40 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh extends bx<di, dj> {
-    private final int bpl;
+public class dh implements View.OnClickListener {
+    final /* synthetic */ df bkM;
+    private final /* synthetic */ ThemeCardInUserData bkN;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dh(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.bpl = (com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds90);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dh(df dfVar, ThemeCardInUserData themeCardInUserData) {
+        this.bkM = dfVar;
+        this.bkN = themeCardInUserData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
-    public dj b(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(t.h.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bpl));
-        return new dj(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bx, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, di diVar, dj djVar) {
-        super.a(i, view, viewGroup, (ViewGroup) diVar, (di) djVar);
-        this.bix.getLayoutMode().ab(this.mSkinType == 1);
-        this.bix.getLayoutMode().x(view);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseActivity baseActivity;
+        baseActivity = this.bkM.bek;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(baseActivity.getPageContext().getPageActivity(), this.bkN.getCardId())));
     }
 }

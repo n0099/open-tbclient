@@ -9,20 +9,20 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView ahM;
-    private View amH;
-    private TextView bgh;
-    private HeadImageView bjG;
-    private TextView cxh;
+    private TextView adG;
+    private View aiu;
+    private TextView bbW;
+    private HeadImageView bfG;
+    private TextView cyf;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bjG = (HeadImageView) view.findViewById(t.g.photo);
-        this.ahM = (TextView) view.findViewById(t.g.user_name);
-        this.bgh = (TextView) view.findViewById(t.g.time);
-        this.cxh = (TextView) view.findViewById(t.g.content);
-        this.amH = view.findViewById(t.g.line);
-        this.bjG.setOnClickListener(new c(this));
+        this.bfG = (HeadImageView) view.findViewById(t.g.photo);
+        this.adG = (TextView) view.findViewById(t.g.user_name);
+        this.bbW = (TextView) view.findViewById(t.g.time);
+        this.cyf = (TextView) view.findViewById(t.g.content);
+        this.aiu = view.findViewById(t.g.line);
+        this.bfG.setOnClickListener(new c(this));
         view.setOnClickListener(new d(this));
     }
 
@@ -32,34 +32,34 @@ public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void B(FeedData feedData) {
         super.B(feedData);
         if (feedData.getReplyer() != null) {
-            this.ahM.setText(feedData.getReplyer().getName_show());
-            this.bjG.setVisibility(0);
+            this.adG.setText(feedData.getReplyer().getName_show());
+            this.bfG.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.bjG.setTag(null);
+            this.bfG.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.bjG.c(portrait, 12, false);
+                this.bfG.c(portrait, 12, false);
             } else {
-                this.bjG.setImageResource(t.f.photo);
+                this.bfG.setImageResource(t.f.photo);
             }
         }
-        this.bgh.setText(com.baidu.tbadk.core.util.ay.w(feedData.getTime()));
-        this.cxh.setText(feedData.getContent());
+        this.bbW.setText(com.baidu.tbadk.core.util.ay.x(feedData.getTime()));
+        this.cyf.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.core.util.at.k(getRootView(), t.f.list_selector);
-        com.baidu.tbadk.core.util.at.l(this.amH, t.d.cp_bg_line_b);
+        com.baidu.tbadk.core.util.at.l(this.aiu, t.d.cp_bg_line_b);
         if (i == 1) {
-            this.bgh.setTextColor(getResources().getColor(t.d.c_515865));
-            this.cxh.setTextColor(getResources().getColor(t.d.c_7b8591));
-            this.ahM.setTextColor(getResources().getColor(t.d.cp_cont_c_1));
+            this.bbW.setTextColor(getResources().getColor(t.d.c_515865));
+            this.cyf.setTextColor(getResources().getColor(t.d.c_7b8591));
+            this.adG.setTextColor(getResources().getColor(t.d.cp_cont_c_1));
         } else {
-            this.bgh.setTextColor(getResources().getColor(t.d.c_b2b6ba));
-            this.cxh.setTextColor(getResources().getColor(t.d.c_262626));
-            this.ahM.setTextColor(getResources().getColor(t.d.cp_cont_c));
+            this.bbW.setTextColor(getResources().getColor(t.d.c_b2b6ba));
+            this.cyf.setTextColor(getResources().getColor(t.d.c_262626));
+            this.adG.setTextColor(getResources().getColor(t.d.cp_cont_c));
         }
-        this.bgh.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.bbW.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

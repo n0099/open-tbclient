@@ -5,37 +5,37 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
-    private o<byte[]> bhe;
-    private final long bhf = TbConfig.APP_OVERDUR_DRAFT_BOX;
+    private o<byte[]> bcU;
+    private final long bcV = TbConfig.APP_OVERDUR_DRAFT_BOX;
 
     public a() {
-        PX();
+        OQ();
     }
 
-    private void PX() {
-        if (this.bhe == null) {
-            this.bhe = com.baidu.tbadk.core.b.a.um().cy("tb.god_square");
+    private void OQ() {
+        if (this.bcU == null) {
+            this.bcU = com.baidu.tbadk.core.b.a.rR().cw("tb.god_square");
         }
     }
 
     public byte[] hC(String str) {
         o.b<byte[]> bVar;
         if (str != null) {
-            PX();
-            bVar = this.bhe.Z(str);
+            OQ();
+            bVar = this.bcU.Q(str);
         } else {
             bVar = null;
         }
-        if (bVar == null || bVar.sI == null) {
+        if (bVar == null || bVar.iz == null) {
             return null;
         }
-        return bVar.sI;
+        return bVar.iz;
     }
 
     public void j(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            PX();
-            this.bhe.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            OQ();
+            this.bcU.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 }

@@ -26,89 +26,89 @@ import com.baidu.tieba.tbadkCore.f.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCardView.b, PersonPostModel.a, a.InterfaceC0077a {
-    private a dBC;
-    private String dBb;
-    public PersonPostModel dBj;
-    private BdUniqueId dBk;
-    private BaseFragmentActivity duj;
+public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCardView.b, PersonPostModel.a, a.InterfaceC0070a {
+    private BdUniqueId aoj;
+    private BaseFragmentActivity cSp;
+    private a dEK;
+    private String dEi;
+    public PersonPostModel dEs;
     private int mThreadType;
-    private final String wY;
-    private com.baidu.tieba.tbadkCore.f.a dgC = null;
-    private boolean dBD = false;
-    private List<PersonPostModel.PostInfoList> dBE = new ArrayList();
-    private PhotoLiveCardData dBF = null;
-    private com.baidu.tbadk.core.dialog.a dlz = null;
-    private final com.baidu.adp.base.g dhe = new r(this);
+    private final String mV;
+    private com.baidu.tieba.tbadkCore.f.a diO = null;
+    private boolean dEL = false;
+    private List<PersonPostModel.PostInfoList> dEM = new ArrayList();
+    private PhotoLiveCardData dEN = null;
+    private com.baidu.tbadk.core.dialog.a dnT = null;
+    private final com.baidu.adp.base.g djp = new r(this);
 
     /* loaded from: classes.dex */
     public interface a {
         void b(PersonPostModel personPostModel, boolean z);
 
-        void gN(boolean z);
+        void ht(boolean z);
     }
 
     public q(BaseFragmentActivity baseFragmentActivity, String str, String str2, BdUniqueId bdUniqueId) {
-        this.duj = baseFragmentActivity;
-        this.wY = str;
-        this.dBj = new PersonPostModel(this.duj.getPageContext());
-        this.dBj.setUniqueId(bdUniqueId);
-        this.dBk = bdUniqueId;
+        this.cSp = baseFragmentActivity;
+        this.mV = str;
+        this.dEs = new PersonPostModel(this.cSp.getPageContext());
+        this.dEs.setUniqueId(bdUniqueId);
+        this.aoj = bdUniqueId;
     }
 
-    public void gL(boolean z) {
-        if (this.dBj == null) {
-            this.dBj = new PersonPostModel(this.duj.getPageContext());
-            this.dBj.setUniqueId(this.dBk);
+    public void hr(boolean z) {
+        if (this.dEs == null) {
+            this.dEs = new PersonPostModel(this.cSp.getPageContext());
+            this.dEs.setUniqueId(this.aoj);
         }
-        this.dBj.fetchPost(this.duj.getPageContext(), this, z, this.wY, true, this.mThreadType);
+        this.dEs.fetchPost(this.cSp.getPageContext(), this, z, this.mV, true, this.mThreadType);
     }
 
-    public void aCy() {
-        if (this.dBj != null) {
-            this.dBj.cancelLoadData();
+    public void aCR() {
+        if (this.dEs != null) {
+            this.dEs.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.PersonPostModel.a
     public void a(PersonPostModel personPostModel, boolean z) {
         if (z) {
-            this.dBj = personPostModel;
-            if (this.dBj != null) {
-                this.dBj.setUniqueId(this.dBk);
-                this.dBE.clear();
-                this.dBE.addAll(this.dBj.post_list);
+            this.dEs = personPostModel;
+            if (this.dEs != null) {
+                this.dEs.setUniqueId(this.aoj);
+                this.dEM.clear();
+                this.dEM.addAll(this.dEs.post_list);
             }
-        } else if (this.dBj != null) {
-            this.dBj.post_list.addAll(personPostModel.post_list);
-            this.dBE.addAll(personPostModel.post_list);
+        } else if (this.dEs != null) {
+            this.dEs.post_list.addAll(personPostModel.post_list);
+            this.dEM.addAll(personPostModel.post_list);
         }
-        if (this.dBC != null) {
-            this.dBC.b(personPostModel, z);
+        if (this.dEK != null) {
+            this.dEK.b(personPostModel, z);
         }
         notifyDataSetChanged();
     }
 
     public void a(a aVar) {
-        this.dBC = aVar;
+        this.dEK = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dBE != null) {
-            return this.dBE.size();
+        if (this.dEM != null) {
+            return this.dEM.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mK */
+    /* renamed from: mB */
     public PersonPostModel.PostInfoList getItem(int i) {
-        if (this.dBE == null || this.dBE.size() - 1 < i) {
+        if (this.dEM == null || this.dEM.size() - 1 < i) {
             return null;
         }
-        return this.dBE.get(i);
+        return this.dEM.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -124,52 +124,52 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         boolean z = item != null && item.thread_type == 33;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(t.h.person_post_item_thread, viewGroup, false);
-            b bVar2 = new b(view, this.duj.getPageContext());
+            b bVar2 = new b(view, this.cSp.getPageContext());
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
         if (!z) {
-            bVar.dAQ.setPadding(0, (int) this.duj.getResources().getDimension(t.e.ds18), 0, 0);
-            bVar.dAY.setVisibility(0);
-            bVar.dAT.setVisibility(0);
-            bVar.dAS.setVisibility(0);
-            bVar.dAZ.setVisibility(0);
-            bVar.cPU.setVisibility(0);
-            bVar.aSh.setVisibility(0);
-            bVar.cxh.setVisibility(0);
-            bVar.dBH.setVisibility(0);
-            bVar.dBI.setVisibility(0);
-            bVar.dBJ.setVisibility(8);
+            bVar.dDX.setPadding(0, (int) this.cSp.getResources().getDimension(t.e.ds18), 0, 0);
+            bVar.dEf.setVisibility(0);
+            bVar.dEa.setVisibility(0);
+            bVar.dDZ.setVisibility(0);
+            bVar.dEg.setVisibility(0);
+            bVar.cQR.setVisibility(0);
+            bVar.aOG.setVisibility(0);
+            bVar.cyf.setVisibility(0);
+            bVar.dEP.setVisibility(0);
+            bVar.dEQ.setVisibility(0);
+            bVar.dER.setVisibility(8);
             if (i == 0) {
-                bVar.dAY.setVisibility(0);
+                bVar.dEf.setVisibility(0);
             } else {
-                bVar.dAY.setVisibility(8);
+                bVar.dEf.setVisibility(8);
             }
-            if (this.dBb == null) {
-                this.dBb = item.user_portrait;
+            if (this.dEi == null) {
+                this.dEi = item.user_portrait;
             }
-            bVar.a(item, true, this.dBb);
+            bVar.a(item, true, this.dEi);
             String str = item.title;
             if (str.trim().length() > 0) {
-                bVar.aSh.setText(str);
-                bVar.aSh.setVisibility(0);
+                bVar.aOG.setText(str);
+                bVar.aOG.setVisibility(0);
             } else {
-                bVar.aSh.setVisibility(8);
+                bVar.aOG.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.l.qE().qK() && item.media != null && item.media.length > 0) {
+            if (com.baidu.tbadk.core.l.ob().oh() && item.media != null && item.media.length > 0) {
                 int min = Math.min(item.media.length, 3);
                 PersonPostModel.Media[] mediaArr = new PersonPostModel.Media[min];
                 for (int i3 = 0; i3 < min; i3++) {
                     mediaArr[i3] = item.media[i3];
                 }
-                bVar.dBH.gQ(false);
-                bVar.dBH.setVisibility(0);
-                bVar.dBH.setTags(mediaArr);
+                bVar.dEP.hx(false);
+                bVar.dEP.setVisibility(0);
+                bVar.dEP.setTags(mediaArr);
             } else {
-                bVar.dBH.setVisibility(8);
-                bVar.dBH.setTags(null);
+                bVar.dEP.setVisibility(8);
+                bVar.dEP.setTags(null);
             }
             if (item.abs_thread != null && item.abs_thread.length > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -178,28 +178,28 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
                 }
                 String sb2 = sb.toString();
                 if (sb2.trim().length() > 0) {
-                    bVar.cxh.setText(sb2);
-                    bVar.cxh.setVisibility(0);
+                    bVar.cyf.setText(sb2);
+                    bVar.cyf.setVisibility(0);
                 } else {
-                    bVar.cxh.setVisibility(8);
+                    bVar.cyf.setVisibility(8);
                 }
             } else {
-                bVar.cxh.setVisibility(8);
+                bVar.cyf.setVisibility(8);
             }
-            bVar.dBI.setVisibility(0);
+            bVar.dEQ.setVisibility(0);
             bVar.a(this);
         } else if (item != null) {
-            bVar.dAQ.setPadding(0, 0, 0, 0);
-            bVar.dAY.setVisibility(8);
-            bVar.dAT.setVisibility(8);
-            bVar.dAS.setVisibility(8);
-            bVar.dAZ.setVisibility(8);
-            bVar.cPU.setVisibility(8);
-            bVar.aSh.setVisibility(8);
-            bVar.cxh.setVisibility(8);
-            bVar.dBH.setVisibility(8);
-            bVar.dBI.setVisibility(8);
-            bVar.dBJ.setVisibility(0);
+            bVar.dDX.setPadding(0, 0, 0, 0);
+            bVar.dEf.setVisibility(8);
+            bVar.dEa.setVisibility(8);
+            bVar.dDZ.setVisibility(8);
+            bVar.dEg.setVisibility(8);
+            bVar.cQR.setVisibility(8);
+            bVar.aOG.setVisibility(8);
+            bVar.cyf.setVisibility(8);
+            bVar.dEP.setVisibility(8);
+            bVar.dEQ.setVisibility(8);
+            bVar.dER.setVisibility(0);
             PhotoLiveCardData photoLiveCardData = new PhotoLiveCardData();
             if (item.twzhibo_info != null) {
                 if (item.twzhibo_info.zan != null) {
@@ -232,41 +232,41 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
             }
             photoLiveCardData.setTitle(photoLiveCardData.deleteBlackSpace(item.title));
             photoLiveCardData.setThreadId(item.thread_id);
-            bVar.bpS.setOnClickListener(new s(this));
-            bVar.bpS.setTag(item);
-            bVar.bpS.setPortraitClicklistener(this);
-            bVar.bpS.setDeleteButtonClickListener(this);
-            bVar.bpS.setShowBottom(true);
-            bVar.bpS.setShowReplyNumInButtom(true);
-            bVar.bpS.setShowHead(false);
-            bVar.bpS.setShowTitle(true);
-            bVar.bpS.setShowRefreshTimeInTitle(true);
-            bVar.bpS.setHeadPaddingTop(t.e.ds24);
+            bVar.bli.setOnClickListener(new s(this));
+            bVar.bli.setTag(item);
+            bVar.bli.setPortraitClicklistener(this);
+            bVar.bli.setDeleteButtonClickListener(this);
+            bVar.bli.setShowBottom(true);
+            bVar.bli.setShowReplyNumInButtom(true);
+            bVar.bli.setShowHead(false);
+            bVar.bli.setShowTitle(true);
+            bVar.bli.setShowRefreshTimeInTitle(true);
+            bVar.bli.setHeadPaddingTop(t.e.ds24);
             if (2 == i2) {
-                bVar.bpS.setShowContent(true);
-                bVar.bpS.setShowCover(false);
-                bVar.bpS.setShowExpression(false);
-                bVar.bpS.setShowRefreshTimeInTitle(false);
+                bVar.bli.setShowContent(true);
+                bVar.bli.setShowCover(false);
+                bVar.bli.setShowExpression(false);
+                bVar.bli.setShowRefreshTimeInTitle(false);
             } else {
-                bVar.bpS.setShowContent(false);
-                bVar.bpS.setShowCover(true);
-                bVar.bpS.setShowExpression(true);
-                bVar.bpS.setShowRefreshTimeInTitle(true);
+                bVar.bli.setShowContent(false);
+                bVar.bli.setShowCover(true);
+                bVar.bli.setShowExpression(true);
+                bVar.bli.setShowRefreshTimeInTitle(true);
             }
-            bVar.bpS.setShowImage(com.baidu.tbadk.core.l.qE().qK());
-            bVar.bpS.setShowLiveIcon(true);
-            bVar.bpS.setChooseStyle(photoLiveCardData.getShowStyle());
-            bVar.bpS.setShowDeleteButtonInTitle(this.dBD);
-            if (this.dBD) {
-                bVar.bpS.setTitlePaddingRight(t.e.ds84);
+            bVar.bli.setShowImage(com.baidu.tbadk.core.l.ob().oh());
+            bVar.bli.setShowLiveIcon(true);
+            bVar.bli.setChooseStyle(photoLiveCardData.getShowStyle());
+            bVar.bli.setShowDeleteButtonInTitle(this.dEL);
+            if (this.dEL) {
+                bVar.bli.setTitlePaddingRight(t.e.ds84);
             } else {
-                bVar.bpS.setTitlePaddingRight(0);
+                bVar.bli.setTitlePaddingRight(0);
             }
-            bVar.bpS.setData(photoLiveCardData);
+            bVar.bli.setData(photoLiveCardData);
         }
-        bVar.dj(TbadkCoreApplication.m411getInst().getSkinType());
-        this.duj.getLayoutMode().ab(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.duj.getLayoutMode().x(bVar.mContentView);
+        bVar.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        this.cSp.getLayoutMode().ae(TbadkCoreApplication.m11getInst().getSkinType() == 1);
+        this.cSp.getLayoutMode().x(bVar.mContentView);
         return view;
     }
 
@@ -282,7 +282,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         for (int i = 0; i < labelInfoArr.length; i++) {
             com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
             if (labelInfoArr[i] != null) {
-                nVar.ek(labelInfoArr[i].labelHot);
+                nVar.dQ(labelInfoArr[i].labelHot);
                 nVar.setLabelName(labelInfoArr[i].labelName);
                 nVar.setLabelId(labelInfoArr[i].LabelId);
                 arrayList.add(nVar);
@@ -291,34 +291,34 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         return arrayList;
     }
 
-    @Override // com.baidu.tieba.person.post.a.InterfaceC0077a
-    public void aQ(View view) {
+    @Override // com.baidu.tieba.person.post.a.InterfaceC0070a
+    public void aU(View view) {
         String[] strArr;
-        if (this.duj != null) {
+        if (this.cSp != null) {
             int id = view.getId();
             if (id == t.g.forum_name) {
                 String str = (String) view.getTag();
                 if (str != null) {
-                    this.duj.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.duj.getPageContext().getPageActivity()).createNormalCfg(str, "")));
+                    this.cSp.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cSp.getPageContext().getPageActivity()).createNormalCfg(str, "")));
                 }
             } else if (id == t.g.portrait) {
-                this.duj.finish();
+                this.cSp.finish();
             } else if (id == t.g.username) {
-                this.duj.finish();
+                this.cSp.finish();
             } else if ((id == t.g.item_content || id == t.g.item_header || id == t.g.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.duj.getPageContext().getPageActivity()).createCfgForPersonCenter(strArr[0], strArr[1], "person_post", 18005)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.cSp.getPageContext().getPageActivity()).createCfgForPersonCenter(strArr[0], strArr[1], "person_post", 18005)));
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class b extends com.baidu.tieba.person.post.a {
-        TextView aSh;
-        PhotoLiveCardView bpS;
-        TextView cxh;
-        TripleTbImageView dBH;
-        View dBI;
-        LinearLayout dBJ;
+        TextView aOG;
+        PhotoLiveCardView bli;
+        TextView cyf;
+        TripleTbImageView dEP;
+        View dEQ;
+        LinearLayout dER;
         View mContentView;
 
         @Override // com.baidu.tieba.person.post.a
@@ -327,8 +327,8 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         }
 
         @Override // com.baidu.tieba.person.post.a
-        public /* bridge */ /* synthetic */ void a(a.InterfaceC0077a interfaceC0077a) {
-            super.a(interfaceC0077a);
+        public /* bridge */ /* synthetic */ void a(a.InterfaceC0070a interfaceC0070a) {
+            super.a(interfaceC0070a);
         }
 
         @Override // com.baidu.tieba.person.post.a, android.view.View.OnClickListener
@@ -339,34 +339,34 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         b(View view, TbPageContext<?> tbPageContext) {
             super(view, tbPageContext);
             this.mContentView = view.findViewById(t.g.item_content);
-            this.aSh = (TextView) view.findViewById(t.g.title);
-            this.cxh = (TextView) view.findViewById(t.g.content);
-            this.dBH = (TripleTbImageView) view.findViewById(t.g.images);
-            this.dBI = view.findViewById(t.g.post_line);
-            this.bpS = (PhotoLiveCardView) view.findViewById(t.g.photo_live_card);
-            this.dBJ = (LinearLayout) view.findViewById(t.g.person_post_item_photo_live_card);
+            this.aOG = (TextView) view.findViewById(t.g.title);
+            this.cyf = (TextView) view.findViewById(t.g.content);
+            this.dEP = (TripleTbImageView) view.findViewById(t.g.images);
+            this.dEQ = view.findViewById(t.g.post_line);
+            this.bli = (PhotoLiveCardView) view.findViewById(t.g.photo_live_card);
+            this.dER = (LinearLayout) view.findViewById(t.g.person_post_item_photo_live_card);
         }
 
         @Override // com.baidu.tieba.person.post.a
-        public void dj(int i) {
-            super.dj(i);
-            at.b(this.aSh, t.d.cp_cont_b, 1);
-            at.b(this.cxh, t.d.cp_cont_f, 1);
-            at.k(this.dBI, t.d.cp_bg_line_b);
+        public void cS(int i) {
+            super.cS(i);
+            at.c(this.aOG, t.d.cp_cont_b, 1);
+            at.c(this.cyf, t.d.cp_cont_f, 1);
+            at.k(this.dEQ, t.d.cp_bg_line_b);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.b
     public void onPortraitClick(View view) {
-        this.duj.finish();
+        this.cSp.finish();
     }
 
     public void setThreadType(int i) {
         this.mThreadType = i;
     }
 
-    public void gM(boolean z) {
-        this.dBD = z;
+    public void hs(boolean z) {
+        this.dEL = z;
         notifyDataSetChanged();
     }
 
@@ -374,38 +374,38 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
     public void onDeleteClick(View view) {
         Object tag = view.getTag();
         if (tag instanceof PhotoLiveCardData) {
-            this.dBF = (PhotoLiveCardData) tag;
-            aCz();
+            this.dEN = (PhotoLiveCardData) tag;
+            aCS();
         }
     }
 
-    public void aCz() {
-        if (this.dlz == null) {
-            String string = this.duj.getPageContext().getResources().getString(t.j.del_thread_confirm);
-            this.dlz = new com.baidu.tbadk.core.dialog.a(this.duj.getActivity());
-            this.dlz.cC(string);
-            this.dlz.a(t.j.dialog_ok, new t(this));
-            this.dlz.b(t.j.dialog_cancel, new u(this));
-            this.dlz.am(true);
-            this.dlz.b(this.duj.getPageContext());
+    public void aCS() {
+        if (this.dnT == null) {
+            String string = this.cSp.getPageContext().getResources().getString(t.j.del_thread_confirm);
+            this.dnT = new com.baidu.tbadk.core.dialog.a(this.cSp.getActivity());
+            this.dnT.cA(string);
+            this.dnT.a(t.j.dialog_ok, new t(this));
+            this.dnT.b(t.j.dialog_cancel, new u(this));
+            this.dnT.ap(true);
+            this.dnT.b(this.cSp.getPageContext());
         }
-        this.dlz.up();
+        this.dnT.rU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCA() {
-        if (this.dBF != null) {
-            if (this.dgC == null) {
-                this.dgC = new com.baidu.tieba.tbadkCore.f.a(this.duj);
-                this.dgC.setLoadDataCallBack(this.dhe);
+    public void aCT() {
+        if (this.dEN != null) {
+            if (this.diO == null) {
+                this.diO = new com.baidu.tieba.tbadkCore.f.a(this.cSp);
+                this.diO.setLoadDataCallBack(this.djp);
             }
-            if (!this.dgC.aUn()) {
-                this.duj.showProgressBar();
-                String valueOf = String.valueOf(this.dBF.getForumId());
-                String forumName = this.dBF.getForumName();
-                String valueOf2 = String.valueOf(this.dBF.getThreadId());
-                this.dgC.a(valueOf, forumName, valueOf2, valueOf2, 0, 0, true);
-                this.dBF = null;
+            if (!this.diO.aUI()) {
+                this.cSp.showProgressBar();
+                String valueOf = String.valueOf(this.dEN.getForumId());
+                String forumName = this.dEN.getForumName();
+                String valueOf2 = String.valueOf(this.dEN.getThreadId());
+                this.diO.a(valueOf, forumName, valueOf2, valueOf2, 0, 0, true);
+                this.dEN = null;
             }
         }
     }
@@ -413,9 +413,9 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a.b bVar) {
         if (bVar != null) {
-            a(0, bVar.AU, bVar.erS, true);
-            if (bVar.AU && bVar.erQ == 0) {
-                List<PersonPostModel.PostInfoList> list = this.dBE;
+            a(0, bVar.rg, bVar.evb, true);
+            if (bVar.rg && bVar.euZ == 0) {
+                List<PersonPostModel.PostInfoList> list = this.dEM;
                 int size = list.size();
                 int i = 0;
                 while (true) {
@@ -430,23 +430,23 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
                     }
                 }
                 notifyDataSetChanged();
-                if (list.size() == 0 && this.dBC != null) {
-                    this.dBC.gN(true);
+                if (list.size() == 0 && this.dEK != null) {
+                    this.dEK.ht(true);
                 }
             }
         }
     }
 
     public void a(int i, boolean z, String str, boolean z2) {
-        this.duj.hideProgressBar();
+        this.cSp.hideProgressBar();
         if (z && z2) {
-            this.duj.showToast(this.duj.getPageContext().getString(t.j.cash_del_suc));
+            this.cSp.showToast(this.cSp.getPageContext().getString(t.j.cash_del_suc));
         } else if (str != null && z2) {
-            this.duj.showToast(str);
+            this.cSp.showToast(str);
         }
     }
 
-    public PersonPostModel aCB() {
-        return this.dBj;
+    public PersonPostModel aCU() {
+        return this.dEs;
     }
 }

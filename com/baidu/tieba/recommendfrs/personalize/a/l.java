@@ -3,93 +3,93 @@ package com.baidu.tieba.recommendfrs.personalize.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.bd;
-import com.baidu.tieba.card.cf;
-import com.baidu.tieba.card.cj;
+import com.baidu.tieba.card.av;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.card.by;
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.t, a> {
-    private TbPageContext<?> ND;
-    private BdUniqueId aSu;
-    private cj bTW;
-    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> dYa;
-    private com.baidu.adp.lib.f.b<TbImageView> dYb;
-    private bd dYh;
-    private com.baidu.tieba.recommendfrs.control.a.f dYi;
+public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l, a> {
+    private TbPageContext<?> DV;
+    private BdUniqueId aOT;
+    private by bUy;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> boU;
+    private com.baidu.adp.lib.f.b<TbImageView> boV;
+    private av ebo;
+    private com.baidu.tieba.recommendfrs.control.a.f ebp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dYa = new com.baidu.adp.lib.f.b<>(new m(this), 6, 0);
-        this.dYb = new com.baidu.adp.lib.f.b<>(new n(this), 12, 0);
-        this.bTW = new o(this);
-        this.ND = tbPageContext;
-        aMA();
+        this.boU = new com.baidu.adp.lib.f.b<>(new m(this), 6, 0);
+        this.boV = new com.baidu.adp.lib.f.b<>(new n(this), 12, 0);
+        this.bUy = new o(this);
+        this.DV = tbPageContext;
+        aMK();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bh */
+    /* renamed from: bw */
     public a b(ViewGroup viewGroup) {
-        this.dYh = new bd(this.ND);
-        this.dYh.setConstrainLayoutPool(this.dYa);
-        this.dYh.a(this.dYb);
-        this.dYh.j(this.aSu);
-        return new a(this.dYh);
+        this.ebo = new av(this.DV);
+        this.ebo.setConstrainLayoutPool(this.boU);
+        this.ebo.setConstrainImagePool(this.boV);
+        this.ebo.j(this.aOT);
+        return new a(this.ebo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.t tVar, a aVar) {
-        if (tVar != null) {
-            tVar.fP(i + 1);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.l lVar, a aVar) {
+        if (lVar != null) {
+            lVar.fx(i + 1);
         }
-        cf.Lx().a(tVar.LN());
-        aVar.dYk.a(tVar);
-        aVar.dYk.a(this.bTW);
+        bx.Kg().a(lVar.Kw());
+        aVar.ebr.a(lVar);
+        aVar.ebr.a(this.bUy);
         return aVar.getView();
     }
 
-    private void aMA() {
-        com.baidu.tieba.card.a.t.aVR = "c10705";
-        com.baidu.tieba.card.a.t.aVS = "c10730";
-        com.baidu.tieba.card.a.t.aVT = "c10731";
-        com.baidu.tieba.card.a.t.aVU = "c10704";
-        com.baidu.tieba.card.a.t.aVV = "c10755";
-        com.baidu.tieba.card.a.t.aVW = "c10710";
-        com.baidu.tieba.card.a.t.aVX = "c10736";
-        com.baidu.tieba.card.a.t.aVY = "c10737";
-        com.baidu.tieba.card.a.t.aVZ = "c10711";
-        com.baidu.tieba.card.a.t.aWa = "c10758";
-        com.baidu.tieba.card.a.t.aWb = "c10757";
+    private void aMK() {
+        com.baidu.tieba.card.a.l.aRL = "c10705";
+        com.baidu.tieba.card.a.l.aRM = "c10730";
+        com.baidu.tieba.card.a.l.aRN = "c10731";
+        com.baidu.tieba.card.a.l.aRO = "c10704";
+        com.baidu.tieba.card.a.l.aRP = "c10755";
+        com.baidu.tieba.card.a.l.aRQ = "c10710";
+        com.baidu.tieba.card.a.l.aRR = "c10736";
+        com.baidu.tieba.card.a.l.aRS = "c10737";
+        com.baidu.tieba.card.a.l.aRT = "c10711";
+        com.baidu.tieba.card.a.l.aRU = "c10758";
+        com.baidu.tieba.card.a.l.aRV = "c10757";
     }
 
     public void setFromCDN(boolean z) {
-        if (this.dYh != null) {
-            this.dYh.setFromCDN(z);
+        if (this.ebo != null) {
+            this.ebo.setFromCDN(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a extends x.a {
-        public bd dYk;
+    public class a extends y.a {
+        public av ebr;
 
-        public a(bd bdVar) {
-            super(bdVar.getView());
-            this.dYk = bdVar;
+        public a(av avVar) {
+            super(avVar.getView());
+            this.ebr = avVar;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aSu = bdUniqueId;
+        this.aOT = bdUniqueId;
     }
 
     public void a(com.baidu.tieba.recommendfrs.control.a.f fVar) {
-        this.dYi = fVar;
+        this.ebp = fVar;
     }
 }

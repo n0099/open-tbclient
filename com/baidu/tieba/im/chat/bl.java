@@ -9,13 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bl extends CustomMessageListener {
-    final /* synthetic */ bk bZT;
+    final /* synthetic */ bk cay;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bl(bk bkVar, int i) {
         super(i);
-        this.bZT = bkVar;
+        this.cay = bkVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,11 +26,11 @@ public class bl extends CustomMessageListener {
         List list2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.bZg != null && aVar.context != null) {
-                list = this.bZT.bcG;
-                list.addAll(aVar.bZg);
-                bdTypeListView = this.bZT.bcd;
-                list2 = this.bZT.bcG;
+            if (aVar.bZL != null && aVar.context != null) {
+                list = this.cay.bei;
+                list.addAll(aVar.bZL);
+                bdTypeListView = this.cay.bej;
+                list2 = this.cay.bei;
                 bdTypeListView.g(new ArrayList(list2));
             }
         }

@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class b implements a.b {
-    private final /* synthetic */ BaseActivity bnD;
+    private final /* synthetic */ BaseActivity bjg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BaseActivity baseActivity) {
-        this.bnD = baseActivity;
+        this.bjg = baseActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) this.bnD.getPageContext().getPageActivity(), true, 23004, "remind")));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) this.bjg.getPageContext().getPageActivity(), true, 23004, "remind")));
     }
 }

@@ -5,39 +5,46 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class h {
-    private static final String efX = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
-    private com.baidu.tbadk.core.util.ab QV = null;
+    private static final String eji = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
+    private com.baidu.tbadk.core.util.ab LL = null;
 
-    public String ny(String str) {
+    public String aQj() {
+        this.LL = new com.baidu.tbadk.core.util.ab(eji);
+        this.LL.tA().uu().YA = true;
+        this.LL.tA().uu().mIsNeedTbs = true;
+        return this.LL.tc();
+    }
+
+    public String nx(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.QV = new com.baidu.tbadk.core.util.ab(efX);
-        this.QV.p("user_id", str2);
-        this.QV.p("forum_ids", str);
-        this.QV.vU().wO().adb = true;
-        this.QV.vU().wO().mIsNeedTbs = true;
-        return this.QV.vw();
+        this.LL = new com.baidu.tbadk.core.util.ab(eji);
+        this.LL.n("user_id", str2);
+        this.LL.n("forum_ids", str);
+        this.LL.tA().uu().YA = true;
+        this.LL.tA().uu().mIsNeedTbs = true;
+        return this.LL.tc();
     }
 
     public void cancel() {
-        if (this.QV != null) {
-            this.QV.gX();
+        if (this.LL != null) {
+            this.LL.dl();
         }
     }
 
-    public boolean qC() {
-        if (this.QV != null) {
-            return this.QV.vU().wP().qC();
+    public boolean nZ() {
+        if (this.LL != null) {
+            return this.LL.tA().uv().nZ();
         }
         return false;
     }
 
-    public String qD() {
-        if (this.QV != null) {
-            return this.QV.getErrorString();
+    public String oa() {
+        if (this.LL != null) {
+            return this.LL.getErrorString();
         }
         return null;
     }

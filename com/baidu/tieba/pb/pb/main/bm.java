@@ -1,41 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements a.b {
-    private final /* synthetic */ long blt;
-    private final /* synthetic */ String blu;
-    private final /* synthetic */ gn dhA;
-    private final /* synthetic */ ShareFromPBMsgData dhB;
-    final /* synthetic */ PbActivity dht;
-    private final /* synthetic */ String val$name;
+public class bm implements View.OnClickListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(PbActivity pbActivity, gn gnVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
-        this.dht = pbActivity;
-        this.dhA = gnVar;
-        this.blt = j;
-        this.val$name = str;
-        this.blu = str2;
-        this.dhB = shareFromPBMsgData;
+    public bm(PbActivity pbActivity) {
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        int awo;
-        this.dht.HidenSoftKeyPad((InputMethodManager) this.dht.getSystemService("input_method"), this.dhA.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.dht.getPageContext().getPageActivity(), this.blt, this.val$name, this.blu, 0, this.dhA.getLeaveMsg(), this.dhB.toChatMessageContent())));
-        aVar.dismiss();
-        awo = this.dht.awo();
-        if (awo == 1) {
-            this.dht.aws();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cw cwVar;
+        this.djE.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.djE.getPageContext().getPageActivity(), 23007)));
+        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10125");
+        cwVar = this.djE.dih;
+        TiebaStatic.log(awVar.ac("tid", cwVar.getThreadID()).s("obj_type", 1));
     }
 }

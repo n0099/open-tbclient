@@ -6,81 +6,81 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.ax;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private com.baidu.tbadk.core.data.as aeC;
-    private View.OnClickListener aeD;
-    private int aeE;
-    private final int aeF;
-    private boolean aeG;
+    private ax aab;
+    private View.OnClickListener aac;
+    private int aad;
+    private final int aae;
+    private boolean aaf;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     public ClickableHeaderImageView(Context context) {
         super(context);
-        this.aeE = 0;
-        this.aeG = false;
+        this.aad = 0;
+        this.aaf = false;
         this.mOnClickListener = new c(this);
         this.mContext = context;
-        this.aeF = com.baidu.adp.lib.util.k.c(context, t.e.ds6);
+        this.aae = com.baidu.adp.lib.util.k.c(context, t.e.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
     public ClickableHeaderImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeE = 0;
-        this.aeG = false;
+        this.aad = 0;
+        this.aaf = false;
         this.mOnClickListener = new c(this);
         this.mContext = context;
-        this.aeF = com.baidu.adp.lib.util.k.c(context, t.e.ds6);
+        this.aae = com.baidu.adp.lib.util.k.c(context, t.e.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
-    public void setData(com.baidu.tbadk.core.data.as asVar) {
-        if (asVar != null && asVar.getAuthor() != null) {
-            this.aeC = asVar;
-            setContentDescription(String.valueOf(asVar.getAuthor().getName_show()) + this.mContext.getString(t.j.somebodys_portrait));
-            c(asVar.getAuthor().getPortrait(), 28, false);
+    public void setData(ax axVar) {
+        if (axVar != null && axVar.getAuthor() != null) {
+            this.aab = axVar;
+            setContentDescription(String.valueOf(axVar.getAuthor().getName_show()) + this.mContext.getString(t.j.somebodys_portrait));
+            c(axVar.getAuthor().getPortrait(), 28, false);
         }
     }
 
     public void setData(MetaData metaData) {
         if (metaData != null) {
-            com.baidu.tbadk.core.data.as asVar = new com.baidu.tbadk.core.data.as();
-            asVar.setAuthor(metaData);
-            setData(asVar);
+            ax axVar = new ax();
+            axVar.setAuthor(metaData);
+            setData(axVar);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aeD = onClickListener;
+        this.aac = onClickListener;
     }
 
     @Override // android.view.View
     protected void dispatchDraw(Canvas canvas) {
         Drawable drawable;
         super.dispatchDraw(canvas);
-        if (this.aeG && canvas != null && (drawable = at.getDrawable(t.f.pic_home_shen_avatar)) != null) {
+        if (this.aaf && canvas != null && (drawable = com.baidu.tbadk.core.util.at.getDrawable(t.f.pic_home_shen_avatar)) != null) {
             int c = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds30);
             int width = getWidth();
             int height = getHeight();
-            if (this.aeG) {
-                drawable.setBounds((width - c) - this.aeE, (height - c) - this.aeE, width - this.aeE, height - this.aeE);
+            if (this.aaf) {
+                drawable.setBounds((width - c) - this.aad, (height - c) - this.aad, width - this.aad, height - this.aad);
             }
             drawable.draw(canvas);
         }
     }
 
     public void setGodIconMargin(int i) {
-        this.aeG = true;
+        this.aaf = true;
         setDefaultResource(17170445);
         setDefaultErrorResource(t.f.icon_default_avatar100);
         setDefaultBgResource(t.d.cp_bg_line_e);
         setIsRound(true);
         if (i != 0) {
-            this.aeE = com.baidu.adp.lib.util.k.c(this.mContext, i);
+            this.aad = com.baidu.adp.lib.util.k.c(this.mContext, i);
         }
         invalidate();
     }

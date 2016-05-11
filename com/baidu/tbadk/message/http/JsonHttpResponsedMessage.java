@@ -46,7 +46,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(t.j.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_unkown_try_again));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
@@ -54,7 +54,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.m411getInst().getApp().getString(t.j.error_unkown_try_again));
+                setErrorString(TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_unkown_try_again));
                 return jSONObject;
             }
         } catch (Exception e3) {

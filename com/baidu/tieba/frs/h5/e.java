@@ -2,28 +2,29 @@ package com.baidu.tieba.frs.h5;
 
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements BaseWebView.c {
-    final /* synthetic */ c bsP;
+public class e implements BaseWebView.d {
+    final /* synthetic */ d brD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.bsP = cVar;
+    public e(d dVar) {
+        this.brD = dVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-    public void onPageFinished(WebView webView, String str) {
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
+    public void a(WebView webView, String str) {
         boolean z;
-        this.bsP.azx = false;
-        z = this.bsP.isError;
+        z = this.brD.brB;
         if (!z) {
-            this.bsP.SU();
-            ViewGroup.LayoutParams layoutParams = this.bsP.getLayoutParams();
-            layoutParams.height = -2;
-            this.bsP.setLayoutParams(layoutParams);
+            this.brD.showLoading();
+            ViewGroup.LayoutParams layoutParams = this.brD.getLayoutParams();
+            layoutParams.height = (com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst()) - TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds90);
+            this.brD.setLayoutParams(layoutParams);
         }
-        this.bsP.bsN = true;
+        this.brD.isError = false;
     }
 }

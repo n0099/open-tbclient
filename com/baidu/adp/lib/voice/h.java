@@ -1,5 +1,5 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public class h {
-    public static int zO = 300000;
+    public static int qb = 300000;
 }

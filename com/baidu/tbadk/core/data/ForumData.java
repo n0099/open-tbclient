@@ -15,6 +15,7 @@ import tbclient.FrsPage.ForumInfo;
 import tbclient.FrsPage.Manager;
 import tbclient.FrsPage.MemberShowIcon;
 import tbclient.FrsPage.RankInfo;
+import tbclient.FrsPage.RealTime;
 import tbclient.FrsPage.RecommendForum;
 import tbclient.FrsPage.SignForum;
 import tbclient.FrsPage.SignInfo;
@@ -48,15 +49,16 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
     private final p mFrsBannerData;
     private o mMemberShowIconData;
     private final PostPrefixData mPrefixData;
+    private ak mRealTimeData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private final ai mRecommendLikeUser;
-    private aw news_info;
+    private final am mRecommendLikeUser;
+    private bc news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private at top_code;
-    private au top_notice_data;
-    private ay yuleData;
+    private az top_code;
+    private ba top_notice_data;
+    private be yuleData;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -81,18 +83,18 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new au();
+        this.top_notice_data = new ba();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new p();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
-        this.mRecommendLikeUser = new ai();
-        this.top_code = new at();
-        this.news_info = new aw();
+        this.mRecommendLikeUser = new am();
+        this.top_code = new az();
+        this.news_info = new bc();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new o();
-        this.yuleData = new ay();
+        this.yuleData = new be();
     }
 
     public AnchorPower getAnchorPower() {
@@ -242,12 +244,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         this.mSignData = signData;
     }
 
-    public au getTop_notice_data() {
+    public ba getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(au auVar) {
-        this.top_notice_data = auVar;
+    public void setTop_notice_data(ba baVar) {
+        this.top_notice_data = baVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -286,7 +288,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         return this.mBannerListData;
     }
 
-    public ai getRecommendLikeUser() {
+    public am getRecommendLikeUser() {
         return this.mRecommendLikeUser;
     }
 
@@ -298,8 +300,16 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         return this.accelerate_cotent;
     }
 
+    public ak getRealTimeData() {
+        return this.mRealTimeData;
+    }
+
+    public void setRealTimeData(ak akVar) {
+        this.mRealTimeData = akVar;
+    }
+
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0056: IGET  (r4v12 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v88 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v89 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
@@ -408,6 +418,11 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
                 }
                 this.top_code.a(forumInfo.top_code);
                 this.news_info.a(forumInfo.news_info);
+                RealTime realTime = forumInfo.realtime_data;
+                if (realTime != null) {
+                    this.mRealTimeData = new ak();
+                    this.mRealTimeData.a(realTime);
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -634,19 +649,19 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         return this.mPrefixData;
     }
 
-    public void setTopCode(at atVar) {
-        this.top_code = atVar;
+    public void setTopCode(az azVar) {
+        this.top_code = azVar;
     }
 
-    public void setNewsInfo(aw awVar) {
-        this.news_info = awVar;
+    public void setNewsInfo(bc bcVar) {
+        this.news_info = bcVar;
     }
 
-    public at getTopCode() {
+    public az getTopCode() {
         return this.top_code;
     }
 
-    public aw getNewsInfo() {
+    public bc getNewsInfo() {
         return this.news_info;
     }
 
@@ -662,12 +677,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         return this.mMemberShowIconData;
     }
 
-    public ay getYuleData() {
+    public be getYuleData() {
         return this.yuleData;
     }
 
-    public void setYuleData(ay ayVar) {
-        this.yuleData = ayVar;
+    public void setYuleData(be beVar) {
+        this.yuleData = beVar;
     }
 
     @Override // com.baidu.tbadk.core.util.ak
@@ -675,7 +690,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ak, Serializable {
         ArrayList<com.baidu.tbadk.core.util.aj> arrayList = new ArrayList<>();
         com.baidu.tbadk.core.util.aj ajVar = new com.baidu.tbadk.core.util.aj();
         ajVar.imgUrl = this.image_url;
-        ajVar.abD = 10;
+        ajVar.Xc = 10;
         arrayList.add(ajVar);
         return arrayList;
     }

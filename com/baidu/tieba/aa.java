@@ -13,7 +13,7 @@ public class aa implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.this$0.aLB.dismiss();
+        this.this$0.aHM.dismiss();
         this.this$0.finish();
     }
 }

@@ -5,23 +5,23 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends t {
-    public long FN;
-    public long Hs;
-    public int aAZ;
-    public long aBh;
-    public long aBi;
-    public int aBj;
-    private a aBk = null;
-    private final Handler aBl = new q(this, Looper.getMainLooper());
-    public long vh;
+    public int axc;
+    public long axk;
+    public long axl;
+    public int axm;
+    private a axn = null;
+    private final Handler axo = new q(this, Looper.getMainLooper());
+    public long kY;
+    public long wf;
+    public long xK;
 
-    public void GL() {
-        this.aBl.sendEmptyMessage(0);
+    public void ED() {
+        this.axo.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GM() {
-        w wVar = (w) aa.GU().fj(this.aBr);
+    public void EE() {
+        w wVar = (w) aa.EM().eO(this.axu);
         if (wVar != null) {
             wVar.c(this);
         }
@@ -36,10 +36,10 @@ public class p extends t {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            p.this.aAZ = aa.GU().GY();
-            p.this.GM();
+            p.this.axc = aa.EM().EQ();
+            p.this.EE();
             return Boolean.TRUE;
         }
 

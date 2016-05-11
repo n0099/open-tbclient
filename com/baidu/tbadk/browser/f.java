@@ -38,7 +38,7 @@ public class f {
         return str.concat(str3);
     }
 
-    public static void s(Context context, String str) {
+    public static void t(Context context, String str) {
         a(context, true, str);
     }
 
@@ -59,7 +59,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        pL();
+        nh();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -74,11 +74,11 @@ public class f {
         }
     }
 
-    public static void t(Context context, String str) {
-        s(context, str);
+    public static void u(Context context, String str) {
+        t(context, str);
     }
 
-    public static void u(Context context, String str) {
+    public static void v(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -102,7 +102,7 @@ public class f {
                 sb.append("?");
             }
             sb.append("cuid=");
-            sb.append(TbadkCoreApplication.m411getInst().getCuid());
+            sb.append(TbadkCoreApplication.m11getInst().getCuid());
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
             return sb.toString();
@@ -114,15 +114,13 @@ public class f {
         return (ay.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void J(Context context) {
-        a.b cf = com.baidu.tbadk.core.a.a.qM().cf(TbadkCoreApplication.getCurrentBduss());
-        CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
+    public static void I(Context context) {
+        a.b cd = com.baidu.tbadk.core.a.a.oj().cd(TbadkCoreApplication.getCurrentBduss());
+        CookieSyncManager.createInstance(TbadkCoreApplication.m11getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (cf != null) {
+        if (cd != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + cf.xa + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + cf.Rq + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m11getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {
                 cookieManager.removeAllCookie();
@@ -141,7 +139,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void pL() {
+    private static void nh() {
         new aq("open_webview", true).start();
     }
 }

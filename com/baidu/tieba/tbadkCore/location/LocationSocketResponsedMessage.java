@@ -20,7 +20,7 @@ public class LocationSocketResponsedMessage extends SocketResponsedMessage {
         setErrorString(getPoisByLocationResIdl.error.usermsg);
         if (getError() == 0) {
             this.mLocationData = new a();
-            this.mLocationData.a(getPoisByLocationResIdl.data);
+            this.mLocationData.parserProtoBuf(getPoisByLocationResIdl.data);
             BdLog.detailException(null);
         }
     }

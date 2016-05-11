@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int bub = 0;
-    public static int buc = 1;
-    public static int bud = 2;
-    private h bue;
+    public static int bsX = 0;
+    public static int bsY = 1;
+    public static int bsZ = 2;
+    private i bta;
     private int mState;
 
-    public TabItemView(Context context, h hVar, int i) {
+    public TabItemView(Context context, i iVar, int i) {
         super(context);
-        this.mState = bub;
-        this.bue = hVar;
-        h(context, i);
+        this.mState = bsX;
+        this.bta = iVar;
+        i(context, i);
     }
 
-    private void h(Context context, int i) {
+    private void i(Context context, int i) {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bue != null) {
-            setText(this.bue.name);
+        if (this.bta != null) {
+            setText(this.bta.name);
         }
-        xy();
+        vl();
     }
 
     public void setState(int i) {
-        if (this.bue != null && this.bue.bua != null && this.bue.bua.bqQ != null && this.bue.bua.bqQ.size() > 0) {
-            if (i == bud) {
+        if (this.bta != null && this.bta.bsW != null && this.bta.bsW.bmd != null && this.bta.bsW.bmd.size() > 0) {
+            if (i == bsZ) {
                 Drawable drawable = at.getDrawable(t.f.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
@@ -45,10 +45,10 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(t.e.ds16));
         }
-        if (i == buc || i == bud) {
-            at.b(this, t.d.s_actionbar_text_line_color_s, 1);
+        if (i == bsY || i == bsZ) {
+            at.c(this, t.d.s_actionbar_text_line_color_s, 1);
         } else {
-            at.b(this, t.d.cp_cont_f, 1);
+            at.c(this, t.d.cp_cont_f, 1);
         }
         setGravity(17);
         this.mState = i;
@@ -56,17 +56,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bue == null) {
+        if (this.bta == null) {
             return -1;
         }
-        return this.bue.btZ;
+        return this.bta.aYo;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void xy() {
+    public void vl() {
         setState(this.mState);
     }
 
@@ -99,9 +99,18 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.bue == null) {
+        if (this.bta == null) {
             return null;
         }
-        return this.bue.url;
+        return this.bta.url;
+    }
+
+    public int getDrawableWidth() {
+        Drawable drawable;
+        Drawable[] compoundDrawables = getCompoundDrawables();
+        if (compoundDrawables == null || compoundDrawables.length < 3 || (drawable = compoundDrawables[2]) == null) {
+            return 0;
+        }
+        return drawable.getIntrinsicWidth() + getCompoundDrawablePadding();
     }
 }

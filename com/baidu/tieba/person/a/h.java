@@ -1,53 +1,81 @@
 package com.baidu.tieba.person.a;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bl;
-import com.baidu.tieba.person.data.PersonListActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ g duL;
+public class h extends c<com.baidu.tieba.person.data.f, com.baidu.tieba.person.b.f> {
+    private com.baidu.tieba.person.data.f dxG;
+    private String userId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.duL = gVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public h(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.userId = "";
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        com.baidu.tieba.person.data.e eVar;
-        String str;
-        String str2;
-        Context context2;
-        com.baidu.tieba.person.data.e eVar2;
-        com.baidu.tieba.person.data.e eVar3;
-        context = this.duL.mContext;
-        if (bl.ad(context)) {
-            eVar = this.duL.duK;
-            if (eVar.isSelf) {
-                TiebaStatic.log("person_self_attentionme_click");
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aP */
+    public com.baidu.tieba.person.b.f b(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.f(LayoutInflater.from(this.mContext).inflate(t.h.personinfo_fans_view, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.f fVar, com.baidu.tieba.person.b.f fVar2) {
+        a(fVar2, view);
+        if (fVar != null && this.bUL) {
+            a(fVar2, fVar, view);
+            this.bUL = false;
+        }
+        return view;
+    }
+
+    private void a(com.baidu.tieba.person.b.f fVar, com.baidu.tieba.person.data.f fVar2, View view) {
+        if (fVar2 != null) {
+            this.userId = fVar2.userId;
+            if (fVar2.sex == 2) {
+                fVar.dBB.setText(this.mContext.getResources().getString(t.j.attention_to_her));
             } else {
-                TiebaStatic.log("person_guid_attentionme_click");
-                str = this.duL.userId;
-                if (str != null) {
-                    aw awVar = new aw("c10614");
-                    str2 = this.duL.userId;
-                    TiebaStatic.log(awVar.ac("obj_id", str2));
-                }
+                fVar.dBB.setText(this.mContext.getResources().getString(t.j.attention_to_him));
             }
-            MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.duL.mContext;
-            eVar2 = this.duL.duK;
-            String str3 = eVar2.userId;
-            eVar3 = this.duL.duK;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(context2, false, str3, eVar3.sex)));
+            if (fVar2.dzq > 0) {
+                fVar.dBC.setVisibility(0);
+                fVar.dBq.setVisibility(0);
+                fVar.dBp.setVisibility(4);
+                fVar.dBC.setText(new StringBuilder(String.valueOf(fVar2.dzq)).toString());
+            } else {
+                fVar.dBC.setVisibility(4);
+                fVar.dBq.setVisibility(4);
+                fVar.dBp.setVisibility(0);
+            }
+            a(view, fVar2);
+        }
+    }
+
+    private void a(com.baidu.tieba.person.b.f fVar, View view) {
+        if (fVar.aej != TbadkCoreApplication.m11getInst().getSkinType()) {
+            com.baidu.tbadk.core.util.at.k(view, t.f.addresslist_item_bg);
+            com.baidu.tbadk.core.util.at.c(fVar.dBB, t.d.cp_cont_f, 1);
+            com.baidu.tbadk.core.util.at.c(fVar.dBC, t.d.cp_cont_c, 1);
+            com.baidu.tbadk.core.util.at.l(fVar.aGr, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.at.l(fVar.aOf, t.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.at.c(fVar.dBp, t.d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.at.c(fVar.dBq, t.f.icon_arrow_tab);
+        }
+    }
+
+    private void a(View view, com.baidu.tieba.person.data.f fVar) {
+        if (fVar != null) {
+            this.dxG = fVar;
+            view.setOnClickListener(new i(this));
         }
     }
 }

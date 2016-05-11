@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 /* loaded from: classes.dex */
 public class AccountRestoreActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
     }
 }

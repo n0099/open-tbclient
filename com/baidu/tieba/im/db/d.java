@@ -19,16 +19,16 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d ceE;
+    private static d cfk;
 
     public static d aeq() {
-        if (ceE == null) {
-            ceE = new d();
+        if (cfk == null) {
+            cfk = new d();
         }
-        return ceE;
+        return cfk;
     }
 
-    public void je(String str) {
+    public void jg(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
@@ -43,7 +43,7 @@ public class d {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
-    public int P(String str, int i) {
+    public int T(String str, int i) {
         Cursor cursor = null;
         int i2 = 0;
         try {
@@ -62,7 +62,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    public int jf(String str) {
+    public int jh(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
@@ -106,10 +106,10 @@ public class d {
             i3 = i;
         }
         BdLog.i("affectCount:" + i3);
-        return m(linkedList).booleanValue();
+        return l(linkedList).booleanValue();
     }
 
-    public Boolean m(LinkedList<GroupNewsPojo> linkedList) {
+    public Boolean l(LinkedList<GroupNewsPojo> linkedList) {
         Boolean bool = false;
         if (linkedList == null || linkedList.size() == 0) {
             return false;
@@ -133,7 +133,7 @@ public class d {
                             if (convertToValidateItemData != null) {
                                 for (ValidateItemData validateItemData : linkedList2) {
                                     if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                        jh(validateItemData.getNotice_id());
+                                        jj(validateItemData.getNotice_id());
                                     }
                                 }
                             }
@@ -208,10 +208,10 @@ public class d {
         } finally {
             com.baidu.adp.lib.util.o.a(cursor);
         }
-        return n(linkedList);
+        return m(linkedList);
     }
 
-    private LinkedList<GroupNewsPojo> n(LinkedList<GroupNewsPojo> linkedList) {
+    private LinkedList<GroupNewsPojo> m(LinkedList<GroupNewsPojo> linkedList) {
         LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
         ArrayList arrayList = new ArrayList();
         int size = linkedList.size();
@@ -230,13 +230,13 @@ public class d {
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                Q((String) arrayList.get(i3), 3);
+                U((String) arrayList.get(i3), 3);
             }
         }
         return linkedList2;
     }
 
-    public GroupNewsPojo jg(String str) {
+    public GroupNewsPojo ji(String str) {
         Cursor cursor;
         Throwable th;
         GroupNewsPojo groupNewsPojo;
@@ -288,7 +288,7 @@ public class d {
         return groupNewsPojo2;
     }
 
-    public boolean jh(String str) {
+    public boolean jj(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
@@ -302,7 +302,7 @@ public class d {
         return bool.booleanValue();
     }
 
-    public int Q(String str, int i) {
+    public int U(String str, int i) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return 0;
@@ -317,7 +317,7 @@ public class d {
         }
     }
 
-    public boolean bf(List<UpdatesItemData> list) {
+    public boolean bd(List<UpdatesItemData> list) {
         Boolean bool;
         if (list == null || list.isEmpty()) {
             Boolean bool2 = false;
@@ -383,7 +383,7 @@ public class d {
         return j;
     }
 
-    public boolean O(String str, int i) {
+    public boolean S(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         if (i < 1000) {

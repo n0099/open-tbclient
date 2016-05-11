@@ -1,36 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax extends CustomMessageListener {
-    final /* synthetic */ PbActivity dht;
+public class ax implements a.b {
+    private final /* synthetic */ long bhx;
+    private final /* synthetic */ String bhy;
+    final /* synthetic */ PbActivity djE;
+    private final /* synthetic */ ga djJ;
+    private final /* synthetic */ ShareFromPBMsgData djK;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(PbActivity pbActivity, int i) {
-        super(i);
-        this.dht = pbActivity;
+    public ax(PbActivity pbActivity, ga gaVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
+        this.djE = pbActivity;
+        this.djJ = gaVar;
+        this.bhx = j;
+        this.val$name = str;
+        this.bhy = str2;
+        this.djK = shareFromPBMsgData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        eu euVar;
-        eu euVar2;
-        eu euVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            euVar = this.dht.dgF;
-            if (euVar != null) {
-                if (booleanValue) {
-                    euVar3 = this.dht.dgF;
-                    euVar3.agh();
-                    return;
-                }
-                euVar2 = this.dht.dgF;
-                euVar2.agg();
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        int awy;
+        this.djE.HidenSoftKeyPad((InputMethodManager) this.djE.getSystemService("input_method"), this.djJ.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.djE.getPageContext().getPageActivity(), this.bhx, this.val$name, this.bhy, 0, this.djJ.getLeaveMsg(), this.djK.toChatMessageContent())));
+        aVar.dismiss();
+        awy = this.djE.awy();
+        if (awy == 1) {
+            this.djE.awC();
         }
     }
 }

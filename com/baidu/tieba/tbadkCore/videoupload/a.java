@@ -6,31 +6,31 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 512000;
-    private static int ese = 6144000;
-    private com.baidu.tieba.tbadkCore.videoupload.a.a esf;
+    private static int evn = 6144000;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a evo;
 
-    public VideoFinishResult a(String str, String str2, a.InterfaceC0086a interfaceC0086a) {
+    public VideoFinishResult a(String str, String str2, a.InterfaceC0078a interfaceC0078a) {
         try {
             File file = new File(str2);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.esf = new com.baidu.tieba.tbadkCore.videoupload.a.a(str, chunkLength, ese);
-            this.esf.a(interfaceC0086a);
-            return this.esf.c(str2, file);
+            this.evo = new com.baidu.tieba.tbadkCore.videoupload.a.a(str, chunkLength, evn);
+            this.evo.a(interfaceC0078a);
+            return this.evo.c(str2, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void aUx() {
-        if (this.esf != null) {
-            this.esf.cancel();
+    public void aUS() {
+        if (this.evo != null) {
+            this.evo.cancel();
         }
     }
 
-    public static void pF(int i) {
+    public static void pA(int i) {
         if (i <= 0) {
             chunkLength = 512000;
         } else {
@@ -38,11 +38,11 @@ public class a {
         }
     }
 
-    public static void pG(int i) {
+    public static void pB(int i) {
         if (i <= 0) {
-            ese = 6144000;
+            evn = 6144000;
         } else {
-            ese = i;
+            evn = i;
         }
     }
 }

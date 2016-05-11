@@ -14,17 +14,17 @@ import com.baidu.tieba.t;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class AudioAnimationView extends View {
-    private boolean dTq;
-    private int eFg;
-    private int eFh;
-    private boolean eFi;
-    private int eFj;
-    private int eFk;
-    private Rect[] eFl;
-    private int[] eFm;
-    private int eFn;
-    private int eFo;
-    private final Runnable eFp;
+    private boolean dWi;
+    private int eVN;
+    private int eVO;
+    private boolean eVP;
+    private int eVQ;
+    private int eVR;
+    private Rect[] eVS;
+    private int[] eVT;
+    private int eVU;
+    private int eVV;
+    private final Runnable eVW;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -33,69 +33,69 @@ public class AudioAnimationView extends View {
         super(context);
         this.mSkinType = 3;
         this.random = new Random();
-        this.eFg = 0;
-        this.eFh = 8;
-        this.dTq = false;
-        this.eFi = true;
-        this.eFm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.eFn = k.c(TbadkCoreApplication.m411getInst(), t.e.ds4);
-        this.eFo = t.d.cp_link_tip_a;
-        this.eFp = new a(this);
+        this.eVN = 0;
+        this.eVO = 8;
+        this.dWi = false;
+        this.eVP = true;
+        this.eVT = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.eVU = k.c(TbadkCoreApplication.m11getInst(), t.e.ds4);
+        this.eVV = t.d.cp_link_tip_a;
+        this.eVW = new a(this);
         initPaint();
-        aKX();
+        aLb();
     }
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.random = new Random();
-        this.eFg = 0;
-        this.eFh = 8;
-        this.dTq = false;
-        this.eFi = true;
-        this.eFm = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.eFn = k.c(TbadkCoreApplication.m411getInst(), t.e.ds4);
-        this.eFo = t.d.cp_link_tip_a;
-        this.eFp = new a(this);
+        this.eVN = 0;
+        this.eVO = 8;
+        this.dWi = false;
+        this.eVP = true;
+        this.eVT = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
+        this.eVU = k.c(TbadkCoreApplication.m11getInst(), t.e.ds4);
+        this.eVV = t.d.cp_link_tip_a;
+        this.eVW = new a(this);
         initPaint();
-        aKX();
+        aLb();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKX() {
-        if (this.dTq) {
+    public void aLb() {
+        if (this.dWi) {
             invalidate();
         }
-        h.hx().removeCallbacks(this.eFp);
-        if (!this.eFi) {
-            h.hx().postDelayed(this.eFp, 100L);
+        h.dL().removeCallbacks(this.eVW);
+        if (!this.eVP) {
+            h.dL().postDelayed(this.eVW, 250L);
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.eFg > 0) {
+        if (this.eVN > 0) {
             int mode = View.MeasureSpec.getMode(i);
-            this.eFj = this.eFn * ((this.eFg * 2) - 1);
-            this.eFh = this.eFg;
-            i = View.MeasureSpec.makeMeasureSpec(this.eFj, mode);
+            this.eVQ = this.eVU * ((this.eVN * 2) - 1);
+            this.eVO = this.eVN;
+            i = View.MeasureSpec.makeMeasureSpec(this.eVQ, mode);
         }
         super.onMeasure(i, i2);
-        this.eFk = getMeasuredHeight();
-        this.eFj = getMeasuredWidth();
-        if (this.eFg <= 0) {
-            this.eFh = (this.eFj / this.eFn) / 2;
+        this.eVR = getMeasuredHeight();
+        this.eVQ = getMeasuredWidth();
+        if (this.eVN <= 0) {
+            this.eVO = (this.eVQ / this.eVU) / 2;
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.dTq) {
-            for (int i = 0; i < this.eFh; i++) {
-                aYA();
-                if (i < this.eFl.length) {
-                    canvas.drawRect(this.eFl[i], this.mPaint);
+        if (this.dWi) {
+            for (int i = 0; i < this.eVO; i++) {
+                baR();
+                if (i < this.eVS.length) {
+                    canvas.drawRect(this.eVS[i], this.mPaint);
                 }
             }
         }
@@ -106,36 +106,42 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(at.getColor(this.eFo));
+        this.mPaint.setColor(at.getColor(this.eVV));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.mPaint.setColor(at.getColor(this.eFo));
+            this.mPaint.setColor(at.getColor(this.eVV));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    private void aYA() {
+    private void baR() {
         int nextInt;
-        if (this.eFl == null || this.eFl.length != this.eFh) {
-            this.eFl = new Rect[this.eFh];
+        if (this.eVS == null || this.eVS.length != this.eVO) {
+            this.eVS = new Rect[this.eVO];
         }
-        for (int i = 0; i < this.eFh; i++) {
-            int i2 = this.eFn * i * 2;
-            if (this.eFi) {
-                nextInt = (int) ((1.0d - (this.eFm[i % 22] / 10.0d)) * this.eFk);
+        for (int i = 0; i < this.eVO; i++) {
+            int i2 = this.eVU * i * 2;
+            if (this.eVP) {
+                nextInt = (int) ((1.0d - (this.eVT[i % 22] / 10.0d)) * this.eVR);
             } else {
-                nextInt = this.eFk > 0 ? this.random.nextInt(this.eFk) : 0;
+                nextInt = this.eVR > 0 ? this.random.nextInt(this.eVR) : 0;
             }
-            int i3 = this.eFn + i2;
-            int i4 = this.eFk;
-            if (this.eFl[i] == null) {
-                this.eFl[i] = new Rect(i2, nextInt, i3, i4);
+            int i3 = this.eVU + i2;
+            int i4 = this.eVR;
+            if (this.eVS[i] == null) {
+                this.eVS[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.eFl[i].set(i2, nextInt, i3, i4);
+                this.eVS[i].set(i2, nextInt, i3, i4);
             }
+        }
+    }
+
+    public void setColumnWidth(int i) {
+        if (i > 0) {
+            this.eVU = i;
         }
     }
 
@@ -143,22 +149,22 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(at.getColor(i));
         }
-        this.eFo = i;
+        this.eVV = i;
     }
 
     public void start() {
-        this.dTq = true;
-        this.eFi = false;
-        aKX();
+        this.dWi = true;
+        this.eVP = false;
+        aLb();
     }
 
     public void setCertainColumnCount(int i) {
-        this.eFg = i;
+        this.eVN = i;
     }
 
-    public void aYB() {
-        this.dTq = true;
-        this.eFi = true;
-        aKX();
+    public void baS() {
+        this.dWi = true;
+        this.eVP = true;
+        aLb();
     }
 }

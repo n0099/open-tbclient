@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point cub;
-    private Point cuc;
-    private Point cud;
-    private final int cue;
-    private final int cuf;
-    private a cug;
-    private int cuh;
+    private Point cuZ;
+    private Point cva;
+    private Point cvb;
+    private final int cvc;
+    private final int cvd;
+    private a cve;
+    private int cvf;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(Point point);
 
-        void ajC();
+        void ajI();
     }
 
-    private int kk(int i) {
-        return (int) (((this.k * i) + this.cub.y) - (this.k * this.cub.x));
+    private int jP(int i) {
+        return (int) (((this.k * i) + this.cuZ.y) - (this.k * this.cuZ.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.cud.equals(this.cuc)) {
-            switch (this.cuh) {
+        if (!this.cvb.equals(this.cva)) {
+            switch (this.cvf) {
                 case 0:
-                    ajJ();
+                    ajP();
                     break;
                 case 1:
-                    ajL();
+                    ajR();
                     break;
                 case 2:
-                    ajK();
+                    ajQ();
                     break;
                 case 3:
-                    ajM();
+                    ajS();
                     break;
                 case 4:
-                    ajN();
+                    ajT();
                     break;
                 case 5:
-                    ajO();
+                    ajU();
                     break;
             }
             return false;
         }
-        if (this.cug != null) {
-            this.cug.ajC();
+        if (this.cve != null) {
+            this.cve.ajI();
         }
         return true;
     }
 
-    private void ajJ() {
-        this.cud.y += this.cuf;
-        if (this.cud.y > this.cuc.y) {
-            this.cud.y = this.cuc.y;
+    private void ajP() {
+        this.cvb.y += this.cvd;
+        if (this.cvb.y > this.cva.y) {
+            this.cvb.y = this.cva.y;
         }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
-        }
-    }
-
-    private void ajK() {
-        this.cud.x += this.cue;
-        if (this.cud.x > this.cuc.x) {
-            this.cud.x = this.cuc.x;
-        }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
         }
     }
 
-    private void ajL() {
-        this.cud.y -= this.cuf;
-        if (this.cud.y < this.cuc.y) {
-            this.cud.y = this.cuc.y;
+    private void ajQ() {
+        this.cvb.x += this.cvc;
+        if (this.cvb.x > this.cva.x) {
+            this.cvb.x = this.cva.x;
         }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
-        }
-    }
-
-    private void ajM() {
-        this.cud.x -= this.cue;
-        if (this.cud.x < this.cuc.x) {
-            this.cud.x = this.cuc.x;
-        }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
         }
     }
 
-    private void ajN() {
-        this.cud.x -= this.cue;
-        this.cud.y = kk(this.cud.x);
-        if (this.cud.x < this.cuc.x && this.cud.y < this.cuc.y) {
-            this.cud.x = this.cuc.x;
-            this.cud.y = this.cuc.y;
+    private void ajR() {
+        this.cvb.y -= this.cvd;
+        if (this.cvb.y < this.cva.y) {
+            this.cvb.y = this.cva.y;
         }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
         }
     }
 
-    private void ajO() {
-        this.cud.x += this.cue;
-        this.cud.y = kk(this.cud.x);
-        if (this.cud.x > this.cuc.x && this.cud.y > this.cuc.y) {
-            this.cud.x = this.cuc.x;
-            this.cud.y = this.cuc.y;
+    private void ajS() {
+        this.cvb.x -= this.cvc;
+        if (this.cvb.x < this.cva.x) {
+            this.cvb.x = this.cva.x;
         }
-        if (this.cug != null) {
-            this.cug.a(this.cud);
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
+        }
+    }
+
+    private void ajT() {
+        this.cvb.x -= this.cvc;
+        this.cvb.y = jP(this.cvb.x);
+        if (this.cvb.x < this.cva.x && this.cvb.y < this.cva.y) {
+            this.cvb.x = this.cva.x;
+            this.cvb.y = this.cva.y;
+        }
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
+        }
+    }
+
+    private void ajU() {
+        this.cvb.x += this.cvc;
+        this.cvb.y = jP(this.cvb.x);
+        if (this.cvb.x > this.cva.x && this.cvb.y > this.cva.y) {
+            this.cvb.x = this.cva.x;
+            this.cvb.y = this.cva.y;
+        }
+        if (this.cve != null) {
+            this.cve.a(this.cvb);
         }
     }
 }

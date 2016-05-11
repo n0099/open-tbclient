@@ -18,7 +18,7 @@ public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<c> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
-    private com.baidu.tieba.card.a.x recomTopicData;
+    private com.baidu.tieba.card.a.p recomTopicData;
 
     public ArrayList<c> getAllAdvertList() {
         return this.advertAppList;
@@ -31,8 +31,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).RZ)) {
-                sb.append(this.advertAppList.get(i).RZ);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).MN)) {
+                sb.append(this.advertAppList.get(i).MN);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -87,14 +87,14 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                aj ajVar = new aj();
-                ajVar.a(bannerList.hot_topic);
-                this.recomTopicData = ajVar.sE();
+                an anVar = new an();
+                anVar.a(bannerList.hot_topic);
+                this.recomTopicData = anVar.qc();
             }
         }
     }
 
-    public com.baidu.tieba.card.a.x getRecomTopicData() {
+    public com.baidu.tieba.card.a.p getRecomTopicData() {
         return this.recomTopicData;
     }
 

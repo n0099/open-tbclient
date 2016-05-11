@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity cap;
+    final /* synthetic */ TalkableActivity caU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(TalkableActivity talkableActivity) {
-        this.cap = talkableActivity;
+        this.caU = talkableActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
@@ -20,74 +20,74 @@ public class bs extends com.baidu.adp.base.g {
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
         long j;
-        if (!com.baidu.adp.lib.util.i.jf()) {
-            if (this.cap.cab != null) {
-                this.cap.cab.displayNoNetwork();
+        if (!com.baidu.adp.lib.util.i.fq()) {
+            if (this.caU.caG != null) {
+                this.caU.caG.displayNoNetwork();
             }
-        } else if (this.cap.cab != null) {
-            this.cap.cab.hideNoNetwork();
+        } else if (this.caU.caG != null) {
+            this.caU.caG.hideNoNetwork();
         }
-        switch (this.cap.cac.getLoadDataMode()) {
+        switch (this.caU.caH.getLoadDataMode()) {
             case 1:
-                j = this.cap.caj;
+                j = this.caU.caO;
                 if (j > -1) {
-                    this.cap.caj = -1L;
+                    this.caU.caO = -1L;
                 }
-                this.cap.cab.closeProgress();
-                this.cap.cab.refreshGo2New(this.cap.cac.getData());
+                this.caU.caG.closeProgress();
+                this.caU.caG.refreshGo2New(this.caU.caH.getData());
                 return;
             case 2:
-                this.cap.cab.refreshPrepage(this.cap.cac.getData());
+                this.caU.caG.refreshPrepage(this.caU.caH.getData());
                 return;
             case 3:
-                this.cap.cab.refreshCheckNew(this.cap.cac.getData());
+                this.caU.caG.refreshCheckNew(this.caU.caH.getData());
                 return;
             case 4:
-                this.cap.cab.refreshGo2New(this.cap.cac.getData());
+                this.caU.caG.refreshGo2New(this.caU.caH.getData());
                 return;
             case 5:
-                this.cap.cab.refreshNormal(this.cap.cac.getData());
+                this.caU.caG.refreshNormal(this.caU.caH.getData());
                 return;
             case 6:
-                this.cap.cab.refreshNormal(this.cap.cac.getData());
+                this.caU.caG.refreshNormal(this.caU.caH.getData());
                 return;
             case 7:
-                this.cap.cab.refreshNormal(this.cap.cac.getData());
+                this.caU.caG.refreshNormal(this.caU.caH.getData());
                 return;
             case 8:
                 if (obj != null && (obj instanceof String)) {
                     String str = (String) obj;
-                    this.cap.cab.setDraft(str);
-                    this.cap.cac.setDraft(str);
+                    this.caU.caG.setDraft(str);
+                    this.caU.caH.setDraft(str);
                     return;
                 }
                 return;
             case 9:
-                this.cap.cal = false;
-                this.cap.finish();
+                this.caU.caQ = false;
+                this.caU.finish();
                 return;
             case 10:
                 if (obj != null && (obj instanceof String)) {
-                    this.cap.cab.refreshHeaderFooter((String) obj, true);
+                    this.caU.caG.refreshHeaderFooter((String) obj, true);
                     return;
                 }
                 return;
             case 11:
-                TbadkCoreApplication.m411getInst().login(this.cap.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cap.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.cap.cal = false;
-                this.cap.finish();
+                TbadkCoreApplication.m11getInst().login(this.caU.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.caU.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.caU.caQ = false;
+                this.caU.finish();
                 return;
             case 12:
-                this.cap.cab.refreshGo2New(this.cap.cac.getData());
+                this.caU.caG.refreshGo2New(this.caU.caH.getData());
                 return;
             case 13:
-                this.cap.cab.refreshNormal(this.cap.cac.getData());
+                this.caU.caG.refreshNormal(this.caU.caH.getData());
                 break;
             case 14:
                 break;
             default:
                 return;
         }
-        this.cap.cab.refreshNormal(this.cap.cac.getData());
+        this.caU.caG.refreshNormal(this.caU.caH.getData());
     }
 }

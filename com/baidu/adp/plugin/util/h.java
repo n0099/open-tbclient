@@ -13,10 +13,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class h {
-    private static WeakReference<byte[]> FC;
     private static Object mSync = new Object();
+    private static WeakReference<byte[]> vU;
 
-    public static Signature[] bN(String str) {
+    public static Signature[] bG(String str) {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
@@ -25,9 +25,9 @@ public final class h {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = FC;
+            WeakReference<byte[]> weakReference2 = vU;
             if (weakReference2 != null) {
-                FC = null;
+                vU = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -80,7 +80,7 @@ public final class h {
             }
             jarFile.close();
             synchronized (mSync) {
-                FC = weakReference;
+                vU = weakReference;
             }
             if (certificateArr != null && certificateArr.length > 0) {
                 int length = certificateArr.length;

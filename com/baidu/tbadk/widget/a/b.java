@@ -1,25 +1,54 @@
 package com.baidu.tbadk.widget.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.widget.HorizontalScrollView;
 /* loaded from: classes.dex */
-public class b extends CustomMessageListener {
-    final /* synthetic */ a aGk;
+public class b extends HorizontalScrollView {
+    private GestureDetector mGestureDetector;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, int i) {
-        super(i);
-        this.aGk = aVar;
+    public b(Context context) {
+        super(context);
+        this.mGestureDetector = new GestureDetector(new a(this, null));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
-            return;
+    public b(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mGestureDetector = new GestureDetector(new a(this, null));
+    }
+
+    public b(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mGestureDetector = new GestureDetector(new a(this, null));
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        boolean onInterceptTouchEvent = super.onInterceptTouchEvent(motionEvent);
+        if (this.mGestureDetector.onTouchEvent(motionEvent)) {
+            if (getParent() != null) {
+                getParent().requestDisallowInterceptTouchEvent(true);
+                return onInterceptTouchEvent;
+            }
+            return onInterceptTouchEvent;
         }
-        this.aGk.a(((Long) customResponsedMessage.getData()).longValue(), false);
+        return false;
+    }
+
+    /* loaded from: classes.dex */
+    private class a extends GestureDetector.SimpleOnGestureListener {
+        private a() {
+        }
+
+        /* synthetic */ a(b bVar, a aVar) {
+            this();
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+            return Math.abs(f) > Math.abs(f2);
+        }
     }
 }

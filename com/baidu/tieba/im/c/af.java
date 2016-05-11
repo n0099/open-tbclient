@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a cpW;
-    private b cpX;
+    private a cqT;
+    private b cqU;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,33 +28,33 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.cpW = new a(str, chatMessage);
-        this.cpW.execute(new Object[0]);
+        this.cqT = new a(str, chatMessage);
+        this.cqT.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.cpX = bVar;
+        this.cqU = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String cpY;
-        private ChatMessage cpZ;
-        private ac cqa = new ac();
+        private String cqV;
+        private ChatMessage cqW;
+        private ac cqX = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.cpY = str;
-            this.cpZ = chatMessage;
+            this.cqV = str;
+            this.cqW = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: p */
+        /* renamed from: q */
         public String doInBackground(Object... objArr) {
             try {
-                return this.cqa.jF(this.cpY);
+                return this.cqX.jI(this.cqV);
             } catch (Exception e) {
                 return null;
             }
@@ -63,11 +63,11 @@ public class af extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: er */
+        /* renamed from: eo */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (af.this.cpX != null) {
-                af.this.cpX.a(str, this.cpZ);
+            if (af.this.cqU != null) {
+                af.this.cqU.a(str, this.cqW);
             }
         }
     }

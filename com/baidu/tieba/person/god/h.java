@@ -11,55 +11,55 @@ import tbclient.GodThreadList.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.e {
-    private int TD;
-    private boolean azx;
+    private int Or;
+    private boolean avz;
     private int curPage;
-    private int dwW;
-    private int dwX;
-    private a dwY;
-    private final com.baidu.adp.framework.listener.a dwZ;
+    private int dAc;
+    private int dAd;
+    private a dAe;
+    private final com.baidu.adp.framework.listener.a dAf;
     private final List<ThreadInfo> mDatas;
 
     /* loaded from: classes.dex */
     public interface a {
         void d(int i, List<ThreadInfo> list);
 
-        void fC(String str);
+        void fz(String str);
     }
 
     public boolean isLoading() {
-        return this.azx;
+        return this.avz;
     }
 
     public boolean hasMore() {
-        return this.TD == 1;
+        return this.Or == 1;
     }
 
-    public void mG(int i) {
+    public void my(int i) {
         reset();
-        this.dwX = i;
-        this.curPage = this.dwX;
+        this.dAd = i;
+        this.curPage = this.dAd;
     }
 
     public void a(a aVar) {
-        this.dwY = aVar;
+        this.dAe = aVar;
     }
 
     public h(com.baidu.adp.base.h<?> hVar) {
         super(hVar);
         this.curPage = 0;
-        this.TD = 1;
-        this.azx = false;
-        this.dwX = 0;
-        this.dwZ = new i(this, CmdConfigHttp.CMD_GOD_THREAD_LIST, 309291);
+        this.Or = 1;
+        this.avz = false;
+        this.dAd = 0;
+        this.dAf = new i(this, CmdConfigHttp.CMD_GOD_THREAD_LIST, 309291);
         this.mDatas = new ArrayList();
-        hVar.registerListener(this.dwZ);
+        hVar.registerListener(this.dAf);
     }
 
     @Override // com.baidu.adp.base.e
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.dwZ.setTag(bdUniqueId);
+        this.dAf.setTag(bdUniqueId);
     }
 
     @Override // com.baidu.adp.base.e
@@ -72,62 +72,62 @@ public class h extends com.baidu.adp.base.e {
         return false;
     }
 
-    private GodThreadListRequestMessage aCi() {
+    private GodThreadListRequestMessage aCz() {
         return new GodThreadListRequestMessage();
     }
 
     public void bG(long j) {
-        GodThreadListRequestMessage aCi = aCi();
-        aCi.setUserId(j);
-        aCi.setPn(this.curPage + 1);
-        aCi.setNum(20);
-        sendMessage(aCi);
-        this.azx = true;
+        GodThreadListRequestMessage aCz = aCz();
+        aCz.setUserId(j);
+        aCz.setPn(this.curPage + 1);
+        aCz.setNum(20);
+        sendMessage(aCz);
+        this.avz = true;
     }
 
     public void j(int i, long j) {
-        GodThreadListRequestMessage aCi = aCi();
-        aCi.setUserId(j);
+        GodThreadListRequestMessage aCz = aCz();
+        aCz.setUserId(j);
         this.curPage = i;
-        aCi.setPn(this.curPage);
-        aCi.setNum(20);
-        sendMessage(aCi);
-        this.azx = true;
+        aCz.setPn(this.curPage);
+        aCz.setNum(20);
+        sendMessage(aCz);
+        this.avz = true;
     }
 
     public void reset() {
-        this.curPage = this.dwX;
-        this.dwW = 0;
-        this.TD = 1;
+        this.curPage = this.dAd;
+        this.dAc = 0;
+        this.Or = 1;
         this.mDatas.clear();
-        this.azx = false;
+        this.avz = false;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.dwY != null) {
-                this.dwY.fC(aCj());
+            if (this.dAe != null) {
+                this.dAe.fz(aCA());
                 return;
             }
             return;
         }
-        if (this.curPage == this.dwX) {
+        if (this.curPage == this.dAd) {
             this.mDatas.clear();
         }
         this.mDatas.addAll(dataRes.thread_list);
-        if (this.dwY != null) {
-            this.dwY.d(this.curPage, dataRes.thread_list);
+        if (this.dAe != null) {
+            this.dAe.d(this.curPage, dataRes.thread_list);
         }
         this.curPage = dataRes.cur_page.intValue();
-        this.TD = dataRes.has_more.intValue();
-        this.dwW = dataRes.thread_num.intValue();
+        this.Or = dataRes.has_more.intValue();
+        this.dAc = dataRes.thread_num.intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aCj() {
-        if (k.jw()) {
-            return TbadkCoreApplication.m411getInst().getString(t.j.no_data_text);
+    public String aCA() {
+        if (k.fH()) {
+            return TbadkCoreApplication.m11getInst().getString(t.j.no_data_text);
         }
-        return TbadkCoreApplication.m411getInst().getString(t.j.neterror);
+        return TbadkCoreApplication.m11getInst().getString(t.j.neterror);
     }
 }

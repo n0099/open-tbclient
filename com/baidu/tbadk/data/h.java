@@ -1,40 +1,53 @@
 package com.baidu.tbadk.data;
+
+import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
+import org.json.JSONObject;
+import tbclient.PrivSets;
 /* loaded from: classes.dex */
-public class h {
-    private String ast;
-    private String asu;
-    private boolean asv = false;
-    private boolean isAdded = false;
+public class h extends com.baidu.adp.lib.a.b.a.a.i {
+    private int aoe = 1;
+    private int aof = 1;
+    private int aog = 1;
+    private int aoh = 1;
+    private int aoi = 1;
 
-    public String CL() {
-        return this.ast;
+    public int AB() {
+        return this.aof;
     }
 
-    public void eZ(String str) {
-        this.ast = str;
+    public int AC() {
+        return this.aog;
     }
 
-    public String getSmallUrl() {
-        return this.asu;
+    public int AD() {
+        return this.aoh;
     }
 
-    public void fa(String str) {
-        this.asu = str;
+    public int AE() {
+        return this.aoi;
     }
 
-    public boolean CM() {
-        return this.asv;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aoe = jSONObject.optInt(ThActivityDetailActivityConfig.LOCATION, 1);
+            this.aof = jSONObject.optInt("like", 1);
+            this.aog = jSONObject.optInt("group", 1);
+            this.aoh = jSONObject.optInt("post", 1);
+            this.aoi = jSONObject.optInt("friend", 1);
+        }
     }
 
-    public void bj(boolean z) {
-        this.asv = z;
-    }
-
-    public boolean isAdded() {
-        return this.isAdded;
-    }
-
-    public void bk(boolean z) {
-        this.isAdded = z;
+    public void a(PrivSets privSets) {
+        if (privSets != null) {
+            try {
+                this.aoe = privSets.location.intValue();
+                this.aof = privSets.like.intValue();
+                this.aog = privSets.group.intValue();
+                this.aoh = privSets.post.intValue();
+                this.aoi = privSets.friend.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,40 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ez implements Animation.AnimationListener {
-    final /* synthetic */ eu dnc;
+public class ez implements View.OnClickListener {
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ez(eu euVar) {
-        this.dnc = euVar;
+    public ez(el elVar) {
+        this.dpu = elVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.dnc.dkF.setTitleVisibility(false);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        boolean z;
-        relativeLayout = this.dnc.dln;
-        relativeLayout.setVisibility(0);
-        this.dnc.dkF.setTitleVisibility(true);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dnc.gp(false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.dpu.doe;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.dpu.doe;
+            pbActivity = this.dpu.dhY;
+            com.baidu.adp.lib.h.j.b(dialog2, pbActivity.getPageContext());
         }
-        z = this.dnc.dmC;
-        if (z) {
-            this.dnc.azi();
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

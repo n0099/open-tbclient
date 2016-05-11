@@ -20,12 +20,12 @@ public class j extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bf bfVar;
-        bi biVar;
-        bf bfVar2;
-        bi biVar2;
-        bf bfVar3;
-        bf bfVar4;
+        bg bgVar;
+        bj bjVar;
+        bg bgVar2;
+        bj bjVar2;
+        bg bgVar3;
+        bg bgVar4;
         if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
             ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
             if (responseNewFriendUpdateUiMsg.getAction() == -1) {
@@ -37,20 +37,20 @@ public class j extends CustomMessageListener {
                     replyInfo.setUserId(c);
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
-                    bfVar3 = this.this$0.dvN;
-                    bfVar3.aDf().getReplyInfo().add(replyInfo);
-                    bfVar4 = this.this$0.dvN;
-                    bfVar4.aDk();
+                    bgVar3 = this.this$0.dyP;
+                    bgVar3.aDA().getReplyInfo().add(replyInfo);
+                    bgVar4 = this.this$0.dyP;
+                    bgVar4.aDF();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                bfVar = this.this$0.dvN;
-                if (bfVar.aDf() != null) {
-                    biVar = this.this$0.dCt;
-                    if (biVar != null) {
-                        bfVar2 = this.this$0.dvN;
-                        bfVar2.aDf().setIsFriend(1);
-                        biVar2 = this.this$0.dCt;
-                        biVar2.aDM();
+                bgVar = this.this$0.dyP;
+                if (bgVar.aDA() != null) {
+                    bjVar = this.this$0.dFA;
+                    if (bjVar != null) {
+                        bgVar2 = this.this$0.dyP;
+                        bgVar2.aDA().setIsFriend(1);
+                        bjVar2 = this.this$0.dFA;
+                        bjVar2.aEj();
                     }
                 }
             }

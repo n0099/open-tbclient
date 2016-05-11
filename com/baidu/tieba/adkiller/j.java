@@ -19,9 +19,9 @@ public class j extends com.baidu.adp.framework.listener.a {
             String killTag = submitCloseNetMessage.getKillTag();
             int type = submitCloseNetMessage.getType();
             if (type == 2) {
-                b.gT(killTag);
-            } else if (type == 1) {
                 b.gU(killTag);
+            } else if (type == 1) {
+                b.gV(killTag);
             }
             a aVar = new a();
             aVar.tag = killTag;

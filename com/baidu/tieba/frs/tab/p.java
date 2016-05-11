@@ -1,68 +1,53 @@
 package com.baidu.tieba.frs.tab;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.fu;
-import com.baidu.tieba.frs.tab.i;
-import com.baidu.tieba.t;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.frs.ft;
+import com.baidu.tieba.frs.tab.j;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements f {
-    private TabMenuPopView.a brV = new q(this);
-    private i bup;
-    private i.b bus;
-    private List<fu> but;
-    private TabMenuPopView buu;
-    private View mContentView;
-    private Context mContext;
+public class p implements AdapterView.OnItemClickListener {
+    final /* synthetic */ n btn;
 
-    @Override // com.baidu.tieba.frs.tab.f
-    public void a(Context context, i iVar) {
-        if (context != null && iVar != null) {
-            this.mContext = context;
-            this.bup = iVar;
-            this.bus = iVar.Tu();
-            this.mContentView = LayoutInflater.from(this.mContext).inflate(t.h.tab_menu_multline_view, (ViewGroup) null);
-            this.buu = (TabMenuPopView) this.mContentView.findViewById(t.g.categorycontainer);
-            this.buu.setOnItemClickCallBack(this.brV);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(n nVar) {
+        this.btn = nVar;
     }
 
-    @Override // com.baidu.tieba.frs.tab.f
-    public void setData(List<fu> list) {
-        if (list != null) {
-            this.but = list;
-            fu fuVar = new fu();
-            fuVar.bqM = 0;
-            fuVar.name = this.mContext.getResources().getString(t.j.forum_list_menu_all);
-            fuVar.isSelected = false;
-            at.l(this.mContentView, t.d.cp_bg_line_d);
-            this.buu.a(this.but, fuVar);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        j jVar;
+        BaseAdapter baseAdapter;
+        j.b bVar;
+        List<ft> list;
+        BaseAdapter baseAdapter2;
+        j.b bVar2;
+        j jVar2;
+        jVar = this.btn.btl;
+        if (jVar != null) {
+            jVar2 = this.btn.btl;
+            jVar2.Tx();
         }
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public View getView() {
-        return this.mContentView;
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public void xy() {
-        if (this.mContentView != null) {
-            at.l(this.mContentView, t.d.cp_bg_line_d);
+        baseAdapter = this.btn.btm;
+        if (baseAdapter != null) {
+            bVar = this.btn.bsQ;
+            if (bVar != null) {
+                list = this.btn.aIe;
+                for (ft ftVar : list) {
+                    if (ftVar != null) {
+                        ftVar.isSelected = false;
+                    }
+                }
+                baseAdapter2 = this.btn.btm;
+                ft ftVar2 = (ft) baseAdapter2.getItem(i);
+                if (ftVar2 != null) {
+                    ftVar2.isSelected = true;
+                    bVar2 = this.btn.bsQ;
+                    bVar2.gN(ftVar2.blZ);
+                }
+            }
         }
-        if (this.buu != null) {
-            this.buu.xy();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public int Ts() {
-        this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        return this.mContentView.getMeasuredHeight();
     }
 }

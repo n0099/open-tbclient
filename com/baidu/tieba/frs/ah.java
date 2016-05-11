@@ -1,23 +1,28 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah extends CustomMessageListener {
-    final /* synthetic */ FrsActivity blk;
+public class ah implements a.b {
+    private final /* synthetic */ int Sg;
+    private final /* synthetic */ com.baidu.tbadk.core.data.c aOu;
+    final /* synthetic */ FrsActivity bhl;
+    private final /* synthetic */ boolean bhu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah(FrsActivity frsActivity, int i) {
-        super(i);
-        this.blk = frsActivity;
+    public ah(FrsActivity frsActivity, com.baidu.tbadk.core.data.c cVar, boolean z, int i) {
+        this.bhl = frsActivity;
+        this.aOu = cVar;
+        this.bhu = z;
+        this.Sg = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.x)) {
-            this.blk.b((com.baidu.tieba.tbadkCore.x) customResponsedMessage.getData());
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(a aVar) {
+        if (this.aOu.oG()) {
+            this.bhl.a(this.aOu, this.bhu ? "area_download" : "btn_download");
+            this.bhl.d(this.aOu, this.Sg);
+            aVar.dismiss();
         }
     }
 }

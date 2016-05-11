@@ -6,11 +6,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Animation.AnimationListener {
-    final /* synthetic */ e cFn;
+    final /* synthetic */ e cFg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.cFn = eVar;
+        this.cFg = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,19 +22,19 @@ public class g implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.cFn.cFj;
+        i = this.cFg.cFc;
         if (i < 100) {
-            button3 = this.cFn.cFe;
-            topRecActivity2 = this.cFn.cEU;
+            button3 = this.cFg.cEX;
+            topRecActivity2 = this.cFg.cEM;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(t.j.done))).append("(");
-            i2 = this.cFn.cFj;
+            i2 = this.cFg.cFc;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.cFn.cFe;
-            topRecActivity = this.cFn.cEU;
+            button = this.cFg.cEX;
+            topRecActivity = this.cFg.cEM;
             button.setText(String.valueOf(topRecActivity.getPageContext().getString(t.j.done)) + "(99+)");
         }
-        button2 = this.cFn.cFe;
+        button2 = this.cFg.cEX;
         button2.invalidate();
     }
 

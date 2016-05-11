@@ -11,42 +11,42 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private TextView aLW;
-    private View.OnClickListener afZ;
-    private TbImageView bem;
-    private com.baidu.tbadk.data.a dqc;
+    private TextView aIg;
+    private View.OnClickListener abz;
+    private TbImageView bab;
+    private com.baidu.tbadk.data.b drL;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.afZ = new a(this);
+        this.abz = new a(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.afZ = new a(this);
+        this.abz = new a(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(t.h.baobao_tail_layout, this);
-        this.bem = (TbImageView) findViewById(t.g.baobao_icon);
-        this.aLW = (TextView) findViewById(t.g.baobao_tail_text);
-        setOnClickListener(this.afZ);
+        this.bab = (TbImageView) findViewById(t.g.baobao_icon);
+        this.aIg = (TextView) findViewById(t.g.baobao_tail_text);
+        setOnClickListener(this.abz);
     }
 
-    public void setData(com.baidu.tbadk.data.a aVar) {
-        if (aVar == null || aVar.getContent() == null || aVar.getContent().length() == 0) {
+    public void setData(com.baidu.tbadk.data.b bVar) {
+        if (bVar == null || bVar.getContent() == null || bVar.getContent().length() == 0) {
             setVisibility(8);
             return;
         }
-        this.dqc = aVar;
-        this.aLW.setText(aVar.getContent());
-        this.bem.c(aVar.getIconUrl(), 10, false);
+        this.drL = bVar;
+        this.aIg.setText(bVar.getContent());
+        this.bab.c(bVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        at.b(this.aLW, t.d.cp_link_tip_c, 1);
+        at.c(this.aIg, t.d.cp_link_tip_c, 1);
     }
 }

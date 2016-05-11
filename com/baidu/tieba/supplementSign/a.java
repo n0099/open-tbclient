@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.c.e;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ SupplementSignActivity emK;
+    final /* synthetic */ SupplementSignActivity epZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SupplementSignActivity supplementSignActivity, int i) {
         super(i);
-        this.emK = supplementSignActivity;
+        this.epZ = supplementSignActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ class a extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         e eVar;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            eVar = this.emK.mWebView;
+            eVar = this.epZ.mWebView;
             eVar.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
         }
     }

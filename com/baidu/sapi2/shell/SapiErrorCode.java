@@ -4,6 +4,7 @@ public interface SapiErrorCode {
     public static final int BDUSS_IS_EMPTY = 160102;
     public static final int BDUSS_IS_EXPIRED = 400021;
     public static final int CANNOT_LOGIN = 16;
+    public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_UNKNOWN = -100;
     public static final int FILL_UNAME_CANNOT_BE_USE = 160105;
     public static final int FILL_UNAME_FORMAT_ERROR = 160110;

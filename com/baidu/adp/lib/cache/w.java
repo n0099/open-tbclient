@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class w extends c<String> {
-    private String ti;
+    private String iY;
 
     public w(com.baidu.adp.base.a.b bVar, String str) {
         super(bVar);
-        this.ti = str;
+        this.iY = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String M(String str) {
-        this.tj.D("CREATE TABLE IF NOT EXISTS " + this.ti + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.tj.D("CREATE INDEX if not exists idx_mi_ns ON " + this.ti + "(m_ns)");
-        return this.ti;
+    public String D(String str) {
+        this.iZ.s("CREATE TABLE IF NOT EXISTS " + this.iY + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.iZ.s("CREATE INDEX if not exists idx_mi_ns ON " + this.iY + "(m_ns)");
+        return this.iY;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -24,7 +24,7 @@ public class w extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int gg() {
+    public int cu() {
         return 1;
     }
 
@@ -35,16 +35,16 @@ public class w extends c<String> {
         Throwable th;
         h<String> hVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.tk + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.ja + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     hVar = new h<>();
-                    hVar.tx = cursor.getString(0);
-                    hVar.ty = cursor.getString(1);
-                    hVar.tz = cursor.getLong(2);
-                    hVar.tA = cursor.getLong(3);
-                    hVar.tB = cursor.getLong(4);
-                    hVar.sI = cursor.getString(5);
+                    hVar.jl = cursor.getString(0);
+                    hVar.jm = cursor.getString(1);
+                    hVar.jn = cursor.getLong(2);
+                    hVar.jo = cursor.getLong(3);
+                    hVar.jp = cursor.getLong(4);
+                    hVar.iz = cursor.getString(5);
                     com.baidu.adp.lib.h.a.a(cursor);
                 } else {
                     com.baidu.adp.lib.h.a.a(cursor);
@@ -64,27 +64,27 @@ public class w extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(h<String> hVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", hVar.tx);
-        contentValues.put("m_ns", hVar.ty);
-        contentValues.put("m_value", hVar.sI);
-        contentValues.put("saveTime", Long.valueOf(hVar.tz));
-        contentValues.put("lastHitTime", Long.valueOf(hVar.tA));
-        contentValues.put("timeToExpire", Long.valueOf(hVar.tB));
+        contentValues.put("m_key", hVar.jl);
+        contentValues.put("m_ns", hVar.jm);
+        contentValues.put("m_value", hVar.iz);
+        contentValues.put("saveTime", Long.valueOf(hVar.jn));
+        contentValues.put("lastHitTime", Long.valueOf(hVar.jo));
+        contentValues.put("timeToExpire", Long.valueOf(hVar.jp));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.tk + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.ja + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean N(String str) {
+    protected boolean E(String str) {
         try {
-            this.tj.dO().delete(this.tk, "m_ns = ?", new String[]{str});
+            this.iZ.ae().delete(this.ja, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.tj.d(th, "clearData");
+            this.iZ.d(th, "clearData");
             return false;
         }
     }

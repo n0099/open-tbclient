@@ -9,13 +9,13 @@ import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity cvz;
+    final /* synthetic */ IMBlackListActivity cww;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(IMBlackListActivity iMBlackListActivity, int i) {
         super(i);
-        this.cvz = iMBlackListActivity;
+        this.cww = iMBlackListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,46 +33,46 @@ class a extends com.baidu.adp.framework.listener.e {
         h hVar3;
         com.baidu.tbadk.core.dialog.a aVar6;
         h hVar4;
-        hVar = this.cvz.cvx;
-        hVar.akr();
-        this.cvz.closeLoadingDialog();
+        hVar = this.cww.cwu;
+        hVar.akx();
+        this.cww.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                 ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                 if (responseGetMaskInfoMessage.getError() == 0) {
-                    aVar5 = this.cvz.My;
+                    aVar5 = this.cww.CP;
                     if (aVar5 != null) {
-                        aVar6 = this.cvz.My;
+                        aVar6 = this.cww.CP;
                         aVar6.dismiss();
                     }
-                    hVar3 = this.cvz.cvx;
-                    hVar3.K(responseGetMaskInfoMessage.getBlackList());
+                    hVar3 = this.cww.cwu;
+                    hVar3.L(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
-                this.cvz.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.cvz.getResources().getString(t.j.neterror) : responseGetMaskInfoMessage.getErrorString());
-                if (com.baidu.adp.lib.util.i.jf()) {
-                    hVar4 = this.cvz.cvx;
-                    hVar4.PW();
+                this.cww.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.cww.getResources().getString(t.j.neterror) : responseGetMaskInfoMessage.getErrorString());
+                if (com.baidu.adp.lib.util.i.fq()) {
+                    hVar4 = this.cww.cwu;
+                    hVar4.OP();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    aVar = this.cvz.My;
+                    aVar = this.cww.CP;
                     if (aVar != null) {
-                        aVar4 = this.cvz.My;
+                        aVar4 = this.cww.CP;
                         aVar4.dismiss();
                     }
-                    this.cvz.showToast(this.cvz.getPageContext().getString(t.j.black_list_remove_success));
-                    aVar2 = this.cvz.cvy;
+                    this.cww.showToast(this.cww.getPageContext().getString(t.j.black_list_remove_success));
+                    aVar2 = this.cww.cwv;
                     if (aVar2 != null) {
-                        hVar2 = this.cvz.cvx;
-                        aVar3 = this.cvz.cvy;
+                        hVar2 = this.cww.cwu;
+                        aVar3 = this.cww.cwv;
                         hVar2.b(aVar3);
-                        this.cvz.cvy = null;
+                        this.cww.cwv = null;
                         return;
                     }
                     return;
                 }
-                this.cvz.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                this.cww.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

@@ -1,41 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ey implements Animation.AnimationListener {
-    final /* synthetic */ eu dnc;
-    private final /* synthetic */ View dne;
+public class ey implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ey(eu euVar, View view) {
-        this.dnc = euVar;
-        this.dne = view;
+    public ey(el elVar) {
+        this.dpu = elVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.dnc.dkF.setTitleVisibility(false);
-        this.dne.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.dnc.dln;
-        relativeLayout.setVisibility(8);
-        this.dnc.dkF.setTitleVisibility(true);
-        this.dne.setVisibility(8);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dnc.gp(true);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.b.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.dpu.dok = (String) compoundButton.getTag();
+            list = this.dpu.dnb;
+            if (list != null) {
+                list2 = this.dpu.dnb;
+                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.dpu.dok;
+                        if (str != null) {
+                            str2 = this.dpu.dok;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
+            }
         }
-        this.dnc.azh();
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ c clG;
+    final /* synthetic */ c cmE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.clG = cVar;
+        this.cmE = cVar;
     }
 
     @Override // android.os.Handler
@@ -19,82 +19,82 @@ public class d extends Handler {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        long agO;
+        long agV;
         Handler handler5;
         Handler handler6;
-        long agM;
+        long agT;
         Handler handler7;
         Handler handler8;
         Handler handler9;
-        long agO2;
+        long agV2;
         Handler handler10;
         Handler handler11;
         Handler handler12;
-        long agM2;
+        long agT2;
         Handler handler13;
-        boolean agK;
+        boolean agR;
         Handler handler14;
         Handler handler15;
-        long agM3;
+        long agT3;
         if (message.what == 2) {
-            handler13 = this.clG.mHandler;
+            handler13 = this.cmE.mHandler;
             handler13.removeMessages(2);
-            agK = this.clG.agK();
-            if (agK) {
-                this.clG.xv = System.currentTimeMillis();
+            agR = this.cmE.agR();
+            if (agR) {
+                this.cmE.nv = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    this.clG.agH();
+                    this.cmE.agO();
                 }
             }
-            handler14 = this.clG.mHandler;
-            handler15 = this.clG.mHandler;
+            handler14 = this.cmE.mHandler;
+            handler15 = this.cmE.mHandler;
             Message obtainMessage = handler15.obtainMessage(2);
-            agM3 = this.clG.agM();
-            handler14.sendMessageDelayed(obtainMessage, agM3);
+            agT3 = this.cmE.agT();
+            handler14.sendMessageDelayed(obtainMessage, agT3);
         }
         if (message.what == 1) {
-            handler10 = this.clG.mHandler;
+            handler10 = this.cmE.mHandler;
             handler10.removeMessages(2);
-            this.clG.xv = System.currentTimeMillis();
+            this.cmE.nv = System.currentTimeMillis();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.clG.agH();
+                this.cmE.agO();
             }
-            handler11 = this.clG.mHandler;
-            handler12 = this.clG.mHandler;
+            handler11 = this.cmE.mHandler;
+            handler12 = this.cmE.mHandler;
             Message obtainMessage2 = handler12.obtainMessage(2);
-            agM2 = this.clG.agM();
-            handler11.sendMessageDelayed(obtainMessage2, agM2);
+            agT2 = this.cmE.agT();
+            handler11.sendMessageDelayed(obtainMessage2, agT2);
         }
         if (message.what == 3) {
-            handler7 = this.clG.mHandler;
+            handler7 = this.cmE.mHandler;
             handler7.removeMessages(3);
-            this.clG.agG();
-            handler8 = this.clG.mHandler;
-            handler9 = this.clG.mHandler;
+            this.cmE.agN();
+            handler8 = this.cmE.mHandler;
+            handler9 = this.cmE.mHandler;
             Message obtainMessage3 = handler9.obtainMessage(3);
-            agO2 = this.clG.agO();
-            handler8.sendMessageDelayed(obtainMessage3, agO2);
+            agV2 = this.cmE.agV();
+            handler8.sendMessageDelayed(obtainMessage3, agV2);
         }
         if (message.what == 4) {
-            handler = this.clG.mHandler;
+            handler = this.cmE.mHandler;
             handler.removeMessages(3);
-            handler2 = this.clG.mHandler;
+            handler2 = this.cmE.mHandler;
             handler2.removeMessages(2);
-            this.clG.xv = System.currentTimeMillis();
-            this.clG.agG();
+            this.cmE.nv = System.currentTimeMillis();
+            this.cmE.agN();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.clG.agH();
+                this.cmE.agO();
             }
-            handler3 = this.clG.mHandler;
-            handler4 = this.clG.mHandler;
+            handler3 = this.cmE.mHandler;
+            handler4 = this.cmE.mHandler;
             Message obtainMessage4 = handler4.obtainMessage(3);
-            agO = this.clG.agO();
-            handler3.sendMessageDelayed(obtainMessage4, agO);
-            handler5 = this.clG.mHandler;
-            handler6 = this.clG.mHandler;
+            agV = this.cmE.agV();
+            handler3.sendMessageDelayed(obtainMessage4, agV);
+            handler5 = this.cmE.mHandler;
+            handler6 = this.cmE.mHandler;
             Message obtainMessage5 = handler6.obtainMessage(2);
-            agM = this.clG.agM();
-            handler5.sendMessageDelayed(obtainMessage5, agM);
+            agT = this.cmE.agT();
+            handler5.sendMessageDelayed(obtainMessage5, agT);
         }
     }
 }

@@ -1,20 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity eNN;
+class cb implements a.b {
+    final /* synthetic */ WriteImageActivity.a feu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.eNN = writeMultiImgsActivity;
+    public cb(WriteImageActivity.a aVar) {
+        this.feu = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        r rVar;
-        rVar = this.eNN.eNx;
-        rVar.qQ(Integer.parseInt(view.getTag().toString()));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteImageActivity writeImageActivity;
+        MessageManager messageManager = MessageManager.getInstance();
+        writeImageActivity = WriteImageActivity.this;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
+        aVar.dismiss();
     }
 }

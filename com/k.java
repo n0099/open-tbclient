@@ -8,18 +8,18 @@ import com.baidu.cloudsdk.social.share.handler.TwitterShareHandler;
 public class k extends DefaultBaiduListener {
     final /* synthetic */ ShareContent a;
     final /* synthetic */ boolean b;
-    final /* synthetic */ TwitterShareHandler mS;
+    final /* synthetic */ TwitterShareHandler cQ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(TwitterShareHandler twitterShareHandler, IBaiduListener iBaiduListener, ShareContent shareContent, boolean z) {
         super(iBaiduListener);
-        this.mS = twitterShareHandler;
+        this.cQ = twitterShareHandler;
         this.a = shareContent;
         this.b = z;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete() {
-        this.mS.share(this.a, this.mListener, this.b);
+        this.cQ.share(this.a, this.mListener, this.b);
     }
 }

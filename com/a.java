@@ -12,38 +12,15 @@ import java.util.Map;
 public class a implements ab {
     private String a;
     private int c;
+    private ab cI;
     private int d;
     private Map e = new HashMap();
-    private ab mJ;
 
     public a(String str, int i, int i2, ab abVar) {
         this.a = str;
         this.c = i;
         this.d = i2;
-        this.mJ = abVar;
-    }
-
-    public Bitmap A(String str) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(c(str), options);
-        options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.d);
-        options.inJustDecodeBounds = false;
-        Bitmap decodeFile = BitmapFactory.decodeFile(c(str), options);
-        if (decodeFile != null) {
-            Integer num = (Integer) this.e.get(str);
-            if (num == null) {
-                num = 0;
-            }
-            if (num.intValue() + 1 < this.c || this.mJ == null) {
-                this.e.put(str, Integer.valueOf(num.intValue() + 1));
-                return decodeFile;
-            }
-            this.mJ.a(str, decodeFile);
-            this.e.remove(str);
-            return decodeFile;
-        }
-        return null;
+        this.cI = abVar;
     }
 
     @Override // com.ab
@@ -96,18 +73,41 @@ public class a implements ab {
         return this.a + "/" + str + ".png";
     }
 
-    public a q(int i) {
+    public a m(int i) {
         this.d = i;
         return this;
     }
 
-    public a r(int i) {
+    public a n(int i) {
         this.c = i;
         return this;
     }
 
-    public a z(String str) {
+    public a o(String str) {
         this.a = str;
         return this;
+    }
+
+    public Bitmap p(String str) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(c(str), options);
+        options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.d);
+        options.inJustDecodeBounds = false;
+        Bitmap decodeFile = BitmapFactory.decodeFile(c(str), options);
+        if (decodeFile != null) {
+            Integer num = (Integer) this.e.get(str);
+            if (num == null) {
+                num = 0;
+            }
+            if (num.intValue() + 1 < this.c || this.cI == null) {
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
+                return decodeFile;
+            }
+            this.cI.a(str, decodeFile);
+            this.e.remove(str);
+            return decodeFile;
+        }
+        return null;
     }
 }

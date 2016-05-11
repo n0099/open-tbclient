@@ -1,24 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fg extends CustomMessageListener {
-    final /* synthetic */ eu dnc;
+public class fg implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dpA;
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fg(eu euVar, int i) {
-        super(i);
-        this.dnc = euVar;
+    public fg(el elVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dpu = elVar;
+        this.dpA = sVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.dnc.dmb = false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10630").ac("obj_id", this.dpA.getAuthor().getUserId()));
+        pbActivity = this.dpu.dhY;
+        if (pbActivity.diS.dpJ != null) {
+            pbActivity2 = this.dpu.dhY;
+            pbActivity2.diS.dpJ.onClick(view);
         }
     }
 }

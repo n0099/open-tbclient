@@ -1,73 +1,78 @@
 package com.baidu.tieba.person.a;
 
-import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bl;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
+import tbclient.High;
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ ag dvG;
-    private final /* synthetic */ com.baidu.tieba.person.data.m dvH;
-    private final /* synthetic */ com.baidu.tieba.person.b.b dvI;
+public class ah extends BaseAdapter {
+    private View.OnClickListener Fn;
+    private List<High> aZH;
+    private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar, com.baidu.tieba.person.data.m mVar, com.baidu.tieba.person.b.b bVar) {
-        this.dvG = agVar;
-        this.dvH = mVar;
-        this.dvI = bVar;
+    /* loaded from: classes.dex */
+    public static class a {
+        public TbImageView aFZ;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean aBH;
-        boolean z;
-        String str;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        BaseFragmentActivity baseFragmentActivity3;
-        BaseFragmentActivity baseFragmentActivity4;
-        String str2;
-        BaseFragmentActivity baseFragmentActivity5;
-        aBH = this.dvG.aBH();
-        if (!aBH) {
-            baseFragmentActivity5 = this.dvG.duj;
-            baseFragmentActivity5.showToast(t.j.membership_load_fail);
-            return;
+    public ah(Context context) {
+        this.mContext = context;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.aZH != null) {
+            return this.aZH.size();
         }
-        if (this.dvH.getUserData() != null && !ay.isEmpty(this.dvH.getUserData().getUserId())) {
-            com.baidu.tbadk.core.sharedPref.b.vk().putBoolean("membership_first_launch" + this.dvH.getUserData().getUserId(), false);
+        return 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: mt */
+    public High getItem(int i) {
+        if (this.aZH == null || i >= this.aZH.size() || i < 0) {
+            return null;
         }
-        this.dvI.dyd.setVisibility(8);
-        z = this.dvG.bJj;
-        if (z) {
-            str2 = this.dvG.dvE;
-            TiebaStatic.log(str2);
-        } else {
-            str = this.dvG.dvF;
-            TiebaStatic.log(str);
-        }
-        baseFragmentActivity = this.dvG.duj;
-        if (bl.ad(baseFragmentActivity.getActivity())) {
-            String vipLink = this.dvH.getVipLink();
-            if (!StringUtils.isNull(vipLink) && !vipLink.startsWith("vipcenter:") && !vipLink.startsWith("membercenter:")) {
-                baseFragmentActivity3 = this.dvG.duj;
-                Activity activity = baseFragmentActivity3.getActivity();
-                baseFragmentActivity4 = this.dvG.duj;
-                com.baidu.tbadk.browser.f.c(activity, baseFragmentActivity4.getResources().getString(t.j.person_member_center), vipLink);
-                return;
+        return this.aZH.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (getItem(i) != null) {
+            if (view == null) {
+                a aVar2 = new a();
+                view = LayoutInflater.from(this.mContext).inflate(t.h.user_pic_nomal_item, (ViewGroup) null);
+                aVar2.aFZ = (TbImageView) view.findViewById(t.g.photo_image_view);
+                aVar2.aFZ.setDefaultErrorResource(t.d.cp_bg_line_e);
+                aVar2.aFZ.setDefaultBgResource(t.d.cp_bg_line_e);
+                view.setTag(aVar2);
+                aVar = aVar2;
+            } else {
+                aVar = (a) view.getTag();
             }
-            MessageManager messageManager = MessageManager.getInstance();
-            baseFragmentActivity2 = this.dvG.duj;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(baseFragmentActivity2.getActivity())));
+            aVar.aFZ.c(getItem(i).pic_url, 13, false);
+            view.setOnClickListener(this.Fn);
         }
+        return view;
+    }
+
+    public void setData(List<High> list) {
+        this.aZH = list;
+    }
+
+    public void setClickListener(View.OnClickListener onClickListener) {
+        this.Fn = onClickListener;
     }
 }

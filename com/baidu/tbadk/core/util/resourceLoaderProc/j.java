@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class j extends a {
-    private int abD;
+    private int Xc;
 
     public j(int i) {
-        this.abD = i;
+        this.Xc = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,33 +27,33 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xb() {
+    public boolean uH() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean xc() {
+    public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        String str3 = String.valueOf(str) + (TbadkCoreApplication.m411getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a fP = com.baidu.tbadk.imageManager.c.EO().fP(str3);
-        if (fP == null) {
-            Bitmap cR = at.cR(com.baidu.adp.lib.h.b.g(str2, 0));
-            if (cR == null) {
+    public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
+        String str3 = String.valueOf(str) + (TbadkCoreApplication.m11getInst().getSkinType() == 1 ? "_1" : "");
+        com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CH().fM(str3);
+        if (fM == null) {
+            Bitmap cA = at.cA(com.baidu.adp.lib.h.b.g(str2, 0));
+            if (cA == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cR, false, str2);
-            com.baidu.tbadk.imageManager.c.EO().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cA, false, str2);
+            com.baidu.tbadk.imageManager.c.CH().c(str3, aVar);
             return aVar;
         }
-        return fP;
+        return fM;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int xd() {
-        return this.abD;
+    public int uJ() {
+        return this.Xc;
     }
 }

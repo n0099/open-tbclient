@@ -7,15 +7,15 @@ import com.baidu.tieba.write.view.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class al implements a.InterfaceC0090a {
-    final /* synthetic */ ag eIc;
+class al implements a.InterfaceC0083a {
+    final /* synthetic */ ag eYV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.eIc = agVar;
+        this.eYV = agVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0090a
+    @Override // com.baidu.tieba.write.view.a.InterfaceC0083a
     public void a(int i, d dVar) {
         o oVar;
         o oVar2;
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0090a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.eIc.eGD;
-            if (!albumId.equals(oVar.aZj())) {
-                oVar2 = this.eIc.eGD;
-                List<ImageFileInfo> aZl = oVar2.aZl();
+            oVar = this.eYV.eXx;
+            if (!albumId.equals(oVar.bby())) {
+                oVar2 = this.eYV.eXx;
+                List<ImageFileInfo> bbA = oVar2.bbA();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : aZl) {
+                    for (ImageFileInfo imageFileInfo : bbA) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0090a {
                     z = false;
                 } else {
                     z = true;
-                    list = aZl;
+                    list = bbA;
                 }
-                oVar3 = this.eIc.eGD;
-                oVar3.cE(list);
-                oVar4 = this.eIc.eGD;
-                oVar4.oM(albumId);
-                this.eIc.setData(list, z);
-                textView = this.eIc.MR;
+                oVar3 = this.eYV.eXx;
+                oVar3.cM(list);
+                oVar4 = this.eYV.eXx;
+                oVar4.pb(albumId);
+                this.eYV.setData(list, z);
+                textView = this.eYV.Di;
                 textView.setText(name);
             }
         }

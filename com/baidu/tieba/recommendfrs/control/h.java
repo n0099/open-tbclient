@@ -1,38 +1,37 @@
 package com.baidu.tieba.recommendfrs.control;
 
 import com.baidu.tieba.recommendfrs.control.a.m;
-import com.baidu.tieba.recommendfrs.data.n;
 import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.t;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements m.a {
-    final /* synthetic */ a dVV;
+    final /* synthetic */ a dYW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.dVV = aVar;
+        this.dYW = aVar;
     }
 
     @Override // com.baidu.tieba.recommendfrs.control.a.m.a
-    public void a(boolean z, n nVar, boolean z2, long j) {
+    public void a(boolean z, com.baidu.tieba.recommendfrs.data.n nVar, boolean z2, long j) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         if (z) {
-            this.dVV.aD(this.dVV.getView());
+            this.dYW.aMj();
         }
         if (z) {
-            scrollFragmentTabHost2 = this.dVV.dVM;
-            if (!scrollFragmentTabHost2.aoj() && nVar != null && nVar.isEmpty()) {
-                if (this.dVV.getPageContext() == null || this.dVV.getPageContext().getResources() == null) {
+            scrollFragmentTabHost2 = this.dYW.dYN;
+            if (!scrollFragmentTabHost2.aom() && nVar != null && nVar.isEmpty()) {
+                if (this.dYW.getPageContext() == null || this.dYW.getPageContext().getResources() == null) {
                     return;
                 }
-                this.dVV.showNetRefreshView(this.dVV.getView(), this.dVV.getPageContext().getResources().getString(t.j.neterror), false);
+                this.dYW.I(this.dYW.getPageContext().getResources().getString(t.j.neterror), false);
                 return;
             }
         }
-        scrollFragmentTabHost = this.dVV.dVM;
+        scrollFragmentTabHost = this.dYW.dYN;
         scrollFragmentTabHost.b(z, j, nVar, z2);
     }
 
@@ -40,22 +39,22 @@ public class h implements m.a {
     public void a(long j, String str, int i) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        this.dVV.aD(this.dVV.getView());
-        scrollFragmentTabHost = this.dVV.dVM;
-        if (scrollFragmentTabHost.aoj()) {
-            scrollFragmentTabHost2 = this.dVV.dVM;
+        this.dYW.aMj();
+        scrollFragmentTabHost = this.dYW.dYN;
+        if (scrollFragmentTabHost.aom()) {
+            scrollFragmentTabHost2 = this.dYW.dYN;
             scrollFragmentTabHost2.b(j, str, i);
-        } else if (this.dVV.getPageContext() == null || this.dVV.getPageContext().getResources() == null) {
+        } else if (this.dYW.getPageContext() == null || this.dYW.getPageContext().getResources() == null) {
         } else {
-            this.dVV.showNetRefreshView(this.dVV.getView(), this.dVV.getPageContext().getResources().getString(t.j.net_error_text, str, Integer.valueOf(i)), false);
+            this.dYW.I(this.dYW.getPageContext().getResources().getString(t.j.net_error_text, str, Integer.valueOf(i)), false);
         }
     }
 
     @Override // com.baidu.tieba.recommendfrs.control.a.m.a
     public void a(long j, DataRes dataRes, boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        this.dVV.aD(this.dVV.getView());
-        scrollFragmentTabHost = this.dVV.dVM;
+        this.dYW.aMj();
+        scrollFragmentTabHost = this.dYW.dYN;
         scrollFragmentTabHost.c(j, dataRes, z);
     }
 }

@@ -6,6 +6,6 @@ import com.baidu.tbadk.core.atomData.AppealActivityConfig;
 public class AppealActivityStatic {
     static {
         AppealActivityConfig.isExistActivity = true;
-        TbadkCoreApplication.m411getInst().RegisterIntent(AppealActivityConfig.class, AppealActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(AppealActivityConfig.class, AppealActivity.class);
     }
 }

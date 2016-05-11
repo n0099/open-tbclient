@@ -1,12 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class et implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId bqK = BdUniqueId.gen();
+class et implements View.OnClickListener {
+    private final /* synthetic */ ThemeCardInUserData bkN;
+    final /* synthetic */ er bmg;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return bqK;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public et(er erVar, ThemeCardInUserData themeCardInUserData) {
+        this.bmg = erVar;
+        this.bkN = themeCardInUserData;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(this.bmg.bek.getPageContext().getPageActivity(), this.bkN.getCardId())));
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.recommendfrs.data;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.ax;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ExcFrsPage.ExcellentThreadInfo;
@@ -11,21 +11,21 @@ import tbclient.Personalized.TagInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class l {
-    private int cHR;
-    private final TagInfo dWS;
-    private DataRes dWT;
-    private com.baidu.tieba.card.a.b dWW;
+    private int cIw;
+    private final TagInfo eac;
+    private DataRes ead;
+    private com.baidu.tieba.card.a.b eaf;
     private boolean hasMore;
     private int pn;
-    private List<Object> azT = new ArrayList();
-    private boolean bKl = false;
-    private boolean cHS = false;
-    private boolean cHT = false;
-    private int dWU = 1;
-    private long dWV = 0;
+    private List<Object> avW = new ArrayList();
+    private boolean bKq = false;
+    private boolean cIx = false;
+    private boolean cIy = false;
+    private int dataType = 1;
+    private long eae = 0;
 
     public l(TagInfo tagInfo) {
-        this.dWS = tagInfo;
+        this.eac = tagInfo;
     }
 
     public int getPn() {
@@ -33,27 +33,27 @@ public class l {
     }
 
     public void c(DataRes dataRes) {
-        this.dWT = dataRes;
+        this.ead = dataRes;
     }
 
-    public void kL(int i) {
-        this.cHR = i;
+    public void ks(int i) {
+        this.cIw = i;
     }
 
-    public int anW() {
-        return this.cHR;
+    public int anZ() {
+        return this.cIw;
     }
 
-    public boolean anX() {
-        return this.cHS;
+    public boolean aoa() {
+        return this.cIx;
     }
 
-    public boolean anY() {
-        return this.cHT;
+    public boolean aob() {
+        return this.cIy;
     }
 
-    public TagInfo aMf() {
-        return this.dWS;
+    public TagInfo aMq() {
+        return this.eac;
     }
 
     public boolean hasMore() {
@@ -62,21 +62,21 @@ public class l {
 
     public void a(boolean z, n nVar, boolean z2) {
         if (z) {
-            this.cHT = true;
+            this.cIy = true;
         } else {
-            this.cHS = true;
+            this.cIx = true;
         }
         if (nVar != null) {
             this.pn = nVar.getPn();
             this.hasMore = nVar.getHasMore();
             if (nVar instanceof r) {
-                this.dWV = ((r) nVar).aMh();
+                this.eae = ((r) nVar).aMs();
             }
             List<Object> a = a(z2, nVar);
             if (z2) {
-                this.azT.addAll(a);
+                this.avW.addAll(a);
             } else {
-                this.azT = a;
+                this.avW = a;
             }
         }
     }
@@ -95,15 +95,15 @@ public class l {
 
     private void a(List<Object> list, n nVar, boolean z) {
         if (list != null && nVar != null && nVar.getThreadList() != null && nVar.getThreadList().size() != 0) {
-            this.dWU = 1;
+            this.dataType = 1;
             for (Object obj : nVar.getThreadList()) {
                 if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
                     p pVar = new p();
                     pVar.b((ExcellentThreadInfo) obj);
-                    pVar.setShowImage(nVar.aMj());
-                    if (pVar.aMq() != 33) {
+                    pVar.setShowImage(nVar.aMu());
+                    if (pVar.aMB() != 33) {
                         list.add(pVar);
-                    } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                    } else if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         list.add(pVar);
                     }
                 }
@@ -114,30 +114,30 @@ public class l {
     private void b(List<Object> list, n nVar, boolean z) {
         if (list != null && nVar != null && nVar.getThreadList() != null && nVar.getThreadList().size() != 0) {
             if (!z) {
-                this.dWW = null;
+                this.eaf = null;
             }
-            this.dWU = 2;
+            this.dataType = 2;
             for (Object obj : nVar.getThreadList()) {
                 if ((obj instanceof ThreadInfo) && (!z || !b((ThreadInfo) obj))) {
-                    as asVar = new as();
-                    asVar.a((ThreadInfo) obj);
-                    com.baidu.tieba.card.a.i iVar = new com.baidu.tieba.card.a.i();
-                    iVar.aVJ = asVar;
-                    if (asVar.Vl == 1) {
-                        com.baidu.tieba.card.a.j jVar = new com.baidu.tieba.card.a.j();
-                        jVar.aVK = iVar;
-                        a(jVar);
-                        this.dWW = jVar;
+                    ax axVar = new ax();
+                    axVar.a((ThreadInfo) obj);
+                    com.baidu.tieba.card.a.f fVar = new com.baidu.tieba.card.a.f();
+                    fVar.aRG = axVar;
+                    if (axVar.Ql == 1) {
+                        com.baidu.tieba.card.a.g gVar = new com.baidu.tieba.card.a.g();
+                        gVar.aRH = fVar;
+                        a(gVar);
+                        this.eaf = gVar;
                     } else {
-                        a(iVar);
-                        this.dWW = iVar;
+                        a(fVar);
+                        this.eaf = fVar;
                     }
-                    list.add(this.dWW);
+                    list.add(this.eaf);
                 }
             }
             if (nVar instanceof r) {
                 r rVar = (r) nVar;
-                if (this.pn == 1 && rVar.aMt() == 0) {
+                if (this.pn == 1 && rVar.aME() == 0) {
                     list.add(0, new g());
                 }
             }
@@ -146,27 +146,27 @@ public class l {
 
     private void a(com.baidu.tieba.card.a.b bVar) {
         if (bVar != null && bVar.getType() != null) {
-            if (this.dWW == null) {
-                bVar.aVs = false;
-            } else if (this.dWW.getType() == null) {
-                bVar.aVs = false;
-            } else if (this.dWW instanceof com.baidu.tieba.card.a.i) {
-                if (bVar instanceof com.baidu.tieba.card.a.i) {
-                    bVar.aVs = false;
+            if (this.eaf == null) {
+                bVar.aRx = false;
+            } else if (this.eaf.getType() == null) {
+                bVar.aRx = false;
+            } else if (this.eaf instanceof com.baidu.tieba.card.a.f) {
+                if (bVar instanceof com.baidu.tieba.card.a.f) {
+                    bVar.aRx = false;
                 } else {
-                    bVar.aVs = true;
+                    bVar.aRx = true;
                 }
             } else {
-                bVar.aVs = true;
+                bVar.aRx = true;
             }
         }
     }
 
     private boolean a(ExcellentThreadInfo excellentThreadInfo) {
         int size;
-        if (excellentThreadInfo != null && (size = this.azT.size()) > 0) {
+        if (excellentThreadInfo != null && (size = this.avW.size()) > 0) {
             for (int i = 0; i < size; i++) {
-                Object obj = this.azT.get(i);
+                Object obj = this.avW.get(i);
                 if ((obj instanceof ExcellentThreadInfo) && excellentThreadInfo.excid == ((ExcellentThreadInfo) obj).excid) {
                     return true;
                 }
@@ -178,9 +178,9 @@ public class l {
 
     private boolean b(ThreadInfo threadInfo) {
         int size;
-        if (threadInfo != null && (size = this.azT.size()) > 0) {
+        if (threadInfo != null && (size = this.avW.size()) > 0) {
             for (int i = 0; i < size; i++) {
-                Object obj = this.azT.get(i);
+                Object obj = this.avW.get(i);
                 if ((obj instanceof ThreadInfo) && threadInfo.id == ((ThreadInfo) obj).id) {
                     return true;
                 }
@@ -190,23 +190,23 @@ public class l {
         return false;
     }
 
-    public List<Object> aMg() {
-        return this.azT;
+    public List<Object> aMr() {
+        return this.avW;
     }
 
-    public void ck(List<Object> list) {
-        this.azT = list;
+    public void cm(List<Object> list) {
+        this.avW = list;
     }
 
-    public void eU(boolean z) {
-        this.bKl = z;
+    public void fs(boolean z) {
+        this.bKq = z;
     }
 
     public int getDataType() {
-        return this.dWU;
+        return this.dataType;
     }
 
-    public long aMh() {
-        return this.dWV;
+    public long aMs() {
+        return this.eae;
     }
 }

@@ -12,7 +12,7 @@ public class m implements bg.a {
         }
         String str = strArr[0];
         if (str.toLowerCase().startsWith("http://tieba.baidu.com/mo/q/adkillerclose?tag=")) {
-            b.gS(str);
+            b.gT(str);
             return 0;
         }
         return 3;

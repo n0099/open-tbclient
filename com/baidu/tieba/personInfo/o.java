@@ -17,12 +17,12 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bi biVar;
-        bi biVar2;
-        biVar = this.this$0.dCt;
-        if (biVar != null) {
-            biVar2 = this.this$0.dCt;
-            biVar2.mM(0);
+        bj bjVar;
+        bj bjVar2;
+        bjVar = this.this$0.dFA;
+        if (bjVar != null) {
+            bjVar2 = this.this$0.dFA;
+            bjVar2.mD(0);
         }
     }
 }

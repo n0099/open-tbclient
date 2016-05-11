@@ -9,15 +9,15 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements PersonPostModel.a {
-    final /* synthetic */ k dBB;
+    final /* synthetic */ k dEJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.dBB = kVar;
+        this.dEJ = kVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
-        if (com.baidu.adp.lib.util.StringUtils.isNull(r6.getErrorString()) != false) goto L36;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003d, code lost:
+        if (com.baidu.adp.lib.util.StringUtils.isNull(r8.getErrorString()) != false) goto L36;
      */
     @Override // com.baidu.tieba.person.PersonPostModel.a
     /*
@@ -34,59 +34,59 @@ public class l implements PersonPostModel.a {
         View view2;
         BdListView bdListView4;
         boolean z2;
-        if (this.dBB.isAdded()) {
-            progressBar = this.dBB.mProgressBar;
+        if (this.dEJ.isAdded()) {
+            progressBar = this.dEJ.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.dBB.dBr;
-            bdListView.nj();
+            bdListView = this.dEJ.dEz;
+            bdListView.k(2000L);
             if (personPostModel != null) {
-                if (k.bN(personPostModel.post_list) == 0) {
-                    z2 = this.dBB.dBy;
+                if (k.bP(personPostModel.post_list) == 0) {
+                    z2 = this.dEJ.dEG;
                     if (z2) {
                     }
                 }
-                if (k.bN(personPostModel.post_list) == 0) {
-                    this.dBB.mNoDataView.setVisibility(0);
-                    bdListView4 = this.dBB.dBr;
-                    bdListView4.setVisibility(0);
+                if (k.bP(personPostModel.post_list) == 0) {
+                    bdListView4 = this.dEJ.dEz;
+                    bdListView4.setVisibility(8);
+                    this.dEJ.hl(true);
                 } else {
-                    this.dBB.mNoDataView.setVisibility(8);
-                    bdListView3 = this.dBB.dBr;
+                    bdListView3 = this.dEJ.dEz;
                     bdListView3.setVisibility(0);
+                    this.dEJ.hl(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    com.baidu.adp.lib.util.k.showToast(this.dBB.getActivity(), personPostModel.getErrorString());
+                    com.baidu.adp.lib.util.k.showToast(this.dEJ.getActivity(), personPostModel.getErrorString());
                 }
-                int bN = k.bN(personPostModel.post_list);
-                if (bN < 20) {
-                    if (!com.baidu.adp.lib.util.i.jf() || bN <= 0) {
-                        view = this.dBB.dBv;
+                int bP = k.bP(personPostModel.post_list);
+                if (bP < 20) {
+                    if (!com.baidu.adp.lib.util.i.fq() || bP <= 0) {
+                        view = this.dEJ.dED;
                         view.setVisibility(8);
                     } else {
-                        this.dBB.dBw = false;
-                        pbListView2 = this.dBB.dBu;
-                        pbListView2.setText(this.dBB.getResources().getString(t.j.person_post_reply_no_more));
-                        view2 = this.dBB.dBv;
+                        this.dEJ.dEE = false;
+                        pbListView2 = this.dEJ.dEC;
+                        pbListView2.setText(this.dEJ.getResources().getString(t.j.person_post_reply_no_more));
+                        view2 = this.dEJ.dED;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.dBB.dBu;
-                pbListView.xv();
+                pbListView = this.dEJ.dEC;
+                pbListView.vh();
                 if (z) {
-                    if (k.bN(personPostModel.post_list) < 20) {
-                        this.dBB.dBw = false;
+                    if (k.bP(personPostModel.post_list) < 20) {
+                        this.dEJ.dEE = false;
                     } else {
-                        this.dBB.dBw = true;
+                        this.dEJ.dEE = true;
                     }
-                    this.dBB.dBx = 0;
-                    this.dBB.dBy = false;
+                    this.dEJ.dEF = 0;
+                    this.dEJ.dEG = false;
                     return;
                 }
                 return;
             }
-            this.dBB.mNoDataView.setVisibility(0);
-            bdListView2 = this.dBB.dBr;
+            bdListView2 = this.dEJ.dEz;
             bdListView2.setVisibility(0);
+            this.dEJ.hl(true);
         }
     }
 }

@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class j extends DiskFileOperate {
-    protected a aae;
+    protected a VD;
+    protected BitmapFactory.Options hK;
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options rX;
 
     public j(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.rX = null;
-        this.aae = null;
-        this.aae = new a();
+        this.hK = null;
+        this.VD = null;
+        this.VD = new a();
     }
 
-    public boolean fO() {
-        return this.aae.sb;
+    public boolean cd() {
+        return this.VD.hO;
     }
 
     public void q(boolean z) {
-        this.aae.sb = z;
+        this.VD.hO = z;
     }
 
     public Bitmap getBitmap() {
@@ -34,17 +34,17 @@ public class j extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!fO() && com.baidu.adp.lib.util.k.j(bArr)) {
+        if (!cd() && com.baidu.adp.lib.util.k.j(bArr)) {
             q(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] fC() {
-        if (this.rK == null) {
+    public byte[] bQ() {
+        if (this.hx == null) {
             return null;
         }
-        return this.aae.toByteArray();
+        return this.VD.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -52,18 +52,18 @@ public class j extends DiskFileOperate {
         if (bArr == null) {
             return false;
         }
-        if (this.rX == null) {
-            this.rX = new BitmapFactory.Options();
-            this.rX.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.hK == null) {
+            this.hK = new BitmapFactory.Options();
+            this.hK.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean i = this.aae.i(bArr);
-        if (this.aae.sc == 0 || this.aae.sc >= System.currentTimeMillis()) {
+        boolean i = this.VD.i(bArr);
+        if (this.VD.hP == 0 || this.VD.hP >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!i) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.rX);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.hK);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class j extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte rZ = Byte.MIN_VALUE;
-        boolean sb = false;
-        long sc = 0;
+        private static byte hM = Byte.MIN_VALUE;
+        boolean hO = false;
+        long hP = 0;
 
         a() {
         }
@@ -89,8 +89,8 @@ public class j extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.sb ? (byte) (0 | rZ) : (byte) 0);
-            allocate.putLong(this.sc);
+            allocate.put(this.hO ? (byte) (0 | hM) : (byte) 0);
+            allocate.putLong(this.hP);
             allocate.flip();
             return allocate.array();
         }
@@ -101,10 +101,10 @@ public class j extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & rZ) != 0) {
-                    this.sb = true;
+                if ((wrap.get() & hM) != 0) {
+                    this.hO = true;
                 }
-                this.sc = wrap.getLong();
+                this.hP = wrap.getLong();
                 return true;
             }
             return false;

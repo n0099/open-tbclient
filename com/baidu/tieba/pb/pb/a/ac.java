@@ -4,18 +4,18 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements TbImageView.a {
-    final /* synthetic */ r dej;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.n dem;
+    final /* synthetic */ r dgC;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.o dgF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(r rVar, com.baidu.tbadk.widget.richText.n nVar) {
-        this.dej = rVar;
-        this.dem = nVar;
+    public ac(r rVar, com.baidu.tbadk.widget.richText.o oVar) {
+        this.dgC = rVar;
+        this.dgF = oVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void s(String str, boolean z) {
-        this.dej.lL(this.dem.getVideoUrl());
+    public void t(String str, boolean z) {
+        this.dgC.lP(this.dgF.getVideoUrl());
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a

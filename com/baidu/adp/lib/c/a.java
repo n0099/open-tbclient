@@ -24,11 +24,16 @@ public abstract class a {
 
     protected abstract int getOffType();
 
+    protected String[] getSwitchLibs() {
+        return null;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public void addToManager() {
         c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
         cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        e.gE().a(cVar);
+        cVar.g(getSwitchLibs());
+        e.cS().a(cVar);
     }
 
     public a() {

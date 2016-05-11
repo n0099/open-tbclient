@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ceD;
+    private static c cfj;
 
     private c() {
     }
@@ -26,16 +26,16 @@ public class c {
     public static synchronized c aep() {
         c cVar;
         synchronized (c.class) {
-            if (ceD == null) {
-                ceD = new c();
+            if (cfj == null) {
+                cfj = new c();
             }
-            cVar = ceD;
+            cVar = cfj;
         }
         return cVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [83=5] */
-    public int iX(String str) {
+    public int iZ(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -66,7 +66,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r4v1 */
     /* JADX WARN: Type inference failed for: r4v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r4v5 */
-    public long iY(String str) {
+    public long ja(String str) {
         Cursor cursor;
         long j;
         Cursor cursor2 = null;
@@ -101,7 +101,7 @@ public class c {
                         try {
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
                             e.printStackTrace();
-                            jd(str);
+                            jf(str);
                             com.baidu.adp.lib.util.o.a(cursor2);
                             return 0L;
                         } catch (Throwable th) {
@@ -160,7 +160,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo iZ(String str) {
+    public CommonMsgPojo jb(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -195,7 +195,7 @@ public class c {
                         e = e;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
-                        jd(str);
+                        jf(str);
                         com.baidu.adp.lib.util.o.a(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -305,7 +305,7 @@ public class c {
     /* JADX WARN: Type inference failed for: r3v16, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r3v28, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r3v5, types: [java.lang.StringBuilder] */
-    public LinkedList<ChatMessage> b(String str, String str2, String str3, int i) {
+    public LinkedList<ChatMessage> a(String str, String str2, String str3, int i) {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -349,7 +349,7 @@ public class c {
                             e2 = e3;
                             e2.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e2, "GroupMsgDao.getAll", new Object[0]);
-                            jd(str);
+                            jf(str);
                             com.baidu.adp.lib.util.o.a(cursor);
                             return linkedList;
                         } catch (Exception e4) {
@@ -382,7 +382,7 @@ public class c {
         return linkedList;
     }
 
-    public boolean c(String str, String str2, String str3, int i) {
+    public boolean b(String str, String str2, String str3, int i) {
         Boolean bool = false;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return false;
@@ -404,7 +404,7 @@ public class c {
         return bool.booleanValue();
     }
 
-    public boolean a(String str, List<CommonMsgPojo> list, boolean z) {
+    public boolean b(String str, List<CommonMsgPojo> list, boolean z) {
         SQLiteStatement sQLiteStatement;
         if (list == null || TextUtils.isEmpty(str) || list == null || list.size() == 0) {
             return false;
@@ -482,7 +482,7 @@ public class c {
         }
     }
 
-    public void be(List<ImMessageCenterPojo> list) {
+    public void bc(List<ImMessageCenterPojo> list) {
         Cursor cursor = null;
         if (list != null && list.size() != 0) {
             LinkedList linkedList = new LinkedList();
@@ -502,13 +502,13 @@ public class c {
             }
             for (ImMessageCenterPojo imMessageCenterPojo : list) {
                 if (!linkedList.contains("tb_group_msg_" + imMessageCenterPojo.getGid())) {
-                    jd(imMessageCenterPojo.getGid());
+                    jf(imMessageCenterPojo.getGid());
                 }
             }
         }
     }
 
-    public boolean aW(String str, String str2) {
+    public boolean ba(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -523,7 +523,7 @@ public class c {
         }
     }
 
-    public boolean aX(String str, String str2) {
+    public boolean bb(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -536,10 +536,10 @@ public class c {
         }
     }
 
-    public boolean ja(String str) {
+    public boolean jc(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                g.aet().jj("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+                g.aet().jl("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
             } catch (Exception e) {
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
@@ -548,12 +548,12 @@ public class c {
         return false;
     }
 
-    public boolean jb(String str) {
+    public boolean jd(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            g.aet().jj("delete from " + ("tb_group_msg_" + str));
+            g.aet().jl("delete from " + ("tb_group_msg_" + str));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -562,13 +562,13 @@ public class c {
         }
     }
 
-    public void jd(String str) {
+    public void jf(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.aet().jj("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
+            g.aet().jl("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
         }
     }
 
-    public boolean O(String str, int i) {
+    public boolean S(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {

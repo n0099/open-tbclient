@@ -83,14 +83,13 @@ public class a {
         return cls2.isAssignableFrom(cls);
     }
 
-    public static final Object a(String str, Object obj, Class<?> cls, Object... objArr) {
-        Method a = a(cls, str, objArr);
-        if (a == null) {
+    public static final Object a(Method method, Object obj, Class<?> cls, Object... objArr) {
+        if (method == null) {
             return null;
         }
         try {
-            a.setAccessible(true);
-            return a.invoke(obj, objArr);
+            method.setAccessible(true);
+            return method.invoke(obj, objArr);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
@@ -111,6 +110,25 @@ public class a {
         try {
             a.setAccessible(true);
             return a.invoke(obj, new Object[0]);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException e2) {
+            e2.printStackTrace();
+            return null;
+        } catch (InvocationTargetException e3) {
+            e3.printStackTrace();
+            return null;
+        }
+    }
+
+    public static final Object a(Method method, Object obj, Class<?> cls) {
+        if (method == null) {
+            return null;
+        }
+        try {
+            method.setAccessible(true);
+            return method.invoke(obj, new Object[0]);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;

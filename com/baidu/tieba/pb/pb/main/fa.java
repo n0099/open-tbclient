@@ -1,40 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fa implements Animation.AnimationListener {
-    final /* synthetic */ eu dnc;
+public class fa implements View.OnClickListener {
+    final /* synthetic */ el dpu;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dpx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fa(eu euVar) {
-        this.dnc = euVar;
+    public fa(el elVar, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dpu = elVar;
+        this.dpx = sVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.l lVar;
-        View view2;
-        com.baidu.tbadk.editortools.l lVar2;
-        eu euVar = this.dnc;
-        view = this.dnc.dlV;
-        euVar.dmb = view.getVisibility() == 0;
-        lVar = this.dnc.LE;
-        if (lVar != null) {
-            lVar2 = this.dnc.LE;
-            lVar2.hide();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10630").ac("obj_id", this.dpx.getAuthor().getUserId()));
+        pbActivity = this.dpu.dhY;
+        if (pbActivity.diS.dpJ != null) {
+            pbActivity2 = this.dpu.dhY;
+            pbActivity2.diS.dpJ.onClick(view);
         }
-        view2 = this.dnc.dlV;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

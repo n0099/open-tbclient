@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String emF = "signSuccess";
+    private final String epU = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int emG = 0;
-    private int emH = 0;
-    private int emI = 0;
-    private CustomMessageListener emJ = new a(this, CmdConfigCustom.CMD_RESPONSE_MEM);
+    private int epV = 0;
+    private int epW = 0;
+    private int epX = 0;
+    private CustomMessageListener epY = new a(this, CmdConfigCustom.CMD_RESPONSE_MEM);
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -25,23 +25,23 @@ public class SupplementSignActivity extends TbWebViewActivity {
             this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
         }
         addJsPromptInterface(new b(this));
-        this.mView.aa(false);
-        MessageManager.getInstance().registerListener(this.emJ);
+        this.mView.ad(false);
+        MessageManager.getInstance().registerListener(this.epY);
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.pW();
+        this.mView.ns();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.emG);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.emH);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.emI);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.epV);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.epW);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.epX);
         super.finish(-1, intent);
     }
 
@@ -53,6 +53,6 @@ public class SupplementSignActivity extends TbWebViewActivity {
             this.mWebView.destroy();
             this.mWebView = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.emJ);
+        MessageManager.getInstance().unRegisterListener(this.epY);
     }
 }

@@ -1,95 +1,34 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tbadk.mvc.b.j {
-    protected boolean CK;
-    protected ArrayList<FeedData> cxL = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.ac cxM = new com.baidu.tbadk.core.data.ac();
-    protected ag cxN = new ag();
+public class ak extends Handler {
+    final /* synthetic */ ai cyJ;
 
-    public ArrayList<FeedData> alk() {
-        return this.cxL;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(ai aiVar) {
+        this.cyJ = aiVar;
     }
 
-    public com.baidu.tbadk.core.data.ac getPage() {
-        return this.cxM;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void g(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    FeedData feedData = new FeedData();
-                    feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    if (feedData.getThread_Type() == 33) {
-                        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.cxL.add(feedData);
-                        }
-                    } else {
-                        this.cxL.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.af(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yf())) {
-                            this.cxL.remove(feedData);
-                        }
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.p(feedData.getPraiseList()) == 0) {
-                            this.cxL.remove(feedData);
-                        }
-                    }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        boolean fq;
+        if (message.what == 1) {
+            this.cyJ.cyI = System.currentTimeMillis();
+            if (!MessageManager.getInstance().getSocketClient().isValid()) {
+                fq = this.cyJ.fq();
+                if (fq) {
+                    this.cyJ.alp();
                 }
             }
-            this.cxN.parserJson(jSONObject.optJSONObject("message"));
-            this.cxM.parserJson(jSONObject.optJSONObject("page"));
-            this.CK = true;
-        } catch (Exception e) {
-            this.CK = false;
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        if (message instanceof ReplyMeResIdl) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        if (feedData.getThread_Type() == 33) {
-                            if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.cxL.add(feedData);
-                            }
-                        } else {
-                            this.cxL.add(feedData);
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.af(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yf())) {
-                                this.cxL.remove(feedData);
-                            }
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.p(feedData.getPraiseList()) == 0) {
-                                this.cxL.remove(feedData);
-                            }
-                        }
-                    }
-                }
-                this.cxM.a(dataRes.page);
-                this.CK = true;
-            } catch (Exception e) {
-                this.CK = false;
-                BdLog.e(e.getMessage());
-            }
+            handler = this.cyJ.mHandler;
+            handler2 = this.cyJ.mHandler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }
 }

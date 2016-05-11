@@ -12,32 +12,26 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d yy = null;
+    private static d oE = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config yz = Bitmap.Config.RGB_565;
+    private Bitmap.Config oF = Bitmap.Config.RGB_565;
 
-    public static synchronized d iN() {
+    public static synchronized d eY() {
         d dVar;
         synchronized (d.class) {
-            if (yy == null) {
-                yy = new d();
+            if (oE == null) {
+                oE = new d();
             }
-            dVar = yy;
+            dVar = oE;
         }
         return dVar;
     }
 
     public synchronized void z(Context context) {
         this.mContext = context;
-    }
-
-    public void a(Bitmap.Config config) {
-        this.yz = config;
     }
 
     private d() {
@@ -47,28 +41,8 @@ public class d {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap aE(String str) {
+    public Bitmap ax(String str) {
         return BitmapFactory.decodeFile(str);
-    }
-
-    public String a(String str, String str2, Bitmap bitmap, int i) {
-        if (e.aH(str) && bitmap != null && e.u(str, str2)) {
-            File x = e.x(str, str2);
-            try {
-                if ((!x.exists() || x.delete()) && x.createNewFile()) {
-                    FileOutputStream fileOutputStream = new FileOutputStream(x);
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return x.getPath();
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return null;
     }
 
     public Bitmap getResBitmap(Context context, int i) {
@@ -104,6 +78,29 @@ public class d {
         return bitmap;
     }
 
+    public Bitmap getResizedBitmap(Bitmap bitmap, int i, int i2) {
+        float f;
+        if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
+            return null;
+        }
+        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (i2 / height < i / width) {
+                f = i / width;
+            } else {
+                f = i2 / height;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(f, f);
+            matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
+            new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
+            return createBitmap;
+        }
+        return bitmap;
+    }
+
     public Bitmap resizeBitmap(Bitmap bitmap, int i) {
         return resizeBitmap(bitmap, i, i);
     }
@@ -130,14 +127,5 @@ public class d {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
-    }
-
-    public Bitmap Bytes2Bitmap(byte[] bArr) {
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = this.yz;
-        return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
     }
 }

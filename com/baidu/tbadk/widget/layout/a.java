@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a implements f {
     @Override // com.baidu.tbadk.widget.layout.f
-    public int fr(int i) {
+    public int eW(int i) {
         if (i < 4) {
             return 1;
         }
@@ -19,7 +19,7 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.widget.layout.f
     public int a(c cVar, List<String> list, int i, int i2) {
-        if (y.p(list) > 0) {
+        if (y.r(list) > 0) {
             if (i == 0) {
                 return a(cVar, list, i2);
             }
@@ -35,54 +35,54 @@ public class a implements f {
     }
 
     private int a(c cVar, List<String> list, int i) {
-        if (cVar == null || y.q(list)) {
+        if (cVar == null || y.s(list)) {
             return i;
         }
-        int p = y.p(list);
-        if (p == 1) {
-            cVar.e(list, i);
+        int r = y.r(list);
+        if (r == 1) {
+            cVar.f(list, i);
             return 0;
-        } else if (p == 2 || p == 4 || p == 5) {
+        } else if (r == 2 || r == 4 || r == 5) {
             int i2 = i + 2;
-            cVar.e(y.a(list, i, i2), i);
+            cVar.f(y.a(list, i, i2), i);
             return i2;
         } else {
             int i3 = i + 3;
-            cVar.e(y.a(list, i, i3), i);
+            cVar.f(y.a(list, i, i3), i);
             return i3;
         }
     }
 
     private int b(c cVar, List<String> list, int i) {
-        if (cVar == null || y.q(list)) {
+        if (cVar == null || y.s(list)) {
             return i;
         }
-        if (y.p(list) == 4) {
+        if (y.r(list) == 4) {
             int i2 = i + 2;
-            cVar.e(y.a(list, i, i2), i);
+            cVar.f(y.a(list, i, i2), i);
             return i2;
         }
         int i3 = i + 3;
-        cVar.e(y.a(list, i, i3), i);
+        cVar.f(y.a(list, i, i3), i);
         return i3;
     }
 
     private int c(c cVar, List<String> list, int i) {
-        if (cVar == null || y.q(list)) {
+        if (cVar == null || y.s(list)) {
             return i;
         }
-        int p = y.p(list);
+        int r = y.r(list);
         cVar.setImageMaxChildCount(3);
-        int i2 = p - 9;
+        int i2 = r - 9;
         if (i2 > 0) {
             int i3 = i + 3;
             List<String> a = y.a(list, i, i3);
-            cVar.setExtraCenterText(TbadkCoreApplication.m411getInst().getString(t.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            cVar.setExtraCenterText(TbadkCoreApplication.m11getInst().getString(t.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
             cVar.a(a, i, true);
             return i3;
         }
-        cVar.e(y.a(list, i, p), i);
+        cVar.f(y.a(list, i, r), i);
         cVar.setExtraCenterText(null);
-        return p;
+        return r;
     }
 }

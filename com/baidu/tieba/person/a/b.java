@@ -8,137 +8,143 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private BdUniqueId aSu;
-    private List<com.baidu.adp.widget.ListView.a> bcG = new ArrayList();
-    public m duA;
-    public com.baidu.tieba.person.god.a.a duB;
-    public com.baidu.tieba.person.god.a.d duC;
-    public com.baidu.tieba.person.god.a.d duD;
-    public com.baidu.tieba.person.god.a.b duE;
-    private BaseFragmentActivity duj;
-    private com.baidu.tieba.personInfo.f duk;
-    private BdPersonListView dul;
-    public v dum;
-    public ai dun;
-    public f duo;
-    public r dup;
-    public ag duq;
-    public i dur;
-    public aa dus;
-    public t dut;
-    public ac duu;
-    public ad duv;
-    public q duw;
-    public g dux;
-    public d duy;
-    public o duz;
+    private BdUniqueId aOT;
+    private List<com.baidu.adp.widget.ListView.a> bei = new ArrayList();
+    private BaseFragmentActivity cSp;
+    private com.baidu.tieba.personInfo.f dxd;
+    private BdPersonListView dxe;
+    public w dxf;
+    public ap dxg;
+    public g dxh;
+    public s dxi;
+    public an dxj;
+    public j dxk;
+    public ab dxl;
+    public u dxm;
+    public af dxn;
+    public aj dxo;
+    public r dxp;
+    public h dxq;
+    public e dxr;
+    public p dxs;
+    public n dxt;
+    public com.baidu.tieba.person.god.a.a dxu;
+    public com.baidu.tieba.person.god.a.d dxv;
+    public com.baidu.tieba.person.god.a.d dxw;
+    public com.baidu.tieba.person.god.a.b dxx;
+    public ad dxy;
+    private ag dxz;
 
     public b(com.baidu.tieba.personInfo.f fVar, BdPersonListView bdPersonListView) {
-        this.duk = fVar;
-        this.duj = fVar.getBaseFragmentActivity();
-        this.aSu = this.duk.getUniqueId();
-        a(this.duj, bdPersonListView);
+        this.dxd = fVar;
+        this.cSp = fVar.getBaseFragmentActivity();
+        this.aOT = this.dxd.getUniqueId();
+        a(this.cSp, bdPersonListView);
     }
 
     private void a(BaseFragmentActivity baseFragmentActivity, BdPersonListView bdPersonListView) {
-        this.dum = new v(baseFragmentActivity, com.baidu.tieba.person.data.n.dwC);
-        this.dun = new ai(baseFragmentActivity, com.baidu.tieba.person.data.q.dwH);
-        this.duo = new f(this.duk, com.baidu.tieba.person.data.c.dwh);
-        this.dup = new r(baseFragmentActivity, com.baidu.tieba.person.data.k.dwy);
-        this.dus = new aa(baseFragmentActivity, com.baidu.tieba.person.data.o.dwE);
-        this.dut = new t(baseFragmentActivity, com.baidu.tieba.person.data.l.dwA);
-        this.duu = new ac(baseFragmentActivity, com.baidu.tieba.person.data.p.dwF);
-        this.duq = new ag(baseFragmentActivity, com.baidu.tieba.person.data.m.dwB);
-        this.duw = new q(baseFragmentActivity, com.baidu.tieba.person.data.i.dws);
-        this.dur = new i(baseFragmentActivity, com.baidu.tieba.person.data.f.dwn);
-        this.duv = new ad(baseFragmentActivity, ae.dvz);
-        this.duy = new d(baseFragmentActivity, com.baidu.tieba.person.data.b.dwf);
-        this.dux = new g(baseFragmentActivity, com.baidu.tieba.person.data.e.dwl);
-        this.duz = new o(baseFragmentActivity.getPageContext().getPageActivity(), com.baidu.tieba.person.data.h.dwr);
-        this.duA = new m(baseFragmentActivity.getPageContext().getPageActivity(), com.baidu.tieba.person.data.g.dwq);
-        this.duC = new com.baidu.tieba.person.god.a.d(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.v.aWk);
-        this.duD = new com.baidu.tieba.person.god.a.d(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.v.aWl);
-        this.duE = new com.baidu.tieba.person.god.a.b(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.t.TC);
-        this.duB = new com.baidu.tieba.person.god.a.a(baseFragmentActivity.getPageContext(), com.baidu.tieba.person.data.j.TC);
-        this.bcG.add(this.dum);
-        this.bcG.add(this.duo);
-        this.bcG.add(this.dun);
-        this.bcG.add(this.dus);
-        this.bcG.add(this.dut);
-        this.bcG.add(this.duq);
-        this.bcG.add(this.duw);
-        this.bcG.add(this.dup);
-        this.bcG.add(this.dur);
-        this.bcG.add(this.duu);
-        this.bcG.add(this.duv);
-        this.bcG.add(this.duy);
-        this.bcG.add(this.dux);
-        this.bcG.add(this.duz);
-        this.bcG.add(this.duA);
-        this.bcG.add(this.duC);
-        this.bcG.add(this.duE);
-        this.bcG.add(this.duD);
-        this.bcG.add(this.duB);
-        this.dul = bdPersonListView;
-        this.dul.g(this.bcG);
-        setPageUniqueId(this.aSu);
+        this.dxf = new w(baseFragmentActivity, com.baidu.tieba.person.data.o.dzG);
+        this.dxg = new ap(baseFragmentActivity, com.baidu.tieba.person.data.t.dzP);
+        this.dxh = new g(this.dxd, com.baidu.tieba.person.data.d.dzl);
+        this.dxi = new s(baseFragmentActivity, com.baidu.tieba.person.data.l.dzC);
+        this.dxl = new ab(baseFragmentActivity, com.baidu.tieba.person.data.p.dzI);
+        this.dxm = new u(baseFragmentActivity, com.baidu.tieba.person.data.m.dzE);
+        this.dxn = new af(baseFragmentActivity, com.baidu.tieba.person.data.r.dzK);
+        this.dxj = new an(baseFragmentActivity, com.baidu.tieba.person.data.n.dzF);
+        this.dxp = new r(baseFragmentActivity, com.baidu.tieba.person.data.j.dzw);
+        this.dxk = new j(baseFragmentActivity, com.baidu.tieba.person.data.g.dzr);
+        this.dxo = new aj(baseFragmentActivity, al.dyB);
+        this.dxr = new e(baseFragmentActivity, com.baidu.tieba.person.data.c.dzj);
+        this.dxq = new h(baseFragmentActivity, com.baidu.tieba.person.data.f.dzp);
+        this.dxs = new p(baseFragmentActivity.getPageContext().getPageActivity(), com.baidu.tieba.person.data.i.dzv);
+        this.dxt = new n(baseFragmentActivity.getPageContext().getPageActivity(), com.baidu.tieba.person.data.h.dzu);
+        this.dxv = new com.baidu.tieba.person.god.a.d(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.n.aSe);
+        this.dxw = new com.baidu.tieba.person.god.a.d(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.n.aSf);
+        this.dxx = new com.baidu.tieba.person.god.a.b(baseFragmentActivity.getPageContext(), com.baidu.tieba.card.a.l.Oq);
+        this.dxu = new com.baidu.tieba.person.god.a.a(baseFragmentActivity.getPageContext(), com.baidu.tieba.person.data.k.Oq);
+        this.dxy = new ad(baseFragmentActivity.getPageContext().getPageActivity(), com.baidu.tieba.person.data.q.dzJ);
+        this.dxz = new ag(baseFragmentActivity, com.baidu.tieba.person.data.s.dzM);
+        this.bei.add(this.dxf);
+        this.bei.add(this.dxh);
+        this.bei.add(this.dxg);
+        this.bei.add(this.dxl);
+        this.bei.add(this.dxm);
+        this.bei.add(this.dxj);
+        this.bei.add(this.dxp);
+        this.bei.add(this.dxi);
+        this.bei.add(this.dxk);
+        this.bei.add(this.dxn);
+        this.bei.add(this.dxy);
+        this.bei.add(this.dxz);
+        this.bei.add(this.dxo);
+        this.bei.add(this.dxr);
+        this.bei.add(this.dxq);
+        this.bei.add(this.dxs);
+        this.bei.add(this.dxt);
+        this.bei.add(this.dxv);
+        this.bei.add(this.dxx);
+        this.bei.add(this.dxw);
+        this.bei.add(this.dxu);
+        this.dxe = bdPersonListView;
+        this.dxe.g(this.bei);
+        setPageUniqueId(this.aOT);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aSu = bdUniqueId;
-        if (this.duC != null) {
-            this.duC.setPageUniqueId(bdUniqueId);
+        this.aOT = bdUniqueId;
+        if (this.dxv != null) {
+            this.dxv.setPageUniqueId(bdUniqueId);
         }
-        if (this.duC != null) {
-            this.duE.setPageUniqueId(bdUniqueId);
+        if (this.dxv != null) {
+            this.dxx.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public void ab(ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
+    public void ac(ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
         if (arrayList != null) {
             if (arrayList != null && arrayList.size() == 0) {
-                arrayList.add(this.duk.aCH().aDs());
+                arrayList.add(this.dxd.aDb().aDO());
             } else {
-                Iterator<com.baidu.adp.widget.ListView.u> it = arrayList.iterator();
+                Iterator<com.baidu.adp.widget.ListView.v> it = arrayList.iterator();
                 boolean z = true;
                 while (it.hasNext()) {
-                    com.baidu.adp.widget.ListView.u next = it.next();
+                    com.baidu.adp.widget.ListView.v next = it.next();
                     if (next instanceof com.baidu.tieba.person.data.a) {
                         com.baidu.tieba.person.data.a aVar = (com.baidu.tieba.person.data.a) next;
-                        if (!aVar.dwe && !z) {
-                            aVar.dwd = false;
+                        if (!aVar.dzg && !z) {
+                            aVar.dzf = false;
                         } else {
-                            aVar.dwd = true;
+                            aVar.dzf = true;
                         }
-                        z = aVar.dwe;
+                        z = aVar.dzg;
                     } else {
                         z = true;
                     }
                 }
             }
-            if (com.baidu.tbadk.core.util.y.p(this.bcG) > 0) {
-                for (com.baidu.adp.widget.ListView.a aVar2 : this.bcG) {
+            if (com.baidu.tbadk.core.util.y.r(this.bei) > 0) {
+                for (com.baidu.adp.widget.ListView.a aVar2 : this.bei) {
                     if (aVar2 instanceof c) {
-                        ((c) aVar2).bcn = true;
+                        ((c) aVar2).bUL = true;
                     }
                 }
             }
-            if (this.dul != null) {
-                this.dul.setData(arrayList);
+            if (this.dxe != null) {
+                this.dxe.setData(arrayList);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.dul.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.dul.getAdapter()).notifyDataSetChanged();
+        if (this.dxe.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.dxe.getAdapter()).notifyDataSetChanged();
         }
     }
 
-    public void b(com.baidu.adp.widget.ListView.v vVar) {
-        this.dur.b(vVar);
-        if (this.duB != null) {
-            this.duB.b(vVar);
+    public void d(com.baidu.adp.widget.ListView.w wVar) {
+        this.dxk.d(wVar);
+        if (this.dxu != null) {
+            this.dxu.d(wVar);
         }
     }
 }

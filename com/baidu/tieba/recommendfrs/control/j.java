@@ -1,21 +1,21 @@
 package com.baidu.tieba.recommendfrs.control;
 /* loaded from: classes.dex */
 class j extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ a dVV;
+    final /* synthetic */ a dYW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.dVV = aVar;
+        this.dYW = aVar;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Gl() {
+    public boolean Ed() {
         return false;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Gm() {
-        return com.baidu.tbadk.pageStayDuration.e.Gr().Gt();
+    public int Ee() {
+        return com.baidu.tbadk.pageStayDuration.e.Ej().El();
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b

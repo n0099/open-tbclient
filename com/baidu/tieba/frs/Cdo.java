@@ -1,30 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tieba.t;
 /* renamed from: com.baidu.tieba.frs.do  reason: invalid class name */
 /* loaded from: classes.dex */
-public class Cdo implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.as bnE;
-    final /* synthetic */ dk bpw;
+public class Cdo extends y.a {
+    public int aej;
+    public TextView blh;
+    public PhotoLiveCardView bli;
+    public View blj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Cdo(dk dkVar, com.baidu.tbadk.core.data.as asVar) {
-        this.bpw = dkVar;
-        this.bnE = asVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.bpw.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bnE.getAuthor().getUserId(), this.bnE.getAuthor().getName_show(), this.bpw.bkq.avu().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    public Cdo(View view) {
+        super(view);
+        this.aej = 3;
+        this.blh = (TextView) view.findViewById(t.g.more_live_list);
+        this.bli = (PhotoLiveCardView) view.findViewById(t.g.photo_live_card);
+        this.blj = view.findViewById(t.g.make_headlines);
     }
 }

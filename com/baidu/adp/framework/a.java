@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a od;
-    private SparseArray<String> oe;
+    private static volatile a dY;
+    private SparseArray<String> dZ;
 
-    public static a dW() {
-        if (od == null) {
+    public static a am() {
+        if (dY == null) {
             synchronized (a.class) {
-                if (od == null) {
-                    od = new a();
+                if (dY == null) {
+                    dY = new a();
                 }
             }
         }
-        return od;
+        return dY;
     }
 
     private a() {
-        this.oe = null;
-        this.oe = new SparseArray<>();
+        this.dZ = null;
+        this.dZ = new SparseArray<>();
     }
 
     public void c(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                F(str);
+                u(str);
             }
         }
     }
 
-    private void F(String str) {
+    private void u(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.oe.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.oe.get(i) + " 重复");
+                    if (this.dZ.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.dZ.get(i) + " 重复");
                     }
-                    this.oe.put(i, name);
+                    this.dZ.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String B(int i) {
-        String str = this.oe.get(i);
+    public String r(int i) {
+        String str = this.dZ.get(i);
         if (str != null) {
             return str;
         }

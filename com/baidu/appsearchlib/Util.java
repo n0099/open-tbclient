@@ -34,7 +34,7 @@ public class Util {
         return packageInfo2 == null ? "0" : packageInfo2.versionName;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004c -> B:17:0x000a). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004d -> B:17:0x000a). Please submit an issue!!! */
     public static String getDeviceId(Context context) {
         String str;
         String deviceId;

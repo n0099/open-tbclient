@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ GodSquareActivity bJY;
+    final /* synthetic */ GodSquareActivity bKe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GodSquareActivity godSquareActivity, int i) {
         super(i);
-        this.bJY = godSquareActivity;
+        this.bKe = godSquareActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ class b extends CustomMessageListener {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 long c = com.baidu.adp.lib.h.b.c(updateAttentionMessage.getData().toUid, 0L);
-                bVar = this.bJY.bJV;
-                if (bVar.aR(c)) {
-                    this.bJY.bJW = true;
+                bVar = this.bKe.bKb;
+                if (bVar.aS(c)) {
+                    this.bKe.bKc = true;
                 }
             }
         }

@@ -1,20 +1,28 @@
 package com.baidu.tieba.frs.view;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import com.baidu.tieba.frs.view.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements a.b {
-    final /* synthetic */ u bwT;
+public class z implements View.OnClickListener {
+    final /* synthetic */ x bwN;
+    private final /* synthetic */ x.b bwO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(u uVar) {
-        this.bwT = uVar;
+    public z(x xVar, x.b bVar) {
+        this.bwN = xVar;
+        this.bwO = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        TiebaStatic.eventStat(this.bwT.blH.getPageContext().getPageActivity(), "consume_7", "click");
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        x.a aVar;
+        x.a aVar2;
+        aVar = this.bwN.bwJ;
+        if (aVar != null) {
+            aVar2 = this.bwN.bwJ;
+            aVar2.gl(this.bwO.bwP);
+        }
+        this.bwN.dismiss();
     }
 }

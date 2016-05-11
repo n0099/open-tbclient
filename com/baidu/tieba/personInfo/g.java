@@ -17,10 +17,10 @@ public class g extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bf bfVar;
+        bg bgVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001379) {
-            bfVar = this.this$0.dvN;
-            bfVar.aDk();
+            bgVar = this.this$0.dyP;
+            bgVar.aDF();
         }
     }
 }

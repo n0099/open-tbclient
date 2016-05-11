@@ -6,15 +6,15 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView aZM;
+    final /* synthetic */ EmotionTabHorizonScrollView aVQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.aZM = emotionTabHorizonScrollView;
+        this.aVQ = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.aZM.getContext(), this.aZM.getContext().getResources().getString(t.j.emotion_cant_show)).ux();
+        BdToast.a(this.aVQ.getContext(), this.aVQ.getContext().getResources().getString(t.j.emotion_cant_show)).sc();
     }
 }

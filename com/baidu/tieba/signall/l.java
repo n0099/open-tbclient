@@ -3,11 +3,11 @@ package com.baidu.tieba.signall;
 import com.baidu.tieba.signall.f;
 /* loaded from: classes.dex */
 class l implements f.a {
-    final /* synthetic */ SignAllForumActivity egh;
+    final /* synthetic */ SignAllForumActivity ejs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(SignAllForumActivity signAllForumActivity) {
-        this.egh = signAllForumActivity;
+        this.ejs = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.f.a
@@ -15,25 +15,25 @@ class l implements f.a {
         af afVar;
         af afVar2;
         f fVar;
-        afVar = this.egh.efZ;
-        afVar.Op();
-        a aPz = cVar.aPz();
-        if (aPz != null && aPz.getErrorNumber() == 0) {
-            afVar2 = this.egh.efZ;
-            fVar = this.egh.ega;
-            afVar2.a(cVar, fVar.aPS());
+        afVar = this.ejs.ejk;
+        afVar.Nn();
+        a aPP = cVar.aPP();
+        if (aPP != null && aPP.getErrorNumber() == 0) {
+            afVar2 = this.ejs.ejk;
+            fVar = this.ejs.ejl;
+            afVar2.a(cVar, fVar.aQi());
             return;
         }
-        this.egh.showToast(aPz.getUserMsg(), false);
-        this.egh.finish();
+        this.ejs.showToast(aPP.getUserMsg(), false);
+        this.ejs.finish();
     }
 
     @Override // com.baidu.tieba.signall.f.a
-    public void jk(String str) {
+    public void jm(String str) {
         af afVar;
-        afVar = this.egh.efZ;
-        afVar.Op();
-        this.egh.showToast(str, false);
-        this.egh.finish();
+        afVar = this.ejs.ejk;
+        afVar.Nn();
+        this.ejs.showToast(str, false);
+        this.ejs.finish();
     }
 }

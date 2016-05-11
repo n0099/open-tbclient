@@ -11,12 +11,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
-    private String bzo;
-    private ImageView dNw;
-    private ImageView dqR;
-    private String egE;
-    private boolean egF;
-    private TbImageView egG;
+    private String bzs;
+    private ImageView dQG;
+    private ImageView dsV;
+    private String ejP;
+    private boolean ejQ;
+    private TbImageView ejR;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,28 +26,28 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.bzo = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
-        this.egE = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
-        this.egF = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-        pU();
-        aPW();
+        this.bzs = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.ejP = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
+        this.ejQ = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+        nq();
+        aQn();
     }
 
-    private void pU() {
+    private void nq() {
         setContentView(t.h.signallforum_advert_view);
         this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(t.j.signallforum));
-        this.dqR = (ImageView) findViewById(t.g.signallforum_icon);
-        this.egG = (TbImageView) findViewById(t.g.signallforum_advert_pic);
-        this.dNw = (ImageView) findViewById(t.g.signallforum_advert_close);
-        this.egG.setDefaultBgResource(t.f.transparent_bg);
-        com.baidu.adp.lib.g.c.hr().a(this.bzo, 10, new r(this), null);
-        this.egG.c(this.bzo, 10, false);
-        this.egG.setOnClickListener(new s(this));
-        this.dNw.setOnClickListener(new t(this));
+        this.dsV = (ImageView) findViewById(t.g.signallforum_icon);
+        this.ejR = (TbImageView) findViewById(t.g.signallforum_advert_pic);
+        this.dQG = (ImageView) findViewById(t.g.signallforum_advert_close);
+        this.ejR.setDefaultBgResource(t.f.transparent_bg);
+        com.baidu.adp.lib.g.c.dF().a(this.bzs, 10, new r(this), null);
+        this.ejR.c(this.bzs, 10, false);
+        this.ejR.setOnClickListener(new s(this));
+        this.dQG.setOnClickListener(new t(this));
     }
 
-    private void aPW() {
+    private void aQn() {
         TiebaStatic.log("c10746");
     }
 

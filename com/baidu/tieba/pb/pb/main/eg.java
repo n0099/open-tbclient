@@ -1,160 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.ClickableHeaderImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.pb.view.BaobaoTailView;
-import com.baidu.tieba.pb.view.PbGiftListView;
-import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class eg extends x.a {
-    public TextView aPp;
-    UserIconBox ahN;
-    public TbImageView bpI;
-    public UserIconBox bvK;
-    public TbRichTextView ddA;
-    public View ddB;
-    public PbGiftListView ddC;
-    public FrsPraiseView ddD;
-    public ImageView ddE;
-    public View deO;
-    public View deP;
-    public View deQ;
-    public View deR;
-    public View deS;
-    public HeadImageView deT;
-    public ImageView deU;
-    public ImageView deV;
-    public ImageView deW;
-    public TextView deX;
-    public TextView deY;
-    public ImageView deZ;
-    public ImageView dfa;
-    public RelativeLayout dfb;
-    public LinearLayout dfc;
-    public ImageView dfd;
-    public SubPbLayout dfe;
-    public BaobaoTailView dff;
-    public LinearLayout dfg;
-    public TextView dfh;
-    public LinearLayout dfi;
-    public Button dfj;
-    public LinearLayout dfk;
-    public TextView dfl;
-    public View dfm;
-    public View dfn;
-    public LinearLayout dfo;
-    public ImageView dfp;
-    public TextView dfq;
-    public LinearLayout dfr;
-    public ImageView dfs;
-    public TextView dft;
-    public TextView dfu;
-    public ImageView diq;
-    public RelativeLayout djY;
-    public ClickableHeaderImageView djZ;
-    public TextView dka;
-    public TbImageView dkb;
-    public TbImageView dkc;
-    public int mSkinType;
+class eg extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public eg(int i) {
+        super(i);
+    }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [151=5] */
-    public eg(View view, boolean z, boolean z2, int i, boolean z3) {
-        super(view);
-        this.mSkinType = 3;
-        this.deS = view.findViewById(t.g.sub_pb_more);
-        this.deT = (HeadImageView) view.findViewById(t.g.photo);
-        this.aPp = (TextView) view.findViewById(t.g.user_name);
-        this.deU = (ImageView) view.findViewById(t.g.user_rank);
-        this.deV = (ImageView) view.findViewById(t.g.user_bawu);
-        this.deW = (ImageView) view.findViewById(t.g.user_gender);
-        this.dfa = (ImageView) view.findViewById(t.g.reply);
-        this.ddA = (TbRichTextView) view.findViewById(t.g.richText);
-        this.ddC = (PbGiftListView) view.findViewById(t.g.gift_list_view);
-        this.ddB = view.findViewById(t.g.pb_item_praise_topline);
-        this.ddD = (FrsPraiseView) view.findViewById(t.g.pb_item_praise_view);
-        this.ddE = (ImageView) view.findViewById(t.g.pb_item_praise_bottomline);
-        this.dfo = (LinearLayout) view.findViewById(t.g.pb_item_location_container);
-        this.dfq = (TextView) view.findViewById(t.g.pb_item_location_address);
-        this.dfp = (ImageView) view.findViewById(t.g.pb_item_location_img);
-        this.dfr = (LinearLayout) view.findViewById(t.g.pb_reply_location_container);
-        this.dft = (TextView) view.findViewById(t.g.pb_reply_location_address);
-        this.dfs = (ImageView) view.findViewById(t.g.pb_reply_location_img);
-        this.deZ = (ImageView) view.findViewById(t.g.floor_owner);
-        this.deX = (TextView) view.findViewById(t.g.floor);
-        this.deY = (TextView) view.findViewById(t.g.time);
-        this.dfb = (RelativeLayout) view.findViewById(t.g.pb_post_header_layout);
-        this.dfe = (SubPbLayout) view.findViewById(t.g.pb_post_footer_layout);
-        this.dfc = (LinearLayout) view.findViewById(t.g.pb_subpb_layout_root);
-        this.dfd = (ImageView) view.findViewById(t.g.pb_post_footer_layout_line_top);
-        this.deO = view;
-        this.deP = view.findViewById(t.g.new_pb_list_item_line_top);
-        this.deQ = view.findViewById(t.g.new_pb_list_item_line_top_full);
-        this.deR = view.findViewById(t.g.new_pb_list_item_blank_top);
-        this.ddA.IY();
-        this.ddA.setImageViewStretch(true);
-        this.bpI = (TbImageView) view.findViewById(t.g.game_activity_banner);
-        this.dka = (TextView) view.findViewById(t.g.action_button);
-        this.dkb = (TbImageView) view.findViewById(t.g.game_activity_banner);
-        int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.ddA.getPaddingLeft()) - this.ddA.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60)), i);
-        this.ddA.setMaxImageWidth(min);
-        this.ddA.setMaxImageHeight((int) (min * 1.618f));
-        this.ddA.setTextSize(TbConfig.getContentSize());
-        if (z) {
-            ViewGroup.LayoutParams layoutParams = this.deT.getLayoutParams();
-            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds60);
-            this.deT.setLayoutParams(layoutParams);
-            this.deT.setVisibility(0);
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = this.deT.getLayoutParams();
-            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(t.e.ds30);
-            this.deT.setLayoutParams(layoutParams2);
-            this.deT.setVisibility(4);
-        }
-        this.ddA.h(z2, false);
-        this.ddA.setVoiceViewRes(t.h.voice_play_btn);
-        this.bvK = (UserIconBox) view.findViewById(t.g.user_icon_box);
-        this.ahN = (UserIconBox) view.findViewById(t.g.user_tshow_icon_box);
-        this.dfg = (LinearLayout) view.findViewById(t.g.add_post_footer_layout);
-        if (z3) {
-            this.dfb.setVisibility(8);
-            this.dfa.setVisibility(8);
-            this.ddA.setPadding(0, 0, 0, 0);
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.ddA.getLayoutParams();
-            layoutParams3.leftMargin = 0;
-            layoutParams3.rightMargin = 0;
-            layoutParams3.topMargin = 0;
-            layoutParams3.bottomMargin = 0;
-            this.ddA.setLayoutParams(layoutParams3);
-            view.findViewById(t.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
-            this.dfi = (LinearLayout) view.findViewById(t.g.add_time_container);
-            this.dfh = (TextView) view.findViewById(t.g.add_time);
-            this.dfj = (Button) view.findViewById(t.g.manage_btn);
-            this.dfi.setVisibility(0);
-        }
-        this.dfk = (LinearLayout) view.findViewById(t.g.addition_more_container);
-        this.dfl = (TextView) this.dfk.findViewById(t.g.addition_more);
-        this.dfm = this.dfk.findViewById(t.g.addition_divider1);
-        this.dfn = this.dfk.findViewById(t.g.addition_divider2);
-        this.dff = (BaobaoTailView) view.findViewById(t.g.baobao_tail);
-        this.dfu = (TextView) view.findViewById(t.g.pb_item_tail_content);
-        this.diq = (ImageView) view.findViewById(t.g.replybtn);
-        this.djZ = (ClickableHeaderImageView) view.findViewById(t.g.god_user_photo);
-        this.djZ.setGodIconMargin(0);
-        this.dkc = (TbImageView) view.findViewById(t.g.lottery_tail);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ee.ayA().reset();
     }
 }

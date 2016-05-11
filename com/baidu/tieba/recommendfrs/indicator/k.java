@@ -1,84 +1,43 @@
 package com.baidu.tieba.recommendfrs.indicator;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.animation.Animation;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Personalized.TagInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BaseAdapter {
-    private List<TagInfo> cIf = new ArrayList();
-    private final int cdY;
-    private Context mContext;
-    private int padding;
-    private int textSize;
+public class k extends com.baidu.adp.lib.h.d {
+    final /* synthetic */ j eaF;
 
-    public k(Context context, int i) {
-        this.textSize = 0;
-        this.padding = 0;
-        this.mContext = context;
-        this.textSize = context.getResources().getDimensionPixelSize(t.e.fontsize28);
-        this.padding = context.getResources().getDimensionPixelSize(t.e.ds16);
-        this.cdY = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar) {
+        this.eaF = jVar;
     }
 
-    public void bx(List<TagInfo> list) {
-        this.cIf.clear();
-        if (list != null && list.size() > 0) {
-            this.cIf.addAll(list);
-        }
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.cIf.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: oD */
-    public TagInfo getItem(int i) {
-        if (i < 0 || i >= this.cIf.size()) {
-            return null;
-        }
-        return this.cIf.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    @Override // com.baidu.adp.lib.h.d
+    public void b(Animation animation) {
         TextView textView;
-        if (view instanceof TextView) {
-            textView = (TextView) view;
-        } else {
-            textView = new TextView(this.mContext);
-            textView.setGravity(17);
-            textView.setTextSize(0, this.textSize);
-            textView.setPadding(0, this.padding, 0, this.padding);
+        Animation animation2;
+        Animation animation3;
+        TextView textView2;
+        TextView textView3;
+        TextView textView4;
+        TextView textView5;
+        textView = this.eaF.cIQ;
+        if (textView != null) {
+            animation2 = this.eaF.cIS;
+            if (animation == animation2) {
+                textView4 = this.eaF.cIQ;
+                textView4.setVisibility(0);
+                textView5 = this.eaF.cIQ;
+                textView5.setClickable(true);
+                return;
+            }
+            animation3 = this.eaF.cIT;
+            if (animation == animation3) {
+                textView2 = this.eaF.cIQ;
+                textView2.setVisibility(8);
+                textView3 = this.eaF.cIQ;
+                textView3.setClickable(false);
+            }
         }
-        TagInfo tagInfo = (TagInfo) y.b(this.cIf, i);
-        if (tagInfo == null) {
-            return null;
-        }
-        textView.setText(ay.d(tagInfo.tag_name, 8, null));
-        at.b(textView, t.d.cp_cont_f, 1);
-        if (i == this.cdY) {
-            at.k(textView, t.f.btn_label_white_s);
-            return textView;
-        }
-        at.k(textView, t.f.rec_frs_btn_more_item);
-        return textView;
     }
 }

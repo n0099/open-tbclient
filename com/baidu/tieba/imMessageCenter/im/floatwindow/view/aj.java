@@ -11,21 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj {
-    private a cvu;
-    private final CustomMessageListener cvt = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
-    private final HashMap<String, Integer> cvs = new HashMap<>();
+    private a cwr;
+    private final CustomMessageListener cwq = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
+    private final HashMap<String, Integer> cwp = new HashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
-        void akn();
+        void akt();
     }
 
     public void a(a aVar) {
-        this.cvu = aVar;
+        this.cwr = aVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.cvt);
+        commonPersonalChatActivity.registerListener(this.cwq);
     }
 
     public void bp(List<UserData> list) {
@@ -33,7 +33,7 @@ public class aj {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.cvs.put(userData.getUserId(), 1);
+                        this.cwp.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -46,24 +46,24 @@ public class aj {
         if (userData == null) {
             return 0;
         }
-        return ke(userData.getUserId());
+        return kh(userData.getUserId());
     }
 
-    public boolean kc(String str) {
-        int ke = ke(str);
-        return ke == 1 || ke == 3;
+    public boolean kf(String str) {
+        int kh = kh(str);
+        return kh == 1 || kh == 3;
     }
 
-    public int ke(String str) {
-        if (!StringUtils.isNull(str) && this.cvs.containsKey(str)) {
-            return this.cvs.get(str).intValue();
+    public int kh(String str) {
+        if (!StringUtils.isNull(str) && this.cwp.containsKey(str)) {
+            return this.cwp.get(str).intValue();
         }
         return 0;
     }
 
-    public void ae(String str, int i) {
+    public void ai(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.cvs.put(str, Integer.valueOf(i));
+            this.cwp.put(str, Integer.valueOf(i));
         }
     }
 
@@ -85,9 +85,9 @@ public class aj {
             }
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.cvs.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
-            if (this.cvu != null) {
-                this.cvu.akn();
+            this.cwp.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
+            if (this.cwr != null) {
+                this.cwr.akt();
             }
         }
     }

@@ -3,98 +3,97 @@ package com.baidu.tieba.recommendfrs.personalize.a;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.al;
-import com.baidu.tieba.card.cf;
-import com.baidu.tieba.card.cj;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.card.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements cj<com.baidu.tieba.card.a.v> {
-    final /* synthetic */ r dYq;
+public class s implements by<com.baidu.tieba.card.a.n> {
+    final /* synthetic */ r ebx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.dYq = rVar;
+        this.ebx = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cj
-    public void a(View view, com.baidu.tieba.card.a.v vVar) {
+    @Override // com.baidu.tieba.card.by
+    public void a(View view, com.baidu.tieba.card.a.n nVar) {
         com.baidu.tieba.recommendfrs.control.a.f fVar;
-        al alVar;
-        al alVar2;
-        al alVar3;
-        al alVar4;
-        al alVar5;
-        al alVar6;
-        al alVar7;
-        al alVar8;
-        al alVar9;
-        al alVar10;
-        al alVar11;
-        al alVar12;
-        al alVar13;
+        com.baidu.tieba.card.z zVar;
+        com.baidu.tieba.card.z zVar2;
+        com.baidu.tieba.card.z zVar3;
+        com.baidu.tieba.card.z zVar4;
+        com.baidu.tieba.card.z zVar5;
+        com.baidu.tieba.card.z zVar6;
+        com.baidu.tieba.card.z zVar7;
+        com.baidu.tieba.card.z zVar8;
+        com.baidu.tieba.card.z zVar9;
+        com.baidu.tieba.card.z zVar10;
+        com.baidu.tieba.card.z zVar11;
+        com.baidu.tieba.card.z zVar12;
+        com.baidu.tieba.card.z zVar13;
         com.baidu.tieba.recommendfrs.control.a.f fVar2;
-        cf.Lx().cc(true);
-        fVar = this.dYq.dYi;
-        if (fVar != null && vVar != null && vVar.LC() != null && !StringUtils.isNull(vVar.LC().getTid())) {
-            alVar = this.dYq.dYp;
-            if (alVar != null) {
-                alVar2 = this.dYq.dYp;
-                if (alVar2.getView() != null) {
-                    if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L))) {
-                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L));
-                        fVar2 = this.dYq.dYi;
-                        fVar2.a(com.baidu.adp.lib.h.b.c(vVar.LC().getTid(), 0L), vVar.getWeight(), vVar.getSource(), vVar.Ly(), vVar.LA(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+        bx.Kg().ci(true);
+        fVar = this.ebx.ebp;
+        if (fVar != null && nVar != null && nVar.Kl() != null && !StringUtils.isNull(nVar.Kl().getTid())) {
+            zVar = this.ebx.ebw;
+            if (zVar != null) {
+                zVar2 = this.ebx.ebw;
+                if (zVar2.getView() != null) {
+                    if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L))) {
+                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L));
+                        fVar2 = this.ebx.ebp;
+                        fVar2.a(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Kh(), nVar.Kj(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
                     }
                     int id = view.getId();
-                    alVar3 = this.dYq.dYp;
-                    if (id != alVar3.getView().getId()) {
-                        alVar4 = this.dYq.dYp;
-                        if (alVar4.aTp != null) {
-                            alVar12 = this.dYq.dYp;
-                            if (alVar12.aTp.getBarNameTv() != null) {
+                    zVar3 = this.ebx.ebw;
+                    if (id != zVar3.getView().getId()) {
+                        zVar4 = this.ebx.ebw;
+                        if (zVar4.aPD != null) {
+                            zVar12 = this.ebx.ebw;
+                            if (zVar12.aPD.getBarNameTv() != null) {
                                 int id2 = view.getId();
-                                alVar13 = this.dYq.dYp;
-                                if (id2 == alVar13.aTp.getBarNameTv().getId()) {
-                                    TiebaStatic.log(vVar.LP());
+                                zVar13 = this.ebx.ebw;
+                                if (id2 == zVar13.aPD.getBarNameTv().getId()) {
+                                    TiebaStatic.log(nVar.Ky());
                                     return;
                                 }
                             }
                         }
-                        alVar5 = this.dYq.dYp;
-                        if (alVar5.aTo != null) {
+                        zVar5 = this.ebx.ebw;
+                        if (zVar5.aPC != null) {
                             int id3 = view.getId();
-                            alVar11 = this.dYq.dYp;
-                            if (id3 == alVar11.aTo.getId()) {
-                                TiebaStatic.log(vVar.LQ());
+                            zVar11 = this.ebx.ebw;
+                            if (id3 == zVar11.aPC.getId()) {
+                                TiebaStatic.log(nVar.Kz());
                                 return;
                             }
                         }
-                        alVar6 = this.dYq.dYp;
-                        if (alVar6.aTr != null) {
-                            alVar9 = this.dYq.dYp;
-                            if (alVar9.aTr.ahM != null) {
+                        zVar6 = this.ebx.ebw;
+                        if (zVar6.aPF != null) {
+                            zVar9 = this.ebx.ebw;
+                            if (zVar9.aPF.adG != null) {
                                 int id4 = view.getId();
-                                alVar10 = this.dYq.dYp;
-                                if (id4 == alVar10.aTr.ahM.getId()) {
-                                    TiebaStatic.log(vVar.LQ());
+                                zVar10 = this.ebx.ebw;
+                                if (id4 == zVar10.aPF.adG.getId()) {
+                                    TiebaStatic.log(nVar.Kz());
                                     return;
                                 }
                             }
                         }
-                        alVar7 = this.dYq.dYp;
-                        if (alVar7.aTq != null) {
+                        zVar7 = this.ebx.ebw;
+                        if (zVar7.aPE != null) {
                             int id5 = view.getId();
-                            alVar8 = this.dYq.dYp;
-                            if (id5 == alVar8.aTq.getId()) {
-                                TiebaStatic.log(vVar.LY());
+                            zVar8 = this.ebx.ebw;
+                            if (id5 == zVar8.aPE.getId()) {
+                                TiebaStatic.log(nVar.KH());
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    TiebaStatic.log(vVar.LO());
+                    TiebaStatic.log(nVar.Kx());
                 }
             }
         }

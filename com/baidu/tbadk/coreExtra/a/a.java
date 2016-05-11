@@ -9,43 +9,43 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean ajD = true;
-    public static c ajE = null;
+    private static boolean afp = true;
+    public static c afq = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (ajE == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            ajE = (c) runTask.getData();
+        if (afq == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            afq = (c) runTask.getData();
         }
     }
 
-    public static c yn() {
-        return ajE;
+    public static c wg() {
+        return afq;
     }
 
-    public static boolean yo() {
-        return ajD;
+    public static boolean wh() {
+        return afp;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            ajD = true;
+            afp = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
-            if (TbadkCoreApplication.m411getInst().isLowVersionPassV6ShouldOpen()) {
-                ajD = false;
+            if (TbadkCoreApplication.m11getInst().isLowVersionPassV6ShouldOpen()) {
+                afp = false;
             } else {
-                ajD = true;
+                afp = true;
             }
-        } else if (TbadkCoreApplication.m411getInst().isPassportV6ShouldOpen()) {
-            ajD = false;
+        } else if (TbadkCoreApplication.m11getInst().isPassportV6ShouldOpen()) {
+            afp = false;
         } else {
-            ajD = true;
+            afp = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !ajD && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m411getInst().getContext())) {
-            TbadkCoreApplication.m411getInst().incPassportV6CrashCount();
-            ajD = true;
+        if (Build.VERSION.SDK_INT <= 10 && !afp && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m11getInst().getContext())) {
+            TbadkCoreApplication.m11getInst().incPassportV6CrashCount();
+            afp = true;
         }
     }
 }

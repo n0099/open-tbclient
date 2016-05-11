@@ -1,4 +1,6 @@
 package com.baidu.location;
+
+import android.util.Log;
 /* loaded from: classes.dex */
 public abstract class BDNotifyListener {
     public double mLatitude = Double.MIN_VALUE;
@@ -10,7 +12,7 @@ public abstract class BDNotifyListener {
     public double mLongitudeC = Double.MIN_VALUE;
     public int Notified = 0;
     public boolean isAdded = false;
-    public ab mNotifyCache = null;
+    public com.baidu.location.d.a mNotifyCache = null;
 
     public void SetNotifyLocation(double d, double d2, float f, String str) {
         this.mLatitude = d;
@@ -20,22 +22,22 @@ public abstract class BDNotifyListener {
         } else {
             this.mRadius = f;
         }
-        if (str.equals(BDGeofence.COORD_TYPE_GCJ) || str.equals(BDGeofence.COORD_TYPE_BD09) || str.equals(BDGeofence.COORD_TYPE_BD09LL) || str.equals("gps")) {
+        if (str.equals("gcj02") || str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL) || str.equals("gps")) {
             this.mCoorType = str;
         } else {
-            this.mCoorType = BDGeofence.COORD_TYPE_GCJ;
+            this.mCoorType = "gcj02";
         }
-        if (this.mCoorType.equals(BDGeofence.COORD_TYPE_GCJ)) {
+        if (this.mCoorType.equals("gcj02")) {
             this.mLatitudeC = this.mLatitude;
             this.mLongitudeC = this.mLongitude;
         }
         if (this.isAdded) {
             this.Notified = 0;
-            this.mNotifyCache.m128if(this);
+            this.mNotifyCache.b(this);
         }
     }
 
     public void onNotify(BDLocation bDLocation, float f) {
-        c.m262do(a0.i, "new location, not far from the destination..." + f);
+        Log.d("baidu_location_service", "new location, not far from the destination..." + f);
     }
 }

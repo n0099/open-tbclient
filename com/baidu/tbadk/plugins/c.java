@@ -1,32 +1,66 @@
 package com.baidu.tbadk.plugins;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.XiaoyingPlayerConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.Plugin;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.tbadk.core.data.ExceptionData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c implements a.b {
-    private final /* synthetic */ int aDh;
-    private final /* synthetic */ int aDi;
-    private final /* synthetic */ String aDj;
-    private final /* synthetic */ Context val$context;
-    private final /* synthetic */ String val$url;
-
+class c extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(Context context, String str, int i, int i2, String str2) {
-        this.val$context = context;
-        this.val$url = str;
-        this.aDh = i;
-        this.aDi = i2;
-        this.aDj = str2;
+    public c(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(this.val$context, this.val$url, this.aDh, this.aDi, this.aDj)));
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        StackTraceElement[] stackTrace;
+        Plugin plugin2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
+            boolean z = true;
+            ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
+            String[] strArr = Static.aze;
+            int length = strArr.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    break;
+                }
+                String str = strArr[i];
+                if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
+                    i++;
+                } else {
+                    com.baidu.adp.plugin.b.a.hs().bf("plugin_crash_inflate");
+                    com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("is_plugin_resource_open_local", false);
+                    z = false;
+                    break;
+                }
+            }
+            if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null && com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if().hasPatch()) {
+                try {
+                    List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if().getPluginSettingsSortLoadPriorty();
+                    if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
+                        for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
+                            if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {
+                                for (StackTraceElement stackTraceElement : stackTrace) {
+                                    try {
+                                        plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
+                                        com.baidu.tbadk.core.sharedPref.b.sQ().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.sQ().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                        break;
+                                    } catch (ClassNotFoundException e) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th.getMessage());
+                }
+            }
+        }
     }
 }

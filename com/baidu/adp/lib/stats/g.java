@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class g {
     public static String v(Context context) {
-        if (com.baidu.adp.lib.util.i.jg()) {
+        if (com.baidu.adp.lib.util.i.fr()) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
         if (com.baidu.adp.lib.util.i.isWap()) {
@@ -19,13 +19,13 @@ public class g {
         if (context == null) {
             return null;
         }
-        if (com.baidu.adp.lib.util.i.jg()) {
+        if (com.baidu.adp.lib.util.i.fr()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.jh()) {
-            int jo = com.baidu.adp.lib.util.i.jo();
+        if (com.baidu.adp.lib.util.i.fs()) {
+            int fz = com.baidu.adp.lib.util.i.fz();
             StringBuilder sb = new StringBuilder();
-            switch (jo) {
+            switch (fz) {
                 case 1:
                     sb.append('M');
                     break;
@@ -44,11 +44,11 @@ public class g {
             } else {
                 sb.append("_NET_");
             }
-            if (com.baidu.adp.lib.util.i.jj()) {
+            if (com.baidu.adp.lib.util.i.fu()) {
                 sb.append("3G");
-            } else if (com.baidu.adp.lib.util.i.ji()) {
+            } else if (com.baidu.adp.lib.util.i.ft()) {
                 sb.append("4G");
-            } else if (com.baidu.adp.lib.util.i.jk()) {
+            } else if (com.baidu.adp.lib.util.i.fv()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

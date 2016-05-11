@@ -1,19 +1,10 @@
 package com.baidu.tbadk.core.d;
 
-import android.content.Context;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public interface a {
-    void N(Context context);
-
-    void a(Context context, int i, boolean z);
-
-    void b(Context context, int i, boolean z);
-
-    void d(Context context, int i);
-
-    int getCurrentTabType();
-
-    Class<?> vd();
-
-    String ve();
+public class a {
+    public ArrayList<Object> Uc;
+    public Object cardInfo;
+    public int cardType;
+    public Object cardView;
 }

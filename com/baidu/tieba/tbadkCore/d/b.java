@@ -1,107 +1,106 @@
 package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.util.i;
-import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d eqE;
-    private final int eqF = 10;
-    private final int eqG = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String eqH = null;
-    public boolean adE = false;
+    private com.baidu.adp.lib.stats.d etO;
+    private final int etP = 10;
+    private final int etQ = 3000;
+    public String etR = null;
+    public boolean Zc = false;
 
     public b(String str) {
-        K(str, false);
+        M(str, false);
     }
 
-    public void K(String str, boolean z) {
-        this.eqH = str;
-        this.adE = z;
-        this.eqE = new com.baidu.adp.lib.stats.d("dbg");
+    public void M(String str, boolean z) {
+        this.etR = str;
+        this.Zc = z;
+        this.etO = new com.baidu.adp.lib.stats.d("dbg");
         c.h(str, getNetType(), z);
     }
 
     public void start() {
-        this.eqE.hP();
+        this.etO.ed();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f aTO;
-        if (this.eqE != null && (aTO = aTO()) != null) {
+        f aUo;
+        if (this.etO != null && (aUo = aUo()) != null) {
             if (z) {
-                if (aTO.eqM != null) {
-                    aTO.eqM.num++;
+                if (aUo.etW != null) {
+                    aUo.etW.num++;
                     if (z2) {
-                        aTO.eqM.eqJ += j2;
-                        aTO.eqM.size += j;
+                        aUo.etW.etT += j2;
+                        aUo.etW.size += j;
                     } else {
-                        aTO.eqM.eqK++;
+                        aUo.etW.etU++;
                     }
                 } else {
                     return;
                 }
-            } else if (aTO.eqN != null) {
-                aTO.eqN.num++;
+            } else if (aUo.etX != null) {
+                aUo.etX.num++;
                 if (z2) {
-                    aTO.eqN.eqJ += j3;
-                    aTO.eqN.size += j;
+                    aUo.etX.etT += j3;
+                    aUo.etX.size += j;
                     j2 = j3;
                 } else {
-                    aTO.eqN.eqK++;
+                    aUo.etX.etU++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.eqE = null;
+            this.etO = null;
             if (z2) {
-                c.a(aTO, 10);
+                c.a(aUo, 10);
             }
-            if (this.eqH == "frsStat") {
+            if (this.etR == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
-                    dVar.r("act", "frs");
-                    dVar.r("result", z2 ? "0" : "1");
-                    dVar.r("isHttp", z ? "1" : "0");
-                    dVar.r("timeCost", String.valueOf(j2));
-                    dVar.r("errCode", String.valueOf(i));
-                    dVar.r("errMsg", str);
-                    dVar.r("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.hz().b("frs", dVar);
+                    dVar.q("act", "frs");
+                    dVar.q("result", z2 ? "0" : "1");
+                    dVar.q("isHttp", z ? "1" : "0");
+                    dVar.q("timeCost", String.valueOf(j2));
+                    dVar.q("errCode", String.valueOf(i));
+                    dVar.q("errMsg", str);
+                    dVar.q("down", String.valueOf(j));
+                    com.baidu.adp.lib.stats.a.dN().b("frs", dVar);
                 }
             }
         }
     }
 
     public void destory() {
-        f aTO;
-        if (this.eqE != null && (aTO = aTO()) != null && aTO.eqO != null) {
-            long hQ = this.eqE.hQ();
-            if (hQ > 3000) {
-                e eVar = aTO.eqO;
-                eVar.eqJ = hQ + eVar.eqJ;
-                aTO.eqO.num++;
-                c.a(aTO, 10);
+        f aUo;
+        if (this.etO != null && (aUo = aUo()) != null && aUo.etY != null) {
+            long ee = this.etO.ee();
+            if (ee > 3000) {
+                e eVar = aUo.etY;
+                eVar.etT = ee + eVar.etT;
+                aUo.etY.num++;
+                c.a(aUo, 10);
             }
         }
     }
 
-    private f aTO() {
-        return c.i(this.eqH, getNetType(), this.adE);
+    private f aUo() {
+        return c.i(this.etR, getNetType(), this.Zc);
     }
 
     private String getNetType() {
-        int jl = i.jl();
-        if (jl == 0) {
+        int fw = i.fw();
+        if (fw == 0) {
             return "N";
         }
-        if (jl == 1) {
+        if (fw == 1) {
             return "WIFI";
         }
-        if (jl == 3) {
+        if (fw == 3) {
             return "3G";
         }
-        if (jl != 2) {
+        if (fw != 2) {
             return "N";
         }
         return "2G";

@@ -68,7 +68,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         ArrayList<com.baidu.tbadk.core.util.aj> arrayList = new ArrayList<>();
         com.baidu.tbadk.core.util.aj ajVar = new com.baidu.tbadk.core.util.aj();
         ajVar.imgUrl = getPortrait();
-        ajVar.abD = 12;
+        ajVar.Xc = 12;
         arrayList.add(ajVar);
         return arrayList;
     }

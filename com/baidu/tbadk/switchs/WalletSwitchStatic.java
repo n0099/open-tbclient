@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class WalletSwitchStatic extends a {
     static {
-        e.gE().f(WalletSwitchStatic.class);
+        e.cS().f(WalletSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -10,18 +10,18 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.flow.b {
     @Override // com.baidu.tbadk.core.flow.b
-    public c uB() {
+    public c sg() {
         c cVar = new c();
-        cVar.ct(t.f.icon_banner_n);
-        cVar.cu(t.f.icon_banner_s);
+        cVar.ce(t.f.icon_banner_n);
+        cVar.cf(t.f.icon_banner_s);
         cVar.setSpacing(t.e.square_indicator_spacing);
         cVar.setGravity(81);
-        cVar.cv(t.e.ds22);
+        cVar.cg(t.e.ds22);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView K(Context context) {
+    public TbImageView J(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
@@ -29,9 +29,9 @@ public class b implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public e uC() {
+    public e sh() {
         e eVar = new e();
-        Resources resources = TbadkCoreApplication.m411getInst().getResources();
+        Resources resources = TbadkCoreApplication.m11getInst().getResources();
         if (resources != null) {
             eVar.setHeight(resources.getDimensionPixelSize(t.e.ds330));
         }
@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View uD() {
+    public View si() {
         return null;
     }
 }

@@ -1,93 +1,69 @@
 package com.baidu.tieba.frs;
 
 import android.app.Activity;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsMoreFeedForumsConfig;
+import android.os.Handler;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
-import java.io.Serializable;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca implements View.OnClickListener {
-    final /* synthetic */ bz bnj;
+public class ca extends com.baidu.adp.base.g {
+    final /* synthetic */ by biM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bz bzVar) {
-        this.bnj = bzVar;
+    public ca(by byVar) {
+        this.biM = byVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.x xVar2;
+        com.baidu.tieba.tbadkCore.x xVar3;
         List list;
         List list2;
-        String str;
         int i;
-        int i2;
-        String str2;
-        String str3;
-        FeedForumData feedForumData;
-        com.baidu.tieba.tbadkCore.w wVar;
-        int i3;
-        String str4;
-        if (view.getId() == t.g.frs_feed_forum_attention) {
-            if (this.bnj.mTbPageContext.getOrignalPage().checkUpIsLogin() && (feedForumData = (FeedForumData) view.getTag()) != null) {
-                wVar = this.bnj.MY;
-                wVar.bC(feedForumData.getForumName(), feedForumData.getForumId());
-                i3 = this.bnj.mType;
-                if (i3 == 1) {
-                    str4 = "c10028";
-                } else {
-                    str4 = "c10040";
-                }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str4).ac("fid", feedForumData.getForumId()));
-            }
-        } else if (view.getId() != t.g.like_feed_forums_arrow) {
-            if (view.getId() == t.g.frs_like_feed_forum_item) {
-                FeedForumData feedForumData2 = (FeedForumData) view.getTag();
-                if (feedForumData2 != null) {
-                    String str5 = "";
-                    i = this.bnj.mType;
-                    if (i == 1) {
-                        str5 = FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND;
-                    }
-                    this.bnj.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bnj.mTbPageContext.getPageActivity()).createNormalCfg(feedForumData2.getForumName(), str5)));
-                    i2 = this.bnj.mType;
-                    if (i2 == 2) {
-                        str2 = "c10042";
-                    } else {
-                        str2 = "c10030";
-                    }
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str2).ac("fid", feedForumData2.getForumId()));
-                    return;
-                }
-                return;
-            }
-            int id = view.getId();
-            textView = this.bnj.bne;
-            if (id == textView.getId()) {
-                list = this.bnj.bnh;
-                if (com.baidu.tbadk.core.util.y.p(list) > 0) {
-                    Activity pageActivity = this.bnj.mTbPageContext.getPageActivity();
-                    list2 = this.bnj.bnh;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FrsMoreFeedForumsConfig(pageActivity, (Serializable) list2)));
-                    com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10046");
-                    str = this.bnj.mForumId;
-                    TiebaStatic.log(awVar.ac("fid", str));
-                }
+        Handler handler;
+        com.baidu.tieba.tbadkCore.x xVar4;
+        xVar = this.biM.Dp;
+        if (AntiHelper.pw(xVar.getErrorCode())) {
+            Activity pageActivity = this.biM.mTbPageContext.getPageActivity();
+            xVar4 = this.biM.Dp;
+            AntiHelper.O(pageActivity, xVar4.getErrorString());
+        } else if (obj == null) {
+            xVar2 = this.biM.Dp;
+            if (!StringUtils.isNull(xVar2.getErrorString())) {
+                TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
+                xVar3 = this.biM.Dp;
+                com.baidu.adp.lib.util.k.showToast(m11getInst, xVar3.getErrorString());
             }
         } else {
-            this.bnj.Hl();
-            com.baidu.tbadk.core.util.aw awVar2 = new com.baidu.tbadk.core.util.aw("c10029");
-            str3 = this.bnj.mForumId;
-            TiebaStatic.log(awVar2.ac("fid", str3));
+            com.baidu.tieba.tbadkCore.y yVar = (com.baidu.tieba.tbadkCore.y) obj;
+            list = this.biM.biJ;
+            if (com.baidu.tbadk.core.util.y.r(list) > 0 && yVar != null) {
+                list2 = this.biM.biI;
+                Iterator it = list2.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    ce ceVar = (ce) it.next();
+                    FeedForumData feedForumData = (FeedForumData) ceVar.biS.getTag();
+                    if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(yVar.getFid())) {
+                        feedForumData.setIsLike(1);
+                        this.biM.a(ceVar);
+                        break;
+                    }
+                }
+                i = this.biM.mType;
+                if (i == 1) {
+                    handler = this.biM.mHandler;
+                    handler.postDelayed(new cb(this, yVar), 1000L);
+                }
+            }
         }
     }
 }

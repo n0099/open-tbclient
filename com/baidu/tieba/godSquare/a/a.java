@@ -6,29 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.card.b.a bKa;
-    private d bKb;
-    private b bKc;
-    private List<com.baidu.adp.widget.ListView.a> bcG = new ArrayList();
-    private BdTypeListView bcd;
+    private com.baidu.tieba.card.b.a bKg;
+    private d bKh;
+    private b bKi;
+    private List<com.baidu.adp.widget.ListView.a> bei = new ArrayList();
+    private BdTypeListView bej;
 
-    public List<com.baidu.adp.widget.ListView.a> Yd() {
-        return this.bcG;
+    public List<com.baidu.adp.widget.ListView.a> Pb() {
+        return this.bei;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.bcd = bdTypeListView;
-        this.bKa = new com.baidu.tieba.card.b.a(tbPageContext);
-        this.bKb = new d(tbPageContext);
-        this.bKc = new b(tbPageContext);
-        this.bcG.add(this.bKa);
-        this.bcG.add(this.bKb);
-        this.bcG.add(this.bKc);
+        this.bej = bdTypeListView;
+        this.bKg = new com.baidu.tieba.card.b.a(tbPageContext);
+        this.bKh = new d(tbPageContext);
+        this.bKi = new b(tbPageContext);
+        this.bei.add(this.bKg);
+        this.bei.add(this.bKh);
+        this.bei.add(this.bKi);
     }
 
     public void notifyDataSetChanged() {
-        if (this.bcd != null && (this.bcd.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
-            ((com.baidu.adp.widget.ListView.e) this.bcd.getAdapter()).notifyDataSetChanged();
+        if (this.bej != null && (this.bej.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            ((com.baidu.adp.widget.ListView.e) this.bej.getAdapter()).notifyDataSetChanged();
         }
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.write.album.AlbumActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ AlbumActivity.a eGQ;
+    final /* synthetic */ AlbumActivity.a eXK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AlbumActivity.a aVar) {
-        this.eGQ = aVar;
+        this.eXK = aVar;
     }
 
     @Override // android.view.View.OnClickListener

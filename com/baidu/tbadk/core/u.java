@@ -17,19 +17,19 @@ public class u implements k.a {
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public void aY(String str) {
-        if (jC() instanceof TextView) {
-            ((TextView) jC()).setText(str);
+    public void aR(String str) {
+        if (fN() instanceof TextView) {
+            ((TextView) fN()).setText(str);
         }
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public View jC() {
+    public View fN() {
         View view;
         View view2;
         view = this.this$0.mCustomToastView;
         if (view == null) {
-            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m411getInst()).inflate(t.h.custom_toast_textview, (ViewGroup) null);
+            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m11getInst()).inflate(t.h.custom_toast_textview, (ViewGroup) null);
         }
         view2 = this.this$0.mCustomToastView;
         return view2;

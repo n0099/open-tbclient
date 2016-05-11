@@ -1,65 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tieba.t;
+import com.baidu.adp.lib.f.b;
 /* loaded from: classes.dex */
-class fw implements com.baidu.adp.lib.f.c<TextView> {
-    final /* synthetic */ TabMenuPopView brX;
+class fw implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ TabMenuPopView bny;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fw(TabMenuPopView tabMenuPopView) {
-        this.brX = tabMenuPopView;
+        this.bny = tabMenuPopView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Jb */
-    public TextView hq() {
-        Context context;
-        Context context2;
-        context = this.brX.mContext;
-        TextView textView = new TextView(context);
-        context2 = this.brX.mContext;
-        textView.setTextSize(0, com.baidu.adp.lib.util.k.c(context2, t.e.fontsize28));
-        com.baidu.tbadk.core.util.at.k(textView, t.f.bg_tab_meun);
-        com.baidu.tbadk.core.util.at.b(textView, t.d.cp_cont_f, 1);
-        textView.setGravity(17);
-        textView.setOnClickListener(this.brX);
-        return textView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public void l(TextView textView) {
-        if (textView != null) {
-            textView.setText("");
-            textView.setTag(null);
-            textView.setSelected(false);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        b bVar;
+        if (view2 instanceof TextView) {
+            bVar = this.bny.aEJ;
+            bVar.k((TextView) view2);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: e */
-    public TextView m(TextView textView) {
-        if (textView != null) {
-            com.baidu.tbadk.core.util.at.k(textView, t.f.bg_tab_meun);
-            com.baidu.tbadk.core.util.at.b(textView, t.d.cp_cont_f, 1);
-        }
-        return textView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: f */
-    public TextView n(TextView textView) {
-        if (textView != null) {
-            textView.setText("");
-            textView.setTag(null);
-            textView.setSelected(false);
-        }
-        return textView;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

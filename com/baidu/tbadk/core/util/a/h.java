@@ -6,20 +6,20 @@ import java.net.URL;
 import java.net.UnknownHostException;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    private final /* synthetic */ URL adA;
-    final /* synthetic */ f adz;
+    final /* synthetic */ f YX;
+    private final /* synthetic */ URL YY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, URL url) {
-        this.adz = fVar;
-        this.adA = url;
+        this.YX = fVar;
+        this.YY = url;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            BdLog.i("testcdn" + this.adA.getHost());
-            InetAddress.getByName(this.adA.getHost()).getHostAddress();
+            BdLog.i("testcdn" + this.YY.getHost());
+            InetAddress.getByName(this.YY.getHost()).getHostAddress();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

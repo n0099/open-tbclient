@@ -43,6 +43,8 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String REPLY_SUB_PB = "reply_sub_pb";
     public static final String SUB_USER_NAME = "sub_user_name";
     public static final String THREAD_ID = "thread_id";
+    public static final String TOGETHERHI_DATA = "togetherhi_data";
+    public static final String TOGETHERHI_SHOW = "togetherhi_show";
     public static final String TYPE = "type";
     public static final String VCODE_FEED_BACK = "vcode_feed_back";
     public static final String WRITE_IMAGES = "write_images";

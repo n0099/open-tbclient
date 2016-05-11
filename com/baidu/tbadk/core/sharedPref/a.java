@@ -4,15 +4,15 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
-    public static String YY = TbConfig.MAIN_PACKAGE_NAME;
-    public static String YZ = "com.baidu.tieba:remote";
-    public static String Za = "com.baidu.tieba:bdservice_v1";
-    public static String Zb = "com.baidu.tieba:pluginInstaller";
-    public static String Zc = "com.baidu.tieba:daemon";
-    public static String Zd = "com.baidu.tieba:cdnTachometer";
-    public static String Ze = "plugininstaller_settings";
-    public static String Zf = "daemon_settings";
-    public static String Zg = "cdnTachometer_settings";
-    public static final String[] Zh = {"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", SocialConstants.PARAM_CUID, "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "log_stat_traffic_time", "log_stat_traffic_network_type", "log_stat_traffic_front_background", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost"};
-    public static final String[] Zi = new String[0];
+    public static String Uo = TbConfig.MAIN_PACKAGE_NAME;
+    public static String Up = "com.baidu.tieba:remote";
+    public static String Uq = "com.baidu.tieba:bdservice_v1";
+    public static String Ur = "com.baidu.tieba:pluginInstaller";
+    public static String Us = "com.baidu.tieba:daemon";
+    public static String Ut = "com.baidu.tieba:cdnTachometer";
+    public static String Uu = "plugininstaller_settings";
+    public static String Uv = "daemon_settings";
+    public static String Uw = "cdnTachometer_settings";
+    public static final String[] Ux = {"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", SocialConstants.PARAM_CUID, "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "log_stat_traffic_time", "log_stat_traffic_network_type", "log_stat_traffic_front_background", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost"};
+    public static final String[] Uy = new String[0];
 }

@@ -3,15 +3,15 @@ package com.baidu.tbadk.core;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class f implements DialogInterface.OnCancelListener {
-    final /* synthetic */ BaseFragmentActivity QU;
+    final /* synthetic */ BaseFragmentActivity LK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BaseFragmentActivity baseFragmentActivity) {
-        this.QU = baseFragmentActivity;
+        this.LK = baseFragmentActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.QU.mWaitingDialog = null;
+        this.LK.mWaitingDialog = null;
     }
 }

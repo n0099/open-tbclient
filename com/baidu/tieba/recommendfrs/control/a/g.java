@@ -17,17 +17,17 @@ import java.util.ArrayList;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
-    private boolean bsB;
-    private boolean bsC;
-    private com.baidu.adp.framework.listener.a cIL;
-    private a dWd;
-    private String dWe;
-    private String dWf;
-    private ArrayList<String> dWg;
-    private int dWh;
-    private CustomMessageListener dWi;
-    private CustomMessageListener dWj;
-    private CustomMessageListener dWk;
+    private boolean bri;
+    private boolean brj;
+    private com.baidu.adp.framework.listener.a cJp;
+    private a dZn;
+    private String dZo;
+    private String dZp;
+    private ArrayList<String> dZq;
+    private int dZr;
+    private CustomMessageListener dZs;
+    private CustomMessageListener dZt;
+    private CustomMessageListener dZu;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -38,24 +38,24 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
 
     public g(com.baidu.adp.base.h<BaseFragmentActivity> hVar, BdUniqueId bdUniqueId) {
         super(hVar);
-        this.cIL = new h(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
-        this.bsB = false;
-        this.bsC = false;
-        this.dWh = 0;
-        this.dWi = new i(this, CmdConfigCustom.CMD_SET_NU_SEX_GUIDE);
-        this.dWj = new j(this, CmdConfigCustom.CMD_SET_NU_AGE_GUIDE);
-        this.dWk = new k(this, CmdConfigCustom.CMD_SET_INTEREST_GUIDE);
+        this.cJp = new h(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.bri = false;
+        this.brj = false;
+        this.dZr = 0;
+        this.dZs = new i(this, CmdConfigCustom.CMD_SET_NU_SEX_GUIDE);
+        this.dZt = new j(this, CmdConfigCustom.CMD_SET_NU_AGE_GUIDE);
+        this.dZu = new k(this, CmdConfigCustom.CMD_SET_INTEREST_GUIDE);
         setUniqueId(bdUniqueId);
-        Mc();
-        Mb();
-        registerListener(this.cIL);
-        registerListener(this.dWi);
-        registerListener(this.dWj);
-        registerListener(this.dWk);
+        KL();
+        KK();
+        registerListener(this.cJp);
+        registerListener(this.dZs);
+        registerListener(this.dZt);
+        registerListener(this.dZu);
     }
 
     public void a(a aVar) {
-        this.dWd = aVar;
+        this.dZn = aVar;
     }
 
     public void a(int i, boolean z, int i2, int i3, int i4, int i5) {
@@ -68,13 +68,13 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         recPersonalizeRequest.setPn(i4);
         recPersonalizeRequest.setSuggestCount(i5);
         recPersonalizeRequest.setTagCode(i2);
-        if ((!StringUtils.isNull(this.dWe) || !StringUtils.isNull(this.dWf)) && !com.baidu.tbadk.core.sharedPref.b.vk().getBoolean("close_new_user_guide_tip", false)) {
-            recPersonalizeRequest.setSexTag(this.dWe);
-            recPersonalizeRequest.seAgeTag(this.dWf);
-        } else if (this.dWg != null) {
-            recPersonalizeRequest.setInterestGuideTag(this.dWg);
+        if ((!StringUtils.isNull(this.dZo) || !StringUtils.isNull(this.dZp)) && !com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("close_new_user_guide_tip", false)) {
+            recPersonalizeRequest.setSexTag(this.dZo);
+            recPersonalizeRequest.seAgeTag(this.dZp);
+        } else if (this.dZq != null) {
+            recPersonalizeRequest.setInterestGuideTag(this.dZq);
         }
-        recPersonalizeRequest.setTagType(this.dWh);
+        recPersonalizeRequest.setTagType(this.dZr);
         sendMessage(recPersonalizeRequest);
     }
 
@@ -90,15 +90,15 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    private void Mb() {
+    private void KK() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.h(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void Mc() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.au(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+    private void KL() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.ay(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -106,25 +106,25 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(ResponsedMessage<?> responsedMessage) {
-        if (!this.bsC) {
-            this.bsC = true;
+        if (!this.brj) {
+            this.brj = true;
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.fh(1005);
+            nVar.eM(1005);
             nVar.pageType = 1;
-            nVar.aBH = false;
+            nVar.axK = false;
             nVar.isSuccess = responsedMessage.hasError() ? false : true;
-            nVar.aBv = responsedMessage.performanceData.qH;
-            nVar.aBw = responsedMessage.performanceData.qI;
-            nVar.aBx = responsedMessage.performanceData.qJ;
-            nVar.oL = responsedMessage.performanceData.qK;
-            nVar.oM = responsedMessage.performanceData.qL;
-            nVar.aBy = responsedMessage.performanceData.qM;
-            nVar.aBz = responsedMessage.performanceData.qN;
-            nVar.aBA = responsedMessage.performanceData.qO;
-            nVar.aBA += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
-            nVar.aBF = responsedMessage.getDownSize();
+            nVar.axy = responsedMessage.performanceData.gv;
+            nVar.axz = responsedMessage.performanceData.gw;
+            nVar.axA = responsedMessage.performanceData.gx;
+            nVar.eD = responsedMessage.performanceData.gy;
+            nVar.eE = responsedMessage.performanceData.gz;
+            nVar.axB = responsedMessage.performanceData.gA;
+            nVar.axC = responsedMessage.performanceData.gB;
+            nVar.axD = responsedMessage.performanceData.gC;
+            nVar.axD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            nVar.axI = responsedMessage.getDownSize();
             nVar.errCode = responsedMessage.getError();
-            nVar.aBG = 0L;
+            nVar.axJ = 0L;
             nVar.sequenceID = ((RecPersonalizeSocketResponse) responsedMessage).sequenceID;
             d(nVar);
         }
@@ -132,42 +132,42 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(ResponsedMessage<?> responsedMessage) {
-        if (!this.bsC) {
-            this.bsC = true;
+        if (!this.brj) {
+            this.brj = true;
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.fh(1005);
+            nVar.eM(1005);
             nVar.pageType = 1;
-            nVar.aBH = true;
+            nVar.axK = true;
             nVar.isSuccess = responsedMessage.hasError() ? false : true;
-            nVar.aBv = responsedMessage.performanceData.qH;
-            nVar.aBw = responsedMessage.performanceData.qI;
-            nVar.aBx = responsedMessage.performanceData.qJ;
-            nVar.oL = responsedMessage.performanceData.qK;
-            nVar.oM = responsedMessage.performanceData.qL;
-            nVar.aBy = responsedMessage.performanceData.qM;
-            nVar.aBz = responsedMessage.performanceData.qN;
-            nVar.aBA = responsedMessage.performanceData.qO;
-            nVar.aBA += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
-            nVar.aBI = responsedMessage.performanceData.qR;
-            nVar.aBJ = responsedMessage.performanceData.qS;
-            nVar.aBF = 0L;
-            nVar.aBG = responsedMessage.getDownSize();
-            nVar.socketErrNo = responsedMessage.performanceData.qP;
-            nVar.socketCostTime = responsedMessage.performanceData.qQ;
+            nVar.axy = responsedMessage.performanceData.gv;
+            nVar.axz = responsedMessage.performanceData.gw;
+            nVar.axA = responsedMessage.performanceData.gx;
+            nVar.eD = responsedMessage.performanceData.gy;
+            nVar.eE = responsedMessage.performanceData.gz;
+            nVar.axB = responsedMessage.performanceData.gA;
+            nVar.axC = responsedMessage.performanceData.gB;
+            nVar.axD = responsedMessage.performanceData.gC;
+            nVar.axD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            nVar.axL = responsedMessage.performanceData.gF;
+            nVar.axM = responsedMessage.performanceData.gG;
+            nVar.axI = 0L;
+            nVar.axJ = responsedMessage.getDownSize();
+            nVar.socketErrNo = responsedMessage.performanceData.gD;
+            nVar.socketCostTime = responsedMessage.performanceData.gE;
             nVar.errCode = responsedMessage.getError();
-            nVar.aBL = responsedMessage.getOrginalMessage().getClientLogID();
+            nVar.axO = responsedMessage.getOrginalMessage().getClientLogID();
             d(nVar);
         }
     }
 
     public void d(com.baidu.tbadk.performanceLog.v vVar) {
-        if (vVar != null && com.baidu.tieba.recommendfrs.a.aLJ().getCreateTime() > 0) {
-            long ov = com.baidu.tieba.recommendfrs.a.aLJ().ov(1);
-            vVar.aBu = com.baidu.tieba.recommendfrs.a.aLJ().getCreateTime();
-            vVar.aBB = com.baidu.tieba.recommendfrs.a.aLJ().ou(1);
-            vVar.aBC = ov + vVar.aBu;
-            vVar.GP();
-            com.baidu.tieba.recommendfrs.a.aLJ().setCreateTime(0L);
+        if (vVar != null && com.baidu.tieba.recommendfrs.a.aLN().getCreateTime() > 0) {
+            long ol = com.baidu.tieba.recommendfrs.a.aLN().ol(1);
+            vVar.axx = com.baidu.tieba.recommendfrs.a.aLN().getCreateTime();
+            vVar.axE = com.baidu.tieba.recommendfrs.a.aLN().ok(1);
+            vVar.axF = ol + vVar.axx;
+            vVar.EH();
+            com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(0L);
         }
     }
 }

@@ -7,23 +7,23 @@ import com.baidu.tbadk.editortools.aa;
 public class b extends aa {
     public b(Context context) {
         super(context, (String) null, 11);
-        this.toolNeedAction = true;
-        this.toolPosition = 6;
-        this.toolView = c.f(context, 10);
-        this.toolLaunchAction = new int[]{12, 13, 9};
+        this.aqp = true;
+        this.aqo = 6;
+        this.aps = c.f(context, 10);
+        this.aqq = new int[]{12, 13, 9};
     }
 
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.toolNeedAction = true;
-        this.toolPosition = 6;
-        this.toolView = c.f(context, i);
-        this.toolLaunchAction = new int[]{12, 13, 9};
+        this.aqp = true;
+        this.aqo = 6;
+        this.aps = c.f(context, i);
+        this.aqq = new int[]{12, 13, 9};
     }
 
-    public void eH(int i) {
-        if (this.toolView != null) {
-            MultiImgToolView multiImgToolView = (MultiImgToolView) this.toolView;
+    public void en(int i) {
+        if (this.aps != null) {
+            MultiImgToolView multiImgToolView = (MultiImgToolView) this.aps;
             if (i == 1) {
                 multiImgToolView.getDragHorizonScrollView().setCenterStart(true);
             } else {
@@ -33,16 +33,16 @@ public class b extends aa {
         }
     }
 
-    public void fr(String str) {
+    public void fo(String str) {
         TextView mutiImageTips;
-        if (this.toolView != null && (mutiImageTips = ((MultiImgToolView) this.toolView).getMutiImageTips()) != null) {
+        if (this.aps != null && (mutiImageTips = ((MultiImgToolView) this.aps).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void fs(String str) {
-        if (this.toolView instanceof MultiImgToolView) {
-            ((MultiImgToolView) this.toolView).setNoPicTips(str);
+    public void fp(String str) {
+        if (this.aps instanceof MultiImgToolView) {
+            ((MultiImgToolView) this.aps).setNoPicTips(str);
         }
     }
 }

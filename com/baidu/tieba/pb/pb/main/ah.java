@@ -1,65 +1,62 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.baseEditMark.a;
-import com.baidu.tieba.t;
-import java.text.MessageFormat;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-class ah implements a.InterfaceC0041a {
-    final /* synthetic */ PbActivity dht;
+class ah implements TbRichTextView.d {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbActivity pbActivity) {
-        this.dht = pbActivity;
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0041a
-    public void a(boolean z, boolean z2, String str) {
-        eu euVar;
-        com.baidu.tbadk.baseEditMark.a aVar;
-        df dfVar;
-        df dfVar2;
-        eu euVar2;
-        df dfVar3;
-        com.baidu.tbadk.baseEditMark.a aVar2;
-        com.baidu.tbadk.baseEditMark.a aVar3;
-        com.baidu.tbadk.baseEditMark.a aVar4;
-        euVar = this.dht.dgF;
-        euVar.ayH();
-        if (z) {
-            aVar = this.dht.cOZ;
-            if (aVar != null) {
-                aVar4 = this.dht.cOZ;
-                aVar4.X(z2);
-            }
-            dfVar = this.dht.dfV;
-            dfVar.gd(z2);
-            dfVar2 = this.dht.dfV;
-            if (!dfVar2.pu()) {
-                euVar2 = this.dht.dgF;
-                dfVar3 = this.dht.dfV;
-                euVar2.j(dfVar3.getPbData());
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
+    public void a(View view, String str, int i) {
+        cw cwVar;
+        cw cwVar2;
+        cw cwVar3;
+        cw cwVar4;
+        try {
+            TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pic_pb", "");
+            PbActivity.b bVar = new PbActivity.b();
+            this.djE.a(str, i, bVar);
+            if (!bVar.djV) {
+                cwVar3 = this.djE.dih;
+                boolean axL = cwVar3.axL();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.djT;
+                cwVar4 = this.djE.dih;
+                ImageViewerConfig createConfig = new ImageViewerConfig(this.djE.getPageContext().getPageActivity()).createConfig(bVar.djS, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.djU, bVar.djS.get(0), axL, concurrentHashMap, true, false, cwVar4.getHostMode());
+                createConfig.getIntent().putExtra("from", "pb");
+                this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
             } else {
-                this.dht.awv();
+                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.djE.getPageContext().getPageActivity());
+                ArrayList<String> arrayList = bVar.djS;
+                int i2 = bVar.index;
+                String str2 = bVar.forumName;
+                String str3 = bVar.forumId;
+                String str4 = bVar.threadId;
+                boolean z = bVar.djU;
+                String str5 = bVar.lastId;
+                cwVar = this.djE.dih;
+                boolean axL2 = cwVar.axL();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.djT;
+                cwVar2 = this.djE.dih;
+                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, axL2, concurrentHashMap2, true, false, cwVar2.getHostMode());
+                createConfig2.getIntent().putExtra("from", "pb");
+                this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
             }
-            if (z2) {
-                aVar2 = this.dht.cOZ;
-                if (aVar2 != null) {
-                    aVar3 = this.dht.cOZ;
-                    MarkData px = aVar3.px();
-                    if (px != null) {
-                        this.dht.showToast(MessageFormat.format(this.dht.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(px.getFloor())));
-                        return;
-                    } else {
-                        this.dht.showToast(this.dht.getPageContext().getString(t.j.add_mark));
-                        return;
-                    }
-                }
-                return;
-            }
-            this.dht.showToast(this.dht.getPageContext().getString(t.j.remove_mark));
-            return;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.dht.showToast(this.dht.getPageContext().getString(t.j.update_mark_failed));
     }
 }

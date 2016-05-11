@@ -3,17 +3,17 @@ package com.baidu.adp.lib.h;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    private final /* synthetic */ Animation wA;
-    final /* synthetic */ d wz;
+    final /* synthetic */ d mt;
+    private final /* synthetic */ Animation mu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, Animation animation) {
-        this.wz = dVar;
-        this.wA = animation;
+        this.mt = dVar;
+        this.mu = animation;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.wz.a(this.wA);
+        this.mt.a(this.mu);
     }
 }

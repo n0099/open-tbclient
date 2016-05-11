@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.ReadPbServiceConfig;
 /* loaded from: classes.dex */
 public class PbReadServiceStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(ReadPbServiceConfig.class, ReaderPbService.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(ReadPbServiceConfig.class, ReaderPbService.class);
     }
 }

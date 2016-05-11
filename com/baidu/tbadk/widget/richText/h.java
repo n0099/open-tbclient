@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String aIz;
+    private String aEz;
     private int mType;
     private String mUrl;
 
@@ -34,8 +34,8 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gt(String str) {
-        this.aIz = str;
+    public void gu(String str) {
+        this.aEz = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -46,7 +46,7 @@ public class h extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aIz)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aEz)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
@@ -55,25 +55,25 @@ public class h extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    mVar.z(pageActivity, str);
-                    return;
-                case 16:
-                    mVar.y(pageActivity, str);
-                    return;
-                case 32:
                     mVar.A(pageActivity, str);
                     return;
-                case 64:
+                case 16:
+                    mVar.z(pageActivity, str);
+                    return;
+                case 32:
                     mVar.B(pageActivity, str);
                     return;
-                case 128:
+                case 64:
                     mVar.C(pageActivity, str);
+                    return;
+                case 128:
+                    mVar.D(pageActivity, str);
                     return;
                 case 256:
                     mVar.d(pageActivity, str, str2);
                     return;
                 case 1024:
-                    mVar.D(pageActivity, str);
+                    mVar.E(pageActivity, str);
                     return;
                 default:
                     return;

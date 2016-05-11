@@ -13,37 +13,37 @@ import android.widget.TextView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout aqr;
-    protected TextView aqs;
-    protected TextView aqt;
-    private boolean aqv;
-    protected ImageView aqw;
+    protected LinearLayout amf;
+    protected TextView amg;
+    protected TextView amh;
+    private boolean amj;
+    protected ImageView amk;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aqv = true;
+        this.amj = true;
         this.mContext = context;
-        BO();
+        zI();
         d(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.aqv = true;
+        this.amj = true;
         this.mContext = context;
-        BO();
+        zI();
     }
 
     public void displayTip() {
-        if (this.aqt != null) {
-            this.aqt.setVisibility(0);
+        if (this.amh != null) {
+            this.amh.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.aqt != null) {
-            this.aqt.setTextColor(i);
+        if (this.amh != null) {
+            this.amh.setTextColor(i);
         }
     }
 
@@ -51,10 +51,10 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void e(int i, int i2, int i3, int i4) {
-        if (this.aqt != null) {
+        if (this.amh != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.aqt.setLayoutParams(layoutParams);
+            this.amh.setLayoutParams(layoutParams);
         }
     }
 
@@ -62,35 +62,35 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.aqw.setVisibility(8);
+        this.amk.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aqs.setText(str);
+        this.amg.setText(str);
     }
 
     public void setText(int i) {
-        this.aqs.setText(i);
+        this.amg.setText(i);
     }
 
     public void setTip(String str) {
-        this.aqt.setText(str);
+        this.amh.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.aqt.getText();
+        return this.amh.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.aqt.setBackgroundDrawable(drawable);
+        this.amh.setBackgroundDrawable(drawable);
     }
 
-    protected void BO() {
+    protected void zI() {
         LayoutInflater.from(this.mContext).inflate(t.h.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.aqr = (LinearLayout) findViewById(t.g.container);
-        this.aqs = (TextView) findViewById(t.g.text);
-        this.aqt = (TextView) findViewById(t.g.tip);
-        this.aqw = (ImageView) findViewById(t.g.arrow2);
+        this.amf = (LinearLayout) findViewById(t.g.container);
+        this.amg = (TextView) findViewById(t.g.text);
+        this.amh = (TextView) findViewById(t.g.tip);
+        this.amk = (ImageView) findViewById(t.g.arrow2);
     }
 
     protected void d(AttributeSet attributeSet) {
@@ -99,18 +99,18 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(0);
             String string2 = obtainStyledAttributes.getString(3);
             if (string != null) {
-                this.aqs.setText(string);
+                this.amg.setText(string);
             }
             if (string2 != null) {
-                this.aqt.setText(string2);
+                this.amh.setText(string2);
             }
-            this.aqv = obtainStyledAttributes.getBoolean(5, true);
+            this.amj = obtainStyledAttributes.getBoolean(5, true);
             obtainStyledAttributes.recycle();
         }
-        this.aqr.setClickable(false);
-        this.aqr.setFocusable(false);
-        if (!this.aqv) {
-            this.aqw.setVisibility(4);
+        this.amf.setClickable(false);
+        this.amf.setFocusable(false);
+        if (!this.amj) {
+            this.amk.setVisibility(4);
         }
     }
 }

@@ -1,26 +1,50 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.crash.BdNativeCrash;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.List;
 /* loaded from: classes.dex */
-public class n extends CustomMessageListener {
-    final /* synthetic */ m aDW;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(m mVar, int i) {
-        super(i);
-        this.aDW = mVar;
+class n implements BdNativeCrash.NativeCrashCallback {
+    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
+    public void onNativeCrashed(int i, int i2, int i3, String str) {
+        v vVar = new v();
+        Thread thread = new Thread();
+        thread.setName("NativeCrashThread");
+        vVar.a(thread, (Throwable) new Exception(str), true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
-            return;
+    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
+    public boolean onSoFound(String str) {
+        List list;
+        List list2;
+        boolean gl;
+        boolean gm;
+        boolean aq;
+        List list3;
+        try {
+            list2 = l.aAc;
+            if (list2.indexOf(str) >= 0) {
+                return false;
+            }
+            gl = l.gl(str);
+            if (gl) {
+                return true;
+            }
+            gm = l.gm(str);
+            if (gm) {
+                return true;
+            }
+            aq = l.aq(str, TbadkCoreApplication.m11getInst().getApp().getApplicationInfo().sourceDir);
+            if (aq) {
+                return true;
+            }
+            list3 = l.aAc;
+            list3.add(str);
+            return false;
+        } catch (Throwable th) {
+            list = l.aAc;
+            list.add(str);
+            return false;
         }
-        this.aDW.Hy();
     }
 }

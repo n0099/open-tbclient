@@ -1,37 +1,15 @@
 package com.baidu.tieba.person.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class d {
-    public int dwj;
-    public String dwk;
-    public int mType;
+public class d implements v {
+    public static final BdUniqueId dzl = BdUniqueId.gen();
+    public ArrayList<e> dzm = new ArrayList<>();
 
-    public d(int i) {
-        this.mType = i;
-        mE(i);
-    }
-
-    private void mE(int i) {
-        switch (i) {
-            case 0:
-                this.dwk = "我的好友";
-                return;
-            case 1:
-                this.dwk = "我的收藏";
-                return;
-            case 2:
-                this.dwk = "浏览历史";
-                return;
-            case 3:
-                this.dwk = "我的粉丝";
-                return;
-            case 4:
-                this.dwk = "关注的人";
-                return;
-            case 5:
-                this.dwk = "好友动态";
-                return;
-            default:
-                return;
-        }
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return dzl;
     }
 }

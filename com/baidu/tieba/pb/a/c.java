@@ -1,85 +1,61 @@
 package com.baidu.tieba.pb.a;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a ddl;
-    private View ddm;
-    private GestureDetector mGestureDetector = new GestureDetector(this);
-
-    /* loaded from: classes.dex */
-    public interface a {
-        boolean a(View view, MotionEvent motionEvent);
-
-        boolean b(View view, MotionEvent motionEvent);
-
-        boolean c(View view, MotionEvent motionEvent);
-    }
-
-    public c(a aVar) {
-        this.ddl = aVar;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.ddm = view;
-        if (this.mGestureDetector != null) {
-            return this.mGestureDetector.onTouchEvent(motionEvent);
+public class c {
+    public static String avW() {
+        int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
+        if (fontSize == 0) {
+            return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_xlarge);
         }
-        return true;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.ddl != null) {
-            return this.ddl.a(this.ddm, motionEvent);
+        if (fontSize == 1) {
+            return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_big);
         }
-        return false;
+        if (fontSize == 2) {
+            return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_mid);
+        }
+        return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_small);
     }
 
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.ddl != null) {
-            return this.ddl.b(this.ddm, motionEvent);
+    public static void avX() {
+        int i = 1;
+        int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
+        if (fontSize != 0) {
+            i = fontSize == 1 ? 2 : fontSize == 2 ? 3 : 3;
         }
-        return false;
+        if (fontSize != i) {
+            TbadkCoreApplication.m11getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+        }
+        BdToast.a(TbadkCoreApplication.m11getInst(), avW(), t.f.icon_word_t_size, 0).sc();
     }
 
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.ddl != null) {
-            return this.ddl.c(this.ddm, motionEvent);
+    public static void avY() {
+        int i = 1;
+        int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
+        if (fontSize == 0) {
+            i = 0;
+        } else if (fontSize == 1) {
+            i = 0;
+        } else if (fontSize != 2) {
+            i = 2;
         }
-        return false;
+        if (fontSize != i) {
+            TbadkCoreApplication.m11getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+        }
+        BdToast.a(TbadkCoreApplication.m11getInst(), avW(), t.f.icon_word_t_size, 0).sc();
+    }
+
+    public static void lD(int i) {
+        if (TbadkCoreApplication.m11getInst().getFontSize() != i) {
+            TbadkCoreApplication.m11getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+        }
     }
 }

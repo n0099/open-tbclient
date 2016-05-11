@@ -3,59 +3,59 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class h {
-    protected com.baidu.tbadk.core.util.ab QV;
-    protected NewErrorData QW = null;
+    protected com.baidu.tbadk.core.util.ab LL;
+    protected NewErrorData LM = null;
 
     public h() {
-        this.QV = null;
-        this.QV = new com.baidu.tbadk.core.util.ab();
+        this.LL = null;
+        this.LL = new com.baidu.tbadk.core.util.ab();
     }
 
     public void cancel() {
-        if (this.QV != null) {
-            this.QV.gX();
+        if (this.LL != null) {
+            this.LL.dl();
         }
     }
 
     protected void setUrl(String str) {
-        this.QV.setUrl(str);
+        this.LL.setUrl(str);
     }
 
-    public void p(String str, String str2) {
-        this.QV.p(str, str2);
+    public void n(String str, String str2) {
+        this.LL.n(str, str2);
     }
 
     protected String getResult() {
-        String vw = this.QV.vw();
-        this.QW = new NewErrorData();
-        this.QW.parserJson(vw);
-        return vw;
+        String tc = this.LL.tc();
+        this.LM = new NewErrorData();
+        this.LM.parserJson(tc);
+        return tc;
     }
 
-    public boolean qC() {
-        if (this.QV != null) {
-            return this.QV.vU().wP().qC();
+    public boolean nZ() {
+        if (this.LL != null) {
+            return this.LL.tA().uv().nZ();
         }
         return false;
     }
 
-    public String qD() {
-        if (this.QV != null) {
-            return this.QV.getErrorString();
+    public String oa() {
+        if (this.LL != null) {
+            return this.LL.getErrorString();
         }
         return null;
     }
 
     public int getErrorCode() {
-        if (this.QW != null) {
-            return this.QW.getErrorNumber();
+        if (this.LM != null) {
+            return this.LM.getErrorNumber();
         }
         return -1;
     }
 
     public String getErrorMsg() {
-        if (this.QW != null) {
-            return this.QW.getErrorMsg();
+        if (this.LM != null) {
+            return this.LM.getErrorMsg();
         }
         return null;
     }

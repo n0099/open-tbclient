@@ -5,11 +5,11 @@ import android.os.Handler;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ TiebaPrepareImageService YW;
+    final /* synthetic */ TiebaPrepareImageService Um;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(TiebaPrepareImageService tiebaPrepareImageService) {
-        this.YW = tiebaPrepareImageService;
+        this.Um = tiebaPrepareImageService;
     }
 
     @Override // java.lang.Runnable
@@ -21,18 +21,18 @@ class a implements Runnable {
         String str;
         TiebaPrepareImageService.a aVar;
         if (TiebaPrepareImageService.IS_DECODING) {
-            handler = this.YW.mHandler;
-            runnable = this.YW.mStartRun;
+            handler = this.Um.mHandler;
+            runnable = this.Um.mStartRun;
             handler.postDelayed(runnable, 1000L);
             return;
         }
-        TiebaPrepareImageService tiebaPrepareImageService = this.YW;
-        TiebaPrepareImageService tiebaPrepareImageService2 = this.YW;
-        i = this.YW.mRequestCode;
-        uri = this.YW.mUri;
-        str = this.YW.mFileName;
+        TiebaPrepareImageService tiebaPrepareImageService = this.Um;
+        TiebaPrepareImageService tiebaPrepareImageService2 = this.Um;
+        i = this.Um.mRequestCode;
+        uri = this.Um.mUri;
+        str = this.Um.mFileName;
         tiebaPrepareImageService.mTask = new TiebaPrepareImageService.a(i, uri, str);
-        aVar = this.YW.mTask;
+        aVar = this.Um.mTask;
         aVar.execute(new Object[0]);
     }
 }

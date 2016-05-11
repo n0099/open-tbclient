@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends CustomMessageListener {
-    final /* synthetic */ r dej;
+    final /* synthetic */ r dgC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(r rVar, int i) {
         super(i);
-        this.dej = rVar;
+        this.dgC = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,17 +21,17 @@ public class ak extends CustomMessageListener {
         an anVar2;
         an anVar3;
         an anVar4;
-        anVar = this.dej.ddX;
+        anVar = this.dgC.dgr;
         if (anVar != null) {
-            anVar2 = this.dej.ddX;
-            if (anVar2.deA != null) {
+            anVar2 = this.dgC.dgr;
+            if (anVar2.dgT != null) {
                 int[] iArr = new int[2];
-                anVar3 = this.dej.ddX;
-                anVar3.deA.getLocationInWindow(iArr);
+                anVar3 = this.dgC.dgr;
+                anVar3.dgT.getLocationInWindow(iArr);
                 int i = iArr[1];
-                anVar4 = this.dej.ddX;
-                if (i + anVar4.deA.getHeight() < 0) {
-                    this.dej.avU();
+                anVar4 = this.dgC.dgr;
+                if (i + anVar4.dgT.getHeight() < 0) {
+                    this.dgC.awe();
                 }
             }
         }

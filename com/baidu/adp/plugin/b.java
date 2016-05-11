@@ -2,15 +2,15 @@ package com.baidu.adp.plugin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ PluginCenter CM;
+    final /* synthetic */ PluginCenter tc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PluginCenter pluginCenter) {
-        this.CM = pluginCenter;
+        this.tc = pluginCenter;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.CM.retryLaunchPlugins();
+        this.tc.retryLaunchPlugins();
     }
 }

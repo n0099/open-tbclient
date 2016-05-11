@@ -1,108 +1,68 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
-import android.support.v4.widget.ExploreByTouchHelper;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import java.lang.reflect.Method;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg extends PopupWindow {
-    private LinearLayout aqr;
-    private int awy;
-    private Context context;
-    private int count;
-    private a eNP;
-    private int maxHeight;
+public class cg implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity feN;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void qy(int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cg(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.feN = writeMultiImgsActivity;
     }
 
-    public cg(Context context) {
-        super(context);
-        this.awy = -1;
-        this.context = context;
-        init(context);
-    }
-
-    private void init(Context context) {
-        ScrollView scrollView = new ScrollView(context);
-        scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.aqr = new LinearLayout(context);
-        this.aqr.setOrientation(1);
-        this.aqr.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.aqr);
-        scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.k.dip2px(context, 1.0f), com.baidu.adp.lib.util.k.dip2px(context, 1.0f));
-        scrollView.setFadingEdgeLength(0);
-        scrollView.setScrollbarFadingEnabled(false);
-        try {
-            Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(scrollView, 2);
-        } catch (Exception e) {
-        }
-        setContentView(scrollView);
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, ExploreByTouchHelper.INVALID_ID));
-        int measuredWidth = getContentView().getMeasuredWidth();
-        if (measuredWidth < view.getWidth()) {
-            measuredWidth = view.getWidth();
-        }
-        int measuredHeight = getContentView().getMeasuredHeight();
-        if (measuredHeight > this.maxHeight) {
-            measuredHeight = this.maxHeight;
-        }
-        setWidth(measuredWidth);
-        setHeight(measuredHeight);
-        super.showAsDropDown(view, i, i2);
-    }
-
-    public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.eNP));
-        this.aqr.addView(view);
-        this.count++;
-    }
-
-    public void setMaxHeight(int i) {
-        this.maxHeight = i;
-    }
-
-    public void qr(int i) {
-        if (this.awy != -1) {
-            this.aqr.getChildAt(this.awy).setSelected(false);
-        }
-        this.awy = i;
-        this.aqr.getChildAt(this.awy).setSelected(true);
-    }
-
-    public void a(a aVar) {
-        this.eNP = aVar;
-    }
-
-    /* loaded from: classes.dex */
-    public static class b implements View.OnClickListener {
-        private a eNQ;
-        private int position;
-
-        public b(int i, a aVar) {
-            this.position = i;
-            this.eNQ = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (this.eNQ != null) {
-                this.eNQ.qy(this.position);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
+        int i;
+        boolean bed;
+        com.baidu.tbadk.core.dialog.a aVar;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        com.baidu.tbadk.core.dialog.a aVar3;
+        com.baidu.tbadk.core.dialog.a aVar4;
+        com.baidu.tbadk.core.dialog.a aVar5;
+        com.baidu.tbadk.core.dialog.a aVar6;
+        rVar = this.feN.few;
+        rVar.bdp();
+        writeImagesInfo = this.feN.fev;
+        if (writeImagesInfo != null) {
+            writeImagesInfo2 = this.feN.fev;
+            if (writeImagesInfo2.getChosedFiles() != null) {
+                writeImagesInfo3 = this.feN.fev;
+                if (writeImagesInfo3.getChosedFiles().size() > 0) {
+                    writeImagesInfo4 = this.feN.fev;
+                    if (writeImagesInfo4.isOriginalImg()) {
+                        i = this.feN.feK;
+                        if (i > 0) {
+                            bed = this.feN.bed();
+                            if (bed) {
+                                aVar = this.feN.feI;
+                                if (aVar == null) {
+                                    this.feN.feI = new com.baidu.tbadk.core.dialog.a(this.feN.getActivity());
+                                    aVar3 = this.feN.feI;
+                                    aVar3.bM(t.j.orginal_conflict_tip);
+                                    aVar4 = this.feN.feI;
+                                    aVar4.a(t.j.alert_yes_button, new ch(this));
+                                    aVar5 = this.feN.feI;
+                                    aVar5.b(t.j.alert_no_button, new ci(this));
+                                    aVar6 = this.feN.feI;
+                                    aVar6.b(this.feN.getPageContext());
+                                }
+                                aVar2 = this.feN.feI;
+                                aVar2.rU();
+                                return;
+                            }
+                        }
+                    }
+                }
             }
         }
+        this.feN.beg();
     }
 }

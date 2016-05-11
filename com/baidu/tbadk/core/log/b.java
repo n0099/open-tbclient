@@ -9,19 +9,19 @@ public class b {
         d dVar = new d();
         dVar.b(IntentConfig.CMD, Integer.valueOf(i));
         if (!TextUtils.isEmpty(str2)) {
-            dVar.r("action", str2);
+            dVar.q("action", str2);
         }
-        dVar.r("errNo", String.valueOf(i2));
+        dVar.q("errNo", String.valueOf(i2));
         if (!TextUtils.isEmpty(str3) && i2 != 0) {
-            dVar.r("errMsg", str3);
+            dVar.q("errMsg", str3);
         }
         if (objArr != null && objArr.length > 0) {
             dVar.b(objArr);
         }
         if (i2 == 0) {
-            com.baidu.adp.lib.stats.a.hz().a(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.dN().a(str, j, (String) null, dVar);
         } else {
-            com.baidu.adp.lib.stats.a.hz().b(str, j, (String) null, dVar);
+            com.baidu.adp.lib.stats.a.dN().b(str, j, (String) null, dVar);
         }
     }
 }

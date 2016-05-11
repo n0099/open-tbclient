@@ -1,21 +1,29 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
-    private String checkUrl;
+    private final boolean afx;
+    private final Context mContext;
+    private final int mHeight;
+    private final int mWidth;
 
-    public String yL() {
-        return this.checkUrl;
+    public m(Context context, int i, int i2, boolean z) {
+        this.mContext = context;
+        this.mHeight = i;
+        this.mWidth = i2;
+        this.afx = z;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.checkUrl = jSONObject.optString("checkurl", null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public int getHeight() {
+        return this.mHeight;
+    }
+
+    public int getWidth() {
+        return this.mWidth;
     }
 }

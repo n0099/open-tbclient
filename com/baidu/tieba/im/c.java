@@ -4,7 +4,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.t;
 import com.baidu.tieba.im.db.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,18 +20,18 @@ public class c extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
             boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
             if (!isNull) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().c(new com.baidu.tbadk.coreExtra.d.e());
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgChat(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgAtme(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgFans(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgGiftNum(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().setMsgLiveVip(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zp().zH();
-                q.Hz();
-                l.aeE().aem();
-                com.baidu.tieba.im.db.k.aeD().aem();
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().c(new com.baidu.tbadk.coreExtra.d.e());
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgChat(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgFans(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgGiftNum(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgLiveVip(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.xi().xA();
+                t.FA();
+                l.aeD().aem();
+                com.baidu.tieba.im.db.k.aeC().aem();
             }
-            q.b(new d(this, isNull), new e(this));
+            t.b(new d(this, isNull), new e(this));
         }
     }
 }

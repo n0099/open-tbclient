@@ -12,89 +12,89 @@ import android.widget.Scroller;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdExpandListView extends BdListView {
-    private View HZ;
-    private int Ia;
-    private float Ib;
-    private float Ic;
-    private b Id;
-    private boolean Ie;
-    private float If;
-    private float Ig;
-    private final int Ih;
-    private final int Ii;
-    public a Ij;
     private final Context mContext;
     private final Scroller mScroller;
+    public a yA;
+    private View yq;
+    private int yr;
+    private float ys;
+    private float yt;
+    private b yu;
+    private boolean yv;
+    private float yw;
+    private float yx;
+    private final int yy;
+    private final int yz;
 
     /* loaded from: classes.dex */
     public interface a {
-        void m(float f);
+        void jl();
 
-        void mX();
+        void jm();
 
-        void mY();
+        void k(float f);
     }
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ie = false;
+        this.yv = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.Ih = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.yy = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.Ii = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.yz = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void e(View view, int i) {
-        this.HZ = view;
-        this.Ia = i;
+        this.yq = view;
+        this.yr = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.Ic = motionEvent.getY();
+            this.yt = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.HZ.getHeight();
-                    this.Ib = this.Ic;
-                    this.If = this.Ig;
-                    this.Id = new b(0, height, 0, this.Ii + height);
+                    int height = this.yq.getHeight();
+                    this.ys = this.yt;
+                    this.yw = this.yx;
+                    this.yu = new b(0, height, 0, this.yz + height);
                     break;
                 case 1:
                 case 3:
-                    if (this.Ie) {
-                        mV();
+                    if (this.yv) {
+                        jj();
                     } else {
-                        this.Ij.mX();
+                        this.yA.jl();
                     }
                     new Handler().postDelayed(new com.baidu.adp.widget.ListView.b(this), 200L);
                     break;
                 case 2:
-                    float f = this.Ig - this.If;
-                    float f2 = this.Ic - this.Ib;
-                    this.If = this.Ig;
-                    if (this.HZ.getParent() == this && this.Id != null && this.HZ.isShown() && this.HZ.getTop() >= 0 && Math.abs(f2) >= this.Ih && Math.abs(f) < this.Ih) {
-                        int n = this.Id.n(this.Ic - this.Ib);
-                        if (n > this.Id.startY && n <= this.Id.Im) {
-                            this.Ie = true;
-                            this.HZ.setLayoutParams(new AbsListView.LayoutParams(this.HZ.getWidth(), n));
-                            l(n - this.Id.startY);
+                    float f = this.yx - this.yw;
+                    float f2 = this.yt - this.ys;
+                    this.yw = this.yx;
+                    if (this.yq.getParent() == this && this.yu != null && this.yq.isShown() && this.yq.getTop() >= 0 && Math.abs(f2) >= this.yy && Math.abs(f) < this.yy) {
+                        int l = this.yu.l(this.yt - this.ys);
+                        if (l > this.yu.yD && l <= this.yu.yF) {
+                            this.yv = true;
+                            this.yq.setLayoutParams(new AbsListView.LayoutParams(this.yq.getWidth(), l));
+                            j(l - this.yu.yD);
                             break;
-                        } else if (n <= this.Id.startY) {
-                            this.Ie = false;
+                        } else if (l <= this.yu.yD) {
+                            this.yv = false;
                             break;
-                        } else if (n > this.Id.Im) {
-                            this.Ie = true;
+                        } else if (l > this.yu.yF) {
+                            this.yv = true;
                             break;
                         } else {
-                            this.Ie = false;
+                            this.yv = false;
                             break;
                         }
                     } else {
-                        this.Ie = false;
+                        this.yv = false;
                         break;
                     }
                     break;
@@ -106,7 +106,7 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Ie) {
+        if (this.yv) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -114,64 +114,64 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Ie) {
+        if (this.yv) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void mV() {
-        if (this.Id != null) {
-            if (this.HZ.getHeight() >= this.Id.Im - (this.Ii / 2)) {
-                mW();
+    public void jj() {
+        if (this.yu != null) {
+            if (this.yq.getHeight() >= this.yu.yF - (this.yz / 2)) {
+                jk();
             } else {
-                this.Ij.mX();
+                this.yA.jl();
             }
-            this.mScroller.startScroll(0, this.HZ.getHeight(), 0, this.Id.startY - this.HZ.getHeight(), 200);
+            this.mScroller.startScroll(0, this.yq.getHeight(), 0, this.yu.yD - this.yq.getHeight(), 200);
             invalidate();
-            this.Ie = false;
+            this.yv = false;
         }
     }
 
-    public void mW() {
-        if (this.Ij != null) {
-            this.Ij.mY();
+    public void jk() {
+        if (this.yA != null) {
+            this.yA.jm();
         }
     }
 
     public void setExpandListRefreshListener(a aVar) {
-        this.Ij = aVar;
+        this.yA = aVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            this.HZ.setLayoutParams(new AbsListView.LayoutParams(this.HZ.getWidth(), this.mScroller.getCurrY()));
+            this.yq.setLayoutParams(new AbsListView.LayoutParams(this.yq.getWidth(), this.mScroller.getCurrY()));
             return;
         }
         super.computeScroll();
     }
 
-    private void l(float f) {
-        this.Ij.m(360.0f - ((f * 360.0f) / this.Ii));
+    private void j(float f) {
+        this.yA.k(360.0f - ((f * 360.0f) / this.yz));
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public int Il;
-        public int Im;
-        public int startX;
-        public int startY;
+        public int yC;
+        public int yD;
+        public int yE;
+        public int yF;
 
         public b(int i, int i2, int i3, int i4) {
-            this.startX = i;
-            this.startY = i2;
-            this.Il = i3;
-            this.Im = i4;
+            this.yC = i;
+            this.yD = i2;
+            this.yE = i3;
+            this.yF = i4;
         }
 
-        public int n(float f) {
-            return (int) (this.startY + (f / 2.5f));
+        public int l(float f) {
+            return (int) (this.yD + (f / 2.5f));
         }
     }
 }

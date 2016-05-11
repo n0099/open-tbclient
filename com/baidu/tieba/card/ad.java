@@ -1,93 +1,79 @@
 package com.baidu.tieba.card;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SquareForumListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
-import java.util.List;
+import com.baidu.tbadk.core.view.TextureVideoView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends b<com.baidu.tieba.card.a.o> {
-    private String aSN;
-    private com.baidu.tbadk.widget.a.a aTa;
+public class ad implements Runnable {
+    final /* synthetic */ z aQe;
 
-    public void p(String str, String str2, String str3) {
-        this.aTa.at(str, str2);
-        this.aSN = str3;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(z zVar) {
+        this.aQe = zVar;
     }
 
-    public ad(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.aSN = null;
-        this.aTa = new com.baidu.tbadk.widget.a.a(getContext());
-        this.aTa.setTag(getTag());
-        this.aTa.setLoadMoreClickListener(this);
-        this.aRx.addView(this.aTa);
-        this.aRp.setOnClickListener(this);
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public void setTag(BdUniqueId bdUniqueId) {
-        super.setTag(bdUniqueId);
-        if (this.aTa != null) {
-            this.aTa.setTag(getTag());
-        }
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public void setFrom(String str) {
-        super.setFrom(str);
-        this.aTa.setFrom(str);
-    }
-
-    @Override // com.baidu.tieba.card.b
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        super.d(tbPageContext, i);
-        if (this.aTa != null) {
-            this.aTa.de(i);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.card.a.o oVar) {
-        super.a((ad) oVar);
-        if (oVar == null) {
-            getView().setVisibility(8);
-            return;
-        }
-        List<com.baidu.tbadk.widget.a.g> FZ = oVar.FZ();
-        int p = com.baidu.tbadk.core.util.y.p(FZ);
-        if (p <= 0) {
-            getView().setVisibility(8);
-            return;
-        }
-        getView().setVisibility(0);
-        if (p > 10) {
-            FZ = FZ.subList(0, 10);
-        }
-        this.aTa.a(FZ, Lb());
-        d(Lb(), TbadkCoreApplication.m411getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.card.b, android.view.View.OnClickListener
-    public void onClick(View view) {
-        super.onClick(view);
-        if (this.aRp == view || (this.aTa != null && this.aTa.getLastItemView() == view)) {
-            if (!TextUtils.isEmpty(this.aSN)) {
-                TiebaStatic.log(this.aSN);
-            }
-            if (TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_WEEKLY, new SquareForumListActivityConfig(getContext(), 1)));
-            } else {
-                UtilHelper.showToast(Lb().getPageActivity(), t.j.plugin_config_not_found);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.card.a.n nVar;
+        com.baidu.tieba.card.a.n nVar2;
+        com.baidu.tieba.card.a.n nVar3;
+        TextureVideoView textureVideoView;
+        boolean JY;
+        com.baidu.tieba.card.a.n nVar4;
+        TextureVideoView textureVideoView2;
+        boolean z;
+        TextureVideoView textureVideoView3;
+        com.baidu.tieba.play.a aVar;
+        com.baidu.tieba.play.a aVar2;
+        com.baidu.tieba.card.a.n nVar5;
+        com.baidu.tieba.card.a.n nVar6;
+        com.baidu.tieba.card.a.n nVar7;
+        TextureVideoView textureVideoView4;
+        nVar = this.aQe.aPR;
+        if (nVar != null) {
+            nVar2 = this.aQe.aPR;
+            if (nVar2.aRZ != null) {
+                nVar3 = this.aQe.aPR;
+                if (nVar3.aRZ.ra() != null) {
+                    textureVideoView = this.aQe.aPL;
+                    if (textureVideoView == null || com.baidu.tbadk.core.view.at.vD().vG() > 0) {
+                        return;
+                    }
+                    JY = this.aQe.JY();
+                    if (JY && com.baidu.tbadk.core.view.at.vD().vH() && TbadkCoreApplication.m11getInst().getVideoAutoPlay() == 0) {
+                        nVar4 = this.aQe.aPR;
+                        String str = nVar4.aRZ.ra().video_url;
+                        textureVideoView2 = this.aQe.aPL;
+                        if (textureVideoView2.isPlaying() && str != null) {
+                            textureVideoView4 = this.aQe.aPL;
+                            if (str.equals(textureVideoView4.getVideoPath())) {
+                                z = true;
+                                if (StringUtils.isNull(str) && !z && com.baidu.tbadk.core.view.at.vD().vG() == 0) {
+                                    this.aQe.e(true, 2);
+                                    textureVideoView3 = this.aQe.aPL;
+                                    textureVideoView3.setVideoPath(str);
+                                    aVar = this.aQe.aPY;
+                                    if (aVar != null) {
+                                        aVar2 = this.aQe.aPY;
+                                        nVar5 = this.aQe.aPR;
+                                        String str2 = nVar5.aRZ.ra().video_md5;
+                                        nVar6 = this.aQe.aPR;
+                                        String tid = nVar6.aRZ.getTid();
+                                        nVar7 = this.aQe.aPR;
+                                        aVar2.A(str2, tid, new StringBuilder(String.valueOf(nVar7.aRZ.getFid())).toString());
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                        }
+                        z = false;
+                        if (StringUtils.isNull(str)) {
+                        }
+                    }
+                }
             }
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bg;
@@ -10,16 +9,15 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ BannerView anI;
+    final /* synthetic */ BannerView ajw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BannerView bannerView) {
-        this.anI = bannerView;
+        this.ajw = bannerView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Button button;
         String str;
         BannerView.a aVar;
         BannerView.a aVar2;
@@ -37,35 +35,34 @@ public class a implements View.OnClickListener {
         BannerView.a aVar3;
         BannerView.a aVar4;
         String str10;
-        button = this.anI.anB;
-        if (view != button) {
-            str = this.anI.anz;
+        if (view != this.ajw.ajp) {
+            str = this.ajw.ajn;
             if (!TextUtils.isEmpty(str)) {
-                str8 = this.anI.anz;
+                str8 = this.ajw.ajn;
                 TiebaStatic.log(str8);
             }
-            aVar = this.anI.anG;
+            aVar = this.ajw.aju;
             if (aVar == null) {
-                str2 = this.anI.link;
+                str2 = this.ajw.link;
                 if (!TextUtils.isEmpty(str2)) {
-                    bg wM = bg.wM();
-                    tbPageContext = this.anI.MX;
-                    str3 = this.anI.link;
-                    wM.c(tbPageContext, new String[]{str3});
-                    str4 = this.anI.link;
+                    bg us = bg.us();
+                    tbPageContext = this.ajw.Do;
+                    str3 = this.ajw.link;
+                    us.c(tbPageContext, new String[]{str3});
+                    str4 = this.ajw.link;
                     if (str4.startsWith("game:detail:")) {
-                        str7 = this.anI.type;
+                        str7 = this.ajw.type;
                         if ("frs_banner".equals(str7)) {
-                            tbPageContext3 = this.anI.MX;
+                            tbPageContext3 = this.ajw.Do;
                             TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                             return;
                         }
                     }
-                    str5 = this.anI.link;
+                    str5 = this.ajw.link;
                     if (str5.startsWith("game:detail:")) {
-                        str6 = this.anI.type;
+                        str6 = this.ajw.type;
                         if ("enterforum_banner".equals(str6)) {
-                            tbPageContext2 = this.anI.MX;
+                            tbPageContext2 = this.ajw.Do;
                             TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
                             return;
                         }
@@ -75,21 +72,21 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            aVar2 = this.anI.anG;
-            aVar2.Bp();
+            aVar2 = this.ajw.aju;
+            aVar2.zj();
             return;
         }
-        str9 = this.anI.anA;
+        str9 = this.ajw.ajo;
         if (!TextUtils.isEmpty(str9)) {
-            str10 = this.anI.anA;
+            str10 = this.ajw.ajo;
             TiebaStatic.log(str10);
         }
-        this.anI.anD = true;
-        this.anI.setVisibility(8);
-        aVar3 = this.anI.anG;
+        this.ajw.ajr = true;
+        this.ajw.setVisibility(8);
+        aVar3 = this.ajw.aju;
         if (aVar3 != null) {
-            aVar4 = this.anI.anG;
-            aVar4.Bq();
+            aVar4 = this.ajw.aju;
+            aVar4.zk();
         }
     }
 }

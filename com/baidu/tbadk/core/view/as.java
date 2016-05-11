@@ -1,28 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.media.MediaPlayer;
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class as implements Handler.Callback {
-    final /* synthetic */ ar aif;
+class as implements com.baidu.adp.lib.f.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(ar arVar) {
-        this.aif = arVar;
+    public as(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        if (message.what == 1) {
-            Object obj = message.obj;
-            if (obj instanceof MediaPlayer) {
-                MediaPlayer mediaPlayer = (MediaPlayer) obj;
-                mediaPlayer.reset();
-                mediaPlayer.release();
-            }
-        }
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: vA */
+    public HeadImageView dE() {
+        return new HeadImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public HeadImageView m(HeadImageView headImageView) {
+        return headImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public HeadImageView n(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
     }
 }

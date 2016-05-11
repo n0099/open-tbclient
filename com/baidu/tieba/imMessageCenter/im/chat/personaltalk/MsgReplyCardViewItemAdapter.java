@@ -17,10 +17,10 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: ah */
     public ap.a<MsgReplyCardView> b(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ND);
-        return new a(msgReplyCardView.dM(), msgReplyCardView);
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.DV);
+        return new a(msgReplyCardView.ac(), msgReplyCardView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,11 +28,11 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
         MsgReplyCardView acq = aVar.acq();
-        acq.a(this.ND, chatMessage, viewGroup);
-        acq.a(this.bZa);
+        acq.a(this.DV, chatMessage, viewGroup);
+        acq.a(this.bZF);
         acq.setPosition(i);
-        this.ND.getLayoutMode().ab(false);
-        this.ND.getLayoutMode().x(view);
+        this.DV.getLayoutMode().ae(false);
+        this.DV.getLayoutMode().x(view);
         return view;
     }
 

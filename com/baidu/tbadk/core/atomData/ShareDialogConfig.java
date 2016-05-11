@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
     public boolean isCopyLink;
+    public boolean isInsertBack;
     public boolean isSetCopyLink;
     public SparseArray<String> mtjStatistics;
     public f shareItem;
@@ -34,6 +35,16 @@ public class ShareDialogConfig extends IntentConfig {
         this.shareItem = fVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
+    }
+
+    public ShareDialogConfig(Context context, f fVar, boolean z, boolean z2) {
+        super(context);
+        this.showLocation = true;
+        this.isSetCopyLink = false;
+        this.isCopyLink = false;
+        this.shareItem = fVar;
+        this.showLocation = z;
+        this.isInsertBack = z2;
     }
 
     public void setIsCopyLink(boolean z) {

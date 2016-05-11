@@ -6,23 +6,24 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ ao cmV;
-    private final /* synthetic */ ImMessageCenterPojo cmX;
+public class ar implements CustomMessageTask.CustomRunnable<String> {
+    final /* synthetic */ ao cnS;
+    private final /* synthetic */ ImMessageCenterPojo cnU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ao aoVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.cmV = aoVar;
-        this.cmX = imMessageCenterPojo;
+        this.cnS = aoVar;
+        this.cnU = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             com.baidu.tieba.im.db.g.aet().aeu();
-            com.baidu.tieba.im.db.c.aep().jd(this.cmX.getGid());
-            com.baidu.tieba.im.db.i.aey().c(this.cmX);
+            com.baidu.tieba.im.db.c.aep().jf(this.cnU.getGid());
+            com.baidu.tieba.im.db.i.aex().c(this.cnU);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {

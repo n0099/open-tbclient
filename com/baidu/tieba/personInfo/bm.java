@@ -1,42 +1,28 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class bm implements AbsListView.OnScrollListener {
-    final /* synthetic */ bi dEC;
+class bm implements View.OnClickListener {
+    final /* synthetic */ bj dHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bi biVar) {
-        this.dEC = biVar;
+    public bm(bj bjVar) {
+        this.dHR = bjVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.dEC.aKi;
-            if (view3 != null) {
-                view4 = this.dEC.aKi;
-                view4.setVisibility(0);
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (TbadkCoreApplication.getCurrentAccountObj().isMemberCloseAdIsOpen()) {
+            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("member_close_ad_setting_clicked", true);
         }
-        view = this.dEC.aKi;
-        if (view != null) {
-            view2 = this.dEC.aKi;
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.dEC.aDH();
-        this.dEC.aDI();
+        this.dHR.dHA.setVisibility(8);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10598"));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ PersonInfoDelegateStatic dCr;
+    final /* synthetic */ PersonInfoDelegateStatic dFy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PersonInfoDelegateStatic personInfoDelegateStatic, int i) {
         super(i);
-        this.dCr = personInfoDelegateStatic;
+        this.dFy = personInfoDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,14 +23,14 @@ class e extends CustomMessageListener {
         Boolean bool;
         Boolean bool2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            this.dCr.dCp = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).ayG);
-            imageView = this.dCr.dCo;
-            bool = this.dCr.dCp;
+            this.dFy.dFw = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).auH);
+            imageView = this.dFy.cSN;
+            bool = this.dFy.dFw;
             imageView.setVisibility(bool.booleanValue() ? 0 : 8);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            bool2 = this.dCr.dCp;
+            bool2 = this.dFy.dFw;
             if (!bool2.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                com.baidu.tbadk.core.sharedPref.b.vk().putBoolean("member_close_ad_mine_clicked", true);
+                com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("member_close_ad_mine_clicked", true);
             }
         }
     }

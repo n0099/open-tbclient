@@ -1,36 +1,73 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import android.widget.ProgressBar;
-import com.baidu.tieba.person.bv;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class bo implements bv.a {
-    final /* synthetic */ PersonListActivity dtT;
+public class bo extends com.baidu.adp.base.f {
+    TextView dwW;
+    TextView dwX;
+    TextView dwY;
+    View dwZ;
+    BaseFragment dxa;
+    View mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(PersonListActivity personListActivity) {
-        this.dtT = personListActivity;
+    public bo(BaseFragment baseFragment) {
+        super(baseFragment.getPageContext());
+        this.dxa = baseFragment;
+        a(baseFragment);
     }
 
-    @Override // com.baidu.tieba.person.bv.a
-    public void G(String str, boolean z) {
-        ProgressBar progressBar;
-        ProgressBar progressBar2;
-        if (!z) {
-            progressBar = this.dtT.aQj;
-            if (progressBar.isShown()) {
-                progressBar2 = this.dtT.aQj;
-                progressBar2.setVisibility(8);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                this.dtT.showToast(str);
-            }
+    private void a(BaseFragment baseFragment) {
+        this.mView = LayoutInflater.from(baseFragment.getPageContext().getPageActivity()).inflate(t.h.person_info_more_view, (ViewGroup) null);
+        this.dwW = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_friend);
+        this.dwW.setOnClickListener(baseFragment);
+        this.dwX = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_black);
+        this.dwX.setOnClickListener(baseFragment);
+        this.dwY = (TextView) this.mView.findViewById(t.g.person_info_more_view_item_mute);
+        this.dwZ = this.mView.findViewById(t.g.person_info_more_view_item_line_mute);
+        this.dwY.setOnClickListener(baseFragment);
+    }
+
+    public void s(boolean z, boolean z2) {
+        if (z) {
+            this.dwW.setVisibility(0);
+        } else {
+            this.dwW.setVisibility(8);
+        }
+        if (z2) {
+            this.dwX.setText(t.j.remove_block_chat);
+        } else {
+            this.dwX.setText(t.j.block_chat_message);
         }
     }
 
-    @Override // com.baidu.tieba.person.bv.a
-    public com.baidu.tieba.person.data.r d(com.baidu.tieba.person.data.r rVar, boolean z) {
-        this.dtT.a(rVar, z);
-        return null;
+    public View getView() {
+        return this.mView;
+    }
+
+    public View aBS() {
+        return this.dwW;
+    }
+
+    public View aBT() {
+        return this.dwX;
+    }
+
+    public View aBU() {
+        return this.dwY;
+    }
+
+    public void ms(int i) {
+        this.dwY.setVisibility(0);
+        this.dwZ.setVisibility(0);
+        if (i == 0) {
+            this.dwY.setText(this.dxa.getPageContext().getResources().getString(t.j.mute));
+        } else if (i == 1) {
+            this.dwY.setText(this.dxa.getPageContext().getResources().getString(t.j.un_mute));
+        }
     }
 }

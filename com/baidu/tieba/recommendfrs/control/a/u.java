@@ -15,22 +15,22 @@ public class u extends com.baidu.tbadk.mvc.model.d<com.baidu.tbadk.mvc.b.h, com.
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.n, ?>> oP() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.recommendfrs.data.n, ?>> lc() {
         return RecommendFrsHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.n, ?>> oO() {
+    protected Class<? extends MvcSocketResponsedMessage<com.baidu.tieba.recommendfrs.data.n, ?>> lb() {
         return RecommendFrsSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oL() {
+    protected int kY() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oM() {
+    protected String kZ() {
         return TbConfig.RECOMMEND_FRS;
     }
 
@@ -40,7 +40,7 @@ public class u extends com.baidu.tbadk.mvc.model.d<com.baidu.tbadk.mvc.b.h, com.
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oN() {
+    protected int la() {
         return 309092;
     }
 }

@@ -7,7 +7,6 @@ import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.LocalViewSize;
@@ -23,32 +22,32 @@ import java.util.List;
 import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public class b {
-    private static b cnA;
-    private List<GroupUpdateMessage> cnI;
-    private boolean cnO;
-    private int cnB = 900000;
-    private int cnC = 360000;
-    private int cnD = this.cnC;
-    private final int cnE = 0;
-    private final int cnF = 1;
-    private final int cnG = 2;
-    private int cnH = 0;
-    private int cnJ = 0;
-    private long cnK = 0;
-    private int cnL = 0;
+    private static b cox;
+    private List<GroupUpdateMessage> coF;
+    private boolean coL;
+    private int coy = 900000;
+    private int coz = 360000;
+    private int coA = this.coz;
+    private final int coB = 0;
+    private final int coC = 1;
+    private final int coD = 2;
+    private int coE = 0;
+    private int coG = 0;
+    private long coH = 0;
+    private int coI = 0;
     private final BdUniqueId mTag = BdUniqueId.gen();
     private final Handler mHandler = new a(null);
-    private SparseArray<Long> cnM = null;
-    private SparseArray<Long> cnN = null;
-    private final com.baidu.adp.framework.client.socket.link.e oT = new e(this);
-    private final com.baidu.adp.framework.listener.e bje = new f(this, 0);
+    private SparseArray<Long> coJ = null;
+    private SparseArray<Long> coK = null;
+    private final com.baidu.adp.framework.client.socket.link.e eL = new e(this);
+    private final com.baidu.adp.framework.listener.e bfe = new f(this, 0);
     private final CustomMessageListener mCustomListener = new g(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH);
-    private final CustomMessageListener cnP = new h(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private final CustomMessageListener coM = new h(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.IM_RESET_CONNECT_STRATEGY));
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.MEMORY_INIT_COMPLETED));
-        cnA = null;
+        cox = null;
     }
 
     /* loaded from: classes.dex */
@@ -65,17 +64,17 @@ public class b {
             super.handleMessage(message);
             switch (message.what) {
                 case 2:
-                    b.aht().mHandler.removeMessages(2);
-                    b.aht().ahy();
+                    b.ahA().mHandler.removeMessages(2);
+                    b.ahA().ahF();
                     return;
                 case 3:
-                    b.aht().mHandler.removeMessages(3);
-                    if (b.aht().cnL == 3) {
-                        b.aht().ahz();
+                    b.ahA().mHandler.removeMessages(3);
+                    if (b.ahA().coI == 3) {
+                        b.ahA().ahG();
                     } else {
-                        b.aht().ahy();
+                        b.ahA().ahF();
                     }
-                    b.aht().mHandler.sendMessageDelayed(b.aht().mHandler.obtainMessage(3), b.aht().cnD);
+                    b.ahA().mHandler.sendMessageDelayed(b.ahA().mHandler.obtainMessage(3), b.ahA().coA);
                     return;
                 default:
                     return;
@@ -84,19 +83,19 @@ public class b {
     }
 
     private final void a(SparseArray<Long> sparseArray, int i) {
-        if (MessageManager.getInstance().getSocketClient().eC() > 10) {
+        if (MessageManager.getInstance().getSocketClient().aS() > 10) {
             w.b(false, true, false);
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), 2000L);
             return;
         }
         boolean a2 = MessageManager.getInstance().getSocketClient().a(202003, this.mTag);
-        int J = MessageManager.getInstance().getSocketClient().J(202003);
-        if (a2 || J > 0) {
+        int y = MessageManager.getInstance().getSocketClient().y(202003);
+        if (a2 || y > 0) {
             w.b(false, false, true);
-            jW(i);
+            jB(i);
             return;
         }
-        ahB();
+        ahI();
         SparseArray<Long> sparseArray2 = null;
         if (sparseArray != null && sparseArray.size() > 0) {
             SparseArray<Long> sparseArray3 = new SparseArray<>();
@@ -108,74 +107,74 @@ public class b {
         }
         MessageSyncMessage b = b(sparseArray2, i);
         if (i == 3 || i == 2) {
-            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.agR().ahc());
+            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.agY().ahj());
         }
         MessageManager.getInstance().sendMessage(b);
         w.b(true, false, false);
         if (i == 3 || i == 1 || i == 2) {
-            if (this.cnM != null) {
-                this.cnM.clear();
+            if (this.coJ != null) {
+                this.coJ.clear();
             }
-            if (this.cnN != null) {
-                this.cnN.clear();
+            if (this.coK != null) {
+                this.coK.clear();
             }
         }
     }
 
-    public void ahq() {
+    public void ahx() {
         boolean z;
-        if (this.cnI != null) {
-            SparseArray<Long> ahb = com.baidu.tieba.im.memorycache.b.agR().ahb();
-            if (ahb == null) {
-                this.cnI = null;
+        if (this.coF != null) {
+            SparseArray<Long> ahi = com.baidu.tieba.im.memorycache.b.agY().ahi();
+            if (ahi == null) {
+                this.coF = null;
                 return;
             }
-            Iterator<GroupUpdateMessage> it = this.cnI.iterator();
+            Iterator<GroupUpdateMessage> it = this.coF.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
                 GroupUpdateMessage next = it.next();
-                if (next != null && ahb.get(next.getGroupId()) != null) {
-                    if (ahb.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
+                if (next != null && ahi.get(next.getGroupId()) != null) {
+                    if (ahi.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
                         z = true;
                         break;
                     }
                 }
             }
-            this.cnL = 3;
+            this.coI = 3;
             if (z) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
             } else {
-                aht().mHandler.sendMessageDelayed(aht().mHandler.obtainMessage(3), aht().cnD);
+                ahA().mHandler.sendMessageDelayed(ahA().mHandler.obtainMessage(3), ahA().coA);
             }
-            this.cnI = null;
+            this.coF = null;
         }
     }
 
-    private void ahr() {
-        if (this.cnH != 0) {
-            if (this.cnH == 1) {
+    private void ahy() {
+        if (this.coE != 0) {
+            if (this.coE == 1) {
                 a(0L, 0L, 0L);
             } else {
-                ahy();
+                ahF();
             }
         }
     }
 
-    private void ahs() {
+    private void ahz() {
         this.mHandler.removeMessages(3);
         this.mHandler.removeMessages(2);
     }
 
-    public static synchronized b aht() {
+    public static synchronized b ahA() {
         b bVar;
         synchronized (b.class) {
-            if (cnA == null) {
-                cnA = new b();
+            if (cox == null) {
+                cox = new b();
             }
-            bVar = cnA;
+            bVar = cox;
         }
         return bVar;
     }
@@ -185,65 +184,65 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.mCustomListener);
-        MessageManager.getInstance().registerListener(this.cnP);
-        n.Cu().a(this.oT);
-        MessageManager.getInstance().registerListener(1003, this.bje);
-        MessageManager.getInstance().registerListener(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES, this.bje);
-        MessageManager.getInstance().registerListener(202101, this.bje);
-        ahu();
+        MessageManager.getInstance().registerListener(this.coM);
+        n.Ao().a(this.eL);
+        MessageManager.getInstance().registerListener(1003, this.bfe);
+        MessageManager.getInstance().registerListener(1001, this.bfe);
+        MessageManager.getInstance().registerListener(202101, this.bfe);
+        ahB();
     }
 
-    public void ahu() {
-        int[] socketGetMsgStratgy = TbadkCoreApplication.m411getInst().getSocketGetMsgStratgy();
+    public void ahB() {
+        int[] socketGetMsgStratgy = TbadkCoreApplication.m11getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            jT(socketGetMsgStratgy[0] * 1000);
-            jU(socketGetMsgStratgy[1] * 1000);
+            jy(socketGetMsgStratgy[0] * 1000);
+            jz(socketGetMsgStratgy[1] * 1000);
         }
     }
 
     public void start() {
-        ahB();
+        ahI();
     }
 
     public void stop() {
-        ahB();
-        ahs();
+        ahI();
+        ahz();
     }
 
-    public void ahv() {
-        this.cnD = this.cnC;
+    public void ahC() {
+        this.coA = this.coz;
     }
 
-    public void ahw() {
-        aht().cnD = aht().cnB;
+    public void ahD() {
+        ahA().coA = ahA().coy;
     }
 
-    public void jT(int i) {
+    public void jy(int i) {
         if (i > 0) {
-            this.cnC = i;
+            this.coz = i;
         }
     }
 
-    public void jU(int i) {
+    public void jz(int i) {
         if (i > 0) {
-            this.cnB = i;
+            this.coy = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void ahx() {
-        if (System.currentTimeMillis() - this.cnK >= 180000) {
+    public synchronized void ahE() {
+        if (System.currentTimeMillis() - this.coH >= 180000) {
             PushCountMessage pushCountMessage = new PushCountMessage();
-            pushCountMessage.setPusherCount(this.cnJ);
-            pushCountMessage.setUpFlowSize(com.baidu.adp.lib.webSocket.h.jR().getUpFlowSize());
-            pushCountMessage.setDownFlowSize(com.baidu.adp.lib.webSocket.h.jR().getDownFlowSize());
-            pushCountMessage.setEnterForeCount(TbadkCoreApplication.m411getInst().getEnterForeCount());
+            pushCountMessage.setPusherCount(this.coG);
+            pushCountMessage.setUpFlowSize(com.baidu.adp.lib.webSocket.h.gf().getUpFlowSize());
+            pushCountMessage.setDownFlowSize(com.baidu.adp.lib.webSocket.h.gf().getDownFlowSize());
+            pushCountMessage.setEnterForeCount(TbadkCoreApplication.m11getInst().getEnterForeCount());
             MessageManager.getInstance().sendMessage(pushCountMessage);
-            this.cnK = System.currentTimeMillis();
-            this.cnJ = 0;
-            com.baidu.adp.lib.webSocket.h.jR().jX();
-            com.baidu.adp.lib.webSocket.h.jR().jW();
-            TbadkCoreApplication.m411getInst().clearEnterForeCount();
+            this.coH = System.currentTimeMillis();
+            this.coG = 0;
+            com.baidu.adp.lib.webSocket.h.gf().gl();
+            com.baidu.adp.lib.webSocket.h.gf().gk();
+            TbadkCoreApplication.m11getInst().clearEnterForeCount();
         }
     }
 
@@ -257,31 +256,31 @@ public class b {
                 messageSyncMessage.setNewpushRepire(makeNewpushRepair);
             }
         } else {
-            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.agR().ahb());
+            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.agY().ahi());
         }
-        messageSyncMessage.setForTimer(this.cnO);
-        LocalViewSize.ImageSize vQ = LocalViewSize.vN().vQ();
-        if (vQ != null) {
-            messageSyncMessage.setWidth(vQ.width);
-            messageSyncMessage.setHeight(vQ.height);
+        messageSyncMessage.setForTimer(this.coL);
+        LocalViewSize.ImageSize tw = LocalViewSize.tt().tw();
+        if (tw != null) {
+            messageSyncMessage.setWidth(tw.width);
+            messageSyncMessage.setHeight(tw.height);
         }
-        LocalViewSize.ImageSize vP = LocalViewSize.vN().vP();
-        if (vP != null) {
-            messageSyncMessage.setSmallHeight(vP.height);
-            messageSyncMessage.setSmallWidth(vP.width);
+        LocalViewSize.ImageSize tv = LocalViewSize.tt().tv();
+        if (tv != null) {
+            messageSyncMessage.setSmallHeight(tv.height);
+            messageSyncMessage.setSmallWidth(tv.width);
         }
-        String agx = com.baidu.tieba.im.a.c.agA().agx();
-        if (agx == null) {
-            agx = "0";
+        String agE = com.baidu.tieba.im.a.c.agH().agE();
+        if (agE == null) {
+            agE = "0";
         }
-        messageSyncMessage.setNotifyMaxTime(agx);
-        String agy = com.baidu.tieba.im.a.c.agA().agy();
-        if (agy == null) {
-            agy = "0";
+        messageSyncMessage.setNotifyMaxTime(agE);
+        String agF = com.baidu.tieba.im.a.c.agH().agF();
+        if (agF == null) {
+            agF = "0";
         }
-        messageSyncMessage.setNotifyMinTime(agy);
+        messageSyncMessage.setNotifyMinTime(agF);
         messageSyncMessage.setSyncTypeString(String.valueOf(i));
-        messageSyncMessage.setProcessType(String.valueOf(com.baidu.tieba.im.a.c.agA().agF()));
+        messageSyncMessage.setProcessType(String.valueOf(com.baidu.tieba.im.a.c.agH().agM()));
         return messageSyncMessage;
     }
 
@@ -291,22 +290,22 @@ public class b {
 
     public synchronized void a(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.cnJ++;
-        this.cnO = false;
-        this.cnL = 1;
+        this.coG++;
+        this.coL = false;
+        this.coI = 1;
         this.mHandler.removeMessages(3);
-        aht().mHandler.sendMessageDelayed(aht().mHandler.obtainMessage(3), aht().cnD);
-        if (this.cnM == null) {
-            this.cnM = new SparseArray<>();
-            this.cnM.clear();
+        ahA().mHandler.sendMessageDelayed(ahA().mHandler.obtainMessage(3), ahA().coA);
+        if (this.coJ == null) {
+            this.coJ = new SparseArray<>();
+            this.coJ.clear();
         }
-        if (this.cnN == null) {
-            this.cnN = new SparseArray<>();
+        if (this.coK == null) {
+            this.coK = new SparseArray<>();
         }
-        SparseArray<Long> ahb = com.baidu.tieba.im.memorycache.b.agR().ahb();
+        SparseArray<Long> ahi = com.baidu.tieba.im.memorycache.b.agY().ahi();
         if (0 != j) {
-            Long l = ahb.get((int) j);
-            Long l2 = this.cnM.get((int) j);
+            Long l = ahi.get((int) j);
+            Long l2 = this.coJ.get((int) j);
             if (l == null) {
                 if (l2 == null) {
                     longValue = j2;
@@ -317,38 +316,38 @@ public class b {
                 longValue = l.longValue();
             }
             if (longValue > 0) {
-                this.cnM.put((int) j, Long.valueOf(longValue));
+                this.coJ.put((int) j, Long.valueOf(longValue));
             }
         }
-        if (this.cnM != null && this.cnM.size() > 0) {
-            for (int i = 0; i < this.cnM.size(); i++) {
-                int keyAt = this.cnM.keyAt(i);
-                Long l3 = ahb.get(keyAt);
+        if (this.coJ != null && this.coJ.size() > 0) {
+            for (int i = 0; i < this.coJ.size(); i++) {
+                int keyAt = this.coJ.keyAt(i);
+                Long l3 = ahi.get(keyAt);
                 if (l3 != null && l3.longValue() > 0) {
-                    this.cnM.put(keyAt, l3);
+                    this.coJ.put(keyAt, l3);
                 }
             }
         }
         if (!z) {
             if (j > 0 && j2 > 0) {
-                if (this.cnN.get((int) j) == null) {
-                    this.cnN.put((int) j, Long.valueOf(j2));
+                if (this.coK.get((int) j) == null) {
+                    this.coK.put((int) j, Long.valueOf(j2));
                 } else {
-                    long longValue2 = this.cnN.get((int) j).longValue();
+                    long longValue2 = this.coK.get((int) j).longValue();
                     if (longValue2 > j2) {
                         j2 = longValue2;
                     }
-                    this.cnN.put((int) j, Long.valueOf(j2));
+                    this.coK.put((int) j, Long.valueOf(j2));
                 }
             }
-            int size = this.cnM.size();
+            int size = this.coJ.size();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt2 = this.cnM.keyAt(i2);
-                long longValue3 = this.cnM.valueAt(i2).longValue();
+                int keyAt2 = this.coJ.keyAt(i2);
+                long longValue3 = this.coJ.valueAt(i2).longValue();
                 long j4 = 0;
-                if (this.cnN.get(keyAt2) != null) {
-                    j4 = this.cnN.get(keyAt2).longValue();
+                if (this.coK.get(keyAt2) != null) {
+                    j4 = this.coK.get(keyAt2).longValue();
                 }
                 if (longValue3 >= j4) {
                     arrayList.add(Integer.valueOf((int) j));
@@ -356,58 +355,58 @@ public class b {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.cnM.remove(((Integer) it.next()).intValue());
+                this.coJ.remove(((Integer) it.next()).intValue());
             }
         }
-        if (this.cnM.size() == 0) {
-            ahB();
-            this.cnN.clear();
+        if (this.coJ.size() == 0) {
+            ahI();
+            this.coK.clear();
         } else {
-            a(this.cnM, 1);
+            a(this.coJ, 1);
         }
     }
 
-    public synchronized void ahy() {
-        jV(2);
+    public synchronized void ahF() {
+        jA(2);
     }
 
-    public synchronized void ahz() {
-        jV(3);
+    public synchronized void ahG() {
+        jA(3);
     }
 
-    public void ahA() {
-        ahr();
+    public void ahH() {
+        ahy();
     }
 
     public synchronized void c(SparseArray<Long> sparseArray) {
         if (sparseArray != null) {
             if (sparseArray.size() != 0) {
-                this.cnO = false;
-                this.cnL = 4;
+                this.coL = false;
+                this.coI = 4;
                 this.mHandler.removeMessages(3);
-                aht().mHandler.sendMessageDelayed(aht().mHandler.obtainMessage(3), aht().cnD);
+                ahA().mHandler.sendMessageDelayed(ahA().mHandler.obtainMessage(3), ahA().coA);
                 a(sparseArray, 4);
             }
         }
     }
 
-    private synchronized void jV(int i) {
-        this.cnO = true;
-        this.cnL = i;
+    private synchronized void jA(int i) {
+        this.coL = true;
+        this.coI = i;
         a((SparseArray<Long>) null, i);
     }
 
-    private void jW(int i) {
+    private void jB(int i) {
         if (i == 1) {
-            if (this.cnH != 2) {
-                this.cnH = 1;
+            if (this.coE != 2) {
+                this.coE = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.cnH = 2;
+            this.coE = 2;
         }
     }
 
-    private void ahB() {
-        this.cnH = 0;
+    private void ahI() {
+        this.coE = 0;
     }
 }

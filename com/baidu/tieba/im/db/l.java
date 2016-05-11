@@ -9,20 +9,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a ceO;
-    public static String cez = "tb_private_msg_";
+    public static String cff = "tb_private_msg_";
+    private static a cfu;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l aeE() {
+    public static synchronized l aeD() {
         l lVar;
         synchronized (l.class) {
-            if (ceO == null) {
-                ceO = new l();
+            if (cfu == null) {
+                cfu = new l();
             }
-            lVar = (l) ceO;
+            lVar = (l) cfu;
         }
         return lVar;
     }
@@ -42,12 +42,12 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v5, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v9 */
-    public CommonMsgPojo U(String str, int i) {
+    public CommonMsgPojo Y(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(cez);
+            ?? valueOf = String.valueOf(cff);
             try {
                 try {
                     cursor = g.aet().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
@@ -80,7 +80,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        jd(str);
+                        jf(str);
                         com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;

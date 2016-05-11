@@ -1,24 +1,37 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fm implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bpx;
-    final /* synthetic */ fj bri;
+public class fm implements Animation.AnimationListener {
+    final /* synthetic */ fk bmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fm(fj fjVar, ThemeCardInUserData themeCardInUserData) {
-        this.bri = fjVar;
-        this.bpx = themeCardInUserData;
+    public fm(fk fkVar) {
+        this.bmR = fkVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(this.bri.bix.getPageContext().getPageActivity(), this.bpx.getCardId())));
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        View view2;
+        View view3;
+        view = this.bmR.bmI;
+        if (view != null) {
+            view2 = this.bmR.bmI;
+            view2.clearAnimation();
+            view3 = this.bmR.bmI;
+            view3.setVisibility(8);
+            this.bmR.cZ(true);
+        }
     }
 }

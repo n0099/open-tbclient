@@ -1,35 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import android.widget.TextView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class cu extends db<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cu(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+class cu implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ ct dkU;
+    private final /* synthetic */ String dkV;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cu(ct ctVar, String str) {
+        this.dkU = ctVar;
+        this.dkV = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: au */
-    public PbRecBaseViewHolder b(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aLw().m(this.mContext, 1);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        cs csVar;
+        cs csVar2;
+        cs csVar3;
+        cs csVar4;
+        csVar = this.dkU.dkT;
+        TextView textView = new TextView(csVar.bek.getPageContext().getPageActivity());
+        textView.setText(this.dkV);
+        textView.setGravity(17);
+        com.baidu.tbadk.core.util.at.j((View) textView, t.d.cp_cont_i);
+        csVar2 = this.dkU.dkT;
+        textView.setTextSize(0, csVar2.bek.getResources().getDimensionPixelSize(t.e.fontsize28));
+        csVar3 = this.dkU.dkT;
+        textView.setWidth(csVar3.bek.getResources().getDimensionPixelSize(t.e.ds266));
+        csVar4 = this.dkU.dkT;
+        textView.setHeight(csVar4.bek.getResources().getDimensionPixelSize(t.e.ds76));
+        com.baidu.tbadk.core.util.at.k(textView, t.f.bg_tip_blue_left);
+        return textView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.db, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.r rVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) rVar, (com.baidu.tieba.tbadkCore.data.r) pbRecBaseViewHolder);
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        com.baidu.tieba.tbadkCore.data.r rVar2 = (com.baidu.tieba.tbadkCore.data.r) aF(i);
-        this.dfw.getLayoutMode().ab(this.mSkinType == 1);
-        this.dfw.getLayoutMode().x(view);
-        pbRecBaseViewHolder.update(rVar2, i, this.mIsFromCDN);
-        return view;
+    @Override // com.baidu.adp.lib.guide.b
+    public int cT() {
+        return 2;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int cU() {
+        return 48;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return -10;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

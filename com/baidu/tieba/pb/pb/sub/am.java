@@ -7,13 +7,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    private final /* synthetic */ boolean dhx;
-    final /* synthetic */ x dpf;
+    private final /* synthetic */ boolean djG;
+    final /* synthetic */ y dqN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(x xVar, boolean z) {
-        this.dpf = xVar;
-        this.dhx = z;
+    public am(y yVar, boolean z) {
+        this.dqN = yVar;
+        this.djG = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,19 +23,19 @@ public class am implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         NewSubPbActivity newSubPbActivity2;
-        dialog = this.dpf.dlx;
+        dialog = this.dqN.dnR;
         if (dialog != null) {
-            dialog2 = this.dpf.dlx;
+            dialog2 = this.dqN.dnR;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.dpf.dlx;
-                newSubPbActivity2 = this.dpf.doJ;
+                dialog3 = this.dqN.dnR;
+                newSubPbActivity2 = this.dqN.dqr;
                 com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity2.getPageContext());
             }
         }
         SparseArray<Object> sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            newSubPbActivity = this.dpf.doJ;
-            newSubPbActivity.a(this.dhx, (String) sparseArray.get(t.g.tag_user_mute_mute_userid), sparseArray);
+            newSubPbActivity = this.dqN.dqr;
+            newSubPbActivity.a(this.djG, (String) sparseArray.get(t.g.tag_user_mute_mute_userid), sparseArray);
         }
     }
 }

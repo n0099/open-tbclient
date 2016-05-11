@@ -5,6 +5,6 @@ import com.baidu.tieba.imMessageCenter.PersonalTalkSettingActivityConfig;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(PersonalTalkSettingActivityConfig.class, PersonalTalkSettingActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(PersonalTalkSettingActivityConfig.class, PersonalTalkSettingActivity.class);
     }
 }

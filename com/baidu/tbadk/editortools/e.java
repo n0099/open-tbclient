@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements s {
-    private String aad;
-    private int atm;
-    private TextView ato;
+    private String VC;
+    private int apc;
+    private TextView ape;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -23,28 +23,28 @@ public class e extends RelativeLayout implements s {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context.getResources().getDimensionPixelSize(t.e.ds140), -2);
             setGravity(5);
             layoutParams.setMargins(0, context.getResources().getDimensionPixelSize(t.e.ds26), context.getResources().getDimensionPixelSize(t.e.ds24), context.getResources().getDimensionPixelSize(t.e.ds8));
-            this.ato = new TextView(context);
+            this.ape = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
-            this.ato.setGravity(17);
+            this.ape.setGravity(17);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(t.e.editor_more_btns_paddingtop);
-            this.ato.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            this.ato.setTextSize(0, context.getResources().getDimensionPixelSize(t.e.fontsize24));
-            addView(this.ato, layoutParams);
+            this.ape.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            this.ape.setTextSize(0, context.getResources().getDimensionPixelSize(t.e.fontsize24));
+            addView(this.ape, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.ato.setText(str);
+        this.ape.setText(str);
     }
 
     public void setIcon(int i) {
-        this.atm = i;
+        this.apc = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void op() {
+    public void kC() {
         setVisibility(0);
     }
 
@@ -58,8 +58,8 @@ public class e extends RelativeLayout implements s {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.ato.getRight() - (this.mTip.getMeasuredWidth() >> 1);
-                int top = this.ato.getTop() - (this.mTip.getMeasuredHeight() >> 1);
+                int right = this.ape.getRight() - (this.mTip.getMeasuredWidth() >> 1);
+                int top = this.ape.getTop() - (this.mTip.getMeasuredHeight() >> 1);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -67,35 +67,35 @@ public class e extends RelativeLayout implements s {
         }
     }
 
-    public void fj(String str) {
-        fk(str);
+    public void fg(String str) {
+        fh(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fk(String str) {
+    private void fh(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.aad = str;
+            this.VC = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            at.a(this.mTip, t.d.top_msg_num_day, 1, this.mSkinType);
+            at.b(this.mTip, t.d.top_msg_num_day, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
                 this.mTip.setText(str);
-                at.c(this.mTip, t.f.icon_news_head_prompt_one, this.mSkinType);
+                at.d(this.mTip, t.f.icon_news_head_prompt_one, this.mSkinType);
                 return;
             }
             this.mTip.setWidth(0);
             this.mTip.setHeight(0);
             this.mTip.setText("");
-            at.c(this.mTip, t.f.icon_news_down_bar_one, this.mSkinType);
+            at.d(this.mTip, t.f.icon_news_down_bar_one, this.mSkinType);
         }
     }
 
-    public void Dg() {
-        this.aad = null;
+    public void Ba() {
+        this.VC = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -105,9 +105,9 @@ public class e extends RelativeLayout implements s {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Dg();
+                Ba();
             } else if (aVar.data instanceof String) {
-                fj((String) aVar.data);
+                fg((String) aVar.data);
             }
         }
     }
@@ -124,25 +124,25 @@ public class e extends RelativeLayout implements s {
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        at.c(this.ato, t.f.selector_editor_more_btn, i);
-        at.a(this.ato, t.d.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.ato.getText())) {
-            at.c(this.ato, this.atm, i);
+        at.d(this.ape, t.f.selector_editor_more_btn, i);
+        at.b(this.ape, t.d.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.ape.getText())) {
+            at.d(this.ape, this.apc, i);
         } else {
-            this.ato.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.o(i, this.atm), (Drawable) null, (Drawable) null);
+            this.ape.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.o(i, this.apc), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
-            at.a(this.mTip, t.d.top_msg_num_day, 1, i);
+            at.b(this.mTip, t.d.top_msg_num_day, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText())) {
-                at.c(this.mTip, t.f.icon_news_head_prompt_one, i);
+                at.d(this.mTip, t.f.icon_news_head_prompt_one, i);
             } else {
-                at.c(this.mTip, t.f.icon_news_down_bar_one, i);
+                at.d(this.mTip, t.f.icon_news_down_bar_one, i);
             }
             this.mTip.setPadding(0, 0, 0, 0);
         }
     }
 
     public String getText() {
-        return this.aad;
+        return this.VC;
     }
 }

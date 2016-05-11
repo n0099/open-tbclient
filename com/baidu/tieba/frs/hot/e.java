@@ -1,40 +1,40 @@
 package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.widget.ListView.u;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tieba.frs.fp;
-import com.baidu.tieba.frs.fr;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tieba.frs.fi;
+import com.baidu.tieba.frs.fq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d bsY;
+    final /* synthetic */ d brM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.bsY = dVar;
+        this.brM = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         int i;
-        ac acVar;
-        ArrayList<u> arrayList;
-        fp fpVar;
+        ad adVar;
+        ArrayList<v> arrayList;
+        fi fiVar;
         ArrayList arrayList2;
-        fr frVar;
-        fp fpVar2;
-        fr frVar2;
-        ArrayList<u> arrayList3;
+        fq fqVar;
+        fi fiVar2;
+        fq fqVar2;
+        ArrayList<v> arrayList3;
         ArrayList arrayList4;
-        fr frVar3;
-        fr frVar4;
-        fr frVar5;
-        fr frVar6;
-        fr frVar7;
+        fq fqVar3;
+        fq fqVar4;
+        fq fqVar5;
+        fq fqVar6;
+        fq fqVar7;
         int i2;
         ArrayList arrayList5;
         ArrayList arrayList6;
@@ -46,72 +46,72 @@ public class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedFrsHotHttpMessage) {
                 ResponsedFrsHotHttpMessage responsedFrsHotHttpMessage = (ResponsedFrsHotHttpMessage) responsedMessage;
                 arrayList = responsedFrsHotHttpMessage.getThreadList();
-                acVar = responsedFrsHotHttpMessage.getPage();
+                adVar = responsedFrsHotHttpMessage.getPage();
                 i = responsedFrsHotHttpMessage.getError();
                 str = responsedFrsHotHttpMessage.getErrorString();
             } else if (responsedMessage instanceof ResponsedFrsHotSocketMessage) {
                 ResponsedFrsHotSocketMessage responsedFrsHotSocketMessage = (ResponsedFrsHotSocketMessage) responsedMessage;
                 arrayList = responsedFrsHotSocketMessage.getThreadList();
-                acVar = responsedFrsHotSocketMessage.getPage();
+                adVar = responsedFrsHotSocketMessage.getPage();
                 i = responsedFrsHotSocketMessage.getError();
                 str = responsedFrsHotSocketMessage.getErrorString();
             } else {
                 i = 0;
-                acVar = null;
+                adVar = null;
                 arrayList = null;
             }
-            if (acVar != null) {
+            if (adVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int so = acVar.so();
-                    i2 = this.bsY.bsT;
-                    if (so > i2) {
-                        i3 = this.bsY.bsT;
+                    int pI = adVar.pI();
+                    i2 = this.brM.brH;
+                    if (pI > i2) {
+                        i3 = this.brM.brH;
                         if (i3 > 0) {
-                            z = this.bsY.bhD;
+                            z = this.brM.bdy;
                             if (!z) {
-                                arrayList7 = this.bsY.bsW;
+                                arrayList7 = this.brM.brK;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (acVar.so() > 0) {
-                        arrayList5 = this.bsY.bsW;
+                    if (adVar.pI() > 0) {
+                        arrayList5 = this.brM.brK;
                         arrayList5.clear();
-                        arrayList6 = this.bsY.bsW;
+                        arrayList6 = this.brM.brK;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                frVar4 = this.bsY.bsV;
-                frVar4.errCode = i;
-                frVar5 = this.bsY.bsV;
-                frVar5.errMsg = str;
-                frVar6 = this.bsY.bsV;
-                frVar6.pn = acVar.so();
-                frVar7 = this.bsY.bsV;
-                frVar7.hasMore = acVar.sq() == 1;
-                this.bsY.bsT = acVar.so();
+                fqVar4 = this.brM.brJ;
+                fqVar4.errCode = i;
+                fqVar5 = this.brM.brJ;
+                fqVar5.errMsg = str;
+                fqVar6 = this.brM.brJ;
+                fqVar6.pn = adVar.pI();
+                fqVar7 = this.brM.brJ;
+                fqVar7.hasMore = adVar.pK() == 1;
+                this.brM.brH = adVar.pI();
             }
-            this.bsY.bhD = false;
-            fpVar = this.bsY.bsU;
-            if (fpVar != null) {
-                arrayList2 = this.bsY.bsW;
+            this.brM.bdy = false;
+            fiVar = this.brM.brI;
+            if (fiVar != null) {
+                arrayList2 = this.brM.brK;
                 if (arrayList2 != null) {
-                    arrayList4 = this.bsY.bsW;
+                    arrayList4 = this.brM.brK;
                     if (arrayList4.size() != 0) {
-                        frVar3 = this.bsY.bsV;
-                        frVar3.bru = true;
-                        fpVar2 = this.bsY.bsU;
-                        frVar2 = this.bsY.bsV;
-                        arrayList3 = this.bsY.bsW;
-                        fpVar2.a(2, 0, frVar2, arrayList3);
+                        fqVar3 = this.brM.brJ;
+                        fqVar3.bmV = true;
+                        fiVar2 = this.brM.brI;
+                        fqVar2 = this.brM.brJ;
+                        arrayList3 = this.brM.brK;
+                        fiVar2.a(2, 0, fqVar2, arrayList3);
                     }
                 }
-                frVar = this.bsY.bsV;
-                frVar.bru = false;
-                fpVar2 = this.bsY.bsU;
-                frVar2 = this.bsY.bsV;
-                arrayList3 = this.bsY.bsW;
-                fpVar2.a(2, 0, frVar2, arrayList3);
+                fqVar = this.brM.brJ;
+                fqVar.bmV = false;
+                fiVar2 = this.brM.brI;
+                fqVar2 = this.brM.brJ;
+                arrayList3 = this.brM.brK;
+                fiVar2.a(2, 0, fqVar2, arrayList3);
             }
         }
     }

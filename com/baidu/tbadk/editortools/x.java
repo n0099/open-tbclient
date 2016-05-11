@@ -7,11 +7,11 @@ import com.baidu.tieba.t;
 public class x extends aa {
     public x(Context context) {
         super(context, null, 2, 0);
-        this.name = TbadkCoreApplication.m411getInst().getString(t.j.more_function);
-        this.launcherIcon = t.f.selector_editor_btn_more;
-        this.toolView = new t(context);
-        this.toolNeedAction = true;
-        this.toolPosition = 6;
-        this.toolLaunchAction = new int[]{1};
+        this.name = TbadkCoreApplication.m11getInst().getString(t.j.more_function);
+        this.aql = t.f.selector_editor_btn_more;
+        this.aps = new t(context);
+        this.aqp = true;
+        this.aqo = 6;
+        this.aqq = new int[]{1};
     }
 }

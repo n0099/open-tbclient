@@ -1,29 +1,32 @@
 package com.baidu.tbadk.widget.richText;
+
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-class r extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbRichTextView aJw;
+class r implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aFD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(TbRichTextView tbRichTextView) {
-        this.aJw = tbRichTextView;
+        this.aFD = tbRichTextView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.aJw.e(aVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void ao(String str) {
-        super.ao(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbRichTextView.e eVar;
+        String str;
+        TbRichTextView.e eVar2;
+        eVar = this.aFD.aFf;
+        if (eVar != null && (view instanceof TbImageView)) {
+            Object tag = view.getTag();
+            if (tag == null || !(tag instanceof TbRichTextView.b)) {
+                str = null;
+            } else {
+                str = ((TbRichTextView.b) tag).url;
+            }
+            eVar2 = this.aFD.aFf;
+            eVar2.b(view, str);
+        }
     }
 }

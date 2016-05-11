@@ -1,30 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class ak implements PbActivity.c {
-    final /* synthetic */ PbActivity dht;
+class ak implements NoNetworkView.a {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.dht = pbActivity;
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.c
-    public void fZ(boolean z) {
-        df dfVar;
-        eu euVar;
-        df dfVar2;
-        eu euVar2;
-        dfVar = this.dht.dfV;
-        if (dfVar.gc(true)) {
-            euVar2 = this.dht.dgF;
-            euVar2.ayG();
-            return;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aF(boolean z) {
+        boolean z2;
+        cw cwVar;
+        z2 = this.djE.diA;
+        if (!z2 && z) {
+            cwVar = this.djE.dih;
+            if (!cwVar.axG()) {
+                this.djE.amA();
+            }
         }
-        euVar = this.dht.dgF;
-        euVar.azf();
-        dfVar2 = this.dht.dfV;
-        dfVar2.lY(1);
+        this.djE.setNetRefreshViewEmotionDefMarginTop();
     }
 }

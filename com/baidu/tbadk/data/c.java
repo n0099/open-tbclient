@@ -1,26 +1,31 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
+import tbclient.VipCloseAd;
 /* loaded from: classes.dex */
-public class c extends TbConfig {
-    public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
-    public static final Long arS = 3600000L;
-    public static final Long arT = 36000000L;
-    public static final Long arU = 36000000L;
-    public static final Long arV = 86400000L;
-    public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
-    public static final String arW = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
-    public static final String arX = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
-    public static int arY = 80;
-    private static int PB_LIST_ITEM_MAX_NUM = 300;
-    private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static final Long arZ = 3600000L;
+public class c {
+    private int anG = 1;
+    private int anH;
 
-    public static final String CD() {
-        return "com.baidu.tieba.broadcast.service";
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.anG = jSONObject.optInt("is_open");
+            this.anH = jSONObject.optInt("vip_close");
+        }
     }
 
-    public static int getPbListItemMaxNum() {
-        return PB_LIST_ITEM_MAX_NUM;
+    public void a(VipCloseAd vipCloseAd) {
+        if (vipCloseAd != null) {
+            this.anG = vipCloseAd.is_open.intValue();
+            this.anH = vipCloseAd.vip_close.intValue();
+        }
+    }
+
+    public int Av() {
+        return this.anG;
+    }
+
+    public int Aw() {
+        return this.anH;
     }
 }

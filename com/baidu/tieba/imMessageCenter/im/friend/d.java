@@ -3,11 +3,11 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ IMBlackListActivity cvz;
+    final /* synthetic */ IMBlackListActivity cww;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(IMBlackListActivity iMBlackListActivity) {
-        this.cvz = iMBlackListActivity;
+        this.cww = iMBlackListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

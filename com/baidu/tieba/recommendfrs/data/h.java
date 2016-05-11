@@ -3,27 +3,26 @@ package com.baidu.tieba.recommendfrs.data;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.a.z;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.card.a.q implements z {
-    private CardGod dWJ;
+public class h extends com.baidu.tieba.card.a.j implements com.baidu.tieba.card.a.r {
+    private CardGod dZT;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.dWJ = cardGod;
-            this.aVn = this.dWJ.card_title;
-            if (!y.q(this.dWJ.gods)) {
+            this.dZT = cardGod;
+            this.aRs = this.dZT.card_title;
+            if (!y.s(this.dZT.gods)) {
                 int i = 0;
-                for (User user : this.dWJ.gods) {
+                for (User user : this.dZT.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
                         if (!StringUtils.isNull(metaData.getUserName())) {
-                            com.baidu.tieba.card.a.r rVar = new com.baidu.tieba.card.a.r();
-                            rVar.author = metaData;
-                            a(rVar);
+                            com.baidu.tieba.card.a.k kVar = new com.baidu.tieba.card.a.k();
+                            kVar.author = metaData;
+                            a(kVar);
                             i++;
                         }
                     } else {
@@ -34,25 +33,25 @@ public class h extends com.baidu.tieba.card.a.q implements z {
         }
     }
 
-    public boolean rk() {
-        return y.p(FZ()) > 2;
+    public boolean oF() {
+        return y.r(DR()) > 2;
     }
 
-    @Override // com.baidu.tieba.card.a.z
+    @Override // com.baidu.tieba.card.a.r
     public int getPosition() {
-        if (this.dWJ == null || this.dWJ.position == null) {
+        if (this.dZT == null || this.dZT.position == null) {
             return 0;
         }
-        return this.dWJ.position.intValue();
+        return this.dZT.position.intValue();
     }
 
-    @Override // com.baidu.tieba.card.a.z
-    public boolean LE() {
+    @Override // com.baidu.tieba.card.a.r
+    public boolean Kn() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.a.z
-    public void cd(boolean z) {
-        this.aVr = z;
+    @Override // com.baidu.tieba.card.a.r
+    public void cj(boolean z) {
+        this.aRw = z;
     }
 }

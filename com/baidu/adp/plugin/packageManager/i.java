@@ -19,42 +19,42 @@ public class i implements com.baidu.adp.plugin.install.a {
         long j;
         String str3;
         if (z) {
-            if (PluginPackageManager.ls().hG()) {
-                PluginSettings lR = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().lR();
-                com.baidu.adp.plugin.b.a lf = com.baidu.adp.plugin.b.a.lf();
-                str3 = this.this$0.Et;
-                lf.e("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (lR == null ? "" : lR.getContainerVersion()));
+            if (PluginPackageManager.hF().dU()) {
+                PluginSettings m9if = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if();
+                com.baidu.adp.plugin.b.a hs = com.baidu.adp.plugin.b.a.hs();
+                str3 = this.this$0.uL;
+                hs.e("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (m9if == null ? "" : m9if.getContainerVersion()));
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c lU = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU();
-            str2 = this.this$0.Et;
-            lU.bE(str2);
-            if (PluginPackageManager.ls().hG()) {
-                com.baidu.adp.plugin.b.a lf2 = com.baidu.adp.plugin.b.a.lf();
+            com.baidu.adp.plugin.packageManager.pluginSettings.c ii = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii();
+            str2 = this.this$0.uL;
+            ii.bx(str2);
+            if (PluginPackageManager.hF().dU()) {
+                com.baidu.adp.plugin.b.a hs2 = com.baidu.adp.plugin.b.a.hs();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.Ev;
-                lf2.e("plugin_install", currentTimeMillis - j);
+                j = this.this$0.uN;
+                hs2.e("plugin_install", currentTimeMillis - j);
             }
-        } else if (PluginPackageManager.ls().hG()) {
-            PluginSettings lR2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().lR();
-            com.baidu.adp.plugin.b.a lf3 = com.baidu.adp.plugin.b.a.lf();
-            str = this.this$0.Et;
-            lf3.e("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (lR2 == null ? "" : lR2.getContainerVersion()));
+        } else if (PluginPackageManager.hF().dU()) {
+            PluginSettings m9if2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if();
+            com.baidu.adp.plugin.b.a hs3 = com.baidu.adp.plugin.b.a.hs();
+            str = this.this$0.uL;
+            hs3.e("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (m9if2 == null ? "" : m9if2.getContainerVersion()));
         }
-        this.this$0.lA();
+        this.this$0.hN();
         this.this$0.I(true);
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void bg(String str) {
+    public void aZ(String str) {
         int i;
-        com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().f(str, true);
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.lU().findPluginSetting(str);
+        com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().f(str, true);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().findPluginSetting(str);
         if (findPluginSetting != null) {
             int i2 = findPluginSetting.versionCode;
-            i = PluginPackageManager.Eo;
+            i = PluginPackageManager.uG;
             if (i2 < i) {
-                com.baidu.adp.plugin.b.a.lf().E("plugin_launch_lowversion", str);
-                com.baidu.adp.plugin.b.a.lf().e("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
+                com.baidu.adp.plugin.b.a.hs().D("plugin_launch_lowversion", str);
+                com.baidu.adp.plugin.b.a.hs().e("plugin_load", "load_lowversion", str, "innerapk_hadinstall-" + findPluginSetting.apkPath + "-" + findPluginSetting.versionCode + "-" + findPluginSetting.forbidden + "-" + findPluginSetting.tempVersionCode + "-" + findPluginSetting.installStatus);
             }
         }
     }

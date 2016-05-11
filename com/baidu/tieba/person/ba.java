@@ -1,29 +1,48 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements View.OnClickListener {
-    final /* synthetic */ ax dtv;
+public class ba extends HttpMessageListener {
+    final /* synthetic */ ay dwQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(ax axVar) {
-        this.dtv = axVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba(ay ayVar, int i) {
+        super(i);
+        this.dwQ = ayVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.dtv.dto = ((Integer) view.getTag()).intValue();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(this.dtv.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.dtv.getBaseFragmentActivity().getPageContext().getPageActivity(), this.dtv.getString(t.j.login_to_chat), true, 11028)));
-        } else {
-            this.dtv.aBx();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonFriendActivity aBR;
+        PersonFriendActivity aBR2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
+            this.dwQ.dwM = false;
+            aBR = this.dwQ.aBR();
+            if (aBR != null) {
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                aBR2 = this.dwQ.aBR();
+                if (tag == aBR2.getUniqueId()) {
+                    this.dwQ.zu.k(2000L);
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
+                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
+                        if (personFriendResponseMessage.getError() == 0) {
+                            this.dwQ.a(personFriendResponseMessage.getPersonListData(), false);
+                            return;
+                        } else {
+                            this.dwQ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dwQ.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
+                            return;
+                        }
+                    }
+                    this.dwQ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dwQ.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
+                }
+            }
         }
     }
 }

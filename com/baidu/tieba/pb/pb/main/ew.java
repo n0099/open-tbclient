@@ -1,20 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ew implements Runnable {
-    final /* synthetic */ eu dnc;
+public class ew implements a.b {
+    final /* synthetic */ el dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ew(eu euVar) {
-        this.dnc = euVar;
+    public ew(el elVar) {
+        this.dpu = elVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        LinearLayout linearLayout;
-        linearLayout = this.dnc.dlf;
-        linearLayout.setVisibility(0);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

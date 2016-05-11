@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a asQ;
+    final /* synthetic */ a aoH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.asQ = aVar;
+        this.aoH = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,10 +32,10 @@ public class e extends CustomMessageListener {
                             case 0:
                             case 2:
                             case 4:
-                                this.asQ.w(downloadData.getId(), downloadData.getStatus());
+                                this.aoH.x(downloadData.getId(), downloadData.getStatus());
                                 continue;
                             case 1:
-                                this.asQ.fb(downloadData.getId());
+                                this.aoH.eY(downloadData.getId());
                                 continue;
                         }
                     }

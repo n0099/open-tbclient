@@ -4,37 +4,37 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.y;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    x Jr;
+    y zH;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Jr = null;
+        this.zH = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Jr = null;
+        this.zH = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Jr = null;
+        this.zH = null;
         init();
     }
 
     private void init() {
-        if (this.Jr == null) {
-            this.Jr = new x();
+        if (this.zH == null) {
+            this.zH = new y();
         }
-        super.setOnItemClickListener(new s(this));
-        super.setOnItemLongClickListener(new t(this));
+        super.setOnItemClickListener(new t(this));
+        super.setOnItemLongClickListener(new u(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
@@ -47,28 +47,28 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void a(a<u, x.a> aVar) {
-        this.Jr.a(aVar);
-        setAdapter((ListAdapter) this.Jr);
+    public void a(a<v, y.a> aVar) {
+        this.zH.a(aVar);
+        setAdapter((ListAdapter) this.zH);
     }
 
     public void g(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Jr.a(it.next());
+            this.zH.a(it.next());
         }
-        setAdapter((ListAdapter) this.Jr);
+        setAdapter((ListAdapter) this.zH);
     }
 
-    public void setData(List<u> list) {
-        this.Jr.setData(list);
+    public void setData(List<v> list) {
+        this.zH.setData(list);
     }
 
-    public List<u> getData() {
-        return this.Jr.getData();
+    public List<v> getData() {
+        return this.zH.getData();
     }
 
-    public u aF(int i) {
-        return this.Jr.getItem(i);
+    public v at(int i) {
+        return this.zH.getItem(i);
     }
 }

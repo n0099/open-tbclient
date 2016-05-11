@@ -11,13 +11,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a DX;
+    final /* synthetic */ a up;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.DX = aVar;
+        this.up = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,10 +30,10 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
             PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
             if (aVar.errNo == 0) {
-                hashMap2 = this.DX.DV;
+                hashMap2 = this.up.um;
                 if (hashMap2.size() > 0) {
-                    hashMap3 = this.DX.DV;
-                    ArrayList arrayList = (ArrayList) hashMap3.get(aVar.DU);
+                    hashMap3 = this.up.um;
+                    ArrayList arrayList = (ArrayList) hashMap3.get(aVar.ul);
                     if (arrayList != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -42,8 +42,8 @@ public class b extends CustomMessageListener {
                     }
                 }
             }
-            hashMap = this.DX.DV;
-            hashMap.remove(aVar.DU);
+            hashMap = this.up.um;
+            hashMap.remove(aVar.ul);
         }
     }
 }

@@ -1,23 +1,40 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.sapi2.SapiWebView;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.VoiceCheckActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements SapiWebView.VoiceLoginHandler {
-    final /* synthetic */ LoginActivity cZE;
+public class p extends AuthorizationListener {
+    final /* synthetic */ LoginActivity dbZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(LoginActivity loginActivity) {
-        this.cZE = loginActivity;
+        this.dbZ = loginActivity;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.VoiceLoginHandler
-    public void handleVoiceLogin() {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_voice_start", 0, "", new Object[0]);
-        this.cZE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceCheckActivityConfig(this.cZE.getPageContext().getPageActivity())));
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
+        this.dbZ.auG();
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_fail", i, str, new Object[0]);
+        if (TextUtils.isEmpty(str)) {
+            this.dbZ.showToast(t.j.data_load_error);
+        } else {
+            this.dbZ.showToast(str);
+        }
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public boolean onForgetPwd() {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_forgetpwd", 0, "", new Object[0]);
+        this.dbZ.startActivity(new Intent(this.dbZ.getPageContext().getPageActivity(), ForgetPwdActivity.class));
+        return true;
     }
 }

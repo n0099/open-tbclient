@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.t;
@@ -27,11 +26,11 @@ public class e {
         }
     }
 
-    public static void g(Context context, View view) {
+    public static void e(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
-        toast.setDuration(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
+        toast.setDuration(3000);
         toast.show();
     }
 
@@ -50,21 +49,21 @@ public class e {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        g(context, inflate);
+        e(context, inflate);
     }
 
     public static void a(ab abVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            abVar.p("is_location", "2");
-            Address x = com.baidu.adp.lib.e.a.gL().x(false);
+            abVar.n("is_location", "2");
+            Address x = com.baidu.adp.lib.e.a.cZ().x(false);
             if (x != null) {
-                abVar.p("lat", String.valueOf(x.getLatitude()));
-                abVar.p("lng", String.valueOf(x.getLongitude()));
+                abVar.n("lat", String.valueOf(x.getLatitude()));
+                abVar.n("lng", String.valueOf(x.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aUd().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aUz().getLocationData();
             if (locationData != null) {
-                abVar.p("name", locationData.aTZ());
-                abVar.p("sn", locationData.aUb());
+                abVar.n("name", locationData.getFormatted_address());
+                abVar.n("sn", locationData.getSn());
             }
         }
     }

@@ -1,47 +1,111 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import com.baidu.tieba.t;
-import com.baidu.tieba.usermute.k;
-import tbclient.UserMuteCheck.DataRes;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class z implements k.a {
-    final /* synthetic */ PbActivity dht;
+class z extends CustomMessageListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(PbActivity pbActivity) {
-        this.dht = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(PbActivity pbActivity, int i) {
+        super(i);
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.k.a
-    public void a(DataRes dataRes, int i, String str, Object obj) {
-        eu euVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        eu euVar2;
-        euVar = this.dht.dgF;
-        euVar.azf();
-        SparseArray<Object> sparseArray = (SparseArray) obj;
-        if (i == 0 && dataRes != null) {
-            int g = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0);
-            String str2 = dataRes.mute_confirm;
-            boolean z2 = g == 1;
-            if (com.baidu.tbadk.core.util.ay.isEmpty(str2)) {
-                sparseArray.put(t.g.tag_user_mute_msg, "确定禁言？");
-            } else {
-                sparseArray.put(t.g.tag_user_mute_msg, str2);
+        cw cwVar;
+        int i;
+        el elVar;
+        cw cwVar2;
+        cw cwVar3;
+        cw cwVar4;
+        boolean z2;
+        el elVar2;
+        el elVar3;
+        el elVar4;
+        cw cwVar5;
+        String awK;
+        boolean z3;
+        cw cwVar6;
+        el elVar5;
+        cw cwVar7;
+        el elVar6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
+            com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
+            if (aVar.tag == this.djE.getUniqueId()) {
+                switch (aVar.drz) {
+                    case 0:
+                        z3 = this.djE.mIsLogin;
+                        if (z3) {
+                            cwVar6 = this.djE.dih;
+                            if (cwVar6.gE(false)) {
+                                elVar6 = this.djE.diR;
+                                elVar6.azb();
+                                return;
+                            }
+                            elVar5 = this.djE.diR;
+                            cwVar7 = this.djE.dih;
+                            elVar5.n(cwVar7.getPbData());
+                            return;
+                        }
+                        return;
+                    case 1:
+                        z2 = this.djE.mIsLoading;
+                        if (!z2) {
+                            this.djE.mIsLoading = true;
+                            elVar2 = this.djE.diR;
+                            elVar2.dmZ.dpV.setEnabled(false);
+                            elVar3 = this.djE.diR;
+                            elVar3.ago();
+                            this.djE.Pk();
+                            elVar4 = this.djE.diR;
+                            elVar4.aza();
+                            cwVar5 = this.djE.dih;
+                            awK = this.djE.awK();
+                            cwVar5.lX(awK);
+                            return;
+                        }
+                        return;
+                    case 2:
+                        z = this.djE.diA;
+                        if (z) {
+                            cwVar2 = this.djE.dih;
+                            boolean hostMode = cwVar2.getHostMode();
+                            cwVar3 = this.djE.dih;
+                            boolean axB = cwVar3.axB();
+                            cwVar4 = this.djE.dih;
+                            String threadID = cwVar4.getThreadID();
+                            String str = aVar.postId;
+                            int i2 = aVar.drA;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.djE.getPageContext().getPageActivity());
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, axB, null);
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
+                            this.djE.diV = false;
+                            this.djE.finish();
+                            return;
+                        }
+                        int i3 = aVar.drA;
+                        cwVar = this.djE.dih;
+                        if (cwVar.getHostMode()) {
+                            i = i3 + 3;
+                        } else {
+                            i = i3 + 2;
+                        }
+                        elVar = this.djE.diR;
+                        elVar.KP().setSelection(i);
+                        return;
+                    default:
+                        return;
+                }
             }
-            sparseArray.put(t.g.tag_user_mute_visible, true);
-            z = z2;
-        } else {
-            sparseArray.put(t.g.tag_user_mute_visible, false);
-            z = false;
-        }
-        int intValue = ((Integer) sparseArray.get(t.g.tag_from)).intValue();
-        if (intValue == 0) {
-            this.dht.a(z, sparseArray);
-        } else if (intValue == 1) {
-            euVar2 = this.dht.dgF;
-            euVar2.a(sparseArray, z);
         }
     }
 }

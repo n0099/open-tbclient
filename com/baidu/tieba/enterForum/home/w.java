@@ -1,35 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bg;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends CustomMessageListener {
-    final /* synthetic */ i bbw;
+public class w extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ k aXF;
+    private final /* synthetic */ String aXH;
+    private final /* synthetic */ boolean aXI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(i iVar, int i) {
-        super(i);
-        this.bbw = iVar;
+    public w(k kVar, String str, boolean z) {
+        this.aXF = kVar;
+        this.aXH = str;
+        this.aXI = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016313 && this.bbw.aNm != null) {
-            z = this.bbw.bbf;
-            if (z) {
-                TiebaStatic.log(new aw("c10808"));
-            }
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                bg.wM().a(this.bbw.aNm.getPageContext(), new String[]{(String) data}, true);
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.aXH)) {
+            com.baidu.tieba.im.settingcache.h.ait().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aXH), this.aXI);
         }
+        return null;
     }
 }

@@ -1,26 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.person.PersonChangeActivity;
+import android.support.v4.media.TransportMediator;
+import android.widget.ScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PersonChangeActivity dth;
+public class ao implements Runnable {
+    final /* synthetic */ PersonChangeActivity dwD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PersonChangeActivity personChangeActivity) {
-        this.dth = personChangeActivity;
+        this.dwD = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        PersonChangeActivity.b bVar;
-        PersonChangeActivity.b bVar2;
-        this.dth.destroyWaitingDialog();
-        bVar = this.dth.dta;
-        if (bVar != null) {
-            bVar2 = this.dth.dta;
-            bVar2.cancel();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ScrollView scrollView;
+        scrollView = this.dwD.dwj;
+        scrollView.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
     }
 }

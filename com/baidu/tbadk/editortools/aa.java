@@ -3,21 +3,21 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class aa {
+    public ab aps;
+    public int aql;
+    public int aqn;
+    public int aqo;
+    public int[] aqq;
     private Context context;
     public int id;
-    public int launcherIcon;
-    public int launcherPriority;
     public String name;
-    public int[] toolLaunchAction;
-    public int toolPosition;
-    public ab toolView;
-    public boolean isLauncherCanSelect = true;
-    public boolean toolNeedAction = false;
+    public boolean aqm = true;
+    public boolean aqp = false;
 
     public aa(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.launcherPriority = i2;
+        this.aqn = i2;
     }
 
     public aa(Context context, String str, int i) {
@@ -30,7 +30,7 @@ public class aa {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.launcherPriority = i2;
+        this.aqn = i2;
     }
 
     protected Context getContext() {

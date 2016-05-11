@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class s {
-    private long Tm;
-    private long Tn;
-    private int To;
-    private String Tp;
-    private long Tq;
-    private long Tr;
-    private long Ts;
-    private long Tt;
-    private int Tu;
-    private int Tv;
-    private int Tw;
+    private long Oa;
+    private long Ob;
+    private int Oc;
+    private String Od;
+    private long Oe;
+    private long Of;
+    private long Og;
+    private long Oh;
+    private int Oi;
+    private int Oj;
+    private int Ok;
     private String desc;
     private int id;
     private String name;
@@ -38,12 +38,12 @@ public class s {
         this.name = str;
     }
 
-    public long rK() {
-        return this.Tm;
+    public long pd() {
+        return this.Oa;
     }
 
-    public void l(long j) {
-        this.Tm = j;
+    public void n(long j) {
+        this.Oa = j;
     }
 
     public String getThumbnailUrl() {
@@ -54,8 +54,8 @@ public class s {
         this.thumbnailUrl = str;
     }
 
-    public void m(long j) {
-        this.Tn = j;
+    public void o(long j) {
+        this.Ob = j;
     }
 
     public String getDesc() {
@@ -66,64 +66,64 @@ public class s {
         this.desc = str;
     }
 
-    public int rL() {
-        return this.To;
+    public int pe() {
+        return this.Oc;
     }
 
-    public void bE(int i) {
-        this.To = i;
+    public void br(int i) {
+        this.Oc = i;
     }
 
-    public String rM() {
-        return this.Tp;
+    public String pf() {
+        return this.Od;
     }
 
-    public void cn(String str) {
-        this.Tp = str;
+    public void cl(String str) {
+        this.Od = str;
     }
 
-    public long rN() {
-        return this.Tq;
-    }
-
-    public void n(long j) {
-        this.Tq = j;
-    }
-
-    public long getEndTime() {
-        return this.Tr;
-    }
-
-    public void o(long j) {
-        this.Tr = j;
-    }
-
-    public long rO() {
-        return this.Ts;
+    public long pg() {
+        return this.Oe;
     }
 
     public void p(long j) {
-        this.Ts = j;
+        this.Oe = j;
+    }
+
+    public long getEndTime() {
+        return this.Of;
     }
 
     public void q(long j) {
-        this.Tt = j;
+        this.Of = j;
     }
 
-    public void bF(int i) {
-        this.Tv = i;
+    public long ph() {
+        return this.Og;
     }
 
-    public void bG(int i) {
-        this.Tu = i;
+    public void r(long j) {
+        this.Og = j;
     }
 
-    public int rP() {
-        return this.Tw;
+    public void s(long j) {
+        this.Oh = j;
     }
 
-    public void bH(int i) {
-        this.Tw = i;
+    public void bs(int i) {
+        this.Oj = i;
+    }
+
+    public void bt(int i) {
+        this.Oi = i;
+    }
+
+    public int pi() {
+        return this.Ok;
+    }
+
+    public void bu(int i) {
+        this.Ok = i;
     }
 
     public int getSendCount() {

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b aAw;
+    final /* synthetic */ b awz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i, int i2) {
         super(i, i2);
-        this.aAw = bVar;
+        this.awz = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,26 +22,26 @@ class c extends com.baidu.adp.framework.listener.a {
         boolean checkMessageIsBelongToCurPage;
         a aVar;
         a aVar2;
-        checkMessageIsBelongToCurPage = this.aAw.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.awz.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.m411getInst().getString(t.j.neterror);
+                String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
-                aVar = this.aAw.aAu;
+                aVar = this.awz.awx;
                 if (aVar != null) {
-                    aVar2 = this.aAw.aAu;
+                    aVar2 = this.awz.awx;
                     aVar2.onError(string);
                 }
             } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
                 if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
                     return;
                 }
-                this.aAw.b(((ClientConfigSocketResponse) responsedMessage).getData());
+                this.awz.b(((ClientConfigSocketResponse) responsedMessage).getData());
             } else {
-                this.aAw.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                this.awz.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
             }
         }
     }

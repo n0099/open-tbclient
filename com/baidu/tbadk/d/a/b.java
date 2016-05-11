@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<com.baidu.tbadk.d.a.a> asB;
+    private ArrayList<com.baidu.tbadk.d.a.a> aos;
     private Context mContext;
 
     /* loaded from: classes.dex */
     private class a {
-        public TextView apE;
-        public HeadImageView asC;
-        public TextView asD;
+        public HeadImageView aot;
+        public TextView aou;
+        public TextView title;
     }
 
     public Context getContext() {
@@ -24,25 +24,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(com.baidu.tbadk.d.a.a aVar) {
-        if (this.asB != null && aVar != null) {
-            this.asB.add(aVar);
+        if (this.aos != null && aVar != null) {
+            this.aos.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.asB == null) {
+        if (this.aos == null) {
             return 0;
         }
-        return this.asB.size();
+        return this.aos.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: es */
+    /* renamed from: dY */
     public com.baidu.tbadk.d.a.a getItem(int i) {
-        if (this.asB != null && i < this.asB.size()) {
-            return this.asB.get(i);
+        if (this.aos != null && i < this.aos.size()) {
+            return this.aos.get(i);
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             a aVar = (a) view.getTag();
-            aVar.asC.setImageResource(this.asB.get(i).CO());
-            aVar.apE.setText(this.asB.get(i).CQ());
-            aVar.asD.setText(i);
+            aVar.aot.setImageResource(this.aos.get(i).AI());
+            aVar.title.setText(this.aos.get(i).AJ());
+            aVar.aou.setText(i);
             return view;
         }
         return null;

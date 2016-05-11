@@ -1,50 +1,34 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ b bwr;
+class i implements Animation.AnimationListener {
+    private final /* synthetic */ float bwg;
+    final /* synthetic */ h bwh;
+    private final /* synthetic */ View py;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.bwr = bVar;
+    public i(h hVar, float f, View view) {
+        this.bwh = hVar;
+        this.bwg = f;
+        this.py = view;
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c uB() {
-        com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.ct(t.f.icon_dot_personal_s);
-        cVar.cu(t.f.icon_dot_personal_n);
-        cVar.setSpacing(t.e.ds10);
-        cVar.setGravity(85);
-        cVar.cw(t.e.ds20);
-        cVar.cv(t.e.ds16);
-        return cVar;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView K(Context context) {
-        TbImageView tbImageView = new TbImageView(context);
-        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        tbImageView.setGifIconSupport(false);
-        return tbImageView;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e uC() {
-        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(t.e.ds280));
-        return eVar;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.b
-    public View uD() {
-        return this.bwr.bvw;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.bwg, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(300L);
+        this.py.startAnimation(scaleAnimation);
     }
 }

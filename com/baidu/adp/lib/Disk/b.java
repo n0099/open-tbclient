@@ -6,47 +6,47 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String rs = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String rt = String.valueOf(this.rs) + "/baidu/";
-    private String ru;
+    private final String hf = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String hg = String.valueOf(this.hf) + "/baidu/";
+    private String hh;
 
     public b() {
-        this.ru = null;
+        this.hh = null;
         try {
-            this.ru = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.hh = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void K(String str) {
+    public void B(String str) {
         if (str != null) {
-            this.rt = String.valueOf(this.rs) + "/" + str + "/";
+            this.hg = String.valueOf(this.hf) + "/" + str + "/";
         }
     }
 
-    public boolean fr() {
+    public boolean bF() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String b(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!fr()) {
+            if (!bF()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.rt) + str + "/";
+                str2 = String.valueOf(this.hg) + str + "/";
             } else {
-                str2 = this.rt;
+                str2 = this.hg;
             }
-        } else if (this.ru == null) {
+        } else if (this.hh == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = String.valueOf(this.ru) + str + "/";
+                str2 = String.valueOf(this.hh) + str + "/";
             } else {
-                str2 = this.ru;
+                str2 = this.hh;
             }
         }
         File file = new File(str2);

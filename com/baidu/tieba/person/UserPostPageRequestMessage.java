@@ -137,7 +137,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(this.scr_w);
         builder.subtype = Integer.valueOf(this.sub_type);
         if (z) {
-            com.baidu.tbadk.util.l.a(builder, true);
+            com.baidu.tbadk.util.o.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

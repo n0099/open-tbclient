@@ -2,21 +2,21 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.u;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tieba.frs.fp;
-import com.baidu.tieba.frs.fr;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tieba.frs.fi;
+import com.baidu.tieba.frs.fq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d bsY;
+    final /* synthetic */ d brM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.bsY = dVar;
+        this.brM = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,60 +28,60 @@ public class f extends CustomMessageListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        fr frVar;
-        fr frVar2;
-        fr frVar3;
-        fr frVar4;
+        fq fqVar;
+        fq fqVar2;
+        fq fqVar3;
+        fq fqVar4;
         ArrayList arrayList;
-        fp fpVar;
+        fi fiVar;
         boolean z;
         boolean z2;
-        fp fpVar2;
-        fr frVar5;
-        ArrayList<u> arrayList2;
+        fi fiVar2;
+        fq fqVar5;
+        ArrayList<v> arrayList2;
         ArrayList arrayList3;
-        fr frVar6;
+        fq fqVar6;
         boolean z3 = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof FrsHotThreadResponseCacheMessage)) {
             FrsHotThreadResponseCacheMessage frsHotThreadResponseCacheMessage = (FrsHotThreadResponseCacheMessage) customResponsedMessage;
-            ArrayList<u> threadList = frsHotThreadResponseCacheMessage.getThreadList();
-            ac page = frsHotThreadResponseCacheMessage.getPage();
-            frVar = this.bsY.bsV;
-            frVar.errCode = frsHotThreadResponseCacheMessage.getError();
-            frVar2 = this.bsY.bsV;
-            frVar2.errMsg = frsHotThreadResponseCacheMessage.getErrorString();
-            frVar3 = this.bsY.bsV;
-            frVar3.pn = page.so();
-            this.bsY.bsT = page.so();
+            ArrayList<v> threadList = frsHotThreadResponseCacheMessage.getThreadList();
+            ad page = frsHotThreadResponseCacheMessage.getPage();
+            fqVar = this.brM.brJ;
+            fqVar.errCode = frsHotThreadResponseCacheMessage.getError();
+            fqVar2 = this.brM.brJ;
+            fqVar2.errMsg = frsHotThreadResponseCacheMessage.getErrorString();
+            fqVar3 = this.brM.brJ;
+            fqVar3.pn = page.pI();
+            this.brM.brH = page.pI();
             if (threadList == null || threadList.size() == 0) {
-                frVar4 = this.bsY.bsV;
-                frVar4.bru = false;
+                fqVar4 = this.brM.brJ;
+                fqVar4.bmV = false;
             } else {
-                frVar6 = this.bsY.bsV;
-                frVar6.bru = true;
+                fqVar6 = this.brM.brJ;
+                fqVar6.bmV = true;
             }
-            arrayList = this.bsY.bsW;
+            arrayList = this.brM.brK;
             if (arrayList.size() == 0 && threadList != null && threadList.size() != 0) {
-                arrayList3 = this.bsY.bsW;
+                arrayList3 = this.brM.brK;
                 arrayList3.addAll(threadList);
             }
-            fpVar = this.bsY.bsU;
-            if (fpVar != null) {
+            fiVar = this.brM.brI;
+            if (fiVar != null) {
                 if (threadList == null || threadList.size() == 0) {
-                    z2 = this.bsY.bhD;
+                    z2 = this.brM.bdy;
                 }
-                fpVar2 = this.bsY.bsU;
-                frVar5 = this.bsY.bsV;
-                arrayList2 = this.bsY.bsW;
-                fpVar2.a(2, 0, frVar5, arrayList2);
+                fiVar2 = this.brM.brI;
+                fqVar5 = this.brM.brJ;
+                arrayList2 = this.brM.brK;
+                fiVar2.a(2, 0, fqVar5, arrayList2);
             }
             FrsHotThreadRequestCacheMessage frsHotThreadRequestCacheMessage = (FrsHotThreadRequestCacheMessage) frsHotThreadResponseCacheMessage.getOrginalMessage();
-            z = this.bsY.bhD;
+            z = this.brM.bdy;
             if (z) {
                 if (threadList == null || threadList.size() == 0) {
                     z3 = true;
                 }
-                this.bsY.c(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
+                this.brM.b(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
             }
         }
     }

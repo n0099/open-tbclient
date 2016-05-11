@@ -1,18 +1,19 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.sapi2.SapiWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class n implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ LoginActivity cZE;
+class n implements Runnable {
+    final /* synthetic */ l dca;
+    private final /* synthetic */ AccountData dcb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(LoginActivity loginActivity) {
-        this.cZE = loginActivity;
+    public n(l lVar, AccountData accountData) {
+        this.dca = lVar;
+        this.dcb = accountData;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.cZE.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.a.b.b(this.dcb);
     }
 }

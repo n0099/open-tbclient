@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int nW;
-    private a nX;
+    private int dS;
+    private a dT;
 
-    public a dU() {
+    public a ak() {
         a aVar = new a();
-        aVar.nZ = E(String.valueOf("/proc/uid_stat/") + this.nW + "/tcp_rcv");
-        aVar.oa = E(String.valueOf("/proc/uid_stat/") + this.nW + "/tcp_snd");
-        aVar.nY = d.a(aVar.nZ + aVar.oa);
+        aVar.dV = t(String.valueOf("/proc/uid_stat/") + this.dS + "/tcp_rcv");
+        aVar.dW = t(String.valueOf("/proc/uid_stat/") + this.dS + "/tcp_snd");
+        aVar.dU = d.a(aVar.dV + aVar.dW);
         return aVar;
     }
 
-    public a dV() {
-        a dU = dU();
-        this.nX.nZ = d.a(dU.nZ - d.dT().nZ);
-        this.nX.oa = d.a(dU.oa - d.dT().oa);
-        this.nX.nY = d.a(dU.nY - d.dT().nY);
-        return this.nX;
+    public a al() {
+        a ak = ak();
+        this.dT.dV = d.a(ak.dV - d.aj().dV);
+        this.dT.dW = d.a(ak.dW - d.aj().dW);
+        this.dT.dU = d.a(ak.dU - d.aj().dU);
+        return this.dT;
     }
 
-    public double E(String str) {
+    public double t(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(dV());
+                d.a(al());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!dR()) {
+            if (!ah()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double nY = 0.0d;
-        double nZ = 0.0d;
-        double oa = 0.0d;
+        double dU = 0.0d;
+        double dV = 0.0d;
+        double dW = 0.0d;
 
         public a() {
         }

@@ -1,22 +1,20 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends CustomMessageListener {
-    final /* synthetic */ q dVL;
+public class z implements com.baidu.tbadk.util.g<DataRes> {
+    final /* synthetic */ r dYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(q qVar, int i) {
-        super(i);
-        this.dVL = qVar;
+    public z(r rVar) {
+        this.dYM = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.dVL.ia(true);
+    @Override // com.baidu.tbadk.util.g
+    /* renamed from: b */
+    public void onReturnDataInUI(DataRes dataRes) {
+        this.dYM.a(dataRes);
     }
 }

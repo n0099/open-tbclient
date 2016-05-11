@@ -1,6 +1,7 @@
 package com.baidu.cloudsdk.common.http;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,6 +23,11 @@ public class HttpResponseHandler extends Handler {
 
     public HttpResponseHandler(String str) {
         this.mDefaultCharset = str;
+    }
+
+    public HttpResponseHandler(Looper looper) {
+        super(looper);
+        this.mDefaultCharset = DEFAULT_CHARSET;
     }
 
     protected void onStart() {
@@ -76,6 +82,8 @@ public class HttpResponseHandler extends Handler {
             } catch (Exception e) {
                 sendFailureMessage(e, (String) null);
                 return;
+            } finally {
+                AsyncHttpClient.endEntityViaReflection(entity);
             }
         }
         StatusLine statusLine = httpResponse.getStatusLine();

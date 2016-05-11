@@ -1,14 +1,16 @@
 package com.baidu.tieba.view;
 
+import android.view.ViewGroup;
 import android.view.animation.Animation;
+import com.baidu.tieba.view.CommonTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animation.AnimationListener {
-    final /* synthetic */ CommonTipView eFv;
+    final /* synthetic */ CommonTipView eWj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CommonTipView commonTipView) {
-        this.eFv = commonTipView;
+        this.eWj = commonTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -17,12 +19,18 @@ public class e implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        Runnable runnable;
-        int i;
-        CommonTipView commonTipView = this.eFv;
-        runnable = this.eFv.dnb;
-        i = this.eFv.Jn;
-        commonTipView.postDelayed(runnable, i);
+        CommonTipView.a aVar;
+        CommonTipView.a aVar2;
+        this.eWj.onDestroy();
+        ViewGroup viewGroup = (ViewGroup) this.eWj.getParent();
+        if (viewGroup != null) {
+            viewGroup.removeView(this.eWj);
+        }
+        aVar = this.eWj.eWi;
+        if (aVar != null) {
+            aVar2 = this.eWj.eWi;
+            aVar2.baT();
+        }
     }
 
     @Override // android.view.animation.Animation.AnimationListener

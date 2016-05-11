@@ -1,25 +1,27 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ aa etY;
+    final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(aa aaVar) {
-        this.etY = aaVar;
+    public ad(ab abVar) {
+        this.exg = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.etY.etM;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
-        mainTabActivity2 = this.etY.etM;
-        bl.ac(mainTabActivity2.getPageContext().getPageActivity());
+        TiebaStatic.log("c10821");
+        String str = TbadkCoreApplication.m11getInst().getaDKillerUrl();
+        if (!StringUtils.isNull(str)) {
+            mainTabActivity = this.exg.ewR;
+            com.baidu.tbadk.browser.f.a(mainTabActivity.getPageContext().getPageActivity(), true, str);
+        }
     }
 }

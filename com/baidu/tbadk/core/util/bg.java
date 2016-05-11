@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bg {
-    private static bg acG = new bh();
-    private static final Pattern acK = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final List<a> acH;
-    private final ConcurrentHashMap<String, b> acI;
-    private c acJ;
+    private static bg Yf = new bh();
+    private static final Pattern Yj = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final List<a> Yg;
+    private final ConcurrentHashMap<String, b> Yh;
+    private c Yi;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -41,9 +41,9 @@ public class bg {
     }
 
     private bg() {
-        this.acH = new LinkedList();
-        this.acI = new ConcurrentHashMap<>();
-        this.acJ = null;
+        this.Yg = new LinkedList();
+        this.Yh = new ConcurrentHashMap<>();
+        this.Yi = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,9 +51,9 @@ public class bg {
         this();
     }
 
-    public static SpannableString v(Context context, String str) {
+    public static SpannableString w(Context context, String str) {
         int start;
-        Matcher matcher = acK.matcher(str);
+        Matcher matcher = Yj.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -67,27 +67,27 @@ public class bg {
         return spannableString;
     }
 
-    public static bg wM() {
-        return acG;
+    public static bg us() {
+        return Yf;
     }
 
     public void a(a aVar) {
-        if (com.baidu.adp.lib.util.k.jv()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.h.h.hx().post(new bi(this, aVar));
+            com.baidu.adp.lib.h.h.dL().post(new bi(this, aVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        if (!this.acH.contains(aVar)) {
-            this.acH.add(aVar);
+        if (!this.Yg.contains(aVar)) {
+            this.Yg.add(aVar);
         }
     }
 
     public void a(c cVar) {
-        this.acJ = cVar;
+        this.Yi = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -99,16 +99,12 @@ public class bg {
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
-        for (a aVar : this.acH) {
+        for (a aVar : this.Yg) {
             if (aVar != null && (a2 = aVar.a(tbPageContext, strArr)) != 3) {
                 return a2;
             }
         }
         return 3;
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar) {
-        a(tbPageContext, strArr, z, dVar, false);
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -117,12 +113,12 @@ public class bg {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.acI.get(dI(str2));
+        b bVar = this.Yh.get(dF(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, dH(dG(str2)));
+            bVar.a(tbPageContext, dE(dD(str2)));
             return true;
         }
-        Iterator<a> it = this.acH.iterator();
+        Iterator<a> it = this.Yg.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -134,13 +130,13 @@ public class bg {
                 break;
             }
         }
-        if (!z3 && this.acJ != null) {
+        if (!z3 && this.Yi != null) {
             b(tbPageContext, str, strArr[0], z, dVar, z2);
         }
         return z3;
     }
 
-    public static Map<String, String> dE(String str) {
+    public static Map<String, String> dB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -158,7 +154,7 @@ public class bg {
         return null;
     }
 
-    public static String dF(String str) {
+    public static String dC(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -166,7 +162,7 @@ public class bg {
         return split[1];
     }
 
-    private String dG(String str) {
+    private String dD(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -174,7 +170,7 @@ public class bg {
         return null;
     }
 
-    private Map<String, String> dH(String str) {
+    private Map<String, String> dE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -193,7 +189,7 @@ public class bg {
         return hashMap;
     }
 
-    private String dI(String str) {
+    private String dF(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -212,21 +208,21 @@ public class bg {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (acK.matcher(str2).find()) {
-            this.acJ.a(tbPageContext, str, str2, z, dVar, z2);
+        if (Yj.matcher(str2).find()) {
+            this.Yi.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String dI = dI(str);
-            if (!StringUtils.isNull(dI)) {
-                this.acI.put(dI, bVar);
+            String dF = dF(str);
+            if (!StringUtils.isNull(dF)) {
+                this.Yh.put(dF, bVar);
             }
         }
     }
 
-    public boolean dJ(String str) {
-        return acK.matcher(str).find();
+    public boolean dG(String str) {
+        return Yj.matcher(str).find();
     }
 }

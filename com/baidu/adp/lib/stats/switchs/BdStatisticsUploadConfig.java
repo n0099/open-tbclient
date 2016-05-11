@@ -20,10 +20,12 @@ class BdStatisticsUploadConfig implements Serializable {
     /* loaded from: classes.dex */
     public static class BdStatistisUploadChilidItem implements Serializable {
         private static final long serialVersionUID = 492107549674799283L;
+        public String subType;
         public boolean isUpload = false;
         public boolean isWifi = true;
         public int percent = -1;
-        public String subType;
+        public int maxAlertCount = 0;
+        public int uploadCycle = 1;
     }
 
     public boolean isUpload(String str, String str2) {
@@ -39,6 +41,24 @@ class BdStatisticsUploadConfig implements Serializable {
             return bdStatistisUploadChilidItem.isUpload && bdStatisticsUploadConfigItem.isUpload;
         }
         return false;
+    }
+
+    public int getMaxAlertCount(String str, int i) {
+        BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
+        BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
+        if (bdStatisticsUploadConfigItem != null && bdStatisticsUploadConfigItem.childItem != null && (bdStatistisUploadChilidItem = bdStatisticsUploadConfigItem.childItem.get(str)) != null) {
+            return bdStatistisUploadChilidItem.maxAlertCount;
+        }
+        return i;
+    }
+
+    public int geUploadCycle(String str, int i) {
+        BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
+        BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
+        if (bdStatisticsUploadConfigItem != null && bdStatisticsUploadConfigItem.childItem != null && (bdStatistisUploadChilidItem = bdStatisticsUploadConfigItem.childItem.get(str)) != null) {
+            return bdStatistisUploadChilidItem.uploadCycle;
+        }
+        return i;
     }
 
     public boolean smallFlowUpload(String str, String str2) {

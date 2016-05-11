@@ -13,37 +13,37 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p eHo;
-    private BroadcastReceiver eHp;
-    private ContentObserver eHq;
+    private static p eYi;
+    private BroadcastReceiver eYj;
+    private ContentObserver eYk;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ArrayList<a> lG = new ArrayList<>();
+    private ArrayList<a> bH = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable eHr = new q(this);
+    private Runnable eYl = new q(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void jo(boolean z);
+        void ku(boolean z);
     }
 
-    public static p aZo() {
-        if (eHo == null) {
+    public static p bbD() {
+        if (eYi == null) {
             synchronized (p.class) {
-                if (eHo == null) {
-                    eHo = new p();
-                    eHo.init(TbadkCoreApplication.m411getInst());
+                if (eYi == null) {
+                    eYi = new p();
+                    eYi.init(TbadkCoreApplication.m11getInst());
                 }
             }
         }
-        return eHo;
+        return eYi;
     }
 
     private p() {
     }
 
     private void init(Context context) {
-        this.eHp = new r(this);
-        this.eHq = new s(this, this.mHandler);
+        this.eYj = new r(this);
+        this.eYk = new s(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -51,49 +51,49 @@ public class p {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.eHp, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.eHq);
+        context.registerReceiver(this.eYj, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.eYk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void x(Intent intent) {
+    public void z(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            jn(true);
+            kt(true);
             return;
         }
-        this.handler.removeCallbacks(this.eHr);
-        this.handler.postDelayed(this.eHr, 2000L);
+        this.handler.removeCallbacks(this.eYl);
+        this.handler.postDelayed(this.eYl, 2000L);
     }
 
-    public void jn(boolean z) {
-        Iterator<a> it = this.lG.iterator();
+    public void kt(boolean z) {
+        Iterator<a> it = this.bH.iterator();
         while (it.hasNext()) {
-            it.next().jo(z);
+            it.next().ku(z);
         }
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.lG.contains(aVar)) {
-            this.lG.add(aVar);
+        if (aVar != null && !this.bH.contains(aVar)) {
+            this.bH.add(aVar);
         }
     }
 
     public void b(a aVar) {
-        if (this.lG.contains(aVar)) {
-            this.lG.remove(aVar);
+        if (this.bH.contains(aVar)) {
+            this.bH.remove(aVar);
         }
     }
 
     public void removeAllListeners() {
-        this.lG.clear();
+        this.bH.clear();
     }
 
     public void destory() {
         removeAllListeners();
-        TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-        m411getInst.unregisterReceiver(this.eHp);
-        m411getInst.getContentResolver().unregisterContentObserver(this.eHq);
-        this.handler.removeCallbacks(this.eHr);
-        eHo = null;
+        TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
+        m11getInst.unregisterReceiver(this.eYj);
+        m11getInst.getContentResolver().unregisterContentObserver(this.eYk);
+        this.handler.removeCallbacks(this.eYl);
+        eYi = null;
     }
 }

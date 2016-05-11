@@ -1,32 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.view.ac;
+import com.baidu.tieba.frs.view.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements ac.a {
-    final /* synthetic */ FrsActivity blk;
+public class aj implements x.a {
+    final /* synthetic */ FrsActivity bhl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(FrsActivity frsActivity) {
-        this.blk = frsActivity;
+        this.bhl = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.view.ac.a
-    public void gF(int i) {
+    @Override // com.baidu.tieba.frs.view.x.a
+    public void gl(int i) {
         switch (i) {
             case 0:
-                this.blk.bkd = false;
-                this.blk.gD(0);
+                this.bhl.bgd = false;
+                this.bhl.gj(0);
                 return;
             case 1:
-                this.blk.QM();
+                this.bhl.PK();
                 return;
             case 2:
-                this.blk.bkd = false;
-                this.blk.QN();
+                this.bhl.bgd = false;
+                this.bhl.PL();
                 return;
             case 3:
-                this.blk.QR();
+                this.bhl.PQ();
+                return;
+            case 4:
+                this.bhl.PR();
                 return;
             default:
                 return;

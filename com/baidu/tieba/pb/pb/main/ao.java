@@ -1,16 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ao implements BdListView.h {
-    final /* synthetic */ PbActivity dht;
+class ao extends CustomMessageListener {
+    final /* synthetic */ PbActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PbActivity pbActivity) {
-        this.dht = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ao(PbActivity pbActivity, int i) {
+        super(i);
+        this.djE = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.h
-    public void nn() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cw cwVar;
+        com.baidu.tbadk.editortools.d.e eVar;
+        el elVar;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        el elVar2;
+        el elVar3;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        cwVar = this.djE.dih;
+        if (cwVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            eVar = this.djE.dja;
+            if (eVar != null) {
+                elVar3 = this.djE.diR;
+                eVar3 = this.djE.dja;
+                elVar3.fn(eVar3.BM());
+            }
+            elVar = this.djE.diR;
+            elVar.ayH();
+            eVar2 = this.djE.dja;
+            eVar2.BP();
+            elVar2 = this.djE.diR;
+            elVar2.amQ();
+        }
     }
 }

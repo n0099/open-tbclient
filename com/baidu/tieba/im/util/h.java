@@ -20,9 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private static Pattern acK = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern Yj = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String z(String str, boolean z) {
+    public static String A(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -126,7 +126,7 @@ public class h {
         }
     }
 
-    private static final String jI(String str) {
+    private static final String jL(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,7 +155,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String jJ(String str) {
+    private static final String jM(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -165,7 +165,7 @@ public class h {
             if (jSONArray.length() >= 2) {
                 String optString = jSONArray.optString(0);
                 if (1 == jSONArray.optInt(1)) {
-                    sb.append(TbadkCoreApplication.m411getInst().getString(t.j.last_msg_extra_share));
+                    sb.append(TbadkCoreApplication.m11getInst().getString(t.j.last_msg_extra_share));
                 }
                 if (optString != null) {
                     sb.append(optString);
@@ -178,39 +178,39 @@ public class h {
     }
 
     public static String w(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : y(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : x(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String y(int i, String str) {
+    public static String x(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String jI = (str.length() <= 1 || str.charAt(0) != '[') ? null : jI(str);
-            if (TextUtils.isEmpty(jI)) {
-                jI = str;
+            String jL = (str.length() <= 1 || str.charAt(0) != '[') ? null : jL(str);
+            if (TextUtils.isEmpty(jL)) {
+                jL = str;
             }
-            if (jI == null) {
+            if (jL == null) {
                 return null;
             }
-            Matcher matcher = acK.matcher(jI);
+            Matcher matcher = Yj.matcher(jL);
             while (matcher.find()) {
                 String group = matcher.group();
-                jI = jI.replace(group, group.replace("#(", "[").replace(")", "]"));
+                jL = jL.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return jI;
+            return jL;
         } else if (i == 2) {
-            return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_pic);
+            return TbadkCoreApplication.m11getInst().getApp().getString(t.j.last_msg_pic);
         } else {
             if (i == 3) {
-                return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_voice);
+                return TbadkCoreApplication.m11getInst().getApp().getString(t.j.last_msg_voice);
             }
             if (i == 11) {
-                return jK(str);
+                return jN(str);
             }
             if (i == 23) {
-                return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_reply_card);
+                return TbadkCoreApplication.m11getInst().getApp().getString(t.j.last_msg_reply_card);
             }
             if (i == 4) {
                 try {
@@ -236,7 +236,7 @@ public class h {
                     }
                 }
             } else if (i == 5) {
-                return TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_invite);
+                return TbadkCoreApplication.m11getInst().getApp().getString(t.j.last_msg_invite);
             } else {
                 if (i == 6) {
                     try {
@@ -246,7 +246,7 @@ public class h {
                         return "";
                     }
                 } else if (i == 7) {
-                    String string = TbadkCoreApplication.m411getInst().getApp().getString(t.j.last_msg_pic_text);
+                    String string = TbadkCoreApplication.m11getInst().getApp().getString(t.j.last_msg_pic_text);
                     if (TextUtils.isEmpty(str)) {
                         return string;
                     }
@@ -273,7 +273,7 @@ public class h {
                     }
                 } else if (i == 25) {
                     if (TextUtils.isEmpty(str)) {
-                        return TbadkCoreApplication.m411getInst().getApp().getString(t.j.great_call_notify_default);
+                        return TbadkCoreApplication.m11getInst().getApp().getString(t.j.great_call_notify_default);
                     }
                     try {
                         String str2 = "";
@@ -285,18 +285,18 @@ public class h {
                             int optInt = optJSONObject.optInt("remind_count");
                             int optInt2 = optJSONObject.optInt("msg_type");
                             if (optInt2 == 1) {
-                                str2 = String.format(TbadkCoreApplication.m411getInst().getApp().getString(t.j.great_call_notify_msg), optString3, str2);
+                                str2 = String.format(TbadkCoreApplication.m11getInst().getApp().getString(t.j.great_call_notify_msg), optString3, str2);
                             } else if (optInt2 == 3) {
-                                str2 = String.format(TbadkCoreApplication.m411getInst().getApp().getString(t.j.urge_times_notify_default), Integer.valueOf(optInt));
+                                str2 = String.format(TbadkCoreApplication.m11getInst().getApp().getString(t.j.urge_times_notify_default), Integer.valueOf(optInt));
                             }
                         }
                         return str2;
                     } catch (JSONException e5) {
                         e5.printStackTrace();
-                        return TbadkCoreApplication.m411getInst().getApp().getString(t.j.great_call_notify_default);
+                        return TbadkCoreApplication.m11getInst().getApp().getString(t.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return jJ(str);
+                    return jM(str);
                 } else {
                     return null;
                 }
@@ -328,7 +328,7 @@ public class h {
         return w(chatMessage);
     }
 
-    private static String jK(String str) {
+    private static String jN(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -341,27 +341,27 @@ public class h {
                         str2 = optString2;
                     } else if (optJSONObject != null) {
                         if (optString.equals("003")) {
-                            str2 = TbadkCoreApplication.m411getInst().getApp().getString(t.j.kick_out_myself);
+                            str2 = TbadkCoreApplication.m11getInst().getApp().getString(t.j.kick_out_myself);
                         } else if (optString.equals("122") || optString.equals("121")) {
                             str2 = optString2;
                         } else if (optString.equals("105")) {
                             String optString3 = optJSONObject.optString("userId");
                             String optString4 = optJSONObject.optString("userName");
                             if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
-                                str2 = TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group_myself);
+                                str2 = TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group_myself);
                             } else {
-                                str2 = String.valueOf(optString4) + TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group);
+                                str2 = String.valueOf(optString4) + TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group);
                             }
                         } else if (optString.equals("106")) {
-                            str2 = optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.m411getInst().getApp().getString(t.j.kick_out_myself) : optString2;
+                            str2 = optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.m11getInst().getApp().getString(t.j.kick_out_myself) : optString2;
                         } else if (optString.equals("002")) {
-                            str2 = TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group_myself);
+                            str2 = TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group_myself);
                         } else if (optString.equals("109")) {
                             str2 = optString2;
                         } else if (optString.equals("110")) {
                             str2 = optString2;
                         } else if (optString.equals("202")) {
-                            str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkCoreApplication.m411getInst().getApp().getString(t.j.snap_group_chat_exit);
+                            str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkCoreApplication.m11getInst().getApp().getString(t.j.snap_group_chat_exit);
                         } else if (optString.equals("123")) {
                             str2 = optString2;
                         } else if (optString.equals("304")) {
@@ -393,7 +393,7 @@ public class h {
             if (optString.equals("003")) {
                 SystemMsgData systemMsgData = new SystemMsgData();
                 systemMsgData.setIsSelf(true);
-                systemMsgData.setContent(TbadkCoreApplication.m411getInst().getApp().getString(t.j.kick_out_myself));
+                systemMsgData.setContent(TbadkCoreApplication.m11getInst().getApp().getString(t.j.kick_out_myself));
                 return systemMsgData;
             } else if (optString.equals("122") || optString.equals("121")) {
                 SystemMsgData systemMsgData2 = new SystemMsgData();
@@ -406,10 +406,10 @@ public class h {
                 SystemMsgData systemMsgData3 = new SystemMsgData();
                 if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
                     systemMsgData3.setIsSelf(true);
-                    systemMsgData3.setContent(TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group_myself));
+                    systemMsgData3.setContent(TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group_myself));
                 } else {
                     systemMsgData3.setIsSelf(false);
-                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group));
+                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group));
                 }
                 return systemMsgData3;
             } else if (optString.equals("106")) {
@@ -417,7 +417,7 @@ public class h {
                 SystemMsgData systemMsgData4 = new SystemMsgData();
                 if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
                     systemMsgData4.setIsSelf(true);
-                    systemMsgData4.setContent(TbadkCoreApplication.m411getInst().getApp().getString(t.j.kick_out_myself));
+                    systemMsgData4.setContent(TbadkCoreApplication.m11getInst().getApp().getString(t.j.kick_out_myself));
                 } else {
                     systemMsgData4.setIsSelf(false);
                     systemMsgData4.setContent(optString2);
@@ -426,7 +426,7 @@ public class h {
             } else if (optString.equals("002")) {
                 SystemMsgData systemMsgData5 = new SystemMsgData();
                 systemMsgData5.setIsSelf(true);
-                systemMsgData5.setContent(TbadkCoreApplication.m411getInst().getApp().getString(t.j.join_group_myself));
+                systemMsgData5.setContent(TbadkCoreApplication.m11getInst().getApp().getString(t.j.join_group_myself));
                 return null;
             } else if (optString.equals("123")) {
                 SystemMsgData systemMsgData6 = new SystemMsgData();
@@ -448,19 +448,19 @@ public class h {
 
     public static e a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return jL(commonMsgPojo.getContent());
+            return jO(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static e jL(String str) {
+    public static e jO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return jM(jSONArray.getJSONObject(0).optString("msg_src"));
+                return jP(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -469,13 +469,13 @@ public class h {
         }
     }
 
-    public static e jM(String str) {
+    public static e jP(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         e eVar = new e();
-        eVar.cey = split[0];
+        eVar.cfe = split[0];
         eVar.taskId = split[1];
         return eVar;
     }

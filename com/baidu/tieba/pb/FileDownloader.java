@@ -60,7 +60,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (m.cU(fileOfUrl) != null) {
+            if (m.cS(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
@@ -86,30 +86,30 @@ public class FileDownloader extends Service {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String Zn;
+        private final String UE;
         private final String mUrl;
-        private ab QV = null;
-        private volatile boolean beW = false;
+        private ab LL = null;
+        private volatile boolean baL = false;
 
         public a(String str, String str2) {
             this.mUrl = str;
-            this.Zn = str2;
+            this.UE = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            File cX;
+            File cV;
             Boolean bool = false;
-            while (!this.beW) {
+            while (!this.baL) {
                 try {
-                    this.QV = new ab(this.mUrl);
-                    bool = Boolean.valueOf(this.QV.a(String.valueOf(this.Zn) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.QV.vY() == -2) {
+                    this.LL = new ab(this.mUrl);
+                    bool = Boolean.valueOf(this.LL.a(String.valueOf(this.UE) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
+                    if (bool.booleanValue() || this.LL.tE() == -2) {
                         break;
-                    } else if (!this.QV.vU().wP().gY()) {
+                    } else if (!this.LL.tA().uv().dm()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -119,10 +119,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                m.dc(this.Zn);
-                File cU = m.cU(String.valueOf(this.Zn) + ".tmp");
-                if (cU != null && (cX = m.cX(this.Zn)) != null) {
-                    cU.renameTo(cX);
+                m.da(this.UE);
+                File cS = m.cS(String.valueOf(this.UE) + ".tmp");
+                if (cS != null && (cV = m.cV(this.UE)) != null) {
+                    cS.renameTo(cV);
                 }
             }
             return bool;
@@ -132,9 +132,9 @@ public class FileDownloader extends Service {
         public void cancel() {
             super.cancel(true);
             FileDownloader.this.mDowndingTask = null;
-            this.beW = true;
-            if (this.QV != null) {
-                this.QV.gX();
+            this.baL = true;
+            if (this.LL != null) {
+                this.LL.dl();
             }
         }
 
@@ -147,7 +147,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             if (bool.booleanValue()) {
                 NotificationHelper.cancelNotification(FileDownloader.this.getBaseContext(), 10);
-                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.Zn), 100L);
+                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.UE), 100L);
                 return;
             }
             NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(t.j.error_sd_error), false);

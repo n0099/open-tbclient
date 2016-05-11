@@ -1,50 +1,13 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import org.json.JSONObject;
-import tbclient.TailInfo;
+import tbclient.ActivitySponsor;
 /* loaded from: classes.dex */
 public class a {
-    private int arP;
-    private String content;
-    private String icon_link;
-    private String icon_url;
+    private Integer anD;
+    private String anE;
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.icon_url = jSONObject.optString("icon_url");
-            this.icon_link = jSONObject.optString("icon_link");
-            this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-            this.arP = jSONObject.optInt("tail_type");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void a(TailInfo tailInfo) {
-        try {
-            this.icon_url = tailInfo.icon_url;
-            this.icon_link = tailInfo.icon_link;
-            this.content = tailInfo.content;
-            this.arP = tailInfo.tail_type.intValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getIconUrl() {
-        return this.icon_url;
-    }
-
-    public String Cz() {
-        return this.icon_link;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public int CA() {
-        return this.arP;
+    public void a(ActivitySponsor activitySponsor) {
+        this.anD = activitySponsor.is_sponsor;
+        this.anE = activitySponsor.sponsor_url;
     }
 }

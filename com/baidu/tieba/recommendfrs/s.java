@@ -1,67 +1,60 @@
 package com.baidu.tieba.recommendfrs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import tbclient.GodInfo;
-import tbclient.Personalized.DataRes;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.at;
+import com.baidu.tieba.card.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends CustomMessageListener {
-    final /* synthetic */ q dVL;
+public class s implements AbsListView.OnScrollListener {
+    private int dYJ = -1;
+    private int dYK = 0;
+    private boolean dYL = false;
+    final /* synthetic */ r dYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(q qVar, int i) {
-        super(i);
-        this.dVL = qVar;
+    public s(r rVar) {
+        this.dYM = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Incorrect condition in loop: B:13:0x0038 */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        DataRes.Builder builder;
-        DataRes.Builder builder2;
-        DataRes.Builder builder3;
-        int intValue;
-        DataRes.Builder builder4;
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            builder = this.dVL.dVs;
-            if (!com.baidu.tbadk.core.util.y.q(builder.thread_list)) {
-                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                    return;
-                }
-                for (int i = 0; i < builder2.thread_list.size(); i++) {
-                    builder3 = this.dVL.dVs;
-                    ThreadInfo threadInfo = builder3.thread_list.get(i);
-                    if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == com.baidu.adp.lib.h.b.c(updateAttentionMessage.getData().toUid, -1L)) {
-                        ThreadInfo.Builder builder5 = new ThreadInfo.Builder(threadInfo);
-                        User.Builder builder6 = new User.Builder(builder5.author);
-                        GodInfo.Builder builder7 = new GodInfo.Builder(builder6.god_data);
-                        if (updateAttentionMessage.getData().akM) {
-                            intValue = builder6.fans_num.intValue() + 1;
-                            builder7.followed = 1;
-                        } else {
-                            intValue = builder6.fans_num.intValue() - 1;
-                            builder7.followed = 0;
-                        }
-                        builder6.fans_num = Integer.valueOf(intValue);
-                        builder6.god_data = builder7.build(true);
-                        builder5.author = builder6.build(true);
-                        builder4 = this.dVL.dVs;
-                        builder4.thread_list.set(i, builder5.build(true));
-                        return;
-                    }
-                }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (this.dYM.dYi == null) {
+            this.dYM.dYi = new com.baidu.tbadk.performanceLog.m();
+            this.dYM.dYi.eM(1005);
+            this.dYM.dYi.pageType = 1;
+        }
+        if (this.dYM.dYj != null) {
+            this.dYM.dYj.onScrollStateChanged(absListView, i);
+        }
+        this.dYM.dYi.Et();
+        at.vD().aK(i == 0);
+        if (i == 0) {
+            bx.Kg().ci(true);
+            if (this.dYL) {
+                this.dYM.aMd();
             }
+            this.dYL = false;
+            this.dYM.Rm();
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        if (this.dYK > i) {
+            this.dYL = true;
+        }
+        if (this.dYM.dYj != null) {
+            this.dYM.dYj.a(absListView, this.dYK, i, i2, i3);
+        }
+        this.dYK = i;
+        int i4 = (i + i2) - 1;
+        if (!this.dYL && this.dYJ != i4) {
+            this.dYJ = i4;
+            this.dYM.oq(this.dYJ);
+        }
+        if (this.dYL && this.dYJ != i) {
+            this.dYJ = i;
+            this.dYM.oq(this.dYJ);
         }
     }
 }

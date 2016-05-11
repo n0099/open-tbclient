@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import java.io.Serializable;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.ActivitySponsor;
 import tbclient.GiftInfo;
 import tbclient.LikeForumInfo;
 import tbclient.MyGroupInfo;
@@ -28,7 +29,8 @@ public class UserData extends MetaData {
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
-    private b closeAdData;
+    private int canPostHi;
+    private c closeAdData;
     private String grade;
     private int have_attention;
     private long inTime;
@@ -44,21 +46,22 @@ public class UserData extends MetaData {
     private int like_bars;
     private String lng;
     private long loginTime;
+    private a mActivitySponsorData;
     private List<MyGift> mGift;
     private int mGiftNum;
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
-    private List<h> mPhotoAlbum;
+    private List<v> mPhotoAlbum;
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
     private MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
-    private f payMemberInfo;
+    private g payMemberInfo;
     private Permission permission;
-    private g personPrivate;
+    private h personPrivate;
     private String position;
     private int posts_num;
     private int sex;
@@ -82,12 +85,12 @@ public class UserData extends MetaData {
         this.newMarkCount = i;
     }
 
-    public g getPersonPrivate() {
+    public h getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(g gVar) {
-        this.personPrivate = gVar;
+    public void setPersonPrivate(h hVar) {
+        this.personPrivate = hVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -177,6 +180,14 @@ public class UserData extends MetaData {
         this.mIsSelectTail = z;
     }
 
+    public a getActivitySponsorData() {
+        return this.mActivitySponsorData;
+    }
+
+    public void setActivitySponsorData(a aVar) {
+        this.mActivitySponsorData = aVar;
+    }
+
     public UserData() {
         this.password = null;
         this.isManager = false;
@@ -196,6 +207,7 @@ public class UserData extends MetaData {
         this.markCount = 0;
         this.newMarkCount = 0;
         this.anchorLevel = 0;
+        this.canPostHi = 0;
     }
 
     public UserData(long j, String str, String str2, int i) {
@@ -257,19 +269,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            h hVar = new h();
-            hVar.eZ(getPortraitH());
-            hVar.fa(getPortrait());
-            hVar.bj(true);
-            this.mPhotoAlbum.add(hVar);
+            i iVar = new i();
+            iVar.eW(getPortraitH());
+            iVar.eX(getPortrait());
+            iVar.bq(true);
+            this.mPhotoAlbum.add(iVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        h hVar2 = new h();
-                        hVar2.eZ(userPics.big);
-                        hVar2.fa(userPics.small);
-                        hVar2.bj(false);
-                        this.mPhotoAlbum.add(hVar2);
+                        i iVar2 = new i();
+                        iVar2.eW(userPics.big);
+                        iVar2.eX(userPics.small);
+                        iVar2.bq(false);
+                        this.mPhotoAlbum.add(iVar2);
                     }
                 }
             }
@@ -296,7 +308,7 @@ public class UserData extends MetaData {
             }
             VipCloseAd vipCloseAd = user.vip_close_ad;
             if (vipCloseAd != null) {
-                this.closeAdData = new b();
+                this.closeAdData = new c();
                 this.closeAdData.a(vipCloseAd);
             }
             this.bg_pic = user.bg_pic;
@@ -305,12 +317,12 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new g();
+                this.personPrivate = new h();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new f();
+                this.payMemberInfo = new g();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -353,6 +365,12 @@ public class UserData extends MetaData {
             }
             if (user.tw_anchor_info != null) {
                 this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
+            }
+            this.canPostHi = user.no_post_high.intValue();
+            ActivitySponsor activitySponsor = user.activity_sponsor;
+            if (activitySponsor != null) {
+                this.mActivitySponsorData = new a();
+                this.mActivitySponsorData.a(activitySponsor);
             }
         }
     }
@@ -414,18 +432,18 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("vip_close_ad");
                 if (optJSONObject3 != null) {
-                    this.closeAdData = new b();
+                    this.closeAdData = new c();
                     this.closeAdData.parseJson(optJSONObject3);
                 }
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject4 != null) {
-                    this.personPrivate = new g();
+                    this.personPrivate = new h();
                     this.personPrivate.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject5 != null) {
-                    this.payMemberInfo = new f();
+                    this.payMemberInfo = new g();
                     this.payMemberInfo.parseJson(optJSONObject5);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -437,22 +455,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                h hVar = new h();
-                hVar.eZ(getPortraitH());
-                hVar.fa(getPortrait());
-                hVar.bj(true);
-                this.mPhotoAlbum.add(hVar);
+                i iVar = new i();
+                iVar.eW(getPortraitH());
+                iVar.eX(getPortrait());
+                iVar.bq(true);
+                this.mPhotoAlbum.add(iVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            h hVar2 = new h();
-                            hVar2.eZ(jSONObject2.optString("big"));
-                            hVar2.fa(jSONObject2.optString("small"));
-                            hVar2.bj(false);
-                            this.mPhotoAlbum.add(hVar2);
+                            i iVar2 = new i();
+                            iVar2.eW(jSONObject2.optString("big"));
+                            iVar2.eX(jSONObject2.optString("small"));
+                            iVar2.bq(false);
+                            this.mPhotoAlbum.add(iVar2);
                         }
                     }
                 }
@@ -492,6 +510,7 @@ public class UserData extends MetaData {
                         }
                     }
                 }
+                this.canPostHi = jSONObject.optInt("no_post_high", 0);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -562,11 +581,11 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public f getPayMemberInfoData() {
+    public g getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 
-    public b getCloseAdData() {
+    public c getCloseAdData() {
         return this.closeAdData;
     }
 
@@ -666,16 +685,20 @@ public class UserData extends MetaData {
         this.mTDouNum = j;
     }
 
-    public List<h> getPhotoAlbum() {
+    public List<v> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 
-    public void setPhotoAlbum(List<h> list) {
+    public void setPhotoAlbum(List<v> list) {
         this.mPhotoAlbum = list;
     }
 
+    public boolean canPostHi() {
+        return this.canPostHi == 0;
+    }
+
     /* loaded from: classes.dex */
-    public static class Permission extends i implements Serializable {
+    public static class Permission extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

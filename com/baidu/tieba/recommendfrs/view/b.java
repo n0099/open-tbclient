@@ -5,27 +5,27 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.recommendfrs.data.p;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ a dZh;
+    final /* synthetic */ a eco;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dZh = aVar;
+        this.eco = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         p pVar;
-        ViewEventCenter oy;
+        ViewEventCenter kL;
         p pVar2;
-        ViewEventCenter oy2;
-        pVar = this.dZh.dZf;
+        ViewEventCenter kL2;
+        pVar = this.eco.ecm;
         if (pVar != null) {
-            oy = this.dZh.oy();
-            if (oy != null) {
-                pVar2 = this.dZh.dZf;
+            kL = this.eco.kL();
+            if (kL != null) {
+                pVar2 = this.eco.ecm;
                 com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(1, pVar2, null, null);
-                oy2 = this.dZh.oy();
-                oy2.dispatchMvcEvent(bVar);
+                kL2 = this.eco.kL();
+                kL2.dispatchMvcEvent(bVar);
             }
         }
     }

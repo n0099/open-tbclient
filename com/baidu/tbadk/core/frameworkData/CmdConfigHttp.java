@@ -34,6 +34,7 @@ public class CmdConfigHttp {
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
     public static final int CMD_FOUND_NEW = 1003003;
+    public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
@@ -54,6 +55,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
+    public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_USER_FORUM_STORE = 1003068;
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_GET_USER_ORDER = 1003075;
@@ -125,9 +127,11 @@ public class CmdConfigHttp {
     public static final int FRS_LOAD_MORE_CMD = 1001704;
     public static final int FRS_MANGA_TAB_CMD = 1001711;
     public static final int FRS_MEMBER_TAB_CMD = 1001706;
+    public static final int FRS_TOGETHERHI_TAB_CMD = 1001712;
     public static final int FRS_WATER_FALL_LIST_HTTP_CMD = 1001701;
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
     public static final int GETPAYINFO_CMD = 1001505;
+    public static final int GET_FRS_TAB_FOLLOW_POST_NUM = 1003102;
     public static final int GET_GAME_DETAIL_NEW_CMD = 1002930;
     public static final int GET_GIFT_LIST = 1001509;
     public static final int GET_HOT_GAME_LIST_CMD = 1002900;

@@ -1,55 +1,38 @@
 package com.baidu.location;
 /* loaded from: classes.dex */
 public final class LocationClientOption {
+    public static final int GpsFirst = 1;
+    public static final int GpsOnly = 3;
+    public static final int LOC_SENSITIVITY_HIGHT = 1;
+    public static final int LOC_SENSITIVITY_LOW = 3;
+    public static final int LOC_SENSITIVITY_MIDDLE = 2;
+    public static final int MIN_AUTO_NOTIFY_INTERVAL = 10000;
     public static final int MIN_SCAN_SPAN = 1000;
-    public static final int MIN_SCAN_SPAN_NETWORK = 3000;
-
-    /* renamed from: byte  reason: not valid java name */
-    protected static final int f13byte = 1;
-
-    /* renamed from: try  reason: not valid java name */
-    protected static final int f14try = 3;
-
-    /* renamed from: void  reason: not valid java name */
-    protected static final int f15void = 2;
-    protected boolean a;
-    protected boolean b;
-    protected float c;
-
-    /* renamed from: case  reason: not valid java name */
-    protected String f16case;
-
-    /* renamed from: char  reason: not valid java name */
-    protected boolean f17char;
-    protected int d;
-
-    /* renamed from: do  reason: not valid java name */
-    protected String f18do;
-    protected boolean e;
-
-    /* renamed from: else  reason: not valid java name */
-    protected String f19else;
-    protected LocationMode f;
-
-    /* renamed from: for  reason: not valid java name */
-    protected boolean f20for;
-    protected boolean g;
-
-    /* renamed from: goto  reason: not valid java name */
-    protected boolean f21goto;
-    protected int h;
-
-    /* renamed from: if  reason: not valid java name */
-    protected String f22if;
-
-    /* renamed from: int  reason: not valid java name */
-    protected int f23int;
-
-    /* renamed from: long  reason: not valid java name */
-    protected int f24long;
-
-    /* renamed from: new  reason: not valid java name */
-    protected boolean f25new;
+    public static final int NetWorkFirst = 2;
+    public String addrType;
+    public float autoNotifyLocSensitivity;
+    public int autoNotifyMaxInterval;
+    public int autoNotifyMinDistance;
+    public int autoNotifyMinTimeInterval;
+    public String coorType;
+    public boolean disableLocCache;
+    public boolean enableSimulateGps;
+    public boolean isIgnoreCacheException;
+    public boolean isIgnoreKillProcess;
+    public boolean isNeedAltitude;
+    public boolean isNeedAptag;
+    public boolean isNeedAptagd;
+    public boolean isNeedPoiRegion;
+    public boolean isNeedRegular;
+    public boolean location_change_notify;
+    public boolean mIsNeedDeviceDirect;
+    protected LocationMode mLocationMode;
+    public boolean openGps;
+    public int priority;
+    public String prodName;
+    public int scanSpan;
+    public String serviceName;
+    public int timeOut;
 
     /* loaded from: classes.dex */
     public enum LocationMode {
@@ -59,110 +42,156 @@ public final class LocationClientOption {
     }
 
     public LocationClientOption() {
-        this.f18do = BDGeofence.COORD_TYPE_GCJ;
-        this.f19else = "detail";
-        this.f20for = false;
-        this.f23int = 0;
-        this.d = a0.F;
-        this.f22if = "SDK2.0";
-        this.h = 1;
-        this.f21goto = false;
-        this.a = true;
-        this.f25new = false;
-        this.e = false;
-        this.c = 500.0f;
-        this.f24long = 3;
-        this.f16case = "com.baidu.location.service_v2.9";
-        this.b = false;
-        this.f17char = false;
-        this.g = false;
+        this.coorType = "gcj02";
+        this.addrType = "detail";
+        this.openGps = false;
+        this.scanSpan = 0;
+        this.timeOut = 12000;
+        this.prodName = "SDK6.0";
+        this.priority = 1;
+        this.location_change_notify = false;
+        this.disableLocCache = true;
+        this.enableSimulateGps = false;
+        this.serviceName = "com.baidu.location.service_v2.9";
+        this.isIgnoreCacheException = false;
+        this.isIgnoreKillProcess = true;
+        this.mIsNeedDeviceDirect = false;
+        this.isNeedAptag = false;
+        this.isNeedAptagd = false;
+        this.isNeedPoiRegion = false;
+        this.isNeedRegular = false;
+        this.isNeedAltitude = false;
+        this.autoNotifyMaxInterval = 0;
+        this.autoNotifyLocSensitivity = 0.5f;
+        this.autoNotifyMinTimeInterval = 0;
+        this.autoNotifyMinDistance = 0;
     }
 
     public LocationClientOption(LocationClientOption locationClientOption) {
-        this.f18do = BDGeofence.COORD_TYPE_GCJ;
-        this.f19else = "detail";
-        this.f20for = false;
-        this.f23int = 0;
-        this.d = a0.F;
-        this.f22if = "SDK2.0";
-        this.h = 1;
-        this.f21goto = false;
-        this.a = true;
-        this.f25new = false;
-        this.e = false;
-        this.c = 500.0f;
-        this.f24long = 3;
-        this.f16case = "com.baidu.location.service_v2.9";
-        this.b = false;
-        this.f17char = false;
-        this.g = false;
-        this.f18do = locationClientOption.f18do;
-        this.f19else = locationClientOption.f19else;
-        this.f20for = locationClientOption.f20for;
-        this.f23int = locationClientOption.f23int;
-        this.d = locationClientOption.d;
-        this.f22if = locationClientOption.f22if;
-        this.h = locationClientOption.h;
-        this.f21goto = locationClientOption.f21goto;
-        this.e = locationClientOption.e;
-        this.c = locationClientOption.c;
-        this.f24long = locationClientOption.f24long;
-        this.f16case = locationClientOption.f16case;
-        this.a = locationClientOption.a;
-        this.b = locationClientOption.b;
-        this.f17char = locationClientOption.f17char;
-        this.g = locationClientOption.g;
-        this.f = locationClientOption.f;
+        this.coorType = "gcj02";
+        this.addrType = "detail";
+        this.openGps = false;
+        this.scanSpan = 0;
+        this.timeOut = 12000;
+        this.prodName = "SDK6.0";
+        this.priority = 1;
+        this.location_change_notify = false;
+        this.disableLocCache = true;
+        this.enableSimulateGps = false;
+        this.serviceName = "com.baidu.location.service_v2.9";
+        this.isIgnoreCacheException = false;
+        this.isIgnoreKillProcess = true;
+        this.mIsNeedDeviceDirect = false;
+        this.isNeedAptag = false;
+        this.isNeedAptagd = false;
+        this.isNeedPoiRegion = false;
+        this.isNeedRegular = false;
+        this.isNeedAltitude = false;
+        this.autoNotifyMaxInterval = 0;
+        this.autoNotifyLocSensitivity = 0.5f;
+        this.autoNotifyMinTimeInterval = 0;
+        this.autoNotifyMinDistance = 0;
+        this.coorType = locationClientOption.coorType;
+        this.addrType = locationClientOption.addrType;
+        this.openGps = locationClientOption.openGps;
+        this.scanSpan = locationClientOption.scanSpan;
+        this.timeOut = locationClientOption.timeOut;
+        this.prodName = locationClientOption.prodName;
+        this.priority = locationClientOption.priority;
+        this.location_change_notify = locationClientOption.location_change_notify;
+        this.serviceName = locationClientOption.serviceName;
+        this.disableLocCache = locationClientOption.disableLocCache;
+        this.isIgnoreCacheException = locationClientOption.isIgnoreCacheException;
+        this.isIgnoreKillProcess = locationClientOption.isIgnoreKillProcess;
+        this.enableSimulateGps = locationClientOption.enableSimulateGps;
+        this.mLocationMode = locationClientOption.mLocationMode;
+        this.isNeedAptag = locationClientOption.isNeedAptag;
+        this.isNeedAptagd = locationClientOption.isNeedAptagd;
+        this.isNeedPoiRegion = locationClientOption.isNeedPoiRegion;
+        this.isNeedRegular = locationClientOption.isNeedRegular;
+        this.mIsNeedDeviceDirect = locationClientOption.mIsNeedDeviceDirect;
+        this.isNeedAltitude = locationClientOption.isNeedAltitude;
+        this.autoNotifyMaxInterval = locationClientOption.autoNotifyMaxInterval;
+        this.autoNotifyLocSensitivity = locationClientOption.autoNotifyLocSensitivity;
+        this.autoNotifyMinTimeInterval = locationClientOption.autoNotifyMinTimeInterval;
+        this.autoNotifyMinDistance = locationClientOption.autoNotifyMinDistance;
     }
 
     public void SetIgnoreCacheException(boolean z) {
-        this.b = z;
+        this.isIgnoreCacheException = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean a() {
-        return this.a;
-    }
-
-    public boolean equals(LocationClientOption locationClientOption) {
-        return this.f18do.equals(locationClientOption.f18do) && this.f19else.equals(locationClientOption.f19else) && this.f20for == locationClientOption.f20for && this.f23int == locationClientOption.f23int && this.d == locationClientOption.d && this.f22if.equals(locationClientOption.f22if) && this.f21goto == locationClientOption.f21goto && this.h == locationClientOption.h && this.f24long == locationClientOption.f24long && this.e == locationClientOption.e && this.c == locationClientOption.c && this.a == locationClientOption.a && this.b == locationClientOption.b && this.f17char == locationClientOption.f17char && this.g == locationClientOption.g && this.f == locationClientOption.f;
+    public void disableCache(boolean z) {
+        this.disableLocCache = z;
     }
 
     public String getAddrType() {
-        return this.f19else;
+        return this.addrType;
+    }
+
+    public float getAutoNotifyLocSensitivity() {
+        return this.autoNotifyLocSensitivity;
+    }
+
+    public int getAutoNotifyMaxInterval() {
+        return this.autoNotifyMaxInterval;
+    }
+
+    public int getAutoNotifyMinDistance() {
+        return this.autoNotifyMinDistance;
+    }
+
+    public int getAutoNotifyMinTimeInterval() {
+        return this.autoNotifyMinTimeInterval;
     }
 
     public String getCoorType() {
-        return this.f18do;
+        return this.coorType;
     }
 
     public LocationMode getLocationMode() {
-        return this.f;
+        return this.mLocationMode;
+    }
+
+    public int getPriority() {
+        return this.priority;
     }
 
     public String getProdName() {
-        return this.f22if;
+        return this.prodName;
     }
 
     public int getScanSpan() {
-        return this.f23int;
+        return this.scanSpan;
+    }
+
+    public String getServiceName() {
+        return this.serviceName;
     }
 
     public int getTimeOut() {
-        return this.d;
+        return this.timeOut;
+    }
+
+    public boolean isDisableCache() {
+        return this.disableLocCache;
     }
 
     public boolean isLocationNotify() {
-        return this.f21goto;
+        return this.location_change_notify;
     }
 
     public boolean isOpenGps() {
-        return this.f20for;
+        return this.openGps;
+    }
+
+    public boolean optionEquals(LocationClientOption locationClientOption) {
+        return this.coorType.equals(locationClientOption.coorType) && this.addrType.equals(locationClientOption.addrType) && this.openGps == locationClientOption.openGps && this.scanSpan == locationClientOption.scanSpan && this.timeOut == locationClientOption.timeOut && this.prodName.equals(locationClientOption.prodName) && this.location_change_notify == locationClientOption.location_change_notify && this.priority == locationClientOption.priority && this.disableLocCache == locationClientOption.disableLocCache && this.isIgnoreCacheException == locationClientOption.isIgnoreCacheException && this.isIgnoreKillProcess == locationClientOption.isIgnoreKillProcess && this.isNeedAptag == locationClientOption.isNeedAptag && this.isNeedAptagd == locationClientOption.isNeedAptagd && this.isNeedPoiRegion == locationClientOption.isNeedPoiRegion && this.isNeedRegular == locationClientOption.isNeedRegular && this.mIsNeedDeviceDirect == locationClientOption.mIsNeedDeviceDirect && this.autoNotifyMaxInterval == locationClientOption.autoNotifyMaxInterval && this.autoNotifyLocSensitivity == locationClientOption.autoNotifyLocSensitivity && this.autoNotifyMinTimeInterval == locationClientOption.autoNotifyMinTimeInterval && this.autoNotifyMinDistance == locationClientOption.autoNotifyMinDistance && this.isNeedAltitude == locationClientOption.isNeedAltitude && this.mLocationMode == locationClientOption.mLocationMode;
     }
 
     public void setAddrType(String str) {
-        this.f19else = str;
-        if ("all".equals(this.f19else)) {
+        this.addrType = str;
+        if ("all".equals(this.addrType)) {
             setIsNeedAddress(true);
         } else {
             setIsNeedAddress(false);
@@ -171,65 +200,126 @@ public final class LocationClientOption {
 
     public void setCoorType(String str) {
         String lowerCase = str.toLowerCase();
-        if (lowerCase.equals(BDGeofence.COORD_TYPE_GCJ) || lowerCase.equals(BDGeofence.COORD_TYPE_BD09) || lowerCase.equals(BDGeofence.COORD_TYPE_BD09LL)) {
-            this.f18do = lowerCase;
+        if (lowerCase.equals("gcj02") || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || lowerCase.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+            this.coorType = lowerCase;
         }
     }
 
+    public void setEnableSimulateGps(boolean z) {
+        this.enableSimulateGps = z;
+    }
+
     public void setIgnoreKillProcess(boolean z) {
-        this.f17char = z;
+        this.isIgnoreKillProcess = z;
     }
 
     public void setIsNeedAddress(boolean z) {
         if (z) {
-            this.f19else = "all";
+            this.addrType = "all";
         } else {
-            this.f19else = "noaddr";
+            this.addrType = "noaddr";
         }
+    }
+
+    public void setIsNeedAltitude(boolean z) {
+        this.isNeedAltitude = z;
+    }
+
+    public void setIsNeedLocationDescribe(boolean z) {
+        this.isNeedAptag = z;
+    }
+
+    public void setIsNeedLocationPoiList(boolean z) {
+        this.isNeedAptagd = z;
     }
 
     public void setLocationMode(LocationMode locationMode) {
         switch (locationMode) {
             case Hight_Accuracy:
-                this.f20for = true;
+                this.openGps = true;
+                this.priority = 1;
                 break;
             case Battery_Saving:
-                this.f20for = false;
+                this.openGps = false;
+                this.priority = 2;
                 break;
             case Device_Sensors:
-                this.h = 3;
-                this.f20for = true;
+                this.priority = 3;
+                this.openGps = true;
                 break;
             default:
                 throw new IllegalArgumentException("Illegal this mode : " + locationMode);
         }
-        this.f = locationMode;
+        this.mLocationMode = locationMode;
     }
 
     public void setLocationNotify(boolean z) {
-        this.f21goto = z;
+        this.location_change_notify = z;
     }
 
     public void setNeedDeviceDirect(boolean z) {
-        this.g = z;
+        this.mIsNeedDeviceDirect = z;
+    }
+
+    public void setOpenAutoNotifyMode() {
+        setOpenAutoNotifyMode(0, 0, 1);
+    }
+
+    public void setOpenAutoNotifyMode(int i, int i2, int i3) {
+        int i4 = i > 180000 ? i + 1000 : 180000;
+        if (i4 < 10000) {
+            throw new IllegalArgumentException("Illegal this maxLocInterval : " + i4 + " , maxLocInterval must >= 10000");
+        }
+        switch (i3) {
+            case 1:
+                this.autoNotifyLocSensitivity = 0.5f;
+                break;
+            case 2:
+                this.autoNotifyLocSensitivity = 0.3f;
+                break;
+            case 3:
+                this.autoNotifyLocSensitivity = 0.1f;
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal this locSensitivity : " + i3);
+        }
+        this.autoNotifyMaxInterval = i4;
+        this.autoNotifyMinTimeInterval = i;
+        this.autoNotifyMinDistance = i2;
     }
 
     public void setOpenGps(boolean z) {
-        this.f20for = z;
+        this.openGps = z;
+    }
+
+    public void setPriority(int i) {
+        if (i == 1 || i == 2) {
+            this.priority = i;
+        }
     }
 
     public void setProdName(String str) {
         if (str.length() > 64) {
             str = str.substring(0, 64);
         }
-        this.f22if = str;
+        this.prodName = str;
     }
 
     public void setScanSpan(int i) {
-        this.f23int = i;
+        this.scanSpan = i;
+    }
+
+    public void setSema(boolean z, boolean z2, boolean z3) {
+        this.isNeedAptag = z;
+        this.isNeedPoiRegion = z2;
+        this.isNeedRegular = z3;
+    }
+
+    public void setServiceName(String str) {
+        this.serviceName = str;
     }
 
     public void setTimeOut(int i) {
-        this.d = i;
+        this.timeOut = i;
     }
 }

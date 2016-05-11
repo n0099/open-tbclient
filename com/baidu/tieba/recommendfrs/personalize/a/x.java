@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.recommendfrs.personalize.a.v;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ v.a dYA;
+    final /* synthetic */ v.a ebH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(v.a aVar) {
-        this.dYA = aVar;
+        this.ebH = aVar;
     }
 
     @Override // android.view.View.OnClickListener

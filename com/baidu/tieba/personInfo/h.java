@@ -19,17 +19,17 @@ public class h extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bi biVar;
-        bi biVar2;
+        bj bjVar;
+        bj bjVar2;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
             ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
             int error = responseDeleteFriendMessage.getError();
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error == 0) {
-                biVar = this.this$0.dCt;
-                if (biVar != null) {
-                    biVar2 = this.this$0.dCt;
-                    biVar2.aiC();
+                bjVar = this.this$0.dFA;
+                if (bjVar != null) {
+                    bjVar2 = this.this$0.dFA;
+                    bjVar2.aiJ();
                 }
             } else {
                 errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.this$0.getResources().getString(t.j.neterror) : responseDeleteFriendMessage.getErrorString();

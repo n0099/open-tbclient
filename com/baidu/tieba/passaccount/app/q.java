@@ -1,32 +1,23 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
-import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
+import com.baidu.tbadk.core.atomData.VoiceCheckActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends Handler {
-    final /* synthetic */ LoginActivity cZE;
+public class q implements SapiWebView.VoiceLoginHandler {
+    final /* synthetic */ LoginActivity dbZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LoginActivity loginActivity) {
-        this.cZE = loginActivity;
+        this.dbZ = loginActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == SocialType.WEIXIN.getType()) {
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_weixin_start", 0, "", new Object[0]);
-            this.cZE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WXEntryActivityConfig(this.cZE.getPageContext().getPageActivity(), 230016)));
-            return;
-        }
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_qq_start", 0, "", new Object[0]);
-        this.cZE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SocialLoginActivityConfig(this.cZE.getPageContext().getPageActivity(), SocialType.getSocialType(message.what), 230012)));
+    @Override // com.baidu.sapi2.SapiWebView.VoiceLoginHandler
+    public void handleVoiceLogin() {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_voice_start", 0, "", new Object[0]);
+        this.dbZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceCheckActivityConfig(this.dbZ.getPageContext().getPageActivity())));
     }
 }

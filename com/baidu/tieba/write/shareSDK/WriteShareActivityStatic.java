@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 /* loaded from: classes.dex */
 public class WriteShareActivityStatic {
     static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(WriteShareActivityConfig.class, WriteShareActivity.class);
+        TbadkCoreApplication.m11getInst().RegisterIntent(WriteShareActivityConfig.class, WriteShareActivity.class);
     }
 }

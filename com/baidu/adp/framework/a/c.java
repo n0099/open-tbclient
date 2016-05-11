@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
 public abstract class c extends g<HttpResponsedMessage> {
     public c(int i) {
         super(i);
-        if (i != 0 && FrameHelper.D(i) != FrameHelper.TYPE.HTTP) {
+        if (i != 0 && FrameHelper.s(i) != FrameHelper.TYPE.HTTP) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

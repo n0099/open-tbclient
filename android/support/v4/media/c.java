@@ -5,5 +5,5 @@ import android.view.KeyEvent;
 interface c {
     void a(KeyEvent keyEvent);
 
-    void j(int i);
+    void h(int i);
 }

@@ -1,39 +1,35 @@
 package com.baidu.tieba.card;
 
-import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends com.baidu.adp.base.g {
-    final /* synthetic */ y aSZ;
+public class ab extends CustomMessageListener {
+    final /* synthetic */ z aQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.aSZ = yVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(z zVar, int i) {
+        super(i);
+        this.aQe = zVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.w wVar;
-        com.baidu.tieba.tbadkCore.w wVar2;
-        com.baidu.tieba.tbadkCore.w wVar3;
-        com.baidu.tieba.tbadkCore.w wVar4;
-        if (obj instanceof com.baidu.tieba.tbadkCore.x) {
-            wVar4 = this.aSZ.MY;
-            if (wVar4.getErrorCode() == 0) {
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        boolean z2;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+            if (com.baidu.adp.lib.util.i.fr()) {
+                z2 = this.aQe.aPU;
+                if (!z2) {
+                    z = false;
+                    this.aQe.cg(z);
+                }
             }
+            z = true;
+            this.aQe.cg(z);
         }
-        wVar = this.aSZ.MY;
-        if (AntiHelper.pB(wVar.getErrorCode())) {
-            Context context = this.aSZ.getContext();
-            wVar3 = this.aSZ.MY;
-            AntiHelper.O(context, wVar3.getErrorString());
-            return;
-        }
-        TbPageContext<?> Lb = this.aSZ.Lb();
-        wVar2 = this.aSZ.MY;
-        Lb.showToast(wVar2.getErrorString());
     }
 }

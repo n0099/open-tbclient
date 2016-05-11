@@ -3,31 +3,31 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
 public class q {
-    private String Tf;
-    private String Tg;
-    private String Th;
-    private String Ti;
-    private int Tj;
+    private String NT;
+    private String NU;
+    private String NV;
+    private String NW;
+    private int NX;
 
     public void a(HeadSdk headSdk) {
         if (headSdk != null) {
-            this.Tf = headSdk.head_pic;
-            this.Tg = headSdk.head_text;
-            this.Th = headSdk.sdk_name;
-            this.Ti = headSdk.sdk_params;
-            this.Tj = headSdk.head_type.intValue();
+            this.NT = headSdk.head_pic;
+            this.NU = headSdk.head_text;
+            this.NV = headSdk.sdk_name;
+            this.NW = headSdk.sdk_params;
+            this.NX = headSdk.head_type.intValue();
         }
     }
 
-    public String rG() {
-        return this.Tf;
+    public String oZ() {
+        return this.NT;
     }
 
-    public String rH() {
-        return this.Tg;
+    public String pa() {
+        return this.NU;
     }
 
-    public int rI() {
-        return this.Tj;
+    public int pb() {
+        return this.NX;
     }
 }

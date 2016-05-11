@@ -7,22 +7,22 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ ResponsePullMessage cnx;
+    final /* synthetic */ ResponsePullMessage cou;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ResponsePullMessage responsePullMessage) {
-        this.cnx = responsePullMessage;
+        this.cou = responsePullMessage;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         if (imMessageCenterPojo != null) {
             imMessageCenterPojo.setIs_hidden(1);
-            i.aey().c(imMessageCenterPojo);
+            i.aex().c(imMessageCenterPojo);
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void d(String str, List<CommonMsgPojo> list) {
+    public void e(String str, List<CommonMsgPojo> list) {
     }
 }

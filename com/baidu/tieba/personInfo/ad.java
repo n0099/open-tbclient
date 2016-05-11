@@ -1,38 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements NoNetworkView.a {
+public class ad extends CustomMessageListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(f fVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(f fVar, int i) {
+        super(i);
         this.this$0 = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aA(boolean z) {
-        bf bfVar;
-        bf bfVar2;
-        com.baidu.tbadk.f.f fVar;
-        bf bfVar3;
-        com.baidu.tbadk.f.h hVar;
-        if (z) {
-            bfVar = this.this$0.dvN;
-            if (bfVar != null) {
-                bfVar2 = this.this$0.dvN;
-                if (!bfVar2.getIsSelf()) {
-                    fVar = this.this$0.cFK;
-                    if (fVar == null) {
-                        hVar = this.this$0.refreshView;
-                        if (hVar == null) {
-                            return;
-                        }
-                    }
-                    bfVar3 = this.this$0.dvN;
-                    bfVar3.aDk();
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null) {
+            return;
         }
+        this.this$0.aDw();
     }
 }

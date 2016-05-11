@@ -25,7 +25,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.im.chat.receiveChatMsgHandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0064a {
+    public interface InterfaceC0058a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
@@ -33,12 +33,12 @@ public abstract class a {
     public interface b {
         void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
 
-        void d(String str, List<CommonMsgPojo> list);
+        void e(String str, List<CommonMsgPojo> list);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean iN(String str);
+        boolean iP(String str);
     }
 
     public static boolean f(ChatMessage chatMessage) {
@@ -49,48 +49,53 @@ public abstract class a {
         return (y == null || y.getIsSelf()) ? false : true;
     }
 
-    public static void iM(String str) {
+    public static void iO(String str) {
+        JSONObject jSONObject;
+        Object obj;
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("replyme");
-                int optInt2 = jSONObject.optInt(FeedData.TYPE_ZAN);
-                int optInt3 = jSONObject.optInt("fans");
-                int optInt4 = jSONObject.optInt("gift");
-                int optInt5 = jSONObject.optInt("godfeed");
+                JSONObject jSONObject2 = new JSONObject(str);
+                int optInt = jSONObject2.optInt("replyme");
+                int optInt2 = jSONObject2.optInt(FeedData.TYPE_ZAN);
+                int optInt3 = jSONObject2.optInt("fans");
+                int optInt4 = jSONObject2.optInt("gift");
+                int optInt5 = jSONObject2.optInt("godfeed");
                 if (optInt2 > 0) {
                     optInt += optInt2;
                 }
-                int optInt6 = jSONObject.optInt("atme");
-                if (jSONObject.optInt("feed") > 0) {
+                int optInt6 = jSONObject2.optInt("atme");
+                if (jSONObject2.optInt("feed") > 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.FRIEND_FEED_NEW));
                 }
                 if (optInt5 > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED, Integer.valueOf(optInt5)));
                 }
                 if (optInt >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.c.zM().zP() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xI() <= 0) {
                         optInt6 = 0;
                         optInt4 = 0;
                         optInt3 = 0;
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().Ac()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xV()) {
                         optInt -= optInt2;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().zT()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xM()) {
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.zM().zR()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xK()) {
                         optInt6 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.zM().zS() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.xF().xL() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.zp().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.zp().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zp().j(jSONObject);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zp().a(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.xi().j(jSONObject2);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.xi().a(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
+                        if (jSONObject2.has("absmsg") && (jSONObject = jSONObject2.getJSONObject("absmsg")) != null && jSONObject.has("th") && (obj = jSONObject.get("th")) != null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_TOGETHERHI_ACTIVITY, obj.toString()));
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -108,7 +113,7 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0064a interfaceC0064a) {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0058a interfaceC0058a) {
         int i;
         boolean z2;
         boolean z3;
@@ -138,7 +143,7 @@ public abstract class a {
                 if (j < chatMessage.getMsgId()) {
                     j = chatMessage.getMsgId();
                 }
-                if (interfaceC0064a == null || !interfaceC0064a.a(chatMessage, imMessageCenterPojo)) {
+                if (interfaceC0058a == null || !interfaceC0058a.a(chatMessage, imMessageCenterPojo)) {
                     chatMessage.setLocalData(new MsgLocalData());
                     chatMessage.getLocalData().setStatus((short) 3);
                     CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -165,7 +170,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.iN(valueOf)) {
+            if (cVar != null && cVar.iP(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);
@@ -197,11 +202,11 @@ public abstract class a {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         if (!TextUtils.isEmpty(currentAccount) && currentAccount.equals(String.valueOf(userData.getUserId()))) {
                             z3 = true;
-                            String y = com.baidu.tieba.im.util.h.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
+                            String x = com.baidu.tieba.im.util.h.x(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
                             imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
                             imMessageCenterPojo.setSid(commonMsgPojo.getSid());
                             MessageUtils.makeNewTaskId(imMessageCenterPojo, linkedList);
-                            imMessageCenterPojo.setLast_content(y);
+                            imMessageCenterPojo.setLast_content(x);
                             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
                             imMessageCenterPojo.setLast_user_name(str);
                             imMessageCenterPojo.setPushIds(commonMsgPojo.getPushIds());
@@ -225,11 +230,11 @@ public abstract class a {
                     }
                 }
                 z3 = false;
-                String y2 = com.baidu.tieba.im.util.h.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
+                String x2 = com.baidu.tieba.im.util.h.x(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent());
                 imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
                 imMessageCenterPojo.setSid(commonMsgPojo.getSid());
                 MessageUtils.makeNewTaskId(imMessageCenterPojo, linkedList);
-                imMessageCenterPojo.setLast_content(y2);
+                imMessageCenterPojo.setLast_content(x2);
                 imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
                 imMessageCenterPojo.setLast_user_name(str);
                 imMessageCenterPojo.setPushIds(commonMsgPojo.getPushIds());
@@ -250,7 +255,7 @@ public abstract class a {
                 i = 2;
             }
             if (bVar != null) {
-                bVar.d(valueOf, linkedList);
+                bVar.e(valueOf, linkedList);
                 bVar.a(imMessageCenterPojo, i, z5);
             }
         }

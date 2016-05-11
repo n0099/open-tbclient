@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.u;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.ax;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Object> {
-    private final ac mPage;
-    private final ArrayList<u> mThreadList;
+    private final ad mPage;
+    private final ArrayList<v> mThreadList;
 
     public FrsHotThreadResponseCacheMessage() {
         super(CmdConfigCustom.CMD_FRS_HOT_CACHE);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new ac();
+        this.mPage = new ad();
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -47,12 +47,12 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        as asVar = new as();
-                        asVar.setUserMap(hashMap);
-                        asVar.a(list2.get(i3));
-                        asVar.bW(0);
-                        asVar.parser_title();
-                        this.mThreadList.add(asVar);
+                        ax axVar = new ax();
+                        axVar.setUserMap(hashMap);
+                        axVar.a(list2.get(i3));
+                        axVar.bI(0);
+                        axVar.parser_title();
+                        this.mThreadList.add(axVar);
                     }
                 }
                 this.mPage.a(getHotThreadResIdl.data.page);
@@ -60,11 +60,11 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
         }
     }
 
-    public ArrayList<u> getThreadList() {
+    public ArrayList<v> getThreadList() {
         return this.mThreadList;
     }
 
-    public ac getPage() {
+    public ad getPage() {
         return this.mPage;
     }
 }

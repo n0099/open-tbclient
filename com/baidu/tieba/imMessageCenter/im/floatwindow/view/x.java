@@ -3,26 +3,26 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class x extends com.baidu.tbadk.util.p<Void> {
-    private final /* synthetic */ UserData cbc;
-    final /* synthetic */ FloatingPersonalChatActivity cvc;
+class x extends com.baidu.tbadk.util.s<Void> {
+    private final /* synthetic */ UserData cbH;
+    final /* synthetic */ FloatingPersonalChatActivity cvZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FloatingPersonalChatActivity floatingPersonalChatActivity, UserData userData) {
-        this.cvc = floatingPersonalChatActivity;
-        this.cbc = userData;
+        this.cvZ = floatingPersonalChatActivity;
+        this.cbH = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.p
-    /* renamed from: JX */
+    @Override // com.baidu.tbadk.util.s
+    /* renamed from: Io */
     public Void doInBackground() {
         String str;
-        if (this.cbc != null) {
-            com.baidu.tieba.im.settingcache.j ain = com.baidu.tieba.im.settingcache.j.ain();
+        if (this.cbH != null) {
+            com.baidu.tieba.im.settingcache.j aiu = com.baidu.tieba.im.settingcache.j.aiu();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            str = this.cvc.aDP;
-            ain.b(currentAccount, str, this.cbc);
+            str = this.cvZ.azX;
+            aiu.b(currentAccount, str, this.cbH);
             return null;
         }
         return null;

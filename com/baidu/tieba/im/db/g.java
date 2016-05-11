@@ -9,17 +9,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class g {
-    private static g ceG;
+    private static g cfm;
 
     public static g aet() {
-        if (ceG == null) {
+        if (cfm == null) {
             synchronized (g.class) {
-                if (ceG == null) {
-                    ceG = new g();
+                if (cfm == null) {
+                    cfm = new g();
                 }
             }
         }
-        return ceG;
+        return cfm;
     }
 
     public void aeu() {
@@ -58,7 +58,7 @@ public class g {
         }
     }
 
-    public boolean jj(String str) {
+    public boolean jl(String str) {
         SQLiteDatabase aer = f.aer();
         if (aer == null) {
             return false;

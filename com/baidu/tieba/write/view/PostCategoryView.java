@@ -13,85 +13,85 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.ev;
+import com.baidu.tieba.frs.em;
 import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PostCategoryView extends TextView {
-    private MorePopupWindow PS;
-    private LinearLayout bez;
-    private View bug;
-    private TabMenuPopView buu;
-    private boolean eKq;
-    private LinearLayout eKr;
-    private Drawable eKs;
-    private Drawable eKt;
+    private MorePopupWindow KJ;
+    private LinearLayout ban;
+    private View btc;
+    private TabMenuPopView btq;
+    private boolean fbh;
+    private LinearLayout fbi;
+    private Drawable fbj;
+    private Drawable fbk;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.eKq = false;
-        this.eKs = at.getDrawable(t.f.icon_title_down);
-        this.eKs.setBounds(0, 0, this.eKs.getIntrinsicWidth(), this.eKs.getIntrinsicHeight());
-        this.eKt = at.getDrawable(t.f.icon_title_up);
-        this.eKt.setBounds(0, 0, this.eKt.getIntrinsicWidth(), this.eKs.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.eKs, null);
+        this.fbh = false;
+        this.fbj = at.getDrawable(t.f.icon_title_down);
+        this.fbj.setBounds(0, 0, this.fbj.getIntrinsicWidth(), this.fbj.getIntrinsicHeight());
+        this.fbk = at.getDrawable(t.f.icon_title_up);
+        this.fbk.setBounds(0, 0, this.fbk.getIntrinsicWidth(), this.fbj.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.fbj, null);
         setPadding(0, 0, k.c(getContext(), t.e.ds50), 0);
-        this.bez = (LinearLayout) LayoutInflater.from(this.mContext).inflate(t.h.pop_category, (ViewGroup) null);
-        this.eKr = (LinearLayout) this.bez.findViewById(t.g.pop_category_layout);
-        this.buu = (TabMenuPopView) this.eKr.findViewById(t.g.pop_category_view);
-        this.bug = this.bez.findViewById(t.g.pop_category_grav);
-        this.bug.setOnClickListener(new g(this));
+        this.ban = (LinearLayout) LayoutInflater.from(this.mContext).inflate(t.h.pop_category, (ViewGroup) null);
+        this.fbi = (LinearLayout) this.ban.findViewById(t.g.pop_category_layout);
+        this.btq = (TabMenuPopView) this.fbi.findViewById(t.g.pop_category_view);
+        this.btc = this.ban.findViewById(t.g.pop_category_grav);
+        this.btc.setOnClickListener(new g(this));
     }
 
-    public void b(List<ev> list, ev evVar, int i) {
-        this.buu.a(list, evVar, i);
+    public void b(List<em> list, em emVar, int i) {
+        this.btq.a(list, emVar, i);
     }
 
     public void setCategoryContainerClickCallback(TabMenuPopView.a aVar) {
-        this.buu.setOnItemClickCallBack(aVar);
+        this.btq.setOnItemClickCallBack(aVar);
     }
 
-    public void bay() {
-        if (this.eKq) {
-            setCompoundDrawables(null, null, this.eKs, null);
-            this.eKq = false;
+    public void bcL() {
+        if (this.fbh) {
+            setCompoundDrawables(null, null, this.fbj, null);
+            this.fbh = false;
         } else {
             a(this);
-            if (this.PS != null) {
-                this.PS.refresh();
-                this.PS.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
-                this.PS.setHeight(-1);
-                this.PS.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.eKt, null);
-                this.eKq = true;
+            if (this.KJ != null) {
+                this.KJ.refresh();
+                this.KJ.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
+                this.KJ.setHeight(-1);
+                this.KJ.showWindowInCustomPosition(0, 0);
+                setCompoundDrawables(null, null, this.fbk, null);
+                this.fbh = true;
             }
         }
         invalidate();
     }
 
     private void a(PostCategoryView postCategoryView) {
-        if (this.PS == null) {
-            this.PS = new MorePopupWindow((Activity) this.mContext, this.bez, this, at.getDrawable(t.f.transparent_bg), new h(this));
-            this.PS.setOnDismissListener(new i(this, postCategoryView));
+        if (this.KJ == null) {
+            this.KJ = new MorePopupWindow((Activity) this.mContext, this.ban, this, at.getDrawable(t.f.transparent_bg), new h(this));
+            this.KJ.setOnDismissListener(new i(this, postCategoryView));
         }
     }
 
-    public void xy() {
+    public void vl() {
         at.l(this, t.d.cp_bg_line_d);
-        at.b(this, t.d.cp_cont_b, 1);
-        if (this.eKr != null) {
-            at.l(this.eKr, t.d.cp_bg_line_d);
+        at.c(this, t.d.cp_cont_b, 1);
+        if (this.fbi != null) {
+            at.l(this.fbi, t.d.cp_bg_line_d);
         }
-        if (this.buu != null) {
-            this.buu.xy();
+        if (this.btq != null) {
+            this.btq.vl();
         }
     }
 
-    public void baz() {
-        if (this.PS != null) {
-            this.PS.dismiss();
+    public void bcM() {
+        if (this.KJ != null) {
+            this.KJ.dismiss();
         }
     }
 }

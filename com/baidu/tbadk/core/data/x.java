@@ -1,55 +1,38 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class x {
-    private ArrayList<String> TR;
-    private int smsCodeTime = 0;
-    private UserData TP = new UserData();
-    private AntiData TQ = new AntiData();
+public class x extends ax {
+    public static final BdUniqueId OC = BdUniqueId.gen();
+    private boolean OD;
+    private String card;
+    private Object cardInfo;
 
-    public x() {
-        this.TR = null;
-        this.TR = new ArrayList<>();
-        setSmsCodeTime(0);
-    }
-
-    public UserData getUser() {
-        return this.TP;
-    }
-
-    public AntiData sf() {
-        return this.TQ;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void py() {
+        if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
+            this.OD = false;
+            return;
         }
+        this.cardInfo = com.baidu.tieba.tbadkCore.v.nO(this.card);
+        this.OD = this.cardInfo != null;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.TP.parserJson(jSONObject.optJSONObject("user"));
-            this.TQ.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.TR.add(optJSONArray.optString(i, null));
-                }
-            }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public Object getCardInfo() {
+        return this.cardInfo;
     }
 
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    public void setCardInfo(Object obj) {
+        this.cardInfo = obj;
+    }
+
+    public boolean isValid() {
+        return this.OD;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return OC;
     }
 }

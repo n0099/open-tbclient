@@ -4,21 +4,21 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements n {
-    final /* synthetic */ ag eIc;
+    final /* synthetic */ ag eYV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ag agVar) {
-        this.eIc = agVar;
+        this.eYV = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.n
-    public void nh() {
+    public void jv() {
     }
 
     @Override // com.baidu.tieba.write.album.n
-    public void cD(List<d> list) {
+    public void cK(List<d> list) {
         o oVar;
-        oVar = this.eIc.eGD;
-        oVar.cF(list);
+        oVar = this.eYV.eXx;
+        oVar.cN(list);
     }
 }

@@ -16,31 +16,31 @@ import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbNewChudianCommonView extends RelativeLayout implements View.OnClickListener {
-    private b.a daU;
-    private BdBaseActivity<?> dqo;
-    private TextView dqp;
-    private TextView dqq;
-    private ImageView dqr;
-    private TextView dqs;
-    private TextView dqt;
-    private TextView dqu;
-    private com.baidu.tieba.tbadkCore.data.i dqv;
+    private b.a ddo;
+    private BdBaseActivity<?> dss;
+    private TextView dst;
+    private TextView dsu;
+    private ImageView dsv;
+    private TextView dsw;
+    private TextView dsx;
+    private TextView dsy;
+    private com.baidu.tieba.tbadkCore.data.i dsz;
     private Context mContext;
     private View mRootView;
 
     public PbNewChudianCommonView(Context context) {
         super(context);
         this.mContext = null;
-        this.dqo = null;
+        this.dss = null;
         this.mRootView = null;
-        this.dqp = null;
-        this.dqq = null;
-        this.dqr = null;
-        this.dqs = null;
-        this.dqt = null;
-        this.dqu = null;
-        this.dqv = null;
-        this.daU = null;
+        this.dst = null;
+        this.dsu = null;
+        this.dsv = null;
+        this.dsw = null;
+        this.dsx = null;
+        this.dsy = null;
+        this.dsz = null;
+        this.ddo = null;
         this.mContext = context;
         init();
     }
@@ -48,16 +48,16 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     public PbNewChudianCommonView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.dqo = null;
+        this.dss = null;
         this.mRootView = null;
-        this.dqp = null;
-        this.dqq = null;
-        this.dqr = null;
-        this.dqs = null;
-        this.dqt = null;
-        this.dqu = null;
-        this.dqv = null;
-        this.daU = null;
+        this.dst = null;
+        this.dsu = null;
+        this.dsv = null;
+        this.dsw = null;
+        this.dsx = null;
+        this.dsy = null;
+        this.dsz = null;
+        this.ddo = null;
         this.mContext = context;
         init();
     }
@@ -65,16 +65,16 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     protected void init() {
         if (this.mContext != null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(t.h.pb_newchudian_common, (ViewGroup) this, true);
-            this.dqp = (TextView) this.mRootView.findViewById(t.g.service_first);
-            this.dqp.setOnClickListener(this);
-            this.dqq = (TextView) this.mRootView.findViewById(t.g.service_second);
-            this.dqq.setOnClickListener(this);
-            this.dqs = (TextView) this.mRootView.findViewById(t.g.land_mark_text);
-            this.dqr = (ImageView) this.mRootView.findViewById(t.g.land_mark_icon);
-            this.dqt = (TextView) this.mRootView.findViewById(t.g.check_detail_up);
-            this.dqt.setOnClickListener(this);
-            this.dqu = (TextView) this.mRootView.findViewById(t.g.check_detail_down);
-            this.dqu.setOnClickListener(this);
+            this.dst = (TextView) this.mRootView.findViewById(t.g.service_first);
+            this.dst.setOnClickListener(this);
+            this.dsu = (TextView) this.mRootView.findViewById(t.g.service_second);
+            this.dsu.setOnClickListener(this);
+            this.dsw = (TextView) this.mRootView.findViewById(t.g.land_mark_text);
+            this.dsv = (ImageView) this.mRootView.findViewById(t.g.land_mark_icon);
+            this.dsx = (TextView) this.mRootView.findViewById(t.g.check_detail_up);
+            this.dsx.setOnClickListener(this);
+            this.dsy = (TextView) this.mRootView.findViewById(t.g.check_detail_down);
+            this.dsy.setOnClickListener(this);
         }
     }
 
@@ -82,44 +82,44 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
         com.baidu.tieba.tbadkCore.data.h hVar;
         com.baidu.tieba.tbadkCore.data.h hVar2;
         if (iVar != null && bdBaseActivity != null) {
-            this.dqv = iVar;
-            this.dqo = bdBaseActivity;
-            this.daU = aVar;
-            ArrayList<com.baidu.tieba.tbadkCore.data.h> aSR = this.dqv.aSR();
-            if (aSR != null && aSR.size() > 0 && (hVar = aSR.get(0)) != null && !ay.isEmpty(hVar.getText())) {
-                at.b(this.dqp, t.d.cp_cont_i, 1);
-                at.c(this.dqp, t.f.btn_all_green_n, 1);
-                this.dqp.setText(hVar.getText());
-                this.dqp.setVisibility(0);
-                if (aSR.size() > 1 && (hVar2 = aSR.get(1)) != null && !ay.isEmpty(hVar2.getText())) {
-                    at.b(this.dqq, t.d.cp_cont_i, 1);
-                    at.c(this.dqq, t.f.btn_all_green_n, 1);
-                    this.dqq.setText(hVar2.getText());
-                    this.dqq.setVisibility(0);
+            this.dsz = iVar;
+            this.dss = bdBaseActivity;
+            this.ddo = aVar;
+            ArrayList<com.baidu.tieba.tbadkCore.data.h> aTs = this.dsz.aTs();
+            if (aTs != null && aTs.size() > 0 && (hVar = aTs.get(0)) != null && !ay.isEmpty(hVar.getText())) {
+                at.c(this.dst, t.d.cp_cont_i, 1);
+                at.d(this.dst, t.f.btn_all_green_n, 1);
+                this.dst.setText(hVar.getText());
+                this.dst.setVisibility(0);
+                if (aTs.size() > 1 && (hVar2 = aTs.get(1)) != null && !ay.isEmpty(hVar2.getText())) {
+                    at.c(this.dsu, t.d.cp_cont_i, 1);
+                    at.d(this.dsu, t.f.btn_all_green_n, 1);
+                    this.dsu.setText(hVar2.getText());
+                    this.dsu.setVisibility(0);
                 }
             }
-            if (!ay.isEmpty(this.dqv.getPosition())) {
-                this.dqs.setText(this.dqv.getPosition());
-                at.b(this.dqs, t.d.cp_cont_c, 1);
-                this.dqs.setVisibility(0);
-                at.c(this.dqr, t.f.icon_pic_place);
-                this.dqr.setVisibility(0);
+            if (!ay.isEmpty(this.dsz.getPosition())) {
+                this.dsw.setText(this.dsz.getPosition());
+                at.c(this.dsw, t.d.cp_cont_c, 1);
+                this.dsw.setVisibility(0);
+                at.c(this.dsv, t.f.icon_pic_place);
+                this.dsv.setVisibility(0);
             }
-            com.baidu.tieba.tbadkCore.data.j aST = this.dqv.aST();
-            if (aST != null && !ay.isEmpty(aST.getText())) {
-                if (this.dqp.getVisibility() != 0 && this.dqq.getVisibility() != 0) {
-                    at.b(this.dqu, t.d.cp_cont_i, 1);
-                    at.c(this.dqu, t.f.btn_all_blue_n, 1);
-                    this.dqu.setText(aST.getText());
-                    this.dqu.setVisibility(0);
+            com.baidu.tieba.tbadkCore.data.j aTu = this.dsz.aTu();
+            if (aTu != null && !ay.isEmpty(aTu.getText())) {
+                if (this.dst.getVisibility() != 0 && this.dsu.getVisibility() != 0) {
+                    at.c(this.dsy, t.d.cp_cont_i, 1);
+                    at.d(this.dsy, t.f.btn_all_blue_n, 1);
+                    this.dsy.setText(aTu.getText());
+                    this.dsy.setVisibility(0);
                 } else {
-                    at.b(this.dqt, t.d.cp_cont_i, 1);
-                    at.c(this.dqt, t.f.btn_all_blue_n, 1);
-                    this.dqt.setText(aST.getText());
-                    this.dqt.setVisibility(0);
+                    at.c(this.dsx, t.d.cp_cont_i, 1);
+                    at.d(this.dsx, t.f.btn_all_blue_n, 1);
+                    this.dsx.setText(aTu.getText());
+                    this.dsx.setVisibility(0);
                 }
             }
-            if (this.dqp.getVisibility() != 0 && this.dqq.getVisibility() != 0 && this.dqs.getVisibility() != 0 && this.dqu.getVisibility() != 0) {
+            if (this.dst.getVisibility() != 0 && this.dsu.getVisibility() != 0 && this.dsw.getVisibility() != 0 && this.dsy.getVisibility() != 0) {
                 this.mRootView.setVisibility(8);
             }
         }
@@ -127,21 +127,21 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dqv != null) {
-            if (view == this.dqp) {
-                if (this.dqv.aSR() != null) {
-                    a(this.dqv.aSR().get(0));
+        if (this.dsz != null) {
+            if (view == this.dst) {
+                if (this.dsz.aTs() != null) {
+                    a(this.dsz.aTs().get(0));
                 }
-            } else if (view == this.dqq) {
-                if (this.dqv.aSR() != null) {
-                    a(this.dqv.aSR().get(1));
+            } else if (view == this.dsu) {
+                if (this.dsz.aTs() != null) {
+                    a(this.dsz.aTs().get(1));
                 }
-            } else if (view == this.dqt || view == this.dqu) {
-                com.baidu.tieba.tbadkCore.data.j aST = this.dqv.aST();
-                if (!ay.isEmpty(aST.getUrl())) {
-                    com.baidu.tbadk.browser.f.s(this.mContext, aST.getUrl());
-                    if (this.daU != null) {
-                        this.daU.y(aST.getUrl(), "BUTTON", "CLICK");
+            } else if (view == this.dsx || view == this.dsy) {
+                com.baidu.tieba.tbadkCore.data.j aTu = this.dsz.aTu();
+                if (!ay.isEmpty(aTu.getUrl())) {
+                    com.baidu.tbadk.browser.f.t(this.mContext, aTu.getUrl());
+                    if (this.ddo != null) {
+                        this.ddo.z(aTu.getUrl(), "BUTTON", "CLICK");
                     }
                 }
             }
@@ -151,21 +151,21 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     private void a(com.baidu.tieba.tbadkCore.data.h hVar) {
         if (hVar != null) {
             String trim = hVar.getUrl().trim();
-            if (this.daU != null) {
-                this.daU.y(trim, "BTN_PHONE", "CLICK");
+            if (this.ddo != null) {
+                this.ddo.z(trim, "BTN_PHONE", "CLICK");
             }
             if (!ay.isEmpty(trim)) {
                 int type = hVar.getType();
                 if (type == 1) {
-                    com.baidu.tbadk.browser.f.s(this.mContext, trim);
+                    com.baidu.tbadk.browser.f.t(this.mContext, trim);
                 } else if (type == 2) {
-                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dqo.getActivity());
-                    aVar.cC(trim);
-                    aVar.a(this.dqo.getResources().getString(t.j.phone_call), new e(this, trim));
-                    aVar.b(this.dqo.getResources().getString(t.j.cancel), new f(this, trim));
-                    aVar.an(false);
-                    aVar.b(this.dqo.getPageContext());
-                    aVar.up();
+                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dss.getActivity());
+                    aVar.cA(trim);
+                    aVar.a(this.dss.getResources().getString(t.j.phone_call), new k(this, trim));
+                    aVar.b(this.dss.getResources().getString(t.j.cancel), new l(this, trim));
+                    aVar.aq(false);
+                    aVar.b(this.dss.getPageContext());
+                    aVar.rU();
                 }
             }
         }

@@ -88,9 +88,9 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String Fo = eVar.Fo();
+                String Dg = eVar.Dg();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(Fo) && bArr != null && (N = a.um().N(Fo, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(Dg) && bArr != null && (N = a.rR().N(Dg, currentAccount)) != null) {
                     N.e(cacheKey, bArr);
                 }
             }

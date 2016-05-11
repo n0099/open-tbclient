@@ -24,15 +24,15 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class o implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ n avS;
-    private final /* synthetic */ e avT;
-    private final /* synthetic */ com.baidu.tbadk.editortools.l avU;
+    final /* synthetic */ n arR;
+    private final /* synthetic */ e arS;
+    private final /* synthetic */ com.baidu.tbadk.editortools.l arT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, e eVar, com.baidu.tbadk.editortools.l lVar) {
-        this.avS = nVar;
-        this.avT = eVar;
-        this.avU = lVar;
+        this.arR = nVar;
+        this.arS = eVar;
+        this.arT = lVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -46,15 +46,15 @@ class o implements com.baidu.tbadk.editortools.b {
         String str4;
         boolean z;
         boolean b3;
-        if (this.avT != null && this.avT.Dh() != null && aVar != null) {
+        if (this.arS != null && this.arS.Bb() != null && aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.avT.fA((String) aVar.data);
-                    this.avS.avQ = false;
+                    this.arS.fx((String) aVar.data);
+                    this.arR.arP = false;
                     return;
                 case 5:
-                    if (!this.avU.Dk()) {
-                        TiebaStatic.eventStat(this.avU.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    if (!this.arT.Be()) {
+                        TiebaStatic.eventStat(this.arT.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                         return;
                     }
                     return;
@@ -67,7 +67,7 @@ class o implements com.baidu.tbadk.editortools.b {
                 case 22:
                 case 24:
                 case 25:
-                case 26:
+                case TbConfig.NOTIFY_FANS_NEW_ID /* 26 */:
                 case 28:
                 case 30:
                 case 31:
@@ -80,160 +80,160 @@ class o implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.avT.DY().showToast(t.j.over_limit_tip);
-                    this.avS.avQ = true;
+                    this.arS.BR().showToast(t.j.over_limit_tip);
+                    this.arR.arP = true;
                     return;
                 case 8:
-                    b2 = this.avS.b(this.avT.DY().getPageContext(), 11001);
+                    b2 = this.arR.b(this.arS.BR().getPageContext(), 11001);
                     if (b2) {
-                        this.avT.a((String) null, (WriteData) null);
+                        this.arS.a((String) null, (WriteData) null);
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.avT.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.arS.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.avU.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.arT.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.avT.setVoiceModel(null);
-                    this.avU.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.arS.setVoiceModel(null);
+                    this.arT.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 14:
-                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.avT.getWriteImagesInfo().getChosedFiles() == null || this.avT.getWriteImagesInfo().getChosedFiles().size() == 0) {
-                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.avT.DY().getActivity(), this.avT.getWriteImagesInfo().toJsonString(), true, true);
-                        str = this.avS.from;
+                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.arS.getWriteImagesInfo().getChosedFiles() == null || this.arS.getWriteImagesInfo().getChosedFiles().size() == 0) {
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.arS.BR().getActivity(), this.arS.getWriteImagesInfo().toJsonString(), true, true);
+                        str = this.arR.from;
                         if (!StringUtils.isNull(str, true)) {
                             Intent intent = albumActivityConfig.getIntent();
-                            str4 = this.avS.from;
+                            str4 = this.arR.from;
                             intent.putExtra("from", str4);
                         }
-                        str2 = this.avS.forumId;
+                        str2 = this.arR.forumId;
                         if (!StringUtils.isNull(str2, true)) {
                             Intent intent2 = albumActivityConfig.getIntent();
-                            str3 = this.avS.forumId;
+                            str3 = this.arR.forumId;
                             intent2.putExtra("forum_id", str3);
                         }
                         albumActivityConfig.setRequestCode(12002);
-                        if (b.DI().getStatus() == 1) {
+                        if (b.BC().getStatus() == 1) {
                             albumActivityConfig.setRequestFrom(2);
-                            this.avT.eK(1);
-                            if (this.avT.getWriteImagesInfo() != null) {
-                                this.avT.getWriteImagesInfo().setMaxImagesAllowed(1);
+                            this.arS.eq(1);
+                            if (this.arS.getWriteImagesInfo() != null) {
+                                this.arS.getWriteImagesInfo().setMaxImagesAllowed(1);
                             }
                         } else {
-                            this.avT.eK(10);
-                            if (this.avT.getWriteImagesInfo() != null) {
-                                this.avT.getWriteImagesInfo().setMaxImagesAllowed(10);
+                            this.arS.eq(10);
+                            if (this.arS.getWriteImagesInfo() != null) {
+                                this.arS.getWriteImagesInfo().setMaxImagesAllowed(10);
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                         return;
                     }
-                    this.avT.Ee();
+                    this.arS.BX();
                     return;
                 case 15:
                     int intValue = ((Integer) aVar.data).intValue();
-                    if (this.avT.getWriteImagesInfo() != null && this.avT.getWriteImagesInfo().getChosedFiles() != null && (size = this.avT.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.avT.DY().getActivity(), 12012, this.avT.getWriteImagesInfo(), intValue)));
+                    if (this.arS.getWriteImagesInfo() != null && this.arS.getWriteImagesInfo().getChosedFiles() != null && (size = this.arS.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.arS.BR().getActivity(), 12012, this.arS.getWriteImagesInfo(), intValue)));
                         return;
                     }
                     return;
                 case 16:
-                    z = this.avS.avQ;
+                    z = this.arR.arP;
                     if (z) {
-                        this.avT.DY().showToast(t.j.over_limit_tip);
+                        this.arS.BR().showToast(t.j.over_limit_tip);
                     }
-                    b3 = this.avS.b(this.avT.DY().getPageContext(), 11025);
+                    b3 = this.arR.b(this.arS.BR().getPageContext(), 11025);
                     if (b3) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.avT.DY().getActivity(), 12004, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.arS.BR().getActivity(), 12004, true)));
                         return;
                     }
                     return;
                 case 18:
                     if (aVar.data != null) {
-                        this.avT.DS();
+                        this.arS.BL();
                         return;
                     }
-                    switch (this.avT.Ea()) {
+                    switch (this.arS.BT()) {
                         case 0:
-                            this.avT.DQ();
+                            this.arS.BJ();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.avT.DO();
+                            this.arS.BI();
                             return;
                     }
                 case 20:
-                    this.avT.Dh().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                    com.baidu.tieba.tbadkCore.location.c.aUd().iK(true);
+                    this.arS.Bb().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                    com.baidu.tieba.tbadkCore.location.c.aUz().setNoLongerShowAddress(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     return;
                 case 21:
-                    if (this.avT.getBaobaoImagesInfo() == null || this.avT.getBaobaoImagesInfo().getChosedFiles() == null || this.avT.getBaobaoImagesInfo().getChosedFiles().size() == 0) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.aSF();
-                        if (TbadkCoreApplication.getCurrentMemberType() == 0 && !com.baidu.tieba.tbadkCore.PbEditor.a.aSE()) {
-                            this.avT.DY().showToast(t.j.baobao_over_limit);
+                    if (this.arS.getBaobaoImagesInfo() == null || this.arS.getBaobaoImagesInfo().getChosedFiles() == null || this.arS.getBaobaoImagesInfo().getChosedFiles().size() == 0) {
+                        com.baidu.tieba.tbadkCore.PbEditor.a.aTe();
+                        if (TbadkCoreApplication.getCurrentMemberType() == 0 && !com.baidu.tieba.tbadkCore.PbEditor.a.aTd()) {
+                            this.arS.BR().showToast(t.j.baobao_over_limit);
                             return;
                         }
-                        IntentConfig intentConfig = new IntentConfig(this.avT.DY().getActivity());
-                        intentConfig.getIntent().putExtra("title", this.avT.DY().getResources().getString(t.j.send_reply));
+                        IntentConfig intentConfig = new IntentConfig(this.arS.BR().getActivity());
+                        intentConfig.getIntent().putExtra("title", this.arS.BR().getResources().getString(t.j.send_reply));
                         intentConfig.getIntent().putExtra(GroupInfoActivityConfig.REQUEST_CODE, 12013);
-                        this.avT.DY().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE, intentConfig));
+                        this.arS.BR().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE, intentConfig));
                         return;
                     }
-                    this.avT.Eg();
+                    this.arS.BZ();
                     return;
                 case 23:
-                    if (this.avT.getBaobaoImagesInfo() != null && this.avT.getBaobaoImagesInfo().size() > 0) {
-                        this.avT.DZ().setIsBaobao(true);
+                    if (this.arS.getBaobaoImagesInfo() != null && this.arS.getBaobaoImagesInfo().size() > 0) {
+                        this.arS.BS().setIsBaobao(true);
                         return;
                     } else {
-                        this.avT.DZ().setIsBaobao(false);
+                        this.arS.BS().setIsBaobao(false);
                         return;
                     }
                 case 27:
-                    VideoInfo videoInfo = this.avT.getVideoInfo();
+                    VideoInfo videoInfo = this.arS.getVideoInfo();
                     if (videoInfo != null && videoInfo.isAvaliable()) {
-                        this.avT.Dh().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        this.arS.Bb().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                         return;
-                    } else if (this.avT.DY() != null && this.avT.DY().getResources() != null) {
-                        Resources resources = this.avT.DY().getResources();
+                    } else if (this.arS.BR() != null && this.arS.BR().getResources() != null) {
+                        Resources resources = this.arS.BR().getResources();
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (XiaoyingUtil.isXiaoyingForbidden()) {
-                                XiaoyingUtil.showGoPluginDetailDialog(this.avT.DY().getPageContext(), resources.getString(t.j.plugin_video_not_active), resources.getString(t.j.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.arS.BR().getPageContext(), resources.getString(t.j.plugin_video_not_active), resources.getString(t.j.setup));
                                 return;
                             } else {
-                                XiaoyingUtil.startXiaoying(this.avT.DY().getActivity());
+                                XiaoyingUtil.startXiaoying(this.arS.BR().getActivity());
                                 return;
                             }
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.avT.DY().getPageContext(), resources.getString(t.j.plugin_video_install_tips), resources.getString(t.j.plugin_go_install));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.arS.BR().getPageContext(), resources.getString(t.j.plugin_video_install_tips), resources.getString(t.j.plugin_go_install));
                         return;
                     } else {
                         return;
                     }
-                case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
-                    this.avT.Dh().b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                    this.avT.Dh().b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                    this.avT.DU();
+                case 29:
+                    this.arS.Bb().b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                    this.arS.Bb().b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    this.arS.BN();
                     return;
                 case 32:
-                    this.avT.Dh().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                    this.arS.Bb().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                     return;
                 case 36:
-                    b = this.avS.b(this.avT.DY().getPageContext(), 11040);
+                    b = this.arR.b(this.arS.BR().getPageContext(), 11040);
                     if (b) {
-                        this.avT.DN();
+                        this.arS.BH();
                         return;
                     }
                     return;
                 case 40:
                     if ((aVar.data instanceof String) || aVar.data == null) {
-                        this.avT.setGraffitiFileName((String) aVar.data);
+                        this.arS.setGraffitiFileName((String) aVar.data);
                         return;
                     }
                     return;

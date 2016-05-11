@@ -9,11 +9,11 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity crY;
+    final /* synthetic */ AddFriendActivity csV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AddFriendActivity addFriendActivity) {
-        this.crY = addFriendActivity;
+        this.csV = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class d implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         EditText editText2;
-        AddFriendActivity addFriendActivity = this.crY;
-        inputMethodManager = this.crY.bHg;
-        editText = this.crY.crT;
+        AddFriendActivity addFriendActivity = this.csV;
+        inputMethodManager = this.csV.bHm;
+        editText = this.csV.csQ;
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-            editText2 = this.crY.crT;
-            this.crY.gM(editText2.getText().toString());
+        if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
+            editText2 = this.csV.csQ;
+            this.csV.gN(editText2.getText().toString());
             return;
         }
-        this.crY.showToast(t.j.plugin_not_install);
+        this.csV.showToast(t.j.plugin_not_install);
     }
 }

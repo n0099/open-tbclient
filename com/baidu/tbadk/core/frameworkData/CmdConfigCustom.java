@@ -49,6 +49,8 @@ public class CmdConfigCustom {
     public static final int CMD_BAO_BAO_RES_TOOL = 2001299;
     public static final int CMD_BAWU_TEAM_INFO_CACHE = 2003005;
     public static final int CMD_BC_BANNER_STOP_LOAD = 2016330;
+    public static final int CMD_BIND_CARD = 2016457;
+    public static final int CMD_BIND_CARD_SUCCESS = 2016458;
     public static final int CMD_BIND_LIVESERVICE = 2903001;
     public static final int CMD_BUBBLE_TOOL_CRTL = 2001346;
     public static final int CMD_BUBBLE_TOOL_RED_DOT = 2001360;
@@ -106,6 +108,7 @@ public class CmdConfigCustom {
     public static final int CMD_DOWNLOAD_BUTTON_STATUS_CHANGED = 2001270;
     public static final int CMD_DROP_RELATIONSHIP_TABLE = 2001185;
     public static final int CMD_EMOTIONS_GROUP_CHANGED = 2001120;
+    public static final int CMD_ENTER_FORUM_ADD_TOGETHERHI_TAB = 2016461;
     public static final int CMD_ENTER_FORUM_INFO = 2001336;
     public static final int CMD_ENTER_HOMEWORK = 2001340;
     public static final int CMD_ENTER_PERSONINFO_FROM_NOTIFI_LOCAL = 2001158;
@@ -128,11 +131,13 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_ADD_ADAPTER = 2003008;
     public static final int CMD_FRS_ADD_MODEL = 2003011;
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001359;
+    public static final int CMD_FRS_EXTRA_LOADED = 2003017;
     public static final int CMD_FRS_GROUP_MENU = 2003013;
     public static final int CMD_FRS_HOT_CACHE = 2003012;
     public static final int CMD_FRS_LIVE_CACHE = 2003014;
     public static final int CMD_FRS_MANGA_STORE_CACHE = 2003015;
     public static final int CMD_FRS_MEMBER_INFO_CACHE = 2003009;
+    public static final int CMD_FRS_TOGETHER_HI_CACHE = 2003016;
     public static final int CMD_GAME_ADD_ITEM = 2001248;
     public static final int CMD_GAME_DELETE_ITEM = 2001249;
     public static final int CMD_GAME_GET_DOWN_DATA = 2001246;
@@ -151,6 +156,7 @@ public class CmdConfigCustom {
     public static final int CMD_GET_LEVEL_INFO_CACHE = 2003007;
     public static final int CMD_GET_LIVE_CHANGED_INFO = 2001338;
     public static final int CMD_GET_LIVE_PLAY_IMAGE = 2001269;
+    public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;
     public static final int CMD_GET_NEW_FRIEND_DATA_BY_ID = 2001312;
     public static final int CMD_GET_OFFICIAL_ACCOUNT = 2001272;
     public static final int CMD_GET_RECOMMEND_DETAIL = 2001313;
@@ -182,6 +188,13 @@ public class CmdConfigCustom {
     public static final int CMD_GRAFFITI_VOTE_SUCCESS = 2016453;
     public static final int CMD_GROUP_MEMBER_CHANGE = 2001109;
     public static final int CMD_GUIDE_SET_CACHE = 2001407;
+    public static final int CMD_HI_CHECKHASINSTALLED = 2802010;
+    public static final int CMD_HI_CLEARFONT = 2802009;
+    public static final int CMD_HI_CLEARIMAGE = 2802008;
+    public static final int CMD_HI_GETENTERBANNER = 2802013;
+    public static final int CMD_HI_GETJUMPURL = 2802011;
+    public static final int CMD_HI_LAUNCHBAOBAO = 2802012;
+    public static final int CMD_HI_STARTMATCHIMAGE = 2802007;
     public static final int CMD_HOMEWORK = 2902070;
     public static final int CMD_HOME_PAGE_LOAD_DATA_FROM_NET = 2016320;
     public static final int CMD_HOME_PAGE_READ_CACHE = 2016314;
@@ -215,6 +228,8 @@ public class CmdConfigCustom {
     public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
     public static final int CMD_LEFT_NAV_MEMBER_CENTER_RED_TIP = 2001375;
     public static final int CMD_LEGO_LIST = 2016447;
+    public static final int CMD_LEGO_LOAD_DATA_SUCCESS = 2016455;
+    public static final int CMD_LEGO_REQUEST = 2016456;
     public static final int CMD_LEGO_SWITCH_TAB = 2016449;
     public static final int CMD_LEGO_SWITCH_TAB_FROM_POP_WINDOW = 2016448;
     public static final int CMD_LIGHT_APP_RUNTIME_INITED = 2001276;
@@ -246,6 +261,8 @@ public class CmdConfigCustom {
     public static final int CMD_LOGIN_STATUS_KUANG = 2001332;
     public static final int CMD_LOGIN_WEINXIN = 2001345;
     public static final int CMD_MAINTAB_LAYER_VISIBLE = 2001348;
+    public static final int CMD_MAINTAB_MEMBER_RED_TIP = 2016459;
+    public static final int CMD_MAINTAB_SHOW_MESSAGE_ICON = 2001409;
     public static final int CMD_MAIN_TAB_ON_RESUME = 2001392;
     public static final int CMD_MAIN_TAB_WIDGET_CLICK = 2001391;
     public static final int CMD_MARK_MANAGER = 2001286;
@@ -257,6 +274,7 @@ public class CmdConfigCustom {
     public static final int CMD_MESSAGE_NOTIFY_LOCAL = 2001124;
     public static final int CMD_MOTU_REFRESH_VIDEO = 2016329;
     public static final int CMD_MSG_LIST_ADAPTER_SCAN = 2001282;
+    public static final int CMD_MY_ATTENTION_AND_FANS_PLUGIN_INSTALL_SUCCESS = 2902120;
     public static final int CMD_MY_COLLECTION_RES_TOOL = 2001302;
     public static final int CMD_MY_HISTORY_RES_TOOL = 2001303;
     public static final int CMD_MY_LIVE_RES_TOOL = 2001304;
@@ -270,6 +288,7 @@ public class CmdConfigCustom {
     public static final int CMD_NIGHT_PLUGIN_INSATLLED = 2001361;
     public static final int CMD_NIGHT_RESOURCE_AVAILABLE = 2001288;
     public static final int CMD_NOTIFY_HIDE_TIPVIEW = 2001126;
+    public static final int CMD_NOTIFY_TOGETHERHI_ACTIVITY = 2001503;
     public static final int CMD_NOT_FRIEND = 2001223;
     public static final int CMD_OFFICIAL_ACCOUNT_ICON = 2001297;
     public static final int CMD_OFFICIAL_BAR_MENU_LOCAL = 2001181;
@@ -283,7 +302,6 @@ public class CmdConfigCustom {
     public static final int CMD_PAYMENT_CONFIRM_SUCCESS = 2001374;
     public static final int CMD_PERF_LIVE_SAMPLE = 2016103;
     public static final int CMD_PERF_SAMPLE = 2016100;
-    public static final int CMD_PERSONALIZE_VIDEO_CONTROL = 2001399;
     public static final int CMD_PERSONAL_CHAT_INITED = 2001316;
     public static final int CMD_PERSON_DATA_CHANGED = 2001387;
     public static final int CMD_PERSON_INFO_CHANGED = 2001253;
@@ -571,7 +589,8 @@ public class CmdConfigCustom {
     public static final int PB_PAUSE_VIDEO = 2004011;
     public static final int PB_RECORDER_RESET_CMD = 2004006;
     public static final int PB_REFRESH_VIDEO = 2004012;
-    public static final int PB_RESET_EDITOR_TOOL = 2001016;
+    public static final int PB_RESET_EDITOR_TOOL = 2004016;
+    public static final int PB_RICHTEXT_CHANGE_CMD = 2004018;
     public static final int PB_SHOW_MULTIIAMGETOOL = 2004009;
     private static final int PHOTO_LIVE_CUSTOM_BASE_CMD = 2004500;
     private static final int PLUGIN_CUSTOM_BASE_CMD = 2902000;
@@ -585,6 +604,7 @@ public class CmdConfigCustom {
     private static final int SQUARE_CUSTOM_BASE_CMD = 2009000;
     public static final int START_ACCOUNT = 2015006;
     public static final int START_EDITMARK = 2015005;
+    public static final int START_ENTELECHY_PB_ACTIVITY = 2004017;
     public static final int START_FLOATING_PERSONAL_CHAT = 2002011;
     public static final int START_GO_ACTION = 2002001;
     public static final int START_GO_HOME = 2002004;

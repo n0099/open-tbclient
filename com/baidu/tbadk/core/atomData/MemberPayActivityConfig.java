@@ -16,6 +16,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_DRESSUP_CENTER = 8;
     public static final int FROM_EXP_SPEED = 2;
     public static final int FROM_MEMBERCENTER_BOTTOM = 16;
+    public static final int FROM_MEMBERCENTER_JOIN = 21;
     public static final int FROM_MEMBERCENTER_SPREAD = 15;
     public static final int FROM_MEMBER_CENTER = 3;
     public static final int FROM_PB_MUTE = 4;

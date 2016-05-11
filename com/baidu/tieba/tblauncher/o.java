@@ -2,7 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,24 +17,21 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aa aaVar;
-        aa aaVar2;
-        aa aaVar3;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.m411getInst().getOldSkinType();
-            if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
-                if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                    aaVar3 = this.this$0.etw;
-                    aaVar3.aVp().cA(1);
-                } else if (TbadkCoreApplication.m411getInst().isThemeIconCover()) {
-                    aaVar2 = this.this$0.etw;
-                    aaVar2.aVp().cA(2);
-                } else {
-                    aaVar = this.this$0.etw;
-                    aaVar.aVp().cA(1);
-                }
+        ab abVar;
+        ab abVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
+            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+            int a = MainTabActivity.a(newsNotifyMessage);
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().ya()) {
+                a -= newsNotifyMessage.getMsgOfficialMerge();
             }
+            if (a == 0) {
+                abVar2 = this.this$0.ewE;
+                abVar2.b(true, false, 0);
+                return;
+            }
+            abVar = this.this$0.ewE;
+            abVar.b(true, true, a);
         }
     }
 }

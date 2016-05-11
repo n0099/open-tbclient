@@ -1,30 +1,28 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import android.view.View;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e baY;
+public class g implements com.baidu.tbadk.widget.layout.h {
+    final /* synthetic */ e aXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.baY = eVar;
+        this.aXh = eVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        FragmentTabWidget fragmentTabWidget;
-        fragmentTabWidget = this.baY.baV;
-        fragmentTabWidget.d(i, true);
-        this.baY.gg(i);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // com.baidu.tbadk.widget.layout.h
+    public void a(View view, int i, int i2, int i3, int i4) {
+        if (i2 != i4) {
+            int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.c(this.aXh.getActivity(), t.e.ds98) + i2;
+            if (this.aXh.aWX != null) {
+                this.aXh.aWX.fP(lightStatusBarHeight);
+            }
+            if (this.aXh.aWY != null && this.aXh.aWY.aYq != null) {
+                this.aXh.aWY.aYq.fP(lightStatusBarHeight);
+            }
+        }
     }
 }

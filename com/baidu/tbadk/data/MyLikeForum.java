@@ -1,11 +1,10 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.LikeForumInfo;
 /* loaded from: classes.dex */
-public class MyLikeForum extends i implements Serializable {
+public class MyLikeForum extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
     private long mForumId;
     private String mForumName;

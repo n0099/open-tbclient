@@ -14,27 +14,27 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e {
-    private static e aAy = null;
+    private static e awB = null;
 
     private e() {
     }
 
-    public static synchronized e Gx() {
+    public static synchronized e Ep() {
         e eVar;
         synchronized (e.class) {
-            if (aAy == null) {
-                aAy = new e();
+            if (awB == null) {
+                awB = new e();
             }
-            eVar = aAy;
+            eVar = awB;
         }
         return eVar;
     }
 
-    public boolean Gy() {
-        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m411getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Gz();
+    public boolean Eq() {
+        return TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m11getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Er();
     }
 
-    public boolean Gz() {
+    public boolean Er() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,14 +46,14 @@ public class e {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bg.wM().c(tbPageContext, new String[]{str});
+            bg.us().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(t.j.plugin_pay_error);
-        } else if (!Gy()) {
+        } else if (!Eq()) {
             showToast(t.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));
@@ -61,6 +61,6 @@ public class e {
     }
 
     private void showToast(int i) {
-        k.showToast(TbadkCoreApplication.m411getInst().getContext(), i);
+        k.showToast(TbadkCoreApplication.m11getInst().getContext(), i);
     }
 }

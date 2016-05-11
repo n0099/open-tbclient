@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.b {
-    private final /* synthetic */ String cpV;
-    final /* synthetic */ d ddH;
+    private final /* synthetic */ String cqS;
+    final /* synthetic */ d dgb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar, String str) {
-        this.ddH = dVar;
-        this.cpV = str;
+        this.dgb = dVar;
+        this.cqS = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -21,13 +21,13 @@ public class g implements a.b {
         com.baidu.tieba.pb.data.e eVar2;
         com.baidu.tieba.pb.data.e eVar3;
         aVar.dismiss();
-        eVar = this.ddH.ddF;
+        eVar = this.dgb.dfY;
         if (eVar != null) {
             aw awVar = new aw("c10398");
-            eVar2 = this.ddH.ddF;
+            eVar2 = this.dgb.dfY;
             aw ac = awVar.ac("fid", eVar2.getForumId());
-            eVar3 = this.ddH.ddF;
-            TiebaStatic.log(ac.ac("tid", eVar3.getThreadId()).ac("uid", this.cpV).ac("is_like", "2"));
+            eVar3 = this.dgb.dfY;
+            TiebaStatic.log(ac.ac("tid", eVar3.getThreadId()).ac("uid", this.cqS).ac("is_like", "2"));
         }
     }
 }

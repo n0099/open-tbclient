@@ -1,13 +1,13 @@
 package com.baidu.adp.framework.client.socket;
 /* loaded from: classes.dex */
 public interface b {
-    void G(String str);
+    void ap();
+
+    void aq();
 
     boolean b(boolean z, String str);
 
-    void dZ();
-
-    void ea();
-
     int getCmd();
+
+    void x(String str);
 }

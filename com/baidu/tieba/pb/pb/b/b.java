@@ -1,84 +1,130 @@
 package com.baidu.tieba.pb.pb.b;
 
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.AbsListView;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.c.m;
-import com.baidu.tbadk.core.c.n;
-import com.baidu.tbadk.core.c.r;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.tieba.pb.pb.main.PbLotteryHttpResponseMessage;
+import com.baidu.tieba.pb.pb.main.PbLotteryRequestMessage;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    private PbActivity dfA;
-    private com.baidu.tieba.pb.pb.b.a dfB;
-    private BaseWebView dfy;
-    private m dfz;
+public class b extends HttpMessageListener {
+    final /* synthetic */ a dhT;
 
-    public b(PbActivity pbActivity) {
-        com.baidu.tbadk.core.data.a aVar = (pbActivity == null || pbActivity.awj() == null || pbActivity.awj().getPbData() == null || !pbActivity.awj().getPbData().avA()) ? null : pbActivity.awj().getPbData().avv().tw().get(0);
-        if (aVar != null) {
-            this.dfA = pbActivity;
-            this.dfy = new BaseWebView(pbActivity.getPageContext().getPageActivity());
-            this.dfy.setOnFocusChangeListener(new c(this));
-            this.dfy.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-            this.dfy.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
-            this.dfz = r.a(true, (WebView) this.dfy, (com.baidu.tbadk.core.c.a) new a(this, null));
-            this.dfB = new com.baidu.tieba.pb.pb.b.a(this.dfz, aVar, pbActivity);
-            com.baidu.tbadk.core.c.a.b bVar = new com.baidu.tbadk.core.c.a.b(this.dfz, pbActivity.getPageContext());
-            this.dfz.a(this.dfB);
-            this.dfz.a(bVar);
-            this.dfy.loadUrl("file:///android_asset/senior_lottery.html");
-            this.dfy.setBackgroundColor(0);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
+        super(i);
+        this.dhT = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void avY() {
-        try {
-            this.dfz.a(n.a("TBHY_EXT_SeniorLotteryPB", "getInitPageData", this.dfB.avW(), 1000L, new d(this)));
-        } catch (Exception e) {
-            BdLog.e(e);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage;
+        boolean awi;
+        boolean awi2;
+        boolean awi3;
+        boolean awi4;
+        boolean awi5;
+        boolean awi6;
+        boolean awi7;
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage2;
+        boolean z;
+        if (httpResponsedMessage instanceof PbLotteryHttpResponseMessage) {
+            PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage3 = (PbLotteryHttpResponseMessage) httpResponsedMessage;
+            this.dhT.dhR = pbLotteryHttpResponseMessage3;
+            pbLotteryHttpResponseMessage = this.dhT.dhR;
+            if (pbLotteryHttpResponseMessage.getOrginalMessage().getExtra() instanceof PbLotteryRequestMessage) {
+                pbLotteryHttpResponseMessage2 = this.dhT.dhR;
+                PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) pbLotteryHttpResponseMessage2.getOrginalMessage().getExtra();
+                z = this.dhT.mIsSenior;
+                if (!z && pbLotteryRequestMessage.getIsSenior()) {
+                    return;
+                }
+            }
+            if (httpResponsedMessage.hasError()) {
+                awi7 = this.dhT.awi();
+                if (!awi7) {
+                    if (!StringUtils.isNULL(httpResponsedMessage.getErrorString())) {
+                        pbActivity3 = this.dhT.dhQ;
+                        pbActivity3.showToast(httpResponsedMessage.getErrorString());
+                    } else {
+                        pbActivity = this.dhT.dhQ;
+                        pbActivity.showToast(t.j.neterror);
+                    }
+                    pbActivity2 = this.dhT.dhQ;
+                    pbActivity2.hideProgressBar();
+                    return;
+                }
+                this.dhT.lH(5);
+                return;
+            }
+            switch (pbLotteryHttpResponseMessage3.getType()) {
+                case 0:
+                    this.dhT.lG(1);
+                    awi5 = this.dhT.awi();
+                    if (awi5) {
+                        this.dhT.G(0, new StringBuilder(String.valueOf(pbLotteryHttpResponseMessage3.getLotteryInfo().avv().oJ())).toString());
+                        break;
+                    } else {
+                        this.dhT.c(false, pbLotteryHttpResponseMessage3);
+                        break;
+                    }
+                case 1:
+                    this.dhT.lG(1);
+                    awi4 = this.dhT.awi();
+                    if (awi4) {
+                        this.dhT.lH(1);
+                        break;
+                    } else {
+                        this.dhT.b(false, pbLotteryHttpResponseMessage3);
+                        break;
+                    }
+                case 2:
+                    awi = this.dhT.awi();
+                    if (awi) {
+                        this.dhT.lH(2);
+                        break;
+                    } else {
+                        this.dhT.a(false, pbLotteryHttpResponseMessage3);
+                        break;
+                    }
+                case 3:
+                    this.dhT.lG(1);
+                    awi2 = this.dhT.awi();
+                    if (awi2) {
+                        this.dhT.lH(3);
+                        break;
+                    } else {
+                        this.dhT.awk();
+                        break;
+                    }
+                case 4:
+                    this.dhT.lG(1);
+                    awi3 = this.dhT.awi();
+                    if (awi3) {
+                        this.dhT.lH(4);
+                        break;
+                    } else {
+                        this.dhT.b(pbLotteryHttpResponseMessage3);
+                        break;
+                    }
+                default:
+                    awi6 = this.dhT.awi();
+                    if (awi6) {
+                        this.dhT.lH(5);
+                        break;
+                    } else {
+                        this.dhT.a(pbLotteryHttpResponseMessage3);
+                        break;
+                    }
+            }
         }
-    }
-
-    public WebView avZ() {
-        return this.dfy;
-    }
-
-    /* loaded from: classes.dex */
-    private final class a implements com.baidu.tbadk.core.c.a {
-        private a() {
-        }
-
-        /* synthetic */ a(b bVar, a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tbadk.core.c.a
-        public void uM() {
-        }
-
-        @Override // com.baidu.tbadk.core.c.a
-        public void uN() {
-            b.this.avY();
-        }
-    }
-
-    public void H(int i, String str) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("status", Integer.valueOf(i));
-        if (!StringUtils.isNULL(str)) {
-            hashMap.put("award_id", str);
-        }
-        this.dfz.a(n.a("TBHY_EXT_SeniorLotteryPB", "drawLotteryResult", (Map<String, Object>) hashMap, 0L, false));
-    }
-
-    public void awa() {
-        this.dfz.a(n.a("TBHY_EXT_SeniorLotteryPB", "drawLotteryRun", (Map<String, Object>) null, 0L, false));
+        com.baidu.adp.lib.h.h.dL().postDelayed(new c(this), 500L);
     }
 }

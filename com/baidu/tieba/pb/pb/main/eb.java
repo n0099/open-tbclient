@@ -1,39 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eb implements View.OnClickListener {
-    private final /* synthetic */ String den;
-    private final /* synthetic */ String deo;
-    private final /* synthetic */ String dep;
-    final /* synthetic */ dz djW;
+public class eb extends CustomMessageListener {
+    final /* synthetic */ dz dmN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eb(dz dzVar, String str, String str2, String str3) {
-        this.djW = dzVar;
-        this.den = str;
-        this.deo = str2;
-        this.dep = str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eb(dz dzVar, int i) {
+        super(i);
+        this.dmN = dzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.den) && !StringUtils.isNull(this.deo)) {
-            if (com.baidu.adp.lib.util.i.jf()) {
-                context = this.djW.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.den) + "," + this.deo, this.dep, this.dep, context.getString(t.j.app_info_for_map));
-                context2 = this.djW.mContext;
-                com.baidu.tbadk.browser.f.s(context2, format);
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.at)) {
+            int qx = ((com.baidu.tbadk.core.data.at) customResponsedMessage.getData()).qx();
+            this.dmN.dmJ = false;
+            switch (qx) {
+                case 9:
+                    this.dmN.u(this.dmN.dmC, false);
+                    return;
+                case 10:
+                    this.dmN.u(this.dmN.dmC + 1, true);
+                    return;
+                case 11:
+                    this.dmN.dmJ = true;
+                    this.dmN.u(this.dmN.dmC - 1, true);
+                    return;
+                case 12:
+                default:
+                    return;
+                case 13:
+                    this.dmN.dmG = 0;
+                    this.dmN.dmC = 0;
+                    return;
             }
-            this.djW.dfw.showToast(t.j.neterror);
         }
     }
 }

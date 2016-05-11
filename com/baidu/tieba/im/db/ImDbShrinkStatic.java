@@ -7,32 +7,31 @@ import android.os.StatFs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic ceH;
-    private static long ceK = -1;
-    private static int ceL = 0;
-    private a ceI = new a(null);
-    private b ceJ = null;
+    private static ImDbShrinkStatic cfn;
+    private static long cfq = -1;
+    private static int cfr = 0;
+    private a cfo = new a(null);
+    private b cfp = null;
 
     static {
         aev();
     }
 
     public static ImDbShrinkStatic aev() {
-        if (ceH == null) {
+        if (cfn == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (ceH == null) {
-                    ceH = new ImDbShrinkStatic();
+                if (cfn == null) {
+                    cfn = new ImDbShrinkStatic();
                 }
             }
         }
-        return ceH;
+        return cfn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,7 +49,7 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.aev().ceI.removeMessages(1);
+                    ImDbShrinkStatic.aev().cfo.removeMessages(1);
                     ImDbShrinkStatic.aev().execute();
                     return;
                 default:
@@ -65,21 +64,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.ceJ != null) {
-            this.ceJ.cancel();
-            this.ceJ = null;
+        if (this.cfp != null) {
+            this.cfp.cancel();
+            this.cfp = null;
         }
-        this.ceJ = new b(this, null);
-        this.ceJ.setParallel(TiebaIMConfig.getParallel());
-        this.ceJ.setPriority(4);
-        this.ceJ.execute(new String[0]);
+        this.cfp = new b(this, null);
+        this.cfp.setParallel(TiebaIMConfig.getParallel());
+        this.cfp.setPriority(4);
+        this.cfp.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.ceJ != null) {
-            this.ceJ.cancel();
-            this.ceJ = null;
+        if (this.cfp != null) {
+            this.cfp.cancel();
+            this.cfp = null;
         }
     }
 
@@ -97,44 +96,44 @@ public class ImDbShrinkStatic {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> aeB = i.aey().aeB();
-            if (aeB == null || aeB.size() == 0) {
+            LinkedList<ImMessageCenterPojo> aeA = i.aex().aeA();
+            if (aeA == null || aeA.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.ceK < 0) {
+            if (ImDbShrinkStatic.cfq < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.ceK = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.ceK > 2147483648L) {
-                        ImDbShrinkStatic.ceL = 5000;
-                    } else if (ImDbShrinkStatic.ceK > 1073741824) {
-                        ImDbShrinkStatic.ceL = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+                    ImDbShrinkStatic.cfq = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.cfq > 2147483648L) {
+                        ImDbShrinkStatic.cfr = 5000;
+                    } else if (ImDbShrinkStatic.cfq > 1073741824) {
+                        ImDbShrinkStatic.cfr = 3000;
                     } else {
-                        ImDbShrinkStatic.ceL = 1000;
+                        ImDbShrinkStatic.cfr = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.ceL < 1000) {
-                ImDbShrinkStatic.ceL = 1000;
+            if (ImDbShrinkStatic.cfr < 1000) {
+                ImDbShrinkStatic.cfr = 1000;
             }
             try {
                 g.aet().aeu();
-                for (ImMessageCenterPojo imMessageCenterPojo : aeB) {
+                for (ImMessageCenterPojo imMessageCenterPojo : aeA) {
                     if (isCancelled()) {
                         g.aet().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.aep().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
+                        c.aep().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.aeE().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
+                        l.aeD().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.aeD().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
+                        k.aeC().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.aeq().O(imMessageCenterPojo.getGid(), ImDbShrinkStatic.ceL);
+                        d.aeq().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     }
                 }
             } catch (Exception e2) {

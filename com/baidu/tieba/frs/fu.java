@@ -1,7 +1,8 @@
 package com.baidu.tieba.frs;
+
+import java.util.List;
 /* loaded from: classes.dex */
 public class fu {
-    public int bqM;
-    public boolean isSelected;
-    public String name;
+    public int bmc;
+    public List<ft> bmd;
 }

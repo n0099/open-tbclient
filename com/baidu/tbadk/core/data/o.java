@@ -5,12 +5,12 @@ import org.json.JSONObject;
 import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes.dex */
 public class o {
-    private String Ta;
+    private String NM;
     private String mName;
     private String mUrl;
 
     public String getIcon() {
-        return this.Ta;
+        return this.NM;
     }
 
     public String getUrl() {
@@ -19,7 +19,7 @@ public class o {
 
     public void a(MemberShowIcon memberShowIcon) {
         if (memberShowIcon != null) {
-            this.Ta = memberShowIcon.icon;
+            this.NM = memberShowIcon.icon;
             this.mName = memberShowIcon.name;
             this.mUrl = memberShowIcon.url;
         }
@@ -28,7 +28,7 @@ public class o {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Ta = jSONObject.optString("icon");
+                this.NM = jSONObject.optString("icon");
                 this.mName = jSONObject.optString("name");
                 this.mUrl = jSONObject.optString("url");
             } catch (Exception e) {

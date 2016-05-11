@@ -7,15 +7,15 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements ak {
     private String avatar;
-    private boolean dfO;
-    private int efH;
-    private int efI;
-    private int efJ;
-    private int efK;
-    private boolean efL;
-    private boolean efM;
-    private boolean efN;
-    private int efO;
+    private boolean dtq;
+    private int eiS;
+    private int eiT;
+    private int eiU;
+    private int eiV;
+    private boolean eiW;
+    private boolean eiX;
+    private boolean eiY;
+    private int eiZ;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class e implements ak {
         return this.avatar;
     }
 
-    public int aPJ() {
-        return this.efH;
+    public int aPZ() {
+        return this.eiS;
     }
 
-    public int aPK() {
-        return this.efI;
+    public int aQa() {
+        return this.eiT;
     }
 
     public int getUserLevel() {
         return this.userLevel;
     }
 
-    public int aPL() {
-        return this.efJ;
+    public int aQb() {
+        return this.eiU;
     }
 
-    public int aPM() {
-        return this.efK;
+    public int aQc() {
+        return this.eiV;
     }
 
-    public void oV(int i) {
-        this.efH = i;
+    public void oP(int i) {
+        this.eiS = i;
     }
 
-    public void oW(int i) {
-        this.efI = i;
+    public void oQ(int i) {
+        this.eiT = i;
     }
 
     public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean aPN() {
-        return this.dfO;
+    public boolean aQd() {
+        return this.dtq;
     }
 
-    public void iw(boolean z) {
-        this.dfO = z;
-        this.efH = 1;
+    public void jk(boolean z) {
+        this.dtq = z;
+        this.eiS = 1;
     }
 
-    public boolean aPO() {
-        return this.efM;
+    public boolean aQe() {
+        return this.eiX;
     }
 
-    public void ix(boolean z) {
-        this.efM = z;
-        this.efH = 0;
+    public void jl(boolean z) {
+        this.eiX = z;
+        this.eiS = 0;
     }
 
-    public boolean aPP() {
-        return this.efN;
+    public boolean aQf() {
+        return this.eiY;
     }
 
-    public void iy(boolean z) {
-        this.efN = z;
+    public void jm(boolean z) {
+        this.eiY = z;
     }
 
-    public int aPQ() {
-        return this.efO;
+    public int aQg() {
+        return this.eiZ;
     }
 
-    public void oX(int i) {
-        this.efO = i;
+    public void oR(int i) {
+        this.eiZ = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements ak {
         this.errorMsg = str;
     }
 
-    public boolean aPR() {
-        return this.efL;
+    public boolean aQh() {
+        return this.eiW;
     }
 
-    public void iz(boolean z) {
-        this.efL = z;
+    public void jn(boolean z) {
+        this.eiW = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class e implements ak {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.efH = jSONObject.optInt("is_sign_in");
-            this.efI = jSONObject.optInt("cont_sign_num");
+            this.eiS = jSONObject.optInt("is_sign_in");
+            this.eiT = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt("user_level");
-            this.efJ = jSONObject.optInt("user_exp");
-            this.efK = jSONObject.optInt("need_exp");
-            if (this.efH != 0) {
-                this.dfO = true;
-                this.efM = false;
+            this.eiU = jSONObject.optInt("user_exp");
+            this.eiV = jSONObject.optInt("need_exp");
+            if (this.eiS != 0) {
+                this.dtq = true;
+                this.eiX = false;
             }
         }
     }
@@ -137,7 +137,7 @@ public class e implements ak {
         ArrayList<aj> arrayList = new ArrayList<>();
         aj ajVar = new aj();
         ajVar.imgUrl = this.avatar;
-        ajVar.abD = 10;
+        ajVar.Xc = 10;
         arrayList.add(ajVar);
         return arrayList;
     }

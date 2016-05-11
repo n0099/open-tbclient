@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends o {
-    private TbPageContext<?> MX;
+    private TbPageContext<?> Do;
 
     public b(m mVar, TbPageContext<?> tbPageContext) {
         super(mVar);
-        this.MX = tbPageContext;
+        this.Do = tbPageContext;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.c.o
-    public String pT() {
+    public String nj() {
         return "TBHY_COMMON_Navigator";
     }
 
-    @p("toNativePage")
+    @p(sD = "toNativePage")
     protected void toNativePage(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                bg.wM().c(this.MX, new String[]{optString});
+                bg.us().c(this.Do, new String[]{optString});
             }
         }
     }
